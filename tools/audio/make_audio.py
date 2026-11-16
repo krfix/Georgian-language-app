@@ -54,6 +54,15 @@ def texts():
             if d:
                 for line in d["lines"]:
                     out[line["ka"]] = line["ka"]
+    # The phrasebook: phrases, their other forms, replies you may hear, dialogue lines.
+    pb = load("phrasebook.json")
+    for ph in pb["phrases"]:
+        out[ph["ka"]] = ph["ka"]
+        for v in ph.get("variants", []) + ph.get("replies", []):
+            out[v["ka"]] = v["ka"]
+    for d in pb["dialogues"]:
+        for line in d["lines"]:
+            out[line["ka"]] = line["ka"]
     return {k: v for k, v in out.items() if "___" not in k}
 
 

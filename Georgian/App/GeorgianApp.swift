@@ -54,7 +54,7 @@ final class AppModel {
         let options = LaunchOptions.current
         do {
             let curriculum = try Curriculum.load()
-            let schema = Schema(versionedSchema: GeorgianSchemaV1.self)
+            let schema = Schema(versionedSchema: GeorgianSchemaV2.self)
             let config: ModelConfiguration
             if options.inMemory {
                 config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
@@ -68,7 +68,14 @@ final class AppModel {
                 try? FileManager.default.createDirectory(at: URL.applicationSupportDirectory, withIntermediateDirectories: true)
                 config = ModelConfiguration(schema: schema, url: url)
             }
-            let container = try ModelContainer(for: schema, migrationPlan: GeorgianMigrationPlan.self, configurations: config)
+            let container: ModelContainer
+            do {
+                container = try ModelContainer(for: schema, migrationPlan: GeorgianMigrationPlan.self, configurations: config)
+            } catch {
+                // If the planned step fails, let SwiftData infer it (adding a model is a
+                // lightweight change it can work out by itself) rather than refuse to open.
+                container = try ModelContainer(for: schema, configurations: config)
+            }
             self.container = container
             let store = LearningStore(curriculum: curriculum, context: container.mainContext)
             if options.seedDemo && store.lessonRecords.isEmpty { store.seedDemo() }

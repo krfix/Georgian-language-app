@@ -1,0 +1,8772 @@
+{
+ "version": 1,
+ "checkedBy": "claude",
+ "categories": [
+  {
+   "id": "essentials",
+   "title": "Essentials",
+   "ka": "მთავარი ფრაზები",
+   "lat": "mtavari prazebi",
+   "symbol": "star.bubble.fill",
+   "color": "pomegranate",
+   "blurb": "The phrases that get you through any day.",
+   "subs": [
+    {
+     "id": "basics",
+     "title": "Basics"
+    },
+    {
+     "id": "understanding",
+     "title": "Understanding"
+    },
+    {
+     "id": "asking",
+     "title": "Asking"
+    }
+   ]
+  },
+  {
+   "id": "transport",
+   "title": "Transport",
+   "ka": "ტრანსპორტი",
+   "lat": "t'ransp'ort'i",
+   "symbol": "car.fill",
+   "color": "blacksea",
+   "blurb": "Taxis, Bolt, buses, marshrutkas, trains and the airport.",
+   "subs": [
+    {
+     "id": "taxi",
+     "title": "Taxi & Bolt"
+    },
+    {
+     "id": "bus",
+     "title": "Bus, metro & marshrutka"
+    },
+    {
+     "id": "train",
+     "title": "Train"
+    },
+    {
+     "id": "airport",
+     "title": "Airport"
+    },
+    {
+     "id": "directions",
+     "title": "Directions"
+    }
+   ]
+  },
+  {
+   "id": "shopping",
+   "title": "Shopping & bazaar",
+   "ka": "საყიდლები",
+   "lat": "saq'idlebi",
+   "symbol": "basket.fill",
+   "color": "saperavi",
+   "blurb": "Prices, the bazaar, supermarkets, clothes and paying.",
+   "subs": [
+    {
+     "id": "prices",
+     "title": "Prices"
+    },
+    {
+     "id": "bazaar",
+     "title": "At the bazaar"
+    },
+    {
+     "id": "supermarket",
+     "title": "Supermarket"
+    },
+    {
+     "id": "clothes",
+     "title": "Clothes"
+    },
+    {
+     "id": "electronics",
+     "title": "Electronics"
+    },
+    {
+     "id": "paying",
+     "title": "Paying"
+    }
+   ]
+  },
+  {
+   "id": "food",
+   "title": "Restaurants & cafés",
+   "ka": "რესტორანი და კაფე",
+   "lat": "rest'orani da k'ape",
+   "symbol": "fork.knife",
+   "color": "tkemali",
+   "blurb": "Ordering, coffee, meat-free food, allergies and the bill.",
+   "subs": [
+    {
+     "id": "ordering",
+     "title": "Ordering"
+    },
+    {
+     "id": "coffee",
+     "title": "Coffee & tea"
+    },
+    {
+     "id": "diet",
+     "title": "Food needs"
+    },
+    {
+     "id": "bill",
+     "title": "The bill"
+    },
+    {
+     "id": "booking",
+     "title": "Booking a table"
+    }
+   ]
+  },
+  {
+   "id": "home",
+   "title": "Home & everyday",
+   "ka": "სახლი",
+   "lat": "sakhli",
+   "symbol": "house.fill",
+   "color": "gold",
+   "blurb": "Renting, landlords, repairs, utilities and deliveries.",
+   "subs": [
+    {
+     "id": "renting",
+     "title": "Renting"
+    },
+    {
+     "id": "repairs",
+     "title": "Problems & repairs"
+    },
+    {
+     "id": "utilities",
+     "title": "Bills & internet"
+    },
+    {
+     "id": "deliveries",
+     "title": "Deliveries"
+    },
+    {
+     "id": "household",
+     "title": "Around the house"
+    }
+   ]
+  },
+  {
+   "id": "sport",
+   "title": "Gym & sport",
+   "ka": "სპორტი",
+   "lat": "sp'ort'i",
+   "symbol": "dumbbell.fill",
+   "color": "pomegranate",
+   "blurb": "Memberships, training, the pool and getting active.",
+   "subs": [
+    {
+     "id": "gym",
+     "title": "At the gym"
+    },
+    {
+     "id": "training",
+     "title": "Training"
+    },
+    {
+     "id": "active",
+     "title": "Swimming, running & more"
+    }
+   ]
+  },
+  {
+   "id": "health",
+   "title": "Health & pharmacy",
+   "ka": "ჯანმრთელობა",
+   "lat": "janmrteloba",
+   "symbol": "cross.case.fill",
+   "color": "tkemali",
+   "blurb": "Pharmacies, symptoms and doctors. Words to describe a problem, not medical advice.",
+   "subs": [
+    {
+     "id": "pharmacy",
+     "title": "Pharmacy"
+    },
+    {
+     "id": "symptoms",
+     "title": "Saying what's wrong"
+    },
+    {
+     "id": "doctor",
+     "title": "Doctors & appointments"
+    }
+   ]
+  },
+  {
+   "id": "social",
+   "title": "Friends & neighbours",
+   "ka": "მეგობრები და მეზობლები",
+   "lat": "megobrebi da mezoblebi",
+   "symbol": "person.2.fill",
+   "color": "saperavi",
+   "blurb": "Introductions, small talk, invitations, toasts, thanks and sorry.",
+   "subs": [
+    {
+     "id": "meeting",
+     "title": "Meeting people"
+    },
+    {
+     "id": "smalltalk",
+     "title": "Small talk"
+    },
+    {
+     "id": "invitations",
+     "title": "Invitations"
+    },
+    {
+     "id": "celebrations",
+     "title": "Celebrations"
+    },
+    {
+     "id": "thanks",
+     "title": "Thanks & sorry"
+    }
+   ]
+  },
+  {
+   "id": "work",
+   "title": "Work & admin",
+   "ka": "სამსახური და საქმეები",
+   "lat": "samsakhuri da sakmeebi",
+   "symbol": "briefcase.fill",
+   "color": "blacksea",
+   "blurb": "Work, the Public Service Hall, banks, post and phone shops.",
+   "subs": [
+    {
+     "id": "workplace",
+     "title": "At work"
+    },
+    {
+     "id": "documents",
+     "title": "Offices & documents"
+    },
+    {
+     "id": "bank",
+     "title": "Bank & money"
+    },
+    {
+     "id": "post",
+     "title": "Post"
+    },
+    {
+     "id": "mobile",
+     "title": "Phone & internet"
+    },
+    {
+     "id": "appointments",
+     "title": "Appointments"
+    }
+   ]
+  },
+  {
+   "id": "travel",
+   "title": "Travel & outdoors",
+   "ka": "მოგზაურობა",
+   "lat": "mogzauroba",
+   "symbol": "mountain.2.fill",
+   "color": "gold",
+   "blurb": "Hotels, sightseeing, hiking, camping and hiring a car.",
+   "subs": [
+    {
+     "id": "hotel",
+     "title": "Hotel"
+    },
+    {
+     "id": "sightseeing",
+     "title": "Sightseeing"
+    },
+    {
+     "id": "tips",
+     "title": "Asking locals"
+    },
+    {
+     "id": "hiking",
+     "title": "Mountains & camping"
+    },
+    {
+     "id": "car",
+     "title": "Car hire & driving"
+    }
+   ]
+  },
+  {
+   "id": "emergency",
+   "title": "Emergencies",
+   "ka": "საგანგებო",
+   "lat": "sagangebo",
+   "symbol": "exclamationmark.triangle.fill",
+   "color": "pomegranate",
+   "blurb": "Help, police, accidents and getting lost. In an emergency call 112.",
+   "subs": [
+    {
+     "id": "help",
+     "title": "Get help"
+    },
+    {
+     "id": "medical",
+     "title": "Medical emergency"
+    },
+    {
+     "id": "police",
+     "title": "Police & theft"
+    },
+    {
+     "id": "lost",
+     "title": "Lost"
+    },
+    {
+     "id": "accident",
+     "title": "Accidents"
+    }
+   ]
+  }
+ ],
+ "phrases": [
+  {
+   "id": "pb-gamarjoba",
+   "ka": "გამარჯობა",
+   "lat": "gamarjoba",
+   "sound": "gah-mahr-joh-bah",
+   "en": "Hello.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "hi",
+    "hello",
+    "greeting",
+    "greet"
+   ],
+   "urgent": false,
+   "lit": "Victory.",
+   "note": "The everyday hello, any time of day.",
+   "replies": [
+    {
+     "ka": "გაგიმარჯოს",
+     "lat": "gagimarjos",
+     "en": "Hello (the reply)."
+    }
+   ],
+   "words": [
+    "w-gamarjoba"
+   ]
+  },
+  {
+   "id": "pb-gagimarjos",
+   "ka": "გაგიმარჯოს",
+   "lat": "gagimarjos",
+   "sound": "gah-gee-mahr-johs",
+   "en": "Hello (in reply).",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "hi",
+    "hello",
+    "reply",
+    "greeting"
+   ],
+   "urgent": false,
+   "note": "The answer to გამარჯობა. To several people, or politely: გაგიმარჯოთ.",
+   "words": [
+    "w-gagimarjos"
+   ]
+  },
+  {
+   "id": "pb-diakh",
+   "ka": "დიახ",
+   "lat": "diakh",
+   "sound": "dee-ahkh",
+   "en": "Yes.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "yes",
+    "agree"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "variants": [
+    {
+     "label": "Everyday",
+     "ka": "კი",
+     "lat": "k'i",
+     "en": "Yes."
+    },
+    {
+     "label": "Casual",
+     "ka": "ხო",
+     "lat": "kho",
+     "en": "Yeah."
+    }
+   ],
+   "words": [
+    "w-diakh"
+   ]
+  },
+  {
+   "id": "pb-ara",
+   "ka": "არა",
+   "lat": "ara",
+   "sound": "ah-rah",
+   "en": "No.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "no"
+   ],
+   "urgent": false,
+   "note": "Ara, the parrot in this app, is named after it.",
+   "words": [
+    "w-ara"
+   ]
+  },
+  {
+   "id": "pb-gmadlobt",
+   "ka": "გმადლობთ",
+   "lat": "gmadlobt",
+   "sound": "gmahd-lohbt",
+   "en": "Thank you.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "thanks",
+    "thank"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "variants": [
+    {
+     "label": "Everyday",
+     "ka": "მადლობა",
+     "lat": "madloba",
+     "en": "Thanks."
+    }
+   ],
+   "words": [
+    "w-gmadlobt"
+   ]
+  },
+  {
+   "id": "pb-didi-madloba",
+   "ka": "დიდი მადლობა",
+   "lat": "didi madloba",
+   "sound": "dee-dee mahd-loh-bah",
+   "en": "Thank you very much.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "thanks",
+    "thank",
+    "lot",
+    "much"
+   ],
+   "urgent": false,
+   "lit": "Big thanks.",
+   "words": [
+    "w-madloba"
+   ]
+  },
+  {
+   "id": "pb-arapris",
+   "ka": "არაფრის",
+   "lat": "arapris",
+   "sound": "ah-rahp-rees",
+   "en": "You're welcome.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "welcome",
+    "thanks",
+    "reply"
+   ],
+   "urgent": false,
+   "lit": "For nothing.",
+   "words": [
+    "w-arapris"
+   ]
+  },
+  {
+   "id": "pb-tu-sheidzleba",
+   "ka": "თუ შეიძლება",
+   "lat": "tu sheidzleba",
+   "sound": "too sheh-eedz-leh-bah",
+   "en": "Please.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "please",
+    "request",
+    "ask",
+    "polite"
+   ],
+   "urgent": false,
+   "lit": "If it's possible.",
+   "note": "Put it after what you ask for: წყალი, თუ შეიძლება (water, please).",
+   "variants": [
+    {
+     "label": "Formal, in writing",
+     "ka": "გთხოვთ",
+     "lat": "gtkhovt",
+     "en": "Please (I ask you)."
+    }
+   ],
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-bodishi",
+   "ka": "ბოდიში",
+   "lat": "bodishi",
+   "sound": "boh-dee-shee",
+   "en": "Sorry. / Excuse me.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "sorry",
+    "excuse",
+    "apologise",
+    "attention"
+   ],
+   "urgent": false,
+   "note": "To apologise, and to get someone's attention before a question.",
+   "words": [
+    "w-bodishi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-kargi",
+   "ka": "კარგი",
+   "lat": "k'argi",
+   "sound": "k'ahr-gee",
+   "en": "OK.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "ok",
+    "okay",
+    "good",
+    "fine",
+    "agree"
+   ],
+   "urgent": false,
+   "lit": "Good.",
+   "note": "Said to agree, like \"OK\" or \"fine\"."
+  },
+  {
+   "id": "pb-erti-tsutit",
+   "ka": "ერთი წუთით",
+   "lat": "erti ts'utit",
+   "sound": "ehr-tee ts'oo-teet",
+   "en": "Just a moment.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "moment",
+    "minute",
+    "wait",
+    "second"
+   ],
+   "urgent": false,
+   "lit": "For one minute.",
+   "words": [
+    "w-erti",
+    "p-erti-tsutit"
+   ]
+  },
+  {
+   "id": "pb-nakhvamdis",
+   "ka": "ნახვამდის",
+   "lat": "nakhvamdis",
+   "sound": "nahkh-vahm-dees",
+   "en": "Goodbye.",
+   "category": "essentials",
+   "sub": "basics",
+   "keywords": [
+    "bye",
+    "goodbye",
+    "leave"
+   ],
+   "urgent": false,
+   "variants": [
+    {
+     "label": "To friends",
+     "ka": "კარგად",
+     "lat": "k'argad",
+     "en": "Bye (literally \"well\")."
+    }
+   ],
+   "words": [
+    "w-nakhvamdis"
+   ]
+  },
+  {
+   "id": "pb-ver-gavige",
+   "ka": "ვერ გავიგე.",
+   "lat": "ver gavige.",
+   "sound": "vehr gah-vee-geh",
+   "en": "I didn't understand.",
+   "category": "essentials",
+   "sub": "understanding",
+   "keywords": [
+    "understand",
+    "dont",
+    "catch",
+    "what",
+    "pardon"
+   ],
+   "urgent": false,
+   "lit": "I couldn't catch it.",
+   "note": "The most useful phrase for a learner.",
+   "words": [
+    "w-ver",
+    "p-ver-gavige"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-kartuli-ar-mesmis",
+   "ka": "ქართული არ მესმის.",
+   "lat": "kartuli ar mesmis.",
+   "sound": "kahr-too-lee ahr mehs-mees",
+   "en": "I don't understand Georgian.",
+   "category": "essentials",
+   "sub": "understanding",
+   "keywords": [
+    "understand",
+    "dont",
+    "georgian",
+    "language"
+   ],
+   "urgent": false,
+   "words": [
+    "w-kartuli",
+    "w-ar"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-tsota-kartuli-vitsi",
+   "ka": "ცოტა ქართული ვიცი.",
+   "lat": "tsot'a kartuli vitsi.",
+   "sound": "tsoh-t'ah kahr-too-lee vee-tsee",
+   "en": "I know a little Georgian.",
+   "category": "essentials",
+   "sub": "understanding",
+   "keywords": [
+    "little",
+    "georgian",
+    "speak",
+    "language",
+    "know"
+   ],
+   "urgent": false,
+   "words": [
+    "w-tsota",
+    "w-kartuli",
+    "w-vitsi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-inglisuri-itsit",
+   "ka": "ინგლისური იცით?",
+   "lat": "inglisuri itsit?",
+   "sound": "een-glee-soo-ree ee-tseet",
+   "en": "Do you speak English?",
+   "category": "essentials",
+   "sub": "understanding",
+   "keywords": [
+    "english",
+    "speak",
+    "language"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "lit": "Do you know English?",
+   "variants": [
+    {
+     "label": "To a friend",
+     "ka": "ინგლისური იცი?",
+     "lat": "inglisuri itsi?",
+     "en": "Do you speak English?"
+    }
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-rusuli-ar-vitsi",
+   "ka": "რუსული არ ვიცი.",
+   "lat": "rusuli ar vitsi.",
+   "sound": "roo-soo-lee ahr vee-tsee",
+   "en": "I don't speak Russian.",
+   "category": "essentials",
+   "sub": "understanding",
+   "keywords": [
+    "russian",
+    "speak",
+    "language"
+   ],
+   "urgent": false,
+   "note": "Many older Georgians speak Russian and may try it first; younger people often speak English.",
+   "words": [
+    "w-ar",
+    "w-vitsi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    },
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-upro-nela-ilaparaket-tu-sheidzleba",
+   "ka": "უფრო ნელა ილაპარაკეთ, თუ შეიძლება.",
+   "lat": "upro nela ilap'arak'et, tu sheidzleba.",
+   "sound": "oop-roh neh-lah ee-lah-p'ah-rah-k'eht too sheh-eedz-leh-bah",
+   "en": "Please speak more slowly.",
+   "category": "essentials",
+   "sub": "understanding",
+   "keywords": [
+    "slow",
+    "slowly",
+    "speak",
+    "talk"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-gaimeoret-tu-sheidzleba",
+   "ka": "გაიმეორეთ, თუ შეიძლება.",
+   "lat": "gaimeoret, tu sheidzleba.",
+   "sound": "gah-ee-meh-oh-reht too sheh-eedz-leh-bah",
+   "en": "Could you repeat that, please?",
+   "category": "essentials",
+   "sub": "understanding",
+   "keywords": [
+    "repeat",
+    "again",
+    "pardon",
+    "say"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-sheidzleba",
+    "p-gaimeoret-tu-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-damitseret-tu-sheidzleba",
+   "ka": "დამიწერეთ, თუ შეიძლება.",
+   "lat": "damits'eret, tu sheidzleba.",
+   "sound": "dah-mee-ts'eh-reht too sheh-eedz-leh-bah",
+   "en": "Please write it down for me.",
+   "category": "essentials",
+   "sub": "understanding",
+   "keywords": [
+    "write",
+    "down",
+    "paper"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-ras-nishnavs",
+   "ka": "ეს რას ნიშნავს?",
+   "lat": "es ras nishnavs?",
+   "sound": "ehs rahs neesh-nahvs",
+   "en": "What does this mean?",
+   "category": "essentials",
+   "sub": "understanding",
+   "keywords": [
+    "mean",
+    "meaning",
+    "word"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-es-kartulad-rogor-aris",
+   "ka": "ეს ქართულად როგორ არის?",
+   "lat": "es kartulad rogor aris?",
+   "sound": "ehs kahr-too-lahd roh-gohr ah-rees",
+   "en": "How do you say this in Georgian?",
+   "category": "essentials",
+   "sub": "understanding",
+   "keywords": [
+    "say",
+    "georgian",
+    "word",
+    "how"
+   ],
+   "urgent": false,
+   "words": [
+    "w-rogor",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-ra-aris",
+   "ka": "ეს რა არის?",
+   "lat": "es ra aris?",
+   "sound": "ehs rah ah-rees",
+   "en": "What is this?",
+   "category": "essentials",
+   "sub": "asking",
+   "keywords": [
+    "what",
+    "this",
+    "thing"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-sad-aris-tualeti",
+   "ka": "სად არის ტუალეტი?",
+   "lat": "sad aris t'ualet'i?",
+   "sound": "sahd ah-rees t'oo-ah-leh-t'ee",
+   "en": "Where is the toilet?",
+   "category": "essentials",
+   "sub": "asking",
+   "keywords": [
+    "toilet",
+    "restroom",
+    "bathroom",
+    "wc",
+    "loo"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-shegidzliat-damekhmarot",
+   "ka": "შეგიძლიათ დამეხმაროთ?",
+   "lat": "shegidzliat damekhmarot?",
+   "sound": "sheh-geedz-lee-aht dah-mehkh-mah-roht",
+   "en": "Can you help me?",
+   "category": "essentials",
+   "sub": "asking",
+   "keywords": [
+    "help",
+    "assist"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "variants": [
+    {
+     "label": "To a friend",
+     "ka": "შეგიძლია დამეხმარო?",
+     "lat": "shegidzlia damekhmaro?",
+     "en": "Can you help me?"
+    }
+   ]
+  },
+  {
+   "id": "pb-ar-vitsi",
+   "ka": "არ ვიცი.",
+   "lat": "ar vitsi.",
+   "sound": "ahr vee-tsee",
+   "en": "I don't know.",
+   "category": "essentials",
+   "sub": "asking",
+   "keywords": [
+    "know",
+    "dont"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ar",
+    "w-vitsi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    },
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-ak-gamicheret-tu-sheidzleba",
+   "ka": "აქ გამიჩერეთ, თუ შეიძლება.",
+   "lat": "ak gamicheret, tu sheidzleba.",
+   "sound": "ahk gah-mee-cheh-reht too sheh-eedz-leh-bah",
+   "en": "Please stop here.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "stop",
+    "here",
+    "pull",
+    "over",
+    "taxi",
+    "driver"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "lit": "Stop for me here, please.",
+   "words": [
+    "w-ak",
+    "w-sheidzleba",
+    "p-ak-gamicheret"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-ak-gachereba-sheidzleba",
+   "ka": "აქ გაჩერება შეიძლება?",
+   "lat": "ak gachereba sheidzleba?",
+   "sound": "ahk gah-cheh-reh-bah sheh-eedz-leh-bah",
+   "en": "Can you stop here?",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "stop",
+    "here",
+    "taxi",
+    "driver"
+   ],
+   "urgent": false,
+   "lit": "Is stopping here possible?",
+   "words": [
+    "w-ak",
+    "w-gachereba",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-am-misamartze-tu-sheidzleba",
+   "ka": "ამ მისამართზე, თუ შეიძლება.",
+   "lat": "am misamartze, tu sheidzleba.",
+   "sound": "ahm mee-sah-mahr-tzeh too sheh-eedz-leh-bah",
+   "en": "To this address, please.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "address",
+    "go",
+    "take",
+    "me",
+    "here",
+    "taxi"
+   ],
+   "urgent": false,
+   "note": "Show the address on your phone at the same time.",
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-aeroportshi-tu-sheidzleba",
+   "ka": "აეროპორტში, თუ შეიძლება.",
+   "lat": "aerop'ort'shi, tu sheidzleba.",
+   "sound": "ah-eh-roh-p'ohr-t'shee too sheh-eedz-leh-bah",
+   "en": "To the airport, please.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "airport",
+    "go",
+    "take",
+    "taxi"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba",
+    "p-aeroportshi-tu-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-aeroportshi-mivdivar",
+   "ka": "აეროპორტში მივდივარ.",
+   "lat": "aerop'ort'shi mivdivar.",
+   "sound": "ah-eh-roh-p'ohr-t'shee meev-dee-vahr",
+   "en": "I'm going to the airport.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "airport",
+    "going",
+    "go"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-ramdeni-ikneba",
+   "ka": "რამდენი იქნება?",
+   "lat": "ramdeni ikneba?",
+   "sound": "rahm-deh-nee eek-neh-bah",
+   "en": "How much will it be?",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "price",
+    "cost",
+    "how",
+    "much",
+    "fare",
+    "taxi"
+   ],
+   "urgent": false,
+   "note": "With a street taxi, agree the price before you get in. In an app the price is shown first.",
+   "words": [
+    "w-ramdeni"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-tsentramde-ra-ghirs",
+   "ka": "ცენტრამდე რა ღირს?",
+   "lat": "tsent'ramde ra ghirs?",
+   "sound": "tsehn-t'rahm-deh rah gheers",
+   "en": "How much to the centre?",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "price",
+    "cost",
+    "centre",
+    "center",
+    "how",
+    "much",
+    "fare"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-ra-ghirs",
+    "p-tsentramde-ra-ghirs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-erti-tsuti-moitsadet-tu-sheidzleba",
+   "ka": "ერთი წუთი მოიცადეთ, თუ შეიძლება.",
+   "lat": "erti ts'uti moitsadet, tu sheidzleba.",
+   "sound": "ehr-tee ts'oo-tee moh-ee-tsah-deht too sheh-eedz-leh-bah",
+   "en": "Please wait a moment.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "wait",
+    "moment",
+    "minute"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-erti",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-marjvniv-moukhviet",
+   "ka": "მარჯვნივ მოუხვიეთ.",
+   "lat": "marjvniv moukhviet.",
+   "sound": "mahr-jvneev moh-ookh-vee-eht",
+   "en": "Turn right.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "right",
+    "turn",
+    "direction"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-marjvniv",
+    "p-marjvniv-moukhviet"
+   ]
+  },
+  {
+   "id": "pb-martskhniv-moukhviet",
+   "ka": "მარცხნივ მოუხვიეთ.",
+   "lat": "martskhniv moukhviet.",
+   "sound": "mahr-tskhneev moh-ookh-vee-eht",
+   "en": "Turn left.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "left",
+    "turn",
+    "direction"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-martskhniv",
+    "p-martskhniv-moukhviet"
+   ]
+  },
+  {
+   "id": "pb-upro-nela-tu-sheidzleba",
+   "ka": "უფრო ნელა, თუ შეიძლება.",
+   "lat": "upro nela, tu sheidzleba.",
+   "sound": "oop-roh neh-lah too sheh-eedz-leh-bah",
+   "en": "Slower, please.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "slow",
+    "slower",
+    "drive",
+    "careful"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba",
+    "p-nela-tu-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-konditsioneri-chartet-tu-sheidzleba",
+   "ka": "კონდიციონერი ჩართეთ, თუ შეიძლება.",
+   "lat": "k'onditsioneri chartet, tu sheidzleba.",
+   "sound": "k'ohn-dee-tsee-oh-neh-ree chahr-teht too sheh-eedz-leh-bah",
+   "en": "Please turn on the air conditioning.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "air",
+    "conditioning",
+    "hot",
+    "cold",
+    "ac"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-khurda-gakvt",
+   "ka": "ხურდა გაქვთ?",
+   "lat": "khurda gakvt?",
+   "sound": "khoor-dah gahkvt",
+   "en": "Do you have change?",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "change",
+    "money",
+    "cash",
+    "coins"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-bolti-gamovidzakhe",
+   "ka": "ბოლტი გამოვიძახე.",
+   "lat": "bolt'i gamovidzakhe.",
+   "sound": "bohl-t'ee gah-moh-vee-dzah-kheh",
+   "en": "I've ordered a Bolt.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "bolt",
+    "app",
+    "order",
+    "called",
+    "taxi"
+   ],
+   "urgent": false,
+   "lit": "I called a Bolt."
+  },
+  {
+   "id": "pb-sad-khart",
+   "ka": "სად ხართ?",
+   "lat": "sad khart?",
+   "sound": "sahd khahrt",
+   "en": "Where are you?",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "where",
+    "driver",
+    "phone",
+    "call"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "note": "When the driver calls to find you.",
+   "words": [
+    "w-sad"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-ak-var-shesasvleltan",
+   "ka": "აქ ვარ, შესასვლელთან.",
+   "lat": "ak var, shesasvleltan.",
+   "sound": "ahk vahr sheh-sahs-vlehl-tahn",
+   "en": "I'm here, by the entrance.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "here",
+    "entrance",
+    "where",
+    "waiting"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ak",
+    "w-var"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-chemodani-makvs",
+   "ka": "ჩემოდანი მაქვს.",
+   "lat": "chemodani makvs.",
+   "sound": "cheh-moh-dah-nee mahkvs",
+   "en": "I have a suitcase.",
+   "category": "transport",
+   "sub": "taxi",
+   "keywords": [
+    "suitcase",
+    "luggage",
+    "bag",
+    "boot"
+   ],
+   "urgent": false,
+   "words": [
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-sad-aris-avtobusis-gachereba",
+   "ka": "სად არის ავტობუსის გაჩერება?",
+   "lat": "sad aris avt'obusis gachereba?",
+   "sound": "sahd ah-rees ahv-t'oh-boo-sees gah-cheh-reh-bah",
+   "en": "Where is the bus stop?",
+   "category": "transport",
+   "sub": "bus",
+   "keywords": [
+    "bus",
+    "stop",
+    "where"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris",
+    "w-gachereba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-avtobusi-tsentrshi-midis",
+   "ka": "ეს ავტობუსი ცენტრში მიდის?",
+   "lat": "es avt'obusi tsent'rshi midis?",
+   "sound": "ehs ahv-t'oh-boo-see tsehn-t'rshee mee-dees",
+   "en": "Does this bus go to the centre?",
+   "category": "transport",
+   "sub": "bus",
+   "keywords": [
+    "bus",
+    "centre",
+    "center",
+    "go"
+   ],
+   "urgent": false,
+   "words": [
+    "w-avtobusi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-romeli-avtobusi-midis-aeroportshi",
+   "ka": "რომელი ავტობუსი მიდის აეროპორტში?",
+   "lat": "romeli avt'obusi midis aerop'ort'shi?",
+   "sound": "roh-meh-lee ahv-t'oh-boo-see mee-dees ah-eh-roh-p'ohr-t'shee",
+   "en": "Which bus goes to the airport?",
+   "category": "transport",
+   "sub": "bus",
+   "keywords": [
+    "bus",
+    "which",
+    "airport"
+   ],
+   "urgent": false,
+   "words": [
+    "w-avtobusi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-marshrutka-sadgurtan-cherdeba",
+   "ka": "ეს მარშრუტკა სადგურთან ჩერდება?",
+   "lat": "es marshrut'k'a sadgurtan cherdeba?",
+   "sound": "ehs mahr-shroot'-k'ah sahd-goor-tahn chehr-deh-bah",
+   "en": "Does this marshrutka stop at the station?",
+   "category": "transport",
+   "sub": "bus",
+   "keywords": [
+    "marshrutka",
+    "minibus",
+    "station",
+    "stop"
+   ],
+   "urgent": false,
+   "note": "Marshrutkas are minibuses with a route number and the stops written on the front, in Georgian.",
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-gacherebaze-gamicheret-tu-sheidzleba",
+   "ka": "გაჩერებაზე გამიჩერეთ, თუ შეიძლება.",
+   "lat": "gacherebaze gamicheret, tu sheidzleba.",
+   "sound": "gah-cheh-reh-bah-zeh gah-mee-cheh-reht too sheh-eedz-leh-bah",
+   "en": "Please stop at the stop.",
+   "category": "transport",
+   "sub": "bus",
+   "keywords": [
+    "marshrutka",
+    "minibus",
+    "stop",
+    "get",
+    "off"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "note": "Call it out to the marshrutka driver when your stop is next.",
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-ak-chavdivar",
+   "ka": "აქ ჩავდივარ.",
+   "lat": "ak chavdivar.",
+   "sound": "ahk chahv-dee-vahr",
+   "en": "I'm getting off here.",
+   "category": "transport",
+   "sub": "bus",
+   "keywords": [
+    "get",
+    "off",
+    "here",
+    "stop",
+    "exit"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ak"
+   ]
+  },
+  {
+   "id": "pb-shemdegi-gachereba-romelia",
+   "ka": "შემდეგი გაჩერება რომელია?",
+   "lat": "shemdegi gachereba romelia?",
+   "sound": "shehm-deh-gee gah-cheh-reh-bah roh-meh-lee-ah",
+   "en": "What's the next stop?",
+   "category": "transport",
+   "sub": "bus",
+   "keywords": [
+    "next",
+    "stop",
+    "which"
+   ],
+   "urgent": false,
+   "words": [
+    "w-gachereba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-metros-sadguri-sad-aris",
+   "ka": "მეტროს სადგური სად არის?",
+   "lat": "met'ros sadguri sad aris?",
+   "sound": "meht'-rohs sahd-goo-ree sahd ah-rees",
+   "en": "Where is the metro station?",
+   "category": "transport",
+   "sub": "bus",
+   "keywords": [
+    "metro",
+    "subway",
+    "underground",
+    "station"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sadguri",
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-metros-barati-sad-viqido",
+   "ka": "მეტროს ბარათი სად ვიყიდო?",
+   "lat": "met'ros barati sad viq'ido?",
+   "sound": "meht'-rohs bah-rah-tee sahd vee-q'ee-doh",
+   "en": "Where can I buy a metro card?",
+   "category": "transport",
+   "sub": "bus",
+   "keywords": [
+    "metro",
+    "card",
+    "ticket",
+    "buy",
+    "transport"
+   ],
+   "urgent": false,
+   "note": "In Tbilisi a transport card, or usually a contactless bank card, pays for the metro and buses.",
+   "words": [
+    "w-barati",
+    "w-sad"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-batumamde-erti-bileti-tu-sheidzleba",
+   "ka": "ბათუმამდე ერთი ბილეთი, თუ შეიძლება.",
+   "lat": "batumamde erti bileti, tu sheidzleba.",
+   "sound": "bah-too-mahm-deh ehr-tee bee-leh-tee too sheh-eedz-leh-bah",
+   "en": "One ticket to Batumi, please.",
+   "category": "transport",
+   "sub": "train",
+   "keywords": [
+    "ticket",
+    "batumi",
+    "train",
+    "buy",
+    "one"
+   ],
+   "urgent": false,
+   "words": [
+    "w-erti",
+    "w-bileti",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-matarebeli-rodis-gadis",
+   "ka": "მატარებელი როდის გადის?",
+   "lat": "mat'arebeli rodis gadis?",
+   "sound": "mah-t'ah-reh-beh-lee roh-dees gah-dees",
+   "en": "When does the train leave?",
+   "category": "transport",
+   "sub": "train",
+   "keywords": [
+    "train",
+    "leave",
+    "depart",
+    "time",
+    "when"
+   ],
+   "urgent": false,
+   "words": [
+    "w-matarebeli",
+    "w-rodis"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-romel-bakanze",
+   "ka": "რომელ ბაქანზე?",
+   "lat": "romel bakanze?",
+   "sound": "roh-mehl bah-kahn-zeh",
+   "en": "Which platform?",
+   "category": "transport",
+   "sub": "train",
+   "keywords": [
+    "platform",
+    "which",
+    "train"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-adgili-tavisupalia",
+   "ka": "ეს ადგილი თავისუფალია?",
+   "lat": "es adgili tavisupalia?",
+   "sound": "ehs ahd-gee-lee tah-vee-soo-pah-lee-ah",
+   "en": "Is this seat free?",
+   "category": "transport",
+   "sub": "train",
+   "keywords": [
+    "seat",
+    "free",
+    "taken"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-sad-aris-registratsia",
+   "ka": "სად არის რეგისტრაცია?",
+   "lat": "sad aris regist'ratsia?",
+   "sound": "sahd ah-rees reh-gees-t'rah-tsee-ah",
+   "en": "Where is check-in?",
+   "category": "transport",
+   "sub": "airport",
+   "keywords": [
+    "checkin",
+    "airport",
+    "flight"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-prena-igvianebs",
+   "ka": "ფრენა იგვიანებს?",
+   "lat": "prena igvianebs?",
+   "sound": "preh-nah eeg-vee-ah-nehbs",
+   "en": "Is the flight delayed?",
+   "category": "transport",
+   "sub": "airport",
+   "keywords": [
+    "flight",
+    "delay",
+    "late"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-chemi-bargi-ar-chamovida",
+   "ka": "ჩემი ბარგი არ ჩამოვიდა.",
+   "lat": "chemi bargi ar chamovida.",
+   "sound": "cheh-mee bahr-gee ahr chah-moh-vee-dah",
+   "en": "My luggage hasn't arrived.",
+   "category": "transport",
+   "sub": "airport",
+   "keywords": [
+    "luggage",
+    "baggage",
+    "bag",
+    "lost",
+    "suitcase"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ar"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-sad-aris-gasasvleli",
+   "ka": "სად არის გასასვლელი?",
+   "lat": "sad aris gasasvleli?",
+   "sound": "sahd ah-rees gah-sahs-vleh-lee",
+   "en": "Where is the exit?",
+   "category": "transport",
+   "sub": "airport",
+   "keywords": [
+    "exit",
+    "way",
+    "out"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-kalakshi-rogor-mivide",
+   "ka": "ქალაქში როგორ მივიდე?",
+   "lat": "kalakshi rogor mivide?",
+   "sound": "kah-lahk-shee roh-gohr mee-vee-deh",
+   "en": "How do I get to the city?",
+   "category": "transport",
+   "sub": "airport",
+   "keywords": [
+    "city",
+    "centre",
+    "get",
+    "go",
+    "how"
+   ],
+   "urgent": false,
+   "words": [
+    "w-rogor"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-akedan-shors-aris",
+   "ka": "აქედან შორს არის?",
+   "lat": "akedan shors aris?",
+   "sound": "ah-keh-dahn shohrs ah-rees",
+   "en": "Is it far from here?",
+   "category": "transport",
+   "sub": "directions",
+   "keywords": [
+    "far",
+    "distance",
+    "here"
+   ],
+   "urgent": false,
+   "words": [
+    "w-shors",
+    "w-aris",
+    "p-shors-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-pekhit-ramdeni-tsutia",
+   "ka": "ფეხით რამდენი წუთია?",
+   "lat": "pekhit ramdeni ts'utia?",
+   "sound": "peh-kheet rahm-deh-nee ts'oo-tee-ah",
+   "en": "How many minutes on foot?",
+   "category": "transport",
+   "sub": "directions",
+   "keywords": [
+    "walk",
+    "foot",
+    "minutes",
+    "far"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ramdeni"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-rukaze-machvenet-tu-sheidzleba",
+   "ka": "რუკაზე მაჩვენეთ, თუ შეიძლება.",
+   "lat": "ruk'aze machvenet, tu sheidzleba.",
+   "sound": "roo-k'ah-zeh mahch-veh-neht too sheh-eedz-leh-bah",
+   "en": "Please show me on the map.",
+   "category": "transport",
+   "sub": "directions",
+   "keywords": [
+    "map",
+    "show"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-dzvel-tbilisamde-rogor-mivide",
+   "ka": "ძველ თბილისამდე როგორ მივიდე?",
+   "lat": "dzvel tbilisamde rogor mivide?",
+   "sound": "dzvehl tbee-lee-sahm-deh roh-gohr mee-vee-deh",
+   "en": "How do I get to Old Tbilisi?",
+   "category": "transport",
+   "sub": "directions",
+   "keywords": [
+    "old",
+    "tbilisi",
+    "get",
+    "go",
+    "how",
+    "way"
+   ],
+   "urgent": false,
+   "words": [
+    "w-rogor"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-pirdapir-mere-martskhniv",
+   "ka": "პირდაპირ, მერე მარცხნივ.",
+   "lat": "p'irdap'ir, mere martskhniv.",
+   "sound": "p'eer-dah-p'eer meh-reh mahr-tskhneev",
+   "en": "Straight on, then left.",
+   "category": "transport",
+   "sub": "directions",
+   "keywords": [
+    "straight",
+    "left",
+    "direction",
+    "then"
+   ],
+   "urgent": false,
+   "note": "A typical answer you may hear.",
+   "words": [
+    "w-pirdapir",
+    "w-martskhniv"
+   ]
+  },
+  {
+   "id": "pb-ra-ghirs",
+   "ka": "რა ღირს?",
+   "lat": "ra ghirs?",
+   "sound": "rah gheers",
+   "en": "How much is it?",
+   "category": "shopping",
+   "sub": "prices",
+   "keywords": [
+    "price",
+    "cost",
+    "how",
+    "much"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-ra-ghirs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-ra-ghirs",
+   "ka": "ეს რა ღირს?",
+   "lat": "es ra ghirs?",
+   "sound": "ehs rah gheers",
+   "en": "How much is this?",
+   "category": "shopping",
+   "sub": "prices",
+   "keywords": [
+    "price",
+    "cost",
+    "how",
+    "much",
+    "this"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-ra-ghirs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-kilo-ra-ghirs",
+   "ka": "კილო რა ღირს?",
+   "lat": "k'ilo ra ghirs?",
+   "sound": "k'ee-loh rah gheers",
+   "en": "How much is it per kilo?",
+   "category": "shopping",
+   "sub": "prices",
+   "keywords": [
+    "price",
+    "kilo",
+    "kg",
+    "cost"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-ra-ghirs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-dzalian-dzviria",
+   "ka": "ძალიან ძვირია.",
+   "lat": "dzalian dzviria.",
+   "sound": "dzah-lee-ahn dzvee-ree-ah",
+   "en": "It's too expensive.",
+   "category": "shopping",
+   "sub": "prices",
+   "keywords": [
+    "expensive",
+    "dear",
+    "price",
+    "much"
+   ],
+   "urgent": false,
+   "lit": "It's very expensive."
+  },
+  {
+   "id": "pb-upro-iapi-gakvt",
+   "ka": "უფრო იაფი გაქვთ?",
+   "lat": "upro iapi gakvt?",
+   "sound": "oop-roh ee-ah-pee gahkvt",
+   "en": "Do you have something cheaper?",
+   "category": "shopping",
+   "sub": "prices",
+   "keywords": [
+    "cheaper",
+    "cheap",
+    "expensive",
+    "price"
+   ],
+   "urgent": false,
+   "words": [
+    "w-iapi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-tsota-damikelit-tu-sheidzleba",
+   "ka": "ცოტა დამიკელით, თუ შეიძლება.",
+   "lat": "tsot'a damik'elit, tu sheidzleba.",
+   "sound": "tsoh-t'ah dah-mee-k'eh-leet too sheh-eedz-leh-bah",
+   "en": "Could you take a little off?",
+   "category": "shopping",
+   "sub": "prices",
+   "keywords": [
+    "discount",
+    "bargain",
+    "cheaper",
+    "price",
+    "haggle"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "note": "Bargaining is normal at a bazaar, not in shops with price tags.",
+   "variants": [
+    {
+     "label": "To someone your age",
+     "ka": "ცოტა დამიკელი.",
+     "lat": "tsot'a damik'eli.",
+     "en": "Take a little off."
+    }
+   ],
+   "words": [
+    "w-tsota",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-bolo-pasi-ra-aris",
+   "ka": "ბოლო ფასი რა არის?",
+   "lat": "bolo pasi ra aris?",
+   "sound": "boh-loh pah-see rah ah-rees",
+   "en": "What's your final price?",
+   "category": "shopping",
+   "sub": "prices",
+   "keywords": [
+    "final",
+    "price",
+    "bargain",
+    "last"
+   ],
+   "urgent": false,
+   "words": [
+    "w-pasi",
+    "w-ra",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-erti-kilo-tu-sheidzleba",
+   "ka": "ერთი კილო, თუ შეიძლება.",
+   "lat": "erti k'ilo, tu sheidzleba.",
+   "sound": "ehr-tee k'ee-loh too sheh-eedz-leh-bah",
+   "en": "One kilo, please.",
+   "category": "shopping",
+   "sub": "bazaar",
+   "keywords": [
+    "kilo",
+    "kg",
+    "one",
+    "weight"
+   ],
+   "urgent": false,
+   "words": [
+    "w-erti",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-nakhevari-kilo-tu-sheidzleba",
+   "ka": "ნახევარი კილო, თუ შეიძლება.",
+   "lat": "nakhevari k'ilo, tu sheidzleba.",
+   "sound": "nah-kheh-vah-ree k'ee-loh too sheh-eedz-leh-bah",
+   "en": "Half a kilo, please.",
+   "category": "shopping",
+   "sub": "bazaar",
+   "keywords": [
+    "half",
+    "kilo",
+    "kg",
+    "weight"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-sami-tsali-tu-sheidzleba",
+   "ka": "სამი ცალი, თუ შეიძლება.",
+   "lat": "sami tsali, tu sheidzleba.",
+   "sound": "sah-mee tsah-lee too sheh-eedz-leh-bah",
+   "en": "Three of them, please.",
+   "category": "shopping",
+   "sub": "bazaar",
+   "keywords": [
+    "pieces",
+    "three",
+    "items"
+   ],
+   "urgent": false,
+   "lit": "Three pieces, please.",
+   "words": [
+    "w-sami",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-akhalia",
+   "ka": "ეს ახალია?",
+   "lat": "es akhalia?",
+   "sound": "ehs ah-khah-lee-ah",
+   "en": "Is this fresh?",
+   "category": "shopping",
+   "sub": "bazaar",
+   "keywords": [
+    "fresh",
+    "new"
+   ],
+   "urgent": false,
+   "note": "ახალი means both \"new\" and \"fresh\"."
+  },
+  {
+   "id": "pb-es-sakhlis-qvelia",
+   "ka": "ეს სახლის ყველია?",
+   "lat": "es sakhlis q'velia?",
+   "sound": "ehs sahkh-lees q'veh-lee-ah",
+   "en": "Is this homemade cheese?",
+   "category": "shopping",
+   "sub": "bazaar",
+   "keywords": [
+    "cheese",
+    "homemade",
+    "home",
+    "made"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-gasinjva-sheidzleba",
+   "ka": "გასინჯვა შეიძლება?",
+   "lat": "gasinjva sheidzleba?",
+   "sound": "gah-seen-jvah sheh-eedz-leh-bah",
+   "en": "Can I taste it?",
+   "category": "shopping",
+   "sub": "bazaar",
+   "keywords": [
+    "taste",
+    "try",
+    "sample"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-amas-avigheb",
+   "ka": "ამას ავიღებ.",
+   "lat": "amas avigheb.",
+   "sound": "ah-mahs ah-vee-ghehb",
+   "en": "I'll take this.",
+   "category": "shopping",
+   "sub": "bazaar",
+   "keywords": [
+    "take",
+    "buy",
+    "this"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-mkholod-vatvaliereb",
+   "ka": "მხოლოდ ვათვალიერებ.",
+   "lat": "mkholod vatvaliereb.",
+   "sound": "mkhoh-lohd vaht-vah-lee-eh-rehb",
+   "en": "I'm just looking.",
+   "category": "shopping",
+   "sub": "bazaar",
+   "keywords": [
+    "just",
+    "looking",
+    "browse"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-sul-es-aris",
+   "ka": "სულ ეს არის.",
+   "lat": "sul es aris.",
+   "sound": "sool ehs ah-rees",
+   "en": "That's all.",
+   "category": "shopping",
+   "sub": "bazaar",
+   "keywords": [
+    "all",
+    "everything",
+    "finished"
+   ],
+   "urgent": false,
+   "words": [
+    "w-aris",
+    "p-sul-es-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-parki-mometsit-tu-sheidzleba",
+   "ka": "პარკი მომეცით, თუ შეიძლება.",
+   "lat": "p'ark'i mometsit, tu sheidzleba.",
+   "sound": "p'ahr-k'ee moh-meh-tseet too sheh-eedz-leh-bah",
+   "en": "Could you give me a bag?",
+   "category": "shopping",
+   "sub": "supermarket",
+   "keywords": [
+    "bag",
+    "plastic",
+    "carrier"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-parki-ar-mchirdeba",
+   "ka": "პარკი არ მჭირდება.",
+   "lat": "p'ark'i ar mch'irdeba.",
+   "sound": "p'ahr-k'ee ahr mch'eer-deh-bah",
+   "en": "I don't need a bag.",
+   "category": "shopping",
+   "sub": "supermarket",
+   "keywords": [
+    "bag",
+    "no",
+    "need"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ar",
+    "w-mchirdeba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-puri-sad-gakvt",
+   "ka": "პური სად გაქვთ?",
+   "lat": "p'uri sad gakvt?",
+   "sound": "p'oo-ree sahd gahkvt",
+   "en": "Where's the bread?",
+   "category": "shopping",
+   "sub": "supermarket",
+   "keywords": [
+    "bread",
+    "where",
+    "find"
+   ],
+   "urgent": false,
+   "lit": "Where do you have bread?",
+   "words": [
+    "w-puri",
+    "w-sad"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    },
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-rdze-gakvt",
+   "ka": "რძე გაქვთ?",
+   "lat": "rdze gakvt?",
+   "sound": "rdzeh gahkvt",
+   "en": "Do you have milk?",
+   "category": "shopping",
+   "sub": "supermarket",
+   "keywords": [
+    "milk",
+    "have"
+   ],
+   "urgent": false,
+   "words": [
+    "w-rdze"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-erti-botli-tsqali-tu-sheidzleba",
+   "ka": "ერთი ბოთლი წყალი, თუ შეიძლება.",
+   "lat": "erti botli ts'q'ali, tu sheidzleba.",
+   "sound": "ehr-tee boht-lee ts'q'ah-lee too sheh-eedz-leh-bah",
+   "en": "A bottle of water, please.",
+   "category": "shopping",
+   "sub": "supermarket",
+   "keywords": [
+    "water",
+    "bottle",
+    "drink"
+   ],
+   "urgent": false,
+   "words": [
+    "w-erti",
+    "w-tsqali",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-gaziani-tsqali-gakvt",
+   "ka": "გაზიანი წყალი გაქვთ?",
+   "lat": "gaziani ts'q'ali gakvt?",
+   "sound": "gah-zee-ah-nee ts'q'ah-lee gahkvt",
+   "en": "Do you have sparkling water?",
+   "category": "shopping",
+   "sub": "supermarket",
+   "keywords": [
+    "water",
+    "sparkling",
+    "fizzy",
+    "mineral"
+   ],
+   "urgent": false,
+   "note": "Georgian mineral water (Borjomi, Nabeghlavi) is everywhere and often quite salty.",
+   "words": [
+    "w-tsqali"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-upro-didi-zoma-gakvt",
+   "ka": "უფრო დიდი ზომა გაქვთ?",
+   "lat": "upro didi zoma gakvt?",
+   "sound": "oop-roh dee-dee zoh-mah gahkvt",
+   "en": "Do you have a bigger size?",
+   "category": "shopping",
+   "sub": "clothes",
+   "keywords": [
+    "size",
+    "bigger",
+    "large",
+    "clothes"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-upro-patara-zoma-gakvt",
+   "ka": "უფრო პატარა ზომა გაქვთ?",
+   "lat": "upro p'at'ara zoma gakvt?",
+   "sound": "oop-roh p'ah-t'ah-rah zoh-mah gahkvt",
+   "en": "Do you have a smaller size?",
+   "category": "shopping",
+   "sub": "clothes",
+   "keywords": [
+    "size",
+    "smaller",
+    "small",
+    "clothes"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-mozomva-sheidzleba",
+   "ka": "მოზომვა შეიძლება?",
+   "lat": "mozomva sheidzleba?",
+   "sound": "moh-zohm-vah sheh-eedz-leh-bah",
+   "en": "Can I try it on?",
+   "category": "shopping",
+   "sub": "clothes",
+   "keywords": [
+    "try",
+    "on",
+    "fitting",
+    "clothes"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-gasakhdeli-sad-aris",
+   "ka": "გასახდელი სად არის?",
+   "lat": "gasakhdeli sad aris?",
+   "sound": "gah-sahkh-deh-lee sahd ah-rees",
+   "en": "Where is the fitting room?",
+   "category": "shopping",
+   "sub": "clothes",
+   "keywords": [
+    "fitting",
+    "room",
+    "changing",
+    "try"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-skhva-peri-gakvt",
+   "ka": "სხვა ფერი გაქვთ?",
+   "lat": "skhva peri gakvt?",
+   "sound": "skhvah peh-ree gahkvt",
+   "en": "Do you have another colour?",
+   "category": "shopping",
+   "sub": "clothes",
+   "keywords": [
+    "colour",
+    "color",
+    "another"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-am-teleponis-damteni-gakvt",
+   "ka": "ამ ტელეფონის დამტენი გაქვთ?",
+   "lat": "am t'eleponis damt'eni gakvt?",
+   "sound": "ahm t'eh-leh-poh-nees dahm-t'eh-nee gahkvt",
+   "en": "Do you have a charger for this phone?",
+   "category": "shopping",
+   "sub": "electronics",
+   "keywords": [
+    "charger",
+    "phone",
+    "cable"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-adapteri-mchirdeba",
+   "ka": "ადაპტერი მჭირდება.",
+   "lat": "adap't'eri mch'irdeba.",
+   "sound": "ah-dahp'-t'eh-ree mch'eer-deh-bah",
+   "en": "I need an adapter.",
+   "category": "shopping",
+   "sub": "electronics",
+   "keywords": [
+    "adapter",
+    "plug",
+    "socket"
+   ],
+   "urgent": false,
+   "words": [
+    "w-mchirdeba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-garantia-akvs",
+   "ka": "გარანტია აქვს?",
+   "lat": "garant'ia akvs?",
+   "sound": "gah-rahn-t'ee-ah ahkvs",
+   "en": "Does it have a warranty?",
+   "category": "shopping",
+   "sub": "electronics",
+   "keywords": [
+    "warranty",
+    "guarantee"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-baratit-sheidzleba",
+   "ka": "ბარათით შეიძლება?",
+   "lat": "baratit sheidzleba?",
+   "sound": "bah-rah-teet sheh-eedz-leh-bah",
+   "en": "Can I pay by card?",
+   "category": "shopping",
+   "sub": "paying",
+   "keywords": [
+    "card",
+    "pay",
+    "credit",
+    "debit"
+   ],
+   "urgent": false,
+   "replies": [
+    {
+     "ka": "კი, რა თქმა უნდა.",
+     "lat": "k'i, ra tkma unda.",
+     "en": "Yes, of course."
+    },
+    {
+     "ka": "მხოლოდ ნაღდი ფული.",
+     "lat": "mkholod naghdi puli.",
+     "en": "Cash only."
+    }
+   ],
+   "words": [
+    "w-sheidzleba",
+    "p-baratit-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-naghdi-pulit-gadavikhdi",
+   "ka": "ნაღდი ფულით გადავიხდი.",
+   "lat": "naghdi pulit gadavikhdi.",
+   "sound": "nahgh-dee poo-leet gah-dah-veekh-dee",
+   "en": "I'll pay in cash.",
+   "category": "shopping",
+   "sub": "paying",
+   "keywords": [
+    "cash",
+    "pay",
+    "money"
+   ],
+   "urgent": false,
+   "words": [
+    "w-naghdi-puli"
+   ]
+  },
+  {
+   "id": "pb-khurda-ar-makvs",
+   "ka": "ხურდა არ მაქვს.",
+   "lat": "khurda ar makvs.",
+   "sound": "khoor-dah ahr mahkvs",
+   "en": "I don't have change.",
+   "category": "shopping",
+   "sub": "paying",
+   "keywords": [
+    "change",
+    "cash",
+    "small",
+    "coins"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ar",
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    },
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-kvitari-mometsit-tu-sheidzleba",
+   "ka": "ქვითარი მომეცით, თუ შეიძლება.",
+   "lat": "kvitari mometsit, tu sheidzleba.",
+   "sound": "kvee-tah-ree moh-meh-tseet too sheh-eedz-leh-bah",
+   "en": "Could I have the receipt, please?",
+   "category": "shopping",
+   "sub": "paying",
+   "keywords": [
+    "receipt"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "note": "ჩეკი is also used for a receipt.",
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-bankomati-sad-aris",
+   "ka": "ბანკომატი სად არის?",
+   "lat": "bank'omat'i sad aris?",
+   "sound": "bahn-k'oh-mah-t'ee sahd ah-rees",
+   "en": "Where is an ATM?",
+   "category": "shopping",
+   "sub": "paying",
+   "keywords": [
+    "atm",
+    "cash",
+    "machine",
+    "money"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-menius-momitant",
+   "ka": "მენიუს მომიტანთ?",
+   "lat": "menius momit'ant?",
+   "sound": "meh-nee-oos moh-mee-t'ahnt",
+   "en": "Could you bring the menu?",
+   "category": "food",
+   "sub": "ordering",
+   "keywords": [
+    "menu",
+    "see",
+    "bring"
+   ],
+   "urgent": false,
+   "reg": "polite"
+  },
+  {
+   "id": "pb-meniu-tu-sheidzleba",
+   "ka": "მენიუ, თუ შეიძლება.",
+   "lat": "meniu, tu sheidzleba.",
+   "sound": "meh-nee-oo too sheh-eedz-leh-bah",
+   "en": "The menu, please.",
+   "category": "food",
+   "sub": "ordering",
+   "keywords": [
+    "menu"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba",
+    "p-meniu-tu-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-tavisupali-magida-gakvt",
+   "ka": "თავისუფალი მაგიდა გაქვთ?",
+   "lat": "tavisupali magida gakvt?",
+   "sound": "tah-vee-soo-pah-lee mah-gee-dah gahkvt",
+   "en": "Do you have a free table?",
+   "category": "food",
+   "sub": "ordering",
+   "keywords": [
+    "table",
+    "free",
+    "seat"
+   ],
+   "urgent": false,
+   "words": [
+    "w-magida"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-orni-vart",
+   "ka": "ორნი ვართ.",
+   "lat": "orni vart.",
+   "sound": "ohr-nee vahrt",
+   "en": "There are two of us.",
+   "category": "food",
+   "sub": "ordering",
+   "keywords": [
+    "two",
+    "people",
+    "table",
+    "us"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-ras-mirchevt",
+   "ka": "რას მირჩევთ?",
+   "lat": "ras mirchevt?",
+   "sound": "rahs meer-chehvt",
+   "en": "What do you recommend?",
+   "category": "food",
+   "sub": "ordering",
+   "keywords": [
+    "recommend",
+    "suggest",
+    "best"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "p-ras-mirchevt"
+   ]
+  },
+  {
+   "id": "pb-es-minda",
+   "ka": "ეს მინდა.",
+   "lat": "es minda.",
+   "sound": "ehs meen-dah",
+   "en": "I'd like this.",
+   "category": "food",
+   "sub": "ordering",
+   "keywords": [
+    "want",
+    "like",
+    "this",
+    "order"
+   ],
+   "urgent": false,
+   "lit": "I want this.",
+   "note": "Point at the menu as you say it.",
+   "variants": [
+    {
+     "label": "Also common",
+     "ka": "ამას ავიღებ.",
+     "lat": "amas avigheb.",
+     "en": "I'll have this."
+    }
+   ],
+   "words": [
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-ati-khinkali-tu-sheidzleba",
+   "ka": "ათი ხინკალი, თუ შეიძლება.",
+   "lat": "ati khink'ali, tu sheidzleba.",
+   "sound": "ah-tee kheen-k'ah-lee too sheh-eedz-leh-bah",
+   "en": "Ten khinkali, please.",
+   "category": "food",
+   "sub": "ordering",
+   "keywords": [
+    "khinkali",
+    "dumplings",
+    "order"
+   ],
+   "urgent": false,
+   "note": "Khinkali are ordered by the piece; five per person is a normal start.",
+   "words": [
+    "w-ati",
+    "w-khinkali",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-kidev-erti-tu-sheidzleba",
+   "ka": "კიდევ ერთი, თუ შეიძლება.",
+   "lat": "k'idev erti, tu sheidzleba.",
+   "sound": "k'ee-dehv ehr-tee too sheh-eedz-leh-bah",
+   "en": "One more, please.",
+   "category": "food",
+   "sub": "ordering",
+   "keywords": [
+    "more",
+    "another",
+    "again"
+   ],
+   "urgent": false,
+   "words": [
+    "w-erti",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-dzalian-gemrielia",
+   "ka": "ძალიან გემრიელია!",
+   "lat": "dzalian gemrielia!",
+   "sound": "dzah-lee-ahn gehm-ree-eh-lee-ah",
+   "en": "It's delicious!",
+   "category": "food",
+   "sub": "ordering",
+   "keywords": [
+    "tasty",
+    "delicious",
+    "good",
+    "food"
+   ],
+   "urgent": false,
+   "words": [
+    "p-dzalian-gemrielia"
+   ]
+  },
+  {
+   "id": "pb-erti-qava-tu-sheidzleba",
+   "ka": "ერთი ყავა, თუ შეიძლება.",
+   "lat": "erti q'ava, tu sheidzleba.",
+   "sound": "ehr-tee q'ah-vah too sheh-eedz-leh-bah",
+   "en": "One coffee, please.",
+   "category": "food",
+   "sub": "coffee",
+   "keywords": [
+    "coffee",
+    "one",
+    "order"
+   ],
+   "urgent": false,
+   "words": [
+    "w-erti",
+    "w-qava",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-qava-rdzit-tu-sheidzleba",
+   "ka": "ყავა რძით, თუ შეიძლება.",
+   "lat": "q'ava rdzit, tu sheidzleba.",
+   "sound": "q'ah-vah rdzeet too sheh-eedz-leh-bah",
+   "en": "Coffee with milk, please.",
+   "category": "food",
+   "sub": "coffee",
+   "keywords": [
+    "coffee",
+    "milk",
+    "latte"
+   ],
+   "urgent": false,
+   "words": [
+    "w-qava",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-shakris-gareshe",
+   "ka": "შაქრის გარეშე.",
+   "lat": "shakris gareshe.",
+   "sound": "shahk-rees gah-reh-sheh",
+   "en": "No sugar.",
+   "category": "food",
+   "sub": "coffee",
+   "keywords": [
+    "sugar",
+    "without",
+    "no"
+   ],
+   "urgent": false,
+   "lit": "Without sugar."
+  },
+  {
+   "id": "pb-erti-chai-tu-sheidzleba",
+   "ka": "ერთი ჩაი, თუ შეიძლება.",
+   "lat": "erti chai, tu sheidzleba.",
+   "sound": "ehr-tee chah-ee too sheh-eedz-leh-bah",
+   "en": "A tea, please.",
+   "category": "food",
+   "sub": "coffee",
+   "keywords": [
+    "tea"
+   ],
+   "urgent": false,
+   "words": [
+    "w-erti",
+    "w-chai",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-tsasaghebad-tu-sheidzleba",
+   "ka": "წასაღებად, თუ შეიძლება.",
+   "lat": "ts'asaghebad, tu sheidzleba.",
+   "sound": "ts'ah-sah-gheh-bahd too sheh-eedz-leh-bah",
+   "en": "To take away, please.",
+   "category": "food",
+   "sub": "coffee",
+   "keywords": [
+    "takeaway",
+    "take",
+    "away",
+    "go"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-ak-davlev",
+   "ka": "აქ დავლევ.",
+   "lat": "ak davlev.",
+   "sound": "ahk dahv-lehv",
+   "en": "I'll have it here.",
+   "category": "food",
+   "sub": "coffee",
+   "keywords": [
+    "here",
+    "stay",
+    "drink"
+   ],
+   "urgent": false,
+   "lit": "I'll drink it here.",
+   "words": [
+    "w-ak"
+   ]
+  },
+  {
+   "id": "pb-ugazo-tsqali-tu-sheidzleba",
+   "ka": "უგაზო წყალი, თუ შეიძლება.",
+   "lat": "ugazo ts'q'ali, tu sheidzleba.",
+   "sound": "oo-gah-zoh ts'q'ah-lee too sheh-eedz-leh-bah",
+   "en": "Still water, please.",
+   "category": "food",
+   "sub": "coffee",
+   "keywords": [
+    "water",
+    "still",
+    "drink"
+   ],
+   "urgent": false,
+   "words": [
+    "w-tsqali",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-khortss-ar-vcham",
+   "ka": "ხორცს არ ვჭამ.",
+   "lat": "khortss ar vch'am.",
+   "sound": "khohrtss ahr vch'ahm",
+   "en": "I don't eat meat.",
+   "category": "food",
+   "sub": "diet",
+   "keywords": [
+    "meat",
+    "vegetarian",
+    "dont",
+    "eat"
+   ],
+   "urgent": false,
+   "note": "Many Georgian dishes are meat-free: lobio, pkhali, badrijani, khachapuri.",
+   "words": [
+    "w-ar",
+    "w-vcham"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-vegetarianeli-var",
+   "ka": "ვეგეტარიანელი ვარ.",
+   "lat": "veget'arianeli var.",
+   "sound": "veh-geh-t'ah-ree-ah-neh-lee vahr",
+   "en": "I'm vegetarian.",
+   "category": "food",
+   "sub": "diet",
+   "keywords": [
+    "vegetarian",
+    "meat"
+   ],
+   "urgent": false,
+   "words": [
+    "w-var"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-amashi-khortsi-aris",
+   "ka": "ამაში ხორცი არის?",
+   "lat": "amashi khortsi aris?",
+   "sound": "ah-mah-shee khohr-tsee ah-rees",
+   "en": "Does this contain meat?",
+   "category": "food",
+   "sub": "diet",
+   "keywords": [
+    "meat",
+    "contain",
+    "ingredients",
+    "vegetarian"
+   ],
+   "urgent": false,
+   "lit": "Is there meat in this?",
+   "words": [
+    "w-khortsi",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-ukhortso-ra-gakvt",
+   "ka": "უხორცო რა გაქვთ?",
+   "lat": "ukhortso ra gakvt?",
+   "sound": "oo-khohr-tsoh rah gahkvt",
+   "en": "What do you have without meat?",
+   "category": "food",
+   "sub": "diet",
+   "keywords": [
+    "meat",
+    "without",
+    "vegetarian"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    },
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-tkhileulze-alergia-makvs",
+   "ka": "თხილეულზე ალერგია მაქვს.",
+   "lat": "tkhileulze alergia makvs.",
+   "sound": "tkhee-leh-ool-zeh ah-lehr-gee-ah mahkvs",
+   "en": "I'm allergic to nuts.",
+   "category": "food",
+   "sub": "diet",
+   "keywords": [
+    "allergy",
+    "allergic",
+    "nuts",
+    "walnut"
+   ],
+   "urgent": false,
+   "note": "Walnuts are in many dishes (pkhali, badrijani, satsivi). With a serious allergy, also show it written down.",
+   "words": [
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-tskharea",
+   "ka": "ცხარეა?",
+   "lat": "tskharea?",
+   "sound": "tskhah-reh-ah",
+   "en": "Is it spicy?",
+   "category": "food",
+   "sub": "diet",
+   "keywords": [
+    "spicy",
+    "hot",
+    "chilli"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-angarishi-tu-sheidzleba",
+   "ka": "ანგარიში, თუ შეიძლება.",
+   "lat": "angarishi, tu sheidzleba.",
+   "sound": "ahn-gah-ree-shee too sheh-eedz-leh-bah",
+   "en": "The bill, please.",
+   "category": "food",
+   "sub": "bill",
+   "keywords": [
+    "bill",
+    "check",
+    "pay"
+   ],
+   "urgent": false,
+   "note": "ანგარიში also means a bank account.",
+   "words": [
+    "w-sheidzleba",
+    "p-angarishi-tu-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-angarishi-mogvitanet-tu-sheidzleba",
+   "ka": "ანგარიში მოგვიტანეთ, თუ შეიძლება.",
+   "lat": "angarishi mogvit'anet, tu sheidzleba.",
+   "sound": "ahn-gah-ree-shee mohg-vee-t'ah-neht too sheh-eedz-leh-bah",
+   "en": "Could you bring us the bill?",
+   "category": "food",
+   "sub": "bill",
+   "keywords": [
+    "bill",
+    "check",
+    "bring"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-tsal-tsalke-gadavikhdit",
+   "ka": "ცალ-ცალკე გადავიხდით.",
+   "lat": "tsal-tsalk'e gadavikhdit.",
+   "sound": "tsahl-tsahl-k'eh gah-dah-veekh-deet",
+   "en": "We'll pay separately.",
+   "category": "food",
+   "sub": "bill",
+   "keywords": [
+    "separately",
+    "split",
+    "pay"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-momsakhureba-shedis",
+   "ka": "მომსახურება შედის?",
+   "lat": "momsakhureba shedis?",
+   "sound": "mohm-sah-khoo-reh-bah sheh-dees",
+   "en": "Is service included?",
+   "category": "food",
+   "sub": "bill",
+   "keywords": [
+    "service",
+    "tip",
+    "included"
+   ],
+   "urgent": false,
+   "note": "Many restaurants add a service charge to the bill; check before you tip."
+  },
+  {
+   "id": "pb-magidis-dajavshna-minda",
+   "ka": "მაგიდის დაჯავშნა მინდა.",
+   "lat": "magidis dajavshna minda.",
+   "sound": "mah-gee-dees dah-jahv-shnah meen-dah",
+   "en": "I'd like to book a table.",
+   "category": "food",
+   "sub": "booking",
+   "keywords": [
+    "book",
+    "reserve",
+    "reservation",
+    "table"
+   ],
+   "urgent": false,
+   "words": [
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-khval-rva-saatze-otkhi-adamianistvis",
+   "ka": "ხვალ, რვა საათზე, ოთხი ადამიანისთვის.",
+   "lat": "khval, rva saatze, otkhi adamianistvis.",
+   "sound": "khvahl rvah sah-aht-zeh oht-khee ah-dah-mee-ah-nees-tvees",
+   "en": "Tomorrow at eight, for four people.",
+   "category": "food",
+   "sub": "booking",
+   "keywords": [
+    "tomorrow",
+    "eight",
+    "four",
+    "people",
+    "time",
+    "reservation"
+   ],
+   "urgent": false,
+   "words": [
+    "w-khval",
+    "w-rva",
+    "w-otkhi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-javshani-makvs",
+   "ka": "ჯავშანი მაქვს.",
+   "lat": "javshani makvs.",
+   "sound": "jahv-shah-nee mahkvs",
+   "en": "I have a reservation.",
+   "category": "food",
+   "sub": "booking",
+   "keywords": [
+    "reservation",
+    "booked",
+    "booking"
+   ],
+   "urgent": false,
+   "words": [
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-binas-vkiraob",
+   "ka": "ბინას ვქირაობ.",
+   "lat": "binas vkiraob.",
+   "sound": "bee-nahs vkee-rah-ohb",
+   "en": "I'm renting a flat.",
+   "category": "home",
+   "sub": "renting",
+   "keywords": [
+    "rent",
+    "flat",
+    "apartment"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-bina-kiravdeba",
+   "ka": "ბინა ქირავდება?",
+   "lat": "bina kiravdeba?",
+   "sound": "bee-nah kee-rahv-deh-bah",
+   "en": "Is the flat for rent?",
+   "category": "home",
+   "sub": "renting",
+   "keywords": [
+    "rent",
+    "flat",
+    "apartment",
+    "available"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-kira-ra-ghirs-tveshi",
+   "ka": "ქირა რა ღირს თვეში?",
+   "lat": "kira ra ghirs tveshi?",
+   "sound": "kee-rah rah gheers tveh-shee",
+   "en": "How much is the rent a month?",
+   "category": "home",
+   "sub": "renting",
+   "keywords": [
+    "rent",
+    "month",
+    "price",
+    "cost"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-ra-ghirs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-komunalurebi-shedis",
+   "ka": "კომუნალურები შედის?",
+   "lat": "k'omunalurebi shedis?",
+   "sound": "k'oh-moo-nah-loo-reh-bee sheh-dees",
+   "en": "Are the bills included?",
+   "category": "home",
+   "sub": "renting",
+   "keywords": [
+    "utilities",
+    "bills",
+    "included"
+   ],
+   "urgent": false,
+   "note": "კომუნალურები: electricity, gas and water bills."
+  },
+  {
+   "id": "pb-depoziti-ramdenia",
+   "ka": "დეპოზიტი რამდენია?",
+   "lat": "dep'ozit'i ramdenia?",
+   "sound": "deh-p'oh-zee-t'ee rahm-deh-nee-ah",
+   "en": "How much is the deposit?",
+   "category": "home",
+   "sub": "renting",
+   "keywords": [
+    "deposit",
+    "money"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-khelshekrulebas-gavapormebt",
+   "ka": "ხელშეკრულებას გავაფორმებთ?",
+   "lat": "khelshek'rulebas gavapormebt?",
+   "sound": "khehl-shehk'-roo-leh-bahs gah-vah-pohr-mehbt",
+   "en": "Shall we sign a contract?",
+   "category": "home",
+   "sub": "renting",
+   "keywords": [
+    "contract",
+    "sign",
+    "lease",
+    "agreement"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-tsqaltan-problemaa",
+   "ka": "წყალთან პრობლემაა.",
+   "lat": "ts'q'altan p'roblemaa.",
+   "sound": "ts'q'ahl-tahn p'rohb-leh-mah-ah",
+   "en": "There's a problem with the water.",
+   "category": "home",
+   "sub": "repairs",
+   "keywords": [
+    "water",
+    "problem"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-tskheli-tsqali-ar-modis",
+   "ka": "ცხელი წყალი არ მოდის.",
+   "lat": "tskheli ts'q'ali ar modis.",
+   "sound": "tskheh-lee ts'q'ah-lee ahr moh-dees",
+   "en": "There's no hot water.",
+   "category": "home",
+   "sub": "repairs",
+   "keywords": [
+    "hot",
+    "water",
+    "shower",
+    "boiler"
+   ],
+   "urgent": false,
+   "lit": "Hot water isn't coming.",
+   "words": [
+    "w-tsqali",
+    "w-ar"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-deni-ar-aris",
+   "ka": "დენი არ არის.",
+   "lat": "deni ar aris.",
+   "sound": "deh-nee ahr ah-rees",
+   "en": "There's no electricity.",
+   "category": "home",
+   "sub": "repairs",
+   "keywords": [
+    "electricity",
+    "power",
+    "light"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ar",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-interneti-ar-mushaobs",
+   "ka": "ინტერნეტი არ მუშაობს.",
+   "lat": "int'ernet'i ar mushaobs.",
+   "sound": "een-t'ehr-neh-t'ee ahr moo-shah-ohbs",
+   "en": "The internet isn't working.",
+   "category": "home",
+   "sub": "repairs",
+   "keywords": [
+    "internet",
+    "wifi",
+    "broken"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ar"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-gatboba-ar-mushaobs",
+   "ka": "გათბობა არ მუშაობს.",
+   "lat": "gatboba ar mushaobs.",
+   "sound": "gaht-boh-bah ahr moo-shah-ohbs",
+   "en": "The heating isn't working.",
+   "category": "home",
+   "sub": "repairs",
+   "keywords": [
+    "heating",
+    "cold",
+    "broken"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ar"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-onkani-tsvetavs",
+   "ka": "ონკანი წვეთავს.",
+   "lat": "onk'ani ts'vetavs.",
+   "sound": "ohn-k'ah-nee ts'veh-tahvs",
+   "en": "The tap is dripping.",
+   "category": "home",
+   "sub": "repairs",
+   "keywords": [
+    "tap",
+    "faucet",
+    "drip",
+    "water",
+    "leak"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-khelosani-mchirdeba",
+   "ka": "ხელოსანი მჭირდება.",
+   "lat": "khelosani mch'irdeba.",
+   "sound": "kheh-loh-sah-nee mch'eer-deh-bah",
+   "en": "I need a repairman.",
+   "category": "home",
+   "sub": "repairs",
+   "keywords": [
+    "repair",
+    "fix",
+    "handyman",
+    "plumber"
+   ],
+   "urgent": false,
+   "words": [
+    "w-mchirdeba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-khval-shegidzliat-mosvla",
+   "ka": "ხვალ შეგიძლიათ მოსვლა?",
+   "lat": "khval shegidzliat mosvla?",
+   "sound": "khvahl sheh-geedz-lee-aht mohs-vlah",
+   "en": "Could you come tomorrow?",
+   "category": "home",
+   "sub": "repairs",
+   "keywords": [
+    "come",
+    "tomorrow",
+    "visit"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-khval"
+   ]
+  },
+  {
+   "id": "pb-romel-saatze-mokhvalt",
+   "ka": "რომელ საათზე მოხვალთ?",
+   "lat": "romel saatze mokhvalt?",
+   "sound": "roh-mehl sah-aht-zeh mohkh-vahlt",
+   "en": "What time will you come?",
+   "category": "home",
+   "sub": "repairs",
+   "keywords": [
+    "time",
+    "when",
+    "come"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-sakhlshi-var",
+   "ka": "სახლში ვარ.",
+   "lat": "sakhlshi var.",
+   "sound": "sahkh-lshee vahr",
+   "en": "I'm at home.",
+   "category": "home",
+   "sub": "repairs",
+   "keywords": [
+    "home",
+    "house"
+   ],
+   "urgent": false,
+   "words": [
+    "w-var"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-gadasakhadi-sad-gadavikhado",
+   "ka": "გადასახადი სად გადავიხადო?",
+   "lat": "gadasakhadi sad gadavikhado?",
+   "sound": "gah-dah-sah-khah-dee sahd gah-dah-vee-khah-doh",
+   "en": "Where do I pay the bill?",
+   "category": "home",
+   "sub": "utilities",
+   "keywords": [
+    "bill",
+    "pay",
+    "utility"
+   ],
+   "urgent": false,
+   "note": "Utility bills can also be paid at pay boxes and in banking apps.",
+   "words": [
+    "w-sad"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-vaipais-paroli-ra-aris",
+   "ka": "ვაიფაის პაროლი რა არის?",
+   "lat": "vaipais p'aroli ra aris?",
+   "sound": "vah-ee-pah-ees p'ah-roh-lee rah ah-rees",
+   "en": "What's the Wi-Fi password?",
+   "category": "home",
+   "sub": "utilities",
+   "keywords": [
+    "wifi",
+    "password",
+    "internet"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-mekhute-sartulze-var",
+   "ka": "მეხუთე სართულზე ვარ.",
+   "lat": "mekhute sartulze var.",
+   "sound": "meh-khoo-teh sahr-tool-zeh vahr",
+   "en": "I'm on the fifth floor.",
+   "category": "home",
+   "sub": "deliveries",
+   "keywords": [
+    "floor",
+    "fifth",
+    "delivery"
+   ],
+   "urgent": false,
+   "words": [
+    "w-var"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-kartan-datovet-tu-sheidzleba",
+   "ka": "კართან დატოვეთ, თუ შეიძლება.",
+   "lat": "k'artan dat'ovet, tu sheidzleba.",
+   "sound": "k'ahr-tahn dah-t'oh-veht too sheh-eedz-leh-bah",
+   "en": "Please leave it at the door.",
+   "category": "home",
+   "sub": "deliveries",
+   "keywords": [
+    "leave",
+    "door",
+    "delivery",
+    "package"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-chamovdivar",
+   "ka": "ჩამოვდივარ.",
+   "lat": "chamovdivar.",
+   "sound": "chah-mohv-dee-vahr",
+   "en": "I'm coming down.",
+   "category": "home",
+   "sub": "deliveries",
+   "keywords": [
+    "coming",
+    "down",
+    "delivery"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-lipti-ar-mushaobs",
+   "ka": "ლიფტი არ მუშაობს.",
+   "lat": "lipt'i ar mushaobs.",
+   "sound": "leep-t'ee ahr moo-shah-ohbs",
+   "en": "The lift isn't working.",
+   "category": "home",
+   "sub": "deliveries",
+   "keywords": [
+    "lift",
+    "elevator",
+    "broken"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ar"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-nagavi-sad-gadavqaro",
+   "ka": "ნაგავი სად გადავყარო?",
+   "lat": "nagavi sad gadavq'aro?",
+   "sound": "nah-gah-vee sahd gah-dahv-q'ah-roh",
+   "en": "Where do I throw the rubbish?",
+   "category": "home",
+   "sub": "household",
+   "keywords": [
+    "rubbish",
+    "trash",
+    "garbage",
+    "bin"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-damlagebeli-mchirdeba",
+   "ka": "დამლაგებელი მჭირდება.",
+   "lat": "damlagebeli mch'irdeba.",
+   "sound": "dahm-lah-geh-beh-lee mch'eer-deh-bah",
+   "en": "I need a cleaner.",
+   "category": "home",
+   "sub": "household",
+   "keywords": [
+    "cleaner",
+    "cleaning"
+   ],
+   "urgent": false,
+   "words": [
+    "w-mchirdeba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-saretskhi-mankana-rogor-chavrto",
+   "ka": "სარეცხი მანქანა როგორ ჩავრთო?",
+   "lat": "saretskhi mankana rogor chavrto?",
+   "sound": "sah-rehts-khee mahn-kah-nah roh-gohr chahv-rtoh",
+   "en": "How do I turn on the washing machine?",
+   "category": "home",
+   "sub": "household",
+   "keywords": [
+    "washing",
+    "machine",
+    "laundry"
+   ],
+   "urgent": false,
+   "words": [
+    "w-mankana",
+    "w-rogor"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-abonementi-ra-ghirs",
+   "ka": "აბონემენტი რა ღირს?",
+   "lat": "abonement'i ra ghirs?",
+   "sound": "ah-boh-neh-mehn-t'ee rah gheers",
+   "en": "How much is a membership?",
+   "category": "sport",
+   "sub": "gym",
+   "keywords": [
+    "membership",
+    "price",
+    "gym",
+    "pass"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-ra-ghirs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-tviuri-abonementi-minda",
+   "ka": "თვიური აბონემენტი მინდა.",
+   "lat": "tviuri abonement'i minda.",
+   "sound": "tvee-oo-ree ah-boh-neh-mehn-t'ee meen-dah",
+   "en": "I'd like a monthly membership.",
+   "category": "sport",
+   "sub": "gym",
+   "keywords": [
+    "membership",
+    "monthly",
+    "month",
+    "gym"
+   ],
+   "urgent": false,
+   "words": [
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-ertjeradi-viziti-ra-ghirs",
+   "ka": "ერთჯერადი ვიზიტი რა ღირს?",
+   "lat": "ertjeradi vizit'i ra ghirs?",
+   "sound": "ehr-tjeh-rah-dee vee-zee-t'ee rah gheers",
+   "en": "How much is a single visit?",
+   "category": "sport",
+   "sub": "gym",
+   "keywords": [
+    "single",
+    "visit",
+    "day",
+    "pass",
+    "price"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-ra-ghirs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-romel-saatamde-mushaobt",
+   "ka": "რომელ საათამდე მუშაობთ?",
+   "lat": "romel saatamde mushaobt?",
+   "sound": "roh-mehl sah-ah-tahm-deh moo-shah-ohbt",
+   "en": "Until what time are you open?",
+   "category": "sport",
+   "sub": "gym",
+   "keywords": [
+    "open",
+    "hours",
+    "time",
+    "close"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-gasakhdelebi-sad-aris",
+   "ka": "გასახდელები სად არის?",
+   "lat": "gasakhdelebi sad aris?",
+   "sound": "gah-sahkh-deh-leh-bee sahd ah-rees",
+   "en": "Where are the changing rooms?",
+   "category": "sport",
+   "sub": "gym",
+   "keywords": [
+    "changing",
+    "rooms",
+    "locker"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-shkhapi-sad-aris",
+   "ka": "შხაპი სად არის?",
+   "lat": "shkhap'i sad aris?",
+   "sound": "shkhah-p'ee sahd ah-rees",
+   "en": "Where is the shower?",
+   "category": "sport",
+   "sub": "gym",
+   "keywords": [
+    "shower"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-pirsakhotsi-gakvt",
+   "ka": "პირსახოცი გაქვთ?",
+   "lat": "p'irsakhotsi gakvt?",
+   "sound": "p'eer-sah-khoh-tsee gahkvt",
+   "en": "Do you have a towel?",
+   "category": "sport",
+   "sub": "gym",
+   "keywords": [
+    "towel"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-trenazhori-tavisupalia",
+   "ka": "ეს ტრენაჟორი თავისუფალია?",
+   "lat": "es t'renazhori tavisupalia?",
+   "sound": "ehs t'reh-nah-zhoh-ree tah-vee-soo-pah-lee-ah",
+   "en": "Is this machine free?",
+   "category": "sport",
+   "sub": "training",
+   "keywords": [
+    "machine",
+    "free",
+    "taken",
+    "equipment"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-shegidzliat-machvenot-rogor-gamoviqeno",
+   "ka": "შეგიძლიათ მაჩვენოთ, როგორ გამოვიყენო?",
+   "lat": "shegidzliat machvenot, rogor gamoviq'eno?",
+   "sound": "sheh-geedz-lee-aht mahch-veh-noht roh-gohr gah-moh-vee-q'eh-noh",
+   "en": "Can you show me how to use this?",
+   "category": "sport",
+   "sub": "training",
+   "keywords": [
+    "show",
+    "use",
+    "how",
+    "machine",
+    "equipment"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-rogor"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-ramdeni-gameoreba",
+   "ka": "რამდენი გამეორება?",
+   "lat": "ramdeni gameoreba?",
+   "sound": "rahm-deh-nee gah-meh-oh-reh-bah",
+   "en": "How many repetitions?",
+   "category": "sport",
+   "sub": "training",
+   "keywords": [
+    "reps",
+    "repetitions",
+    "how",
+    "many"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ramdeni"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-ramdeni-midgoma",
+   "ka": "რამდენი მიდგომა?",
+   "lat": "ramdeni midgoma?",
+   "sound": "rahm-deh-nee meed-goh-mah",
+   "en": "How many sets?",
+   "category": "sport",
+   "sub": "training",
+   "keywords": [
+    "sets",
+    "how",
+    "many"
+   ],
+   "urgent": false,
+   "note": "Gym talk: მიდგომა is a set, გამეორება a repetition.",
+   "words": [
+    "w-ramdeni"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-dghes-vvarjishob",
+   "ka": "დღეს ვვარჯიშობ.",
+   "lat": "dghes vvarjishob.",
+   "sound": "dghehs vvahr-jee-shohb",
+   "en": "I'm training today.",
+   "category": "sport",
+   "sub": "training",
+   "keywords": [
+    "training",
+    "workout",
+    "exercise",
+    "today"
+   ],
+   "urgent": false,
+   "words": [
+    "w-dghes"
+   ]
+  },
+  {
+   "id": "pb-piradi-mtsvrtneli-minda",
+   "ka": "პირადი მწვრთნელი მინდა.",
+   "lat": "p'iradi mts'vrtneli minda.",
+   "sound": "p'ee-rah-dee mts'vrtneh-lee meen-dah",
+   "en": "I'd like a personal trainer.",
+   "category": "sport",
+   "sub": "training",
+   "keywords": [
+    "trainer",
+    "coach",
+    "personal"
+   ],
+   "urgent": false,
+   "words": [
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-ertad-vivarjishot",
+   "ka": "ერთად ვივარჯიშოთ?",
+   "lat": "ertad vivarjishot?",
+   "sound": "ehr-tahd vee-vahr-jee-shoht",
+   "en": "Shall we train together?",
+   "category": "sport",
+   "sub": "training",
+   "keywords": [
+    "together",
+    "train",
+    "workout"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-auzi-sad-aris",
+   "ka": "აუზი სად არის?",
+   "lat": "auzi sad aris?",
+   "sound": "ah-oo-zee sahd ah-rees",
+   "en": "Where is the pool?",
+   "category": "sport",
+   "sub": "active",
+   "keywords": [
+    "pool",
+    "swimming",
+    "swim"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-kudi-autsilebelia",
+   "ka": "ქუდი აუცილებელია?",
+   "lat": "kudi autsilebelia?",
+   "sound": "koo-dee ah-oo-tsee-leh-beh-lee-ah",
+   "en": "Is a swimming cap required?",
+   "category": "sport",
+   "sub": "active",
+   "keywords": [
+    "cap",
+    "swimming",
+    "pool",
+    "hat"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-ak-sirbili-sheidzleba",
+   "ka": "აქ სირბილი შეიძლება?",
+   "lat": "ak sirbili sheidzleba?",
+   "sound": "ahk seer-bee-lee sheh-eedz-leh-bah",
+   "en": "Can I run here?",
+   "category": "sport",
+   "sub": "active",
+   "keywords": [
+    "run",
+    "running",
+    "jog"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ak",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-tsotsvis-darbazi-sad-aris",
+   "ka": "ცოცვის დარბაზი სად არის?",
+   "lat": "tsotsvis darbazi sad aris?",
+   "sound": "tsohts-vees dahr-bah-zee sahd ah-rees",
+   "en": "Where is the climbing gym?",
+   "category": "sport",
+   "sub": "active",
+   "keywords": [
+    "climbing",
+    "bouldering",
+    "wall"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-pekhburti-vitamashot",
+   "ka": "ფეხბურთი ვითამაშოთ?",
+   "lat": "pekhburti vitamashot?",
+   "sound": "pehkh-boor-tee vee-tah-mah-shoht",
+   "en": "Shall we play football?",
+   "category": "sport",
+   "sub": "active",
+   "keywords": [
+    "football",
+    "soccer",
+    "play"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-aptiaki-sad-aris",
+   "ka": "აფთიაქი სად არის?",
+   "lat": "aptiaki sad aris?",
+   "sound": "ahp-tee-ah-kee sahd ah-rees",
+   "en": "Where is the pharmacy?",
+   "category": "health",
+   "sub": "pharmacy",
+   "keywords": [
+    "pharmacy",
+    "chemist",
+    "drugstore",
+    "medicine"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris",
+    "p-aptiaki-sad-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-ak-akhlos-aptiaki-aris",
+   "ka": "აქ ახლოს აფთიაქი არის?",
+   "lat": "ak akhlos aptiaki aris?",
+   "sound": "ahk ahkh-lohs ahp-tee-ah-kee ah-rees",
+   "en": "Is there a pharmacy nearby?",
+   "category": "health",
+   "sub": "pharmacy",
+   "keywords": [
+    "pharmacy",
+    "nearest",
+    "near",
+    "chemist"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ak",
+    "w-akhlos",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-tavis-tkivilis-tsamali-gakvt",
+   "ka": "თავის ტკივილის წამალი გაქვთ?",
+   "lat": "tavis t'k'ivilis ts'amali gakvt?",
+   "sound": "tah-vees t'k'ee-vee-lees ts'ah-mah-lee gahkvt",
+   "en": "Do you have something for a headache?",
+   "category": "health",
+   "sub": "pharmacy",
+   "keywords": [
+    "headache",
+    "medicine",
+    "pill",
+    "painkiller"
+   ],
+   "urgent": false,
+   "lit": "Do you have headache medicine?",
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-retsepti-makvs",
+   "ka": "რეცეპტი მაქვს.",
+   "lat": "retsep't'i makvs.",
+   "sound": "reh-tsehp'-t'ee mahkvs",
+   "en": "I have a prescription.",
+   "category": "health",
+   "sub": "pharmacy",
+   "keywords": [
+    "prescription"
+   ],
+   "urgent": false,
+   "words": [
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-retseptit-aris",
+   "ka": "ეს რეცეპტით არის?",
+   "lat": "es retsep't'it aris?",
+   "sound": "ehs reh-tsehp'-t'eet ah-rees",
+   "en": "Is this prescription-only?",
+   "category": "health",
+   "sub": "pharmacy",
+   "keywords": [
+    "prescription",
+    "need"
+   ],
+   "urgent": false,
+   "words": [
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-dgheshi-ramdenjer",
+   "ka": "დღეში რამდენჯერ?",
+   "lat": "dgheshi ramdenjer?",
+   "sound": "dgheh-shee rahm-dehn-jehr",
+   "en": "How many times a day?",
+   "category": "health",
+   "sub": "pharmacy",
+   "keywords": [
+    "dose",
+    "times",
+    "day",
+    "how",
+    "often"
+   ],
+   "urgent": false,
+   "note": "Ask the pharmacist and read the leaflet; this app gives no dosing advice.",
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-chamamde-tu-chamis-shemdeg",
+   "ka": "ჭამამდე თუ ჭამის შემდეგ?",
+   "lat": "ch'amamde tu ch'amis shemdeg?",
+   "sound": "ch'ah-mahm-deh too ch'ah-mees shehm-dehg",
+   "en": "Before or after meals?",
+   "category": "health",
+   "sub": "pharmacy",
+   "keywords": [
+    "before",
+    "after",
+    "food",
+    "meals"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-plasteri-gakvt",
+   "ka": "პლასტერი გაქვთ?",
+   "lat": "p'last'eri gakvt?",
+   "sound": "p'lahs-t'eh-ree gahkvt",
+   "en": "Do you have plasters?",
+   "category": "health",
+   "sub": "pharmacy",
+   "keywords": [
+    "plaster",
+    "bandaid",
+    "bandage"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-tavi-mtkiva",
+   "ka": "თავი მტკივა.",
+   "lat": "tavi mt'k'iva.",
+   "sound": "tah-vee mt'k'ee-vah",
+   "en": "I have a headache.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "headache",
+    "head",
+    "pain",
+    "hurts"
+   ],
+   "urgent": false,
+   "lit": "My head hurts me.",
+   "words": [
+    "p-tavi-mtkiva"
+   ]
+  },
+  {
+   "id": "pb-mutseli-mtkiva",
+   "ka": "მუცელი მტკივა.",
+   "lat": "mutseli mt'k'iva.",
+   "sound": "moo-tseh-lee mt'k'ee-vah",
+   "en": "My stomach hurts.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "stomach",
+    "belly",
+    "ache",
+    "pain"
+   ],
+   "urgent": false,
+   "words": [
+    "p-mutseli-mtkiva"
+   ]
+  },
+  {
+   "id": "pb-qeli-mtkiva",
+   "ka": "ყელი მტკივა.",
+   "lat": "q'eli mt'k'iva.",
+   "sound": "q'eh-lee mt'k'ee-vah",
+   "en": "I have a sore throat.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "throat",
+    "sore",
+    "pain"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-kbili-mtkiva",
+   "ka": "კბილი მტკივა.",
+   "lat": "k'bili mt'k'iva.",
+   "sound": "k'bee-lee mt'k'ee-vah",
+   "en": "I have toothache.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "tooth",
+    "toothache",
+    "dentist"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-ak-mtkiva",
+   "ka": "აქ მტკივა.",
+   "lat": "ak mt'k'iva.",
+   "sound": "ahk mt'k'ee-vah",
+   "en": "It hurts here.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "hurts",
+    "pain",
+    "here"
+   ],
+   "urgent": false,
+   "note": "Point to where it hurts.",
+   "words": [
+    "w-ak"
+   ]
+  },
+  {
+   "id": "pb-sitskhe-makvs",
+   "ka": "სიცხე მაქვს.",
+   "lat": "sitskhe makvs.",
+   "sound": "seets-kheh mahkvs",
+   "en": "I have a fever.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "fever",
+    "temperature",
+    "hot"
+   ],
+   "urgent": false,
+   "words": [
+    "w-makvs",
+    "p-sitskhe-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-khvela-makvs",
+   "ka": "ხველა მაქვს.",
+   "lat": "khvela makvs.",
+   "sound": "khveh-lah mahkvs",
+   "en": "I have a cough.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "cough"
+   ],
+   "urgent": false,
+   "words": [
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-guli-mereva",
+   "ka": "გული მერევა.",
+   "lat": "guli mereva.",
+   "sound": "goo-lee meh-reh-vah",
+   "en": "I feel sick.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "nausea",
+    "sick",
+    "vomit"
+   ],
+   "urgent": false,
+   "note": "Feeling sick in the stomach (nausea)."
+  },
+  {
+   "id": "pb-tavbru-mekhveva",
+   "ka": "თავბრუ მეხვევა.",
+   "lat": "tavbru mekhveva.",
+   "sound": "tahv-broo mehkh-veh-vah",
+   "en": "I feel dizzy.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "dizzy",
+    "faint"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-tsudad-var",
+   "ka": "ცუდად ვარ.",
+   "lat": "tsudad var.",
+   "sound": "tsoo-dahd vahr",
+   "en": "I don't feel well.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "unwell",
+    "ill",
+    "sick",
+    "bad"
+   ],
+   "urgent": false,
+   "words": [
+    "w-var",
+    "p-tsudad-var"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-alergia-makvs",
+   "ka": "ალერგია მაქვს.",
+   "lat": "alergia makvs.",
+   "sound": "ah-lehr-gee-ah mahkvs",
+   "en": "I have an allergy.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "allergy",
+    "allergic"
+   ],
+   "urgent": false,
+   "words": [
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-diabeti-makvs",
+   "ka": "დიაბეტი მაქვს.",
+   "lat": "diabet'i makvs.",
+   "sound": "dee-ah-beh-t'ee mahkvs",
+   "en": "I have diabetes.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "diabetes"
+   ],
+   "urgent": false,
+   "words": [
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-orsulad-var",
+   "ka": "ორსულად ვარ.",
+   "lat": "orsulad var.",
+   "sound": "ohr-soo-lahd vahr",
+   "en": "I'm pregnant.",
+   "category": "health",
+   "sub": "symptoms",
+   "keywords": [
+    "pregnant",
+    "pregnancy"
+   ],
+   "urgent": false,
+   "words": [
+    "w-var"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-ekimi-mchirdeba",
+   "ka": "ექიმი მჭირდება.",
+   "lat": "ekimi mch'irdeba.",
+   "sound": "eh-kee-mee mch'eer-deh-bah",
+   "en": "I need a doctor.",
+   "category": "health",
+   "sub": "doctor",
+   "keywords": [
+    "doctor",
+    "need"
+   ],
+   "urgent": false,
+   "words": [
+    "w-mchirdeba",
+    "p-ekimi-mchirdeba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-ekimtan-chatsera-minda",
+   "ka": "ექიმთან ჩაწერა მინდა.",
+   "lat": "ekimtan chats'era minda.",
+   "sound": "eh-keem-tahn chah-ts'eh-rah meen-dah",
+   "en": "I'd like to book a doctor's appointment.",
+   "category": "health",
+   "sub": "doctor",
+   "keywords": [
+    "appointment",
+    "book",
+    "doctor"
+   ],
+   "urgent": false,
+   "words": [
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-inglisurad-molaparake-ekimi-gqavt",
+   "ka": "ინგლისურად მოლაპარაკე ექიმი გყავთ?",
+   "lat": "inglisurad molap'arak'e ekimi gq'avt?",
+   "sound": "een-glee-soo-rahd moh-lah-p'ah-rah-k'eh eh-kee-mee gq'ahvt",
+   "en": "Do you have a doctor who speaks English?",
+   "category": "health",
+   "sub": "doctor",
+   "keywords": [
+    "doctor",
+    "english",
+    "speak"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-dazghveva-makvs",
+   "ka": "დაზღვევა მაქვს.",
+   "lat": "dazghveva makvs.",
+   "sound": "dahz-ghveh-vah mahkvs",
+   "en": "I have insurance.",
+   "category": "health",
+   "sub": "doctor",
+   "keywords": [
+    "insurance"
+   ],
+   "urgent": false,
+   "words": [
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-saavadmqopo-sad-aris",
+   "ka": "საავადმყოფო სად არის?",
+   "lat": "saavadmq'opo sad aris?",
+   "sound": "sah-ah-vahd-mq'oh-poh sahd ah-rees",
+   "en": "Where is the hospital?",
+   "category": "health",
+   "sub": "doctor",
+   "keywords": [
+    "hospital"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-seriozulia",
+   "ka": "ეს სერიოზულია?",
+   "lat": "es seriozulia?",
+   "sound": "ehs seh-ree-oh-zoo-lee-ah",
+   "en": "Is it serious?",
+   "category": "health",
+   "sub": "doctor",
+   "keywords": [
+    "serious"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-me-joni-mkvia",
+   "ka": "მე ჯონი მქვია.",
+   "lat": "me joni mkvia.",
+   "sound": "meh joh-nee mkvee-ah",
+   "en": "My name is John.",
+   "category": "social",
+   "sub": "meeting",
+   "keywords": [
+    "name",
+    "introduce",
+    "myself",
+    "called"
+   ],
+   "urgent": false,
+   "note": "Use your own name. Georgian adds -ი to names ending in a consonant: John → ჯონი.",
+   "words": [
+    "w-me",
+    "w-mkvia"
+   ]
+  },
+  {
+   "id": "pb-tkven-ra-gkviat",
+   "ka": "თქვენ რა გქვიათ?",
+   "lat": "tkven ra gkviat?",
+   "sound": "tkvehn rah gkvee-aht",
+   "en": "What's your name?",
+   "category": "social",
+   "sub": "meeting",
+   "keywords": [
+    "name",
+    "what",
+    "called"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "variants": [
+    {
+     "label": "To a friend or child",
+     "ka": "რა გქვია?",
+     "lat": "ra gkvia?",
+     "en": "What's your name?"
+    }
+   ],
+   "words": [
+    "w-tkven",
+    "w-ra",
+    "w-ra-gkvia"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-sasiamovnoa",
+   "ka": "სასიამოვნოა.",
+   "lat": "sasiamovnoa.",
+   "sound": "sah-see-ah-mohv-noh-ah",
+   "en": "Nice to meet you.",
+   "category": "social",
+   "sub": "meeting",
+   "keywords": [
+    "nice",
+    "meet",
+    "pleased"
+   ],
+   "urgent": false,
+   "lit": "It's pleasant.",
+   "words": [
+    "w-sasiamovnoa"
+   ]
+  },
+  {
+   "id": "pb-inglisidan-var",
+   "ka": "ინგლისიდან ვარ.",
+   "lat": "inglisidan var.",
+   "sound": "een-glee-see-dahn vahr",
+   "en": "I'm from England.",
+   "category": "social",
+   "sub": "meeting",
+   "keywords": [
+    "from",
+    "england",
+    "country",
+    "where"
+   ],
+   "urgent": false,
+   "note": "Other countries: ამერიკიდან (America), გერმანიიდან (Germany), პოლონეთიდან (Poland).",
+   "words": [
+    "w-var"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-tbilisshi-vtskhovrob",
+   "ka": "თბილისში ვცხოვრობ.",
+   "lat": "tbilisshi vtskhovrob.",
+   "sound": "tbee-lees-shee vtskhohv-rohb",
+   "en": "I live in Tbilisi.",
+   "category": "social",
+   "sub": "meeting",
+   "keywords": [
+    "live",
+    "tbilisi"
+   ],
+   "urgent": false,
+   "words": [
+    "w-vtskhovrob"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-kartuls-vstsavlob",
+   "ka": "ქართულს ვსწავლობ.",
+   "lat": "kartuls vsts'avlob.",
+   "sound": "kahr-tools vsts'ahv-lohb",
+   "en": "I'm learning Georgian.",
+   "category": "social",
+   "sub": "meeting",
+   "keywords": [
+    "learning",
+    "georgian",
+    "study"
+   ],
+   "urgent": false,
+   "words": [
+    "w-vstsavlob"
+   ]
+  },
+  {
+   "id": "pb-akhali-mezobeli-var",
+   "ka": "ახალი მეზობელი ვარ.",
+   "lat": "akhali mezobeli var.",
+   "sound": "ah-khah-lee meh-zoh-beh-lee vahr",
+   "en": "I'm the new neighbour.",
+   "category": "social",
+   "sub": "meeting",
+   "keywords": [
+    "neighbour",
+    "neighbor",
+    "new",
+    "introduce"
+   ],
+   "urgent": false,
+   "words": [
+    "w-var",
+    "p-akhali-mezobeli-var"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-mesame-sartulze-vtskhovrob",
+   "ka": "მესამე სართულზე ვცხოვრობ.",
+   "lat": "mesame sartulze vtskhovrob.",
+   "sound": "meh-sah-meh sahr-tool-zeh vtskhohv-rohb",
+   "en": "I live on the third floor.",
+   "category": "social",
+   "sub": "meeting",
+   "keywords": [
+    "floor",
+    "live",
+    "neighbour"
+   ],
+   "urgent": false,
+   "words": [
+    "w-vtskhovrob"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-rogor-khart",
+   "ka": "როგორ ხართ?",
+   "lat": "rogor khart?",
+   "sound": "roh-gohr khahrt",
+   "en": "How are you?",
+   "category": "social",
+   "sub": "smalltalk",
+   "keywords": [
+    "how",
+    "are",
+    "you"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "variants": [
+    {
+     "label": "To a friend",
+     "ka": "როგორ ხარ?",
+     "lat": "rogor khar?",
+     "en": "How are you?"
+    }
+   ],
+   "replies": [
+    {
+     "ka": "კარგად, თქვენ?",
+     "lat": "k'argad, tkven?",
+     "en": "Fine, and you?"
+    }
+   ],
+   "words": [
+    "w-rogor",
+    "w-rogor-khar",
+    "p-rogor-khart"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-kargad-tkven",
+   "ka": "კარგად, თქვენ?",
+   "lat": "k'argad, tkven?",
+   "sound": "k'ahr-gahd tkvehn",
+   "en": "Fine, and you?",
+   "category": "social",
+   "sub": "smalltalk",
+   "keywords": [
+    "fine",
+    "good",
+    "and",
+    "you",
+    "reply"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-kargad",
+    "w-tkven",
+    "p-kargad-tkven"
+   ]
+  },
+  {
+   "id": "pb-ra-khdeba",
+   "ka": "რა ხდება?",
+   "lat": "ra khdeba?",
+   "sound": "rah khdeh-bah",
+   "en": "What's up?",
+   "category": "social",
+   "sub": "smalltalk",
+   "keywords": [
+    "whats",
+    "up",
+    "news"
+   ],
+   "urgent": false,
+   "reg": "informal",
+   "lit": "What's happening?",
+   "words": [
+    "w-ra"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-ra-kargi-amindia",
+   "ka": "რა კარგი ამინდია!",
+   "lat": "ra k'argi amindia!",
+   "sound": "rah k'ahr-gee ah-meen-dee-ah",
+   "en": "What lovely weather!",
+   "category": "social",
+   "sub": "smalltalk",
+   "keywords": [
+    "weather",
+    "nice",
+    "lovely"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-sakartvelo-dzalian-momtsons",
+   "ka": "საქართველო ძალიან მომწონს.",
+   "lat": "sakartvelo dzalian momts'ons.",
+   "sound": "sah-kahr-tveh-loh dzah-lee-ahn mohm-ts'ohns",
+   "en": "I really like Georgia.",
+   "category": "social",
+   "sub": "smalltalk",
+   "keywords": [
+    "like",
+    "georgia",
+    "love"
+   ],
+   "urgent": false,
+   "words": [
+    "w-momtsons",
+    "p-sakartvelo-dzalian-momtsons"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-ak-ekvsi-tvea-vtskhovrob",
+   "ka": "აქ ექვსი თვეა ვცხოვრობ.",
+   "lat": "ak ekvsi tvea vtskhovrob.",
+   "sound": "ahk ehk-vsee tveh-ah vtskhohv-rohb",
+   "en": "I've lived here for six months.",
+   "category": "social",
+   "sub": "smalltalk",
+   "keywords": [
+    "live",
+    "months",
+    "how",
+    "long",
+    "here"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ak",
+    "w-ekvsi",
+    "w-vtskhovrob"
+   ]
+  },
+  {
+   "id": "pb-stumrad-mobrdzandit",
+   "ka": "სტუმრად მობრძანდით!",
+   "lat": "st'umrad mobrdzandit!",
+   "sound": "st'oom-rahd mohb-rdzahn-deet",
+   "en": "Come and visit us!",
+   "category": "social",
+   "sub": "invitations",
+   "keywords": [
+    "visit",
+    "invite",
+    "come",
+    "guest"
+   ],
+   "urgent": false,
+   "reg": "polite"
+  },
+  {
+   "id": "pb-qavaze-dagpatizheb",
+   "ka": "ყავაზე დაგპატიჟებ.",
+   "lat": "q'avaze dagp'at'izheb.",
+   "sound": "q'ah-vah-zeh dahg-p'ah-t'ee-zhehb",
+   "en": "Let me buy you a coffee.",
+   "category": "social",
+   "sub": "invitations",
+   "keywords": [
+    "coffee",
+    "invite",
+    "treat"
+   ],
+   "urgent": false,
+   "reg": "informal",
+   "lit": "I'll invite you to coffee.",
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-khval-tavisupali-khar",
+   "ka": "ხვალ თავისუფალი ხარ?",
+   "lat": "khval tavisupali khar?",
+   "sound": "khvahl tah-vee-soo-pah-lee khahr",
+   "en": "Are you free tomorrow?",
+   "category": "social",
+   "sub": "invitations",
+   "keywords": [
+    "free",
+    "tomorrow",
+    "meet"
+   ],
+   "urgent": false,
+   "reg": "informal",
+   "words": [
+    "w-khval",
+    "w-khar"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-siamovnebit",
+   "ka": "სიამოვნებით!",
+   "lat": "siamovnebit!",
+   "sound": "see-ah-mohv-neh-beet",
+   "en": "With pleasure!",
+   "category": "social",
+   "sub": "invitations",
+   "keywords": [
+    "yes",
+    "pleasure",
+    "gladly",
+    "accept"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-samtsukharod-ver-moval",
+   "ka": "სამწუხაროდ, ვერ მოვალ.",
+   "lat": "samts'ukharod, ver moval.",
+   "sound": "sahm-ts'oo-khah-rohd vehr moh-vahl",
+   "en": "Unfortunately I can't come.",
+   "category": "social",
+   "sub": "invitations",
+   "keywords": [
+    "cant",
+    "come",
+    "sorry",
+    "decline"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ver"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-ra-movitano",
+   "ka": "რა მოვიტანო?",
+   "lat": "ra movit'ano?",
+   "sound": "rah moh-vee-t'ah-noh",
+   "en": "What should I bring?",
+   "category": "social",
+   "sub": "invitations",
+   "keywords": [
+    "bring",
+    "what"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-gilotsav-dabadebis-dghes",
+   "ka": "გილოცავ დაბადების დღეს!",
+   "lat": "gilotsav dabadebis dghes!",
+   "sound": "gee-loh-tsahv dah-bah-deh-bees dghehs",
+   "en": "Happy birthday!",
+   "category": "social",
+   "sub": "celebrations",
+   "keywords": [
+    "birthday",
+    "happy"
+   ],
+   "urgent": false,
+   "reg": "informal",
+   "variants": [
+    {
+     "label": "Polite",
+     "ka": "გილოცავთ დაბადების დღეს!",
+     "lat": "gilotsavt dabadebis dghes!",
+     "en": "Happy birthday!"
+    }
+   ],
+   "words": [
+    "w-dghes"
+   ]
+  },
+  {
+   "id": "pb-gilotsavt",
+   "ka": "გილოცავთ!",
+   "lat": "gilotsavt!",
+   "sound": "gee-loh-tsahvt",
+   "en": "Congratulations!",
+   "category": "social",
+   "sub": "celebrations",
+   "keywords": [
+    "congratulations",
+    "well",
+    "done"
+   ],
+   "urgent": false,
+   "reg": "polite"
+  },
+  {
+   "id": "pb-gaumarjos",
+   "ka": "გაუმარჯოს!",
+   "lat": "gaumarjos!",
+   "sound": "gah-oo-mahr-johs",
+   "en": "Cheers!",
+   "category": "social",
+   "sub": "celebrations",
+   "keywords": [
+    "cheers",
+    "toast",
+    "drink"
+   ],
+   "urgent": false,
+   "note": "At a supra (feast) the tamada, the toastmaster, makes the toasts; wait for one before you drink wine.",
+   "words": [
+    "p-gaumarjos"
+   ]
+  },
+  {
+   "id": "pb-akhal-tsels-gilotsavt",
+   "ka": "ახალ წელს გილოცავთ!",
+   "lat": "akhal ts'els gilotsavt!",
+   "sound": "ah-khahl ts'ehls gee-loh-tsahvt",
+   "en": "Happy New Year!",
+   "category": "social",
+   "sub": "celebrations",
+   "keywords": [
+    "new",
+    "year",
+    "happy"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-dzalian-didi-madloba-dakhmarebistvis",
+   "ka": "ძალიან დიდი მადლობა დახმარებისთვის.",
+   "lat": "dzalian didi madloba dakhmarebistvis.",
+   "sound": "dzah-lee-ahn dee-dee mahd-loh-bah dahkh-mah-reh-bees-tvees",
+   "en": "Thank you so much for your help.",
+   "category": "social",
+   "sub": "thanks",
+   "keywords": [
+    "thanks",
+    "help",
+    "thank"
+   ],
+   "urgent": false,
+   "words": [
+    "w-madloba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-dzalian-gemrieli-iqo-madloba",
+   "ka": "ძალიან გემრიელი იყო, მადლობა.",
+   "lat": "dzalian gemrieli iq'o, madloba.",
+   "sound": "dzah-lee-ahn gehm-ree-eh-lee ee-q'oh mahd-loh-bah",
+   "en": "It was delicious, thank you.",
+   "category": "social",
+   "sub": "thanks",
+   "keywords": [
+    "delicious",
+    "thanks",
+    "food",
+    "dinner"
+   ],
+   "urgent": false,
+   "words": [
+    "w-madloba"
+   ]
+  },
+  {
+   "id": "pb-bodishi-davagviane",
+   "ka": "ბოდიში, დავაგვიანე.",
+   "lat": "bodishi, davagviane.",
+   "sound": "boh-dee-shee dah-vahg-vee-ah-neh",
+   "en": "Sorry I'm late.",
+   "category": "social",
+   "sub": "thanks",
+   "keywords": [
+    "sorry",
+    "late"
+   ],
+   "urgent": false,
+   "words": [
+    "w-bodishi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-ara-ushavs",
+   "ka": "არა უშავს.",
+   "lat": "ara ushavs.",
+   "sound": "ah-rah oo-shahvs",
+   "en": "No problem.",
+   "category": "social",
+   "sub": "thanks",
+   "keywords": [
+    "no",
+    "problem",
+    "ok",
+    "fine",
+    "worries"
+   ],
+   "urgent": false,
+   "lit": "It doesn't matter.",
+   "words": [
+    "w-ara"
+   ]
+  },
+  {
+   "id": "pb-shekhvedra-romel-saatzea",
+   "ka": "შეხვედრა რომელ საათზეა?",
+   "lat": "shekhvedra romel saatzea?",
+   "sound": "shehkh-vehd-rah roh-mehl sah-aht-zeh-ah",
+   "en": "What time is the meeting?",
+   "category": "work",
+   "sub": "workplace",
+   "keywords": [
+    "meeting",
+    "time"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-dakavebuli-var",
+   "ka": "დაკავებული ვარ.",
+   "lat": "dak'avebuli var.",
+   "sound": "dah-k'ah-veh-boo-lee vahr",
+   "en": "I'm busy.",
+   "category": "work",
+   "sub": "workplace",
+   "keywords": [
+    "busy"
+   ],
+   "urgent": false,
+   "words": [
+    "w-var",
+    "p-dakavebuli-var"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-elpostit-gamomigzavnet-tu-sheidzleba",
+   "ka": "ელფოსტით გამომიგზავნეთ, თუ შეიძლება.",
+   "lat": "elpost'it gamomigzavnet, tu sheidzleba.",
+   "sound": "ehl-pohs-t'eet gah-moh-meeg-zahv-neht too sheh-eedz-leh-bah",
+   "en": "Please send it to me by email.",
+   "category": "work",
+   "sub": "workplace",
+   "keywords": [
+    "email",
+    "send"
+   ],
+   "urgent": false,
+   "reg": "polite",
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-dghes-sakhlidan-vmushaob",
+   "ka": "დღეს სახლიდან ვმუშაობ.",
+   "lat": "dghes sakhlidan vmushaob.",
+   "sound": "dghehs sahkh-lee-dahn vmoo-shah-ohb",
+   "en": "I'm working from home today.",
+   "category": "work",
+   "sub": "workplace",
+   "keywords": [
+    "work",
+    "home",
+    "remote"
+   ],
+   "urgent": false,
+   "words": [
+    "w-dghes"
+   ],
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-dagirekavt",
+   "ka": "დაგირეკავთ.",
+   "lat": "dagirek'avt.",
+   "sound": "dah-gee-reh-k'ahvt",
+   "en": "I'll call you.",
+   "category": "work",
+   "sub": "workplace",
+   "keywords": [
+    "call",
+    "phone"
+   ],
+   "urgent": false,
+   "reg": "polite"
+  },
+  {
+   "id": "pb-iustitsiis-sakhli-sad-aris",
+   "ka": "იუსტიციის სახლი სად არის?",
+   "lat": "iust'itsiis sakhli sad aris?",
+   "sound": "ee-oos-t'ee-tsee-ees sahkh-lee sahd ah-rees",
+   "en": "Where is the Public Service Hall?",
+   "category": "work",
+   "sub": "documents",
+   "keywords": [
+    "public",
+    "service",
+    "hall",
+    "office",
+    "documents"
+   ],
+   "urgent": false,
+   "note": "Many documents are handled there, from ID cards to residence permits.",
+   "words": [
+    "w-sakhli",
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-rigis-nomeri-sad-avigho",
+   "ka": "რიგის ნომერი სად ავიღო?",
+   "lat": "rigis nomeri sad avigho?",
+   "sound": "ree-gees noh-meh-ree sahd ah-vee-ghoh",
+   "en": "Where do I get a queue number?",
+   "category": "work",
+   "sub": "documents",
+   "keywords": [
+    "queue",
+    "ticket",
+    "number",
+    "line"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-ra-sabutebi-mchirdeba",
+   "ka": "რა საბუთები მჭირდება?",
+   "lat": "ra sabutebi mch'irdeba?",
+   "sound": "rah sah-boo-teh-bee mch'eer-deh-bah",
+   "en": "What documents do I need?",
+   "category": "work",
+   "sub": "documents",
+   "keywords": [
+    "documents",
+    "papers",
+    "need"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-mchirdeba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-pasporti-tan-makvs",
+   "ka": "პასპორტი თან მაქვს.",
+   "lat": "p'asp'ort'i tan makvs.",
+   "sound": "p'ahs-p'ohr-t'ee tahn mahkvs",
+   "en": "I have my passport with me.",
+   "category": "work",
+   "sub": "documents",
+   "keywords": [
+    "passport",
+    "id"
+   ],
+   "urgent": false,
+   "words": [
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-binadrobis-nebartva-mchirdeba",
+   "ka": "ბინადრობის ნებართვა მჭირდება.",
+   "lat": "binadrobis nebartva mch'irdeba.",
+   "sound": "bee-nahd-roh-bees neh-bahr-tvah mch'eer-deh-bah",
+   "en": "I need a residence permit.",
+   "category": "work",
+   "sub": "documents",
+   "keywords": [
+    "residence",
+    "permit",
+    "visa"
+   ],
+   "urgent": false,
+   "words": [
+    "w-mchirdeba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-porma-rogor-shevavso",
+   "ka": "ფორმა როგორ შევავსო?",
+   "lat": "porma rogor shevavso?",
+   "sound": "pohr-mah roh-gohr sheh-vahv-soh",
+   "en": "How do I fill in the form?",
+   "category": "work",
+   "sub": "documents",
+   "keywords": [
+    "form",
+    "fill"
+   ],
+   "urgent": false,
+   "words": [
+    "w-rogor"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-angarishis-gakhsna-minda",
+   "ka": "ანგარიშის გახსნა მინდა.",
+   "lat": "angarishis gakhsna minda.",
+   "sound": "ahn-gah-ree-shees gahkh-snah meen-dah",
+   "en": "I'd like to open a bank account.",
+   "category": "work",
+   "sub": "bank",
+   "keywords": [
+    "account",
+    "bank",
+    "open"
+   ],
+   "urgent": false,
+   "note": "ანგარიში means both a bank account and a bill.",
+   "words": [
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-barati-damebloka",
+   "ka": "ბარათი დამებლოკა.",
+   "lat": "barati dameblok'a.",
+   "sound": "bah-rah-tee dah-mehb-loh-k'ah",
+   "en": "My card has been blocked.",
+   "category": "work",
+   "sub": "bank",
+   "keywords": [
+    "card",
+    "blocked",
+    "bank"
+   ],
+   "urgent": false,
+   "words": [
+    "w-barati"
+   ]
+  },
+  {
+   "id": "pb-pulis-gadaritskhva-minda",
+   "ka": "ფულის გადარიცხვა მინდა.",
+   "lat": "pulis gadaritskhva minda.",
+   "sound": "poo-lees gah-dah-reets-khvah meen-dah",
+   "en": "I'd like to transfer money.",
+   "category": "work",
+   "sub": "bank",
+   "keywords": [
+    "transfer",
+    "money",
+    "send"
+   ],
+   "urgent": false,
+   "words": [
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-pulis-gadatsvla-sad-sheidzleba",
+   "ka": "ფულის გადაცვლა სად შეიძლება?",
+   "lat": "pulis gadatsvla sad sheidzleba?",
+   "sound": "poo-lees gah-dahts-vlah sahd sheh-eedz-leh-bah",
+   "en": "Where can I change money?",
+   "category": "work",
+   "sub": "bank",
+   "keywords": [
+    "exchange",
+    "change",
+    "money",
+    "currency"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-dolaris-kursi-ra-aris",
+   "ka": "დოლარის კურსი რა არის?",
+   "lat": "dolaris k'ursi ra aris?",
+   "sound": "doh-lah-rees k'oor-see rah ah-rees",
+   "en": "What's the dollar rate?",
+   "category": "work",
+   "sub": "bank",
+   "keywords": [
+    "rate",
+    "exchange",
+    "dollar"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-posta-sad-aris",
+   "ka": "ფოსტა სად არის?",
+   "lat": "post'a sad aris?",
+   "sound": "pohs-t'ah sahd ah-rees",
+   "en": "Where is the post office?",
+   "category": "work",
+   "sub": "post",
+   "keywords": [
+    "post",
+    "office",
+    "mail"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-amanati-unda-gavagzavno",
+   "ka": "ამანათი უნდა გავაგზავნო.",
+   "lat": "amanati unda gavagzavno.",
+   "sound": "ah-mah-nah-tee oon-dah gah-vahg-zahv-noh",
+   "en": "I need to send a parcel.",
+   "category": "work",
+   "sub": "post",
+   "keywords": [
+    "parcel",
+    "send",
+    "package"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-amanatis-asaghebad-movedi",
+   "ka": "ამანათის ასაღებად მოვედი.",
+   "lat": "amanatis asaghebad movedi.",
+   "sound": "ah-mah-nah-tees ah-sah-gheh-bahd moh-veh-dee",
+   "en": "I've come to pick up a parcel.",
+   "category": "work",
+   "sub": "post",
+   "keywords": [
+    "parcel",
+    "pick",
+    "collect",
+    "package"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-sim-barati-minda",
+   "ka": "სიმ ბარათი მინდა.",
+   "lat": "sim barati minda.",
+   "sound": "seem bah-rah-tee meen-dah",
+   "en": "I'd like a SIM card.",
+   "category": "work",
+   "sub": "mobile",
+   "keywords": [
+    "sim",
+    "card",
+    "phone",
+    "mobile"
+   ],
+   "urgent": false,
+   "words": [
+    "w-barati",
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-internetis-paketi-ra-ghirs",
+   "ka": "ინტერნეტის პაკეტი რა ღირს?",
+   "lat": "int'ernet'is p'ak'et'i ra ghirs?",
+   "sound": "een-t'ehr-neh-t'ees p'ah-k'eh-t'ee rah gheers",
+   "en": "How much is an internet package?",
+   "category": "work",
+   "sub": "mobile",
+   "keywords": [
+    "internet",
+    "data",
+    "package",
+    "price"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-ra-ghirs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-balansi-rogor-shevavso",
+   "ka": "ბალანსი როგორ შევავსო?",
+   "lat": "balansi rogor shevavso?",
+   "sound": "bah-lahn-see roh-gohr sheh-vahv-soh",
+   "en": "How do I top up my balance?",
+   "category": "work",
+   "sub": "mobile",
+   "keywords": [
+    "top",
+    "up",
+    "balance",
+    "credit"
+   ],
+   "urgent": false,
+   "words": [
+    "w-rogor"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-sakhlshi-internetis-sheqvana-minda",
+   "ka": "სახლში ინტერნეტის შეყვანა მინდა.",
+   "lat": "sakhlshi int'ernet'is sheq'vana minda.",
+   "sound": "sahkh-lshee een-t'ehr-neh-t'ees shehq'-vah-nah meen-dah",
+   "en": "I'd like internet installed at home.",
+   "category": "work",
+   "sub": "mobile",
+   "keywords": [
+    "internet",
+    "home",
+    "install",
+    "provider"
+   ],
+   "urgent": false,
+   "words": [
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-shekhvedris-chanishvna-minda",
+   "ka": "შეხვედრის ჩანიშვნა მინდა.",
+   "lat": "shekhvedris chanishvna minda.",
+   "sound": "shehkh-vehd-rees chah-neesh-vnah meen-dah",
+   "en": "I'd like to make an appointment.",
+   "category": "work",
+   "sub": "appointments",
+   "keywords": [
+    "appointment",
+    "book"
+   ],
+   "urgent": false,
+   "words": [
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-khval-sheidzleba",
+   "ka": "ხვალ შეიძლება?",
+   "lat": "khval sheidzleba?",
+   "sound": "khvahl sheh-eedz-leh-bah",
+   "en": "Is tomorrow possible?",
+   "category": "work",
+   "sub": "appointments",
+   "keywords": [
+    "tomorrow",
+    "possible"
+   ],
+   "urgent": false,
+   "words": [
+    "w-khval",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-dro-gadavitanot",
+   "ka": "დრო გადავიტანოთ?",
+   "lat": "dro gadavit'anot?",
+   "sound": "droh gah-dah-vee-t'ah-noht",
+   "en": "Can we reschedule?",
+   "category": "work",
+   "sub": "appointments",
+   "keywords": [
+    "reschedule",
+    "move",
+    "time",
+    "change"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-otakhi-dajavshnili-makvs",
+   "ka": "ოთახი დაჯავშნილი მაქვს.",
+   "lat": "otakhi dajavshnili makvs.",
+   "sound": "oh-tah-khee dah-jahv-shnee-lee mahkvs",
+   "en": "I have a room booked.",
+   "category": "travel",
+   "sub": "hotel",
+   "keywords": [
+    "room",
+    "booked",
+    "reservation",
+    "hotel"
+   ],
+   "urgent": false,
+   "words": [
+    "w-otakhi",
+    "w-makvs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-tavisupali-otakhi-gakvt",
+   "ka": "თავისუფალი ოთახი გაქვთ?",
+   "lat": "tavisupali otakhi gakvt?",
+   "sound": "tah-vee-soo-pah-lee oh-tah-khee gahkvt",
+   "en": "Do you have a free room?",
+   "category": "travel",
+   "sub": "hotel",
+   "keywords": [
+    "room",
+    "free",
+    "available",
+    "hotel"
+   ],
+   "urgent": false,
+   "words": [
+    "w-otakhi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-sauzme-shedis",
+   "ka": "საუზმე შედის?",
+   "lat": "sauzme shedis?",
+   "sound": "sah-ooz-meh sheh-dees",
+   "en": "Is breakfast included?",
+   "category": "travel",
+   "sub": "hotel",
+   "keywords": [
+    "breakfast",
+    "included"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-otakhi-romel-saatamde-unda-davtovo",
+   "ka": "ოთახი რომელ საათამდე უნდა დავტოვო?",
+   "lat": "otakhi romel saatamde unda davt'ovo?",
+   "sound": "oh-tah-khee roh-mehl sah-ah-tahm-deh oon-dah dahv-t'oh-voh",
+   "en": "What time do I need to leave the room?",
+   "category": "travel",
+   "sub": "hotel",
+   "keywords": [
+    "check",
+    "out",
+    "leave",
+    "time"
+   ],
+   "urgent": false,
+   "words": [
+    "w-otakhi"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-bargis-datoveba-sheidzleba",
+   "ka": "ბარგის დატოვება შეიძლება?",
+   "lat": "bargis dat'oveba sheidzleba?",
+   "sound": "bahr-gees dah-t'oh-veh-bah sheh-eedz-leh-bah",
+   "en": "Can I leave my luggage?",
+   "category": "travel",
+   "sub": "hotel",
+   "keywords": [
+    "luggage",
+    "leave",
+    "bags",
+    "store"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-otakhshi-tsiva",
+   "ka": "ოთახში ცივა.",
+   "lat": "otakhshi tsiva.",
+   "sound": "oh-tahkh-shee tsee-vah",
+   "en": "It's cold in the room.",
+   "category": "travel",
+   "sub": "hotel",
+   "keywords": [
+    "cold",
+    "room",
+    "heating"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-ra-shenobaa",
+   "ka": "ეს რა შენობაა?",
+   "lat": "es ra shenobaa?",
+   "sound": "ehs rah sheh-noh-bah-ah",
+   "en": "What building is this?",
+   "category": "travel",
+   "sub": "sightseeing",
+   "keywords": [
+    "building",
+    "what"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-muzeumi-romel-saatze-ikhsneba",
+   "ka": "მუზეუმი რომელ საათზე იხსნება?",
+   "lat": "muzeumi romel saatze ikhsneba?",
+   "sound": "moo-zeh-oo-mee roh-mehl sah-aht-zeh eekh-sneh-bah",
+   "en": "What time does the museum open?",
+   "category": "travel",
+   "sub": "sightseeing",
+   "keywords": [
+    "museum",
+    "open",
+    "time"
+   ],
+   "urgent": false,
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-bileti-ra-ghirs",
+   "ka": "ბილეთი რა ღირს?",
+   "lat": "bileti ra ghirs?",
+   "sound": "bee-leh-tee rah gheers",
+   "en": "How much is a ticket?",
+   "category": "travel",
+   "sub": "sightseeing",
+   "keywords": [
+    "ticket",
+    "price",
+    "cost"
+   ],
+   "urgent": false,
+   "words": [
+    "w-bileti",
+    "w-ra",
+    "w-ra-ghirs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-suratis-gadagheba-sheidzleba",
+   "ka": "სურათის გადაღება შეიძლება?",
+   "lat": "suratis gadagheba sheidzleba?",
+   "sound": "soo-rah-tees gah-dah-gheh-bah sheh-eedz-leh-bah",
+   "en": "Can I take a photo?",
+   "category": "travel",
+   "sub": "sightseeing",
+   "keywords": [
+    "photo",
+    "picture",
+    "camera"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-gadamighebt",
+   "ka": "გადამიღებთ?",
+   "lat": "gadamighebt?",
+   "sound": "gah-dah-mee-ghehbt",
+   "en": "Could you take a photo of me?",
+   "category": "travel",
+   "sub": "sightseeing",
+   "keywords": [
+    "photo",
+    "picture",
+    "me"
+   ],
+   "urgent": false,
+   "reg": "polite"
+  },
+  {
+   "id": "pb-tavsapari-mchirdeba",
+   "ka": "თავსაფარი მჭირდება?",
+   "lat": "tavsapari mch'irdeba?",
+   "sound": "tahv-sah-pah-ree mch'eer-deh-bah",
+   "en": "Do I need a headscarf?",
+   "category": "travel",
+   "sub": "sightseeing",
+   "keywords": [
+    "headscarf",
+    "church",
+    "cover"
+   ],
+   "urgent": false,
+   "note": "In Orthodox churches women usually cover their hair and wear a skirt; men don't wear shorts.",
+   "words": [
+    "w-mchirdeba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-ak-kargi-restorani-sad-aris",
+   "ka": "აქ კარგი რესტორანი სად არის?",
+   "lat": "ak k'argi rest'orani sad aris?",
+   "sound": "ahk k'ahr-gee rehs-t'oh-rah-nee sahd ah-rees",
+   "en": "Where's a good restaurant around here?",
+   "category": "travel",
+   "sub": "tips",
+   "keywords": [
+    "restaurant",
+    "good",
+    "recommend",
+    "eat"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ak",
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-autsileblad-ra-unda-vnakho",
+   "ka": "აუცილებლად რა უნდა ვნახო?",
+   "lat": "autsileblad ra unda vnakho?",
+   "sound": "ah-oo-tsee-lehb-lahd rah oon-dah vnah-khoh",
+   "en": "What should I definitely see?",
+   "category": "travel",
+   "sub": "tips",
+   "keywords": [
+    "see",
+    "visit",
+    "recommend",
+    "must"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-adgilobrivebi-sad-chamen",
+   "ka": "ადგილობრივები სად ჭამენ?",
+   "lat": "adgilobrivebi sad ch'amen?",
+   "sound": "ahd-gee-lohb-ree-veh-bee sahd ch'ah-mehn",
+   "en": "Where do locals eat?",
+   "category": "travel",
+   "sub": "tips",
+   "keywords": [
+    "locals",
+    "eat",
+    "restaurant"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-es-biliki-sad-midis",
+   "ka": "ეს ბილიკი სად მიდის?",
+   "lat": "es bilik'i sad midis?",
+   "sound": "ehs bee-lee-k'ee sahd mee-dees",
+   "en": "Where does this trail go?",
+   "category": "travel",
+   "sub": "hiking",
+   "keywords": [
+    "trail",
+    "path",
+    "hiking"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-mtsvervalamde-ramdeni-saatia",
+   "ka": "მწვერვალამდე რამდენი საათია?",
+   "lat": "mts'vervalamde ramdeni saatia?",
+   "sound": "mts'vehr-vah-lahm-deh rahm-deh-nee sah-ah-tee-ah",
+   "en": "How many hours to the summit?",
+   "category": "travel",
+   "sub": "hiking",
+   "keywords": [
+    "summit",
+    "top",
+    "peak",
+    "hours"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ramdeni"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-ak-karvis-gashla-sheidzleba",
+   "ka": "აქ კარვის გაშლა შეიძლება?",
+   "lat": "ak k'arvis gashla sheidzleba?",
+   "sound": "ahk k'ahr-vees gahsh-lah sheh-eedz-leh-bah",
+   "en": "Can I pitch a tent here?",
+   "category": "travel",
+   "sub": "hiking",
+   "keywords": [
+    "tent",
+    "camping",
+    "camp"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ak",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-tsqaro-akhlos-aris",
+   "ka": "წყარო ახლოს არის?",
+   "lat": "ts'q'aro akhlos aris?",
+   "sound": "ts'q'ah-roh ahkh-lohs ah-rees",
+   "en": "Is there a spring nearby?",
+   "category": "travel",
+   "sub": "hiking",
+   "keywords": [
+    "spring",
+    "water",
+    "drink"
+   ],
+   "urgent": false,
+   "words": [
+    "w-akhlos",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-khval-amindi-rogori-ikneba",
+   "ka": "ხვალ ამინდი როგორი იქნება?",
+   "lat": "khval amindi rogori ikneba?",
+   "sound": "khvahl ah-meen-dee roh-goh-ree eek-neh-bah",
+   "en": "What will the weather be like tomorrow?",
+   "category": "travel",
+   "sub": "hiking",
+   "keywords": [
+    "weather",
+    "tomorrow"
+   ],
+   "urgent": false,
+   "words": [
+    "w-khval"
+   ]
+  },
+  {
+   "id": "pb-gza-usaprtkhoa",
+   "ka": "გზა უსაფრთხოა?",
+   "lat": "gza usaprtkhoa?",
+   "sound": "gzah oo-sahp-rtkhoh-ah",
+   "en": "Is the road safe?",
+   "category": "travel",
+   "sub": "hiking",
+   "keywords": [
+    "road",
+    "safe",
+    "safety"
+   ],
+   "urgent": false
+  },
+  {
+   "id": "pb-mankanis-dakiraveba-minda",
+   "ka": "მანქანის დაქირავება მინდა.",
+   "lat": "mankanis dakiraveba minda.",
+   "sound": "mahn-kah-nees dah-kee-rah-veh-bah meen-dah",
+   "en": "I'd like to hire a car.",
+   "category": "travel",
+   "sub": "car",
+   "keywords": [
+    "car",
+    "rent",
+    "hire",
+    "rental"
+   ],
+   "urgent": false,
+   "words": [
+    "w-minda"
+   ],
+   "grammar": [
+    {
+     "lesson": "g4",
+     "why": "Want, have, know: verbs with \"me\" inside."
+    }
+   ]
+  },
+  {
+   "id": "pb-dgheshi-ra-ghirs",
+   "ka": "დღეში რა ღირს?",
+   "lat": "dgheshi ra ghirs?",
+   "sound": "dgheh-shee rah gheers",
+   "en": "How much is it per day?",
+   "category": "travel",
+   "sub": "car",
+   "keywords": [
+    "day",
+    "price",
+    "per",
+    "cost"
+   ],
+   "urgent": false,
+   "words": [
+    "w-ra",
+    "w-ra-ghirs"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-benzingasamarti-sadguri-sad-aris",
+   "ka": "ბენზინგასამართი სადგური სად არის?",
+   "lat": "benzingasamarti sadguri sad aris?",
+   "sound": "behn-zeen-gah-sah-mahr-tee sahd-goo-ree sahd ah-rees",
+   "en": "Where is a petrol station?",
+   "category": "travel",
+   "sub": "car",
+   "keywords": [
+    "petrol",
+    "gas",
+    "station",
+    "fuel"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sadguri",
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-savse-avzi-tu-sheidzleba",
+   "ka": "სავსე ავზი, თუ შეიძლება.",
+   "lat": "savse avzi, tu sheidzleba.",
+   "sound": "sahv-seh ahv-zee too sheh-eedz-leh-bah",
+   "en": "A full tank, please.",
+   "category": "travel",
+   "sub": "car",
+   "keywords": [
+    "full",
+    "tank",
+    "fuel",
+    "petrol"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-sad-sheidzleba-mankanis-daqeneba",
+   "ka": "სად შეიძლება მანქანის დაყენება?",
+   "lat": "sad sheidzleba mankanis daq'eneba?",
+   "sound": "sahd sheh-eedz-leh-bah mahn-kah-nees dah-q'eh-neh-bah",
+   "en": "Where can I park?",
+   "category": "travel",
+   "sub": "car",
+   "keywords": [
+    "park",
+    "parking",
+    "car"
+   ],
+   "urgent": false,
+   "words": [
+    "w-sad",
+    "w-sheidzleba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    },
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    }
+   ]
+  },
+  {
+   "id": "pb-mishvelet",
+   "ka": "მიშველეთ!",
+   "lat": "mishvelet!",
+   "sound": "meesh-veh-leht",
+   "en": "Help!",
+   "category": "emergency",
+   "sub": "help",
+   "keywords": [
+    "help",
+    "emergency"
+   ],
+   "urgent": true
+  },
+  {
+   "id": "pb-dareket-ze",
+   "ka": "დარეკეთ 112-ზე!",
+   "lat": "darek'et 112-ze!",
+   "sound": "dah-reh-k'eht 112-zeh",
+   "en": "Call 112!",
+   "category": "emergency",
+   "sub": "help",
+   "keywords": [
+    "call",
+    "112",
+    "emergency",
+    "number"
+   ],
+   "urgent": true,
+   "note": "112 is Georgia's emergency number for ambulance, police and fire.",
+   "grammar": [
+    {
+     "lesson": "g8",
+     "why": "Endings for in, on, from, to."
+    }
+   ]
+  },
+  {
+   "id": "pb-sastsrapo-gamoidzakhet",
+   "ka": "სასწრაფო გამოიძახეთ!",
+   "lat": "sasts'rapo gamoidzakhet!",
+   "sound": "sahs-ts'rah-poh gah-moh-ee-dzah-kheht",
+   "en": "Call an ambulance!",
+   "category": "emergency",
+   "sub": "help",
+   "keywords": [
+    "ambulance",
+    "call",
+    "emergency"
+   ],
+   "urgent": true
+  },
+  {
+   "id": "pb-politsia-gamoidzakhet",
+   "ka": "პოლიცია გამოიძახეთ!",
+   "lat": "p'olitsia gamoidzakhet!",
+   "sound": "p'oh-lee-tsee-ah gah-moh-ee-dzah-kheht",
+   "en": "Call the police!",
+   "category": "emergency",
+   "sub": "help",
+   "keywords": [
+    "police",
+    "call"
+   ],
+   "urgent": true
+  },
+  {
+   "id": "pb-khandzaria",
+   "ka": "ხანძარია!",
+   "lat": "khandzaria!",
+   "sound": "khahn-dzah-ree-ah",
+   "en": "Fire!",
+   "category": "emergency",
+   "sub": "help",
+   "keywords": [
+    "fire"
+   ],
+   "urgent": true
+  },
+  {
+   "id": "pb-ekimi-sastsrapod-mchirdeba",
+   "ka": "ექიმი სასწრაფოდ მჭირდება!",
+   "lat": "ekimi sasts'rapod mch'irdeba!",
+   "sound": "eh-kee-mee sahs-ts'rah-pohd mch'eer-deh-bah",
+   "en": "I need a doctor urgently!",
+   "category": "emergency",
+   "sub": "medical",
+   "keywords": [
+    "doctor",
+    "urgent",
+    "emergency"
+   ],
+   "urgent": true,
+   "words": [
+    "w-mchirdeba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-tsudad-aris",
+   "ka": "ცუდად არის.",
+   "lat": "tsudad aris.",
+   "sound": "tsoo-dahd ah-rees",
+   "en": "They're unwell.",
+   "category": "emergency",
+   "sub": "medical",
+   "keywords": [
+    "unwell",
+    "ill",
+    "someone"
+   ],
+   "urgent": true,
+   "note": "ის (he, she) is left out: this works for anyone.",
+   "words": [
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-ver-suntkavs",
+   "ka": "ვერ სუნთქავს.",
+   "lat": "ver suntkavs.",
+   "sound": "vehr soon-tkahvs",
+   "en": "They can't breathe.",
+   "category": "emergency",
+   "sub": "medical",
+   "keywords": [
+    "breathe",
+    "breathing"
+   ],
+   "urgent": true,
+   "words": [
+    "w-ver"
+   ],
+   "grammar": [
+    {
+     "lesson": "g6",
+     "why": "Saying not and can't."
+    }
+   ]
+  },
+  {
+   "id": "pb-goneba-dakarga",
+   "ka": "გონება დაკარგა.",
+   "lat": "goneba dak'arga.",
+   "sound": "goh-neh-bah dah-k'ahr-gah",
+   "en": "They've fainted.",
+   "category": "emergency",
+   "sub": "medical",
+   "keywords": [
+    "fainted",
+    "unconscious"
+   ],
+   "urgent": true,
+   "lit": "They lost consciousness."
+  },
+  {
+   "id": "pb-siskhli-modis",
+   "ka": "სისხლი მოდის.",
+   "lat": "siskhli modis.",
+   "sound": "sees-khlee moh-dees",
+   "en": "It's bleeding.",
+   "category": "emergency",
+   "sub": "medical",
+   "keywords": [
+    "blood",
+    "bleeding"
+   ],
+   "urgent": true,
+   "lit": "Blood is coming."
+  },
+  {
+   "id": "pb-chanta-mompares",
+   "ka": "ჩანთა მომპარეს.",
+   "lat": "chanta momp'ares.",
+   "sound": "chahn-tah mohm-p'ah-rehs",
+   "en": "My bag has been stolen.",
+   "category": "emergency",
+   "sub": "police",
+   "keywords": [
+    "stolen",
+    "bag",
+    "theft",
+    "robbed"
+   ],
+   "urgent": true,
+   "words": [
+    "w-chanta"
+   ]
+  },
+  {
+   "id": "pb-teleponi-mompares",
+   "ka": "ტელეფონი მომპარეს.",
+   "lat": "t'eleponi momp'ares.",
+   "sound": "t'eh-leh-poh-nee mohm-p'ah-rehs",
+   "en": "My phone has been stolen.",
+   "category": "emergency",
+   "sub": "police",
+   "keywords": [
+    "stolen",
+    "phone",
+    "theft"
+   ],
+   "urgent": true,
+   "words": [
+    "w-teleponi"
+   ]
+  },
+  {
+   "id": "pb-politsiis-ganqopileba-sad-aris",
+   "ka": "პოლიციის განყოფილება სად არის?",
+   "lat": "p'olitsiis ganq'opileba sad aris?",
+   "sound": "p'oh-lee-tsee-ees gahn-q'oh-pee-leh-bah sahd ah-rees",
+   "en": "Where is the police station?",
+   "category": "emergency",
+   "sub": "police",
+   "keywords": [
+    "police",
+    "station"
+   ],
+   "urgent": true,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-tarjimani-mchirdeba",
+   "ka": "თარჯიმანი მჭირდება.",
+   "lat": "tarjimani mch'irdeba.",
+   "sound": "tahr-jee-mah-nee mch'eer-deh-bah",
+   "en": "I need an interpreter.",
+   "category": "emergency",
+   "sub": "police",
+   "keywords": [
+    "interpreter",
+    "translator"
+   ],
+   "urgent": true,
+   "words": [
+    "w-mchirdeba"
+   ],
+   "grammar": [
+    {
+     "lesson": "g9",
+     "why": "\"Please\", \"I need\" and \"I like\" work the same way."
+    }
+   ]
+  },
+  {
+   "id": "pb-davikarge",
+   "ka": "დავიკარგე.",
+   "lat": "davik'arge.",
+   "sound": "dah-vee-k'ahr-geh",
+   "en": "I'm lost.",
+   "category": "emergency",
+   "sub": "lost",
+   "keywords": [
+    "lost"
+   ],
+   "urgent": true
+  },
+  {
+   "id": "pb-pasporti-davkarge",
+   "ka": "პასპორტი დავკარგე.",
+   "lat": "p'asp'ort'i davk'arge.",
+   "sound": "p'ahs-p'ohr-t'ee dahv-k'ahr-geh",
+   "en": "I've lost my passport.",
+   "category": "emergency",
+   "sub": "lost",
+   "keywords": [
+    "passport",
+    "lost"
+   ],
+   "urgent": true
+  },
+  {
+   "id": "pb-saelcho-sad-aris",
+   "ka": "საელჩო სად არის?",
+   "lat": "saelcho sad aris?",
+   "sound": "sah-ehl-choh sahd ah-rees",
+   "en": "Where is the embassy?",
+   "category": "emergency",
+   "sub": "lost",
+   "keywords": [
+    "embassy"
+   ],
+   "urgent": true,
+   "words": [
+    "w-sad",
+    "w-aris"
+   ],
+   "grammar": [
+    {
+     "lesson": "g5",
+     "why": "How questions are asked."
+    },
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  },
+  {
+   "id": "pb-bavshvi-daikarga",
+   "ka": "ბავშვი დაიკარგა.",
+   "lat": "bavshvi daik'arga.",
+   "sound": "bahv-shvee dah-ee-k'ahr-gah",
+   "en": "A child is lost.",
+   "category": "emergency",
+   "sub": "lost",
+   "keywords": [
+    "child",
+    "lost",
+    "kid"
+   ],
+   "urgent": true,
+   "words": [
+    "w-bavshvi"
+   ]
+  },
+  {
+   "id": "pb-avaria-mokhda",
+   "ka": "ავარია მოხდა.",
+   "lat": "avaria mokhda.",
+   "sound": "ah-vah-ree-ah mohkh-dah",
+   "en": "There's been an accident.",
+   "category": "emergency",
+   "sub": "accident",
+   "keywords": [
+    "accident",
+    "crash"
+   ],
+   "urgent": true
+  },
+  {
+   "id": "pb-vighats-dashavda",
+   "ka": "ვიღაც დაშავდა.",
+   "lat": "vighats dashavda.",
+   "sound": "vee-ghahts dah-shahv-dah",
+   "en": "Someone is hurt.",
+   "category": "emergency",
+   "sub": "accident",
+   "keywords": [
+    "hurt",
+    "injured",
+    "someone"
+   ],
+   "urgent": true
+  },
+  {
+   "id": "pb-kargad-var",
+   "ka": "კარგად ვარ.",
+   "lat": "k'argad var.",
+   "sound": "k'ahr-gahd vahr",
+   "en": "I'm OK.",
+   "category": "emergency",
+   "sub": "accident",
+   "keywords": [
+    "ok",
+    "fine",
+    "alright"
+   ],
+   "urgent": true,
+   "words": [
+    "w-kargad",
+    "w-var"
+   ],
+   "grammar": [
+    {
+     "lesson": "g2",
+     "why": "The verb \"to be\"."
+    }
+   ]
+  }
+ ],
+ "dialogues": [
+  {
+   "id": "pd-taxi",
+   "category": "transport",
+   "title": "Taking a taxi",
+   "roles": [
+    "Passenger",
+    "Driver"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა! სად მიდიხართ?",
+     "lat": "gamarjoba! sad midikhart?",
+     "en": "Hello! Where are you going?"
+    },
+    {
+     "who": 0,
+     "ka": "გამარჯობა. რუსთაველის გამზირზე, თუ შეიძლება.",
+     "lat": "gamarjoba. rustavelis gamzirze, tu sheidzleba.",
+     "en": "Hello. To Rustaveli Avenue, please."
+    },
+    {
+     "who": 1,
+     "ka": "კარგი.",
+     "lat": "k'argi.",
+     "en": "OK."
+    },
+    {
+     "who": 0,
+     "ka": "რამდენი იქნება?",
+     "lat": "ramdeni ikneba?",
+     "en": "How much will it be?"
+    },
+    {
+     "who": 1,
+     "ka": "ათი ლარი.",
+     "lat": "ati lari.",
+     "en": "Ten lari."
+    },
+    {
+     "who": 0,
+     "ka": "ბარათით შეიძლება?",
+     "lat": "baratit sheidzleba?",
+     "en": "Can I pay by card?"
+    },
+    {
+     "who": 1,
+     "ka": "არა, მხოლოდ ნაღდი ფული.",
+     "lat": "ara, mkholod naghdi puli.",
+     "en": "No, cash only."
+    },
+    {
+     "who": 0,
+     "ka": "აქ გამიჩერეთ, თუ შეიძლება.",
+     "lat": "ak gamicheret, tu sheidzleba.",
+     "en": "Please stop here."
+    },
+    {
+     "who": 1,
+     "ka": "აი, მოვედით.",
+     "lat": "ai, movedit.",
+     "en": "Here we are."
+    },
+    {
+     "who": 0,
+     "ka": "მადლობა, ნახვამდის!",
+     "lat": "madloba, nakhvamdis!",
+     "en": "Thanks, goodbye!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "სად მიდიხართ?",
+     "lat": "sad midikhart?",
+     "en": "Where are you going?",
+     "why": "The polite -თ ending: drivers say it to every passenger."
+    },
+    {
+     "ka": "მოვედით",
+     "lat": "movedit",
+     "en": "we've arrived",
+     "why": "From მოსვლა, to come."
+    }
+   ]
+  },
+  {
+   "id": "pd-bazaar",
+   "category": "shopping",
+   "title": "At the bazaar",
+   "roles": [
+    "Customer",
+    "Seller"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "მობრძანდით! რა გნებავთ?",
+     "lat": "mobrdzandit! ra gnebavt?",
+     "en": "Come in! What would you like?"
+    },
+    {
+     "who": 0,
+     "ka": "პომიდორი რა ღირს?",
+     "lat": "p'omidori ra ghirs?",
+     "en": "How much are the tomatoes?"
+    },
+    {
+     "who": 1,
+     "ka": "კილო ოთხი ლარი.",
+     "lat": "k'ilo otkhi lari.",
+     "en": "Four lari a kilo."
+    },
+    {
+     "who": 0,
+     "ka": "ძვირია. ცოტა დამიკელით, თუ შეიძლება.",
+     "lat": "dzviria. tsot'a damik'elit, tu sheidzleba.",
+     "en": "That's expensive. Could you take a little off?"
+    },
+    {
+     "who": 1,
+     "ka": "კარგი, სამ ლარად მოგცემთ.",
+     "lat": "k'argi, sam larad mogtsemt.",
+     "en": "All right, I'll let you have it for three lari."
+    },
+    {
+     "who": 0,
+     "ka": "ორი კილო, თუ შეიძლება.",
+     "lat": "ori k'ilo, tu sheidzleba.",
+     "en": "Two kilos, please."
+    },
+    {
+     "who": 1,
+     "ka": "კიდევ რამე?",
+     "lat": "k'idev rame?",
+     "en": "Anything else?"
+    },
+    {
+     "who": 0,
+     "ka": "არა, სულ ეს არის.",
+     "lat": "ara, sul es aris.",
+     "en": "No, that's all."
+    },
+    {
+     "who": 1,
+     "ka": "ექვსი ლარი.",
+     "lat": "ekvsi lari.",
+     "en": "Six lari."
+    },
+    {
+     "who": 0,
+     "ka": "აი, ინებეთ.",
+     "lat": "ai, inebet.",
+     "en": "Here you are."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "პომიდორი",
+     "lat": "p'omidori",
+     "en": "tomatoes",
+     "why": "Fruit and vegetables are often named in the singular: პომიდორი, \"tomato\"."
+    },
+    {
+     "ka": "აი, ინებეთ",
+     "lat": "ai, inebet",
+     "en": "here you are",
+     "why": "Said when handing something over."
+    }
+   ]
+  },
+  {
+   "id": "pd-restaurant",
+   "category": "food",
+   "title": "Ordering without meat",
+   "roles": [
+    "Customer",
+    "Waiter"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა! მენიუ, ინებეთ.",
+     "lat": "gamarjoba! meniu, inebet.",
+     "en": "Hello! Here's the menu."
+    },
+    {
+     "who": 0,
+     "ka": "მადლობა. ხორცს არ ვჭამ. რას მირჩევთ?",
+     "lat": "madloba. khortss ar vch'am. ras mirchevt?",
+     "en": "Thanks. I don't eat meat. What do you recommend?"
+    },
+    {
+     "who": 1,
+     "ka": "ბადრიჯანი ნიგვზით და აჭარული ხაჭაპური.",
+     "lat": "badrijani nigvzit da ach'aruli khach'ap'uri.",
+     "en": "Aubergine with walnuts, and Adjarian khachapuri."
+    },
+    {
+     "who": 0,
+     "ka": "ლობიოში ხორცი არის?",
+     "lat": "lobioshi khortsi aris?",
+     "en": "Is there meat in the lobio?"
+    },
+    {
+     "who": 1,
+     "ka": "არა, ლობიო უხორცოა.",
+     "lat": "ara, lobio ukhortsoa.",
+     "en": "No, the lobio has no meat."
+    },
+    {
+     "who": 0,
+     "ka": "მაშინ ლობიო და ერთი ხაჭაპური, თუ შეიძლება.",
+     "lat": "mashin lobio da erti khach'ap'uri, tu sheidzleba.",
+     "en": "Then the lobio and one khachapuri, please."
+    },
+    {
+     "who": 1,
+     "ka": "დასალევად რას ინებებთ?",
+     "lat": "dasalevad ras inebebt?",
+     "en": "What would you like to drink?"
+    },
+    {
+     "who": 0,
+     "ka": "უგაზო წყალი, თუ შეიძლება.",
+     "lat": "ugazo ts'q'ali, tu sheidzleba.",
+     "en": "Still water, please."
+    },
+    {
+     "who": 0,
+     "ka": "ანგარიში, თუ შეიძლება.",
+     "lat": "angarishi, tu sheidzleba.",
+     "en": "The bill, please."
+    },
+    {
+     "who": 1,
+     "ka": "ახლავე.",
+     "lat": "akhlave.",
+     "en": "Right away."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "უხორცო",
+     "lat": "ukhortso",
+     "en": "without meat",
+     "why": "უ- … -ო makes \"without\": უგაზო, without gas (still)."
+    },
+    {
+     "ka": "ინებეთ",
+     "lat": "inebet",
+     "en": "please have / here you are",
+     "why": "A very polite word waiters use."
+    }
+   ]
+  },
+  {
+   "id": "pd-cafe",
+   "category": "food",
+   "title": "Coffee to go",
+   "roles": [
+    "Customer",
+    "Barista"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა! რა გნებავთ?",
+     "lat": "gamarjoba! ra gnebavt?",
+     "en": "Hello! What would you like?"
+    },
+    {
+     "who": 0,
+     "ka": "ერთი ყავა რძით, თუ შეიძლება.",
+     "lat": "erti q'ava rdzit, tu sheidzleba.",
+     "en": "A coffee with milk, please."
+    },
+    {
+     "who": 1,
+     "ka": "აქ დალევთ თუ წაიღებთ?",
+     "lat": "ak dalevt tu ts'aighebt?",
+     "en": "For here or to take away?"
+    },
+    {
+     "who": 0,
+     "ka": "წასაღებად.",
+     "lat": "ts'asaghebad.",
+     "en": "To take away."
+    },
+    {
+     "who": 1,
+     "ka": "შაქარი?",
+     "lat": "shakari?",
+     "en": "Sugar?"
+    },
+    {
+     "who": 0,
+     "ka": "არა, მადლობა. რა ღირს?",
+     "lat": "ara, madloba. ra ghirs?",
+     "en": "No, thanks. How much is it?"
+    },
+    {
+     "who": 1,
+     "ka": "ექვსი ლარი.",
+     "lat": "ekvsi lari.",
+     "en": "Six lari."
+    },
+    {
+     "who": 0,
+     "ka": "აი, ინებეთ.",
+     "lat": "ai, inebet.",
+     "en": "Here you are."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "წასაღებად",
+     "lat": "ts'asaghebad",
+     "en": "to take away",
+     "why": "Literally \"for taking away\"."
+    }
+   ]
+  },
+  {
+   "id": "pd-pharmacy",
+   "category": "health",
+   "title": "At the pharmacy",
+   "roles": [
+    "Customer",
+    "Pharmacist"
+   ],
+   "lines": [
+    {
+     "who": 0,
+     "ka": "გამარჯობა. თავის ტკივილის წამალი გაქვთ?",
+     "lat": "gamarjoba. tavis t'k'ivilis ts'amali gakvt?",
+     "en": "Hello. Do you have something for a headache?"
+    },
+    {
+     "who": 1,
+     "ka": "კი. ალერგია ხომ არ გაქვთ?",
+     "lat": "k'i. alergia khom ar gakvt?",
+     "en": "Yes. You don't have any allergies, do you?"
+    },
+    {
+     "who": 0,
+     "ka": "არა, არ მაქვს. დღეში რამდენჯერ?",
+     "lat": "ara, ar makvs. dgheshi ramdenjer?",
+     "en": "No, I don't. How many times a day?"
+    },
+    {
+     "who": 1,
+     "ka": "ინსტრუქციაში წერია.",
+     "lat": "inst'ruktsiashi ts'eria.",
+     "en": "It's written in the leaflet."
+    },
+    {
+     "who": 0,
+     "ka": "რა ღირს?",
+     "lat": "ra ghirs?",
+     "en": "How much is it?"
+    },
+    {
+     "who": 1,
+     "ka": "ექვსი ლარი.",
+     "lat": "ekvsi lari.",
+     "en": "Six lari."
+    },
+    {
+     "who": 0,
+     "ka": "ბარათით შეიძლება?",
+     "lat": "baratit sheidzleba?",
+     "en": "Can I pay by card?"
+    },
+    {
+     "who": 1,
+     "ka": "რა თქმა უნდა.",
+     "lat": "ra tkma unda.",
+     "en": "Of course."
+    },
+    {
+     "who": 0,
+     "ka": "გმადლობთ!",
+     "lat": "gmadlobt!",
+     "en": "Thank you!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "ხომ არ გაქვთ?",
+     "lat": "khom ar gakvt?",
+     "en": "you don't have…, do you?",
+     "why": "ხომ turns a sentence into a check, like \"…, do you?\""
+    }
+   ]
+  },
+  {
+   "id": "pd-doctor",
+   "category": "health",
+   "title": "Booking a doctor",
+   "roles": [
+    "Patient",
+    "Clinic"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გისმენთ.",
+     "lat": "gisment.",
+     "en": "Hello."
+    },
+    {
+     "who": 0,
+     "ka": "გამარჯობა, ექიმთან ჩაწერა მინდა.",
+     "lat": "gamarjoba, ekimtan chats'era minda.",
+     "en": "Hello, I'd like to book an appointment with a doctor."
+    },
+    {
+     "who": 1,
+     "ka": "რა გაწუხებთ?",
+     "lat": "ra gats'ukhebt?",
+     "en": "What's the problem?"
+    },
+    {
+     "who": 0,
+     "ka": "ყელი მტკივა და სიცხე მაქვს.",
+     "lat": "q'eli mt'k'iva da sitskhe makvs.",
+     "en": "I have a sore throat and a fever."
+    },
+    {
+     "who": 1,
+     "ka": "ხვალ, თერთმეტ საათზე შეძლებთ?",
+     "lat": "khval, tertmet' saatze shedzlebt?",
+     "en": "Can you come tomorrow at eleven?"
+    },
+    {
+     "who": 0,
+     "ka": "კი. ინგლისურად მოლაპარაკე ექიმი გყავთ?",
+     "lat": "k'i. inglisurad molap'arak'e ekimi gq'avt?",
+     "en": "Yes. Do you have a doctor who speaks English?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, გვყავს. თქვენი სახელი?",
+     "lat": "k'i, gvq'avs. tkveni sakheli?",
+     "en": "Yes, we do. Your name?"
+    },
+    {
+     "who": 0,
+     "ka": "ჯონ სმიტი.",
+     "lat": "jon smit'i.",
+     "en": "John Smith."
+    },
+    {
+     "who": 1,
+     "ka": "კარგი, ხვალ გელოდებით.",
+     "lat": "k'argi, khval gelodebit.",
+     "en": "Good, we'll see you tomorrow."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "გისმენთ",
+     "lat": "gisment",
+     "en": "hello (on the phone)",
+     "why": "Literally \"I'm listening to you\": how offices answer."
+    },
+    {
+     "ka": "რა გაწუხებთ?",
+     "lat": "ra gats'ukhebt?",
+     "en": "what's the problem?",
+     "why": "Literally \"what is bothering you?\": what doctors ask."
+    }
+   ]
+  },
+  {
+   "id": "pd-neighbour",
+   "category": "social",
+   "title": "Meeting a neighbour",
+   "roles": [
+    "New neighbour",
+    "Nana"
+   ],
+   "lines": [
+    {
+     "who": 0,
+     "ka": "გამარჯობა! ახალი მეზობელი ვარ.",
+     "lat": "gamarjoba! akhali mezobeli var.",
+     "en": "Hello! I'm the new neighbour."
+    },
+    {
+     "who": 1,
+     "ka": "გაგიმარჯოთ! კეთილი იყოს თქვენი მობრძანება!",
+     "lat": "gagimarjot! k'etili iq'os tkveni mobrdzaneba!",
+     "en": "Hello! Welcome!"
+    },
+    {
+     "who": 0,
+     "ka": "მადლობა. მე ჯონი მქვია.",
+     "lat": "madloba. me joni mkvia.",
+     "en": "Thank you. My name is John."
+    },
+    {
+     "who": 1,
+     "ka": "მე ნანა ვარ. საიდან ხართ?",
+     "lat": "me nana var. saidan khart?",
+     "en": "I'm Nana. Where are you from?"
+    },
+    {
+     "who": 0,
+     "ka": "ინგლისიდან. ქართულს ვსწავლობ.",
+     "lat": "inglisidan. kartuls vsts'avlob.",
+     "en": "From England. I'm learning Georgian."
+    },
+    {
+     "who": 1,
+     "ka": "ყოჩაღ! რამე თუ დაგჭირდებათ, მითხარით.",
+     "lat": "q'ochagh! rame tu dagch'irdebat, mitkharit.",
+     "en": "Well done! If you need anything, tell me."
+    },
+    {
+     "who": 0,
+     "ka": "დიდი მადლობა, ძალიან სასიამოვნოა.",
+     "lat": "didi madloba, dzalian sasiamovnoa.",
+     "en": "Thank you very much, very nice to meet you."
+    },
+    {
+     "who": 1,
+     "ka": "ჩემთვისაც.",
+     "lat": "chemtvisats.",
+     "en": "Likewise."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "კეთილი იყოს თქვენი მობრძანება",
+     "lat": "k'etili iq'os tkveni mobrdzaneba",
+     "en": "welcome",
+     "why": "A warm, formal welcome."
+    },
+    {
+     "ka": "ყოჩაღ",
+     "lat": "q'ochagh",
+     "en": "well done",
+     "why": "Georgians love to hear a foreigner try their language."
+    }
+   ]
+  },
+  {
+   "id": "pd-landlord",
+   "category": "home",
+   "title": "No hot water",
+   "roles": [
+    "Tenant",
+    "Landlord"
+   ],
+   "lines": [
+    {
+     "who": 0,
+     "ka": "გამარჯობა, ბატონო გიორგი. ცხელი წყალი არ მოდის.",
+     "lat": "gamarjoba, bat'ono giorgi. tskheli ts'q'ali ar modis.",
+     "en": "Hello, Mr Giorgi. There's no hot water."
+    },
+    {
+     "who": 1,
+     "ka": "ოჰ, ბოდიში. ქვაბი ჩართულია?",
+     "lat": "oh, bodishi. kvabi chartulia?",
+     "en": "Oh, sorry. Is the boiler on?"
+    },
+    {
+     "who": 0,
+     "ka": "კი, მაგრამ არ მუშაობს.",
+     "lat": "k'i, magram ar mushaobs.",
+     "en": "Yes, but it doesn't work."
+    },
+    {
+     "who": 1,
+     "ka": "ხვალ ხელოსანს გამოვგზავნი.",
+     "lat": "khval khelosans gamovgzavni.",
+     "en": "I'll send a repairman tomorrow."
+    },
+    {
+     "who": 0,
+     "ka": "რომელ საათზე?",
+     "lat": "romel saatze?",
+     "en": "At what time?"
+    },
+    {
+     "who": 1,
+     "ka": "დილის ათ საათზე. სახლში იქნებით?",
+     "lat": "dilis at saatze. sakhlshi iknebit?",
+     "en": "At ten in the morning. Will you be at home?"
+    },
+    {
+     "who": 0,
+     "ka": "კი, სახლში ვიქნები. მადლობა.",
+     "lat": "k'i, sakhlshi viknebi. madloba.",
+     "en": "Yes, I'll be at home. Thank you."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "ბატონო",
+     "lat": "bat'ono",
+     "en": "Mr / sir",
+     "why": "Before a first name: ბატონო გიორგი. For a woman: ქალბატონო ნანა."
+    }
+   ]
+  },
+  {
+   "id": "pd-gym",
+   "category": "sport",
+   "title": "Joining a gym",
+   "roles": [
+    "New member",
+    "Receptionist"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა! რით შემიძლია დაგეხმაროთ?",
+     "lat": "gamarjoba! rit shemidzlia dagekhmarot?",
+     "en": "Hello! How can I help you?"
+    },
+    {
+     "who": 0,
+     "ka": "აბონემენტი რა ღირს?",
+     "lat": "abonement'i ra ghirs?",
+     "en": "How much is a membership?"
+    },
+    {
+     "who": 1,
+     "ka": "თვიური ასი ლარია, ერთჯერადი ვიზიტი თხუთმეტი.",
+     "lat": "tviuri asi laria, ertjeradi vizit'i tkhutmet'i.",
+     "en": "A month is a hundred lari, a single visit fifteen."
+    },
+    {
+     "who": 0,
+     "ka": "თვიური მინდა. პირადი მწვრთნელიც გყავთ?",
+     "lat": "tviuri minda. p'iradi mts'vrtnelits gq'avt?",
+     "en": "I'd like a monthly one. Do you have personal trainers too?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, გვყავს.",
+     "lat": "k'i, gvq'avs.",
+     "en": "Yes, we do."
+    },
+    {
+     "who": 0,
+     "ka": "გასახდელები სად არის?",
+     "lat": "gasakhdelebi sad aris?",
+     "en": "Where are the changing rooms?"
+    },
+    {
+     "who": 1,
+     "ka": "მარჯვნივ. პირსახოცები აქ არის.",
+     "lat": "marjvniv. p'irsakhotsebi ak aris.",
+     "en": "On the right. The towels are here."
+    },
+    {
+     "who": 0,
+     "ka": "მადლობა!",
+     "lat": "madloba!",
+     "en": "Thanks!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "გყავთ, გვყავს",
+     "lat": "gq'avt, gvq'avs",
+     "en": "you have, we have",
+     "why": "For people and animals Georgian uses ყავს instead of აქვს."
+    }
+   ]
+  },
+  {
+   "id": "pd-directions",
+   "category": "transport",
+   "title": "Asking the way",
+   "roles": [
+    "Visitor",
+    "Passer-by"
+   ],
+   "lines": [
+    {
+     "who": 0,
+     "ka": "ბოდიში, მეტრო სად არის?",
+     "lat": "bodishi, met'ro sad aris?",
+     "en": "Excuse me, where is the metro?"
+    },
+    {
+     "who": 1,
+     "ka": "პირდაპირ წადით, მერე მარცხნივ მოუხვიეთ.",
+     "lat": "p'irdap'ir ts'adit, mere martskhniv moukhviet.",
+     "en": "Go straight on, then turn left."
+    },
+    {
+     "who": 0,
+     "ka": "შორს არის?",
+     "lat": "shors aris?",
+     "en": "Is it far?"
+    },
+    {
+     "who": 1,
+     "ka": "არა, ფეხით ხუთი წუთია.",
+     "lat": "ara, pekhit khuti ts'utia.",
+     "en": "No, it's five minutes on foot."
+    },
+    {
+     "who": 0,
+     "ka": "ბოდიში, ვერ გავიგე. გაიმეორეთ, თუ შეიძლება.",
+     "lat": "bodishi, ver gavige. gaimeoret, tu sheidzleba.",
+     "en": "Sorry, I didn't catch that. Could you repeat it?"
+    },
+    {
+     "who": 1,
+     "ka": "პირდაპირ, მერე მარცხნივ.",
+     "lat": "p'irdap'ir, mere martskhniv.",
+     "en": "Straight on, then left."
+    },
+    {
+     "who": 0,
+     "ka": "დიდი მადლობა!",
+     "lat": "didi madloba!",
+     "en": "Thank you very much!"
+    },
+    {
+     "who": 1,
+     "ka": "არაფრის.",
+     "lat": "arapris.",
+     "en": "You're welcome."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "მერე",
+     "lat": "mere",
+     "en": "then",
+     "why": "Everyday \"then, after that\"."
+    }
+   ]
+  },
+  {
+   "id": "pd-hotel",
+   "category": "travel",
+   "title": "Checking in",
+   "roles": [
+    "Guest",
+    "Receptionist"
+   ],
+   "lines": [
+    {
+     "who": 0,
+     "ka": "გამარჯობა, ოთახი დაჯავშნილი მაქვს.",
+     "lat": "gamarjoba, otakhi dajavshnili makvs.",
+     "en": "Hello, I have a room booked."
+    },
+    {
+     "who": 1,
+     "ka": "გამარჯობა! პასპორტი, თუ შეიძლება.",
+     "lat": "gamarjoba! p'asp'ort'i, tu sheidzleba.",
+     "en": "Hello! Your passport, please."
+    },
+    {
+     "who": 0,
+     "ka": "აი, ინებეთ. საუზმე შედის?",
+     "lat": "ai, inebet. sauzme shedis?",
+     "en": "Here you are. Is breakfast included?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, შვიდიდან ათ საათამდე.",
+     "lat": "k'i, shvididan at saatamde.",
+     "en": "Yes, from seven to ten."
+    },
+    {
+     "who": 0,
+     "ka": "ვაიფაის პაროლი რა არის?",
+     "lat": "vaipais p'aroli ra aris?",
+     "en": "What's the Wi-Fi password?"
+    },
+    {
+     "who": 1,
+     "ka": "ბარათზე წერია.",
+     "lat": "baratze ts'eria.",
+     "en": "It's written on the card."
+    },
+    {
+     "who": 0,
+     "ka": "მადლობა!",
+     "lat": "madloba!",
+     "en": "Thanks!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "შვიდიდან ათამდე",
+     "lat": "shvididan atamde",
+     "en": "from seven to ten",
+     "why": "-დან is from, -მდე is up to."
+    }
+   ]
+  },
+  {
+   "id": "pd-sim",
+   "category": "work",
+   "title": "Buying a SIM card",
+   "roles": [
+    "Customer",
+    "Shop assistant"
+   ],
+   "lines": [
+    {
+     "who": 0,
+     "ka": "გამარჯობა, სიმ ბარათი მინდა.",
+     "lat": "gamarjoba, sim barati minda.",
+     "en": "Hello, I'd like a SIM card."
+    },
+    {
+     "who": 1,
+     "ka": "პასპორტი გაქვთ?",
+     "lat": "p'asp'ort'i gakvt?",
+     "en": "Do you have your passport?"
+    },
+    {
+     "who": 0,
+     "ka": "კი, აი. ინტერნეტის პაკეტი რა ღირს?",
+     "lat": "k'i, ai. int'ernet'is p'ak'et'i ra ghirs?",
+     "en": "Yes, here. How much is an internet package?"
+    },
+    {
+     "who": 1,
+     "ka": "თვეში ოცი ლარი, ულიმიტო.",
+     "lat": "tveshi otsi lari, ulimit'o.",
+     "en": "Twenty lari a month, unlimited."
+    },
+    {
+     "who": 0,
+     "ka": "კარგი, ავიღებ.",
+     "lat": "k'argi, avigheb.",
+     "en": "Good, I'll take it."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "ავიღებ",
+     "lat": "avigheb",
+     "en": "I'll take it",
+     "why": "Future of აღება, to take: the way to say yes to a price."
+    }
+   ]
+  },
+  {
+   "id": "pd-emergency",
+   "category": "emergency",
+   "title": "Calling 112",
+   "roles": [
+    "Caller",
+    "Operator"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "112, გისმენთ.",
+     "lat": "112, gisment.",
+     "en": "112, how can I help?"
+    },
+    {
+     "who": 0,
+     "ka": "ავარია მოხდა. ვიღაც დაშავდა.",
+     "lat": "avaria mokhda. vighats dashavda.",
+     "en": "There's been an accident. Someone is hurt."
+    },
+    {
+     "who": 1,
+     "ka": "სად ხართ?",
+     "lat": "sad khart?",
+     "en": "Where are you?"
+    },
+    {
+     "who": 0,
+     "ka": "ჭავჭავაძის გამზირზე, უნივერსიტეტთან.",
+     "lat": "ch'avch'avadzis gamzirze, universit'et'tan.",
+     "en": "On Chavchavadze Avenue, by the university."
+    },
+    {
+     "who": 1,
+     "ka": "სუნთქავს?",
+     "lat": "suntkavs?",
+     "en": "Are they breathing?"
+    },
+    {
+     "who": 0,
+     "ka": "კი, სუნთქავს.",
+     "lat": "k'i, suntkavs.",
+     "en": "Yes, they're breathing."
+    },
+    {
+     "who": 1,
+     "ka": "სასწრაფო მოდის. იქვე დარჩით.",
+     "lat": "sasts'rapo modis. ikve darchit.",
+     "en": "An ambulance is coming. Stay where you are."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "სად ხართ?",
+     "lat": "sad khart?",
+     "en": "where are you?",
+     "why": "Say where you are first: the street, and something near it."
+    },
+    {
+     "ka": "იქვე დარჩით",
+     "lat": "ikve darchit",
+     "en": "stay right there",
+     "why": "If Georgian fails you, ask: ინგლისური იცით?"
+    }
+   ]
+  }
+ ],
+ "synonyms": {
+  "cab": [
+   "taxi"
+  ],
+  "uber": [
+   "taxi",
+   "bolt"
+  ],
+  "yandex": [
+   "taxi"
+  ],
+  "driver": [
+   "taxi"
+  ],
+  "chemist": [
+   "pharmacy"
+  ],
+  "drugstore": [
+   "pharmacy"
+  ],
+  "medicine": [
+   "pharmacy",
+   "medicine"
+  ],
+  "check": [
+   "bill"
+  ],
+  "cheque": [
+   "bill"
+  ],
+  "tab": [
+   "bill"
+  ],
+  "restroom": [
+   "toilet"
+  ],
+  "bathroom": [
+   "toilet"
+  ],
+  "wc": [
+   "toilet"
+  ],
+  "loo": [
+   "toilet"
+  ],
+  "washroom": [
+   "toilet"
+  ],
+  "cost": [
+   "price",
+   "much"
+  ],
+  "costs": [
+   "price",
+   "much"
+  ],
+  "pricey": [
+   "expensive"
+  ],
+  "dear": [
+   "expensive"
+  ],
+  "cheap": [
+   "cheaper"
+  ],
+  "discount": [
+   "cheaper"
+  ],
+  "haggle": [
+   "bargain"
+  ],
+  "vegan": [
+   "vegetarian",
+   "meat"
+  ],
+  "veggie": [
+   "vegetarian"
+  ],
+  "flat": [
+   "apartment"
+  ],
+  "apartment": [
+   "flat"
+  ],
+  "landlady": [
+   "landlord"
+  ],
+  "landlord": [
+   "rent",
+   "flat"
+  ],
+  "wifi": [
+   "internet"
+  ],
+  "wi-fi": [
+   "internet"
+  ],
+  "broadband": [
+   "internet"
+  ],
+  "subway": [
+   "metro"
+  ],
+  "underground": [
+   "metro"
+  ],
+  "tube": [
+   "metro"
+  ],
+  "minibus": [
+   "marshrutka"
+  ],
+  "marshrutka": [
+   "minibus"
+  ],
+  "doctor": [
+   "doctor",
+   "hospital"
+  ],
+  "ill": [
+   "unwell",
+   "sick"
+  ],
+  "sick": [
+   "unwell",
+   "sick"
+  ],
+  "pain": [
+   "hurts"
+  ],
+  "ache": [
+   "hurts",
+   "pain"
+  ],
+  "hurt": [
+   "hurts",
+   "pain"
+  ],
+  "thanks": [
+   "thank"
+  ],
+  "thx": [
+   "thank"
+  ],
+  "hi": [
+   "hello"
+  ],
+  "hey": [
+   "hello"
+  ],
+  "bye": [
+   "goodbye"
+  ],
+  "cya": [
+   "goodbye"
+  ],
+  "sorry": [
+   "sorry",
+   "excuse"
+  ],
+  "pardon": [
+   "repeat",
+   "understand"
+  ],
+  "speak": [
+   "speak",
+   "english"
+  ],
+  "english": [
+   "english"
+  ],
+  "lost": [
+   "lost"
+  ],
+  "stolen": [
+   "stolen"
+  ],
+  "robbed": [
+   "stolen"
+  ],
+  "thief": [
+   "stolen"
+  ],
+  "ambulance": [
+   "ambulance",
+   "emergency"
+  ],
+  "emergency": [
+   "emergency",
+   "112"
+  ],
+  "sos": [
+   "help",
+   "emergency"
+  ],
+  "bag": [
+   "bag"
+  ],
+  "carrier": [
+   "bag"
+  ],
+  "trolley": [
+   "bag"
+  ],
+  "gym": [
+   "gym",
+   "membership"
+  ],
+  "fitness": [
+   "gym"
+  ],
+  "workout": [
+   "training"
+  ],
+  "exercise": [
+   "training"
+  ],
+  "coffee": [
+   "coffee"
+  ],
+  "latte": [
+   "coffee",
+   "milk"
+  ],
+  "cappuccino": [
+   "coffee",
+   "milk"
+  ],
+  "beer": [
+   "drink"
+  ],
+  "wine": [
+   "cheers",
+   "drink"
+  ],
+  "petrol": [
+   "fuel"
+  ],
+  "gas": [
+   "fuel",
+   "petrol"
+  ],
+  "rent": [
+   "rent",
+   "hire"
+  ],
+  "hire": [
+   "rent",
+   "hire"
+  ],
+  "booking": [
+   "reservation",
+   "book"
+  ],
+  "reserve": [
+   "book",
+   "reservation"
+  ],
+  "appointment": [
+   "appointment",
+   "book"
+  ],
+  "post": [
+   "post",
+   "parcel"
+  ],
+  "package": [
+   "parcel"
+  ],
+  "sim": [
+   "sim"
+  ],
+  "mobile": [
+   "phone",
+   "sim"
+  ],
+  "money": [
+   "cash",
+   "money",
+   "pay"
+  ],
+  "atm": [
+   "atm",
+   "cash"
+  ],
+  "card": [
+   "card"
+  ],
+  "weather": [
+   "weather"
+  ],
+  "hot": [
+   "hot",
+   "spicy"
+  ],
+  "spicy": [
+   "spicy"
+  ],
+  "kilo": [
+   "kilo"
+  ],
+  "kg": [
+   "kilo"
+  ],
+  "half": [
+   "half"
+  ],
+  "stop": [
+   "stop"
+  ],
+  "here": [
+   "here"
+  ],
+  "airport": [
+   "airport"
+  ],
+  "toilet": [
+   "toilet"
+  ],
+  "water": [
+   "water"
+  ],
+  "food": [
+   "eat",
+   "food",
+   "restaurant"
+  ]
+ },
+ "suggestions": [
+  "taxi",
+  "how much",
+  "stop here",
+  "I don't understand",
+  "pharmacy",
+  "water",
+  "toilet",
+  "I don't eat meat",
+  "the bill",
+  "help"
+ ]
+}

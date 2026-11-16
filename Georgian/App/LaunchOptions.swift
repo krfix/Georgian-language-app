@@ -5,7 +5,8 @@ import Foundation
 /// - `-resetData`: delete the saved store before opening it (UI tests that check restarts);
 /// - `-seedDemo`: fill the store with an invented learner (Ana, two weeks in);
 /// - `-screen <name>`: open on one screen: home, learn, words, review, progress, profile,
-///   lesson, complete, onboarding, word, alphabet, exercise.
+///   lesson, complete, onboarding, word, alphabet, exercise; and the phrasebook's phrasebook,
+///   category, emergency, saved, dialogue, practice, phrase, show, search.
 struct LaunchOptions {
     let inMemory: Bool
     let resetData: Bool
@@ -15,6 +16,10 @@ struct LaunchOptions {
     /// skip ahead to (`-kind matching`).
     let lessonID: String?
     let kind: String?
+    /// With the phrasebook screens: which category, phrase or dialogue (`-item pd-taxi`).
+    let item: String?
+    /// With `-screen search`: what to search for (`-query taxi`).
+    let query: String?
 
     static let current: LaunchOptions = {
         let args = ProcessInfo.processInfo.arguments
@@ -26,6 +31,7 @@ struct LaunchOptions {
         }
         return LaunchOptions(inMemory: args.contains("-uiTesting"), resetData: args.contains("-resetData"),
                              seedDemo: args.contains("-seedDemo"), screen: screen,
-                             lessonID: value("-lesson"), kind: value("-kind"))
+                             lessonID: value("-lesson"), kind: value("-kind"),
+                             item: value("-item"), query: value("-query"))
     }()
 }

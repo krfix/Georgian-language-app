@@ -128,6 +128,22 @@ import SwiftData
     }
 }
 
+/// A phrasebook phrase the learner has touched: saved to their phrasebook (in a list of
+/// their own, or none), marked as learned, or opened recently. Added in schema version 2.
+@Model final class PhraseRecord {
+    var phraseID: String = ""
+    var saved: Bool = false
+    var savedAt: Date = Date()
+    /// The learner's own list ("For the landlord"); "" for none.
+    var list: String = ""
+    var learned: Bool = false
+    var lastOpened: Date = Date.distantPast
+    var opens: Int = 0
+    var courseID: String = "georgian-a0"
+
+    init(phraseID: String) { self.phraseID = phraseID }
+}
+
 enum GeorgianSchemaV1: VersionedSchema {
     static let versionIdentifier = Schema.Version(1, 0, 0)
     static var models: [any PersistentModel.Type] {
@@ -136,7 +152,19 @@ enum GeorgianSchemaV1: VersionedSchema {
     }
 }
 
+/// Version 2 adds the phrasebook's `PhraseRecord`; nothing else changes, so the step from 1
+/// is a lightweight one and all progress is kept.
+enum GeorgianSchemaV2: VersionedSchema {
+    static let versionIdentifier = Schema.Version(2, 0, 0)
+    static var models: [any PersistentModel.Type] {
+        [LearnerProfile.self, LessonRecord.self, MasteryRecord.self, AnswerRecord.self,
+         DayRecord.self, AchievementRecord.self, ReviewSessionRecord.self, PhraseRecord.self]
+    }
+}
+
 enum GeorgianMigrationPlan: SchemaMigrationPlan {
-    static var schemas: [any VersionedSchema.Type] { [GeorgianSchemaV1.self] }
-    static var stages: [MigrationStage] { [] }
+    static var schemas: [any VersionedSchema.Type] { [GeorgianSchemaV1.self, GeorgianSchemaV2.self] }
+    static var stages: [MigrationStage] {
+        [.lightweight(fromVersion: GeorgianSchemaV1.self, toVersion: GeorgianSchemaV2.self)]
+    }
 }

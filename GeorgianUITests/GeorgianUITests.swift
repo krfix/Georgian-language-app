@@ -44,7 +44,7 @@ final class GeorgianUITests: XCTestCase {
         XCTAssertTrue(app.buttons["continue-lesson"].waitForExistence(timeout: 10), "Home after the lesson")
 
         // Every tab opens.
-        for tab in ["Learn", "Words", "Review", "Progress", "Home"] {
+        for tab in ["Learn", "Phrasebook", "Search", "Review", "Home"] {
             app.tabBars.buttons[tab].tap()
             XCTAssertTrue(app.tabBars.buttons[tab].isSelected, "\(tab) tab")
         }
@@ -54,7 +54,7 @@ final class GeorgianUITests: XCTestCase {
         let again = launch([])
         XCTAssertTrue(again.buttons["continue-lesson"].waitForExistence(timeout: 10), "Progress kept after restart")
         XCTAssertFalse(again.buttons["onboarding-next"].exists)
-        XCTAssertTrue(again.staticTexts["1"].exists || again.staticTexts["days streak"].exists || again.staticTexts["day streak"].exists)
+        XCTAssertTrue(again.staticTexts.matching(NSPredicate(format: "label CONTAINS 'day streak'")).count > 0, "Streak shown")
     }
 
     func testDemoScreensOpen() throws {
@@ -69,12 +69,74 @@ final class GeorgianUITests: XCTestCase {
         finishLesson(app)
         XCTAssertTrue(app.buttons["complete-continue"].waitForExistence(timeout: 10), "Review completion")
         app.buttons["complete-continue"].tap()
-        app.tabBars.buttons["Words"].tap()
+        // Course words are in Learn › Words now.
+        app.tabBars.buttons["Learn"].tap()
+        XCTAssertTrue(app.buttons["learn-words"].waitForExistence(timeout: 5))
+        app.buttons["learn-words"].tap()
         let search = app.searchFields.firstMatch
         XCTAssertTrue(search.waitForExistence(timeout: 5))
         search.tap()
         search.typeText("water")
         XCTAssertTrue(app.buttons["word-w-tsqali"].waitForExistence(timeout: 5) || app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH 'word-'")).count > 0)
+    }
+
+    /// The practical scenarios: find a phrase by searching, open its card, show it full
+    /// screen, save it; open a situation; play a dialogue from one side.
+    func testPhrasebookScenarios() throws {
+        let app = launch(["-uiTesting", "-seedDemo"])
+        XCTAssertTrue(app.buttons["search-bar"].waitForExistence(timeout: 10), "Home search bar")
+
+        // A tourist needs the taxi driver to stop: search, then show it.
+        app.buttons["search-bar"].tap()
+        let field = app.textFields["search-field"]
+        XCTAssertTrue(field.waitForExistence(timeout: 5))
+        field.tap()
+        field.typeText("stop here")
+        let stop = app.buttons["show-pb-ak-gamicheret-tu-sheidzleba"]
+        XCTAssertTrue(stop.waitForExistence(timeout: 5), "Stop here found")
+        stop.tap()
+        XCTAssertTrue(app.staticTexts["show-georgian"].waitForExistence(timeout: 5), "Shown full screen")
+        app.buttons["show-flip"].tap()
+        app.buttons["show-translation"].tap()
+        app.buttons["show-close"].tap()
+
+        // Telling a waiter: open the card, save it, put it in review.
+        XCTAssertTrue(app.buttons["Clear"].waitForExistence(timeout: 5))
+        app.buttons["Clear"].tap()
+        field.tap()
+        field.typeText("I don't eat meat")
+        let meat = app.buttons["phrase-pb-khortss-ar-vcham"]
+        XCTAssertTrue(meat.waitForExistence(timeout: 5), "Meat phrase found")
+        meat.tap()
+        XCTAssertTrue(app.buttons["action-save"].waitForExistence(timeout: 5), "Phrase card")
+        app.buttons["action-save"].tap()
+        app.buttons["action-practise"].tap()
+        XCTAssertTrue(app.buttons["action-practise"].label.contains("review"), "In review")
+        app.buttons["phrase-done"].tap()
+
+        // A situation from the Phrasebook tab.
+        app.tabBars.buttons["Phrasebook"].tap()
+        XCTAssertTrue(app.buttons["category-shopping"].waitForExistence(timeout: 5))
+        app.buttons["category-shopping"].tap()
+        XCTAssertTrue(app.buttons["phrase-pb-es-ra-ghirs"].waitForExistence(timeout: 5), "How much is this? in Shopping")
+    }
+
+    func testDialoguePractice() throws {
+        let app = launch(["-uiTesting", "-seedDemo", "-screen", "dialogue", "-item", "pd-taxi"])
+        XCTAssertTrue(app.buttons["practise-1"].waitForExistence(timeout: 10), "Dialogue screen")
+        app.buttons["practise-1"].tap()                 // play the driver
+        XCTAssertTrue(app.staticTexts["instruction"].waitForExistence(timeout: 10), "Practice opened")
+        finishLesson(app)
+        XCTAssertTrue(app.buttons["complete-continue"].waitForExistence(timeout: 10), "Practice done")
+        app.buttons["complete-continue"].tap()
+    }
+
+    func testStraightToThePhrasebook() throws {
+        let app = launch(["-uiTesting"])
+        XCTAssertTrue(app.buttons["onboarding-phrasebook"].waitForExistence(timeout: 10), "Welcome screen")
+        app.buttons["onboarding-phrasebook"].tap()
+        XCTAssertTrue(app.buttons["my-phrasebook"].waitForExistence(timeout: 10), "Phrasebook open")
+        XCTAssertTrue(app.tabBars.buttons["Phrasebook"].isSelected)
     }
 
     /// Answers every exercise until the completion screen.

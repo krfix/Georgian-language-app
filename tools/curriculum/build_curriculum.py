@@ -18,6 +18,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import content_course as C  # noqa: E402
+import content_phrasebook as PB  # noqa: E402
 import content_words as W  # noqa: E402
 
 OUT = os.path.join(HERE, "..", "..", "Georgian", "Resources", "Curriculum")
@@ -266,6 +267,156 @@ unused = [w["ka"] for w in words if w["id"] not in used_words]
 if unused:
     fail(f"words in no lesson: {unused}")
 
+# ---- Phrasebook (content_phrasebook.py): Georgian for real situations, outside the course.
+SOUND = {"ა": "ah", "ე": "eh", "ი": "ee", "ო": "oh", "უ": "oo"}
+VOWELS = set(SOUND)
+
+
+def sound_word(word):
+    """An English-style sound guide for one word, split into syllables: გამარჯობა → gah-mahr-joh-bah.
+    Between vowels a single consonant starts the next syllable; of two or more, the first
+    closes the syllable before. Stress is not marked: in Georgian it is light."""
+    letters = [ch for ch in word if ch in LATIN]
+    if not letters:
+        return word
+    vowels = [i for i, ch in enumerate(letters) if ch in VOWELS]
+    if not vowels:
+        return latin("".join(letters))
+    cuts = []
+    for a, b in zip(vowels, vowels[1:]):
+        gap = b - a - 1
+        cuts.append(a + 1 if gap <= 1 else a + 2)
+    parts, start = [], 0
+    for c in cuts + [len(letters)]:
+        parts.append(letters[start:c])
+        start = c
+    return "-".join("".join(SOUND.get(ch, LATIN[ch]) for ch in p) for p in parts)
+
+
+def sound(ka):
+    out = []
+    for tok in ka.split():
+        core = tok.strip(".,?!—–:;\"«»…")
+        if not core:
+            continue
+        if any(ch in LATIN for ch in core):
+            out.append("-".join(sound_word(piece) for piece in core.split("-") if piece))
+        else:
+            out.append(core)
+    return " ".join(out)
+
+
+def check_phrase_text(text, where):
+    check_georgian(re.sub(r"[0-9]", "", text), where)
+
+
+pb_cats = {}
+for (cid, title, ka, symbol, color, blurb, subs) in PB.CATEGORIES:
+    if color not in COLORS:
+        fail(f"phrasebook category {cid}: colour {color}")
+    check_georgian(ka, f"phrasebook category {cid}")
+    pb_cats[cid] = {"id": cid, "title": title, "ka": ka, "lat": latin(ka), "symbol": symbol, "color": color,
+                    "blurb": blurb, "subs": [{"id": i, "title": t} for (i, t) in subs]}
+if set(PB.PHRASES) != set(pb_cats):
+    fail(f"phrasebook: categories without phrases or phrases without a category: {set(PB.PHRASES) ^ set(pb_cats)}")
+
+word_by_bare = {w["ka"].strip("?.!"): w for w in words}
+grammar_ids = {L["id"] for m in modules for L in m["lessons"] if L["kind"] == "grammar"}
+pb_phrases, pb_ka = [], set()
+for cid, entries in PB.PHRASES.items():
+    if len(entries) < 5:
+        fail(f"phrasebook {cid}: only {len(entries)} phrases")
+    subs = {s["id"] for s in pb_cats.get(cid, {"subs": []})["subs"]}
+    used_subs = set()
+    for e in entries:
+        ka, en = e["ka"], e["en"]
+        where = f"phrase {ka}"
+        check_phrase_text(ka, where)
+        if ka in pb_ka:
+            fail(f"{where}: in the phrasebook twice")
+        pb_ka.add(ka)
+        if not en or en != en.strip():
+            fail(f"{where}: English missing or with spaces around")
+        if e["sub"] not in subs:
+            fail(f"{where}: unknown subcategory {e['sub']}")
+        used_subs.add(e["sub"])
+        if not e["kw"]:
+            fail(f"{where}: no keywords")
+        if e.get("reg") not in (None, "polite", "informal"):
+            fail(f"{where}: register {e['reg']}")
+        unknown = set(e) - {"ka", "en", "sub", "kw", "reg", "lit", "note", "var", "rep"}
+        if unknown:
+            fail(f"{where}: unknown fields {unknown}")
+        pid = "pb-" + slug(ka)
+        if any(p["id"] == pid for p in pb_phrases):
+            fail(f"{where}: id {pid} used twice")
+        p = {"id": pid, "ka": ka, "lat": latin(ka), "sound": sound(ka), "en": en, "category": cid,
+             "sub": e["sub"], "keywords": [k.lower() for k in e["kw"]], "urgent": cid == "emergency"}
+        for key in ("reg", "lit", "note"):
+            if e.get(key):
+                p[key] = e[key]
+        if e.get("var"):
+            p["variants"] = []
+            for (label, vka, ven) in e["var"]:
+                check_phrase_text(vka, where + " variant")
+                p["variants"].append({"label": label, "ka": vka, "lat": latin(vka), "en": ven})
+        if e.get("rep"):
+            p["replies"] = []
+            for (rka, ren) in e["rep"]:
+                check_phrase_text(rka, where + " reply")
+                p["replies"].append({"ka": rka, "lat": latin(rka), "en": ren})
+        # Course words in the phrase, for "Learn the words".
+        linked = []
+        bare = ka.strip(".?!")
+        for tok in re.split(r"[ ,]+", bare):
+            w = word_by_bare.get(tok.strip(".?!,"))
+            if w and w["id"] not in linked:
+                linked.append(w["id"])
+        for wka, w in word_by_bare.items():
+            if " " in wka and wka in bare and w["id"] not in linked:
+                linked.append(w["id"])
+        if linked:
+            p["words"] = linked[:6]
+        gram = []
+        for (pattern, lesson, why) in PB.GRAMMAR_LINKS:
+            if lesson not in grammar_ids:
+                fail(f"grammar link to unknown lesson {lesson}")
+            if re.search(pattern, ka + " ") and len(gram) < 2 and all(g["lesson"] != lesson for g in gram):
+                gram.append({"lesson": lesson, "why": why})
+        if gram:
+            p["grammar"] = gram
+        pb_phrases.append(p)
+    if subs - used_subs:
+        fail(f"phrasebook {cid}: subcategories with no phrases: {subs - used_subs}")
+
+pb_dialogues = []
+for d in PB.DIALOGUES:
+    where = f"dialogue {d['id']}"
+    if d["category"] not in pb_cats:
+        fail(f"{where}: unknown category")
+    if len(d["lines"]) < 5:
+        fail(f"{where}: too short")
+    if {who for (who, _, _) in d["lines"]} != {0, 1}:
+        fail(f"{where}: both sides must speak")
+    lines = []
+    for (who, ka, en) in d["lines"]:
+        check_phrase_text(ka, where)
+        lines.append({"who": who, "ka": ka, "lat": latin(ka), "en": en})
+    notes = []
+    for (ka, en, why) in d.get("notes", []):
+        check_phrase_text(ka, where + " note")
+        notes.append({"ka": ka, "lat": latin(ka), "en": en, "why": why})
+    pb_dialogues.append({"id": "pd-" + d["id"], "category": d["category"], "title": d["title"],
+                         "roles": list(d["roles"]), "lines": lines, "notes": notes})
+if len({d["id"] for d in pb_dialogues}) != len(pb_dialogues):
+    fail("dialogue ids used twice")
+
+for k, targets in PB.SYNONYMS.items():
+    if k != k.lower() or any(t != t.lower() for t in targets):
+        fail(f"synonym {k}: use lower case")
+if PB.PHRASEBOOK_STATUS not in ("claude", "native"):
+    fail("PHRASEBOOK_STATUS must be claude or native")
+
 if errors:
     print("\n".join("ERROR " + e for e in errors))
     sys.exit(1)
@@ -282,5 +433,9 @@ def write(name, data):
 write("letters.json", {"version": VERSION, "letters": letters, "lookalikes": C.LOOKALIKES})
 write("vocabulary.json", {"version": VERSION, "categories": categories, "words": words})
 write("course.json", {"id": "georgian-a0", "version": VERSION, "title": "Georgian from zero", "modules": modules})
+write("phrasebook.json", {"version": VERSION, "checkedBy": PB.PHRASEBOOK_STATUS,
+                         "categories": list(pb_cats.values()), "phrases": pb_phrases, "dialogues": pb_dialogues,
+                         "synonyms": PB.SYNONYMS, "suggestions": PB.SUGGESTIONS})
 lesson_count = sum(len(m["lessons"]) for m in modules)
 print(f"OK: {len(letters)} letters, {len(words)} words and phrases, {len(modules)} modules, {lesson_count} lessons")
+print(f"OK: phrasebook with {len(pb_cats)} categories, {len(pb_phrases)} phrases, {len(pb_dialogues)} dialogues")

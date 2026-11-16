@@ -17,7 +17,7 @@ struct VocabularyView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        Group {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     summary
@@ -158,6 +158,26 @@ struct WordDetailView: View {
                         .card(padding: 14, cornerRadius: 16)
                 }
                 progressCard
+                let phrases = store.phrasebook.phrases.filter { ($0.words ?? []).contains(word.id) && $0.id != word.id }
+                if !phrases.isEmpty {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Label("In everyday phrases", systemImage: "bubble.left.and.text.bubble.right.fill")
+                            .font(.headlineRounded).foregroundStyle(Palette.pomegranate)
+                        ForEach(phrases.prefix(5)) { p in
+                            HStack(spacing: 10) {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(p.ka).font(.system(.headline, weight: .bold)).foregroundStyle(Palette.ink)
+                                    Text(p.en).font(.caption).foregroundStyle(Palette.inkSoft)
+                                }
+                                Spacer(minLength: 8)
+                                PlayButton(text: p.ka, size: 34)
+                            }
+                            .accessibilityElement(children: .combine)
+                        }
+                        Text("Find them all in the Phrasebook.").font(.caption).foregroundStyle(Palette.inkFaint)
+                    }
+                    .card()
+                }
                 Button {
                     Haptics.tap()
                     navigator.sheetOpen = true

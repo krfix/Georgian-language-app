@@ -1,7 +1,8 @@
 import SwiftUI
 
-/// The dashboard: greeting, streak and XP, the daily goal, the next lesson, the path ahead,
-/// today's challenge and words to review.
+/// Home: the two sides of the app at a glance. A search bar and the situations for using
+/// Georgian right now; recent and saved phrases; then the course to continue, the daily
+/// review and today's goal. Streak and XP stay small: learning is the point, not the score.
 struct HomeView: View {
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
@@ -11,13 +12,15 @@ struct HomeView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     header
-                    statsRow
+                    SearchBarButton { navigator.search() }
+                    PurposeRow()
+                    QuickSituations()
+                    PhraseShelf()
+                    SectionTitle(title: "Continue learning", trailing: "Course") { navigator.tab = .learn }
                     if let lesson = store.nextLesson { ContinueCard(lesson: lesson) }
                     else { CourseDoneCard() }
-                    DailyGoalCard()
-                    PathPreview()
-                    ChallengeCard()
                     ReviewNudgeCard()
+                    DailyGoalCard()
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 30)
@@ -56,6 +59,14 @@ struct HomeView: View {
                     .foregroundStyle(Palette.ink)
                     .lineLimit(2)
                     .minimumScaleFactor(0.7)
+                if store.streak > 0 || store.totalXP > 0 {
+                    HStack(spacing: 10) {
+                        Label("\(store.streak)-day streak", systemImage: "flame.fill").foregroundStyle(Palette.flame)
+                        Label("\(store.totalXP) XP", systemImage: "bolt.fill").foregroundStyle(Palette.gold)
+                    }
+                    .font(.captionBold)
+                    .padding(.top, 2)
+                }
             }
             .accessibilityElement(children: .combine)
             Spacer()
@@ -76,15 +87,6 @@ struct HomeView: View {
             .accessibilityIdentifier("profile-button")
         }
         .padding(.top, 12)
-    }
-
-    private var statsRow: some View {
-        let xp = store.totalXP
-        return HStack(spacing: 12) {
-            StatTile(symbol: "flame.fill", value: "\(store.streak)", label: "day streak", color: Palette.flame, singleLine: true)
-            StatTile(symbol: "bolt.fill", value: "\(xp)", label: "total XP", color: Palette.gold, singleLine: true)
-            StatTile(symbol: "star.fill", value: "\(LearnerLevel.level(forXP: xp))", label: "level", color: Palette.saperavi, singleLine: true)
-        }
     }
 }
 
@@ -367,5 +369,143 @@ struct ReviewNudgeCard: View {
             }
         }
         .card()
+    }
+}
+
+// MARK: Use in Georgia, on Home
+
+/// The two halves of the app, side by side: learn Georgian, or use it now.
+struct PurposeRow: View {
+    @Environment(LearningStore.self) private var store
+    @Environment(Navigator.self) private var navigator
+
+    var body: some View {
+        let lessonsDone = store.completedLessons.count
+        let total = store.curriculum.lessons.count
+        HStack(spacing: 12) {
+            tile(color: .saperavi, symbol: "map.fill", title: "Learn",
+                 text: "Continue your Georgian course",
+                 detail: "\(lessonsDone) of \(total) lessons", id: "purpose-learn") { navigator.tab = .learn }
+            tile(color: .pomegranate, symbol: "bubble.left.and.text.bubble.right.fill", title: "Use in Georgia",
+                 text: "Find the right words for everyday situations",
+                 detail: "\(store.phrasebook.phrases.count) phrases", id: "purpose-use") { navigator.tab = .phrasebook }
+        }
+    }
+
+    private func tile(color: BrandColor, symbol: String, title: String, text: String, detail: String, id: String,
+                      action: @escaping () -> Void) -> some View {
+        Button {
+            Haptics.tap()
+            action()
+        } label: {
+            VStack(alignment: .leading, spacing: 6) {
+                Image(systemName: symbol)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundStyle(color.onColor)
+                    .frame(width: 42, height: 42)
+                    .background(Circle().fill(color.onColor.opacity(0.18)))
+                Text(title)
+                    .font(.headlineRounded)
+                    .foregroundStyle(color.onColor)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+                Text(text)
+                    .font(.caption)
+                    .foregroundStyle(color.onColor.opacity(0.9))
+                    .fixedSize(horizontal: false, vertical: true)
+                Spacer(minLength: 0)
+                Text(detail)
+                    .font(.caption2.weight(.bold))
+                    .foregroundStyle(color.onColor.opacity(0.85))
+            }
+            .frame(maxWidth: .infinity, minHeight: 150, alignment: .topLeading)
+            .gradientCard(color, padding: 14, cornerRadius: 24)
+        }
+        .buttonStyle(.pressable)
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier(id)
+    }
+}
+
+/// The situations people need most, one tap each, and emergencies in red.
+struct QuickSituations: View {
+    @Environment(LearningStore.self) private var store
+    @Environment(Navigator.self) private var navigator
+    private let ids = ["transport", "shopping", "food", "health", "home", "social", "emergency"]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            SectionTitle(title: "Right now I need…", trailing: "All") { navigator.tab = .phrasebook }
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(ids.compactMap(store.phrasebook.category)) { c in
+                        Button {
+                            Haptics.tap()
+                            navigator.open(category: c.id)
+                        } label: {
+                            VStack(spacing: 6) {
+                                Image(systemName: c.symbol)
+                                    .font(.system(size: 22, weight: .bold))
+                                    .foregroundStyle(.white)
+                                    .frame(width: 58, height: 58)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 18, style: .continuous)
+                                            .fill(c.isEmergency ? AnyShapeStyle(LinearGradient(colors: [Color(hex: 0xE5484D), Color(hex: 0xB4232F)], startPoint: .top, endPoint: .bottom)) : AnyShapeStyle(c.brand.gradient))
+                                    )
+                                    .shadow(color: c.brand.fill.opacity(0.3), radius: 6, y: 3)
+                                Text(shortName(c))
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(c.isEmergency ? Palette.error : Palette.ink)
+                                    .lineLimit(1)
+                            }
+                            .frame(width: 74)
+                        }
+                        .buttonStyle(.pressable)
+                        .accessibilityLabel(c.title)
+                        .accessibilityIdentifier("quick-\(c.id)")
+                    }
+                }
+                .padding(.vertical, 4)
+                .padding(.horizontal, 2)
+            }
+        }
+    }
+
+    private func shortName(_ c: PhraseCategory) -> String {
+        switch c.id {
+        case "transport": return "Taxi & bus"
+        case "shopping": return "Shopping"
+        case "food": return "Café"
+        case "health": return "Pharmacy"
+        case "home": return "Home"
+        case "social": return "People"
+        case "emergency": return "Emergency"
+        default: return c.title
+        }
+    }
+}
+
+/// Recently used phrases, or saved ones, as small cards to tap again.
+struct PhraseShelf: View {
+    @Environment(LearningStore.self) private var store
+    @Environment(Navigator.self) private var navigator
+
+    var body: some View {
+        let recent = store.recentPhrases
+        let saved = store.savedPhrases
+        let list = recent.isEmpty ? saved : recent
+        if !list.isEmpty {
+            VStack(alignment: .leading, spacing: 10) {
+                SectionTitle(title: recent.isEmpty ? "Your saved phrases" : "Recently used",
+                             trailing: saved.isEmpty ? nil : "My phrasebook") { navigator.openSaved() }
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 12) {
+                        ForEach(list.prefix(8)) { p in PhraseMiniCard(phrase: p) }
+                    }
+                    .padding(.vertical, 6)
+                    .padding(.horizontal, 2)
+                }
+            }
+        }
     }
 }

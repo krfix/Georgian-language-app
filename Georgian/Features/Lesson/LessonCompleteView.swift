@@ -6,6 +6,7 @@ struct LessonCompleteView: View {
     let reward: LessonReward
     let title: String
     let isReview: Bool
+    var isDialogue = false
     let onDone: () -> Void
 
     @State private var shownXP = 0
@@ -33,7 +34,7 @@ struct LessonCompleteView: View {
                     .accessibilityHidden(true)
 
                     VStack(spacing: 6) {
-                        Text(reward.isPerfect ? "Flawless!" : (isReview ? "Review complete!" : "Lesson complete!"))
+                        Text(reward.isPerfect ? "Flawless!" : (isDialogue ? "Conversation done!" : isReview ? "Review complete!" : "Lesson complete!"))
                             .font(.display)
                             .foregroundStyle(Palette.ink)
                             .multilineTextAlignment(.center)

@@ -8,7 +8,8 @@ struct LearnView: View {
     @State private var lockedNotice: String?
 
     var body: some View {
-        NavigationStack {
+        @Bindable var nav = navigator
+        NavigationStack(path: $nav.learnPath) {
             ScrollViewReader { proxy in
                 ScrollView {
                     VStack(spacing: 26) {
@@ -38,6 +39,24 @@ struct LearnView: View {
             }
             .background(AmbientBackground(tint: .saperavi))
             .navigationTitle("Learn")
+            .toolbar {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    NavigationLink(value: LearnRoute.words) {
+                        Label("Words", systemImage: "character.book.closed.fill")
+                    }
+                    .accessibilityIdentifier("learn-words")
+                    NavigationLink(value: LearnRoute.progress) {
+                        Label("Progress", systemImage: "chart.bar.fill")
+                    }
+                    .accessibilityIdentifier("learn-progress")
+                }
+            }
+            .navigationDestination(for: LearnRoute.self) { route in
+                switch route {
+                case .words: VocabularyView()
+                case .progress: ProgressScreen()
+                }
+            }
             .overlay(alignment: .bottom) {
                 if let lockedNotice {
                     Label(lockedNotice, systemImage: "lock.fill")

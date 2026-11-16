@@ -56,6 +56,16 @@ struct ProfileView: View {
                 }
 
                 Section {
+                    LabeledContent("Phrases", value: "\(store.phrasebook.phrases.count) in \(store.phrasebook.categories.count) situations")
+                    LabeledContent("Saved", value: "\(store.savedPhrases.count)")
+                    LabeledContent("Checked by", value: store.phrasebook.isNativeChecked ? "A native speaker" : "Claude (AI)")
+                } header: {
+                    Text("Phrasebook")
+                } footer: {
+                    Text("Everything works offline: phrases, search, audio and your saved phrases are all on this iPhone.")
+                }
+
+                Section {
                     Toggle("Slower Georgian audio", isOn: binding(\.slowAudio) { audio.slow = $0 })
                     LabeledContent("Voice in the app", value: audio.syntheticClipCount > 0 ? "Eka · synthetic" : "None")
                     LabeledContent("Native recordings", value: audio.nativeClipCount > 0 ? "\(audio.nativeClipCount) clips" : "Not included yet")

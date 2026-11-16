@@ -31,12 +31,13 @@ struct LessonPlayerView: View {
 
     private var tint: BrandColor {
         if case .lesson(let l) = request.mode, let m = store.curriculum.module(of: l.id) { return BrandColor(named: m.color) }
+        if case .dialogue(_, let color) = request.mode { return BrandColor(named: color) }
         return .saperavi
     }
 
     @ViewBuilder private func content(_ model: LessonPlayerModel) -> some View {
         if case .finished(let reward) = model.phase {
-            LessonCompleteView(reward: reward, title: model.title, isReview: model.isReview) { dismiss() }
+            LessonCompleteView(reward: reward, title: model.title, isReview: model.isReview, isDialogue: model.isDialogue) { dismiss() }
                 .transition(.opacity.combined(with: .scale(scale: 0.95)))
         } else {
             VStack(spacing: 0) {

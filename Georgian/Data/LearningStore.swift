@@ -38,6 +38,8 @@ final class LearningStore {
     private(set) var reviewSessionCount = 0
     private(set) var recentMistakes: [AnswerRecord] = []
     private(set) var answerTotals = (all: 0, correct: 0)
+    /// Phrasebook phrases the learner saved, marked or opened, by phrase id.
+    private(set) var phraseRecords: [String: PhraseRecord] = [:]
 
     /// Developer switch (Profile › Developer): every lesson open, for testing. Kept in
     /// UserDefaults, not with the progress.
@@ -78,6 +80,8 @@ final class LearningStore {
         let all = (try? context.fetchCount(FetchDescriptor<AnswerRecord>())) ?? 0
         let right = (try? context.fetchCount(FetchDescriptor<AnswerRecord>(predicate: #Predicate<AnswerRecord> { $0.correct }))) ?? 0
         answerTotals = (all, right)
+        let p = (try? context.fetch(FetchDescriptor<PhraseRecord>())) ?? []
+        phraseRecords = Dictionary(p.map { ($0.phraseID, $0) }, uniquingKeysWith: { a, b in a.saved || !b.saved ? a : b })
     }
 
     var today: String { DayKey.of(now()) }
@@ -294,6 +298,7 @@ final class LearningStore {
         try? context.delete(model: DayRecord.self)
         try? context.delete(model: AchievementRecord.self)
         try? context.delete(model: ReviewSessionRecord.self)
+        try? context.delete(model: PhraseRecord.self)
         let fresh = LearnerProfile()
         context.delete(profile)
         context.insert(fresh)
@@ -361,6 +366,32 @@ final class LearningStore {
             d.challengeDone = i % 3 == 0
             context.insert(d)
         }
+        // The phrasebook: a few saved phrases (one list of her own), recently opened ones and
+        // two in review.
+        let saved = ["pb-ak-gamicheret-tu-sheidzleba", "pb-es-ra-ghirs", "pb-khortss-ar-vcham", "pb-ver-gavige",
+                     "pb-aptiaki-sad-aris", "pb-tskheli-tsqali-ar-modis"]
+        for (i, id) in saved.enumerated() where curriculum.phrasebook.phrase(id) != nil {
+            let r = PhraseRecord(phraseID: id)
+            r.saved = true
+            r.savedAt = n.addingTimeInterval(-Double(i) * 7_200)
+            r.list = id == "pb-tskheli-tsqali-ar-modis" ? "For the landlord" : ""
+            r.learned = i == 3
+            r.lastOpened = n.addingTimeInterval(-Double(i) * 1_800)
+            r.opens = 3
+            context.insert(r)
+        }
+        for (i, id) in ["pb-ramdeni-ikneba", "pb-erti-qava-tu-sheidzleba"].enumerated() where curriculum.phrasebook.phrase(id) != nil {
+            let r = PhraseRecord(phraseID: id)
+            r.lastOpened = n.addingTimeInterval(-Double(i + 1) * 900)
+            r.opens = 1
+            context.insert(r)
+        }
+        for id in ["pb-es-ra-ghirs", "pb-ver-gavige"] where curriculum.phrasebook.phrase(id) != nil {
+            let m = MasteryRecord(itemID: id)
+            m.due = n.addingTimeInterval(-600)
+            m.lastSeen = n.addingTimeInterval(-86_400)
+            context.insert(m)
+        }
         for i in 0..<4 { context.insert(ReviewSessionRecord(date: n.addingTimeInterval(-Double(i) * 86_400), items: 10, correct: 8, xp: 13)) }
         try? context.save()
         reload()
@@ -369,4 +400,94 @@ final class LearningStore {
         }
         save()
     }
+}
+
+// MARK: The phrasebook
+
+extension LearningStore {
+    var phrasebook: Phrasebook { curriculum.phrasebook }
+
+    func isSaved(_ phraseID: String) -> Bool { phraseRecords[phraseID]?.saved ?? false }
+    func isLearned(_ phraseID: String) -> Bool { phraseRecords[phraseID]?.learned ?? false }
+    /// In spaced-repetition review (it has a schedule).
+    func isPractising(_ phraseID: String) -> Bool { mastery[phraseID] != nil }
+    func list(of phraseID: String) -> String { phraseRecords[phraseID]?.list ?? "" }
+
+    /// The learner's phrasebook: saved phrases, newest first.
+    var savedPhrases: [Phrase] {
+        phraseRecords.values.filter(\.saved).sorted { $0.savedAt > $1.savedAt }.compactMap { phrasebook.phrase($0.phraseID) }
+    }
+
+    /// Phrases opened lately, newest first.
+    var recentPhrases: [Phrase] {
+        phraseRecords.values.filter { $0.opens > 0 }.sorted { $0.lastOpened > $1.lastOpened }
+            .prefix(12).compactMap { phrasebook.phrase($0.phraseID) }
+    }
+
+    /// The names of the learner's own lists, in alphabetical order.
+    var phraseLists: [String] {
+        Array(Set(phraseRecords.values.filter { $0.saved && !$0.list.isEmpty }.map(\.list))).sorted()
+    }
+
+    var practisingPhraseCount: Int { mastery.keys.filter(Phrasebook.isPhraseID).count }
+
+    private func phraseRecord(_ id: String) -> PhraseRecord {
+        if let r = phraseRecords[id] { return r }
+        let r = PhraseRecord(phraseID: id)
+        context.insert(r)
+        phraseRecords[id] = r
+        return r
+    }
+
+    func toggleSaved(_ p: Phrase) { setSaved(p, !isSaved(p.id)) }
+
+    func setSaved(_ p: Phrase, _ on: Bool) {
+        let r = phraseRecord(p.id)
+        r.saved = on
+        if on { r.savedAt = now() } else { r.list = "" }
+        save()
+    }
+
+    func setLearned(_ p: Phrase, _ on: Bool) {
+        phraseRecord(p.id).learned = on
+        save()
+    }
+
+    /// Puts a phrase in a list of the learner's own ("" for none), saving it if it wasn't.
+    func move(_ p: Phrase, toList name: String) {
+        let r = phraseRecord(p.id)
+        if !r.saved { r.saved = true; r.savedAt = now() }
+        r.list = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        save()
+    }
+
+    /// Remembers that a phrase was opened, for "Recently used".
+    func noteOpened(_ p: Phrase) {
+        let r = phraseRecord(p.id)
+        r.lastOpened = now()
+        r.opens += 1
+        save()
+    }
+
+    /// Saves a phrase and adds it to spaced-repetition review, due now. Already there: kept as it is.
+    func practiseLater(_ p: Phrase) {
+        let r = phraseRecord(p.id)
+        if !r.saved { r.saved = true; r.savedAt = now() }
+        if mastery[p.id] == nil {
+            let m = MasteryRecord(itemID: p.id)
+            m.due = now()
+            m.lastSeen = Date.distantPast
+            context.insert(m)
+        }
+        save()
+    }
+
+    /// Takes a phrase out of review (its schedule is deleted; it stays saved).
+    func stopPractising(_ p: Phrase) {
+        if let m = mastery[p.id] { context.delete(m) }
+        save()
+    }
+
+    /// Phrases as review items.
+    func studyItems(_ phrases: [Phrase]) -> [StudyItem] { phrases.map { .word(phrasebook.word(for: $0)) } }
 }

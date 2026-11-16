@@ -237,6 +237,22 @@ struct ExerciseBuilder {
                 let known = curriculum.letters
                 out.append(i % 2 == 0 ? letterToLatin(l, among: known, id: id, using: &rng)
                                       : latinToLetter(l, among: known, id: id, using: &rng))
+            case .word(let w) where Phrasebook.isPhraseID(w.id):
+                // A phrase from the phrasebook: mixed with other phrases, and built from its
+                // words instead of typed in English.
+                let near = curriculum.phrasebook.words(near: w)
+                switch i % 4 {
+                case 0: out.append(georgianToEnglish(w, pool: near, id: id, using: &rng))
+                case 1: out.append(englishToGeorgian(w, pool: near, id: id, using: &rng))
+                case 2:
+                    let g = Gloss(ka: w.ka, lat: w.lat, en: w.en)
+                    if let built = sentenceBuilder(g, distractorsFrom: near.prefix(8).map(\.ka), itemID: w.id, id: id, using: &rng) {
+                        out.append(built)
+                    } else {
+                        out.append(georgianToEnglish(w, pool: near, id: id, using: &rng))
+                    }
+                default: out.append(flashcard(w, id: id))
+                }
             case .word(let w):
                 switch i % 4 {
                 case 0: out.append(georgianToEnglish(w, pool: pool.filter { $0.category == w.category } + pool, id: id, using: &rng))

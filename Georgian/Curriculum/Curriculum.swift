@@ -10,6 +10,8 @@ final class Curriculum {
     let lookalikes: [[String]]
     let categories: [WordCategory]
     let words: [Word]
+    /// Phrases for real situations, usable without the course (Resources/Curriculum/phrasebook.json).
+    let phrasebook: Phrasebook
 
     /// Every lesson in course order.
     let lessons: [Lesson]
@@ -18,7 +20,7 @@ final class Curriculum {
     private let moduleByLesson: [String: CourseModule]
     private let lessonByID: [String: Lesson]
 
-    init(course: CourseFile, letters: LettersFile, vocabulary: VocabularyFile) {
+    init(course: CourseFile, letters: LettersFile, vocabulary: VocabularyFile, phrasebook: PhrasebookFile = .empty) {
         courseID = course.id
         version = course.version
         title = course.title
@@ -34,11 +36,12 @@ final class Curriculum {
         for m in course.modules { for l in m.lessons { byLesson[l.id] = m } }
         moduleByLesson = byLesson
         lessonByID = Dictionary(lessons.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
+        self.phrasebook = Phrasebook(file: phrasebook, courseWords: vocabulary.words, courseCategories: vocabulary.categories)
     }
 
     enum LoadError: Error { case missing(String) }
 
-    /// Reads the three JSON files from a folder (the tests) or from the app bundle.
+    /// Reads the JSON files from a folder (the tests) or from the app bundle.
     static func load(from directory: URL? = nil, bundle: Bundle = .main) throws -> Curriculum {
         func url(_ name: String) throws -> URL {
             if let directory { return directory.appendingPathComponent(name + ".json") }
@@ -50,10 +53,12 @@ final class Curriculum {
         let course = try decoder.decode(CourseFile.self, from: Data(contentsOf: url("course")))
         let letters = try decoder.decode(LettersFile.self, from: Data(contentsOf: url("letters")))
         let vocabulary = try decoder.decode(VocabularyFile.self, from: Data(contentsOf: url("vocabulary")))
-        return Curriculum(course: course, letters: letters, vocabulary: vocabulary)
+        let phrasebook = try decoder.decode(PhrasebookFile.self, from: Data(contentsOf: url("phrasebook")))
+        return Curriculum(course: course, letters: letters, vocabulary: vocabulary, phrasebook: phrasebook)
     }
 
-    func word(_ id: String) -> Word? { wordsByID[id] }
+    /// A course word, or a phrasebook phrase as a word (ids starting "pb-").
+    func word(_ id: String) -> Word? { wordsByID[id] ?? (Phrasebook.isPhraseID(id) ? phrasebook.word(id) : nil) }
     func letter(_ char: String) -> LetterInfo? { lettersByChar[char] }
     func lesson(_ id: String) -> Lesson? { lessonByID[id] }
     func module(of lessonID: String) -> CourseModule? { moduleByLesson[lessonID] }

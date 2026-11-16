@@ -157,7 +157,16 @@ struct OnboardingView: View {
                 Button("Get started") { go(1) }
                     .buttonStyle(ChunkyButtonStyle(color: .pomegranate))
                     .accessibilityIdentifier("onboarding-next")
-                Text("No account needed. Everything stays on your iPhone.")
+                Button {
+                    finish(startLesson: false)
+                    let nav = navigator
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { nav.tab = .phrasebook }
+                } label: {
+                    Label("I just need phrases now", systemImage: "bubble.left.and.text.bubble.right.fill")
+                }
+                .buttonStyle(SoftButtonStyle())
+                .accessibilityIdentifier("onboarding-phrasebook")
+                Text("No account needed. Everything stays on your iPhone and works offline.")
                     .font(.caption)
                     .foregroundStyle(Palette.inkSoft)
             }
@@ -234,7 +243,7 @@ private struct WelcomePage: View {
                 Text("Ara")
                     .font(.system(size: 64, weight: .black, design: .rounded))
                     .foregroundStyle(Gradients.hero)
-                Text("Learn Georgian, one letter at a time")
+                Text("Learn Georgian, and use it every day")
                     .font(.titleBold)
                     .foregroundStyle(Palette.ink)
                     .multilineTextAlignment(.center)

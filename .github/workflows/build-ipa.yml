@@ -197,7 +197,7 @@ jobs:
   qa:
     if: inputs.qa
     runs-on: macos-15
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v5
 
@@ -292,8 +292,11 @@ jobs:
           for look in light dark; do
             xcrun simctl ui "$UDID" appearance $look
             n=1
-            # A page name, or exercise:<lesson>:<kind> for one exercise in a lesson.
-            for page in onboarding home learn alphabet lesson complete words word review progress profile \
+            # A page name; page@x for a phrasebook page about x (a category, phrase or
+            # dialogue id; for search, the query); or exercise:<lesson>:<kind>.
+            for page in onboarding home phrasebook category@transport emergency phrase@pb-ak-gamicheret-tu-sheidzleba \
+                show@pb-ak-gamicheret-tu-sheidzleba search search@water dialogue@pd-bazaar practice@pd-restaurant saved \
+                learn alphabet lesson complete words word review progress profile \
                 exercise:a1:teachLetter exercise:a1:letterRecognition exercise:a3:missingLetter exercise:a3:reading \
                 exercise:v7:multipleChoice exercise:v7:matching exercise:v7:fillBlank exercise:v7:spelling \
                 exercise:v7:translation exercise:v7:sentenceBuilder exercise:g2:note exercise:g1:flashcard \
@@ -303,6 +306,11 @@ jobs:
                 rest=${page#exercise:}; lesson=${rest%%:*}; kind=${rest#*:}
                 limit 60 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen exercise -lesson "$lesson" -kind "$kind" > /dev/null
                 page="ex-$lesson-$kind"
+              elif [ "${page#*@}" != "$page" ]; then
+                name=${page%%@*}; arg=${page#*@}
+                if [ "$name" = search ]; then flag=-query; else flag=-item; fi
+                limit 60 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$name" "$flag" "$arg" > /dev/null
+                page="$name-$arg"
               else
                 limit 60 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
               fi
@@ -314,12 +322,16 @@ jobs:
           # The largest text size (before the accessibility sizes), to check Dynamic Type.
           xcrun simctl ui "$UDID" appearance light
           xcrun simctl ui "$UDID" content_size extra-extra-extra-large
-          for page in home learn exercise:v7:multipleChoice complete; do
+          for page in home phrasebook phrase@pb-ak-gamicheret-tu-sheidzleba show@pb-ak-gamicheret-tu-sheidzleba learn exercise:v7:multipleChoice complete; do
             limit 30 xcrun simctl terminate "$UDID" com.krfix.georgian 2>/dev/null || true
             if [ "${page%%:*}" = exercise ]; then
               rest=${page#exercise:}; lesson=${rest%%:*}; kind=${rest#*:}
               limit 60 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen exercise -lesson "$lesson" -kind "$kind" > /dev/null
               page="ex-$lesson-$kind"
+            elif [ "${page#*@}" != "$page" ]; then
+              name=${page%%@*}; arg=${page#*@}
+              limit 60 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$name" -item "$arg" > /dev/null
+              page="$name-$arg"
             else
               limit 60 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
             fi

@@ -225,6 +225,110 @@ check("challenge is the same all day", DailyChallenge.of(day: "2026-11-15", dail
 let kinds = Set((1...28).map { DailyChallenge.of(day: String(format: "2026-02-%02d", $0), dailyGoal: 20).kind })
 check("challenges vary over a month", kinds.count >= 3, true)
 
+
+// MARK: Phrasebook
+
+let pb = course.phrasebook
+check("phrasebook has 11 situations", pb.categories.count, 11)
+check("phrasebook has at least 250 phrases", pb.phrases.count >= 250, true)
+check("phrasebook has at least 10 dialogues", pb.dialogues.count >= 10, true)
+check("phrase ids unique", Set(pb.phrases.map(\.id)).count, pb.phrases.count)
+check("phrase ids start pb-", pb.phrases.filter { !Phrasebook.isPhraseID($0.id) }.map(\.id), [])
+check("phrase ids don't clash with course words", pb.phrases.filter { course.words.contains(where: { w in w.id == $0.id }) }.map(\.id), [])
+var pbProblems: [String] = []
+for p in pb.phrases {
+    if course.latin(p.ka) != p.lat { pbProblems.append("\(p.id): Latin") }
+    for v in (p.variants ?? []) + (p.replies ?? []) where course.latin(v.ka) != v.lat { pbProblems.append("\(p.id): Latin of \(v.ka)") }
+    if p.sound.isEmpty { pbProblems.append("\(p.id): no sound guide") }
+    guard let c = pb.category(p.category) else { pbProblems.append("\(p.id): category"); continue }
+    if c.sub(p.sub) == nil { pbProblems.append("\(p.id): subcategory \(p.sub)") }
+    if p.keywords.isEmpty { pbProblems.append("\(p.id): keywords") }
+    if p.urgent != c.isEmergency { pbProblems.append("\(p.id): urgent flag") }
+    for w in p.words ?? [] where course.word(w) == nil { pbProblems.append("\(p.id): linked word \(w)") }
+    for g in p.grammar ?? [] where course.lesson(g.lesson)?.kind != .grammar { pbProblems.append("\(p.id): grammar \(g.lesson)") }
+    let letters = p.ka.unicodeScalars.filter { CharacterSet.letters.contains($0) }
+    if letters.isEmpty || !letters.allSatisfy(isGeorgianLetter) { pbProblems.append("\(p.id): not Mkhedruli") }
+}
+for c in pb.categories where pb.phrases(in: c.id).count < 5 { pbProblems.append("\(c.id): too few phrases") }
+check("every phrase is sound", pbProblems, [])
+check("sound guide of გამარჯობა", pb.phrase("pb-gamarjoba")?.sound, "gah-mahr-joh-bah")
+check("a phrase is a word for review", course.word("pb-ver-gavige")?.ka, "ვერ გავიგე.")
+check("a phrase is a study item", course.item("pb-ver-gavige")?.english, "I didn't understand.")
+check("emergency phrases are urgent", pb.phrases(in: "emergency").allSatisfy(\.urgent), true)
+check("112 is in the emergency phrases", pb.phrases(in: "emergency").contains { $0.ka.contains("112") }, true)
+
+// Dialogues, and practising either side.
+var dProblems: [String] = []
+for d in pb.dialogues {
+    if d.roles.count != 2 { dProblems.append("\(d.id): roles") }
+    if pb.category(d.category) == nil { dProblems.append("\(d.id): category") }
+    for role in 0...1 {
+        let lesson = pb.practiceLesson(d, role: role)
+        let mine = d.lines.filter { $0.who == role }.count
+        for seed in 0..<3 {
+            var rng = SeededGenerator(seed: UInt64(seed))
+            let ex = builder.exercises(for: lesson, using: &rng)
+            let turns = ex.compactMap { e -> DialogueTurn? in if case .dialogue(let t) = e.content { return t } else { return nil } }
+            if turns.count != mine { dProblems.append("\(d.id) as \(role): \(turns.count) turns, want \(mine)") }
+            for t in turns {
+                if t.options.count != 3 { dProblems.append("\(d.id) as \(role): \(t.options.count) options") }
+                if Set(t.options).count != t.options.count { dProblems.append("\(d.id) as \(role): options repeat") }
+                if t.options[t.answer] != t.line.ka { dProblems.append("\(d.id) as \(role): answer") }
+            }
+            if Set(ex.map(\.id)).count != ex.count { dProblems.append("\(d.id) as \(role): ids repeat") }
+        }
+    }
+}
+check("every dialogue can be practised from both sides", dProblems, [])
+
+// Phrases in review: mixed with other phrases, never typed in English.
+var rr = SeededGenerator(seed: 4)
+let phraseItems = ["pb-es-ra-ghirs", "pb-ver-gavige", "pb-khortss-ar-vcham", "pb-ak-gamicheret-tu-sheidzleba"].compactMap(course.item)
+check("four phrases as review items", phraseItems.count, 4)
+let phraseReview = builder.review(phraseItems, using: &rr)
+check("a review exercise per phrase", phraseReview.count, 4)
+check("phrase reviews keep their item", phraseReview.map(\.itemID), phraseItems.map(\.id) as [String?])
+check("no English typing for phrases", phraseReview.contains { $0.kind == .translation }, false)
+var reviewOptions: [String] = []
+for e in phraseReview { if case .choice(let c) = e.content { reviewOptions += c.options.map(\.text) } }
+check("phrase distractors are phrases", reviewOptions.allSatisfy { o in pb.phrases.contains { $0.en == o || $0.ka == o } }, true)
+
+// Search: the real-life scenarios, and the ways people type.
+func topIDs(_ q: String, _ n: Int = 3) -> [String] { pb.search.top(q, n).map(\.id) }
+func finds(_ q: String, _ id: String, within n: Int = 3, line: Int = #line) {
+    check("search \"\(q)\" finds \(id)", topIDs(q, n).contains(id), true, line: line)
+}
+finds("stop here", "pb-ak-gamicheret-tu-sheidzleba")               // a tourist asks a taxi driver to stop
+finds("taxi stop", "pb-ak-gamicheret-tu-sheidzleba")
+finds("how much is this", "pb-es-ra-ghirs")                         // a price at the bazaar
+finds("price", "pb-es-ra-ghirs", within: 4)
+finds("I don't eat meat", "pb-khortss-ar-vcham")                    // telling a waiter
+finds("vegetarian", "pb-khortss-ar-vcham")
+finds("where is the nearest pharmacy", "pb-ak-akhlos-aptiaki-aris")  // finding a pharmacy
+finds("pharmacy", "pb-aptiaki-sad-aris")
+finds("my name is", "pb-me-joni-mkvia")                             // meeting a neighbour
+finds("neighbour", "pb-akhali-mezobeli-var")
+finds("neighbor", "pb-akhali-mezobeli-var")
+finds("gym membership", "pb-abonementi-ra-ghirs")                   // a gym receptionist
+finds("I don't understand", "pb-ver-gavige")
+finds("expensive", "pb-dzalian-dzviria")
+finds("pharmcy", "pb-aptiaki-sad-aris")                             // a typo
+finds("chemist", "pb-aptiaki-sad-aris")                             // a synonym
+finds("gamarjoba", "pb-gamarjoba", within: 1)                       // Latin letters
+finds("გამარჯობა", "pb-gamarjoba", within: 1)                       // Georgian
+finds("ვერ გავ", "pb-ver-gavige", within: 1)                        // the start of a Georgian phrase
+check("\"taxi\" starts with transport", pb.search.top("taxi", 1).first?.category, "transport")
+check("\"cab\" starts with transport", pb.search.top("cab", 1).first?.category, "transport")
+let waterCategories = Set(pb.search.search("water", limit: 12).phrases.map(\.category))
+check("\"water\" finds phrases in shopping, restaurants and home", waterCategories.isSuperset(of: ["shopping", "food", "home"]), true)
+check("\"water\" also finds the course word", pb.search.search("water").words.contains { $0.id == "w-tsqali" }, true)
+check("\"emergency\" finds the situation", pb.search.search("emergency").categories.first?.id, "emergency")
+check("\"taxi\" finds the taxi dialogue", pb.search.search("taxi").dialogues.contains { $0.id == "pd-taxi" }, true)
+check("nothing for nonsense", pb.search.search("zzqxw").isEmpty, true)
+check("nothing for an empty query", pb.search.search("   ").isEmpty, true)
+check("stem of pharmacies", PhraseSearch.stem("pharmacies"), "pharmacy")
+check("plain removes apostrophes", PhraseSearch.plain("Ts'q'ali, don't!"), "tsqali dont")
+
 // MARK: Learning path
 
 let ids = ["a", "b", "c", "d"]

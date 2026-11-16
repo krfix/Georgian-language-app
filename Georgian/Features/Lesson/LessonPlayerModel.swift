@@ -35,11 +35,15 @@ final class LessonPlayerModel {
         case .review(let items, let t):
             title = t
             session = LessonSession(exercises: builder.review(Array(items.prefix(15)), using: &rng))
+        case .dialogue(let lesson, _):
+            title = lesson.title
+            session = LessonSession(exercises: builder.exercises(for: lesson, using: &rng))
         }
     }
 
     var current: Exercise? { session.current }
     var isReview: Bool { if case .review = request.mode { return true } else { return false } }
+    var isDialogue: Bool { if case .dialogue = request.mode { return true } else { return false } }
 
     var canCheck: Bool {
         guard case .answering = phase, let pending else { return false }
@@ -53,7 +57,7 @@ final class LessonPlayerModel {
         guard case .answering = phase, let ex = current, let given = answer ?? pending else { return }
         let evaluation = AnswerEvaluator.evaluate(ex, given)
         session.record(evaluation, given: describe(given, in: ex))
-        store.record(ex, evaluation, given: describe(given, in: ex), inReview: isReview)
+        store.record(ex, evaluation, given: describe(given, in: ex), inReview: isReview || isDialogue)
         if evaluation.verdict.countsAsCorrect {
             combo += 1
             Haptics.success()
@@ -80,6 +84,7 @@ final class LessonPlayerModel {
         switch request.mode {
         case .lesson(let lesson): reward = store.finishLesson(lesson, summary: session.summary)
         case .review(let items, _): reward = store.finishReview(summary: session.summary, items: min(items.count, 15))
+        case .dialogue: reward = store.finishReview(summary: session.summary, items: session.gradedTotal)
         }
         Haptics.celebrate()
         phase = .finished(reward)

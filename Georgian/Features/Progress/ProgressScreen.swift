@@ -9,10 +9,11 @@ struct ProgressScreen: View {
     @State private var range = 7
 
     var body: some View {
-        NavigationStack {
+        Group {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     levelCard
+                    ChallengeCard()
                     tiles
                     activityChart
                     modulesCard
