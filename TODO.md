@@ -4,22 +4,27 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 
 ## Needs the owner
 - [ ] Test the app on the iPhone (Feather install) and say what to change.
-- [ ] Audio (KART #1): the owner chose Azure's **Eka** voice to start. Waiting for the
-      owner's Azure Speech resource (free F0) key, to be given through request_credential,
-      never in chat. Plan: generate every clip once (letters, words, examples, dialogue
-      lines), bundle them, label them "Synthetic voice"; native recordings can replace
-      them file by file later. Native audio: recordings by a native speaker, one `.m4a` per word or letter, named
-      by its id (for example `w-gamarjoba.m4a`, `letter-ა.m4a`), in `Georgian/Audio/` added
-      to the app's resources. No code change is needed. Until then audio plays only on an
-      iPhone that has a Georgian system voice.
-- [ ] A native speaker's check of the course (`tools/curriculum/content_*.py`). Every word
-      and sentence was checked by Claude and by the build script, but a native read-through
-      is the real test.
+- [ ] Native audio: every Georgian text has a synthetic Eka clip (870, KART #1 and #2). A
+      native speaker's recordings can replace them one by one: same file name in
+      `Georgian/Resources/Audio`, `"source": "native"` in audio.json; the app then labels
+      them "Native recording".
+- [ ] A native speaker's check of the course and the phrasebook (`tools/curriculum/content_*.py`).
+      Every word and sentence was checked by Claude and by the build script, but a native
+      read-through is the real test. docs/content-quality.md lists what to look at first.
+      Then set `PHRASEBOOK_STATUS = "native"` in content_phrasebook.py.
+- [ ] Try the phrasebook in real life (a taxi, the bazaar, a café) and say what was missing
+      or slow to find.
 - [ ] Name: "Ara" chosen (KART #1). Before the App Store: check "Ara: Learn Georgian" is free
       there and in a trademark search. Hide Profile › Developer.
 - [ ] App Store: an Apple Developer account, signed builds, privacy policy and support URLs.
 
 ## Next
+- [ ] More phrasebook: banking and documents in more depth, the doctor's (body parts),
+      renting (viewing a flat), and more dialogues (gym trainer, post office, hairdresser).
+- [ ] Phrases with a gap for your own word (a street, a number, a name), shown to someone
+      with the word filled in.
+- [ ] A home-screen widget or a Siri/Shortcuts action for "Show: please stop here".
+- [ ] Audio packs to download (the app is 15 MB of clips now); native recordings first.
 - [ ] The owner's list of small corrections from testing build #7.
 - [ ] Listening exercises are built only when audio exists, so they can't be tried yet on
       phones without a Georgian voice.

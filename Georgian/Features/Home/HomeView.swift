@@ -422,7 +422,6 @@ struct PurposeRow: View {
             .gradientCard(color, padding: 14, cornerRadius: 24)
         }
         .buttonStyle(.pressable)
-        .accessibilityElement(children: .combine)
         .accessibilityIdentifier(id)
     }
 }
@@ -456,10 +455,8 @@ struct QuickSituations: View {
                                 Text(shortName(c))
                                     .font(.caption.weight(.semibold))
                                     .foregroundStyle(c.isEmergency ? Palette.error : Palette.ink)
-                                    .lineLimit(2)
-                                    .minimumScaleFactor(0.85)
-                                    .multilineTextAlignment(.center)
-                                    .fixedSize(horizontal: false, vertical: true)
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.6)
                             }
                             .frame(width: 80, alignment: .top)
                         }

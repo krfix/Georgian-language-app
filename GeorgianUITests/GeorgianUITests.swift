@@ -116,8 +116,9 @@ final class GeorgianUITests: XCTestCase {
 
         // A situation from the Phrasebook tab.
         app.tabBars.buttons["Phrasebook"].tap()
-        XCTAssertTrue(app.buttons["category-transport"].waitForExistence(timeout: 5), "Transport tile")
-        app.buttons["category-transport"].tap()
+        let transport = app.descendants(matching: .any).matching(identifier: "category-transport").firstMatch
+        XCTAssertTrue(transport.waitForExistence(timeout: 5), "Transport tile")
+        transport.tap()
         XCTAssertTrue(app.buttons["phrase-pb-ak-gamicheret-tu-sheidzleba"].waitForExistence(timeout: 5), "Please stop here, in Transport")
     }
 

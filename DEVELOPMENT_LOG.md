@@ -3,6 +3,90 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #2 · 16/11/26 · Use in Georgia (branch `claude/use-in-georgia`, from `claude/full-app`)
+
+The owner's brief: keep the design, but turn the app from a Duolingo-style game into a
+Georgian companion: **Learn** plus **Use in Georgia** (a practical phrasebook), connected.
+
+### What existed (inspected first)
+A polished SwiftUI + SwiftData course app: 5 tabs (Home, Learn, Words, Review, Progress),
+one exercise engine (15 kinds), SM-2 review, XP/streak/levels/achievements, 209 words and
+phrases (some of them already situational: taxi, groceries, doctor), Eka audio for 516 texts,
+a design system (five brand colours, gradient cards, chunky buttons, borjgali, parrot).
+Home was mostly gamification (streak, XP, level tiles, goal, path, challenge).
+
+### Decisions
+- **Information architecture:** Home · Learn · Phrasebook · Search · Review. Words and
+  Progress moved inside Learn (toolbar), the daily challenge into Progress: the learning tools
+  stay, the score is quieter. Search gets its own tab because "find it now" must be one tap.
+  Personal phrases live in the Phrasebook (My phrasebook), and reach Review when practised.
+- **Content separate from UI:** `tools/curriculum/content_phrasebook.py` → `phrasebook.json`,
+  checked by `build_curriculum.py` (script, duplicates, subcategories, keywords, links).
+  Latin spelling and the English sound guide are generated, never typed.
+- **Phrases join learning through the existing engine:** a phrase is a `Word` with a `pb-`
+  id, so "Practise" creates the same `MasteryRecord` and Review handles it (mixed with other
+  phrases, built from tiles instead of typed in English). A dialogue becomes a conversation
+  `Lesson`, so practice reuses the lesson player. No new exercise screens.
+- **Saved data:** `PhraseRecord` (saved, list, learned, last opened) in SwiftData schema 2,
+  with a lightweight step from schema 1 (and a fallback that lets SwiftData infer it), so
+  progress on the owner's phone survives. CloudKit-ready like the rest.
+- **No stress marks in the sound guide.** Georgian stress is weak and its placement is
+  debated; capital-letter stress (gah-mar-JOH-bah) would teach something wrong. The guide
+  says so instead.
+- **Honesty about checking:** the phrasebook says it was checked by Claude (an AI), not yet
+  by a native speaker (`PHRASEBOOK_STATUS`), in the Phrasebook, Search and Profile.
+- **Search** (`PhraseSearch`, Foundation only, tested): English words whole, by prefix, with
+  one typo, through synonyms and simple stems; keywords and situation names; Georgian
+  anywhere; Latin without apostrophes. Ranked by words matched, then wording, then length.
+  Before writing it in Swift, a Python port was run on the real data to tune the weights
+  (situation names had outranked keywords: "taxi" returned "Turn left" first).
+
+### Built
+- 302 phrases in 11 situations (52 subcategories), 13 dialogues, synonyms and suggestions;
+  354 new Eka clips (870 in all, 15 MB), so every phrase, variant, reply and dialogue line
+  plays offline.
+- Screens: Phrasebook tab (search bar, emergency strip with 112, My phrasebook, situation
+  tiles, conversations), situation pages with subcategory chips, the phrase card (sound guide,
+  usage, polite/informal forms, replies, course words, grammar links, review status; Show,
+  Save, Practise, Learned, Copy, lists), Show to someone (white on black, sized so no word
+  breaks, English optional, upside-down for the person opposite, screen kept on, play and
+  slow), Search tab (suggestions, recent searches, recently used; results by phrases,
+  situations, conversations, course words), dialogue pages (bubbles, English/Latin toggles,
+  useful expressions, practise either side), My phrasebook (filters, lists, practise all).
+- Home: greeting with a small streak/XP line, search bar, Learn / Use in Georgia tiles,
+  "Right now I need…" situations, recently used phrases, continue learning, review, goal.
+- Onboarding: "I just need phrases now" on the welcome screen goes straight to the phrasebook.
+- Links both ways: a phrase shows its course words and grammar; a course word card shows the
+  everyday phrases it appears in.
+- docs/content-quality.md: the checklist, and the points a native speaker should look at first.
+
+### Tests
+- `build_curriculum.py` (here): passes, 302 phrases, 13 dialogues.
+- Logic tests (Mac): every phrase's Latin, sound guide, situation, keywords, links; every
+  dialogue practisable from both sides with three distinct options; phrases in review; and
+  search for the six scenarios in the brief plus typos, synonyms, Latin and Georgian.
+- UI tests (Simulator): new `testPhrasebookScenarios` (search "stop here" → Show to someone →
+  flip and hide English → close; search "I don't eat meat" → card → Save → Practise; open
+  Transport), `testDialoguePractice` (the taxi dialogue as the driver, to the end),
+  `testStraightToThePhrasebook`; the old tests updated for the new tabs.
+
+### Runs and refinement cycles
+- **Run 11** (QA 1): GitHub had no Mac for 15 minutes; the job was dropped before it began.
+  Re-run: the app compiled first time with 0 warnings, but my new logic tests didn't
+  compile (a closure mixing `$0` and a named argument; the step is continue-on-error, so
+  only the log showed it), and the UI tests hung 56 minutes in the Simulator without
+  starting a test, so the job's time limit took the screenshots too. → The workflow now takes
+  the pictures first and gives the UI tests 30 minutes.
+- **Run 12** (QA 1b): 75 pictures; UI tests 4 of 5 passed. Logic tests: a duplicate `rr`.
+  **Cycle 1** (from the pictures): the design carried over (palette, gradient cards, light
+  and dark). Found: (1) Show to someone split words at 76 pt (გამიჩერე / თ); (2) the slow
+  button and voice tag were invisible on coloured cards (also on the course's word card);
+  (3) quick-situation labels cut off at the largest text size; (4) the keyboard's first-use
+  tip covered the search screenshot; (5) the scenario test looked for a tile not yet created
+  by the lazy grid. → Fixed: text sized from the widest word (`GeorgianFit`,
+  `FittedGeorgianText`), white audio controls on colour, wrapping labels, no keyboard in the
+  screenshot run, the test opens Transport.
+
 ## KART #1 · 16/11/26 · The full app (branch `claude/full-app`)
 
 ### Decisions

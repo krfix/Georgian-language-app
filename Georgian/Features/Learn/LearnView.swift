@@ -42,11 +42,11 @@ struct LearnView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     NavigationLink(value: LearnRoute.words) {
-                        Label("Words", systemImage: "character.book.closed.fill")
+                        Text("Words").font(.calloutRounded.weight(.semibold))
                     }
                     .accessibilityIdentifier("learn-words")
                     NavigationLink(value: LearnRoute.progress) {
-                        Label("Progress", systemImage: "chart.bar.fill")
+                        Text("Progress").font(.calloutRounded.weight(.semibold))
                     }
                     .accessibilityIdentifier("learn-progress")
                 }

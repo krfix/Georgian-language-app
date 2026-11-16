@@ -148,7 +148,6 @@ struct CategoryTile: View {
         }
         .frame(maxWidth: .infinity, minHeight: 150, alignment: .topLeading)
         .gradientCard(category.brand, padding: 14, cornerRadius: 24)
-        .accessibilityElement(children: .combine)
     }
 }
 
@@ -274,7 +273,6 @@ struct DialogueCard: View {
                 .fill(Palette.surface)
                 .shadow(color: Color.black.opacity(0.06), radius: 10, y: 4)
         )
-        .accessibilityElement(children: .combine)
     }
 
     private func avatar(_ name: String, _ color: Color) -> some View {
