@@ -113,10 +113,15 @@ final class GeorgianUITests: XCTestCase {
         app.buttons["action-practise"].tap()
         XCTAssertTrue(app.buttons["action-practise"].label.contains("review"), "In review")
         app.buttons["phrase-done"].tap()
+        // Wait for the card to close before using the tab bar (a tap while it slides away is lost).
+        XCTAssertTrue(app.textFields["search-field"].waitForExistence(timeout: 5), "Back on Search")
+        XCTAssertTrue(waitUntilGone(app.buttons["phrase-done"]), "Phrase card closed")
 
         // A situation from the Phrasebook tab.
         app.tabBars.buttons["Phrasebook"].tap()
-        let transport = app.descendants(matching: .any).matching(identifier: "category-transport").firstMatch
+        XCTAssertTrue(app.buttons["my-phrasebook"].waitForExistence(timeout: 5), "Phrasebook tab open")
+        var transport = app.descendants(matching: .any).matching(identifier: "category-transport").firstMatch
+        if !transport.waitForExistence(timeout: 3) { transport = app.staticTexts["Transport"].firstMatch }
         XCTAssertTrue(transport.waitForExistence(timeout: 5), "Transport tile")
         transport.tap()
         XCTAssertTrue(app.buttons["phrase-pb-ak-gamicheret-tu-sheidzleba"].waitForExistence(timeout: 5), "Please stop here, in Transport")
@@ -183,6 +188,11 @@ final class GeorgianUITests: XCTestCase {
             _ = app.buttons["lesson-continue"].waitForExistence(timeout: 1)
         }
         XCTFail("The lesson didn't finish")
+    }
+
+    private func waitUntilGone(_ element: XCUIElement, timeout: TimeInterval = 5) -> Bool {
+        let gone = expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: element)
+        return XCTWaiter.wait(for: [gone], timeout: timeout) == .completed
     }
 
     /// Matches each Georgian tile with its partner (same id after the prefix).

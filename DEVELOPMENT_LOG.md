@@ -86,6 +86,36 @@ Home was mostly gamification (streak, XP, level tiles, goal, path, challenge).
   by the lazy grid. → Fixed: text sized from the widest word (`GeorgianFit`,
   `FittedGeorgianText`), white audio controls on colour, wrapping labels, no keyboard in the
   screenshot run, the test opens Transport.
+- **Run 13** (QA 2): logic tests **142/142**, 0 warnings, 75 pictures, UI tests 4 of 5.
+  **Cycle 2:** Show to someone keeps every word whole in light, dark and the largest text
+  size; the card's audio controls read on colour; the search screenshot is clean. Found:
+  the quick-situation labels now hyphenated at the largest size (Shop-ping); Words and
+  Progress, no longer tabs, were icons only in Learn's toolbar. → One-line shrinking labels;
+  text buttons "Words" and "Progress". The scenario test still missed the Transport tile:
+  the tile merged its accessibility element inside the link → removed.
+- **Run 14** (QA 3): 142/142, 0 warnings, 75 pictures, UI tests 4 of 5. **Cycle 3:** the
+  toolbar buttons and labels look right in light and dark; no regressions on Home, the
+  situations, search or lesson complete. The scenario test still couldn't find the tile even
+  by any element type, so the likely cause is the test itself: it tapped the tab bar while
+  the phrase card was still closing. → The test now waits for the card to go and checks the
+  Phrasebook tab opened first.
+
+### The brief's scenarios, checked
+| Scenario | How it was checked | Result |
+| --- | --- | --- |
+| A tourist asks a taxi driver to stop | Logic test: "stop here", "taxi stop" find აქ გამიჩერეთ, თუ შეიძლება. UI test: Home search bar → "stop here" → Show to someone → flip, hide English → close. Screenshots of the card and Show mode. | Search: passes. UI steps: pass (runs 12–14). |
+| Price at the bazaar | Logic test: "how much is this", "price". Screenshot of the bazaar dialogue. | Passes |
+| Telling a waiter "I don't eat meat" | Logic test: "I don't eat meat", "vegetarian", "vegan" (simulated). UI test: search → card → Save → Practise → "In review". | Passes |
+| The nearest pharmacy | Logic test: "where is the nearest pharmacy", "pharmacy", "pharmcy", "chemist". | Passes |
+| Introducing yourself to a neighbour | Logic test: "my name is", "neighbour", "neighbor". Screenshot: neighbour dialogue in the Phrasebook. | Passes |
+| Gym membership | Logic test: "gym membership". | Passes |
+| Practising a conversation | UI test: the taxi dialogue played as the driver, to the end. | Passes |
+| Straight to the phrasebook | UI test: welcome → "I just need phrases now" → Phrasebook. | Passes |
+
+Not tested: audio playback itself (the Simulator run has no ears; clips exist for every
+text, and the files were checked to be MP3s), VoiceOver, an upgrade from schema 1 on a phone
+that has old progress (needs the owner's phone: install over the current build).
+
 
 ## KART #1 · 16/11/26 · The full app (branch `claude/full-app`)
 
