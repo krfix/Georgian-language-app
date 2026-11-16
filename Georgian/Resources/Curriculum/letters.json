@@ -3,17 +3,17 @@
  "letters": [
   {
    "char": "ა",
-   "name": "an",
+   "name": "ani",
    "latin": "a",
    "sound": "a as in father",
    "word": "ანბანი",
    "wordLatin": "anbani",
    "meaning": "alphabet",
-   "tip": "Its name, ანი, gives the alphabet its name: ანბანი."
+   "tip": "ანი and ბანი, the names of the first two letters, give the alphabet its name: ანბანი."
   },
   {
    "char": "ბ",
-   "name": "ban",
+   "name": "bani",
    "latin": "b",
    "sound": "b as in bed",
    "word": "ბავშვი",
@@ -23,7 +23,7 @@
   },
   {
    "char": "გ",
-   "name": "gan",
+   "name": "gani",
    "latin": "g",
    "sound": "g as in go",
    "word": "გული",
@@ -33,7 +33,7 @@
   },
   {
    "char": "დ",
-   "name": "don",
+   "name": "doni",
    "latin": "d",
    "sound": "d as in dog",
    "word": "დედა",
@@ -43,7 +43,7 @@
   },
   {
    "char": "ე",
-   "name": "en",
+   "name": "eni",
    "latin": "e",
    "sound": "e as in bed",
    "word": "ეზო",
@@ -53,7 +53,7 @@
   },
   {
    "char": "ვ",
-   "name": "vin",
+   "name": "vini",
    "latin": "v",
    "sound": "v as in van",
    "word": "ვაშლი",
@@ -63,7 +63,7 @@
   },
   {
    "char": "ზ",
-   "name": "zen",
+   "name": "zeni",
    "latin": "z",
    "sound": "z as in zoo",
    "word": "ზღვა",
@@ -73,7 +73,7 @@
   },
   {
    "char": "თ",
-   "name": "tan",
+   "name": "tani",
    "latin": "t",
    "sound": "t with a puff of air, as in top",
    "word": "თბილისი",
@@ -83,7 +83,7 @@
   },
   {
    "char": "ი",
-   "name": "in",
+   "name": "ini",
    "latin": "i",
    "sound": "ee as in see, but short",
    "word": "ია",
@@ -93,7 +93,7 @@
   },
   {
    "char": "კ",
-   "name": "k'an",
+   "name": "k'ani",
    "latin": "k'",
    "sound": "tight k, no puff of air",
    "word": "კატა",
@@ -103,7 +103,7 @@
   },
   {
    "char": "ლ",
-   "name": "las",
+   "name": "lasi",
    "latin": "l",
    "sound": "l as in look",
    "word": "ლომი",
@@ -113,7 +113,7 @@
   },
   {
    "char": "მ",
-   "name": "man",
+   "name": "mani",
    "latin": "m",
    "sound": "m as in man",
    "word": "მამა",
@@ -123,7 +123,7 @@
   },
   {
    "char": "ნ",
-   "name": "nar",
+   "name": "nari",
    "latin": "n",
    "sound": "n as in no",
    "word": "ნავი",
@@ -133,7 +133,7 @@
   },
   {
    "char": "ო",
-   "name": "on",
+   "name": "oni",
    "latin": "o",
    "sound": "o as in more, but short",
    "word": "ოთახი",
@@ -143,7 +143,7 @@
   },
   {
    "char": "პ",
-   "name": "p'ar",
+   "name": "p'ari",
    "latin": "p'",
    "sound": "tight p, no puff of air",
    "word": "პური",
@@ -153,7 +153,7 @@
   },
   {
    "char": "ჟ",
-   "name": "zhan",
+   "name": "zhani",
    "latin": "zh",
    "sound": "s as in measure",
    "word": "ჟურნალი",
@@ -173,7 +173,7 @@
   },
   {
    "char": "ს",
-   "name": "san",
+   "name": "sani",
    "latin": "s",
    "sound": "s as in sun",
    "word": "სახლი",
@@ -183,7 +183,7 @@
   },
   {
    "char": "ტ",
-   "name": "t'ar",
+   "name": "t'ari",
    "latin": "t'",
    "sound": "tight t, no puff of air",
    "word": "ტყე",
@@ -193,7 +193,7 @@
   },
   {
    "char": "უ",
-   "name": "un",
+   "name": "uni",
    "latin": "u",
    "sound": "oo as in moon, but short",
    "word": "უბანი",
@@ -203,7 +203,7 @@
   },
   {
    "char": "ფ",
-   "name": "par",
+   "name": "pari",
    "latin": "p",
    "sound": "p with a puff of air, as in pen",
    "word": "ფული",
@@ -213,7 +213,7 @@
   },
   {
    "char": "ქ",
-   "name": "kan",
+   "name": "kani",
    "latin": "k",
    "sound": "k with a puff of air, as in kite",
    "word": "ქალაქი",
@@ -223,7 +223,7 @@
   },
   {
    "char": "ღ",
-   "name": "ghan",
+   "name": "ghani",
    "latin": "gh",
    "sound": "a soft gargle, like the French r",
    "word": "ღვინო",
@@ -233,7 +233,7 @@
   },
   {
    "char": "ყ",
-   "name": "q'ar",
+   "name": "q'ari",
    "latin": "q'",
    "sound": "tight k from deep in the throat",
    "word": "ყველი",
@@ -243,7 +243,7 @@
   },
   {
    "char": "შ",
-   "name": "shin",
+   "name": "shini",
    "latin": "sh",
    "sound": "sh as in ship",
    "word": "შაქარი",
@@ -253,7 +253,7 @@
   },
   {
    "char": "ჩ",
-   "name": "chin",
+   "name": "chini",
    "latin": "ch",
    "sound": "ch with a puff of air, as in chin",
    "word": "ჩაი",
@@ -263,7 +263,7 @@
   },
   {
    "char": "ც",
-   "name": "tsan",
+   "name": "tsani",
    "latin": "ts",
    "sound": "ts with a puff of air, as in cats",
    "word": "ცა",
@@ -273,7 +273,7 @@
   },
   {
    "char": "ძ",
-   "name": "dzil",
+   "name": "dzili",
    "latin": "dz",
    "sound": "dz as in adze",
    "word": "ძაღლი",
@@ -283,7 +283,7 @@
   },
   {
    "char": "წ",
-   "name": "ts'il",
+   "name": "ts'ili",
    "latin": "ts'",
    "sound": "tight ts, no puff of air",
    "word": "წყალი",
@@ -293,7 +293,7 @@
   },
   {
    "char": "ჭ",
-   "name": "ch'ar",
+   "name": "ch'ari",
    "latin": "ch'",
    "sound": "tight ch, no puff of air",
    "word": "ჭიქა",
@@ -303,7 +303,7 @@
   },
   {
    "char": "ხ",
-   "name": "khan",
+   "name": "khani",
    "latin": "kh",
    "sound": "ch as in Scottish loch",
    "word": "ხე",
@@ -313,7 +313,7 @@
   },
   {
    "char": "ჯ",
-   "name": "jan",
+   "name": "jani",
    "latin": "j",
    "sound": "j as in jam",
    "word": "ჯიბე",
