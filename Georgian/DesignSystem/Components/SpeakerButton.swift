@@ -7,6 +7,8 @@ struct SpeakerButton: View {
     let text: String
     var size: CGFloat = 44
     var showsSource = false
+    /// On a coloured card: white buttons and tag, so they read on any brand colour.
+    var onColor = false
     @Environment(AudioService.self) private var audio
 
     var body: some View {
@@ -18,9 +20,9 @@ struct SpeakerButton: View {
                 } label: {
                     Image(systemName: audio.isPlaying(text) ? "speaker.wave.3.fill" : "speaker.wave.2.fill")
                         .font(.system(size: size * 0.42, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(onColor ? Color(hex: 0x0D6077) : .white)
                         .frame(width: size, height: size)
-                        .background(Circle().fill(Palette.blacksea))
+                        .background(Circle().fill(onColor ? Color.white : Palette.blacksea))
                         .symbolEffect(.variableColor.iterative, isActive: audio.isPlaying(text))
                 }
                 .buttonStyle(.pressable)
@@ -32,15 +34,15 @@ struct SpeakerButton: View {
                 } label: {
                     Image(systemName: "tortoise.fill")
                         .font(.system(size: size * 0.34, weight: .bold))
-                        .foregroundStyle(Palette.blacksea)
+                        .foregroundStyle(onColor ? Color.white : Palette.blacksea)
                         .frame(width: size * 0.8, height: size * 0.8)
-                        .background(Circle().fill(Palette.blacksea.opacity(0.15)))
+                        .background(Circle().fill(onColor ? Color.white.opacity(0.24) : Palette.blacksea.opacity(0.15)))
                 }
                 .buttonStyle(.pressable)
                 .accessibilityLabel("Play slowly")
                 if showsSource {
                     Pill(text: source.isSynthetic ? "Synthetic voice" : "Native recording",
-                         color: source.isSynthetic ? Palette.inkSoft : Palette.tkemali,
+                         color: onColor ? .white : (source.isSynthetic ? Palette.inkSoft : Palette.tkemali),
                          symbol: source.isSynthetic ? "waveform" : "person.wave.2.fill")
                 }
             }

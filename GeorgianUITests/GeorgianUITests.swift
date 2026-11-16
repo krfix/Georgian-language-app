@@ -116,9 +116,9 @@ final class GeorgianUITests: XCTestCase {
 
         // A situation from the Phrasebook tab.
         app.tabBars.buttons["Phrasebook"].tap()
-        XCTAssertTrue(app.buttons["category-shopping"].waitForExistence(timeout: 5))
-        app.buttons["category-shopping"].tap()
-        XCTAssertTrue(app.buttons["phrase-pb-es-ra-ghirs"].waitForExistence(timeout: 5), "How much is this? in Shopping")
+        XCTAssertTrue(app.buttons["category-transport"].waitForExistence(timeout: 5), "Transport tile")
+        app.buttons["category-transport"].tap()
+        XCTAssertTrue(app.buttons["phrase-pb-ak-gamicheret-tu-sheidzleba"].waitForExistence(timeout: 5), "Please stop here, in Transport")
     }
 
     func testDialoguePractice() throws {

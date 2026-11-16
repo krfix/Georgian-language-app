@@ -73,8 +73,7 @@ struct PhraseDetailView: View {
                     .padding(.vertical, 6)
                     .background(Capsule().fill(.white.opacity(0.22)))
             }
-            GeorgianText(phrase.ka, size: 38, weight: .bold, color: .white)
-                .frame(maxWidth: .infinity)
+            FittedGeorgianText(phrase.ka, maxSize: 40, color: .white)
                 .accessibilityIdentifier("phrase-georgian")
             Text(phrase.lat)
                 .font(.headlineRounded)
@@ -87,7 +86,7 @@ struct PhraseDetailView: View {
             if let r = phrase.register {
                 Pill(text: r.title, color: .white, symbol: r == .polite ? "hand.raised.fill" : "face.smiling")
             }
-            SpeakerButton(text: phrase.ka, size: 46, showsSource: true)
+            SpeakerButton(text: phrase.ka, size: 46, showsSource: true, onColor: true)
                 .padding(.top, 2)
         }
         .frame(maxWidth: .infinity)

@@ -456,9 +456,12 @@ struct QuickSituations: View {
                                 Text(shortName(c))
                                     .font(.caption.weight(.semibold))
                                     .foregroundStyle(c.isEmergency ? Palette.error : Palette.ink)
-                                    .lineLimit(1)
+                                    .lineLimit(2)
+                                    .minimumScaleFactor(0.85)
+                                    .multilineTextAlignment(.center)
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
-                            .frame(width: 74)
+                            .frame(width: 80, alignment: .top)
                         }
                         .buttonStyle(.pressable)
                         .accessibilityLabel(c.title)

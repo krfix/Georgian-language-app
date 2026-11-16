@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 /// Text styles. Everything follows the iPhone's text size (Dynamic Type): the styles are
 /// built on Apple's text styles, and big Georgian letters use `@ScaledMetric` sizes.
@@ -41,6 +42,66 @@ struct GeorgianText: View {
             .padding(.vertical, size * 0.08)
             .minimumScaleFactor(0.5)
             .multilineTextAlignment(.center)
+            .environment(\.locale, Locale(identifier: "ka_GE"))
+    }
+}
+
+/// Georgian at the largest size where no word has to break: SwiftUI splits a word that is
+/// wider than the line (გამიჩერე / თ), so the size is worked out from the widest word.
+enum GeorgianFit {
+    /// The largest size from `maxSize` down to `minSize` (in steps of 2) at which every word
+    /// fits on one line `width` wide and, when `height` is given, the whole text fits in it.
+    static func size(for text: String, weight: UIFont.Weight = .bold, maxSize: CGFloat, minSize: CGFloat,
+                     width: CGFloat, height: CGFloat? = nil, lineSpacing: CGFloat = 0) -> CGFloat {
+        guard width > 0 else { return minSize }
+        let words = text.split(separator: " ").map(String.init)
+        var size = maxSize
+        while size > minSize {
+            let font = UIFont.systemFont(ofSize: size, weight: weight)
+            let attrs: [NSAttributedString.Key: Any] = [.font: font]
+            let widest = words.map { ($0 as NSString).size(withAttributes: attrs).width }.max() ?? 0
+            if widest <= width * 0.96 {
+                guard let height else { return size }
+                let rect = (text as NSString).boundingRect(with: CGSize(width: width * 0.96, height: .greatestFiniteMagnitude),
+                                                           options: [.usesLineFragmentOrigin], attributes: attrs, context: nil)
+                let lines = (rect.height / font.lineHeight).rounded(.up)
+                if rect.height + lines * lineSpacing <= height { return size }
+            }
+            size -= 2
+        }
+        return minSize
+    }
+}
+
+/// Large Georgian on a card that never breaks inside a word: it measures the space it has
+/// and takes the largest size (up to `maxSize`, scaled with the text size setting) that fits.
+struct FittedGeorgianText: View {
+    let text: String
+    @ScaledMetric private var maxSize: CGFloat
+    var color: Color
+    @State private var width: CGFloat = 300
+
+    init(_ text: String, maxSize: CGFloat = 40, color: Color = Palette.ink) {
+        self.text = text
+        _maxSize = ScaledMetric(wrappedValue: maxSize, relativeTo: .title)
+        self.color = color
+    }
+
+    var body: some View {
+        let size = GeorgianFit.size(for: text, maxSize: maxSize, minSize: 16, width: width)
+        Text(text)
+            .font(.system(size: size, weight: .bold))
+            .foregroundStyle(color)
+            .lineSpacing(size * 0.12)
+            .padding(.vertical, size * 0.08)
+            .multilineTextAlignment(.center)
+            .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity)
+            .background(GeometryReader { g in
+                Color.clear
+                    .onAppear { width = g.size.width }
+                    .onChange(of: g.size.width) { _, w in width = w }
+            })
             .environment(\.locale, Locale(identifier: "ka_GE"))
     }
 }

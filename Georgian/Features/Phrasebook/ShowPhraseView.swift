@@ -22,34 +22,39 @@ struct ShowPhraseView: View {
             VStack(spacing: 0) {
                 topBar
                 Spacer(minLength: 12)
-                VStack(spacing: 22) {
-                    Text(phrase.ka)
-                        .font(.system(size: 76, weight: .bold))
-                        .foregroundStyle(.white)
-                        .multilineTextAlignment(.center)
-                        .minimumScaleFactor(0.3)
-                        .lineSpacing(10)
-                        .padding(.vertical, 8)
-                        .environment(\.locale, Locale(identifier: "ka_GE"))
-                        .accessibilityIdentifier("show-georgian")
-                    if showTranslation {
-                        VStack(spacing: 8) {
-                            Text(phrase.en)
-                                .font(.system(.title2, design: .rounded, weight: .semibold))
-                                .foregroundStyle(.white.opacity(0.75))
-                            Text(phrase.lat)
-                                .font(.system(.body, design: .rounded).italic())
-                                .foregroundStyle(.white.opacity(0.5))
+                GeometryReader { geo in
+                    let width = geo.size.width - 48
+                    let height = geo.size.height * (showTranslation ? 0.66 : 0.9)
+                    let size = GeorgianFit.size(for: phrase.ka, maxSize: 88, minSize: 24, width: width, height: height, lineSpacing: 10)
+                    VStack(spacing: 22) {
+                        Text(phrase.ka)
+                            .font(.system(size: size, weight: .bold))
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(10)
+                            .minimumScaleFactor(0.8)
+                            .padding(.vertical, 8)
+                            .environment(\.locale, Locale(identifier: "ka_GE"))
+                            .accessibilityIdentifier("show-georgian")
+                        if showTranslation {
+                            VStack(spacing: 8) {
+                                Text(phrase.en)
+                                    .font(.system(.title2, design: .rounded, weight: .semibold))
+                                    .foregroundStyle(.white.opacity(0.75))
+                                Text(phrase.lat)
+                                    .font(.system(.body, design: .rounded).italic())
+                                    .foregroundStyle(.white.opacity(0.5))
+                            }
+                            .multilineTextAlignment(.center)
+                            .transition(.opacity)
                         }
-                        .multilineTextAlignment(.center)
-                        .transition(.opacity)
                     }
+                    .padding(.horizontal, 24)
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .rotationEffect(.degrees(flipped ? 180 : 0))
+                    .scaleEffect(appeared ? 1 : 0.92)
+                    .opacity(appeared ? 1 : 0)
                 }
-                .padding(.horizontal, 24)
-                .rotationEffect(.degrees(flipped ? 180 : 0))
-                .scaleEffect(appeared ? 1 : 0.92)
-                .opacity(appeared ? 1 : 0)
-                .frame(maxHeight: .infinity)
                 Spacer(minLength: 12)
                 bottomBar
             }

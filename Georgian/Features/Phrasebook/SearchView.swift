@@ -52,6 +52,8 @@ struct SearchView: View {
         guard let request else { return }
         navigator.searchRequest = nil
         query = request.query
+        // The screenshot run doesn't open the keyboard (its first-use tip would cover the screen).
+        guard LaunchOptions.current.screen != "search" else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { focused = request.query.isEmpty }
     }
 

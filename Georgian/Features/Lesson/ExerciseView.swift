@@ -144,10 +144,10 @@ struct TeachWordView: View {
     var body: some View {
         VStack(spacing: 16) {
             VStack(spacing: 8) {
-                GeorgianText(word.ka, size: 44, weight: .bold, color: .white)
+                FittedGeorgianText(word.ka, maxSize: 44, color: .white)
                 Text(word.lat).font(.headlineRounded).foregroundStyle(.white.opacity(0.85))
-                Text(word.en).font(.title2Bold).foregroundStyle(.white)
-                SpeakerButton(text: word.ka, size: 40, showsSource: true)
+                Text(word.en).font(.title2Bold).foregroundStyle(.white).multilineTextAlignment(.center)
+                SpeakerButton(text: word.ka, size: 40, showsSource: true, onColor: true)
             }
             .frame(maxWidth: .infinity)
             .gradientCard(BrandColor(named: store.curriculum.category(word.category)?.color ?? "saperavi"))

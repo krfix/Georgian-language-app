@@ -282,10 +282,10 @@ for d in pb.dialogues {
 check("every dialogue can be practised from both sides", dProblems, [])
 
 // Phrases in review: mixed with other phrases, never typed in English.
-var rr = SeededGenerator(seed: 4)
+var rph = SeededGenerator(seed: 4)
 let phraseItems = ["pb-es-ra-ghirs", "pb-ver-gavige", "pb-khortss-ar-vcham", "pb-ak-gamicheret-tu-sheidzleba"].compactMap(course.item)
 check("four phrases as review items", phraseItems.count, 4)
-let phraseReview = builder.review(phraseItems, using: &rr)
+let phraseReview = builder.review(phraseItems, using: &rph)
 check("a review exercise per phrase", phraseReview.count, 4)
 check("phrase reviews keep their item", phraseReview.map(\.itemID), phraseItems.map(\.id) as [String?])
 check("no English typing for phrases", phraseReview.contains { $0.kind == .translation }, false)
