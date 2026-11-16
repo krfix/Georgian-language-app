@@ -293,6 +293,22 @@ jobs:
           path: shots
           if-no-files-found: ignore
 
+      # Also kept on the branch qa-screenshots (replaced on every run), so a cloud session
+      # that can't download artifacts can still look at them with git.
+      - name: Put the pictures on the qa-screenshots branch
+        if: always()
+        run: |
+          [ -d shots ] && [ -n "$(ls shots)" ] || exit 0
+          mkdir -p /tmp/qa && cp shots/*.png /tmp/qa/
+          [ -f uitest.log ] && grep -E "Test Case|error:|Executed" uitest.log > /tmp/qa/uitest-summary.txt || true
+          cd /tmp/qa
+          git init -q -b qa-screenshots
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Screenshots from run ${{ github.run_number }} (${{ github.ref_name }} ${GITHUB_SHA::7})"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" qa-screenshots
+
       - name: Pack the test results
         if: steps.uitests.outcome == 'failure'
         run: zip -qry ui-results.zip ui.xcresult uitest.log || true
