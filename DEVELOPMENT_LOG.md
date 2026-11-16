@@ -38,5 +38,21 @@ fixed. Newest first.
 - UI tests (Simulator): onboarding → first lesson to the end → tabs → restart keeps
   progress; demo learner: profile, a review session to the end, search.
 
-### Runs
-- (filled in below as the Mac runs come back)
+### Runs and refinement cycles
+- **Run 1** (#3): logic tests 95/95 passed; the app and UI tests compiled first time
+  ("TEST BUILD SUCCEEDED"); the job then failed on the workflow's own warning count (a grep
+  with no matches). Fixed.
+- **Run 3** (#5): everything green: 95/95 logic checks, both UI tests passed (onboarding →
+  first lesson to the end → tabs → restart keeps progress, 6 min; demo learner's review and
+  search, 2.5 min), 0 compiler warnings in the app, 22 screenshots. Artifacts can't be
+  downloaded from a cloud session (blocked host), so the run also pushes them to the
+  `qa-screenshots` branch.
+- **Cycle 1** (from run 3's screenshots): light mode looked right; problems found:
+  1. Dark mode: brand colours turned pastel, so white text on gradient cards and buttons
+     was faint (Continue card, Review hero, word card, Get started). → Surfaces now use
+     fixed saturated fills (`BrandColor.fill`) in both modes; only text and tints adapt.
+  2. The selected "All" chip in Words was white on white in dark mode. → Fixed.
+  3. "7 days streak". → "day streak" everywhere.
+  4. Lesson subtitles were a lowercase English list. → Georgian words ("მადლობა · გმადლობთ").
+  5. No screenshots of exercises in progress. → `-screen exercise -lesson -kind` and 13 more
+     shots per appearance; the path also got a dotted trail between stones.
