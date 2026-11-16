@@ -296,11 +296,27 @@ jobs:
               else
                 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
               fi
-              if [ $n -eq 1 ]; then sleep 8; else sleep 5; fi
+              if [ $n -eq 1 ]; then sleep 9; else sleep 6; fi
               xcrun simctl io "$UDID" screenshot "shots/$look-$(printf %02d $n)-$page.png" > /dev/null 2>&1
               n=$((n + 1))
             done
           done
+          # The largest text size (before the accessibility sizes), to check Dynamic Type.
+          xcrun simctl ui "$UDID" appearance light
+          xcrun simctl ui "$UDID" content_size extra-extra-extra-large
+          for page in home learn exercise:v7:multipleChoice complete; do
+            xcrun simctl terminate "$UDID" com.krfix.georgian 2>/dev/null || true
+            if [ "${page%%:*}" = exercise ]; then
+              rest=${page#exercise:}; lesson=${rest%%:*}; kind=${rest#*:}
+              xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen exercise -lesson "$lesson" -kind "$kind" > /dev/null
+              page="ex-$lesson-$kind"
+            else
+              xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
+            fi
+            sleep 6
+            xcrun simctl io "$UDID" screenshot "shots/bigtext-$page.png" > /dev/null 2>&1
+          done
+          xcrun simctl ui "$UDID" content_size large
           echo "::notice title=Screenshots::$(ls shots | wc -l | tr -d ' ') pictures"
 
       - uses: actions/upload-artifact@v7

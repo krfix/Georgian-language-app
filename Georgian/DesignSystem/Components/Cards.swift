@@ -124,3 +124,45 @@ struct AmbientBackground: View {
         .accessibilityHidden(true)
     }
 }
+
+private struct LessonTintKey: EnvironmentKey {
+    static let defaultValue: BrandColor = .pomegranate
+}
+
+extension EnvironmentValues {
+    /// The colour of the lesson on screen (its module's colour).
+    var lessonTint: BrandColor {
+        get { self[LessonTintKey.self] }
+        set { self[LessonTintKey.self] = newValue }
+    }
+}
+
+/// The card an exercise's question sits on: tinted with the lesson's colour.
+private struct PromptCard: ViewModifier {
+    @Environment(\.lessonTint) private var tint
+
+    func body(content: Content) -> some View {
+        content
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 18)
+            .padding(.horizontal, 12)
+            .background(
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(Palette.surface)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 28, style: .continuous)
+                            .fill(LinearGradient(colors: [tint.fill.opacity(0.14), tint.partner.opacity(0.05)],
+                                                 startPoint: .topLeading, endPoint: .bottomTrailing))
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 28, style: .continuous)
+                            .strokeBorder(tint.fill.opacity(0.25), lineWidth: 1.5)
+                    )
+                    .shadow(color: tint.fill.opacity(0.12), radius: 14, y: 6)
+            )
+    }
+}
+
+extension View {
+    func promptCard() -> some View { modifier(PromptCard()) }
+}

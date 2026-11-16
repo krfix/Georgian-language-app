@@ -14,16 +14,16 @@ struct BorjgaliShape: Shape {
             func pt(_ radius: Double, _ angle: Double) -> CGPoint {
                 CGPoint(x: c.x + CGFloat(cos(angle) * radius), y: c.y + CGFloat(sin(angle) * radius))
             }
-            // Each arm leaves the centre, sweeps out and curls back: a comma shape.
-            let start = pt(r * 0.16, a)
-            let tip = pt(r * 0.98, a + 0.9)
-            let back = pt(r * 0.16, a + 0.55)
+            // Each arm leaves the centre, sweeps out and curls round: a swirling hook.
+            let start = pt(r * 0.14, a)
+            let tip = pt(r * 0.92, a + 1.25)
+            let back = pt(r * 0.14, a + 0.62)
             p.move(to: start)
-            p.addQuadCurve(to: tip, control: pt(r * 0.95, a - 0.05))
-            p.addQuadCurve(to: back, control: pt(r * 0.55, a + 1.05))
+            p.addQuadCurve(to: tip, control: pt(r * 1.0, a + 0.25))
+            p.addQuadCurve(to: back, control: pt(r * 0.62, a + 1.0))
             p.closeSubpath()
         }
-        p.addEllipse(in: CGRect(x: c.x - r * 0.2, y: c.y - r * 0.2, width: r * 0.4, height: r * 0.4))
+        p.addEllipse(in: CGRect(x: c.x - r * 0.18, y: c.y - r * 0.18, width: r * 0.36, height: r * 0.36))
         return p
     }
 }

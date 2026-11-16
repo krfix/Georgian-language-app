@@ -12,8 +12,10 @@ struct ChoiceExerciseView: View {
     var body: some View {
         VStack(spacing: 22) {
             prompt
+            Spacer(minLength: 0)
             options
         }
+        .frame(maxHeight: .infinity)
         .onAppear {
             if kind == .listening, let text = choice.audioText { audio.play(text) }
         }
@@ -58,10 +60,7 @@ struct ChoiceExerciseView: View {
                     .multilineTextAlignment(.center)
             }
         }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 18)
-        .padding(.horizontal, 12)
-        .background(RoundedRectangle(cornerRadius: 28, style: .continuous).fill(Palette.surface.opacity(0.75)))
+        .promptCard()
     }
 
     private var promptSize: CGFloat {
@@ -195,9 +194,7 @@ struct TypingExerciseView: View {
                 Text(typing.promptLatin).font(.headlineRounded).foregroundStyle(Palette.inkSoft)
                 SpeakerButton(text: typing.prompt, size: 38)
             }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 18)
-            .background(RoundedRectangle(cornerRadius: 28, style: .continuous).fill(Palette.surface.opacity(0.75)))
+            .promptCard()
 
             TextField("Type in English", text: $text)
                 .font(.title3.weight(.semibold))

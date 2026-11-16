@@ -26,6 +26,7 @@ struct LessonPlayerView: View {
             }
         }
         .onDisappear { audio.stop() }
+        .environment(\.lessonTint, tint)
     }
 
     private var tint: BrandColor {
@@ -41,17 +42,20 @@ struct LessonPlayerView: View {
             VStack(spacing: 0) {
                 topBar(model)
                 if let ex = model.current {
-                    ScrollView {
-                        ExerciseView(exercise: ex, model: model)
-                            .padding(.horizontal, 20)
-                            .padding(.top, 8)
-                            .padding(.bottom, 24)
-                            .id(ex.id)
-                            .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity),
-                                                    removal: .move(edge: .leading).combined(with: .opacity)))
+                    GeometryReader { geo in
+                        ScrollView {
+                            ExerciseView(exercise: ex, model: model)
+                                .padding(.horizontal, 20)
+                                .padding(.top, 8)
+                                .padding(.bottom, 16)
+                                .frame(minHeight: geo.size.height, alignment: .top)
+                                .id(ex.id)
+                                .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity),
+                                                        removal: .move(edge: .leading).combined(with: .opacity)))
+                        }
+                        .scrollDismissesKeyboard(.interactively)
+                        .scrollBounceBehavior(.basedOnSize)
                     }
-                    .scrollDismissesKeyboard(.interactively)
-                    .scrollBounceBehavior(.basedOnSize)
                     BottomBar(exercise: ex, model: model, tint: tint)
                 }
             }

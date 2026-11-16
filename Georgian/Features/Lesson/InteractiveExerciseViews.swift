@@ -122,9 +122,7 @@ struct TilesExerciseView: View {
                     Text(d).font(.headlineRounded).foregroundStyle(Palette.inkSoft)
                 }
             }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 16)
-            .background(RoundedRectangle(cornerRadius: 28, style: .continuous).fill(Palette.surface.opacity(0.75)))
+            .promptCard()
 
             // The answer line.
             FlowLayout(spacing: tiles.isSpelling ? 6 : 8) {

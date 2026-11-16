@@ -12,11 +12,19 @@ struct ExerciseView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
-            Text(exercise.instruction)
-                .font(.title2Bold)
-                .foregroundStyle(Palette.ink)
-                .accessibilityAddTraits(.isHeader)
-                .accessibilityIdentifier("instruction")
+            HStack(spacing: 12) {
+                Image(systemName: exercise.kind.symbol)
+                    .font(.system(size: 17, weight: .bold))
+                    .foregroundStyle(tint.onColor)
+                    .frame(width: 38, height: 38)
+                    .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(tint.gradient))
+                    .accessibilityHidden(true)
+                Text(exercise.instruction)
+                    .font(.title2Bold)
+                    .foregroundStyle(Palette.ink)
+                    .accessibilityAddTraits(.isHeader)
+                    .accessibilityIdentifier("instruction")
+            }
             switch exercise.content {
             case .teachLetter(let l):
                 TeachLetterView(letter: l)
@@ -40,8 +48,10 @@ struct ExerciseView: View {
                 DialogueExerciseView(turn: d, selection: choiceBinding, revealed: revealed)
             }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
+
+    @Environment(\.lessonTint) private var tint
 
     private var choiceBinding: Binding<Int?> {
         Binding(get: {
@@ -221,5 +231,28 @@ struct NoteView: View {
             }
         }
         .card()
+    }
+}
+
+extension ExerciseKind {
+    /// The badge beside the instruction.
+    var symbol: String {
+        switch self {
+        case .teachLetter: return "sparkles"
+        case .teachWord: return "character.bubble.fill"
+        case .note: return "lightbulb.fill"
+        case .letterRecognition: return "eye.fill"
+        case .multipleChoice: return "checklist"
+        case .reading: return "book.fill"
+        case .missingLetter: return "questionmark.square.dashed"
+        case .fillBlank: return "text.insert"
+        case .listening: return "ear.fill"
+        case .translation: return "keyboard.fill"
+        case .matching: return "square.grid.2x2.fill"
+        case .sentenceBuilder: return "text.word.spacing"
+        case .spelling: return "character.cursor.ibeam"
+        case .flashcard: return "rectangle.on.rectangle.angled.fill"
+        case .dialogue: return "bubble.left.and.bubble.right.fill"
+        }
     }
 }
