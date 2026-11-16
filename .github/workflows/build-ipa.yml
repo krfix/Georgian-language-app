@@ -1,0 +1,180 @@
+name: Build unsigned IPA
+
+# Builds an IPA, kept lean because Mac minutes are paid for:
+# - a push to a work branch never builds: build it by hand when an IPA is wanted;
+# - a push to main builds only when a release is due (a MARKETING_VERSION in project.yml
+#   with its own section in CHANGELOG.md and no GitHub Release yet) and the push changes more than text (notes, changelog,
+#   docs); a commit message with [skip ci] doesn't build either;
+# - "Run workflow" on the Actions page builds any branch by hand.
+# The release build publishes a GitHub Release, tagged v<version>, with the IPA and that
+# version's notes from CHANGELOG.md.
+# The name in the run list: the title given when the build is started by hand (Claude passes
+# the latest commit's subject), else the commit message of the push, else the branch.
+run-name: ${{ inputs.title || github.event.head_commit.message || format('{0} (by hand)', github.ref_name) }}
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+  workflow_dispatch:
+    inputs:
+      title:
+        description: Name shown in the run list (optional)
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+# A newer push cancels the run still waiting or working on the same branch,
+# so outdated builds don't hold a place in the Mac queue.
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # A few seconds on a cheap Linux machine: does this push need the Mac build?
+  decide:
+    runs-on: ubuntu-latest
+    outputs:
+      build: ${{ steps.check.outputs.build }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "build=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          version=$(grep -E '^[[:space:]]*MARKETING_VERSION:' project.yml | head -1 | sed -E 's/.*MARKETING_VERSION:[[:space:]]*"?([^" ]+)"?.*/\1/')
+          if ! grep -q "^## \[$version\]" CHANGELOG.md; then
+            echo "::notice title=No build::CHANGELOG.md has no section for $version yet, so no release is due. Use Run workflow to build it."
+            echo "build=false" >> "$GITHUB_OUTPUT"
+          elif gh release view "v$version" >/dev/null 2>&1; then
+            echo "::notice title=No build::Release v$version already exists, so this push to main isn't built. Use Run workflow to build it."
+            echo "build=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  # One Mac job: tests first, then the app. A failed test still lets the IPA build and
+  # upload (so it can be looked at), but no release is published and the run ends red.
+  build:
+    needs: decide
+    if: needs.decide.outputs.build == 'true'
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v5
+
+      # The App Store accepts only uploads built with Xcode 26 (iOS 26 SDK) or newer.
+      # The newest Xcode 26 on the runner is used for the tests and the app.
+      - name: Select Xcode 26
+        run: |
+          xcode=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | grep -vi beta | sort -V | tail -1)
+          if [ -z "$xcode" ]; then
+            echo "::error::No Xcode 26 on this runner: $(ls -d /Applications/Xcode*.app | tr '\n' ' ')"; exit 1
+          fi
+          sudo xcode-select -s "$xcode/Contents/Developer"
+          echo "::notice title=Xcode::$(xcodebuild -version | tr '\n' ' ')"
+
+      - name: Run tests
+        id: tests
+        continue-on-error: true
+        run: |
+          # Output goes into annotations (readable without logging in).
+          report() { echo "::$1 title=$2::$(sed -e 's/%/%25/g' "$3" | awk 'BEGIN{ORS="%0A"} {print}')"; }
+          if ! xcrun swiftc -O -o app-tests \
+              Georgian/Models/Letter.swift Georgian/Services/Quiz.swift \
+              tools/Tests/main.swift > compile.log 2>&1; then
+            grep -E "error" compile.log | sort -u | head -40 > errors.log; report error "Test compile" errors.log; exit 1
+          fi
+          status=0
+          ./app-tests "$PWD" > results.log 2>&1 || status=$?
+          # Failures first: annotations are cut off after a few kB.
+          { grep FAIL results.log || true; tail -1 results.log; } > summary.log
+          if [ $status -eq 0 ]; then report notice "Tests" summary.log; else report error "Tests" summary.log; fi
+          exit $status
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build (no code signing)
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Georgian.xcodeproj \
+            -scheme Georgian \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            CURRENT_PROJECT_VERSION=${{ github.run_number }} \
+            build | tee build.log | grep -E "error:|warning: .*Georgian/|BUILD (SUCCEEDED|FAILED)" || true
+          if ! grep -q "BUILD SUCCEEDED" build.log; then
+            # Surface compiler errors as annotations (readable without logging in).
+            grep -E "error:" build.log | sort -u | head -30 | while IFS= read -r l; do echo "::error::$l"; done
+            exit 1
+          fi
+
+      - name: Package IPA
+        run: |
+          mkdir -p Payload
+          cp -R build/Build/Products/Release-iphoneos/Georgian.app Payload/
+          # The App Store refuses an app without its privacy manifest.
+          if [ ! -f Payload/Georgian.app/PrivacyInfo.xcprivacy ]; then
+            echo "::error::PrivacyInfo.xcprivacy is missing from Georgian.app"; exit 1
+          fi
+          zip -qry Georgian.ipa Payload
+          ls -lh Georgian.ipa
+          version=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" Payload/Georgian.app/Info.plist)
+          echo "::notice title=Version::$version (${{ github.run_number }})"
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+          # Named after version and build, e.g. Georgian-0.9.1-50.ipa
+          cp Georgian.ipa "Georgian-$version-${{ github.run_number }}.ipa"
+          echo "IPA=Georgian-$version-${{ github.run_number }}.ipa" >> "$GITHUB_ENV"
+
+      # Uploaded as the .ipa itself, not inside a zip, so the download opens straight in Feather.
+      - uses: actions/upload-artifact@v7
+        with:
+          path: ${{ env.IPA }}
+          archive: false
+
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: build-log
+          path: build.log
+
+      - name: Publish GitHub Release
+        if: github.ref == 'refs/heads/main' && steps.tests.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version="$VERSION"
+          tag="v$version"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists; nothing to publish."
+            exit 0
+          fi
+          # This version's section of CHANGELOG.md, without its heading.
+          awk -v v="$version" '
+            $0 ~ "^## \\[" v "\\]" { on = 1; next }
+            on && /^## / { exit }
+            on { print }
+          ' CHANGELOG.md > notes.md
+          cp Georgian.ipa "Georgian-$version.ipa"
+          gh release create "$tag" "Georgian-$version.ipa" --target "$GITHUB_SHA" --title "Georgian $version" --notes-file notes.md
+          echo "::notice title=Released::Georgian $version"
+
+      - name: Fail the run if tests failed
+        if: steps.tests.outcome == 'failure'
+        run: |
+          echo "::error::Tests failed (see the annotations above). The IPA was still built; no release was published."
+          exit 1
