@@ -1,0 +1,2070 @@
+{
+ "version": 1,
+ "voice": "Eka (Azure neural, ka-GE)",
+ "clips": {
+  "ა": {
+   "file": "ka-3f9c0069c782.mp3",
+   "source": "synthetic"
+  },
+  "აეროპორტი": {
+   "file": "ka-71b30cd4a90d.mp3",
+   "source": "synthetic"
+  },
+  "აეროპორტი შორს არის.": {
+   "file": "ka-e3917b85d509.mp3",
+   "source": "synthetic"
+  },
+  "აეროპორტში, თუ შეიძლება.": {
+   "file": "ka-bbbd0cdd001f.mp3",
+   "source": "synthetic"
+  },
+  "ავტობუსი": {
+   "file": "ka-d1d460afa530.mp3",
+   "source": "synthetic"
+  },
+  "ავტობუსი მალე მოვა.": {
+   "file": "ka-ab240ba0ddcc.mp3",
+   "source": "synthetic"
+  },
+  "ათ საათზე შეხვედრა მაქვს.": {
+   "file": "ka-3e48e8cea2ac.mp3",
+   "source": "synthetic"
+  },
+  "ათი": {
+   "file": "ka-e95e0950cb50.mp3",
+   "source": "synthetic"
+  },
+  "ათი ლარი, თუ შეიძლება.": {
+   "file": "ka-6a456dc8167e.mp3",
+   "source": "synthetic"
+  },
+  "ანბანი": {
+   "file": "ka-359d20558875.mp3",
+   "source": "synthetic"
+  },
+  "ანგარიში, თუ შეიძლება.": {
+   "file": "ka-0bb255441ad6.mp3",
+   "source": "synthetic"
+  },
+  "არ": {
+   "file": "ka-6a61e52222a7.mp3",
+   "source": "synthetic"
+  },
+  "არ ვიცი.": {
+   "file": "ka-7071d2cb9ea6.mp3",
+   "source": "synthetic"
+  },
+  "არა": {
+   "file": "ka-3ca12f332387.mp3",
+   "source": "synthetic"
+  },
+  "არა, მადლობა.": {
+   "file": "ka-893420a51c2c.mp3",
+   "source": "synthetic"
+  },
+  "არა, სულ ეს არის. მადლობა!": {
+   "file": "ka-ca7f08d98ca4.mp3",
+   "source": "synthetic"
+  },
+  "არაფრის": {
+   "file": "ka-1245e2540aa8.mp3",
+   "source": "synthetic"
+  },
+  "არაფრის!": {
+   "file": "ka-92d631fe1dac.mp3",
+   "source": "synthetic"
+  },
+  "არის": {
+   "file": "ka-bb76cce167f8.mp3",
+   "source": "synthetic"
+  },
+  "ასი": {
+   "file": "ka-d7cf76e7ab44.mp3",
+   "source": "synthetic"
+  },
+  "აფთიაქი ბანკის გვერდით არის.": {
+   "file": "ka-9ecac71e2254.mp3",
+   "source": "synthetic"
+  },
+  "აფთიაქი სად არის?": {
+   "file": "ka-7239faf0674b.mp3",
+   "source": "synthetic"
+  },
+  "აქ": {
+   "file": "ka-055c96f62b8a.mp3",
+   "source": "synthetic"
+  },
+  "აქ გამიჩერეთ, მადლობა.": {
+   "file": "ka-34a36831fca8.mp3",
+   "source": "synthetic"
+  },
+  "აქ გამიჩერეთ.": {
+   "file": "ka-b18967b5b50e.mp3",
+   "source": "synthetic"
+  },
+  "აქ დაჯდომა შეიძლება?": {
+   "file": "ka-8ce9fa950b11.mp3",
+   "source": "synthetic"
+  },
+  "ახალი მეზობელი ვარ.": {
+   "file": "ka-fcb3eaa2f5e4.mp3",
+   "source": "synthetic"
+  },
+  "ახალი წელი მოდის.": {
+   "file": "ka-09cbe1244290.mp3",
+   "source": "synthetic"
+  },
+  "ახლა": {
+   "file": "ka-b4d946ea0195.mp3",
+   "source": "synthetic"
+  },
+  "ახლა დაკავებული ვარ.": {
+   "file": "ka-f5d3f9f69b0f.mp3",
+   "source": "synthetic"
+  },
+  "ახლოს": {
+   "file": "ka-38db5e37bcd5.mp3",
+   "source": "synthetic"
+  },
+  "ბ": {
+   "file": "ka-e8e8a032d6c5.mp3",
+   "source": "synthetic"
+  },
+  "ბაბუა": {
+   "file": "ka-d3867b40b638.mp3",
+   "source": "synthetic"
+  },
+  "ბაბუა ბაღშია.": {
+   "file": "ka-f8bd7bde7f33.mp3",
+   "source": "synthetic"
+  },
+  "ბადე": {
+   "file": "ka-d2a9a8905ce5.mp3",
+   "source": "synthetic"
+  },
+  "ბავშვი": {
+   "file": "ka-4808eb4075b9.mp3",
+   "source": "synthetic"
+  },
+  "ბავშვი სკოლაშია.": {
+   "file": "ka-a1b478677034.mp3",
+   "source": "synthetic"
+  },
+  "ბავშვს მუცელი სტკივა.": {
+   "file": "ka-a9cae9b18adc.mp3",
+   "source": "synthetic"
+  },
+  "ბაზარზე მივდივარ.": {
+   "file": "ka-d3a73000f857.mp3",
+   "source": "synthetic"
+  },
+  "ბაზარი": {
+   "file": "ka-1311f4e59e48.mp3",
+   "source": "synthetic"
+  },
+  "ბაზარი ახლოს არის?": {
+   "file": "ka-c6377e197e72.mp3",
+   "source": "synthetic"
+  },
+  "ბანკთან მარჯვნივ მოუხვიეთ.": {
+   "file": "ka-d7e82d9da9b5.mp3",
+   "source": "synthetic"
+  },
+  "ბანკი დაკეტილია.": {
+   "file": "ka-6ef0679c5c6d.mp3",
+   "source": "synthetic"
+  },
+  "ბარათი": {
+   "file": "ka-6aec25b24b04.mp3",
+   "source": "synthetic"
+  },
+  "ბარათით გადავიხდი.": {
+   "file": "ka-9d8488486ff9.mp3",
+   "source": "synthetic"
+  },
+  "ბარათით შეიძლება?": {
+   "file": "ka-c05f23036ef9.mp3",
+   "source": "synthetic"
+  },
+  "ბებია": {
+   "file": "ka-8bb3bca9b458.mp3",
+   "source": "synthetic"
+  },
+  "ბებია ხაჭაპურს აცხობს.": {
+   "file": "ka-3989328d9283.mp3",
+   "source": "synthetic"
+  },
+  "ბილეთი": {
+   "file": "ka-6cd1ca07bc40.mp3",
+   "source": "synthetic"
+  },
+  "ბოდიში": {
+   "file": "ka-93159cd46c44.mp3",
+   "source": "synthetic"
+  },
+  "ბოდიში, აფთიაქი სად არის?": {
+   "file": "ka-b38d36225e97.mp3",
+   "source": "synthetic"
+  },
+  "ბოდიში, ახლა დაკავებული ვარ.": {
+   "file": "ka-3af94f2e8f51.mp3",
+   "source": "synthetic"
+  },
+  "ბოდიში, ვერ გავიგე.": {
+   "file": "ka-f7bb3c4771c5.mp3",
+   "source": "synthetic"
+  },
+  "ბოდიში, პარკი მჭირდება.": {
+   "file": "ka-ba4ee6d2fba4.mp3",
+   "source": "synthetic"
+  },
+  "ბოდიში, სად არის მეტრო?": {
+   "file": "ka-eb3aa5a65f5a.mp3",
+   "source": "synthetic"
+  },
+  "ბოსტნეული": {
+   "file": "ka-f9f6cc5b15d4.mp3",
+   "source": "synthetic"
+  },
+  "ბოსტნეული ჯანსაღია.": {
+   "file": "ka-484acf1023ad.mp3",
+   "source": "synthetic"
+  },
+  "გ": {
+   "file": "ka-7b2184bbda93.mp3",
+   "source": "synthetic"
+  },
+  "გაგიმარჯოს": {
+   "file": "ka-14c505066923.mp3",
+   "source": "synthetic"
+  },
+  "გაგიმარჯოს! მე ანა მქვია.": {
+   "file": "ka-16616af3b3bb.mp3",
+   "source": "synthetic"
+  },
+  "გაგიმარჯოს, როგორ ხარ?": {
+   "file": "ka-27f149721b09.mp3",
+   "source": "synthetic"
+  },
+  "გაიმეორეთ, თუ შეიძლება.": {
+   "file": "ka-f582c07fab83.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა": {
+   "file": "ka-8103adee9fce.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა! ერთი ყავა, თუ შეიძლება.": {
+   "file": "ka-86b1e75af51d.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა! მე გიორგი ვარ. რა გქვია?": {
+   "file": "ka-8601c837962e.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა! რა გნებავთ?": {
+   "file": "ka-cb8f6dbfb1c4.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა! რა გქვია?": {
+   "file": "ka-63e6e66d62a6.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა! რა ღირს ეს ყველი?": {
+   "file": "ka-a26a1561ceb9.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა! სად მიდიხართ?": {
+   "file": "ka-41b95029af30.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა, ახალი მეზობელი ვარ.": {
+   "file": "ka-83f916817d3f.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა, ნინო!": {
+   "file": "ka-5e76d70bae18.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა, როგორ ხარ?": {
+   "file": "ka-0eb84dd44b68.mp3",
+   "source": "synthetic"
+  },
+  "გამარჯობა, ქალბატონო ნანა, როგორ ხართ?": {
+   "file": "ka-24a6ab35f517.mp3",
+   "source": "synthetic"
+  },
+  "გასაღები": {
+   "file": "ka-561e9773b872.mp3",
+   "source": "synthetic"
+  },
+  "გასაღები დავკარგე.": {
+   "file": "ka-c9929be05a81.mp3",
+   "source": "synthetic"
+  },
+  "გაუმარჯოს!": {
+   "file": "ka-2a4432664cb8.mp3",
+   "source": "synthetic"
+  },
+  "გაჩერება": {
+   "file": "ka-e94d75b9940a.mp3",
+   "source": "synthetic"
+  },
+  "გაჩერება აქ არის.": {
+   "file": "ka-47536c1bee22.mp3",
+   "source": "synthetic"
+  },
+  "გვერდით": {
+   "file": "ka-827d74d3885d.mp3",
+   "source": "synthetic"
+  },
+  "გზა": {
+   "file": "ka-eba8155764ab.mp3",
+   "source": "synthetic"
+  },
+  "გმადლობთ": {
+   "file": "ka-de60a308fb6b.mp3",
+   "source": "synthetic"
+  },
+  "გმადლობთ, ძალიან კარგია.": {
+   "file": "ka-5b1434976de8.mp3",
+   "source": "synthetic"
+  },
+  "გული": {
+   "file": "ka-a60d256b0d40.mp3",
+   "source": "synthetic"
+  },
+  "გუშინ": {
+   "file": "ka-357e6723d869.mp3",
+   "source": "synthetic"
+  },
+  "გუშინ ბაზარში ვიყავი.": {
+   "file": "ka-ae226558a284.mp3",
+   "source": "synthetic"
+  },
+  "გუშინიდან სიცხე მაქვს.": {
+   "file": "ka-2ab2228394b4.mp3",
+   "source": "synthetic"
+  },
+  "დ": {
+   "file": "ka-37a287bc9661.mp3",
+   "source": "synthetic"
+  },
+  "და": {
+   "file": "ka-61b90d511c04.mp3",
+   "source": "synthetic"
+  },
+  "დაახლოებით ოცდაათი წუთი.": {
+   "file": "ka-fa8a0f0229a3.mp3",
+   "source": "synthetic"
+  },
+  "დაბა": {
+   "file": "ka-288e30273258.mp3",
+   "source": "synthetic"
+  },
+  "დათვი": {
+   "file": "ka-e47a6575878f.mp3",
+   "source": "synthetic"
+  },
+  "დაკავებული ვარ.": {
+   "file": "ka-aaa8f55c2abd.mp3",
+   "source": "synthetic"
+  },
+  "დაკეტილი": {
+   "file": "ka-5a7ede339343.mp3",
+   "source": "synthetic"
+  },
+  "დახმარება მჭირდება.": {
+   "file": "ka-d439d6654ed0.mp3",
+   "source": "synthetic"
+  },
+  "დედა": {
+   "file": "ka-3e75fa5c5346.mp3",
+   "source": "synthetic"
+  },
+  "დედა სახლშია.": {
+   "file": "ka-db1d66680e1d.mp3",
+   "source": "synthetic"
+  },
+  "დიახ": {
+   "file": "ka-edfb5e6308c2.mp3",
+   "source": "synthetic"
+  },
+  "დიახ, ბატონო.": {
+   "file": "ka-f1074eccd68e.mp3",
+   "source": "synthetic"
+  },
+  "დიდი": {
+   "file": "ka-4e7c03da969c.mp3",
+   "source": "synthetic"
+  },
+  "დიდი მადლობა!": {
+   "file": "ka-a2c645e528ac.mp3",
+   "source": "synthetic"
+  },
+  "დილა": {
+   "file": "ka-1ebb14de0128.mp3",
+   "source": "synthetic"
+  },
+  "დილა მშვიდობისა": {
+   "file": "ka-a7fdbc02a2bf.mp3",
+   "source": "synthetic"
+  },
+  "დილა მშვიდობისა, დედა!": {
+   "file": "ka-9573537f3117.mp3",
+   "source": "synthetic"
+  },
+  "დილიდან თავი მტკივა.": {
+   "file": "ka-c36f2180bd35.mp3",
+   "source": "synthetic"
+  },
+  "დილით ვმუშაობ.": {
+   "file": "ka-1c9976736033.mp3",
+   "source": "synthetic"
+  },
+  "დილით ყავას ვსვამ.": {
+   "file": "ka-55818d535c8b.mp3",
+   "source": "synthetic"
+  },
+  "დღე": {
+   "file": "ka-bc8322af1c24.mp3",
+   "source": "synthetic"
+  },
+  "დღეს": {
+   "file": "ka-73e8920a9b42.mp3",
+   "source": "synthetic"
+  },
+  "დღეს ორშაბათია.": {
+   "file": "ka-e8f5f346cd59.mp3",
+   "source": "synthetic"
+  },
+  "დღეს რა ამინდია!": {
+   "file": "ka-bca852f80f3f.mp3",
+   "source": "synthetic"
+  },
+  "დღეს ცივა, ქუდი დაიხურე.": {
+   "file": "ka-2496ce4a5581.mp3",
+   "source": "synthetic"
+  },
+  "დღეს ცივა.": {
+   "file": "ka-491f008a9e22.mp3",
+   "source": "synthetic"
+  },
+  "დღეს ცხელა, ზღვაზე წავიდეთ!": {
+   "file": "ka-ffe35b01b1d8.mp3",
+   "source": "synthetic"
+  },
+  "დღეს ცხელა.": {
+   "file": "ka-51352ba316ea.mp3",
+   "source": "synthetic"
+  },
+  "ე": {
+   "file": "ka-8bdaa27c4272.mp3",
+   "source": "synthetic"
+  },
+  "ეზო": {
+   "file": "ka-f4c521b8b6f3.mp3",
+   "source": "synthetic"
+  },
+  "ენა": {
+   "file": "ka-b255c54beeb1.mp3",
+   "source": "synthetic"
+  },
+  "ერთ კვირაში დავბრუნდები.": {
+   "file": "ka-550026846a51.mp3",
+   "source": "synthetic"
+  },
+  "ერთი": {
+   "file": "ka-04ab5c50a627.mp3",
+   "source": "synthetic"
+  },
+  "ერთი ბილეთი, თუ შეიძლება.": {
+   "file": "ka-3ccf748da301.mp3",
+   "source": "synthetic"
+  },
+  "ერთი თვე თბილისში ვიქნები.": {
+   "file": "ka-06821150bc01.mp3",
+   "source": "synthetic"
+  },
+  "ერთი კითხვა მაქვს.": {
+   "file": "ka-da2391b614d3.mp3",
+   "source": "synthetic"
+  },
+  "ერთი კილო ვაშლი, თუ შეიძლება.": {
+   "file": "ka-7f1f7549a95e.mp3",
+   "source": "synthetic"
+  },
+  "ერთი კილო თხუთმეტი ლარი.": {
+   "file": "ka-8f2cfb2a3ef8.mp3",
+   "source": "synthetic"
+  },
+  "ერთი ლუდი, თუ შეიძლება.": {
+   "file": "ka-d85fd4d7c314.mp3",
+   "source": "synthetic"
+  },
+  "ერთი ყავა, თუ შეიძლება.": {
+   "file": "ka-0e7834cf4915.mp3",
+   "source": "synthetic"
+  },
+  "ერთი წუთით, ახლავე მოვალ.": {
+   "file": "ka-921e8cf6961e.mp3",
+   "source": "synthetic"
+  },
+  "ერთი წუთით.": {
+   "file": "ka-e15d08f7c9b4.mp3",
+   "source": "synthetic"
+  },
+  "ერთი ჭიქა წყალი, თუ შეიძლება.": {
+   "file": "ka-f8bf8e8b87f9.mp3",
+   "source": "synthetic"
+  },
+  "ეს არ ვიცი.": {
+   "file": "ka-34341bc17511.mp3",
+   "source": "synthetic"
+  },
+  "ეს ასი ლარი ღირს.": {
+   "file": "ka-fd5765798d28.mp3",
+   "source": "synthetic"
+  },
+  "ეს ვაშლი წითელია.": {
+   "file": "ka-938384bb56af.mp3",
+   "source": "synthetic"
+  },
+  "ეს რა არის?": {
+   "file": "ka-e9e0ff5b38e4.mp3",
+   "source": "synthetic"
+  },
+  "ეს რა ენაა?": {
+   "file": "ka-794899a260f5.mp3",
+   "source": "synthetic"
+  },
+  "ეს რა ქუჩაა?": {
+   "file": "ka-355929744c3d.mp3",
+   "source": "synthetic"
+  },
+  "ეს ფილმი მომწონს.": {
+   "file": "ka-466c0ef3be7a.mp3",
+   "source": "synthetic"
+  },
+  "ეს ყველი რა ღირს?": {
+   "file": "ka-89a5bc6238d1.mp3",
+   "source": "synthetic"
+  },
+  "ეს ჩანთა იაფია.": {
+   "file": "ka-8b69921b5f46.mp3",
+   "source": "synthetic"
+  },
+  "ეს ჩემი ქმარია.": {
+   "file": "ka-c746779ec403.mp3",
+   "source": "synthetic"
+  },
+  "ეს ჩემი ცოლია.": {
+   "file": "ka-70e1b5083cc0.mp3",
+   "source": "synthetic"
+  },
+  "ეს ძალიან ძვირია, უფრო იაფი გაქვთ?": {
+   "file": "ka-a761d43dcf2b.mp3",
+   "source": "synthetic"
+  },
+  "ეს ძალიან ძვირია.": {
+   "file": "ka-5f14178a1a4c.mp3",
+   "source": "synthetic"
+  },
+  "ეს წიგნი საინტერესოა.": {
+   "file": "ka-f7b1817af4f0.mp3",
+   "source": "synthetic"
+  },
+  "ექვსი": {
+   "file": "ka-f503ec018f96.mp3",
+   "source": "synthetic"
+  },
+  "ექვსი საათია.": {
+   "file": "ka-ba356d682bff.mp3",
+   "source": "synthetic"
+  },
+  "ექიმი მჭირდება.": {
+   "file": "ka-2e432408def8.mp3",
+   "source": "synthetic"
+  },
+  "ექიმო, ცუდად ვარ.": {
+   "file": "ka-68684a9beced.mp3",
+   "source": "synthetic"
+  },
+  "ვ": {
+   "file": "ka-c11cf39a2831.mp3",
+   "source": "synthetic"
+  },
+  "ვაზი": {
+   "file": "ka-cce694ce0eff.mp3",
+   "source": "synthetic"
+  },
+  "ვარ": {
+   "file": "ka-c976910d60d6.mp3",
+   "source": "synthetic"
+  },
+  "ვაშლი": {
+   "file": "ka-881f8460f0b0.mp3",
+   "source": "synthetic"
+  },
+  "ველოსიპედი": {
+   "file": "ka-9a873e742fa2.mp3",
+   "source": "synthetic"
+  },
+  "ველოსიპედით დავდივარ.": {
+   "file": "ka-6f4c2a91752e.mp3",
+   "source": "synthetic"
+  },
+  "ვერ": {
+   "file": "ka-439c15110b38.mp3",
+   "source": "synthetic"
+  },
+  "ვერ გავიგე.": {
+   "file": "ka-49c3b611fff9.mp3",
+   "source": "synthetic"
+  },
+  "ვერ გავიგე. გაიმეორეთ, თუ შეიძლება.": {
+   "file": "ka-485b7b113cb7.mp3",
+   "source": "synthetic"
+  },
+  "ვინ?": {
+   "file": "ka-2ff0486c1afa.mp3",
+   "source": "synthetic"
+  },
+  "ვიცი": {
+   "file": "ka-b54cf58b8d00.mp3",
+   "source": "synthetic"
+  },
+  "ვლაპარაკობ": {
+   "file": "ka-43a53b7fbc85.mp3",
+   "source": "synthetic"
+  },
+  "ვსვამ": {
+   "file": "ka-2b021fc10db0.mp3",
+   "source": "synthetic"
+  },
+  "ვსწავლობ": {
+   "file": "ka-3685be840876.mp3",
+   "source": "synthetic"
+  },
+  "ვცხოვრობ": {
+   "file": "ka-c142af344c13.mp3",
+   "source": "synthetic"
+  },
+  "ვწერ": {
+   "file": "ka-9c18ad1df9e4.mp3",
+   "source": "synthetic"
+  },
+  "ვჭამ": {
+   "file": "ka-2dedee28c784.mp3",
+   "source": "synthetic"
+  },
+  "ზ": {
+   "file": "ka-f16aa89961c5.mp3",
+   "source": "synthetic"
+  },
+  "ზღვა": {
+   "file": "ka-78f48f1d9f17.mp3",
+   "source": "synthetic"
+  },
+  "თ": {
+   "file": "ka-f711831b2ff6.mp3",
+   "source": "synthetic"
+  },
+  "თავი მტკივა.": {
+   "file": "ka-f3b74beec54a.mp3",
+   "source": "synthetic"
+  },
+  "თბილისი": {
+   "file": "ka-18a243d01751.mp3",
+   "source": "synthetic"
+  },
+  "თბილისი ლამაზი ქალაქია, განსაკუთრებით საღამოს.": {
+   "file": "ka-31140c0044fb.mp3",
+   "source": "synthetic"
+  },
+  "თბილისი ლამაზი ქალაქია.": {
+   "file": "ka-7abc14328b9c.mp3",
+   "source": "synthetic"
+  },
+  "თბილისში ვცხოვრობ.": {
+   "file": "ka-c5454727585f.mp3",
+   "source": "synthetic"
+  },
+  "თევზი": {
+   "file": "ka-b6afd9c0c759.mp3",
+   "source": "synthetic"
+  },
+  "თერთმეტი": {
+   "file": "ka-748a63da6d1a.mp3",
+   "source": "synthetic"
+  },
+  "თერთმეტი საათია.": {
+   "file": "ka-ddcb31284d82.mp3",
+   "source": "synthetic"
+  },
+  "თვე": {
+   "file": "ka-7941ed09b28f.mp3",
+   "source": "synthetic"
+  },
+  "თვითმფრინავი": {
+   "file": "ka-5ed6ac6a5945.mp3",
+   "source": "synthetic"
+  },
+  "თვითმფრინავი ცაშია.": {
+   "file": "ka-4c5d4e8684e9.mp3",
+   "source": "synthetic"
+  },
+  "თორმეტი": {
+   "file": "ka-a8326cfb6b02.mp3",
+   "source": "synthetic"
+  },
+  "თორმეტი ლარი.": {
+   "file": "ka-22f96af13c15.mp3",
+   "source": "synthetic"
+  },
+  "თქვენ": {
+   "file": "ka-78b997d93554.mp3",
+   "source": "synthetic"
+  },
+  "თქვენ საიდან ხართ?": {
+   "file": "ka-3f6ca282ee89.mp3",
+   "source": "synthetic"
+  },
+  "ი": {
+   "file": "ka-4d5a429c7760.mp3",
+   "source": "synthetic"
+  },
+  "ია": {
+   "file": "ka-67a6e1940ed2.mp3",
+   "source": "synthetic"
+  },
+  "იაფი": {
+   "file": "ka-7b789329a896.mp3",
+   "source": "synthetic"
+  },
+  "ინგლისიდან ვარ. შენ?": {
+   "file": "ka-678e6c0ebaed.mp3",
+   "source": "synthetic"
+  },
+  "ის": {
+   "file": "ka-f03446b79e77.mp3",
+   "source": "synthetic"
+  },
+  "ის ვინ არის?": {
+   "file": "ka-4e53e9746f47.mp3",
+   "source": "synthetic"
+  },
+  "ის ჩემი მეგობარია.": {
+   "file": "ka-b05c361488fb.mp3",
+   "source": "synthetic"
+  },
+  "ისინი": {
+   "file": "ka-3e332acdb8ae.mp3",
+   "source": "synthetic"
+  },
+  "ისინი თბილისში ცხოვრობენ.": {
+   "file": "ka-30233030512c.mp3",
+   "source": "synthetic"
+  },
+  "იქ": {
+   "file": "ka-5022988caeaa.mp3",
+   "source": "synthetic"
+  },
+  "კ": {
+   "file": "ka-06ef527f8da9.mp3",
+   "source": "synthetic"
+  },
+  "კალამი": {
+   "file": "ka-f11037b9edea.mp3",
+   "source": "synthetic"
+  },
+  "კალამი გაქვს?": {
+   "file": "ka-f20a1a617414.mp3",
+   "source": "synthetic"
+  },
+  "კარგ დღეს გისურვებთ!": {
+   "file": "ka-f4d197718386.mp3",
+   "source": "synthetic"
+  },
+  "კარგად": {
+   "file": "ka-5d74c0e69bcc.mp3",
+   "source": "synthetic"
+  },
+  "კარგად, თქვენ?": {
+   "file": "ka-73db2ab4c870.mp3",
+   "source": "synthetic"
+  },
+  "კარგად, მადლობა.": {
+   "file": "ka-c02c94a03b33.mp3",
+   "source": "synthetic"
+  },
+  "კარგი დღეა.": {
+   "file": "ka-bb753efc48e1.mp3",
+   "source": "synthetic"
+  },
+  "კარგი იდეაა!": {
+   "file": "ka-b6eb70bad048.mp3",
+   "source": "synthetic"
+  },
+  "კარგი იდეაა! რომელ საათზე?": {
+   "file": "ka-06bde82d77ab.mp3",
+   "source": "synthetic"
+  },
+  "კარგი, ახლავე.": {
+   "file": "ka-1e17bd3b4fa6.mp3",
+   "source": "synthetic"
+  },
+  "კარგი, თოთხმეტი იყოს.": {
+   "file": "ka-88e13e5f1228.mp3",
+   "source": "synthetic"
+  },
+  "კარგი, ხვალ გნახავ!": {
+   "file": "ka-4252d2e52003.mp3",
+   "source": "synthetic"
+  },
+  "კარგი.": {
+   "file": "ka-a7156fa2d333.mp3",
+   "source": "synthetic"
+  },
+  "კარგი. ნახევარი კილო, თუ შეიძლება.": {
+   "file": "ka-ef9a80cfcb13.mp3",
+   "source": "synthetic"
+  },
+  "კარგი. ნელა, თუ შეიძლება!": {
+   "file": "ka-e4a40da93281.mp3",
+   "source": "synthetic"
+  },
+  "კარი": {
+   "file": "ka-a8f879027525.mp3",
+   "source": "synthetic"
+  },
+  "კარი დახურეთ, თუ შეიძლება.": {
+   "file": "ka-4d268907c19d.mp3",
+   "source": "synthetic"
+  },
+  "კატა": {
+   "file": "ka-7ddb96b4a157.mp3",
+   "source": "synthetic"
+  },
+  "კვირა": {
+   "file": "ka-dd09d453cf1d.mp3",
+   "source": "synthetic"
+  },
+  "კვირაში შვიდი დღეა.": {
+   "file": "ka-279236f62646.mp3",
+   "source": "synthetic"
+  },
+  "კი": {
+   "file": "ka-02f168f0ea8a.mp3",
+   "source": "synthetic"
+  },
+  "კი, მინდა.": {
+   "file": "ka-15fd7311ac12.mp3",
+   "source": "synthetic"
+  },
+  "კიდევ რამე?": {
+   "file": "ka-4628e91e6e38.mp3",
+   "source": "synthetic"
+  },
+  "ლ": {
+   "file": "ka-749edacf013c.mp3",
+   "source": "synthetic"
+  },
+  "ლარი": {
+   "file": "ka-25a89e392210.mp3",
+   "source": "synthetic"
+  },
+  "ლომი": {
+   "file": "ka-4f55664c0f79.mp3",
+   "source": "synthetic"
+  },
+  "ლუდი": {
+   "file": "ka-c364e08ca0f8.mp3",
+   "source": "synthetic"
+  },
+  "მ": {
+   "file": "ka-5b0c3a574049.mp3",
+   "source": "synthetic"
+  },
+  "მაგიდა": {
+   "file": "ka-f6705d35205e.mp3",
+   "source": "synthetic"
+  },
+  "მადლობა": {
+   "file": "ka-b40b238ad71d.mp3",
+   "source": "synthetic"
+  },
+  "მამა": {
+   "file": "ka-6259aa102116.mp3",
+   "source": "synthetic"
+  },
+  "მამა ექიმია.": {
+   "file": "ka-96c3873ccffd.mp3",
+   "source": "synthetic"
+  },
+  "მანქანა": {
+   "file": "ka-a6f2a0329424.mp3",
+   "source": "synthetic"
+  },
+  "მანქანა სახლის უკან დგას.": {
+   "file": "ka-49c54c8fe635.mp3",
+   "source": "synthetic"
+  },
+  "მარილი": {
+   "file": "ka-ebd14681d914.mp3",
+   "source": "synthetic"
+  },
+  "მარილი სად არის?": {
+   "file": "ka-d2780a891947.mp3",
+   "source": "synthetic"
+  },
+  "მარცხნივ": {
+   "file": "ka-9908fac5862f.mp3",
+   "source": "synthetic"
+  },
+  "მარცხნივ მოუხვიეთ.": {
+   "file": "ka-cacf9519f709.mp3",
+   "source": "synthetic"
+  },
+  "მარჯვნივ": {
+   "file": "ka-67b19346975e.mp3",
+   "source": "synthetic"
+  },
+  "მარჯვნივ მოუხვიეთ.": {
+   "file": "ka-97212903e4d3.mp3",
+   "source": "synthetic"
+  },
+  "მატარებელი": {
+   "file": "ka-335f40093067.mp3",
+   "source": "synthetic"
+  },
+  "მატარებელი ბათუმში მიდის.": {
+   "file": "ka-09ed78ef1951.mp3",
+   "source": "synthetic"
+  },
+  "მაქვს": {
+   "file": "ka-5d7f9de458d3.mp3",
+   "source": "synthetic"
+  },
+  "მაღაზია": {
+   "file": "ka-c42f95aa92a7.mp3",
+   "source": "synthetic"
+  },
+  "მაღაზია დაკეტილია.": {
+   "file": "ka-ecc21957a0e5.mp3",
+   "source": "synthetic"
+  },
+  "მაღაზია ღიაა?": {
+   "file": "ka-b29acf0ad1da.mp3",
+   "source": "synthetic"
+  },
+  "მე": {
+   "file": "ka-be31f9064039.mp3",
+   "source": "synthetic"
+  },
+  "მე თბილისელი ვარ. ქართული იცი?": {
+   "file": "ka-9145b0b82de1.mp3",
+   "source": "synthetic"
+  },
+  "მე ნინო ვარ.": {
+   "file": "ka-5c03850bd62a.mp3",
+   "source": "synthetic"
+  },
+  "მე ნინო მქვია.": {
+   "file": "ka-a58a7fa2e50b.mp3",
+   "source": "synthetic"
+  },
+  "მე ოფისში ვმუშაობ, ცენტრში.": {
+   "file": "ka-847cb4c4de72.mp3",
+   "source": "synthetic"
+  },
+  "მე სტუდენტი ვარ.": {
+   "file": "ka-727459247244.mp3",
+   "source": "synthetic"
+  },
+  "მე ქართულს ვსწავლობ.": {
+   "file": "ka-3dc42621d893.mp3",
+   "source": "synthetic"
+  },
+  "მეგობარი": {
+   "file": "ka-7c22d8b90ef6.mp3",
+   "source": "synthetic"
+  },
+  "მენიუ, თუ შეიძლება.": {
+   "file": "ka-0c378c6b0547.mp3",
+   "source": "synthetic"
+  },
+  "მეტრო": {
+   "file": "ka-e91e4d7d9613.mp3",
+   "source": "synthetic"
+  },
+  "მეტრო იქ არის.": {
+   "file": "ka-4c4dfe6ff40a.mp3",
+   "source": "synthetic"
+  },
+  "მეტროთი მივდივარ.": {
+   "file": "ka-e710821254ec.mp3",
+   "source": "synthetic"
+  },
+  "მზე": {
+   "file": "ka-4a1e7c41dcaf.mp3",
+   "source": "synthetic"
+  },
+  "მთა": {
+   "file": "ka-a97ef8e5dbb1.mp3",
+   "source": "synthetic"
+  },
+  "მთვარე": {
+   "file": "ka-99211151078d.mp3",
+   "source": "synthetic"
+  },
+  "მინდა": {
+   "file": "ka-ef1a4bda0081.mp3",
+   "source": "synthetic"
+  },
+  "მიყვარს": {
+   "file": "ka-0efd78406130.mp3",
+   "source": "synthetic"
+  },
+  "მოდი აქ!": {
+   "file": "ka-8228f2474e0d.mp3",
+   "source": "synthetic"
+  },
+  "მომწონს": {
+   "file": "ka-d0dd8f1e3fdb.mp3",
+   "source": "synthetic"
+  },
+  "მუცელი მტკივა.": {
+   "file": "ka-92c7c49908a1.mp3",
+   "source": "synthetic"
+  },
+  "მქვია": {
+   "file": "ka-ae90915d068a.mp3",
+   "source": "synthetic"
+  },
+  "მჭირდება": {
+   "file": "ka-90a3ba295738.mp3",
+   "source": "synthetic"
+  },
+  "ნ": {
+   "file": "ka-aed316c52a47.mp3",
+   "source": "synthetic"
+  },
+  "ნავი": {
+   "file": "ka-46a4a92163d5.mp3",
+   "source": "synthetic"
+  },
+  "ნაღდი ფული": {
+   "file": "ka-aab42c7b1411.mp3",
+   "source": "synthetic"
+  },
+  "ნაღდი ფული გაქვთ?": {
+   "file": "ka-063c2c1c2489.mp3",
+   "source": "synthetic"
+  },
+  "ნახვამდის": {
+   "file": "ka-5c2eebec8026.mp3",
+   "source": "synthetic"
+  },
+  "ნახვამდის!": {
+   "file": "ka-96fd4695b51b.mp3",
+   "source": "synthetic"
+  },
+  "ნახვამდის, კარგ დღეს გისურვებთ!": {
+   "file": "ka-b4617b9c204a.mp3",
+   "source": "synthetic"
+  },
+  "ნახვამდის, ხვალამდე!": {
+   "file": "ka-fb155dc55de8.mp3",
+   "source": "synthetic"
+  },
+  "ნელა გაიმეორეთ, თუ შეიძლება.": {
+   "file": "ka-cdbcbb50a1c5.mp3",
+   "source": "synthetic"
+  },
+  "ნელა, თუ შეიძლება, ბავშვი მყავს.": {
+   "file": "ka-823d5249254a.mp3",
+   "source": "synthetic"
+  },
+  "ნელა, თუ შეიძლება.": {
+   "file": "ka-e3d4d787201a.mp3",
+   "source": "synthetic"
+  },
+  "ნინო სახლში არის.": {
+   "file": "ka-9fd9fa18a907.mp3",
+   "source": "synthetic"
+  },
+  "ნინო ქართველია.": {
+   "file": "ka-2eda25d4940b.mp3",
+   "source": "synthetic"
+  },
+  "ნინო, საიდან ხარ?": {
+   "file": "ka-893436cb87e7.mp3",
+   "source": "synthetic"
+  },
+  "ნული": {
+   "file": "ka-3a6518f6d9bf.mp3",
+   "source": "synthetic"
+  },
+  "ნული, ერთი, ორი, სამი.": {
+   "file": "ka-68b7594bdcf8.mp3",
+   "source": "synthetic"
+  },
+  "ო": {
+   "file": "ka-3c2f9aeff7f4.mp3",
+   "source": "synthetic"
+  },
+  "ოთახი": {
+   "file": "ka-73d4ba890815.mp3",
+   "source": "synthetic"
+  },
+  "ოთახი დიდი და ნათელია.": {
+   "file": "ka-844c1452802d.mp3",
+   "source": "synthetic"
+  },
+  "ოთხი": {
+   "file": "ka-229c8f260f6b.mp3",
+   "source": "synthetic"
+  },
+  "ოთხი ბილეთი მინდა.": {
+   "file": "ka-ed7d12b8d31d.mp3",
+   "source": "synthetic"
+  },
+  "ორი": {
+   "file": "ka-5292580a4118.mp3",
+   "source": "synthetic"
+  },
+  "ორი შვილი მყავს.": {
+   "file": "ka-0e0e216c911e.mp3",
+   "source": "synthetic"
+  },
+  "ორი ჩაი, თუ შეიძლება.": {
+   "file": "ka-a6d5daa7338f.mp3",
+   "source": "synthetic"
+  },
+  "ორმოცი": {
+   "file": "ka-3fe585fc4e58.mp3",
+   "source": "synthetic"
+  },
+  "ორმოცი ლარი ძვირია.": {
+   "file": "ka-d1869ddca258.mp3",
+   "source": "synthetic"
+  },
+  "ორმოცი ლარი.": {
+   "file": "ka-3c5731af9402.mp3",
+   "source": "synthetic"
+  },
+  "ორშაბათი": {
+   "file": "ka-1d428f5d3ba3.mp3",
+   "source": "synthetic"
+  },
+  "ორშაბათს ვმუშაობ.": {
+   "file": "ka-80b3425cf274.mp3",
+   "source": "synthetic"
+  },
+  "ოფისში ვმუშაობ.": {
+   "file": "ka-2e2aebd79a37.mp3",
+   "source": "synthetic"
+  },
+  "ოცდაათი": {
+   "file": "ka-2db590b70c28.mp3",
+   "source": "synthetic"
+  },
+  "ოცდაათი წუთი მჭირდება.": {
+   "file": "ka-f6673d60adc5.mp3",
+   "source": "synthetic"
+  },
+  "ოცი": {
+   "file": "ka-c2d20c007b41.mp3",
+   "source": "synthetic"
+  },
+  "ოცი ლარი ღირს.": {
+   "file": "ka-4230630b4af7.mp3",
+   "source": "synthetic"
+  },
+  "ოჯახი": {
+   "file": "ka-30c8d286bf0f.mp3",
+   "source": "synthetic"
+  },
+  "პ": {
+   "file": "ka-a9ca28b85242.mp3",
+   "source": "synthetic"
+  },
+  "პარასკევი": {
+   "file": "ka-1a8d409afccd.mp3",
+   "source": "synthetic"
+  },
+  "პარასკევს კინოში მივდივართ.": {
+   "file": "ka-d60e4b972a38.mp3",
+   "source": "synthetic"
+  },
+  "პარკი მჭირდება.": {
+   "file": "ka-b3fbb2507944.mp3",
+   "source": "synthetic"
+  },
+  "პირდაპირ": {
+   "file": "ka-b2c189ffd721.mp3",
+   "source": "synthetic"
+  },
+  "პირდაპირ წადით, მერე მარცხნივ მოუხვიეთ.": {
+   "file": "ka-8fca18037869.mp3",
+   "source": "synthetic"
+  },
+  "პირდაპირ წადით, მერე მარჯვნივ.": {
+   "file": "ka-6941fa878e05.mp3",
+   "source": "synthetic"
+  },
+  "პირდაპირ წადით.": {
+   "file": "ka-3c511d45b5dd.mp3",
+   "source": "synthetic"
+  },
+  "პირდაპირ, მერე მარცხნივ. შორს არ არის.": {
+   "file": "ka-c6cf189045cb.mp3",
+   "source": "synthetic"
+  },
+  "პომიდორი": {
+   "file": "ka-643fad6be06d.mp3",
+   "source": "synthetic"
+  },
+  "პური": {
+   "file": "ka-5b8ada9db073.mp3",
+   "source": "synthetic"
+  },
+  "პური ძალიან გემრიელია.": {
+   "file": "ka-88dc078d7c26.mp3",
+   "source": "synthetic"
+  },
+  "ჟ": {
+   "file": "ka-aa0353014f65.mp3",
+   "source": "synthetic"
+  },
+  "ჟურნალი": {
+   "file": "ka-de3991235f76.mp3",
+   "source": "synthetic"
+  },
+  "რ": {
+   "file": "ka-38cd993078e9.mp3",
+   "source": "synthetic"
+  },
+  "რა ამინდია!": {
+   "file": "ka-92a494b796bd.mp3",
+   "source": "synthetic"
+  },
+  "რა გქვია?": {
+   "file": "ka-94422e64c371.mp3",
+   "source": "synthetic"
+  },
+  "რა კარგია!": {
+   "file": "ka-b49118595af8.mp3",
+   "source": "synthetic"
+  },
+  "რა ფასია?": {
+   "file": "ka-dee5e936469e.mp3",
+   "source": "synthetic"
+  },
+  "რა ღირს ეს?": {
+   "file": "ka-c50f33e41969.mp3",
+   "source": "synthetic"
+  },
+  "რა ღირს?": {
+   "file": "ka-47c951ba63f8.mp3",
+   "source": "synthetic"
+  },
+  "რა?": {
+   "file": "ka-30459c1a6402.mp3",
+   "source": "synthetic"
+  },
+  "რამდენი შვილი გყავს?": {
+   "file": "ka-8e3daa87fc70.mp3",
+   "source": "synthetic"
+  },
+  "რამდენი ხანი?": {
+   "file": "ka-33aa1bcd0a50.mp3",
+   "source": "synthetic"
+  },
+  "რამდენი?": {
+   "file": "ka-784db4d71612.mp3",
+   "source": "synthetic"
+  },
+  "რას მირჩევთ?": {
+   "file": "ka-60905a9488bf.mp3",
+   "source": "synthetic"
+  },
+  "რატომ არ მოდიხარ?": {
+   "file": "ka-268695701a7e.mp3",
+   "source": "synthetic"
+  },
+  "რატომ?": {
+   "file": "ka-1ca12d924c94.mp3",
+   "source": "synthetic"
+  },
+  "რვა": {
+   "file": "ka-1d65c1ce3521.mp3",
+   "source": "synthetic"
+  },
+  "რვა ლარი ღირს.": {
+   "file": "ka-27b24217ace1.mp3",
+   "source": "synthetic"
+  },
+  "როგორ ხარ?": {
+   "file": "ka-895392b05500.mp3",
+   "source": "synthetic"
+  },
+  "როგორ ხართ?": {
+   "file": "ka-03ea8d4dbc78.mp3",
+   "source": "synthetic"
+  },
+  "როგორ?": {
+   "file": "ka-d81702fc82a9.mp3",
+   "source": "synthetic"
+  },
+  "როდის მოდიხარ?": {
+   "file": "ka-eea6464cd826.mp3",
+   "source": "synthetic"
+  },
+  "როდის?": {
+   "file": "ka-e1bbe60a3389.mp3",
+   "source": "synthetic"
+  },
+  "რომელი საათია?": {
+   "file": "ka-6ebd4f0e436e.mp3",
+   "source": "synthetic"
+  },
+  "რუკა": {
+   "file": "ka-8bdace3b6597.mp3",
+   "source": "synthetic"
+  },
+  "რუკა გაქვს?": {
+   "file": "ka-1920da04a7c6.mp3",
+   "source": "synthetic"
+  },
+  "რძე": {
+   "file": "ka-1f490a196438.mp3",
+   "source": "synthetic"
+  },
+  "რძე მაცივარშია.": {
+   "file": "ka-e25826d5cde8.mp3",
+   "source": "synthetic"
+  },
+  "რძით თუ ურძოდ?": {
+   "file": "ka-c0548eb1de94.mp3",
+   "source": "synthetic"
+  },
+  "რძით, თუ შეიძლება.": {
+   "file": "ka-b090efd6bd81.mp3",
+   "source": "synthetic"
+  },
+  "ს": {
+   "file": "ka-cd71c7dfc7bf.mp3",
+   "source": "synthetic"
+  },
+  "საათი": {
+   "file": "ka-23de9628f26d.mp3",
+   "source": "synthetic"
+  },
+  "სად არის ბანკი?": {
+   "file": "ka-f0644cec30fe.mp3",
+   "source": "synthetic"
+  },
+  "სად არის მეტრო?": {
+   "file": "ka-90753cd53ecd.mp3",
+   "source": "synthetic"
+  },
+  "სად მუშაობ?": {
+   "file": "ka-e4039e21598a.mp3",
+   "source": "synthetic"
+  },
+  "სად?": {
+   "file": "ka-9abc411e9712.mp3",
+   "source": "synthetic"
+  },
+  "სადგური": {
+   "file": "ka-673768382313.mp3",
+   "source": "synthetic"
+  },
+  "სადგური ახლოს არის.": {
+   "file": "ka-e6d170182598.mp3",
+   "source": "synthetic"
+  },
+  "საიდან ხარ?": {
+   "file": "ka-93283d9f0957.mp3",
+   "source": "synthetic"
+  },
+  "სამი": {
+   "file": "ka-f430d1db9cd9.mp3",
+   "source": "synthetic"
+  },
+  "სამი შვილი მყავს.": {
+   "file": "ka-b399ee2076a7.mp3",
+   "source": "synthetic"
+  },
+  "სასიამოვნოა": {
+   "file": "ka-7d51cf60697d.mp3",
+   "source": "synthetic"
+  },
+  "სასიამოვნოა, ანა! საიდან ხარ?": {
+   "file": "ka-229d4b6b9c43.mp3",
+   "source": "synthetic"
+  },
+  "სასწრაფოდ ექიმი მჭირდება.": {
+   "file": "ka-6b8c14522f26.mp3",
+   "source": "synthetic"
+  },
+  "საქართველო": {
+   "file": "ka-d46974b775b1.mp3",
+   "source": "synthetic"
+  },
+  "საქართველო მიყვარს.": {
+   "file": "ka-60f6654ee805.mp3",
+   "source": "synthetic"
+  },
+  "საქართველო ძალიან მომწონს, ხალხი თბილია.": {
+   "file": "ka-786ff13e8e2b.mp3",
+   "source": "synthetic"
+  },
+  "საქართველო ძალიან მომწონს.": {
+   "file": "ka-47ac87c61ed5.mp3",
+   "source": "synthetic"
+  },
+  "საღამო": {
+   "file": "ka-4556373f38ba.mp3",
+   "source": "synthetic"
+  },
+  "საღამო მშვიდობისა": {
+   "file": "ka-2dcb8f44e28c.mp3",
+   "source": "synthetic"
+  },
+  "საღამო მშვიდობისა, ბატონო გიორგი.": {
+   "file": "ka-79c453d2fcb1.mp3",
+   "source": "synthetic"
+  },
+  "საღამოს სახლში ვარ.": {
+   "file": "ka-459543dad082.mp3",
+   "source": "synthetic"
+  },
+  "საღამოს ხინკალი ვჭამოთ?": {
+   "file": "ka-4214d9b8dd5f.mp3",
+   "source": "synthetic"
+  },
+  "საწოლი": {
+   "file": "ka-b06301cf58a0.mp3",
+   "source": "synthetic"
+  },
+  "საწოლი დიდია.": {
+   "file": "ka-39fe8ded3516.mp3",
+   "source": "synthetic"
+  },
+  "სახელი": {
+   "file": "ka-f760897217a8.mp3",
+   "source": "synthetic"
+  },
+  "სახლი": {
+   "file": "ka-5a5b9c093ee8.mp3",
+   "source": "synthetic"
+  },
+  "სიცხე მაქვს.": {
+   "file": "ka-f35a529bf432.mp3",
+   "source": "synthetic"
+  },
+  "სკამზე დაჯექი.": {
+   "file": "ka-ea709835df2c.mp3",
+   "source": "synthetic"
+  },
+  "სკამი": {
+   "file": "ka-f55335632dce.mp3",
+   "source": "synthetic"
+  },
+  "სულ ეს არის.": {
+   "file": "ka-94e809327e10.mp3",
+   "source": "synthetic"
+  },
+  "ტ": {
+   "file": "ka-0b89e26127a1.mp3",
+   "source": "synthetic"
+  },
+  "ტაქსი": {
+   "file": "ka-a9a5a6488ed6.mp3",
+   "source": "synthetic"
+  },
+  "ტაქსი გამოვიძახე.": {
+   "file": "ka-732bc08350ff.mp3",
+   "source": "synthetic"
+  },
+  "ტბა": {
+   "file": "ka-b89338070a03.mp3",
+   "source": "synthetic"
+  },
+  "ტელეფონი": {
+   "file": "ka-660cec43cab6.mp3",
+   "source": "synthetic"
+  },
+  "ტყე": {
+   "file": "ka-4cb35406a566.mp3",
+   "source": "synthetic"
+  },
+  "უ": {
+   "file": "ka-746d72eea2ef.mp3",
+   "source": "synthetic"
+  },
+  "უბანი": {
+   "file": "ka-0353cc2140a7.mp3",
+   "source": "synthetic"
+  },
+  "უკან": {
+   "file": "ka-4070d17a166f.mp3",
+   "source": "synthetic"
+  },
+  "ფ": {
+   "file": "ka-e8ad26b7e0de.mp3",
+   "source": "synthetic"
+  },
+  "ფანჯარა": {
+   "file": "ka-0d0328fa7595.mp3",
+   "source": "synthetic"
+  },
+  "ფანჯარა გააღე.": {
+   "file": "ka-1fcc2f8c837f.mp3",
+   "source": "synthetic"
+  },
+  "ფასი": {
+   "file": "ka-3ee5c6d24734.mp3",
+   "source": "synthetic"
+  },
+  "ფული": {
+   "file": "ka-bf2f094a8b74.mp3",
+   "source": "synthetic"
+  },
+  "ფული არ მაქვს.": {
+   "file": "ka-04178823ba7d.mp3",
+   "source": "synthetic"
+  },
+  "ფური": {
+   "file": "ka-471896525a3f.mp3",
+   "source": "synthetic"
+  },
+  "ქ": {
+   "file": "ka-185a16f5338a.mp3",
+   "source": "synthetic"
+  },
+  "ქალაქი": {
+   "file": "ka-d2cf21170da5.mp3",
+   "source": "synthetic"
+  },
+  "ქართველი": {
+   "file": "ka-7efe7891e7a0.mp3",
+   "source": "synthetic"
+  },
+  "ქართული": {
+   "file": "ka-f7de3263a3a7.mp3",
+   "source": "synthetic"
+  },
+  "ქართული ლამაზი ენაა.": {
+   "file": "ka-6a4849ba4aba.mp3",
+   "source": "synthetic"
+  },
+  "ქართული ღვინო ძალიან კარგია.": {
+   "file": "ka-14b4be8dae5d.mp3",
+   "source": "synthetic"
+  },
+  "ქარი": {
+   "file": "ka-27b8bce5ad9e.mp3",
+   "source": "synthetic"
+  },
+  "ქმარი": {
+   "file": "ka-f8f852d63c0b.mp3",
+   "source": "synthetic"
+  },
+  "ქუდი": {
+   "file": "ka-4303b10bccfd.mp3",
+   "source": "synthetic"
+  },
+  "ქუჩა": {
+   "file": "ka-e931fd194c59.mp3",
+   "source": "synthetic"
+  },
+  "ქუჩის ბოლოს მარცხნივ მოუხვიეთ.": {
+   "file": "ka-9522a3f6261b.mp3",
+   "source": "synthetic"
+  },
+  "ღ": {
+   "file": "ka-2f1b9811b8b5.mp3",
+   "source": "synthetic"
+  },
+  "ღამე": {
+   "file": "ka-6aea60b93a7f.mp3",
+   "source": "synthetic"
+  },
+  "ღამე მშვიდობისა": {
+   "file": "ka-fbe2b2d9d24e.mp3",
+   "source": "synthetic"
+  },
+  "ღამე მშვიდობისა, ნინო.": {
+   "file": "ka-67e8607a2a30.mp3",
+   "source": "synthetic"
+  },
+  "ღვინო": {
+   "file": "ka-6fe2a68eec2c.mp3",
+   "source": "synthetic"
+  },
+  "ღია": {
+   "file": "ka-1b62d8344485.mp3",
+   "source": "synthetic"
+  },
+  "ყ": {
+   "file": "ka-083ebccfc37e.mp3",
+   "source": "synthetic"
+  },
+  "ყავა": {
+   "file": "ka-8c63d5e1daa3.mp3",
+   "source": "synthetic"
+  },
+  "ყავა მინდა.": {
+   "file": "ka-1694db0843e3.mp3",
+   "source": "synthetic"
+  },
+  "ყავა რძით მიყვარს.": {
+   "file": "ka-1ff3b8f91210.mp3",
+   "source": "synthetic"
+  },
+  "ყველი": {
+   "file": "ka-a3139ef0b76c.mp3",
+   "source": "synthetic"
+  },
+  "ყველი და პური მინდა.": {
+   "file": "ka-85019dc4beca.mp3",
+   "source": "synthetic"
+  },
+  "ყოჩაღ!": {
+   "file": "ka-f2201d4309f3.mp3",
+   "source": "synthetic"
+  },
+  "შ": {
+   "file": "ka-00501393329b.mp3",
+   "source": "synthetic"
+  },
+  "შაბათი": {
+   "file": "ka-de99beacdd3e.mp3",
+   "source": "synthetic"
+  },
+  "შაბათს ბაზარში მივდივარ.": {
+   "file": "ka-d48fef31d1f6.mp3",
+   "source": "synthetic"
+  },
+  "შაქარი": {
+   "file": "ka-634e3958d5f6.mp3",
+   "source": "synthetic"
+  },
+  "შაქარი არ მინდა.": {
+   "file": "ka-cb535298b904.mp3",
+   "source": "synthetic"
+  },
+  "შეიძლება?": {
+   "file": "ka-530384e0a339.mp3",
+   "source": "synthetic"
+  },
+  "შემოდით!": {
+   "file": "ka-b2f7e6bbad2e.mp3",
+   "source": "synthetic"
+  },
+  "შემოდით, ჩაი დალიეთ!": {
+   "file": "ka-c8d32b1c8328.mp3",
+   "source": "synthetic"
+  },
+  "შენ": {
+   "file": "ka-c77dd9f25355.mp3",
+   "source": "synthetic"
+  },
+  "შენ ვინ ხარ?": {
+   "file": "ka-9096e0c8fc50.mp3",
+   "source": "synthetic"
+  },
+  "შენ ძალიან კარგი ხარ.": {
+   "file": "ka-64a46f20f92b.mp3",
+   "source": "synthetic"
+  },
+  "შეხვედრა მაქვს.": {
+   "file": "ka-f508dab33465.mp3",
+   "source": "synthetic"
+  },
+  "შვიდ საათზე.": {
+   "file": "ka-360aea0a5c2c.mp3",
+   "source": "synthetic"
+  },
+  "შვიდი": {
+   "file": "ka-2f9dca46eb4c.mp3",
+   "source": "synthetic"
+  },
+  "შვილი": {
+   "file": "ka-1b6078bae861.mp3",
+   "source": "synthetic"
+  },
+  "შორს": {
+   "file": "ka-06ad02152660.mp3",
+   "source": "synthetic"
+  },
+  "შორს არის?": {
+   "file": "ka-f440c87ceedc.mp3",
+   "source": "synthetic"
+  },
+  "ჩ": {
+   "file": "ka-a2d7667cdc26.mp3",
+   "source": "synthetic"
+  },
+  "ჩაი": {
+   "file": "ka-1cf04269b6c7.mp3",
+   "source": "synthetic"
+  },
+  "ჩაი შაქრით, თუ შეიძლება.": {
+   "file": "ka-df81502cb8a2.mp3",
+   "source": "synthetic"
+  },
+  "ჩაის ვსვამ.": {
+   "file": "ka-954d315b40dc.mp3",
+   "source": "synthetic"
+  },
+  "ჩანთა": {
+   "file": "ka-4d403bc17293.mp3",
+   "source": "synthetic"
+  },
+  "ჩანთა მჭირდება.": {
+   "file": "ka-a38007331c43.mp3",
+   "source": "synthetic"
+  },
+  "ჩემი და სტუდენტია.": {
+   "file": "ka-53d834b6b9e5.mp3",
+   "source": "synthetic"
+  },
+  "ჩემი მანქანა თეთრია.": {
+   "file": "ka-46353ecc993d.mp3",
+   "source": "synthetic"
+  },
+  "ჩემი ოჯახი დიდია.": {
+   "file": "ka-530c58f00ee2.mp3",
+   "source": "synthetic"
+  },
+  "ჩემი სახელი ნინოა.": {
+   "file": "ka-eca851cb4c58.mp3",
+   "source": "synthetic"
+  },
+  "ჩემი სახლი აქ არის.": {
+   "file": "ka-2550bbb0e8cc.mp3",
+   "source": "synthetic"
+  },
+  "ჩემი ტელეფონი სად არის?": {
+   "file": "ka-d84a140c9933.mp3",
+   "source": "synthetic"
+  },
+  "ჩემი ძმა თბილისში ცხოვრობს.": {
+   "file": "ka-745f9d9314dd.mp3",
+   "source": "synthetic"
+  },
+  "ჩვენ": {
+   "file": "ka-8cbc0e30eb19.mp3",
+   "source": "synthetic"
+  },
+  "ჩვენ სტუდენტები ვართ.": {
+   "file": "ka-166d086e04d9.mp3",
+   "source": "synthetic"
+  },
+  "ჩვენს მეგობრობას გაუმარჯოს!": {
+   "file": "ka-3b439df404dc.mp3",
+   "source": "synthetic"
+  },
+  "ც": {
+   "file": "ka-89b91cd8a8d6.mp3",
+   "source": "synthetic"
+  },
+  "ცა": {
+   "file": "ka-1d2a9ddd8f6f.mp3",
+   "source": "synthetic"
+  },
+  "ცელი": {
+   "file": "ka-4c3aa42a7dff.mp3",
+   "source": "synthetic"
+  },
+  "ცენტრამდე რა ღირს?": {
+   "file": "ka-cacaaee14628.mp3",
+   "source": "synthetic"
+  },
+  "ცისარტყელა": {
+   "file": "ka-467a8012e440.mp3",
+   "source": "synthetic"
+  },
+  "ცოლი": {
+   "file": "ka-4fa4b3f1c0cd.mp3",
+   "source": "synthetic"
+  },
+  "ცოტა": {
+   "file": "ka-9d0ac8090bcd.mp3",
+   "source": "synthetic"
+  },
+  "ცოტა ვიცი. ვსწავლობ.": {
+   "file": "ka-623126f07aa7.mp3",
+   "source": "synthetic"
+  },
+  "ცოტა ქართულად ვლაპარაკობ.": {
+   "file": "ka-a71c6ac6c0cb.mp3",
+   "source": "synthetic"
+  },
+  "ცოტა ქართული ვიცი.": {
+   "file": "ka-c7c9b8e61f72.mp3",
+   "source": "synthetic"
+  },
+  "ცუდად ვარ.": {
+   "file": "ka-993d9a8cc4a4.mp3",
+   "source": "synthetic"
+  },
+  "ცხრა": {
+   "file": "ka-b7211ec00604.mp3",
+   "source": "synthetic"
+  },
+  "ცხრა საათზე გნახავ.": {
+   "file": "ka-54f3dd6a454d.mp3",
+   "source": "synthetic"
+  },
+  "ძ": {
+   "file": "ka-53c1913753c5.mp3",
+   "source": "synthetic"
+  },
+  "ძალიან გემრიელია!": {
+   "file": "ka-c28473778f46.mp3",
+   "source": "synthetic"
+  },
+  "ძალიან სასიამოვნოა!": {
+   "file": "ka-115f565feaec.mp3",
+   "source": "synthetic"
+  },
+  "ძალიან სასიამოვნოა.": {
+   "file": "ka-3d33ae5063ab.mp3",
+   "source": "synthetic"
+  },
+  "ძალიან შორს არის.": {
+   "file": "ka-3774e736f912.mp3",
+   "source": "synthetic"
+  },
+  "ძაღლი": {
+   "file": "ka-d848e09cb589.mp3",
+   "source": "synthetic"
+  },
+  "ძვირი": {
+   "file": "ka-c5f2afebc175.mp3",
+   "source": "synthetic"
+  },
+  "ძმა": {
+   "file": "ka-6861667f873c.mp3",
+   "source": "synthetic"
+  },
+  "წ": {
+   "file": "ka-16f5cfceee56.mp3",
+   "source": "synthetic"
+  },
+  "წელი": {
+   "file": "ka-057e930a3aa7.mp3",
+   "source": "synthetic"
+  },
+  "წელიწადში თორმეტი თვეა.": {
+   "file": "ka-8cd0325f0705.mp3",
+   "source": "synthetic"
+  },
+  "წერილს ვწერ.": {
+   "file": "ka-71576806a8e5.mp3",
+   "source": "synthetic"
+  },
+  "წიგნი": {
+   "file": "ka-d33f6a864825.mp3",
+   "source": "synthetic"
+  },
+  "წიგნი მაგიდაზეა.": {
+   "file": "ka-16afa3e4840a.mp3",
+   "source": "synthetic"
+  },
+  "წყალი": {
+   "file": "ka-2737d8389199.mp3",
+   "source": "synthetic"
+  },
+  "წყალი მინდა.": {
+   "file": "ka-f4b696b46def.mp3",
+   "source": "synthetic"
+  },
+  "ჭ": {
+   "file": "ka-0842d05891c6.mp3",
+   "source": "synthetic"
+  },
+  "ჭიქა": {
+   "file": "ka-d2db3de5689b.mp3",
+   "source": "synthetic"
+  },
+  "ჭიქა მაგიდაზეა.": {
+   "file": "ka-39207ff4b492.mp3",
+   "source": "synthetic"
+  },
+  "ხ": {
+   "file": "ka-a531efa89b70.mp3",
+   "source": "synthetic"
+  },
+  "ხარ": {
+   "file": "ka-14de790c9f4d.mp3",
+   "source": "synthetic"
+  },
+  "ხაჭაპური": {
+   "file": "ka-6c606597a3bd.mp3",
+   "source": "synthetic"
+  },
+  "ხაჭაპური ცხელია.": {
+   "file": "ka-2b3d62e6ca54.mp3",
+   "source": "synthetic"
+  },
+  "ხაჭაპური ძალიან გემრიელია!": {
+   "file": "ka-b9b8813991a8.mp3",
+   "source": "synthetic"
+  },
+  "ხაჭაპურიც მინდა.": {
+   "file": "ka-5e22dabff777.mp3",
+   "source": "synthetic"
+  },
+  "ხე": {
+   "file": "ka-78a7c25063e0.mp3",
+   "source": "synthetic"
+  },
+  "ხვალ": {
+   "file": "ka-2dc5afd00444.mp3",
+   "source": "synthetic"
+  },
+  "ხვალ გნახავ.": {
+   "file": "ka-af04c07425b9.mp3",
+   "source": "synthetic"
+  },
+  "ხვალ მოდიხარ? რა კარგია!": {
+   "file": "ka-f17b31ab8ee2.mp3",
+   "source": "synthetic"
+  },
+  "ხვალ რას აკეთებ?": {
+   "file": "ka-90ae9d86cf4d.mp3",
+   "source": "synthetic"
+  },
+  "ხვალ? კარგი იდეაა!": {
+   "file": "ka-7d3e9e6c435b.mp3",
+   "source": "synthetic"
+  },
+  "ხილი": {
+   "file": "ka-52e553c986b2.mp3",
+   "source": "synthetic"
+  },
+  "ხილი ბაზარზე იაფია.": {
+   "file": "ka-452ba0bd8de3.mp3",
+   "source": "synthetic"
+  },
+  "ხინკალი": {
+   "file": "ka-d02b0d925636.mp3",
+   "source": "synthetic"
+  },
+  "ხინკალი მიყვარს.": {
+   "file": "ka-fdb41ac8da1d.mp3",
+   "source": "synthetic"
+  },
+  "ხინკალს ვჭამ.": {
+   "file": "ka-9658f5d29782.mp3",
+   "source": "synthetic"
+  },
+  "ხორცი": {
+   "file": "ka-a6aa60d9121e.mp3",
+   "source": "synthetic"
+  },
+  "ხორცს არ ვჭამ.": {
+   "file": "ka-a7a13f880b63.mp3",
+   "source": "synthetic"
+  },
+  "ხუთი": {
+   "file": "ka-2faa2add2ef1.mp3",
+   "source": "synthetic"
+  },
+  "ხუთი ლარი ღირს.": {
+   "file": "ka-8bbc1fea50dc.mp3",
+   "source": "synthetic"
+  },
+  "ხუთი წუთი, თუ შეიძლება.": {
+   "file": "ka-6cd52f259204.mp3",
+   "source": "synthetic"
+  },
+  "ჯ": {
+   "file": "ka-4f9b505390ed.mp3",
+   "source": "synthetic"
+  },
+  "ჯიბე": {
+   "file": "ka-8a4f65fd9912.mp3",
+   "source": "synthetic"
+  },
+  "ჰ": {
+   "file": "ka-d10874b8f141.mp3",
+   "source": "synthetic"
+  },
+  "ჰაერი": {
+   "file": "ka-5006405a6b15.mp3",
+   "source": "synthetic"
+  },
+  "— ანგარიში, თუ შეიძლება. — ერთი წუთით.": {
+   "file": "ka-8ebbb9fa5625.mp3",
+   "source": "synthetic"
+  },
+  "— ბარათით შეიძლება? — კი, რა თქმა უნდა.": {
+   "file": "ka-b6a4a77b93ca.mp3",
+   "source": "synthetic"
+  },
+  "— ერთი კილო ვაშლი, თუ შეიძლება. — აი, ინებეთ.": {
+   "file": "ka-7c66ccf7af62.mp3",
+   "source": "synthetic"
+  },
+  "— კიდევ რამე? — არა, სულ ეს არის.": {
+   "file": "ka-bc478e5ac953.mp3",
+   "source": "synthetic"
+  },
+  "— მადლობა! — არაფრის.": {
+   "file": "ka-b5d807cc36ea.mp3",
+   "source": "synthetic"
+  },
+  "— მე ნანა ვარ. — ძალიან სასიამოვნოა.": {
+   "file": "ka-427c83ac438e.mp3",
+   "source": "synthetic"
+  },
+  "— მენიუ, თუ შეიძლება. — აი, ინებეთ.": {
+   "file": "ka-d9678cce4450.mp3",
+   "source": "synthetic"
+  },
+  "— რა გნებავთ? — წყალი მინდა.": {
+   "file": "ka-7c879f6a3604.mp3",
+   "source": "synthetic"
+  },
+  "— რა ღირს ეს? — სამი ლარი.": {
+   "file": "ka-c70f19b8fc1d.mp3",
+   "source": "synthetic"
+  },
+  "— რამდენი ხანი? — ოცი წუთი.": {
+   "file": "ka-94631a1aa57c.mp3",
+   "source": "synthetic"
+  },
+  "— რას მირჩევთ? — ხინკალს.": {
+   "file": "ka-0bd0259f8ff8.mp3",
+   "source": "synthetic"
+  },
+  "— როგორ ხართ? — კარგად, თქვენ?": {
+   "file": "ka-5f6b8577a154.mp3",
+   "source": "synthetic"
+  },
+  "— სად მიდიხართ? — აეროპორტში, თუ შეიძლება.": {
+   "file": "ka-ccdd3f612ef0.mp3",
+   "source": "synthetic"
+  },
+  "— სად მუშაობ? — ბანკში.": {
+   "file": "ka-2ec3a80deb31.mp3",
+   "source": "synthetic"
+  },
+  "— შორს არის? — არა, ახლოს არის.": {
+   "file": "ka-7e574c3caecf.mp3",
+   "source": "synthetic"
+  },
+  "— ცენტრამდე რა ღირს? — ათი ლარი.": {
+   "file": "ka-af2e46d10f78.mp3",
+   "source": "synthetic"
+  }
+ }
+}
