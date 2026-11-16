@@ -57,12 +57,13 @@ struct ProfileView: View {
 
                 Section {
                     Toggle("Slower Georgian audio", isOn: binding(\.slowAudio) { audio.slow = $0 })
-                    LabeledContent("Georgian voice", value: audio.georgianVoice == nil ? "Not on this iPhone" : (audio.georgianVoice?.name ?? "Installed"))
-                    LabeledContent("Native recordings", value: audio.hasRecordings ? "Included" : "Not included yet")
+                    LabeledContent("Voice in the app", value: audio.syntheticClipCount > 0 ? "Eka · synthetic" : "None")
+                    LabeledContent("Native recordings", value: audio.nativeClipCount > 0 ? "\(audio.nativeClipCount) clips" : "Not included yet")
+                    LabeledContent("iPhone's Georgian voice", value: audio.georgianVoice == nil ? "Not on this iPhone" : (audio.georgianVoice?.name ?? "Installed"))
                 } header: {
                     Text("Audio")
                 } footer: {
-                    Text("The app plays Georgian only with a real voice: a native speaker's recording, or the iPhone's own Georgian voice when it has one (labelled \"Synthetic voice\"). Without either, speaker buttons stay hidden and you get pronunciation help in words.")
+                    Text("Georgian is spoken by Eka, a computer voice from Microsoft Azure, and labelled \"Synthetic voice\". A native speaker's recordings will replace her clips one by one and are labelled \"Native recording\".")
                 }
 
                 Section {

@@ -39,9 +39,9 @@ struct SpeakerButton: View {
                 .buttonStyle(.pressable)
                 .accessibilityLabel("Play slowly")
                 if showsSource {
-                    Pill(text: source == .synthetic ? "Synthetic voice" : "Native recording",
-                         color: source == .synthetic ? Palette.inkSoft : Palette.tkemali,
-                         symbol: source == .synthetic ? "waveform" : "person.wave.2.fill")
+                    Pill(text: source.isSynthetic ? "Synthetic voice" : "Native recording",
+                         color: source.isSynthetic ? Palette.inkSoft : Palette.tkemali,
+                         symbol: source.isSynthetic ? "waveform" : "person.wave.2.fill")
                 }
             }
         }

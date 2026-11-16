@@ -73,8 +73,6 @@ final class AppModel {
             let store = LearningStore(curriculum: curriculum, context: container.mainContext)
             if options.seedDemo && store.lessonRecords.isEmpty { store.seedDemo() }
             let audio = AudioService()
-            for w in curriculum.words { audio.register(text: w.ka, itemID: w.id) }
-            for l in curriculum.letters { audio.register(text: l.char, itemID: l.itemID) }
             audio.slow = store.profile.slowAudio
             Haptics.enabled = store.profile.hapticsOn
             state = .ready(store, audio)

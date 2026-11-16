@@ -152,7 +152,7 @@ struct WordDetailView: View {
             VStack(alignment: .leading, spacing: 16) {
                 TeachWordView(word: word)
                 if audio.source(for: word.ka) == nil {
-                    Label("No Georgian voice on this iPhone yet, and native recordings aren't included yet. Use the pronunciation help above.", systemImage: "speaker.slash.fill")
+                    Label("No audio for this one yet. Use the pronunciation help above.", systemImage: "speaker.slash.fill")
                         .font(.caption)
                         .foregroundStyle(Palette.inkSoft)
                         .card(padding: 14, cornerRadius: 16)

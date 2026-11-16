@@ -45,7 +45,10 @@ struct ChoiceExerciseView: View {
             } else if choice.promptIsGeorgian {
                 GeorgianText(choice.prompt, size: promptSize, weight: .bold)
                     .accessibilityIdentifier("prompt")
-                if !choice.prompt.contains("_") { SpeakerButton(text: choice.prompt, size: 38) }
+                // Hearing a letter or a word to read would give the answer away: only afterwards.
+                if !choice.prompt.contains("_") && (revealed != nil || ![.letterRecognition, .reading].contains(kind)) {
+                    SpeakerButton(text: choice.prompt, size: 38)
+                }
             } else {
                 Text(choice.prompt)
                     .font(choice.prompt.count <= 6 ? .system(size: 56, weight: .heavy, design: .rounded) : .titleBold)

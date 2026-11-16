@@ -25,9 +25,14 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 - Georgian text must be right: every word and sentence goes into
   `tools/curriculum/content_*.py` and through `build_curriculum.py`, which checks it. Latin
   spelling is generated (national system, 2002: k' p' t' q' ts' ch' for the tight sounds).
-- Audio: never fabricate. Play only a bundled native recording or a Georgian system voice
-  that is really on the phone, and label which it is (`AudioService`). No audio → no speaker
-  buttons and no listening exercises.
+- Audio: never fabricate, always label. The owner chose Azure's **Eka** voice (KART #1):
+  every Georgian text with a speaker button has a clip made once by
+  `tools/audio/make_audio.py` (key saved in the environment for
+  northeurope.tts.speech.microsoft.com, added by the proxy; never in code or chat), indexed
+  in `Resources/Audio/audio.json` and labelled "Synthetic voice". A native recording can
+  replace a clip (same file, `"source": "native"`). New or changed Georgian text → run the
+  script again (it only makes missing clips). No clip and no iPhone voice → no speaker
+  button and no listening exercise for that text.
 - "What do you think?" means give an opinion and options. Don't build until asked.
 - Test data is always invented (Ana, the demo learner, `LearningStore.seedDemo`).
 
@@ -74,7 +79,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | Exercises: kinds and shapes, building them from lessons, checking answers, the session | `Engine/Exercise.swift`, `ExerciseBuilder.swift`, `AnswerEvaluator.swift`, `LessonSession.swift` |
 | Spaced repetition (SM-2), XP, streaks, levels, achievements, challenge, path states | `Engine/SpacedRepetition.swift`, `Engine/Gamification.swift` |
 | Saved data (SwiftData, CloudKit-ready) and everything worked out from it | `Data/Models.swift`, `Data/LearningStore.swift` |
-| Audio (recordings or a real Georgian voice), reminders | `Audio/` |
+| Audio (bundled clips via `audio.json`, or the iPhone's Georgian voice), reminders | `Audio/`; clips made by `tools/audio/make_audio.py` |
 | Design system: colours (light and dark), type, motion, haptics, components | `DesignSystem/` (Borjgali emblem, ChunkyButton, cards, rings, confetti, FlowLayout, SpeakerButton) |
 | App start, launch options | `App/GeorgianApp.swift` (`AppModel`), `App/LaunchOptions.swift` |
 | Tabs, navigation, presenting lessons | `Features/Root/RootView.swift` (`Navigator`) |
