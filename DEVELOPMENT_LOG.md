@@ -103,11 +103,14 @@ Home was mostly gamification (streak, XP, level tiles, goal, path, challenge).
   the cause: the card had closed, but the search keyboard was still up and covered the tab
   bar. A real snag too (back from a phrase, the keyboard hid half the results). → Opening a
   search result now puts the keyboard away.
+- **Run 16** (QA 5): everything green: logic tests **142/142**, UI tests **5/5** (onboarding
+  and a first lesson with a restart; the demo review and course words; the phrasebook
+  scenarios; dialogue practice; straight to the phrasebook), 0 compiler warnings, 75 pictures.
 
 ### The brief's scenarios, checked
 | Scenario | How it was checked | Result |
 | --- | --- | --- |
-| A tourist asks a taxi driver to stop | Logic test: "stop here", "taxi stop" find აქ გამიჩერეთ, თუ შეიძლება. UI test: Home search bar → "stop here" → Show to someone → flip, hide English → close. Screenshots of the card and Show mode. | Search: passes. UI steps: pass (runs 12–14). |
+| A tourist asks a taxi driver to stop | Logic test: "stop here", "taxi stop" find აქ გამიჩერეთ, თუ შეიძლება. UI test: Home search bar → "stop here" → Show to someone → flip, hide English → close. Screenshots of the card and Show mode. | Search: passes. UI steps: pass (run 16, all five UI tests green). |
 | Price at the bazaar | Logic test: "how much is this", "price". Screenshot of the bazaar dialogue. | Passes |
 | Telling a waiter "I don't eat meat" | Logic test: "I don't eat meat", "vegetarian", "vegan" (simulated). UI test: search → card → Save → Practise → "In review". | Passes |
 | The nearest pharmacy | Logic test: "where is the nearest pharmacy", "pharmacy", "pharmcy", "chemist". | Passes |
