@@ -259,18 +259,6 @@ jobs:
           echo "::notice title=Warnings::$warnings compiler warnings in the app's code"
           { grep -E "warning: .*Georgian/" build.log || true; } | sort -u | head -15 | while IFS= read -r l; do echo "::warning::$l"; done
 
-      - name: UI tests
-        id: uitests
-        if: inputs.uitests
-        continue-on-error: true
-        run: |
-          set -o pipefail
-          xcodebuild test-without-building -project Georgian.xcodeproj -scheme Georgian \
-            -destination "id=$UDID" -derivedDataPath build -resultBundlePath ui.xcresult \
-            CODE_SIGNING_ALLOWED=NO | tee uitest.log | grep -E "Test Case|error:|TEST (SUCCEEDED|FAILED)|Executed" || true
-          { grep -E "error:|failed" uitest.log || true; } | grep -v "^Test Suite" | sort -u | head -20 | while IFS= read -r l; do echo "::error title=UI test::$l"; done || true
-          grep -q "TEST EXECUTE SUCCEEDED\|TEST SUCCEEDED" uitest.log
-
       - name: Take the pictures
         run: |
           app=build/Build/Products/Debug-iphonesimulator/Georgian.app
@@ -340,6 +328,20 @@ jobs:
           done
           xcrun simctl ui "$UDID" content_size large
           echo "::notice title=Screenshots::$(ls shots | wc -l | tr -d ' ') pictures"
+
+      - name: UI tests
+        id: uitests
+        if: inputs.uitests
+        continue-on-error: true
+        # A hung Simulator must not eat the whole job: the pictures are taken first.
+        timeout-minutes: 30
+        run: |
+          set -o pipefail
+          xcodebuild test-without-building -project Georgian.xcodeproj -scheme Georgian \
+            -destination "id=$UDID" -derivedDataPath build -resultBundlePath ui.xcresult \
+            CODE_SIGNING_ALLOWED=NO | tee uitest.log | grep -E "Test Case|error:|TEST (SUCCEEDED|FAILED)|Executed" || true
+          { grep -E "error:|failed" uitest.log || true; } | grep -v "^Test Suite" | sort -u | head -20 | while IFS= read -r l; do echo "::error title=UI test::$l"; done || true
+          grep -q "TEST EXECUTE SUCCEEDED\|TEST SUCCEEDED" uitest.log
 
       - uses: actions/upload-artifact@v7
         if: always()

@@ -234,7 +234,7 @@ check("phrasebook has at least 250 phrases", pb.phrases.count >= 250, true)
 check("phrasebook has at least 10 dialogues", pb.dialogues.count >= 10, true)
 check("phrase ids unique", Set(pb.phrases.map(\.id)).count, pb.phrases.count)
 check("phrase ids start pb-", pb.phrases.filter { !Phrasebook.isPhraseID($0.id) }.map(\.id), [])
-check("phrase ids don't clash with course words", pb.phrases.filter { course.words.contains(where: { w in w.id == $0.id }) }.map(\.id), [])
+check("phrase ids don't clash with course words", pb.phrases.filter { p in course.words.contains { $0.id == p.id } }.map(\.id), [])
 var pbProblems: [String] = []
 for p in pb.phrases {
     if course.latin(p.ka) != p.lat { pbProblems.append("\(p.id): Latin") }

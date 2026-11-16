@@ -1,16 +1,34 @@
 # Ara: Learn Georgian
 
-**Ara** (არა, "no" in Georgian, and a macaw: parrots are great language learners) is a colourful native iPhone app (SwiftUI, iOS 17+) for learning Georgian from zero: the
-alphabet, everyday words and phrases, first grammar and short conversations. No account, no
-server: everything stays on the phone.
+**Ara** (არა, "no" in Georgian, and a macaw: parrots are great language learners) is a colourful native iPhone app (SwiftUI, iOS 17+) with two halves:
+**Learn**, a course in Georgian from zero (the alphabet, everyday words, first grammar and
+short conversations), and **Use in Georgia**, a phrasebook for real life (taxis, the bazaar,
+cafés, the pharmacy, landlords, the gym, offices, emergencies) that works at once, with no
+lessons to finish first. No account, no server, no internet needed: everything is on the phone.
 
 ## What's in it
 
 - **Onboarding:** a welcome, a short introduction to Georgian and to the method, your level
   (brand new / a few letters / can read), a daily goal, your name (optional), then straight
   into the first lesson.
-- **Home:** greeting in Georgian, streak, XP and level, the daily goal ring with the week,
-  the next lesson, the path ahead, today's challenge and what's due for review.
+- **Home:** greeting in Georgian, a search bar, the two halves (Learn, Use in Georgia), the
+  situations you need most in one tap, recently used phrases, the next lesson, what's due
+  for review and the daily goal.
+- **Phrasebook (Use in Georgia):** 302 phrases in 11 situations (essentials, transport,
+  shopping and the bazaar, restaurants and cafés, home, gym and sport, health and pharmacy,
+  friends and neighbours, work and admin, travel and outdoors, emergencies with 112), and 13
+  everyday conversations. Each phrase has a card: large Georgian, Latin letters, an English
+  sound guide, audio (normal and slow), when to use it, polite and informal forms, replies you
+  may hear, and the course words and grammar inside it. Save it, put it in a list, practise
+  it in review, mark it learned, copy it, or **show it** full screen to a driver or a
+  shopkeeper (white on black, the English optional, turned upside down for the person
+  opposite, screen kept on).
+- **Search:** English, Georgian or Latin letters, without exact wording: synonyms ("cab",
+  "chemist"), plurals, typos, situations; suggestions, recent searches and recent phrases.
+- **Conversations:** read and hear both sides, the useful expressions explained, then play
+  either side in the lesson player.
+- **My phrasebook:** saved phrases by situation, your own lists, what's in review or learned,
+  and one button to practise them.
 - **Learn:** five modules as a winding path of lessons (done, up next, open, locked), each
   with a preview; the 33-letter alphabet chart, coloured by how well each letter is known.
 - **Lessons:** 15 exercise kinds on one engine: new-letter and new-word cards, grammar notes,
@@ -19,11 +37,11 @@ server: everything stays on the phone.
   tiles, flashcards, conversations, and listening (only where real audio exists). Instant
   feedback with the right answer and why; mistakes come back at the end; a completion
   screen with XP, accuracy, streak, goal, level-ups and achievements.
-- **Words:** all 209 words and phrases, searchable in Georgian, English or Latin letters,
+- **Words** (in Learn): all 209 course words and phrases, searchable in Georgian, English or Latin letters,
   by theme, each with Latin spelling, pronunciation help, an example sentence and your status.
 - **Review:** spaced repetition (each word and letter on its own schedule), difficult words,
   recent mistakes with what you answered, and a letter workout.
-- **Progress:** level, XP, streak, lessons, words and letters learned, accuracy, a week or
+- **Progress** (in Learn): today's challenge, level, XP, streak, lessons, words and letters learned, accuracy, a week or
   month chart against the goal, modules, 15 achievements and the lesson history.
 - **Profile:** name, daily goal, starting point, slower audio, daily reminder, haptics,
   appearance (system, light, dark), and Start over.

@@ -22,9 +22,16 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   learning Georgian from zero (A0), able to stand next to the big language apps. Work
   autonomously: decide, build, test, look at the screenshots, improve; don't ask about small
   things. Never submit or publish anywhere without the owner's say-so.
+- Evolved brief (KART #2, 16/11/26): not a Duolingo clone but a Georgian companion for
+  people living in or visiting Georgia: **Learn** (the course) and **Use in Georgia** (a
+  phrasebook for real situations, usable at once, offline, with no unlocking) as two equal
+  halves, connected (save a phrase, practise it in review, learn its words and grammar).
+  Keep the colourful design; gamification stays, but quieter.
 - Georgian text must be right: every word and sentence goes into
   `tools/curriculum/content_*.py` and through `build_curriculum.py`, which checks it. Latin
   spelling is generated (national system, 2002: k' p' t' q' ts' ch' for the tight sounds).
+  Follow `docs/content-quality.md`. Never claim a native speaker's check that hasn't
+  happened (`PHRASEBOOK_STATUS` in content_phrasebook.py; the app shows it).
 - Audio: never fabricate, always label. The owner chose Azure's **Eka** voice (KART #1):
   every Georgian text with a speaker button has a clip made once by
   `tools/audio/make_audio.py` (key saved in the environment for
@@ -74,22 +81,25 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   `option-<n>`, `tile-<n>`, `match-ka-<id>`/`match-other-<id>`, `lesson-check`,
   `lesson-continue`, `complete-continue`, `onboarding-next`, …
 - Launch arguments (`App/LaunchOptions.swift`): `-uiTesting` (store in memory), `-resetData`,
-  `-seedDemo`, `-screen <home|learn|alphabet|lesson|complete|words|word|review|progress|profile|onboarding>`.
+  `-seedDemo`, `-screen <home|learn|alphabet|lesson|complete|words|word|review|progress|profile|onboarding|
+  phrasebook|category|emergency|saved|dialogue|practice|phrase|show|search>` with `-item <id>` or
+  `-query <text>` for the phrasebook screens.
 - Installed with Feather; always the same identifier, `com.krfix.georgian`.
 
 ## Code map
 | What | Where |
 | --- | --- |
-| Course content (source) and its checker | `tools/curriculum/content_words.py`, `content_course.py`, `build_curriculum.py` → `Georgian/Resources/Curriculum/*.json` |
+| Course and phrasebook content (source) and the checker | `tools/curriculum/content_words.py`, `content_course.py`, `content_phrasebook.py`, `build_curriculum.py` → `Georgian/Resources/Curriculum/*.json` |
 | Content types, loading, look-ups, Latin spelling, pronunciation help | `Curriculum/` |
+| Phrasebook types, lookups, phrases as review words, dialogue practice, search (tested) | `Curriculum/PhrasebookModels.swift`, `Phrasebook.swift`, `PhraseSearch.swift` |
 | Exercises: kinds and shapes, building them from lessons, checking answers, the session | `Engine/Exercise.swift`, `ExerciseBuilder.swift`, `AnswerEvaluator.swift`, `LessonSession.swift` |
 | Spaced repetition (SM-2), XP, streaks, levels, achievements, challenge, path states | `Engine/SpacedRepetition.swift`, `Engine/Gamification.swift` |
 | Saved data (SwiftData, CloudKit-ready) and everything worked out from it | `Data/Models.swift`, `Data/LearningStore.swift` |
 | Audio (bundled clips via `audio.json`, or the iPhone's Georgian voice), reminders | `Audio/`; clips made by `tools/audio/make_audio.py` |
 | Design system: colours (light and dark), type, motion, haptics, components | `DesignSystem/` (Borjgali emblem, ChunkyButton, cards, rings, confetti, FlowLayout, SpeakerButton) |
 | App start, launch options | `App/GeorgianApp.swift` (`AppModel`), `App/LaunchOptions.swift` |
-| Tabs, navigation, presenting lessons | `Features/Root/RootView.swift` (`Navigator`) |
-| Screens | `Features/Onboarding`, `Home`, `Learn` (path, preview, alphabet chart), `Lesson` (player, one view per content shape, completion), `Vocabulary`, `Review`, `Progress`, `Profile` |
+| Tabs, navigation, presenting lessons and phrases | `Features/Root/RootView.swift` (`Navigator`, `PhrasebookRoute`, `LearnRoute`) |
+| Screens | `Features/Onboarding`, `Home`, `Learn` (path, preview, alphabet chart; Words and Progress pushed from it), `Lesson` (player, one view per content shape, completion), `Phrasebook` (tab, situation, phrase card, Show mode, dialogue, my phrasebook, search), `Vocabulary`, `Review`, `Progress`, `Profile` |
 
 ## How the app works (and patterns to keep)
 - SwiftUI + SwiftData, iOS 17+ (for SwiftData, Observation and the newer animation APIs;
@@ -104,13 +114,19 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   days), a miss brings it back in 10 minutes. Same-day repeats don't push it further.
 - Path: lessons open in order (`CourseProgress`); "I know a few letters" opens the alphabet,
   "I can read" starts at Module 2.
+- Tabs: Home · Learn · Phrasebook · Search · Review. The phrasebook never locks anything.
+  A phrase (`pb-…` id) becomes a `Word` for review (`Phrasebook.word(for:)`), so saving it
+  for practice uses the same `MasteryRecord` schedule; a dialogue becomes a conversation
+  `Lesson` for the player (`practiceLesson`). The learner's saved phrases, lists, "learned"
+  marks and recents are `PhraseRecord`s (SwiftData schema 2).
 - Look: warm paper (light) or deep aubergine (dark), five brand colours named after Georgia
   (`Palette`), the borjgali sun symbol as the emblem, raised "chunky" buttons, rounded cards,
   springy motion that turns into fades with Reduce Motion (`Motion`, `withMotion`).
 
 ## Open
-- 0.2.0 in progress on branch `claude/full-app` (KART #1): the full app. See
-  DEVELOPMENT_LOG.md for its state and TODO.md for what's left.
+- 0.2.0 in progress: the full app on `claude/full-app` (KART #1), and the phrasebook on
+  `claude/use-in-georgia` (KART #2, built on top of it). See DEVELOPMENT_LOG.md for their
+  state and TODO.md for what's left.
 
 ## Repos and branches
 - `krfix/Georgian-language-app` (private): this app; `main` is what's tested and accepted.

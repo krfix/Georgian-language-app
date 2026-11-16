@@ -5,6 +5,16 @@ What changed in each version, newest first. Before the App Store, versions are 0
 ## Not released yet
 
 ### 0.2.0 (in progress): the full app, now called Ara
+- Use in Georgia: a phrasebook of 302 phrases in 11 real-life situations and 13
+  conversations, all usable at once and offline, with Eka audio
+- Phrase cards with a sound guide, usage notes, polite and informal forms, replies you may
+  hear, and links to the course's words and grammar
+- Show to someone: a phrase full screen, white on black, to hold up to a driver or a seller
+- Search in English, Georgian or Latin, with synonyms, plurals and typos
+- My phrasebook: saved phrases, your own lists, learned marks; saved phrases join Review
+- Conversations to read, hear and practise from either side
+- New tabs: Home, Learn (with Words and Progress), Phrasebook, Search, Review; a calmer Home
+  that shows both learning and using Georgian; "I just need phrases now" on the welcome screen
 - The name Ara and its parrot, curled into the letter ა: icon, welcome, lesson complete
 - Georgian audio everywhere in Azure's Eka voice (synthetic, labelled), slower playback, listening exercises
 - Developer switch: open all lessons
