@@ -1,0 +1,3242 @@
+{
+ "version": 1,
+ "categories": [
+  {
+   "id": "greetings",
+   "title": "Greetings",
+   "symbol": "hand.wave.fill",
+   "color": "pomegranate"
+  },
+  {
+   "id": "introductions",
+   "title": "Introductions",
+   "symbol": "person.2.fill",
+   "color": "saperavi"
+  },
+  {
+   "id": "numbers",
+   "title": "Numbers",
+   "symbol": "number",
+   "color": "gold"
+  },
+  {
+   "id": "food",
+   "title": "Food and drinks",
+   "symbol": "fork.knife",
+   "color": "tkemali"
+  },
+  {
+   "id": "transport",
+   "title": "Transport",
+   "symbol": "bus.fill",
+   "color": "blacksea"
+  },
+  {
+   "id": "directions",
+   "title": "Directions",
+   "symbol": "signpost.right.fill",
+   "color": "pomegranate"
+  },
+  {
+   "id": "shopping",
+   "title": "Shopping",
+   "symbol": "bag.fill",
+   "color": "saperavi"
+  },
+  {
+   "id": "family",
+   "title": "Family",
+   "symbol": "figure.2.and.child.holdinghands",
+   "color": "gold"
+  },
+  {
+   "id": "objects",
+   "title": "Everyday objects",
+   "symbol": "lamp.table.fill",
+   "color": "tkemali"
+  },
+  {
+   "id": "time",
+   "title": "Time and dates",
+   "symbol": "calendar",
+   "color": "blacksea"
+  },
+  {
+   "id": "phrases",
+   "title": "Everyday phrases",
+   "symbol": "text.bubble.fill",
+   "color": "pomegranate"
+  },
+  {
+   "id": "grammar",
+   "title": "Grammar words",
+   "symbol": "puzzlepiece.extension.fill",
+   "color": "saperavi"
+  }
+ ],
+ "words": [
+  {
+   "id": "w-gamarjoba",
+   "ka": "გამარჯობა",
+   "lat": "gamarjoba",
+   "en": "hello",
+   "alt": [
+    "hi"
+   ],
+   "category": "greetings",
+   "example": {
+    "ka": "გამარჯობა, ნინო!",
+    "lat": "gamarjoba, nino!",
+    "en": "Hello, Nino!"
+   },
+   "note": "Literally \"victory\": the everyday hello, any time of day."
+  },
+  {
+   "id": "w-gagimarjos",
+   "ka": "გაგიმარჯოს",
+   "lat": "gagimarjos",
+   "en": "hello (in reply)",
+   "alt": [
+    "hello",
+    "hi"
+   ],
+   "category": "greetings",
+   "example": {
+    "ka": "გაგიმარჯოს, როგორ ხარ?",
+    "lat": "gagimarjos, rogor khar?",
+    "en": "Hello, how are you?"
+   },
+   "note": "The usual answer to გამარჯობა."
+  },
+  {
+   "id": "w-dila-mshvidobisa",
+   "ka": "დილა მშვიდობისა",
+   "lat": "dila mshvidobisa",
+   "en": "good morning",
+   "alt": [],
+   "category": "greetings",
+   "example": {
+    "ka": "დილა მშვიდობისა, დედა!",
+    "lat": "dila mshvidobisa, deda!",
+    "en": "Good morning, Mum!"
+   }
+  },
+  {
+   "id": "w-saghamo-mshvidobisa",
+   "ka": "საღამო მშვიდობისა",
+   "lat": "saghamo mshvidobisa",
+   "en": "good evening",
+   "alt": [],
+   "category": "greetings",
+   "example": {
+    "ka": "საღამო მშვიდობისა, ბატონო გიორგი.",
+    "lat": "saghamo mshvidobisa, bat'ono giorgi.",
+    "en": "Good evening, Mr Giorgi."
+   }
+  },
+  {
+   "id": "w-ghame-mshvidobisa",
+   "ka": "ღამე მშვიდობისა",
+   "lat": "ghame mshvidobisa",
+   "en": "good night",
+   "alt": [],
+   "category": "greetings",
+   "example": {
+    "ka": "ღამე მშვიდობისა, ნინო.",
+    "lat": "ghame mshvidobisa, nino.",
+    "en": "Good night, Nino."
+   }
+  },
+  {
+   "id": "w-nakhvamdis",
+   "ka": "ნახვამდის",
+   "lat": "nakhvamdis",
+   "en": "goodbye",
+   "alt": [
+    "bye"
+   ],
+   "category": "greetings",
+   "example": {
+    "ka": "ნახვამდის, ხვალამდე!",
+    "lat": "nakhvamdis, khvalamde!",
+    "en": "Goodbye, until tomorrow!"
+   }
+  },
+  {
+   "id": "w-madloba",
+   "ka": "მადლობა",
+   "lat": "madloba",
+   "en": "thank you",
+   "alt": [
+    "thanks"
+   ],
+   "category": "greetings",
+   "example": {
+    "ka": "დიდი მადლობა!",
+    "lat": "didi madloba!",
+    "en": "Thank you very much!"
+   }
+  },
+  {
+   "id": "w-gmadlobt",
+   "ka": "გმადლობთ",
+   "lat": "gmadlobt",
+   "en": "thank you (polite)",
+   "alt": [
+    "thank you",
+    "thanks"
+   ],
+   "category": "greetings",
+   "example": {
+    "ka": "გმადლობთ, ძალიან კარგია.",
+    "lat": "gmadlobt, dzalian k'argia.",
+    "en": "Thank you, it's very good."
+   },
+   "note": "The polite form, for strangers, older people and in shops."
+  },
+  {
+   "id": "w-arapris",
+   "ka": "არაფრის",
+   "lat": "arapris",
+   "en": "you're welcome",
+   "alt": [
+    "you are welcome",
+    "not at all"
+   ],
+   "category": "greetings",
+   "example": {
+    "ka": "— მადლობა! — არაფრის.",
+    "lat": "— madloba! — arapris.",
+    "en": "— Thank you! — You're welcome."
+   }
+  },
+  {
+   "id": "w-bodishi",
+   "ka": "ბოდიში",
+   "lat": "bodishi",
+   "en": "sorry",
+   "alt": [
+    "excuse me",
+    "i'm sorry"
+   ],
+   "category": "greetings",
+   "example": {
+    "ka": "ბოდიში, ვერ გავიგე.",
+    "lat": "bodishi, ver gavige.",
+    "en": "Sorry, I didn't understand."
+   }
+  },
+  {
+   "id": "w-ki",
+   "ka": "კი",
+   "lat": "k'i",
+   "en": "yes",
+   "alt": [],
+   "category": "greetings",
+   "example": {
+    "ka": "კი, მინდა.",
+    "lat": "k'i, minda.",
+    "en": "Yes, I want it."
+   },
+   "note": "Everyday yes."
+  },
+  {
+   "id": "w-diakh",
+   "ka": "დიახ",
+   "lat": "diakh",
+   "en": "yes (polite)",
+   "alt": [
+    "yes"
+   ],
+   "category": "greetings",
+   "example": {
+    "ka": "დიახ, ბატონო.",
+    "lat": "diakh, bat'ono.",
+    "en": "Yes, sir."
+   }
+  },
+  {
+   "id": "w-ara",
+   "ka": "არა",
+   "lat": "ara",
+   "en": "no",
+   "alt": [],
+   "category": "greetings",
+   "example": {
+    "ka": "არა, მადლობა.",
+    "lat": "ara, madloba.",
+    "en": "No, thank you."
+   }
+  },
+  {
+   "id": "w-rogor-khar",
+   "ka": "როგორ ხარ?",
+   "lat": "rogor khar?",
+   "en": "how are you?",
+   "alt": [
+    "how are you"
+   ],
+   "category": "greetings",
+   "example": {
+    "ka": "გამარჯობა, როგორ ხარ?",
+    "lat": "gamarjoba, rogor khar?",
+    "en": "Hello, how are you?"
+   }
+  },
+  {
+   "id": "w-kargad",
+   "ka": "კარგად",
+   "lat": "k'argad",
+   "en": "well",
+   "alt": [
+    "fine",
+    "good"
+   ],
+   "category": "greetings",
+   "example": {
+    "ka": "კარგად, მადლობა.",
+    "lat": "k'argad, madloba.",
+    "en": "Fine, thanks."
+   }
+  },
+  {
+   "id": "w-me",
+   "ka": "მე",
+   "lat": "me",
+   "en": "I",
+   "alt": [
+    "me"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "მე ნინო ვარ.",
+    "lat": "me nino var.",
+    "en": "I am Nino."
+   }
+  },
+  {
+   "id": "w-shen",
+   "ka": "შენ",
+   "lat": "shen",
+   "en": "you",
+   "alt": [],
+   "category": "introductions",
+   "example": {
+    "ka": "შენ ვინ ხარ?",
+    "lat": "shen vin khar?",
+    "en": "Who are you?"
+   },
+   "note": "\"You\" for one person you know well."
+  },
+  {
+   "id": "w-sakheli",
+   "ka": "სახელი",
+   "lat": "sakheli",
+   "en": "name",
+   "alt": [
+    "first name"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "ჩემი სახელი ნინოა.",
+    "lat": "chemi sakheli ninoa.",
+    "en": "My name is Nino."
+   }
+  },
+  {
+   "id": "w-mkvia",
+   "ka": "მქვია",
+   "lat": "mkvia",
+   "en": "I am called",
+   "alt": [
+    "my name is",
+    "i'm called"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "მე ნინო მქვია.",
+    "lat": "me nino mkvia.",
+    "en": "My name is Nino."
+   }
+  },
+  {
+   "id": "w-ra-gkvia",
+   "ka": "რა გქვია?",
+   "lat": "ra gkvia?",
+   "en": "what is your name?",
+   "alt": [
+    "what's your name?",
+    "what is your name",
+    "what's your name"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "გამარჯობა! რა გქვია?",
+    "lat": "gamarjoba! ra gkvia?",
+    "en": "Hi! What's your name?"
+   }
+  },
+  {
+   "id": "w-sasiamovnoa",
+   "ka": "სასიამოვნოა",
+   "lat": "sasiamovnoa",
+   "en": "nice to meet you",
+   "alt": [
+    "pleased to meet you",
+    "it's pleasant"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "ძალიან სასიამოვნოა!",
+    "lat": "dzalian sasiamovnoa!",
+    "en": "Very nice to meet you!"
+   }
+  },
+  {
+   "id": "w-saidan-khar",
+   "ka": "საიდან ხარ?",
+   "lat": "saidan khar?",
+   "en": "where are you from?",
+   "alt": [
+    "where are you from"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "ნინო, საიდან ხარ?",
+    "lat": "nino, saidan khar?",
+    "en": "Nino, where are you from?"
+   }
+  },
+  {
+   "id": "w-var",
+   "ka": "ვარ",
+   "lat": "var",
+   "en": "I am",
+   "alt": [
+    "am"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "მე სტუდენტი ვარ.",
+    "lat": "me st'udent'i var.",
+    "en": "I am a student."
+   }
+  },
+  {
+   "id": "w-kartveli",
+   "ka": "ქართველი",
+   "lat": "kartveli",
+   "en": "Georgian (person)",
+   "alt": [
+    "georgian",
+    "a georgian"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "ნინო ქართველია.",
+    "lat": "nino kartvelia.",
+    "en": "Nino is Georgian."
+   }
+  },
+  {
+   "id": "w-kartuli",
+   "ka": "ქართული",
+   "lat": "kartuli",
+   "en": "Georgian (language)",
+   "alt": [
+    "georgian",
+    "the georgian language"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "ქართული ლამაზი ენაა.",
+    "lat": "kartuli lamazi enaa.",
+    "en": "Georgian is a beautiful language."
+   }
+  },
+  {
+   "id": "w-ena",
+   "ka": "ენა",
+   "lat": "ena",
+   "en": "language",
+   "alt": [
+    "tongue"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "ეს რა ენაა?",
+    "lat": "es ra enaa?",
+    "en": "What language is this?"
+   }
+  },
+  {
+   "id": "w-vstsavlob",
+   "ka": "ვსწავლობ",
+   "lat": "vsts'avlob",
+   "en": "I am learning",
+   "alt": [
+    "i learn",
+    "i study",
+    "i'm learning",
+    "i am studying"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "მე ქართულს ვსწავლობ.",
+    "lat": "me kartuls vsts'avlob.",
+    "en": "I'm learning Georgian."
+   }
+  },
+  {
+   "id": "w-tsota",
+   "ka": "ცოტა",
+   "lat": "tsot'a",
+   "en": "a little",
+   "alt": [
+    "a bit",
+    "little"
+   ],
+   "category": "introductions",
+   "example": {
+    "ka": "ცოტა ქართული ვიცი.",
+    "lat": "tsot'a kartuli vitsi.",
+    "en": "I know a little Georgian."
+   }
+  },
+  {
+   "id": "w-nuli",
+   "ka": "ნული",
+   "lat": "nuli",
+   "en": "zero",
+   "alt": [
+    "0"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ნული, ერთი, ორი, სამი.",
+    "lat": "nuli, erti, ori, sami.",
+    "en": "Zero, one, two, three."
+   }
+  },
+  {
+   "id": "w-erti",
+   "ka": "ერთი",
+   "lat": "erti",
+   "en": "one",
+   "alt": [
+    "1"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ერთი ყავა, თუ შეიძლება.",
+    "lat": "erti q'ava, tu sheidzleba.",
+    "en": "One coffee, please."
+   }
+  },
+  {
+   "id": "w-ori",
+   "ka": "ორი",
+   "lat": "ori",
+   "en": "two",
+   "alt": [
+    "2"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ორი ჩაი, თუ შეიძლება.",
+    "lat": "ori chai, tu sheidzleba.",
+    "en": "Two teas, please."
+   },
+   "note": "After a number the noun stays singular: ორი ჩაი, \"two tea\"."
+  },
+  {
+   "id": "w-sami",
+   "ka": "სამი",
+   "lat": "sami",
+   "en": "three",
+   "alt": [
+    "3"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "სამი შვილი მყავს.",
+    "lat": "sami shvili mq'avs.",
+    "en": "I have three children."
+   }
+  },
+  {
+   "id": "w-otkhi",
+   "ka": "ოთხი",
+   "lat": "otkhi",
+   "en": "four",
+   "alt": [
+    "4"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ოთხი ბილეთი მინდა.",
+    "lat": "otkhi bileti minda.",
+    "en": "I want four tickets."
+   }
+  },
+  {
+   "id": "w-khuti",
+   "ka": "ხუთი",
+   "lat": "khuti",
+   "en": "five",
+   "alt": [
+    "5"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ხუთი წუთი, თუ შეიძლება.",
+    "lat": "khuti ts'uti, tu sheidzleba.",
+    "en": "Five minutes, please."
+   }
+  },
+  {
+   "id": "w-ekvsi",
+   "ka": "ექვსი",
+   "lat": "ekvsi",
+   "en": "six",
+   "alt": [
+    "6"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ექვსი საათია.",
+    "lat": "ekvsi saatia.",
+    "en": "It's six o'clock."
+   }
+  },
+  {
+   "id": "w-shvidi",
+   "ka": "შვიდი",
+   "lat": "shvidi",
+   "en": "seven",
+   "alt": [
+    "7"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "კვირაში შვიდი დღეა.",
+    "lat": "k'virashi shvidi dghea.",
+    "en": "There are seven days in a week."
+   }
+  },
+  {
+   "id": "w-rva",
+   "ka": "რვა",
+   "lat": "rva",
+   "en": "eight",
+   "alt": [
+    "8"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "რვა ლარი ღირს.",
+    "lat": "rva lari ghirs.",
+    "en": "It costs eight lari."
+   }
+  },
+  {
+   "id": "w-tskhra",
+   "ka": "ცხრა",
+   "lat": "tskhra",
+   "en": "nine",
+   "alt": [
+    "9"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ცხრა საათზე გნახავ.",
+    "lat": "tskhra saatze gnakhav.",
+    "en": "I'll see you at nine."
+   }
+  },
+  {
+   "id": "w-ati",
+   "ka": "ათი",
+   "lat": "ati",
+   "en": "ten",
+   "alt": [
+    "10"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ათი ლარი, თუ შეიძლება.",
+    "lat": "ati lari, tu sheidzleba.",
+    "en": "Ten lari, please."
+   }
+  },
+  {
+   "id": "w-tertmeti",
+   "ka": "თერთმეტი",
+   "lat": "tertmet'i",
+   "en": "eleven",
+   "alt": [
+    "11"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "თერთმეტი საათია.",
+    "lat": "tertmet'i saatia.",
+    "en": "It's eleven o'clock."
+   }
+  },
+  {
+   "id": "w-tormeti",
+   "ka": "თორმეტი",
+   "lat": "tormet'i",
+   "en": "twelve",
+   "alt": [
+    "12"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "წელიწადში თორმეტი თვეა.",
+    "lat": "ts'elits'adshi tormet'i tvea.",
+    "en": "There are twelve months in a year."
+   }
+  },
+  {
+   "id": "w-otsi",
+   "ka": "ოცი",
+   "lat": "otsi",
+   "en": "twenty",
+   "alt": [
+    "20"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ოცი ლარი ღირს.",
+    "lat": "otsi lari ghirs.",
+    "en": "It costs twenty lari."
+   },
+   "note": "Georgian counts in twenties: 30 is \"twenty and ten\", 40 is \"two twenties\"."
+  },
+  {
+   "id": "w-otsdaati",
+   "ka": "ოცდაათი",
+   "lat": "otsdaati",
+   "en": "thirty",
+   "alt": [
+    "30"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ოცდაათი წუთი მჭირდება.",
+    "lat": "otsdaati ts'uti mch'irdeba.",
+    "en": "I need thirty minutes."
+   },
+   "note": "ოც-და-ათი: twenty and ten."
+  },
+  {
+   "id": "w-ormotsi",
+   "ka": "ორმოცი",
+   "lat": "ormotsi",
+   "en": "forty",
+   "alt": [
+    "40"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ორმოცი ლარი ძვირია.",
+    "lat": "ormotsi lari dzviria.",
+    "en": "Forty lari is expensive."
+   },
+   "note": "ორ-მ-ოცი: two twenties."
+  },
+  {
+   "id": "w-asi",
+   "ka": "ასი",
+   "lat": "asi",
+   "en": "a hundred",
+   "alt": [
+    "hundred",
+    "one hundred",
+    "100"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ეს ასი ლარი ღირს.",
+    "lat": "es asi lari ghirs.",
+    "en": "This costs a hundred lari."
+   }
+  },
+  {
+   "id": "w-puri",
+   "ka": "პური",
+   "lat": "p'uri",
+   "en": "bread",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "პური ძალიან გემრიელია.",
+    "lat": "p'uri dzalian gemrielia.",
+    "en": "The bread is very tasty."
+   }
+  },
+  {
+   "id": "w-qveli",
+   "ka": "ყველი",
+   "lat": "q'veli",
+   "en": "cheese",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "ყველი და პური მინდა.",
+    "lat": "q'veli da p'uri minda.",
+    "en": "I want cheese and bread."
+   }
+  },
+  {
+   "id": "w-tsqali",
+   "ka": "წყალი",
+   "lat": "ts'q'ali",
+   "en": "water",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "ერთი ჭიქა წყალი, თუ შეიძლება.",
+    "lat": "erti ch'ika ts'q'ali, tu sheidzleba.",
+    "en": "A glass of water, please."
+   }
+  },
+  {
+   "id": "w-ghvino",
+   "ka": "ღვინო",
+   "lat": "ghvino",
+   "en": "wine",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "ქართული ღვინო ძალიან კარგია.",
+    "lat": "kartuli ghvino dzalian k'argia.",
+    "en": "Georgian wine is very good."
+   }
+  },
+  {
+   "id": "w-chai",
+   "ka": "ჩაი",
+   "lat": "chai",
+   "en": "tea",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "ჩაი შაქრით, თუ შეიძლება.",
+    "lat": "chai shakrit, tu sheidzleba.",
+    "en": "Tea with sugar, please."
+   }
+  },
+  {
+   "id": "w-qava",
+   "ka": "ყავა",
+   "lat": "q'ava",
+   "en": "coffee",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "ყავა რძით მიყვარს.",
+    "lat": "q'ava rdzit miq'vars.",
+    "en": "I love coffee with milk."
+   }
+  },
+  {
+   "id": "w-rdze",
+   "ka": "რძე",
+   "lat": "rdze",
+   "en": "milk",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "რძე მაცივარშია.",
+    "lat": "rdze matsivarshia.",
+    "en": "The milk is in the fridge."
+   }
+  },
+  {
+   "id": "w-khortsi",
+   "ka": "ხორცი",
+   "lat": "khortsi",
+   "en": "meat",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "ხორცს არ ვჭამ.",
+    "lat": "khortss ar vch'am.",
+    "en": "I don't eat meat."
+   }
+  },
+  {
+   "id": "w-khachapuri",
+   "ka": "ხაჭაპური",
+   "lat": "khach'ap'uri",
+   "en": "khachapuri",
+   "alt": [
+    "cheese bread"
+   ],
+   "category": "food",
+   "example": {
+    "ka": "ხაჭაპური ცხელია.",
+    "lat": "khach'ap'uri tskhelia.",
+    "en": "The khachapuri is hot."
+   },
+   "note": "Bread baked with cheese, Georgia's best-known dish."
+  },
+  {
+   "id": "w-khinkali",
+   "ka": "ხინკალი",
+   "lat": "khink'ali",
+   "en": "khinkali",
+   "alt": [
+    "dumplings",
+    "dumpling"
+   ],
+   "category": "food",
+   "example": {
+    "ka": "ხინკალი მიყვარს.",
+    "lat": "khink'ali miq'vars.",
+    "en": "I love khinkali."
+   },
+   "note": "Twisted dumplings filled with meat and broth, eaten by hand."
+  },
+  {
+   "id": "w-vashli",
+   "ka": "ვაშლი",
+   "lat": "vashli",
+   "en": "apple",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "ეს ვაშლი წითელია.",
+    "lat": "es vashli ts'itelia.",
+    "en": "This apple is red."
+   }
+  },
+  {
+   "id": "w-ludi",
+   "ka": "ლუდი",
+   "lat": "ludi",
+   "en": "beer",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "ერთი ლუდი, თუ შეიძლება.",
+    "lat": "erti ludi, tu sheidzleba.",
+    "en": "One beer, please."
+   }
+  },
+  {
+   "id": "w-shakari",
+   "ka": "შაქარი",
+   "lat": "shakari",
+   "en": "sugar",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "შაქარი არ მინდა.",
+    "lat": "shakari ar minda.",
+    "en": "I don't want sugar."
+   }
+  },
+  {
+   "id": "w-marili",
+   "ka": "მარილი",
+   "lat": "marili",
+   "en": "salt",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "მარილი სად არის?",
+    "lat": "marili sad aris?",
+    "en": "Where is the salt?"
+   }
+  },
+  {
+   "id": "w-khili",
+   "ka": "ხილი",
+   "lat": "khili",
+   "en": "fruit",
+   "alt": [],
+   "category": "food",
+   "example": {
+    "ka": "ხილი ბაზარზე იაფია.",
+    "lat": "khili bazarze iapia.",
+    "en": "Fruit is cheap at the market."
+   }
+  },
+  {
+   "id": "w-bostneuli",
+   "ka": "ბოსტნეული",
+   "lat": "bost'neuli",
+   "en": "vegetables",
+   "alt": [
+    "vegetable"
+   ],
+   "category": "food",
+   "example": {
+    "ka": "ბოსტნეული ჯანსაღია.",
+    "lat": "bost'neuli jansaghia.",
+    "en": "Vegetables are healthy."
+   }
+  },
+  {
+   "id": "w-mankana",
+   "ka": "მანქანა",
+   "lat": "mankana",
+   "en": "car",
+   "alt": [],
+   "category": "transport",
+   "example": {
+    "ka": "ჩემი მანქანა თეთრია.",
+    "lat": "chemi mankana tetria.",
+    "en": "My car is white."
+   }
+  },
+  {
+   "id": "w-avtobusi",
+   "ka": "ავტობუსი",
+   "lat": "avt'obusi",
+   "en": "bus",
+   "alt": [],
+   "category": "transport",
+   "example": {
+    "ka": "ავტობუსი მალე მოვა.",
+    "lat": "avt'obusi male mova.",
+    "en": "The bus will come soon."
+   }
+  },
+  {
+   "id": "w-metro",
+   "ka": "მეტრო",
+   "lat": "met'ro",
+   "en": "metro",
+   "alt": [
+    "subway",
+    "underground"
+   ],
+   "category": "transport",
+   "example": {
+    "ka": "მეტროთი მივდივარ.",
+    "lat": "met'roti mivdivar.",
+    "en": "I'm going by metro."
+   }
+  },
+  {
+   "id": "w-taksi",
+   "ka": "ტაქსი",
+   "lat": "t'aksi",
+   "en": "taxi",
+   "alt": [
+    "cab"
+   ],
+   "category": "transport",
+   "example": {
+    "ka": "ტაქსი გამოვიძახე.",
+    "lat": "t'aksi gamovidzakhe.",
+    "en": "I called a taxi."
+   }
+  },
+  {
+   "id": "w-matarebeli",
+   "ka": "მატარებელი",
+   "lat": "mat'arebeli",
+   "en": "train",
+   "alt": [],
+   "category": "transport",
+   "example": {
+    "ka": "მატარებელი ბათუმში მიდის.",
+    "lat": "mat'arebeli batumshi midis.",
+    "en": "The train goes to Batumi."
+   }
+  },
+  {
+   "id": "w-tvitmprinavi",
+   "ka": "თვითმფრინავი",
+   "lat": "tvitmprinavi",
+   "en": "aeroplane",
+   "alt": [
+    "airplane",
+    "plane"
+   ],
+   "category": "transport",
+   "example": {
+    "ka": "თვითმფრინავი ცაშია.",
+    "lat": "tvitmprinavi tsashia.",
+    "en": "The plane is in the sky."
+   }
+  },
+  {
+   "id": "w-aeroporti",
+   "ka": "აეროპორტი",
+   "lat": "aerop'ort'i",
+   "en": "airport",
+   "alt": [],
+   "category": "transport",
+   "example": {
+    "ka": "აეროპორტი შორს არის.",
+    "lat": "aerop'ort'i shors aris.",
+    "en": "The airport is far away."
+   }
+  },
+  {
+   "id": "w-sadguri",
+   "ka": "სადგური",
+   "lat": "sadguri",
+   "en": "station",
+   "alt": [],
+   "category": "transport",
+   "example": {
+    "ka": "სადგური ახლოს არის.",
+    "lat": "sadguri akhlos aris.",
+    "en": "The station is near."
+   }
+  },
+  {
+   "id": "w-bileti",
+   "ka": "ბილეთი",
+   "lat": "bileti",
+   "en": "ticket",
+   "alt": [],
+   "category": "transport",
+   "example": {
+    "ka": "ერთი ბილეთი, თუ შეიძლება.",
+    "lat": "erti bileti, tu sheidzleba.",
+    "en": "One ticket, please."
+   }
+  },
+  {
+   "id": "w-gachereba",
+   "ka": "გაჩერება",
+   "lat": "gachereba",
+   "en": "stop (bus stop)",
+   "alt": [
+    "stop",
+    "bus stop"
+   ],
+   "category": "transport",
+   "example": {
+    "ka": "გაჩერება აქ არის.",
+    "lat": "gachereba ak aris.",
+    "en": "The stop is here."
+   }
+  },
+  {
+   "id": "w-velosipedi",
+   "ka": "ველოსიპედი",
+   "lat": "velosip'edi",
+   "en": "bicycle",
+   "alt": [
+    "bike"
+   ],
+   "category": "transport",
+   "example": {
+    "ka": "ველოსიპედით დავდივარ.",
+    "lat": "velosip'edit davdivar.",
+    "en": "I get around by bicycle."
+   }
+  },
+  {
+   "id": "w-marjvniv",
+   "ka": "მარჯვნივ",
+   "lat": "marjvniv",
+   "en": "to the right",
+   "alt": [
+    "right"
+   ],
+   "category": "directions",
+   "example": {
+    "ka": "მარჯვნივ მოუხვიეთ.",
+    "lat": "marjvniv moukhviet.",
+    "en": "Turn right."
+   }
+  },
+  {
+   "id": "w-martskhniv",
+   "ka": "მარცხნივ",
+   "lat": "martskhniv",
+   "en": "to the left",
+   "alt": [
+    "left"
+   ],
+   "category": "directions",
+   "example": {
+    "ka": "მარცხნივ მოუხვიეთ.",
+    "lat": "martskhniv moukhviet.",
+    "en": "Turn left."
+   }
+  },
+  {
+   "id": "w-pirdapir",
+   "ka": "პირდაპირ",
+   "lat": "p'irdap'ir",
+   "en": "straight ahead",
+   "alt": [
+    "straight",
+    "straight on"
+   ],
+   "category": "directions",
+   "example": {
+    "ka": "პირდაპირ წადით.",
+    "lat": "p'irdap'ir ts'adit.",
+    "en": "Go straight ahead."
+   }
+  },
+  {
+   "id": "w-ak",
+   "ka": "აქ",
+   "lat": "ak",
+   "en": "here",
+   "alt": [],
+   "category": "directions",
+   "example": {
+    "ka": "მოდი აქ!",
+    "lat": "modi ak!",
+    "en": "Come here!"
+   }
+  },
+  {
+   "id": "w-ik",
+   "ka": "იქ",
+   "lat": "ik",
+   "en": "there",
+   "alt": [],
+   "category": "directions",
+   "example": {
+    "ka": "მეტრო იქ არის.",
+    "lat": "met'ro ik aris.",
+    "en": "The metro is there."
+   }
+  },
+  {
+   "id": "w-sad",
+   "ka": "სად?",
+   "lat": "sad?",
+   "en": "where?",
+   "alt": [
+    "where"
+   ],
+   "category": "directions",
+   "example": {
+    "ka": "სად არის ბანკი?",
+    "lat": "sad aris bank'i?",
+    "en": "Where is the bank?"
+   }
+  },
+  {
+   "id": "w-akhlos",
+   "ka": "ახლოს",
+   "lat": "akhlos",
+   "en": "near",
+   "alt": [
+    "close",
+    "nearby"
+   ],
+   "category": "directions",
+   "example": {
+    "ka": "ბაზარი ახლოს არის?",
+    "lat": "bazari akhlos aris?",
+    "en": "Is the market near?"
+   }
+  },
+  {
+   "id": "w-shors",
+   "ka": "შორს",
+   "lat": "shors",
+   "en": "far",
+   "alt": [
+    "far away"
+   ],
+   "category": "directions",
+   "example": {
+    "ka": "ძალიან შორს არის.",
+    "lat": "dzalian shors aris.",
+    "en": "It's very far."
+   }
+  },
+  {
+   "id": "w-kucha",
+   "ka": "ქუჩა",
+   "lat": "kucha",
+   "en": "street",
+   "alt": [],
+   "category": "directions",
+   "example": {
+    "ka": "ეს რა ქუჩაა?",
+    "lat": "es ra kuchaa?",
+    "en": "What street is this?"
+   }
+  },
+  {
+   "id": "w-ruka",
+   "ka": "რუკა",
+   "lat": "ruk'a",
+   "en": "map",
+   "alt": [],
+   "category": "directions",
+   "example": {
+    "ka": "რუკა გაქვს?",
+    "lat": "ruk'a gakvs?",
+    "en": "Do you have a map?"
+   }
+  },
+  {
+   "id": "w-ukan",
+   "ka": "უკან",
+   "lat": "uk'an",
+   "en": "behind",
+   "alt": [
+    "back"
+   ],
+   "category": "directions",
+   "example": {
+    "ka": "მანქანა სახლის უკან დგას.",
+    "lat": "mankana sakhlis uk'an dgas.",
+    "en": "The car is parked behind the house."
+   }
+  },
+  {
+   "id": "w-gverdit",
+   "ka": "გვერდით",
+   "lat": "gverdit",
+   "en": "next to",
+   "alt": [
+    "beside"
+   ],
+   "category": "directions",
+   "example": {
+    "ka": "აფთიაქი ბანკის გვერდით არის.",
+    "lat": "aptiaki bank'is gverdit aris.",
+    "en": "The pharmacy is next to the bank."
+   }
+  },
+  {
+   "id": "w-maghazia",
+   "ka": "მაღაზია",
+   "lat": "maghazia",
+   "en": "shop",
+   "alt": [
+    "store"
+   ],
+   "category": "shopping",
+   "example": {
+    "ka": "მაღაზია დაკეტილია.",
+    "lat": "maghazia dak'et'ilia.",
+    "en": "The shop is closed."
+   }
+  },
+  {
+   "id": "w-bazari",
+   "ka": "ბაზარი",
+   "lat": "bazari",
+   "en": "market",
+   "alt": [],
+   "category": "shopping",
+   "example": {
+    "ka": "ბაზარზე მივდივარ.",
+    "lat": "bazarze mivdivar.",
+    "en": "I'm going to the market."
+   }
+  },
+  {
+   "id": "w-puli",
+   "ka": "ფული",
+   "lat": "puli",
+   "en": "money",
+   "alt": [],
+   "category": "shopping",
+   "example": {
+    "ka": "ფული არ მაქვს.",
+    "lat": "puli ar makvs.",
+    "en": "I don't have any money."
+   }
+  },
+  {
+   "id": "w-pasi",
+   "ka": "ფასი",
+   "lat": "pasi",
+   "en": "price",
+   "alt": [],
+   "category": "shopping",
+   "example": {
+    "ka": "რა ფასია?",
+    "lat": "ra pasia?",
+    "en": "What's the price?"
+   }
+  },
+  {
+   "id": "w-ra-ghirs",
+   "ka": "რა ღირს?",
+   "lat": "ra ghirs?",
+   "en": "how much is it?",
+   "alt": [
+    "how much is it",
+    "how much does it cost?",
+    "how much"
+   ],
+   "category": "shopping",
+   "example": {
+    "ka": "ეს ყველი რა ღირს?",
+    "lat": "es q'veli ra ghirs?",
+    "en": "How much is this cheese?"
+   }
+  },
+  {
+   "id": "w-dzviri",
+   "ka": "ძვირი",
+   "lat": "dzviri",
+   "en": "expensive",
+   "alt": [
+    "dear"
+   ],
+   "category": "shopping",
+   "example": {
+    "ka": "ეს ძალიან ძვირია.",
+    "lat": "es dzalian dzviria.",
+    "en": "This is very expensive."
+   }
+  },
+  {
+   "id": "w-iapi",
+   "ka": "იაფი",
+   "lat": "iapi",
+   "en": "cheap",
+   "alt": [
+    "inexpensive"
+   ],
+   "category": "shopping",
+   "example": {
+    "ka": "ეს ჩანთა იაფია.",
+    "lat": "es chanta iapia.",
+    "en": "This bag is cheap."
+   }
+  },
+  {
+   "id": "w-lari",
+   "ka": "ლარი",
+   "lat": "lari",
+   "en": "lari",
+   "alt": [
+    "georgian lari"
+   ],
+   "category": "shopping",
+   "example": {
+    "ka": "ხუთი ლარი ღირს.",
+    "lat": "khuti lari ghirs.",
+    "en": "It costs five lari."
+   },
+   "note": "Georgia's money. One lari is 100 tetri (თეთრი)."
+  },
+  {
+   "id": "w-barati",
+   "ka": "ბარათი",
+   "lat": "barati",
+   "en": "card",
+   "alt": [
+    "bank card"
+   ],
+   "category": "shopping",
+   "example": {
+    "ka": "ბარათით გადავიხდი.",
+    "lat": "baratit gadavikhdi.",
+    "en": "I'll pay by card."
+   }
+  },
+  {
+   "id": "w-naghdi-puli",
+   "ka": "ნაღდი ფული",
+   "lat": "naghdi puli",
+   "en": "cash",
+   "alt": [],
+   "category": "shopping",
+   "example": {
+    "ka": "ნაღდი ფული გაქვთ?",
+    "lat": "naghdi puli gakvt?",
+    "en": "Do you have cash?"
+   }
+  },
+  {
+   "id": "w-chanta",
+   "ka": "ჩანთა",
+   "lat": "chanta",
+   "en": "bag",
+   "alt": [],
+   "category": "shopping",
+   "example": {
+    "ka": "ჩანთა მჭირდება.",
+    "lat": "chanta mch'irdeba.",
+    "en": "I need a bag."
+   }
+  },
+  {
+   "id": "w-ghia",
+   "ka": "ღია",
+   "lat": "ghia",
+   "en": "open",
+   "alt": [],
+   "category": "shopping",
+   "example": {
+    "ka": "მაღაზია ღიაა?",
+    "lat": "maghazia ghiaa?",
+    "en": "Is the shop open?"
+   }
+  },
+  {
+   "id": "w-daketili",
+   "ka": "დაკეტილი",
+   "lat": "dak'et'ili",
+   "en": "closed",
+   "alt": [
+    "shut"
+   ],
+   "category": "shopping",
+   "example": {
+    "ka": "ბანკი დაკეტილია.",
+    "lat": "bank'i dak'et'ilia.",
+    "en": "The bank is closed."
+   }
+  },
+  {
+   "id": "w-ojakhi",
+   "ka": "ოჯახი",
+   "lat": "ojakhi",
+   "en": "family",
+   "alt": [],
+   "category": "family",
+   "example": {
+    "ka": "ჩემი ოჯახი დიდია.",
+    "lat": "chemi ojakhi didia.",
+    "en": "My family is big."
+   }
+  },
+  {
+   "id": "w-deda",
+   "ka": "დედა",
+   "lat": "deda",
+   "en": "mother",
+   "alt": [
+    "mum",
+    "mom"
+   ],
+   "category": "family",
+   "example": {
+    "ka": "დედა სახლშია.",
+    "lat": "deda sakhlshia.",
+    "en": "Mum is at home."
+   },
+   "note": "Careful: დედა is mother and მამა is father."
+  },
+  {
+   "id": "w-mama",
+   "ka": "მამა",
+   "lat": "mama",
+   "en": "father",
+   "alt": [
+    "dad"
+   ],
+   "category": "family",
+   "example": {
+    "ka": "მამა ექიმია.",
+    "lat": "mama ekimia.",
+    "en": "Dad is a doctor."
+   }
+  },
+  {
+   "id": "w-dzma",
+   "ka": "ძმა",
+   "lat": "dzma",
+   "en": "brother",
+   "alt": [],
+   "category": "family",
+   "example": {
+    "ka": "ჩემი ძმა თბილისში ცხოვრობს.",
+    "lat": "chemi dzma tbilisshi tskhovrobs.",
+    "en": "My brother lives in Tbilisi."
+   }
+  },
+  {
+   "id": "w-da",
+   "ka": "და",
+   "lat": "da",
+   "en": "sister",
+   "alt": [],
+   "category": "family",
+   "example": {
+    "ka": "ჩემი და სტუდენტია.",
+    "lat": "chemi da st'udent'ia.",
+    "en": "My sister is a student."
+   },
+   "note": "და also means \"and\"."
+  },
+  {
+   "id": "w-shvili",
+   "ka": "შვილი",
+   "lat": "shvili",
+   "en": "child (son or daughter)",
+   "alt": [
+    "son",
+    "daughter",
+    "child"
+   ],
+   "category": "family",
+   "example": {
+    "ka": "ორი შვილი მყავს.",
+    "lat": "ori shvili mq'avs.",
+    "en": "I have two children."
+   }
+  },
+  {
+   "id": "w-bebia",
+   "ka": "ბებია",
+   "lat": "bebia",
+   "en": "grandmother",
+   "alt": [
+    "grandma",
+    "granny"
+   ],
+   "category": "family",
+   "example": {
+    "ka": "ბებია ხაჭაპურს აცხობს.",
+    "lat": "bebia khach'ap'urs atskhobs.",
+    "en": "Grandma is baking khachapuri."
+   }
+  },
+  {
+   "id": "w-babua",
+   "ka": "ბაბუა",
+   "lat": "babua",
+   "en": "grandfather",
+   "alt": [
+    "grandpa"
+   ],
+   "category": "family",
+   "example": {
+    "ka": "ბაბუა ბაღშია.",
+    "lat": "babua baghshia.",
+    "en": "Grandpa is in the garden."
+   }
+  },
+  {
+   "id": "w-tsoli",
+   "ka": "ცოლი",
+   "lat": "tsoli",
+   "en": "wife",
+   "alt": [],
+   "category": "family",
+   "example": {
+    "ka": "ეს ჩემი ცოლია.",
+    "lat": "es chemi tsolia.",
+    "en": "This is my wife."
+   }
+  },
+  {
+   "id": "w-kmari",
+   "ka": "ქმარი",
+   "lat": "kmari",
+   "en": "husband",
+   "alt": [],
+   "category": "family",
+   "example": {
+    "ka": "ეს ჩემი ქმარია.",
+    "lat": "es chemi kmaria.",
+    "en": "This is my husband."
+   }
+  },
+  {
+   "id": "w-bavshvi",
+   "ka": "ბავშვი",
+   "lat": "bavshvi",
+   "en": "child",
+   "alt": [
+    "kid"
+   ],
+   "category": "family",
+   "example": {
+    "ka": "ბავშვი სკოლაშია.",
+    "lat": "bavshvi sk'olashia.",
+    "en": "The child is at school."
+   }
+  },
+  {
+   "id": "w-megobari",
+   "ka": "მეგობარი",
+   "lat": "megobari",
+   "en": "friend",
+   "alt": [],
+   "category": "family",
+   "example": {
+    "ka": "ის ჩემი მეგობარია.",
+    "lat": "is chemi megobaria.",
+    "en": "He is my friend."
+   }
+  },
+  {
+   "id": "w-sakhli",
+   "ka": "სახლი",
+   "lat": "sakhli",
+   "en": "house",
+   "alt": [
+    "home"
+   ],
+   "category": "objects",
+   "example": {
+    "ka": "ჩემი სახლი აქ არის.",
+    "lat": "chemi sakhli ak aris.",
+    "en": "My house is here."
+   }
+  },
+  {
+   "id": "w-otakhi",
+   "ka": "ოთახი",
+   "lat": "otakhi",
+   "en": "room",
+   "alt": [],
+   "category": "objects",
+   "example": {
+    "ka": "ოთახი დიდი და ნათელია.",
+    "lat": "otakhi didi da natelia.",
+    "en": "The room is big and bright."
+   }
+  },
+  {
+   "id": "w-kari",
+   "ka": "კარი",
+   "lat": "k'ari",
+   "en": "door",
+   "alt": [],
+   "category": "objects",
+   "example": {
+    "ka": "კარი დახურეთ, თუ შეიძლება.",
+    "lat": "k'ari dakhuret, tu sheidzleba.",
+    "en": "Close the door, please."
+   }
+  },
+  {
+   "id": "w-panjara",
+   "ka": "ფანჯარა",
+   "lat": "panjara",
+   "en": "window",
+   "alt": [],
+   "category": "objects",
+   "example": {
+    "ka": "ფანჯარა გააღე.",
+    "lat": "panjara gaaghe.",
+    "en": "Open the window."
+   }
+  },
+  {
+   "id": "w-magida",
+   "ka": "მაგიდა",
+   "lat": "magida",
+   "en": "table",
+   "alt": [
+    "desk"
+   ],
+   "category": "objects",
+   "example": {
+    "ka": "წიგნი მაგიდაზეა.",
+    "lat": "ts'igni magidazea.",
+    "en": "The book is on the table."
+   }
+  },
+  {
+   "id": "w-skami",
+   "ka": "სკამი",
+   "lat": "sk'ami",
+   "en": "chair",
+   "alt": [],
+   "category": "objects",
+   "example": {
+    "ka": "სკამზე დაჯექი.",
+    "lat": "sk'amze dajeki.",
+    "en": "Sit on the chair."
+   }
+  },
+  {
+   "id": "w-tsigni",
+   "ka": "წიგნი",
+   "lat": "ts'igni",
+   "en": "book",
+   "alt": [],
+   "category": "objects",
+   "example": {
+    "ka": "ეს წიგნი საინტერესოა.",
+    "lat": "es ts'igni saint'eresoa.",
+    "en": "This book is interesting."
+   }
+  },
+  {
+   "id": "w-teleponi",
+   "ka": "ტელეფონი",
+   "lat": "t'eleponi",
+   "en": "phone",
+   "alt": [
+    "telephone",
+    "mobile"
+   ],
+   "category": "objects",
+   "example": {
+    "ka": "ჩემი ტელეფონი სად არის?",
+    "lat": "chemi t'eleponi sad aris?",
+    "en": "Where is my phone?"
+   }
+  },
+  {
+   "id": "w-gasaghebi",
+   "ka": "გასაღები",
+   "lat": "gasaghebi",
+   "en": "key",
+   "alt": [],
+   "category": "objects",
+   "example": {
+    "ka": "გასაღები დავკარგე.",
+    "lat": "gasaghebi davk'arge.",
+    "en": "I lost the key."
+   }
+  },
+  {
+   "id": "w-satsoli",
+   "ka": "საწოლი",
+   "lat": "sats'oli",
+   "en": "bed",
+   "alt": [],
+   "category": "objects",
+   "example": {
+    "ka": "საწოლი დიდია.",
+    "lat": "sats'oli didia.",
+    "en": "The bed is big."
+   }
+  },
+  {
+   "id": "w-chika",
+   "ka": "ჭიქა",
+   "lat": "ch'ika",
+   "en": "glass",
+   "alt": [
+    "cup"
+   ],
+   "category": "objects",
+   "example": {
+    "ka": "ჭიქა მაგიდაზეა.",
+    "lat": "ch'ika magidazea.",
+    "en": "The glass is on the table."
+   }
+  },
+  {
+   "id": "w-kalami",
+   "ka": "კალამი",
+   "lat": "k'alami",
+   "en": "pen",
+   "alt": [],
+   "category": "objects",
+   "example": {
+    "ka": "კალამი გაქვს?",
+    "lat": "k'alami gakvs?",
+    "en": "Do you have a pen?"
+   }
+  },
+  {
+   "id": "w-dghes",
+   "ka": "დღეს",
+   "lat": "dghes",
+   "en": "today",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "დღეს ორშაბათია.",
+    "lat": "dghes orshabatia.",
+    "en": "Today is Monday."
+   }
+  },
+  {
+   "id": "w-khval",
+   "ka": "ხვალ",
+   "lat": "khval",
+   "en": "tomorrow",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "ხვალ გნახავ.",
+    "lat": "khval gnakhav.",
+    "en": "See you tomorrow."
+   }
+  },
+  {
+   "id": "w-gushin",
+   "ka": "გუშინ",
+   "lat": "gushin",
+   "en": "yesterday",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "გუშინ ბაზარში ვიყავი.",
+    "lat": "gushin bazarshi viq'avi.",
+    "en": "Yesterday I was at the market."
+   }
+  },
+  {
+   "id": "w-dghe",
+   "ka": "დღე",
+   "lat": "dghe",
+   "en": "day",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "კარგი დღეა.",
+    "lat": "k'argi dghea.",
+    "en": "It's a good day."
+   }
+  },
+  {
+   "id": "w-kvira",
+   "ka": "კვირა",
+   "lat": "k'vira",
+   "en": "week; Sunday",
+   "alt": [
+    "week",
+    "sunday"
+   ],
+   "category": "time",
+   "example": {
+    "ka": "ერთ კვირაში დავბრუნდები.",
+    "lat": "ert k'virashi davbrundebi.",
+    "en": "I'll be back in a week."
+   },
+   "note": "კვირა means both \"week\" and \"Sunday\"."
+  },
+  {
+   "id": "w-tve",
+   "ka": "თვე",
+   "lat": "tve",
+   "en": "month",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "ერთი თვე თბილისში ვიქნები.",
+    "lat": "erti tve tbilisshi viknebi.",
+    "en": "I'll be in Tbilisi for a month."
+   }
+  },
+  {
+   "id": "w-tseli",
+   "ka": "წელი",
+   "lat": "ts'eli",
+   "en": "year",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "ახალი წელი მოდის.",
+    "lat": "akhali ts'eli modis.",
+    "en": "The New Year is coming."
+   }
+  },
+  {
+   "id": "w-saati",
+   "ka": "საათი",
+   "lat": "saati",
+   "en": "hour; clock",
+   "alt": [
+    "hour",
+    "clock",
+    "watch",
+    "o'clock"
+   ],
+   "category": "time",
+   "example": {
+    "ka": "რომელი საათია?",
+    "lat": "romeli saatia?",
+    "en": "What time is it?"
+   }
+  },
+  {
+   "id": "w-akhla",
+   "ka": "ახლა",
+   "lat": "akhla",
+   "en": "now",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "ახლა დაკავებული ვარ.",
+    "lat": "akhla dak'avebuli var.",
+    "en": "I'm busy now."
+   }
+  },
+  {
+   "id": "w-dila",
+   "ka": "დილა",
+   "lat": "dila",
+   "en": "morning",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "დილით ყავას ვსვამ.",
+    "lat": "dilit q'avas vsvam.",
+    "en": "In the morning I drink coffee."
+   }
+  },
+  {
+   "id": "w-saghamo",
+   "ka": "საღამო",
+   "lat": "saghamo",
+   "en": "evening",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "საღამოს სახლში ვარ.",
+    "lat": "saghamos sakhlshi var.",
+    "en": "In the evening I'm at home."
+   }
+  },
+  {
+   "id": "w-orshabati",
+   "ka": "ორშაბათი",
+   "lat": "orshabati",
+   "en": "Monday",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "ორშაბათს ვმუშაობ.",
+    "lat": "orshabats vmushaob.",
+    "en": "I work on Monday."
+   },
+   "note": "Days from Monday: ორშაბათი, სამშაბათი, ოთხშაბათი, ხუთშაბათი — \"two, three, four, five after Saturday\"."
+  },
+  {
+   "id": "w-paraskevi",
+   "ka": "პარასკევი",
+   "lat": "p'arask'evi",
+   "en": "Friday",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "პარასკევს კინოში მივდივართ.",
+    "lat": "p'arask'evs k'inoshi mivdivart.",
+    "en": "On Friday we're going to the cinema."
+   }
+  },
+  {
+   "id": "w-shabati",
+   "ka": "შაბათი",
+   "lat": "shabati",
+   "en": "Saturday",
+   "alt": [],
+   "category": "time",
+   "example": {
+    "ka": "შაბათს ბაზარში მივდივარ.",
+    "lat": "shabats bazarshi mivdivar.",
+    "en": "On Saturday I go to the market."
+   }
+  },
+  {
+   "id": "p-meniu-tu-sheidzleba",
+   "ka": "მენიუ, თუ შეიძლება.",
+   "lat": "meniu, tu sheidzleba.",
+   "en": "The menu, please.",
+   "alt": [
+    "menu please",
+    "the menu please"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— მენიუ, თუ შეიძლება. — აი, ინებეთ.",
+    "lat": "— meniu, tu sheidzleba. — ai, inebet.",
+    "en": "— The menu, please. — Here you are."
+   },
+   "situation": "food"
+  },
+  {
+   "id": "p-ras-mirchevt",
+   "ka": "რას მირჩევთ?",
+   "lat": "ras mirchevt?",
+   "en": "What do you recommend?",
+   "alt": [
+    "what do you recommend"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— რას მირჩევთ? — ხინკალს.",
+    "lat": "— ras mirchevt? — khink'als.",
+    "en": "— What do you recommend? — The khinkali."
+   },
+   "situation": "food"
+  },
+  {
+   "id": "p-tsqali-minda",
+   "ka": "წყალი მინდა.",
+   "lat": "ts'q'ali minda.",
+   "en": "I want water.",
+   "alt": [
+    "i would like water",
+    "i'd like water"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— რა გნებავთ? — წყალი მინდა.",
+    "lat": "— ra gnebavt? — ts'q'ali minda.",
+    "en": "— What would you like? — I want water."
+   },
+   "situation": "food"
+  },
+  {
+   "id": "p-dzalian-gemrielia",
+   "ka": "ძალიან გემრიელია!",
+   "lat": "dzalian gemrielia!",
+   "en": "It's very tasty!",
+   "alt": [
+    "very tasty",
+    "it is very tasty",
+    "it's delicious"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ხაჭაპური ძალიან გემრიელია!",
+    "lat": "khach'ap'uri dzalian gemrielia!",
+    "en": "The khachapuri is very tasty!"
+   },
+   "situation": "food"
+  },
+  {
+   "id": "p-angarishi-tu-sheidzleba",
+   "ka": "ანგარიში, თუ შეიძლება.",
+   "lat": "angarishi, tu sheidzleba.",
+   "en": "The bill, please.",
+   "alt": [
+    "the check please",
+    "bill please",
+    "check please"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— ანგარიში, თუ შეიძლება. — ერთი წუთით.",
+    "lat": "— angarishi, tu sheidzleba. — erti ts'utit.",
+    "en": "— The bill, please. — Just a moment."
+   },
+   "situation": "food"
+  },
+  {
+   "id": "p-gaumarjos",
+   "ka": "გაუმარჯოს!",
+   "lat": "gaumarjos!",
+   "en": "Cheers!",
+   "alt": [
+    "cheers",
+    "to victory"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ჩვენს მეგობრობას გაუმარჯოს!",
+    "lat": "chvens megobrobas gaumarjos!",
+    "en": "To our friendship!"
+   },
+   "situation": "food",
+   "note": "Said with a raised glass, like \"cheers\"."
+  },
+  {
+   "id": "p-ra-ghirs-es",
+   "ka": "რა ღირს ეს?",
+   "lat": "ra ghirs es?",
+   "en": "How much is this?",
+   "alt": [
+    "how much is this",
+    "what does this cost"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— რა ღირს ეს? — სამი ლარი.",
+    "lat": "— ra ghirs es? — sami lari.",
+    "en": "— How much is this? — Three lari."
+   },
+   "situation": "groceries"
+  },
+  {
+   "id": "p-erti-kilo-vashli-tu-sheidzleba",
+   "ka": "ერთი კილო ვაშლი, თუ შეიძლება.",
+   "lat": "erti k'ilo vashli, tu sheidzleba.",
+   "en": "A kilo of apples, please.",
+   "alt": [
+    "one kilo of apples please",
+    "a kilo of apples please"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— ერთი კილო ვაშლი, თუ შეიძლება. — აი, ინებეთ.",
+    "lat": "— erti k'ilo vashli, tu sheidzleba. — ai, inebet.",
+    "en": "— A kilo of apples, please. — Here you are."
+   },
+   "situation": "groceries"
+  },
+  {
+   "id": "p-es-dzalian-dzviria",
+   "ka": "ეს ძალიან ძვირია.",
+   "lat": "es dzalian dzviria.",
+   "en": "This is very expensive.",
+   "alt": [
+    "that is very expensive",
+    "this is too expensive"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ეს ძალიან ძვირია, უფრო იაფი გაქვთ?",
+    "lat": "es dzalian dzviria, upro iapi gakvt?",
+    "en": "This is very expensive, do you have a cheaper one?"
+   },
+   "situation": "groceries"
+  },
+  {
+   "id": "p-baratit-sheidzleba",
+   "ka": "ბარათით შეიძლება?",
+   "lat": "baratit sheidzleba?",
+   "en": "Can I pay by card?",
+   "alt": [
+    "can i pay by card",
+    "card ok?",
+    "by card?"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— ბარათით შეიძლება? — კი, რა თქმა უნდა.",
+    "lat": "— baratit sheidzleba? — k'i, ra tkma unda.",
+    "en": "— Can I pay by card? — Yes, of course."
+   },
+   "situation": "groceries"
+  },
+  {
+   "id": "p-parki-mchirdeba",
+   "ka": "პარკი მჭირდება.",
+   "lat": "p'ark'i mch'irdeba.",
+   "en": "I need a bag.",
+   "alt": [
+    "i need a bag",
+    "i need a plastic bag"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ბოდიში, პარკი მჭირდება.",
+    "lat": "bodishi, p'ark'i mch'irdeba.",
+    "en": "Excuse me, I need a bag."
+   },
+   "situation": "groceries"
+  },
+  {
+   "id": "p-sul-es-aris",
+   "ka": "სულ ეს არის.",
+   "lat": "sul es aris.",
+   "en": "That's all.",
+   "alt": [
+    "that is all",
+    "that's everything"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— კიდევ რამე? — არა, სულ ეს არის.",
+    "lat": "— k'idev rame? — ara, sul es aris.",
+    "en": "— Anything else? — No, that's all."
+   },
+   "situation": "groceries"
+  },
+  {
+   "id": "p-aeroportshi-tu-sheidzleba",
+   "ka": "აეროპორტში, თუ შეიძლება.",
+   "lat": "aerop'ort'shi, tu sheidzleba.",
+   "en": "To the airport, please.",
+   "alt": [
+    "airport please",
+    "to the airport please"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— სად მიდიხართ? — აეროპორტში, თუ შეიძლება.",
+    "lat": "— sad midikhart? — aerop'ort'shi, tu sheidzleba.",
+    "en": "— Where are you going? — To the airport, please."
+   },
+   "situation": "taxi"
+  },
+  {
+   "id": "p-tsentramde-ra-ghirs",
+   "ka": "ცენტრამდე რა ღირს?",
+   "lat": "tsent'ramde ra ghirs?",
+   "en": "How much to the centre?",
+   "alt": [
+    "how much to the center",
+    "how much to the centre"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— ცენტრამდე რა ღირს? — ათი ლარი.",
+    "lat": "— tsent'ramde ra ghirs? — ati lari.",
+    "en": "— How much to the centre? — Ten lari."
+   },
+   "situation": "taxi"
+  },
+  {
+   "id": "p-ak-gamicheret",
+   "ka": "აქ გამიჩერეთ.",
+   "lat": "ak gamicheret.",
+   "en": "Stop here, please.",
+   "alt": [
+    "stop here",
+    "stop here for me"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "აქ გამიჩერეთ, მადლობა.",
+    "lat": "ak gamicheret, madloba.",
+    "en": "Stop here, thank you."
+   },
+   "situation": "taxi"
+  },
+  {
+   "id": "p-nela-tu-sheidzleba",
+   "ka": "ნელა, თუ შეიძლება.",
+   "lat": "nela, tu sheidzleba.",
+   "en": "Slowly, please.",
+   "alt": [
+    "slower please",
+    "slowly please"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ნელა, თუ შეიძლება, ბავშვი მყავს.",
+    "lat": "nela, tu sheidzleba, bavshvi mq'avs.",
+    "en": "Slowly, please, I have a child with me."
+   },
+   "situation": "taxi"
+  },
+  {
+   "id": "p-shors-aris",
+   "ka": "შორს არის?",
+   "lat": "shors aris?",
+   "en": "Is it far?",
+   "alt": [
+    "is it far",
+    "is it far away"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— შორს არის? — არა, ახლოს არის.",
+    "lat": "— shors aris? — ara, akhlos aris.",
+    "en": "— Is it far? — No, it's near."
+   },
+   "situation": "taxi"
+  },
+  {
+   "id": "p-ramdeni-khani",
+   "ka": "რამდენი ხანი?",
+   "lat": "ramdeni khani?",
+   "en": "How long?",
+   "alt": [
+    "how long",
+    "how much time"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— რამდენი ხანი? — ოცი წუთი.",
+    "lat": "— ramdeni khani? — otsi ts'uti.",
+    "en": "— How long? — Twenty minutes."
+   },
+   "situation": "taxi"
+  },
+  {
+   "id": "p-sad-aris-metro",
+   "ka": "სად არის მეტრო?",
+   "lat": "sad aris met'ro?",
+   "en": "Where is the metro?",
+   "alt": [
+    "where is the metro",
+    "where's the metro"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ბოდიში, სად არის მეტრო?",
+    "lat": "bodishi, sad aris met'ro?",
+    "en": "Excuse me, where is the metro?"
+   },
+   "situation": "directions"
+  },
+  {
+   "id": "p-pirdapir-tsadit",
+   "ka": "პირდაპირ წადით.",
+   "lat": "p'irdap'ir ts'adit.",
+   "en": "Go straight ahead.",
+   "alt": [
+    "go straight",
+    "go straight on"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "პირდაპირ წადით, მერე მარჯვნივ.",
+    "lat": "p'irdap'ir ts'adit, mere marjvniv.",
+    "en": "Go straight ahead, then right."
+   },
+   "situation": "directions"
+  },
+  {
+   "id": "p-marjvniv-moukhviet",
+   "ka": "მარჯვნივ მოუხვიეთ.",
+   "lat": "marjvniv moukhviet.",
+   "en": "Turn right.",
+   "alt": [
+    "turn to the right"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ბანკთან მარჯვნივ მოუხვიეთ.",
+    "lat": "bank'tan marjvniv moukhviet.",
+    "en": "Turn right at the bank."
+   },
+   "situation": "directions"
+  },
+  {
+   "id": "p-martskhniv-moukhviet",
+   "ka": "მარცხნივ მოუხვიეთ.",
+   "lat": "martskhniv moukhviet.",
+   "en": "Turn left.",
+   "alt": [
+    "turn to the left"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ქუჩის ბოლოს მარცხნივ მოუხვიეთ.",
+    "lat": "kuchis bolos martskhniv moukhviet.",
+    "en": "Turn left at the end of the street."
+   },
+   "situation": "directions"
+  },
+  {
+   "id": "p-ver-gavige",
+   "ka": "ვერ გავიგე.",
+   "lat": "ver gavige.",
+   "en": "I didn't understand.",
+   "alt": [
+    "i did not understand",
+    "i don't understand"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ბოდიში, ვერ გავიგე.",
+    "lat": "bodishi, ver gavige.",
+    "en": "Sorry, I didn't understand."
+   },
+   "situation": "directions"
+  },
+  {
+   "id": "p-gaimeoret-tu-sheidzleba",
+   "ka": "გაიმეორეთ, თუ შეიძლება.",
+   "lat": "gaimeoret, tu sheidzleba.",
+   "en": "Please repeat.",
+   "alt": [
+    "repeat please",
+    "could you repeat that",
+    "say it again please"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ნელა გაიმეორეთ, თუ შეიძლება.",
+    "lat": "nela gaimeoret, tu sheidzleba.",
+    "en": "Please repeat slowly."
+   },
+   "situation": "directions"
+  },
+  {
+   "id": "p-rogor-khart",
+   "ka": "როგორ ხართ?",
+   "lat": "rogor khart?",
+   "en": "How are you? (polite)",
+   "alt": [
+    "how are you",
+    "how are you?"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "გამარჯობა, ქალბატონო ნანა, როგორ ხართ?",
+    "lat": "gamarjoba, kalbat'ono nana, rogor khart?",
+    "en": "Hello, Mrs Nana, how are you?"
+   },
+   "situation": "neighbours"
+  },
+  {
+   "id": "p-kargad-tkven",
+   "ka": "კარგად, თქვენ?",
+   "lat": "k'argad, tkven?",
+   "en": "Fine, and you?",
+   "alt": [
+    "fine and you",
+    "well and you"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— როგორ ხართ? — კარგად, თქვენ?",
+    "lat": "— rogor khart? — k'argad, tkven?",
+    "en": "— How are you? — Fine, and you?"
+   },
+   "situation": "neighbours"
+  },
+  {
+   "id": "p-akhali-mezobeli-var",
+   "ka": "ახალი მეზობელი ვარ.",
+   "lat": "akhali mezobeli var.",
+   "en": "I'm the new neighbour.",
+   "alt": [
+    "i am the new neighbour",
+    "i'm the new neighbor",
+    "i am the new neighbor"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "გამარჯობა, ახალი მეზობელი ვარ.",
+    "lat": "gamarjoba, akhali mezobeli var.",
+    "en": "Hello, I'm the new neighbour."
+   },
+   "situation": "neighbours"
+  },
+  {
+   "id": "p-shemodit",
+   "ka": "შემოდით!",
+   "lat": "shemodit!",
+   "en": "Come in!",
+   "alt": [
+    "come in"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "შემოდით, ჩაი დალიეთ!",
+    "lat": "shemodit, chai daliet!",
+    "en": "Come in, have some tea!"
+   },
+   "situation": "neighbours"
+  },
+  {
+   "id": "p-karg-dghes-gisurvebt",
+   "ka": "კარგ დღეს გისურვებთ!",
+   "lat": "k'arg dghes gisurvebt!",
+   "en": "Have a nice day!",
+   "alt": [
+    "have a nice day",
+    "have a good day"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ნახვამდის, კარგ დღეს გისურვებთ!",
+    "lat": "nakhvamdis, k'arg dghes gisurvebt!",
+    "en": "Goodbye, have a nice day!"
+   },
+   "situation": "neighbours"
+  },
+  {
+   "id": "p-dzalian-sasiamovnoa",
+   "ka": "ძალიან სასიამოვნოა.",
+   "lat": "dzalian sasiamovnoa.",
+   "en": "Very nice to meet you.",
+   "alt": [
+    "nice to meet you",
+    "very nice to meet you"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— მე ნანა ვარ. — ძალიან სასიამოვნოა.",
+    "lat": "— me nana var. — dzalian sasiamovnoa.",
+    "en": "— I'm Nana. — Very nice to meet you."
+   },
+   "situation": "neighbours"
+  },
+  {
+   "id": "p-tsudad-var",
+   "ka": "ცუდად ვარ.",
+   "lat": "tsudad var.",
+   "en": "I feel unwell.",
+   "alt": [
+    "i feel bad",
+    "i am unwell",
+    "i'm not well",
+    "i feel ill"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ექიმო, ცუდად ვარ.",
+    "lat": "ekimo, tsudad var.",
+    "en": "Doctor, I feel unwell."
+   },
+   "situation": "doctor"
+  },
+  {
+   "id": "p-tavi-mtkiva",
+   "ka": "თავი მტკივა.",
+   "lat": "tavi mt'k'iva.",
+   "en": "I have a headache.",
+   "alt": [
+    "my head hurts"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "დილიდან თავი მტკივა.",
+    "lat": "dilidan tavi mt'k'iva.",
+    "en": "I've had a headache since the morning."
+   },
+   "situation": "doctor"
+  },
+  {
+   "id": "p-mutseli-mtkiva",
+   "ka": "მუცელი მტკივა.",
+   "lat": "mutseli mt'k'iva.",
+   "en": "My stomach hurts.",
+   "alt": [
+    "i have a stomach ache",
+    "i have stomach ache"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ბავშვს მუცელი სტკივა.",
+    "lat": "bavshvs mutseli st'k'iva.",
+    "en": "The child has a stomach ache."
+   },
+   "situation": "doctor"
+  },
+  {
+   "id": "p-sitskhe-makvs",
+   "ka": "სიცხე მაქვს.",
+   "lat": "sitskhe makvs.",
+   "en": "I have a fever.",
+   "alt": [
+    "i have a temperature"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "გუშინიდან სიცხე მაქვს.",
+    "lat": "gushinidan sitskhe makvs.",
+    "en": "I've had a fever since yesterday."
+   },
+   "situation": "doctor"
+  },
+  {
+   "id": "p-ekimi-mchirdeba",
+   "ka": "ექიმი მჭირდება.",
+   "lat": "ekimi mch'irdeba.",
+   "en": "I need a doctor.",
+   "alt": [
+    "i need a doctor"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "სასწრაფოდ ექიმი მჭირდება.",
+    "lat": "sasts'rapod ekimi mch'irdeba.",
+    "en": "I need a doctor urgently."
+   },
+   "situation": "doctor"
+  },
+  {
+   "id": "p-aptiaki-sad-aris",
+   "ka": "აფთიაქი სად არის?",
+   "lat": "aptiaki sad aris?",
+   "en": "Where is the pharmacy?",
+   "alt": [
+    "where is the pharmacy",
+    "where's the chemist",
+    "where is the chemist"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ბოდიში, აფთიაქი სად არის?",
+    "lat": "bodishi, aptiaki sad aris?",
+    "en": "Excuse me, where is the pharmacy?"
+   },
+   "situation": "doctor"
+  },
+  {
+   "id": "p-sad-mushaob",
+   "ka": "სად მუშაობ?",
+   "lat": "sad mushaob?",
+   "en": "Where do you work?",
+   "alt": [
+    "where do you work"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "— სად მუშაობ? — ბანკში.",
+    "lat": "— sad mushaob? — bank'shi.",
+    "en": "— Where do you work? — At a bank."
+   },
+   "situation": "work"
+  },
+  {
+   "id": "p-opisshi-vmushaob",
+   "ka": "ოფისში ვმუშაობ.",
+   "lat": "opisshi vmushaob.",
+   "en": "I work in an office.",
+   "alt": [
+    "i work in the office",
+    "i work at an office"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "მე ოფისში ვმუშაობ, ცენტრში.",
+    "lat": "me opisshi vmushaob, tsent'rshi.",
+    "en": "I work in an office, in the centre."
+   },
+   "situation": "work"
+  },
+  {
+   "id": "p-shekhvedra-makvs",
+   "ka": "შეხვედრა მაქვს.",
+   "lat": "shekhvedra makvs.",
+   "en": "I have a meeting.",
+   "alt": [
+    "i've got a meeting"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ათ საათზე შეხვედრა მაქვს.",
+    "lat": "at saatze shekhvedra makvs.",
+    "en": "I have a meeting at ten."
+   },
+   "situation": "work"
+  },
+  {
+   "id": "p-dakavebuli-var",
+   "ka": "დაკავებული ვარ.",
+   "lat": "dak'avebuli var.",
+   "en": "I'm busy.",
+   "alt": [
+    "i am busy"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ბოდიში, ახლა დაკავებული ვარ.",
+    "lat": "bodishi, akhla dak'avebuli var.",
+    "en": "Sorry, I'm busy right now."
+   },
+   "situation": "work"
+  },
+  {
+   "id": "p-erti-tsutit",
+   "ka": "ერთი წუთით.",
+   "lat": "erti ts'utit.",
+   "en": "Just a moment.",
+   "alt": [
+    "one moment",
+    "one minute",
+    "just a minute"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ერთი წუთით, ახლავე მოვალ.",
+    "lat": "erti ts'utit, akhlave moval.",
+    "en": "Just a moment, I'm coming right away."
+   },
+   "situation": "work"
+  },
+  {
+   "id": "p-kargi-ideaa",
+   "ka": "კარგი იდეაა!",
+   "lat": "k'argi ideaa!",
+   "en": "That's a good idea!",
+   "alt": [
+    "good idea",
+    "that is a good idea"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ხვალ? კარგი იდეაა!",
+    "lat": "khval? k'argi ideaa!",
+    "en": "Tomorrow? That's a good idea!"
+   },
+   "situation": "work"
+  },
+  {
+   "id": "p-ra-amindia",
+   "ka": "რა ამინდია!",
+   "lat": "ra amindia!",
+   "en": "What weather!",
+   "alt": [
+    "what weather",
+    "what lovely weather"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "დღეს რა ამინდია!",
+    "lat": "dghes ra amindia!",
+    "en": "What weather today!"
+   },
+   "situation": "smalltalk"
+  },
+  {
+   "id": "p-dghes-tskhela",
+   "ka": "დღეს ცხელა.",
+   "lat": "dghes tskhela.",
+   "en": "It's hot today.",
+   "alt": [
+    "it is hot today"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "დღეს ცხელა, ზღვაზე წავიდეთ!",
+    "lat": "dghes tskhela, zghvaze ts'avidet!",
+    "en": "It's hot today, let's go to the sea!"
+   },
+   "situation": "smalltalk"
+  },
+  {
+   "id": "p-dghes-tsiva",
+   "ka": "დღეს ცივა.",
+   "lat": "dghes tsiva.",
+   "en": "It's cold today.",
+   "alt": [
+    "it is cold today"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "დღეს ცივა, ქუდი დაიხურე.",
+    "lat": "dghes tsiva, kudi daikhure.",
+    "en": "It's cold today, put on a hat."
+   },
+   "situation": "smalltalk"
+  },
+  {
+   "id": "p-sakartvelo-dzalian-momtsons",
+   "ka": "საქართველო ძალიან მომწონს.",
+   "lat": "sakartvelo dzalian momts'ons.",
+   "en": "I really like Georgia.",
+   "alt": [
+    "i like georgia a lot",
+    "i like georgia very much"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "საქართველო ძალიან მომწონს, ხალხი თბილია.",
+    "lat": "sakartvelo dzalian momts'ons, khalkhi tbilia.",
+    "en": "I really like Georgia, the people are warm."
+   },
+   "situation": "smalltalk"
+  },
+  {
+   "id": "p-tbilisi-lamazi-kalakia",
+   "ka": "თბილისი ლამაზი ქალაქია.",
+   "lat": "tbilisi lamazi kalakia.",
+   "en": "Tbilisi is a beautiful city.",
+   "alt": [
+    "tbilisi is a beautiful town",
+    "tbilisi is a pretty city"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "თბილისი ლამაზი ქალაქია, განსაკუთრებით საღამოს.",
+    "lat": "tbilisi lamazi kalakia, gansak'utrebit saghamos.",
+    "en": "Tbilisi is a beautiful city, especially in the evening."
+   },
+   "situation": "smalltalk"
+  },
+  {
+   "id": "p-ra-kargia",
+   "ka": "რა კარგია!",
+   "lat": "ra k'argia!",
+   "en": "How nice!",
+   "alt": [
+    "how good",
+    "that's great",
+    "great"
+   ],
+   "category": "phrases",
+   "example": {
+    "ka": "ხვალ მოდიხარ? რა კარგია!",
+    "lat": "khval modikhar? ra k'argia!",
+    "en": "You're coming tomorrow? How nice!"
+   },
+   "situation": "smalltalk"
+  },
+  {
+   "id": "w-is",
+   "ka": "ის",
+   "lat": "is",
+   "en": "he, she, it",
+   "alt": [
+    "he",
+    "she",
+    "it"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ის ჩემი მეგობარია.",
+    "lat": "is chemi megobaria.",
+    "en": "She is my friend."
+   },
+   "note": "Georgian has no he/she: ის is used for both, and for things."
+  },
+  {
+   "id": "w-chven",
+   "ka": "ჩვენ",
+   "lat": "chven",
+   "en": "we",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "ჩვენ სტუდენტები ვართ.",
+    "lat": "chven st'udent'ebi vart.",
+    "en": "We are students."
+   }
+  },
+  {
+   "id": "w-tkven",
+   "ka": "თქვენ",
+   "lat": "tkven",
+   "en": "you (plural or polite)",
+   "alt": [
+    "you"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "თქვენ საიდან ხართ?",
+    "lat": "tkven saidan khart?",
+    "en": "Where are you from?"
+   },
+   "note": "Use თქვენ for several people, and politely for one person."
+  },
+  {
+   "id": "w-isini",
+   "ka": "ისინი",
+   "lat": "isini",
+   "en": "they",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "ისინი თბილისში ცხოვრობენ.",
+    "lat": "isini tbilisshi tskhovroben.",
+    "en": "They live in Tbilisi."
+   }
+  },
+  {
+   "id": "w-khar",
+   "ka": "ხარ",
+   "lat": "khar",
+   "en": "you are",
+   "alt": [
+    "are"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "შენ ძალიან კარგი ხარ.",
+    "lat": "shen dzalian k'argi khar.",
+    "en": "You are very kind."
+   }
+  },
+  {
+   "id": "w-aris",
+   "ka": "არის",
+   "lat": "aris",
+   "en": "is",
+   "alt": [
+    "he is",
+    "she is",
+    "it is"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ნინო სახლში არის.",
+    "lat": "nino sakhlshi aris.",
+    "en": "Nino is at home."
+   },
+   "note": "Often shortened to -ა on the end of a word: სახლშია, \"is at home\"."
+  },
+  {
+   "id": "w-minda",
+   "ka": "მინდა",
+   "lat": "minda",
+   "en": "I want",
+   "alt": [
+    "i would like",
+    "i'd like"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ყავა მინდა.",
+    "lat": "q'ava minda.",
+    "en": "I want coffee."
+   }
+  },
+  {
+   "id": "w-miqvars",
+   "ka": "მიყვარს",
+   "lat": "miq'vars",
+   "en": "I love",
+   "alt": [
+    "i like"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "საქართველო მიყვარს.",
+    "lat": "sakartvelo miq'vars.",
+    "en": "I love Georgia."
+   }
+  },
+  {
+   "id": "w-makvs",
+   "ka": "მაქვს",
+   "lat": "makvs",
+   "en": "I have",
+   "alt": [
+    "i've got"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ერთი კითხვა მაქვს.",
+    "lat": "erti k'itkhva makvs.",
+    "en": "I have a question."
+   }
+  },
+  {
+   "id": "w-vitsi",
+   "ka": "ვიცი",
+   "lat": "vitsi",
+   "en": "I know",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "ეს არ ვიცი.",
+    "lat": "es ar vitsi.",
+    "en": "I don't know this."
+   }
+  },
+  {
+   "id": "w-vlaparakob",
+   "ka": "ვლაპარაკობ",
+   "lat": "vlap'arak'ob",
+   "en": "I speak",
+   "alt": [
+    "i talk"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ცოტა ქართულად ვლაპარაკობ.",
+    "lat": "tsot'a kartulad vlap'arak'ob.",
+    "en": "I speak a little Georgian."
+   }
+  },
+  {
+   "id": "w-vtskhovrob",
+   "ka": "ვცხოვრობ",
+   "lat": "vtskhovrob",
+   "en": "I live",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "თბილისში ვცხოვრობ.",
+    "lat": "tbilisshi vtskhovrob.",
+    "en": "I live in Tbilisi."
+   }
+  },
+  {
+   "id": "w-vcham",
+   "ka": "ვჭამ",
+   "lat": "vch'am",
+   "en": "I eat",
+   "alt": [
+    "i am eating"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ხინკალს ვჭამ.",
+    "lat": "khink'als vch'am.",
+    "en": "I'm eating khinkali."
+   }
+  },
+  {
+   "id": "w-vsvam",
+   "ka": "ვსვამ",
+   "lat": "vsvam",
+   "en": "I drink",
+   "alt": [
+    "i am drinking"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ჩაის ვსვამ.",
+    "lat": "chais vsvam.",
+    "en": "I'm drinking tea."
+   }
+  },
+  {
+   "id": "w-vtser",
+   "ka": "ვწერ",
+   "lat": "vts'er",
+   "en": "I write",
+   "alt": [
+    "i am writing"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "წერილს ვწერ.",
+    "lat": "ts'erils vts'er.",
+    "en": "I'm writing a letter."
+   }
+  },
+  {
+   "id": "w-ra",
+   "ka": "რა?",
+   "lat": "ra?",
+   "en": "what?",
+   "alt": [
+    "what"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ეს რა არის?",
+    "lat": "es ra aris?",
+    "en": "What is this?"
+   }
+  },
+  {
+   "id": "w-vin",
+   "ka": "ვინ?",
+   "lat": "vin?",
+   "en": "who?",
+   "alt": [
+    "who"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ის ვინ არის?",
+    "lat": "is vin aris?",
+    "en": "Who is he?"
+   }
+  },
+  {
+   "id": "w-rodis",
+   "ka": "როდის?",
+   "lat": "rodis?",
+   "en": "when?",
+   "alt": [
+    "when"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "როდის მოდიხარ?",
+    "lat": "rodis modikhar?",
+    "en": "When are you coming?"
+   }
+  },
+  {
+   "id": "w-ratom",
+   "ka": "რატომ?",
+   "lat": "rat'om?",
+   "en": "why?",
+   "alt": [
+    "why"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "რატომ არ მოდიხარ?",
+    "lat": "rat'om ar modikhar?",
+    "en": "Why aren't you coming?"
+   }
+  },
+  {
+   "id": "w-rogor",
+   "ka": "როგორ?",
+   "lat": "rogor?",
+   "en": "how?",
+   "alt": [
+    "how"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "როგორ ხარ?",
+    "lat": "rogor khar?",
+    "en": "How are you?"
+   }
+  },
+  {
+   "id": "w-ramdeni",
+   "ka": "რამდენი?",
+   "lat": "ramdeni?",
+   "en": "how many?",
+   "alt": [
+    "how many",
+    "how much"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "რამდენი შვილი გყავს?",
+    "lat": "ramdeni shvili gq'avs?",
+    "en": "How many children do you have?"
+   }
+  },
+  {
+   "id": "w-ar",
+   "ka": "არ",
+   "lat": "ar",
+   "en": "not",
+   "alt": [
+    "don't",
+    "do not"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "არ ვიცი.",
+    "lat": "ar vitsi.",
+    "en": "I don't know."
+   },
+   "note": "Goes right before the verb."
+  },
+  {
+   "id": "w-sheidzleba",
+   "ka": "შეიძლება?",
+   "lat": "sheidzleba?",
+   "en": "may I?",
+   "alt": [
+    "is it ok?",
+    "is it possible?",
+    "may i",
+    "can i?"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "აქ დაჯდომა შეიძლება?",
+    "lat": "ak dajdoma sheidzleba?",
+    "en": "May I sit here?"
+   },
+   "note": "თუ შეიძლება, \"if it's possible\", is how you say please."
+  },
+  {
+   "id": "w-mchirdeba",
+   "ka": "მჭირდება",
+   "lat": "mch'irdeba",
+   "en": "I need",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "დახმარება მჭირდება.",
+    "lat": "dakhmareba mch'irdeba.",
+    "en": "I need help."
+   }
+  },
+  {
+   "id": "w-momtsons",
+   "ka": "მომწონს",
+   "lat": "momts'ons",
+   "en": "I like",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "ეს ფილმი მომწონს.",
+    "lat": "es pilmi momts'ons.",
+    "en": "I like this film."
+   }
+  },
+  {
+   "id": "w-ver",
+   "ka": "ვერ",
+   "lat": "ver",
+   "en": "cannot",
+   "alt": [
+    "can't",
+    "can not"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ვერ გავიგე.",
+    "lat": "ver gavige.",
+    "en": "I didn't (couldn't) understand."
+   },
+   "note": "\"Not able to\": put it before the verb instead of არ."
+  }
+ ]
+}

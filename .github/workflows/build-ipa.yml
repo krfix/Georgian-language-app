@@ -3,8 +3,10 @@ name: Build unsigned IPA
 # Builds an IPA, kept lean because Mac minutes are paid for:
 # - a push to a work branch never builds: build it by hand when an IPA is wanted;
 # - a push to main builds only when a release is due (a MARKETING_VERSION in project.yml
-#   with its own section in CHANGELOG.md and no GitHub Release yet) and the push changes more than text (notes, changelog,
-#   docs); a commit message with [skip ci] doesn't build either;
+#   with its own section in CHANGELOG.md and no GitHub Release yet) and the push changes more
+#   than text (notes, changelog, docs); a commit message with [skip ci] doesn't build either;
+# - "qa" ticked: the app runs in the iPhone Simulator instead: UI tests, then screenshots of
+#   every main screen in light and dark (attached to the run as "screenshots");
 # - "Run workflow" on the Actions page builds any branch by hand.
 # The release build publishes a GitHub Release, tagged v<version>, with the IPA and that
 # version's notes from CHANGELOG.md.
@@ -24,6 +26,11 @@ on:
         description: Name shown in the run list (optional)
         required: false
         type: string
+      qa:
+        description: Run the UI tests and take screenshots in the Simulator instead of building the IPA
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -31,7 +38,7 @@ permissions:
 # A newer push cancels the run still waiting or working on the same branch,
 # so outdated builds don't hold a place in the Mac queue.
 concurrency:
-  group: build-${{ github.ref }}
+  group: build-${{ github.ref }}${{ inputs.qa && '-qa' || '' }}
   cancel-in-progress: true
 
 jobs:
@@ -64,7 +71,7 @@ jobs:
   # upload (so it can be looked at), but no release is published and the run ends red.
   build:
     needs: decide
-    if: needs.decide.outputs.build == 'true'
+    if: needs.decide.outputs.build == 'true' && !inputs.qa
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v5
@@ -87,7 +94,7 @@ jobs:
           # Output goes into annotations (readable without logging in).
           report() { echo "::$1 title=$2::$(sed -e 's/%/%25/g' "$3" | awk 'BEGIN{ORS="%0A"} {print}')"; }
           if ! xcrun swiftc -O -o app-tests \
-              Georgian/Models/Letter.swift Georgian/Services/Quiz.swift \
+              Georgian/Curriculum/*.swift Georgian/Engine/*.swift \
               tools/Tests/main.swift > compile.log 2>&1; then
             grep -E "error" compile.log | sort -u | head -40 > errors.log; report error "Test compile" errors.log; exit 1
           fi
@@ -177,4 +184,133 @@ jobs:
         if: steps.tests.outcome == 'failure'
         run: |
           echo "::error::Tests failed (see the annotations above). The IPA was still built; no release was published."
+          exit 1
+
+  # The app in the iPhone Simulator: the UI tests (onboarding, a whole lesson, the tabs, a
+  # restart that keeps progress), then pictures of every main screen in light and dark over
+  # an invented learner (LaunchOptions: -uiTesting -seedDemo -screen <name>).
+  qa:
+    if: inputs.qa
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Select Xcode 26
+        run: |
+          xcode=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | grep -vi beta | sort -V | tail -1)
+          if [ -z "$xcode" ]; then
+            echo "::error::No Xcode 26 on this runner: $(ls -d /Applications/Xcode*.app | tr '\n' ' ')"; exit 1
+          fi
+          sudo xcode-select -s "$xcode/Contents/Developer"
+          echo "::notice title=Xcode::$(xcodebuild -version | tr '\n' ' ')"
+
+      - name: Run tests
+        id: tests
+        continue-on-error: true
+        run: |
+          # Output goes into annotations (readable without logging in).
+          report() { echo "::$1 title=$2::$(sed -e 's/%/%25/g' "$3" | awk 'BEGIN{ORS="%0A"} {print}')"; }
+          if ! xcrun swiftc -O -o app-tests \
+              Georgian/Curriculum/*.swift Georgian/Engine/*.swift \
+              tools/Tests/main.swift > compile.log 2>&1; then
+            grep -E "error" compile.log | sort -u | head -40 > errors.log; report error "Test compile" errors.log; exit 1
+          fi
+          status=0
+          ./app-tests "$PWD" > results.log 2>&1 || status=$?
+          # Failures first: annotations are cut off after a few kB.
+          { grep FAIL results.log || true; tail -1 results.log; } > summary.log
+          if [ $status -eq 0 ]; then report notice "Tests" summary.log; else report error "Tests" summary.log; fi
+          exit $status
+
+      - name: Pick the iPhone
+        run: |
+          for name in "iPhone 17 Pro" "iPhone 16 Pro" "iPhone 17" "iPhone 16"; do
+            udid=$(xcrun simctl list devices available | grep -E "^ +$name \(" | head -1 | sed -E 's/.*\(([0-9A-F-]{36})\).*/\1/')
+            if [ -n "$udid" ]; then break; fi
+          done
+          if [ -z "$udid" ]; then
+            echo "::error::No iPhone simulator found"; xcrun simctl list devices available; exit 1
+          fi
+          echo "::notice title=Device::$name ($udid)"
+          echo "UDID=$udid" >> "$GITHUB_ENV"
+          xcrun simctl boot "$udid" || true
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Build for the Simulator
+        run: |
+          xcodegen generate
+          set -o pipefail
+          xcodebuild build-for-testing -project Georgian.xcodeproj -scheme Georgian -configuration Debug \
+            -sdk iphonesimulator -destination "id=$UDID" -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO | tee build.log | grep -E "error:|warning: .*Georgian/|BUILD (SUCCEEDED|FAILED)|TEST BUILD (SUCCEEDED|FAILED)" || true
+          if ! grep -qE "(TEST )?BUILD SUCCEEDED" build.log; then
+            grep -E "error:" build.log | sort -u | head -40 | while IFS= read -r l; do echo "::error::$l"; done
+            exit 1
+          fi
+          warnings=$(grep -E "warning: .*Georgian/" build.log | sort -u | wc -l | tr -d ' ')
+          echo "::notice title=Warnings::$warnings compiler warnings in the app's code"
+          grep -E "warning: .*Georgian/" build.log | sort -u | head -15 | while IFS= read -r l; do echo "::warning::$l"; done
+
+      - name: UI tests
+        id: uitests
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          xcodebuild test-without-building -project Georgian.xcodeproj -scheme Georgian \
+            -destination "id=$UDID" -derivedDataPath build -resultBundlePath ui.xcresult \
+            CODE_SIGNING_ALLOWED=NO | tee uitest.log | grep -E "Test Case|error:|TEST (SUCCEEDED|FAILED)|Executed" || true
+          grep -E "error:|failed" uitest.log | grep -v "^Test Suite" | sort -u | head -20 | while IFS= read -r l; do echo "::error title=UI test::$l"; done
+          grep -q "TEST EXECUTE SUCCEEDED\|TEST SUCCEEDED" uitest.log
+
+      - name: Take the pictures
+        run: |
+          app=build/Build/Products/Debug-iphonesimulator/Georgian.app
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl install "$UDID" "$app"
+          xcrun simctl status_bar "$UDID" override --time "9:41" --dataNetwork wifi --wifiMode active \
+            --wifiBars 3 --cellularMode active --cellularBars 4 --batteryState charged --batteryLevel 100
+          mkdir -p shots
+          for look in light dark; do
+            xcrun simctl ui "$UDID" appearance $look
+            n=1
+            for page in onboarding home learn alphabet lesson complete words word review progress profile; do
+              xcrun simctl terminate "$UDID" com.krfix.georgian 2>/dev/null || true
+              xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
+              if [ $n -eq 1 ]; then sleep 8; else sleep 5; fi
+              xcrun simctl io "$UDID" screenshot "shots/$look-$(printf %02d $n)-$page.png" > /dev/null 2>&1
+              n=$((n + 1))
+            done
+          done
+          echo "::notice title=Screenshots::$(ls shots | wc -l | tr -d ' ') pictures"
+
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: screenshots
+          path: shots
+          if-no-files-found: ignore
+
+      - name: Pack the test results
+        if: steps.uitests.outcome == 'failure'
+        run: zip -qry ui-results.zip ui.xcresult uitest.log || true
+
+      - uses: actions/upload-artifact@v7
+        if: steps.uitests.outcome == 'failure'
+        with:
+          name: ui-test-results
+          path: ui-results.zip
+
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: build-log
+          path: build.log
+
+      - name: Fail the run if a test failed
+        if: steps.uitests.outcome == 'failure' || steps.tests.outcome == 'failure'
+        run: |
+          echo "::error::Tests failed (see the annotations above, and ui-test-results for the UI tests)."
           exit 1

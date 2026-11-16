@@ -1,0 +1,404 @@
+{
+ "version": 1,
+ "letters": [
+  {
+   "char": "ა",
+   "name": "an",
+   "latin": "a",
+   "sound": "a as in father",
+   "word": "ანბანი",
+   "wordLatin": "anbani",
+   "meaning": "alphabet",
+   "tip": "Its name, ანი, gives the alphabet its name: ანბანი."
+  },
+  {
+   "char": "ბ",
+   "name": "ban",
+   "latin": "b",
+   "sound": "b as in bed",
+   "word": "ბავშვი",
+   "wordLatin": "bavshvi",
+   "meaning": "child",
+   "tip": ""
+  },
+  {
+   "char": "გ",
+   "name": "gan",
+   "latin": "g",
+   "sound": "g as in go",
+   "word": "გული",
+   "wordLatin": "guli",
+   "meaning": "heart",
+   "tip": ""
+  },
+  {
+   "char": "დ",
+   "name": "don",
+   "latin": "d",
+   "sound": "d as in dog",
+   "word": "დედა",
+   "wordLatin": "deda",
+   "meaning": "mother",
+   "tip": ""
+  },
+  {
+   "char": "ე",
+   "name": "en",
+   "latin": "e",
+   "sound": "e as in bed",
+   "word": "ეზო",
+   "wordLatin": "ezo",
+   "meaning": "yard",
+   "tip": ""
+  },
+  {
+   "char": "ვ",
+   "name": "vin",
+   "latin": "v",
+   "sound": "v as in van",
+   "word": "ვაშლი",
+   "wordLatin": "vashli",
+   "meaning": "apple",
+   "tip": ""
+  },
+  {
+   "char": "ზ",
+   "name": "zen",
+   "latin": "z",
+   "sound": "z as in zoo",
+   "word": "ზღვა",
+   "wordLatin": "zghva",
+   "meaning": "sea",
+   "tip": ""
+  },
+  {
+   "char": "თ",
+   "name": "tan",
+   "latin": "t",
+   "sound": "t with a puff of air, as in top",
+   "word": "თბილისი",
+   "wordLatin": "tbilisi",
+   "meaning": "Tbilisi",
+   "tip": "The English t: breathe out with it."
+  },
+  {
+   "char": "ი",
+   "name": "in",
+   "latin": "i",
+   "sound": "ee as in see, but short",
+   "word": "ია",
+   "wordLatin": "ia",
+   "meaning": "violet (flower)",
+   "tip": ""
+  },
+  {
+   "char": "კ",
+   "name": "k'an",
+   "latin": "k'",
+   "sound": "tight k, no puff of air",
+   "word": "კატა",
+   "wordLatin": "k'at'a",
+   "meaning": "cat",
+   "tip": "Hold your breath and say k: a short, popping sound."
+  },
+  {
+   "char": "ლ",
+   "name": "las",
+   "latin": "l",
+   "sound": "l as in look",
+   "word": "ლომი",
+   "wordLatin": "lomi",
+   "meaning": "lion",
+   "tip": ""
+  },
+  {
+   "char": "მ",
+   "name": "man",
+   "latin": "m",
+   "sound": "m as in man",
+   "word": "მამა",
+   "wordLatin": "mama",
+   "meaning": "father",
+   "tip": "Careful: მამა is father, დედა is mother."
+  },
+  {
+   "char": "ნ",
+   "name": "nar",
+   "latin": "n",
+   "sound": "n as in no",
+   "word": "ნავი",
+   "wordLatin": "navi",
+   "meaning": "boat",
+   "tip": ""
+  },
+  {
+   "char": "ო",
+   "name": "on",
+   "latin": "o",
+   "sound": "o as in more, but short",
+   "word": "ოთახი",
+   "wordLatin": "otakhi",
+   "meaning": "room",
+   "tip": ""
+  },
+  {
+   "char": "პ",
+   "name": "p'ar",
+   "latin": "p'",
+   "sound": "tight p, no puff of air",
+   "word": "პური",
+   "wordLatin": "p'uri",
+   "meaning": "bread",
+   "tip": "Like p in spin: no air comes out."
+  },
+  {
+   "char": "ჟ",
+   "name": "zhan",
+   "latin": "zh",
+   "sound": "s as in measure",
+   "word": "ჟურნალი",
+   "wordLatin": "zhurnali",
+   "meaning": "magazine",
+   "tip": ""
+  },
+  {
+   "char": "რ",
+   "name": "rae",
+   "latin": "r",
+   "sound": "rolled r",
+   "word": "რძე",
+   "wordLatin": "rdze",
+   "meaning": "milk",
+   "tip": "A short tap of the tongue, as in Spanish or Italian."
+  },
+  {
+   "char": "ს",
+   "name": "san",
+   "latin": "s",
+   "sound": "s as in sun",
+   "word": "სახლი",
+   "wordLatin": "sakhli",
+   "meaning": "house",
+   "tip": ""
+  },
+  {
+   "char": "ტ",
+   "name": "t'ar",
+   "latin": "t'",
+   "sound": "tight t, no puff of air",
+   "word": "ტყე",
+   "wordLatin": "t'q'e",
+   "meaning": "forest",
+   "tip": "Like t in stop: no air comes out."
+  },
+  {
+   "char": "უ",
+   "name": "un",
+   "latin": "u",
+   "sound": "oo as in moon, but short",
+   "word": "უბანი",
+   "wordLatin": "ubani",
+   "meaning": "neighbourhood",
+   "tip": ""
+  },
+  {
+   "char": "ფ",
+   "name": "par",
+   "latin": "p",
+   "sound": "p with a puff of air, as in pen",
+   "word": "ფული",
+   "wordLatin": "puli",
+   "meaning": "money",
+   "tip": "Not an f: an English p with breath."
+  },
+  {
+   "char": "ქ",
+   "name": "kan",
+   "latin": "k",
+   "sound": "k with a puff of air, as in kite",
+   "word": "ქალაქი",
+   "wordLatin": "kalaki",
+   "meaning": "city",
+   "tip": ""
+  },
+  {
+   "char": "ღ",
+   "name": "ghan",
+   "latin": "gh",
+   "sound": "a soft gargle, like the French r",
+   "word": "ღვინო",
+   "wordLatin": "ghvino",
+   "meaning": "wine",
+   "tip": ""
+  },
+  {
+   "char": "ყ",
+   "name": "q'ar",
+   "latin": "q'",
+   "sound": "tight k from deep in the throat",
+   "word": "ყველი",
+   "wordLatin": "q'veli",
+   "meaning": "cheese",
+   "tip": "Further back than კ, with a little click."
+  },
+  {
+   "char": "შ",
+   "name": "shin",
+   "latin": "sh",
+   "sound": "sh as in ship",
+   "word": "შაქარი",
+   "wordLatin": "shakari",
+   "meaning": "sugar",
+   "tip": ""
+  },
+  {
+   "char": "ჩ",
+   "name": "chin",
+   "latin": "ch",
+   "sound": "ch with a puff of air, as in chin",
+   "word": "ჩაი",
+   "wordLatin": "chai",
+   "meaning": "tea",
+   "tip": ""
+  },
+  {
+   "char": "ც",
+   "name": "tsan",
+   "latin": "ts",
+   "sound": "ts with a puff of air, as in cats",
+   "word": "ცა",
+   "wordLatin": "tsa",
+   "meaning": "sky",
+   "tip": ""
+  },
+  {
+   "char": "ძ",
+   "name": "dzil",
+   "latin": "dz",
+   "sound": "dz as in adze",
+   "word": "ძაღლი",
+   "wordLatin": "dzaghli",
+   "meaning": "dog",
+   "tip": ""
+  },
+  {
+   "char": "წ",
+   "name": "ts'il",
+   "latin": "ts'",
+   "sound": "tight ts, no puff of air",
+   "word": "წყალი",
+   "wordLatin": "ts'q'ali",
+   "meaning": "water",
+   "tip": ""
+  },
+  {
+   "char": "ჭ",
+   "name": "ch'ar",
+   "latin": "ch'",
+   "sound": "tight ch, no puff of air",
+   "word": "ჭიქა",
+   "wordLatin": "ch'ika",
+   "meaning": "glass (to drink from)",
+   "tip": ""
+  },
+  {
+   "char": "ხ",
+   "name": "khan",
+   "latin": "kh",
+   "sound": "ch as in Scottish loch",
+   "word": "ხე",
+   "wordLatin": "khe",
+   "meaning": "tree",
+   "tip": ""
+  },
+  {
+   "char": "ჯ",
+   "name": "jan",
+   "latin": "j",
+   "sound": "j as in jam",
+   "word": "ჯიბე",
+   "wordLatin": "jibe",
+   "meaning": "pocket",
+   "tip": ""
+  },
+  {
+   "char": "ჰ",
+   "name": "hae",
+   "latin": "h",
+   "sound": "h as in hat",
+   "word": "ჰაერი",
+   "wordLatin": "haeri",
+   "meaning": "air",
+   "tip": ""
+  }
+ ],
+ "lookalikes": [
+  [
+   "კ",
+   "ქ",
+   "ყ"
+  ],
+  [
+   "პ",
+   "ფ"
+  ],
+  [
+   "ტ",
+   "თ"
+  ],
+  [
+   "ც",
+   "წ",
+   "ძ"
+  ],
+  [
+   "ჩ",
+   "ჭ",
+   "ჯ"
+  ],
+  [
+   "ღ",
+   "ხ"
+  ],
+  [
+   "ზ",
+   "ჟ"
+  ],
+  [
+   "შ",
+   "ჩ"
+  ],
+  [
+   "ა",
+   "ჰ"
+  ],
+  [
+   "ბ",
+   "ზ"
+  ],
+  [
+   "დ",
+   "ღ"
+  ],
+  [
+   "მ",
+   "შ"
+  ],
+  [
+   "ი",
+   "ო"
+  ],
+  [
+   "ს",
+   "ხ"
+  ],
+  [
+   "გ",
+   "ვ"
+  ],
+  [
+   "ე",
+   "ქ"
+  ]
+ ]
+}

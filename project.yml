@@ -17,15 +17,16 @@ targets:
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         UILaunchScreen:
           UIColorName: LaunchBackground
-        UIUserInterfaceStyle: Dark
+          UIImageName: LaunchMark
         ITSAppUsesNonExemptEncryption: false
+        LSApplicationCategoryType: public.app-category.education
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.krfix.georgian
         PRODUCT_NAME: Georgian
-        MARKETING_VERSION: "0.1.0"
+        MARKETING_VERSION: "0.2.0"
         CURRENT_PROJECT_VERSION: "1"   # set to the GitHub run number by the build
         TARGETED_DEVICE_FAMILY: "1"   # iPhone only
         SWIFT_VERSION: "5.0"
@@ -34,4 +35,26 @@ targets:
         CODE_SIGNING_ALLOWED: NO
         CODE_SIGNING_REQUIRED: NO
         CODE_SIGN_IDENTITY: ""
-    scheme: {}
+  GeorgianUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - GeorgianUITests
+    dependencies:
+      - target: Georgian
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.krfix.georgian.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: Georgian
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
+schemes:
+  Georgian:
+    build:
+      targets:
+        Georgian: all
+        GeorgianUITests: [test]
+    test:
+      targets:
+        - GeorgianUITests
