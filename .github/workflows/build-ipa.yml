@@ -274,8 +274,18 @@ jobs:
       - name: Take the pictures
         run: |
           app=build/Build/Products/Debug-iphonesimulator/Georgian.app
-          xcrun simctl bootstatus "$UDID" -b
-          xcrun simctl install "$UDID" "$app"
+          # macOS has no `timeout`: perl's alarm stops a command that hangs.
+          limit() { secs=$1; shift; perl -e 'alarm shift; exec @ARGV' "$secs" "$@"; }
+          # A simulator that hangs while booting is restarted once.
+          if ! limit 240 xcrun simctl bootstatus "$UDID" -b > /dev/null; then
+            echo "::warning::The simulator didn't finish booting; restarting it"
+            xcrun simctl shutdown "$UDID" || true
+            xcrun simctl boot "$UDID" || true
+            limit 300 xcrun simctl bootstatus "$UDID" -b > /dev/null
+          fi
+          limit 120 xcrun simctl install "$UDID" "$app"
+          # From here a single failed launch or picture is skipped, not fatal.
+          set +e
           xcrun simctl status_bar "$UDID" override --time "9:41" --dataNetwork wifi --wifiMode active \
             --wifiBars 3 --cellularMode active --cellularBars 4 --batteryState charged --batteryLevel 100
           mkdir -p shots
@@ -288,16 +298,16 @@ jobs:
                 exercise:v7:multipleChoice exercise:v7:matching exercise:v7:fillBlank exercise:v7:spelling \
                 exercise:v7:translation exercise:v7:sentenceBuilder exercise:g2:note exercise:g1:flashcard \
                 exercise:c1:dialogue; do
-              xcrun simctl terminate "$UDID" com.krfix.georgian 2>/dev/null || true
+              limit 30 xcrun simctl terminate "$UDID" com.krfix.georgian 2>/dev/null || true
               if [ "${page%%:*}" = exercise ]; then
                 rest=${page#exercise:}; lesson=${rest%%:*}; kind=${rest#*:}
-                xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen exercise -lesson "$lesson" -kind "$kind" > /dev/null
+                limit 60 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen exercise -lesson "$lesson" -kind "$kind" > /dev/null
                 page="ex-$lesson-$kind"
               else
-                xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
+                limit 60 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
               fi
               if [ $n -eq 1 ]; then sleep 9; else sleep 6; fi
-              xcrun simctl io "$UDID" screenshot "shots/$look-$(printf %02d $n)-$page.png" > /dev/null 2>&1
+              limit 60 xcrun simctl io "$UDID" screenshot "shots/$look-$(printf %02d $n)-$page.png" > /dev/null 2>&1
               n=$((n + 1))
             done
           done
@@ -305,16 +315,16 @@ jobs:
           xcrun simctl ui "$UDID" appearance light
           xcrun simctl ui "$UDID" content_size extra-extra-extra-large
           for page in home learn exercise:v7:multipleChoice complete; do
-            xcrun simctl terminate "$UDID" com.krfix.georgian 2>/dev/null || true
+            limit 30 xcrun simctl terminate "$UDID" com.krfix.georgian 2>/dev/null || true
             if [ "${page%%:*}" = exercise ]; then
               rest=${page#exercise:}; lesson=${rest%%:*}; kind=${rest#*:}
-              xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen exercise -lesson "$lesson" -kind "$kind" > /dev/null
+              limit 60 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen exercise -lesson "$lesson" -kind "$kind" > /dev/null
               page="ex-$lesson-$kind"
             else
-              xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
+              limit 60 xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
             fi
             sleep 6
-            xcrun simctl io "$UDID" screenshot "shots/bigtext-$page.png" > /dev/null 2>&1
+            limit 60 xcrun simctl io "$UDID" screenshot "shots/bigtext-$page.png" > /dev/null 2>&1
           done
           xcrun simctl ui "$UDID" content_size large
           echo "::notice title=Screenshots::$(ls shots | wc -l | tr -d ' ') pictures"
