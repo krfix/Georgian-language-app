@@ -37,9 +37,11 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 1. Work on a branch (the session's own branch), never straight on `main`. Tell the owner the
    branch name when starting work and again at the end, with the build number to install.
 2. Push (a push to a branch never builds). When the owner asks for an IPA, start the build
-   by hand (`actions_run_trigger`, workflow `build-ipa.yml`, the branch as ref, input `title` =
-   the latest commit's subject); without that tool, tell the owner to start it: Actions ›
-   Build unsigned IPA › Run workflow › the branch. Tests, then the IPA attached to the run.
+   by hand: `gh workflow run build-ipa.yml --repo krfix/Georgian-language-app --ref <branch>
+   -f title="<latest commit's subject>"` (the `gh` CLI works in cloud sessions; or
+   `actions_run_trigger` where the GitHub tools exist). Watch it with `gh run view <id>`.
+   Tests, then the IPA attached to the run (about 2 minutes; build #1 took 1½). The workflow
+   must also be on `main` for this to work, so keep it there.
 3. The owner installs that IPA and tests on the iPhone.
 4. "Merge": put the branch into `main` (a fast-forward when `main` hasn't moved; no pull request
    unless asked). "Go back": undo the change on the branch, or revert it on `main` if merged.
@@ -94,7 +96,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 
 ## Open
 - 0.1.0, not released yet (KART #1): the repo set-up, Alphabet (grid, letter pages) and the
-  letter quiz.
+  letter quiz. Build #1 (16/11/26) passed, 92 checks; waiting for the owner's test on the phone.
 - Ideas, in a likely order: sounds (iOS has no Georgian voice, so audio means recorded clips);
   reading whole words; the tight/puff pairs as their own drill; first phrases (hello, thank
   you, numbers 1–20, counted in twenties); a proper icon and name.
