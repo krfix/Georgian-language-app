@@ -99,6 +99,10 @@ Home was mostly gamification (streak, XP, level tiles, goal, path, challenge).
   by any element type, so the likely cause is the test itself: it tapped the tab bar while
   the phrase card was still closing. → The test now waits for the card to go and checks the
   Phrasebook tab opened first.
+- **Run 15** (QA 4): 142/142, 0 warnings, 75 pictures, UI tests 4 of 5. The new checks found
+  the cause: the card had closed, but the search keyboard was still up and covered the tab
+  bar. A real snag too (back from a phrase, the keyboard hid half the results). → Opening a
+  search result now puts the keyboard away.
 
 ### The brief's scenarios, checked
 | Scenario | How it was checked | Result |

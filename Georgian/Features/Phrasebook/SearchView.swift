@@ -171,7 +171,12 @@ struct SearchView: View {
                 .font(.captionBold).textCase(.uppercase).foregroundStyle(Palette.inkSoft)
             ForEach(r.phrases) { p in
                 PhraseRow(phrase: p, showsCategory: true)
-                    .simultaneousGesture(TapGesture().onEnded { remember(query) })
+                    .simultaneousGesture(TapGesture().onEnded {
+                        // Opening a result puts the keyboard away: back from the card, the
+                        // results (and the tab bar) are in view.
+                        remember(query)
+                        focused = false
+                    })
             }
         }
         if !r.dialogues.isEmpty {
@@ -192,6 +197,7 @@ struct SearchView: View {
                 Button {
                     Haptics.tap()
                     remember(query)
+                    focused = false
                     openWord = w
                 } label: { WordRow(word: w, status: store.status(of: w.id)) }
                 .buttonStyle(.pressable)
