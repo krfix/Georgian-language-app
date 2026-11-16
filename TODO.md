@@ -4,9 +4,11 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 
 ## Needs the owner
 - [ ] Test the app on the iPhone (Feather install) and say what to change.
-- [ ] Audio, the owner is deciding (KART #1): Azure's Georgian neural voices (Eka, Giorgi;
-      the owner is trying them in Speech Studio) as clips generated once and labelled
-      synthetic, and/or native recordings. Native audio: recordings by a native speaker, one `.m4a` per word or letter, named
+- [ ] Audio (KART #1): the owner chose Azure's **Eka** voice to start. Waiting for the
+      owner's Azure Speech resource (free F0) key, to be given through request_credential,
+      never in chat. Plan: generate every clip once (letters, words, examples, dialogue
+      lines), bundle them, label them "Synthetic voice"; native recordings can replace
+      them file by file later. Native audio: recordings by a native speaker, one `.m4a` per word or letter, named
       by its id (for example `w-gamarjoba.m4a`, `letter-ა.m4a`), in `Georgian/Audio/` added
       to the app's resources. No code change is needed. Until then audio plays only on an
       iPhone that has a Georgian system voice.
@@ -17,8 +19,6 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 - [ ] App Store: an Apple Developer account, signed builds, privacy policy and support URLs.
 
 ## Next
-- [ ] Long Georgian answers wrap mid-word in the 2×2 grid (ხაჭაპური): use the list layout
-      or one line that scales down. Large text: Home stat labels wrap.
 - [ ] The owner's list of small corrections from testing build #7.
 - [ ] Listening exercises are built only when audio exists, so they can't be tried yet on
       phones without a Georgian voice.

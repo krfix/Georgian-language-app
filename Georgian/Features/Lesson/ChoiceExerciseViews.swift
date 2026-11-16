@@ -68,7 +68,12 @@ struct ChoiceExerciseView: View {
         return n <= 2 ? 96 : n <= 8 ? 48 : n <= 16 ? 34 : 26
     }
 
-    private var useGrid: Bool { choice.options.allSatisfy { $0.text.count <= 10 } && choice.options.count == 4 }
+    /// Four short answers go in a 2×2 grid; Georgian needs a narrower limit (its letters are
+    /// wider and are drawn bigger), so a long word gets a full-width row instead of wrapping.
+    private var useGrid: Bool {
+        let limit = choice.optionsAreGeorgian ? 6 : 10
+        return choice.options.count == 4 && choice.options.allSatisfy { $0.text.count <= limit }
+    }
 
     @ViewBuilder private var options: some View {
         if useGrid {
@@ -137,7 +142,9 @@ struct OptionTile: View {
         Button(action: action) {
             VStack(spacing: 2) {
                 if georgian {
+                    // One line that shrinks to fit: a word never breaks in the middle.
                     GeorgianText(option.text, size: large ? 34 : 24, weight: .semibold)
+                        .lineLimit(large ? 1 : 3)
                 } else {
                     Text(option.text)
                         .font(large ? .system(.title2, design: .rounded, weight: .bold) : .headlineRounded)

@@ -62,3 +62,6 @@ fixed. Newest first.
   who found it "really good" with small things to correct (to come).
   Found for the next cycle: a long Georgian option wraps mid-word in the 2×2 grid
   (ხაჭაპური → "ხაჭაპურ / ი"); at the largest text size the Home tiles wrap "day streak".
+- **Fixes after cycle 2** (owner confirmed both): Georgian answers use the 2×2 grid only up
+  to 6 letters and stay on one line that shrinks; Home's stat labels stay on one line at
+  large text sizes. Not built yet (owner: build when asked).

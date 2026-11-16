@@ -76,6 +76,8 @@ struct StatTile: View {
     let value: String
     let label: String
     var color: Color = Palette.pomegranate
+    /// Keep the label on one line, shrinking it at large text sizes (tiles side by side).
+    var singleLine = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -93,7 +95,8 @@ struct StatTile: View {
             Text(label)
                 .font(.calloutRounded)
                 .foregroundStyle(Palette.inkSoft)
-                .lineLimit(2)
+                .lineLimit(singleLine ? 1 : 2)
+                .minimumScaleFactor(singleLine ? 0.6 : 1)
         }
         .card(padding: 14, cornerRadius: 20)
         .accessibilityElement(children: .combine)

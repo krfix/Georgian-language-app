@@ -81,9 +81,9 @@ struct HomeView: View {
     private var statsRow: some View {
         let xp = store.totalXP
         return HStack(spacing: 12) {
-            StatTile(symbol: "flame.fill", value: "\(store.streak)", label: "day streak", color: Palette.flame)
-            StatTile(symbol: "bolt.fill", value: "\(xp)", label: "total XP", color: Palette.gold)
-            StatTile(symbol: "star.fill", value: "\(LearnerLevel.level(forXP: xp))", label: "level", color: Palette.saperavi)
+            StatTile(symbol: "flame.fill", value: "\(store.streak)", label: "day streak", color: Palette.flame, singleLine: true)
+            StatTile(symbol: "bolt.fill", value: "\(xp)", label: "total XP", color: Palette.gold, singleLine: true)
+            StatTile(symbol: "star.fill", value: "\(LearnerLevel.level(forXP: xp))", label: "level", color: Palette.saperavi, singleLine: true)
         }
     }
 }
