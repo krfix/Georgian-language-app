@@ -56,3 +56,9 @@ fixed. Newest first.
   4. Lesson subtitles were a lowercase English list. → Georgian words ("მადლობა · გმადლობთ").
   5. No screenshots of exercises in progress. → `-screen exercise -lesson -kind` and 13 more
      shots per appearance; the path also got a dotted trail between stones.
+- **Cycle 2** (#8, screenshots only, after #6 hung on a simulator boot and got time limits):
+  the borjgali now swirls; exercises have a kind badge, tinted question cards and answers
+  near the thumb; dark mode reads well. Build #7 (IPA with all of this) given to the owner,
+  who found it "really good" with small things to correct (to come).
+  Found for the next cycle: a long Georgian option wraps mid-word in the 2×2 grid
+  (ხაჭაპური → "ხაჭაპურ / ი"); at the largest text size the Home tiles wrap "day streak".
