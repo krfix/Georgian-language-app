@@ -221,7 +221,7 @@ for m in C.MODULES:
                 if w and w["category"] != L["category"]:
                     fail(f"{where}: {k} is in {w['category']}, lesson is {L['category']}")
             out["category"] = L["category"]
-            out["subtitle"] = ", ".join(by_ka[k]["en"] for k in L["words"][:3] if k in by_ka)
+            out["subtitle"] = " · ".join(k.rstrip("?") for k in L["words"][:3])
         if L["kind"] == "phrases":
             ids = [w["id"] for w in words if w.get("situation") == L["situation"]]
             if len(ids) < 4:
@@ -229,7 +229,7 @@ for m in C.MODULES:
             used_words.update(ids)
             out["words"] = ids
             out["situation"] = L["situation"]
-            out["subtitle"] = next(w["en"] for w in words if w["id"] == ids[0])
+            out["subtitle"] = next(w["ka"] for w in words if w["id"] == ids[0])
         if L["kind"] == "grammar":
             out["words"] = [r for r in (ref(k, where) for k in L["words"]) if r]
             out["notes"] = [{"title": t, "text": x, "table": table(rows, where)} for (t, x, rows) in L["notes"]]

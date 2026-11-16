@@ -92,7 +92,7 @@ struct VocabularyView: View {
         } label: {
             Label(title, systemImage: symbol)
                 .font(.calloutRounded.weight(.semibold))
-                .foregroundStyle(selected ? .white : color)
+                .foregroundStyle(selected ? (id == nil ? Palette.background : .white) : color)
                 .padding(.horizontal, 14)
                 .padding(.vertical, 9)
                 .background(Capsule().fill(selected ? AnyShapeStyle(color) : AnyShapeStyle(color.opacity(0.12))))

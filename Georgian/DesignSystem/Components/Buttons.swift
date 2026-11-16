@@ -16,7 +16,7 @@ struct ChunkyButtonStyle: ButtonStyle {
             .padding(.horizontal, 16)
             .background(
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(isEnabled ? AnyShapeStyle(color.color) : AnyShapeStyle(Palette.line))
+                    .fill(isEnabled ? AnyShapeStyle(color.fill) : AnyShapeStyle(Palette.line))
             )
             .background(
                 RoundedRectangle(cornerRadius: 16, style: .continuous)

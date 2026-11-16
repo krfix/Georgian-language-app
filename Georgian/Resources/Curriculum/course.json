@@ -468,7 +468,7 @@
       "w-kargad"
      ],
      "category": "greetings",
-     "subtitle": "hello, hello (in reply), good morning"
+     "subtitle": "გამარჯობა · გაგიმარჯოს · დილა მშვიდობისა"
     },
     {
      "id": "v2",
@@ -484,7 +484,7 @@
       "w-ara"
      ],
      "category": "greetings",
-     "subtitle": "thank you, thank you (polite), you're welcome"
+     "subtitle": "მადლობა · გმადლობთ · არაფრის"
     },
     {
      "id": "v3",
@@ -500,7 +500,7 @@
       "w-var"
      ],
      "category": "introductions",
-     "subtitle": "I, you, name"
+     "subtitle": "მე · შენ · სახელი"
     },
     {
      "id": "v4",
@@ -515,7 +515,7 @@
       "w-tsota"
      ],
      "category": "introductions",
-     "subtitle": "where are you from?, Georgian (person), Georgian (language)"
+     "subtitle": "საიდან ხარ · ქართველი · ქართული"
     },
     {
      "id": "v5",
@@ -535,7 +535,7 @@
       "w-ati"
      ],
      "category": "numbers",
-     "subtitle": "zero, one, two"
+     "subtitle": "ნული · ერთი · ორი"
     },
     {
      "id": "v6",
@@ -550,7 +550,7 @@
       "w-asi"
      ],
      "category": "numbers",
-     "subtitle": "eleven, twelve, twenty"
+     "subtitle": "თერთმეტი · თორმეტი · ოცი"
     },
     {
      "id": "v7",
@@ -567,7 +567,7 @@
       "w-ludi"
      ],
      "category": "food",
-     "subtitle": "bread, cheese, water"
+     "subtitle": "პური · ყველი · წყალი"
     },
     {
      "id": "v8",
@@ -584,7 +584,7 @@
       "w-bostneuli"
      ],
      "category": "food",
-     "subtitle": "meat, khachapuri, khinkali"
+     "subtitle": "ხორცი · ხაჭაპური · ხინკალი"
     },
     {
      "id": "v9",
@@ -599,7 +599,7 @@
       "w-gachereba"
      ],
      "category": "transport",
-     "subtitle": "car, bus, metro"
+     "subtitle": "მანქანა · ავტობუსი · მეტრო"
     },
     {
      "id": "v10",
@@ -613,7 +613,7 @@
       "w-bileti"
      ],
      "category": "transport",
-     "subtitle": "train, aeroplane, airport"
+     "subtitle": "მატარებელი · თვითმფრინავი · აეროპორტი"
     },
     {
      "id": "v11",
@@ -628,7 +628,7 @@
       "w-sad"
      ],
      "category": "directions",
-     "subtitle": "to the right, to the left, straight ahead"
+     "subtitle": "მარჯვნივ · მარცხნივ · პირდაპირ"
     },
     {
      "id": "v12",
@@ -643,7 +643,7 @@
       "w-gverdit"
      ],
      "category": "directions",
-     "subtitle": "near, far, street"
+     "subtitle": "ახლოს · შორს · ქუჩა"
     },
     {
      "id": "v13",
@@ -658,7 +658,7 @@
       "w-ra-ghirs"
      ],
      "category": "shopping",
-     "subtitle": "shop, market, open"
+     "subtitle": "მაღაზია · ბაზარი · ღია"
     },
     {
      "id": "v14",
@@ -674,7 +674,7 @@
       "w-naghdi-puli"
      ],
      "category": "shopping",
-     "subtitle": "money, price, expensive"
+     "subtitle": "ფული · ფასი · ძვირი"
     },
     {
      "id": "v15",
@@ -689,7 +689,7 @@
       "w-megobari"
      ],
      "category": "family",
-     "subtitle": "family, mother, father"
+     "subtitle": "ოჯახი · დედა · მამა"
     },
     {
      "id": "v16",
@@ -704,7 +704,7 @@
       "w-kmari"
      ],
      "category": "family",
-     "subtitle": "brother, sister, grandmother"
+     "subtitle": "ძმა · და · ბებია"
     },
     {
      "id": "v17",
@@ -719,7 +719,7 @@
       "w-skami"
      ],
      "category": "objects",
-     "subtitle": "house, room, door"
+     "subtitle": "სახლი · ოთახი · კარი"
     },
     {
      "id": "v18",
@@ -734,7 +734,7 @@
       "w-kalami"
      ],
      "category": "objects",
-     "subtitle": "book, phone, key"
+     "subtitle": "წიგნი · ტელეფონი · გასაღები"
     },
     {
      "id": "v19",
@@ -750,7 +750,7 @@
       "w-saati"
      ],
      "category": "time",
-     "subtitle": "today, tomorrow, yesterday"
+     "subtitle": "დღეს · ხვალ · გუშინ"
     },
     {
      "id": "v20",
@@ -766,7 +766,7 @@
       "w-shabati"
      ],
      "category": "time",
-     "subtitle": "day, week; Sunday, month"
+     "subtitle": "დღე · კვირა · თვე"
     }
    ]
   },
@@ -791,7 +791,7 @@
       "p-gaumarjos"
      ],
      "situation": "food",
-     "subtitle": "The menu, please."
+     "subtitle": "მენიუ, თუ შეიძლება."
     },
     {
      "id": "e2",
@@ -806,7 +806,7 @@
       "p-sul-es-aris"
      ],
      "situation": "groceries",
-     "subtitle": "How much is this?"
+     "subtitle": "რა ღირს ეს?"
     },
     {
      "id": "e3",
@@ -821,7 +821,7 @@
       "p-ramdeni-khani"
      ],
      "situation": "taxi",
-     "subtitle": "To the airport, please."
+     "subtitle": "აეროპორტში, თუ შეიძლება."
     },
     {
      "id": "e4",
@@ -836,7 +836,7 @@
       "p-gaimeoret-tu-sheidzleba"
      ],
      "situation": "directions",
-     "subtitle": "Where is the metro?"
+     "subtitle": "სად არის მეტრო?"
     },
     {
      "id": "e5",
@@ -851,7 +851,7 @@
       "p-dzalian-sasiamovnoa"
      ],
      "situation": "neighbours",
-     "subtitle": "How are you? (polite)"
+     "subtitle": "როგორ ხართ?"
     },
     {
      "id": "e6",
@@ -866,7 +866,7 @@
       "p-aptiaki-sad-aris"
      ],
      "situation": "doctor",
-     "subtitle": "I feel unwell."
+     "subtitle": "ცუდად ვარ."
     },
     {
      "id": "e7",
@@ -881,7 +881,7 @@
       "p-kargi-ideaa"
      ],
      "situation": "work",
-     "subtitle": "Where do you work?"
+     "subtitle": "სად მუშაობ?"
     },
     {
      "id": "e8",
@@ -896,7 +896,7 @@
       "p-ra-kargia"
      ],
      "situation": "smalltalk",
-     "subtitle": "What weather!"
+     "subtitle": "რა ამინდია!"
     }
    ]
   },

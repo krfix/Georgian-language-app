@@ -143,6 +143,8 @@ struct MainTabView: View {
         case "lesson", "complete":
             if let l = store.curriculum.lesson("v4") { navigator.session = SessionRequest(mode: .lesson(l)) }
         case "alphabet": navigator.tab = .learn
+        case "exercise":
+            if let l = store.curriculum.lesson(LaunchOptions.current.lessonID ?? "v4") { navigator.session = SessionRequest(mode: .lesson(l)) }
         default: break
         }
     }

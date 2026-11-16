@@ -31,6 +31,11 @@ on:
         required: false
         type: boolean
         default: false
+      uitests:
+        description: With qa, also run the UI tests (about 9 minutes); off takes only the screenshots
+        required: false
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -256,6 +261,7 @@ jobs:
 
       - name: UI tests
         id: uitests
+        if: inputs.uitests
         continue-on-error: true
         run: |
           set -o pipefail
@@ -276,9 +282,20 @@ jobs:
           for look in light dark; do
             xcrun simctl ui "$UDID" appearance $look
             n=1
-            for page in onboarding home learn alphabet lesson complete words word review progress profile; do
+            # A page name, or exercise:<lesson>:<kind> for one exercise in a lesson.
+            for page in onboarding home learn alphabet lesson complete words word review progress profile \
+                exercise:a1:teachLetter exercise:a1:letterRecognition exercise:a3:missingLetter exercise:a3:reading \
+                exercise:v7:multipleChoice exercise:v7:matching exercise:v7:fillBlank exercise:v7:spelling \
+                exercise:v7:translation exercise:v7:sentenceBuilder exercise:g2:note exercise:g1:flashcard \
+                exercise:c1:dialogue; do
               xcrun simctl terminate "$UDID" com.krfix.georgian 2>/dev/null || true
-              xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
+              if [ "${page%%:*}" = exercise ]; then
+                rest=${page#exercise:}; lesson=${rest%%:*}; kind=${rest#*:}
+                xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen exercise -lesson "$lesson" -kind "$kind" > /dev/null
+                page="ex-$lesson-$kind"
+              else
+                xcrun simctl launch "$UDID" com.krfix.georgian -uiTesting -seedDemo -screen "$page" > /dev/null
+              fi
               if [ $n -eq 1 ]; then sleep 8; else sleep 5; fi
               xcrun simctl io "$UDID" screenshot "shots/$look-$(printf %02d $n)-$page.png" > /dev/null 2>&1
               n=$((n + 1))

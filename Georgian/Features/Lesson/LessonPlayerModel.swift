@@ -85,6 +85,12 @@ final class LessonPlayerModel {
         phase = .finished(reward)
     }
 
+    /// Jumps to the first exercise of a kind, without answering (screenshots only).
+    func skip(toKind kind: String) {
+        while let ex = session.current, ex.kind.rawValue != kind { session.advance() }
+        if session.isFinished { session = LessonSession(exercises: []) }
+    }
+
     /// A reward to show straight away (the screenshot of the completion screen).
     func showSampleReward() {
         phase = .finished(LessonReward(xp: 27, accuracy: 0.92, isPerfect: false, streak: store.streak, xpToday: store.xpToday,

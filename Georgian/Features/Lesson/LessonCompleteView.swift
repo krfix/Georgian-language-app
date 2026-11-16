@@ -46,7 +46,7 @@ struct LessonCompleteView: View {
                     HStack(spacing: 12) {
                         rewardTile(symbol: "bolt.fill", value: "+\(shownXP)", label: "XP", color: Palette.gold)
                         rewardTile(symbol: "target", value: "\(Int((reward.accuracy * 100).rounded()))%", label: "Accuracy", color: Palette.tkemali)
-                        rewardTile(symbol: "flame.fill", value: "\(reward.streak)", label: reward.streak == 1 ? "Day streak" : "Days streak", color: Palette.flame)
+                        rewardTile(symbol: "flame.fill", value: "\(reward.streak)", label: "Day streak", color: Palette.flame)
                     }
 
                     goalCard

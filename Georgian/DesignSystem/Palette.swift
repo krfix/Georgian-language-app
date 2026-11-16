@@ -62,25 +62,39 @@ enum BrandColor: String, CaseIterable {
         }
     }
 
-    /// The darker edge under a raised button.
-    var deep: Color {
+    /// The colour as a surface (buttons, gradient cards, path stones): the same rich tone in
+    /// light and dark, so white text on it always reads.
+    var fill: Color {
         switch self {
-        case .pomegranate: return Color.adaptive(0xA9213A, 0xC23347)
-        case .saperavi: return Color.adaptive(0x55248F, 0x7E4FC0)
-        case .gold: return Color.adaptive(0xB9740F, 0xC98F2C)
-        case .tkemali: return Color.adaptive(0x1D7A40, 0x2F9F5B)
-        case .blacksea: return Color.adaptive(0x0D6A80, 0x2393A9)
+        case .pomegranate: return Color(hex: 0xE23B4E)
+        case .saperavi: return Color(hex: 0x7A3BC2)
+        case .gold: return Color(hex: 0xF5A623)
+        case .tkemali: return Color(hex: 0x27964F)
+        case .blacksea: return Color(hex: 0x1588A3)
         }
     }
 
-    /// The partner colour for gradients.
-    var partner: Color {
+    /// The darker edge under a raised button.
+    var deep: Color {
         switch self {
-        case .pomegranate: return Palette.saperavi
-        case .saperavi: return Palette.blacksea
-        case .gold: return Palette.pomegranate
-        case .tkemali: return Palette.blacksea
-        case .blacksea: return Palette.tkemali
+        case .pomegranate: return Color(hex: 0xA9213A)
+        case .saperavi: return Color(hex: 0x55248F)
+        case .gold: return Color(hex: 0xB9740F)
+        case .tkemali: return Color(hex: 0x1A6E3A)
+        case .blacksea: return Color(hex: 0x0D6077)
+        }
+    }
+
+    /// The partner colour for gradients (and soft background glows).
+    var partner: Color { self == .gold ? Color(hex: 0xFF8A1F) : partnerColor.fill }
+
+    private var partnerColor: BrandColor {
+        switch self {
+        case .pomegranate: return .saperavi
+        case .saperavi: return .blacksea
+        case .gold: return .pomegranate
+        case .tkemali: return .blacksea
+        case .blacksea: return .tkemali
         }
     }
 
@@ -88,12 +102,12 @@ enum BrandColor: String, CaseIterable {
     var onColor: Color { self == .gold ? Color(hex: 0x2A1A06) : .white }
 
     var gradient: LinearGradient {
-        LinearGradient(colors: [color, partner], startPoint: .topLeading, endPoint: .bottomTrailing)
+        LinearGradient(colors: [fill, partner], startPoint: .topLeading, endPoint: .bottomTrailing)
     }
 }
 
 enum Gradients {
-    static let hero = LinearGradient(colors: [Palette.pomegranate, Palette.saperavi], startPoint: .topLeading, endPoint: .bottomTrailing)
-    static let gold = LinearGradient(colors: [Palette.gold, Palette.flame], startPoint: .top, endPoint: .bottom)
-    static let success = LinearGradient(colors: [Palette.tkemali, Palette.blacksea], startPoint: .topLeading, endPoint: .bottomTrailing)
+    static let hero = LinearGradient(colors: [BrandColor.pomegranate.fill, BrandColor.saperavi.fill], startPoint: .topLeading, endPoint: .bottomTrailing)
+    static let gold = LinearGradient(colors: [Color(hex: 0xFFC045), Color(hex: 0xFF8A1F)], startPoint: .top, endPoint: .bottom)
+    static let success = LinearGradient(colors: [BrandColor.tkemali.fill, BrandColor.blacksea.fill], startPoint: .topLeading, endPoint: .bottomTrailing)
 }

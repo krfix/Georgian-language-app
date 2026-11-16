@@ -105,9 +105,13 @@ private struct ModuleSection: View {
             .accessibilityElement(children: .contain)
 
             // The trail: stones swing left and right.
-            VStack(spacing: 6) {
+            VStack(spacing: 0) {
                 ForEach(Array(module.lessons.enumerated()), id: \.element.id) { i, lesson in
                     let state = states[lesson.id] ?? .locked
+                    if i > 0 {
+                        Trail(from: swing(i - 1) - nodeOffset, to: swing(i) - nodeOffset,
+                              lit: state == .completed || state == .current, color: color)
+                    }
                     Button { onTap(lesson, state) } label: {
                         HStack(spacing: 14) {
                             PathNode(lesson: lesson, state: state, color: color, size: 72)
@@ -134,9 +138,35 @@ private struct ModuleSection: View {
         }
     }
 
+    /// How far the stone's centre sits left of its row's centre (stone 88 + gap 14 + text 150).
+    private let nodeOffset: CGFloat = (88 + 14 + 150) / 2 - 44
+
     private func swing(_ i: Int) -> CGFloat {
         let pattern: [CGFloat] = [0, 40, 60, 40, 0, -40, -60, -40]
         return pattern[i % pattern.count]
+    }
+}
+
+/// Three dots between two stones, lit once the way is open.
+private struct Trail: View {
+    let from: CGFloat
+    let to: CGFloat
+    let lit: Bool
+    let color: BrandColor
+
+    var body: some View {
+        ZStack {
+            ForEach(1..<4) { k in
+                let t = CGFloat(k) / 4
+                Circle()
+                    .fill(lit ? AnyShapeStyle(color.fill) : AnyShapeStyle(Palette.line))
+                    .frame(width: 9, height: 9)
+                    .offset(x: from + (to - from) * t, y: (t - 0.5) * 30)
+            }
+        }
+        .frame(height: 34)
+        .frame(maxWidth: .infinity)
+        .accessibilityHidden(true)
     }
 }
 

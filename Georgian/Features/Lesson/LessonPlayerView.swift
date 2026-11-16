@@ -21,6 +21,7 @@ struct LessonPlayerView: View {
             if model == nil {
                 let m = LessonPlayerModel(request: request, store: store, audio: audio)
                 if LaunchOptions.current.screen == "complete" { m.showSampleReward() }
+                if LaunchOptions.current.screen == "exercise", let kind = LaunchOptions.current.kind { m.skip(toKind: kind) }
                 model = m
             }
         }

@@ -23,7 +23,7 @@ extension View {
                     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                         .fill(RadialGradient(colors: [.white.opacity(0.28), .clear], center: .topTrailing, startRadius: 0, endRadius: 240))
                 }
-                .shadow(color: color.color.opacity(0.35), radius: 18, x: 0, y: 10)
+                .shadow(color: color.fill.opacity(0.35), radius: 18, x: 0, y: 10)
             )
     }
 }
