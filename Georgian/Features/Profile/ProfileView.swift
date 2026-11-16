@@ -91,12 +91,22 @@ struct ProfileView: View {
                 }
 
                 Section {
+                    Toggle("Open all lessons", isOn: Binding(get: { store.unlockAllLessons },
+                                                             set: { store.unlockAllLessons = $0 }))
+                        .accessibilityIdentifier("dev-unlock-all")
+                } header: {
+                    Text("Developer")
+                } footer: {
+                    Text("For testing: every lesson can be opened, whatever you've finished. Your progress isn't changed.")
+                }
+
+                Section {
                     Button("Start over", role: .destructive) { confirmReset = true }
                         .accessibilityIdentifier("reset-progress")
                 } footer: {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Everything stays on this iPhone: no account, no tracking.")
-                        Text("Georgian \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") · course v\(store.curriculum.version)")
+                        Text("Ara \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") · course v\(store.curriculum.version)")
                     }
                 }
             }

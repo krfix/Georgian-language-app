@@ -65,3 +65,10 @@ fixed. Newest first.
 - **Fixes after cycle 2** (owner confirmed both): Georgian answers use the 2×2 grid only up
   to 6 letters and stay on one line that shrinks; Home's stat labels stay on one line at
   large text sizes. Not built yet (owner: build when asked).
+- **Audio:** 516 clips in Azure's Eka voice (owner's choice), labelled "Synthetic voice";
+  `AudioService` reads `audio.json`. Letter and reading prompts offer the speaker only after
+  answering.
+- **Ara:** the app is renamed Ara (owner's idea; Claude's review: strong, with "parroting",
+  the Duolingo bird and findability as risks, answered by an ა-shaped Georgian parrot and
+  "Ara: Learn Georgian"). New icon, mascot (`ParrotView`) on welcome, ready and completion
+  screens, launch mark, the welcome joke. Developer switch to open all lessons.

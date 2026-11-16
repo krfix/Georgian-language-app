@@ -18,12 +18,16 @@ struct LessonCompleteView: View {
                     ZStack {
                         Borjgali(size: 190)
                             .opacity(0.9)
-                        Image(systemName: reward.isPerfect ? "crown.fill" : "star.fill")
-                            .font(.system(size: 64, weight: .black))
-                            .foregroundStyle(.white)
-                            .shadow(color: .black.opacity(0.2), radius: 6, y: 3)
-                            .scaleEffect(appeared ? 1 : 0.2)
-                            .rotationEffect(.degrees(appeared ? 0 : -40))
+                        ParrotView(height: 150)
+                            .scaleEffect(appeared ? 1 : 0.3)
+                            .rotationEffect(.degrees(appeared ? 0 : -25))
+                        if reward.isPerfect {
+                            Image(systemName: "crown.fill")
+                                .font(.system(size: 40, weight: .black))
+                                .foregroundStyle(Gradients.gold)
+                                .offset(x: 6, y: -92)
+                                .scaleEffect(appeared ? 1 : 0.2)
+                        }
                     }
                     .padding(.top, 30)
                     .accessibilityHidden(true)

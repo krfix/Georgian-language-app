@@ -15,7 +15,8 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 - [ ] A native speaker's check of the course (`tools/curriculum/content_*.py`). Every word
       and sentence was checked by Claude and by the build script, but a native read-through
       is the real test.
-- [ ] Name and icon: "Georgian" is a working name; the icon is a first draft.
+- [ ] Name: "Ara" chosen (KART #1). Before the App Store: check "Ara: Learn Georgian" is free
+      there and in a trademark search. Hide Profile › Developer.
 - [ ] App Store: an Apple Developer account, signed builds, privacy policy and support URLs.
 
 ## Next

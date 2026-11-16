@@ -122,7 +122,7 @@ struct OnboardingView: View {
 
     private var readyPage: some View {
         VStack(spacing: 22) {
-            Borjgali(size: 150)
+            ParrotView(height: 150)
                 .padding(.top, 10)
             Text("You're all set!")
                 .font(.display)
@@ -226,22 +226,23 @@ private struct WelcomePage: View {
                         .offset(x: cos(angle) * (appeared ? 130 : 20), y: sin(angle) * (appeared ? 130 : 20))
                         .opacity(appeared ? 1 : 0)
                 }
-                Borjgali(size: 170)
+                Borjgali(size: 230, colors: [Palette.gold.opacity(0.35), Palette.pomegranate.opacity(0.2), Palette.saperavi.opacity(0.3)])
+                ParrotView(height: 190)
             }
             .frame(height: 300)
             VStack(spacing: 10) {
-                Text("ქართული")
-                    .font(.system(size: 52, weight: .heavy))
+                Text("Ara")
+                    .font(.system(size: 64, weight: .black, design: .rounded))
                     .foregroundStyle(Gradients.hero)
-                    .padding(.vertical, 6)
                 Text("Learn Georgian, one letter at a time")
                     .font(.titleBold)
                     .foregroundStyle(Palette.ink)
                     .multilineTextAlignment(.center)
-                Text("Read the alphabet in a week. Then words, phrases and real conversations.")
+                Text("Ara (**არა**) means \u{201C}no\u{201D} in Georgian. By the end, you\u{2019}ll be saying **კი**: yes!")
                     .font(.bodyRounded)
                     .foregroundStyle(Palette.inkSoft)
                     .multilineTextAlignment(.center)
+                    .accessibilityIdentifier("welcome-joke")
             }
             .opacity(appeared ? 1 : 0)
             .offset(y: appeared ? 0 : 20)

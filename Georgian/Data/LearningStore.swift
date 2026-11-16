@@ -39,6 +39,12 @@ final class LearningStore {
     private(set) var recentMistakes: [AnswerRecord] = []
     private(set) var answerTotals = (all: 0, correct: 0)
 
+    /// Developer switch (Profile › Developer): every lesson open, for testing. Kept in
+    /// UserDefaults, not with the progress.
+    var unlockAllLessons: Bool = UserDefaults.standard.bool(forKey: "devUnlockAllLessons") {
+        didSet { UserDefaults.standard.set(unlockAllLessons, forKey: "devUnlockAllLessons") }
+    }
+
     init(curriculum: Curriculum, context: ModelContext) {
         self.curriculum = curriculum
         self.context = context
@@ -81,7 +87,9 @@ final class LearningStore {
     var openBefore: Int { profile.level == .beginner ? 0 : alphabetCount }
 
     var lessonStates: [String: LessonState] {
-        CourseProgress.states(lessonIDs: lessonIDs, completed: completedLessons, startIndex: startIndex, openBefore: openBefore)
+        let states = CourseProgress.states(lessonIDs: lessonIDs, completed: completedLessons, startIndex: startIndex, openBefore: openBefore)
+        guard unlockAllLessons else { return states }
+        return states.mapValues { $0 == .locked ? .available : $0 }
     }
 
     func state(of lesson: Lesson) -> LessonState { lessonStates[lesson.id] ?? .locked }

@@ -12,7 +12,7 @@ targets:
     info:
       path: Georgian/Info.plist
       properties:
-        CFBundleDisplayName: Georgian
+        CFBundleDisplayName: Ara
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         UILaunchScreen:

@@ -1,6 +1,6 @@
-# Georgian
+# Ara: Learn Georgian
 
-A colourful native iPhone app (SwiftUI, iOS 17+) for learning Georgian from zero: the
+**Ara** (არა, "no" in Georgian, and a macaw: parrots are great language learners) is a colourful native iPhone app (SwiftUI, iOS 17+) for learning Georgian from zero: the
 alphabet, everyday words and phrases, first grammar and short conversations. No account, no
 server: everything stays on the phone.
 

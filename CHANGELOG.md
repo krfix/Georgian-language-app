@@ -4,7 +4,10 @@ What changed in each version, newest first. Before the App Store, versions are 0
 
 ## Not released yet
 
-### 0.2.0 (in progress): the full app
+### 0.2.0 (in progress): the full app, now called Ara
+- The name Ara and its parrot, curled into the letter ა: icon, welcome, lesson complete
+- Georgian audio everywhere in Azure's Eka voice (synthetic, labelled), slower playback, listening exercises
+- Developer switch: open all lessons
 - A course from zero: 5 modules, 53 lessons, 209 words and phrases, all 33 letters
 - 15 exercise kinds on one engine, with instant feedback and retries
 - Spaced repetition, difficult words and recent mistakes in Review

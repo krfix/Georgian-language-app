@@ -1,4 +1,4 @@
-# Georgian: notes for Claude
+# Ara (Georgian): notes for Claude
 
 Read this first. README.md covers what the app does; CHANGELOG.md what each version changed;
 DEVELOPMENT_LOG.md what was built, tested and found in each work session; TODO.md what is
@@ -34,6 +34,12 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   script again (it only makes missing clips). No clip and no iPhone voice → no speaker
   button and no listening exercise for that text.
 - "What do you think?" means give an opinion and options. Don't build until asked.
+- Name: **Ara** (owner, KART #1): a macaw, and არა, "no" in Georgian. On the home screen
+  "Ara"; in the App Store "Ara: Learn Georgian" (check the name and trademark first). The
+  mascot is a parrot whose body curls into ა (`tools/art/parrot.py`, `ParrotView`). Inside the
+  code and repo it is still "Georgian" (target, bundle ID `com.krfix.georgian`): don't rename.
+- Developer switch: Profile › Developer › Open all lessons (UserDefaults
+  `devUnlockAllLessons`). Hide it before an App Store release.
 - Test data is always invented (Ana, the demo learner, `LearningStore.seedDemo`).
 
 ## Workflow
