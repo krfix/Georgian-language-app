@@ -33,6 +33,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   `tools/l10n/check_strings.py`. Course and phrasebook Polish: `content_pl.py`, checked by
   `build_curriculum.py`. New text needs both. Explanations for Polish speakers compare with
   Polish (sounds, cases, verbs), not word-for-word English.
+- New Georgian text in examples, conversations or phrases: every word needs an explanation
+  (`content_glossary.py`; the build lists the missing ones with `--glossary`). No XP or
+  levels on screen (KART #4): show what the learner knows and can do.
 - Georgian text must be right: every word and sentence goes into
   `tools/curriculum/content_*.py` and through `build_curriculum.py`, which checks it. Latin
   spelling is generated (national system, 2002: k' p' t' q' ts' ch' for the tight sounds).
@@ -99,6 +102,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | --- | --- |
 | Course and phrasebook content (source) and the checker | `tools/curriculum/content_words.py`, `content_course.py`, `content_phrasebook.py`, `build_curriculum.py` → `Georgian/Resources/Curriculum/*.json` |
 | Content types, loading, look-ups, Latin spelling, pronunciation help | `Curriculum/` |
+| Tappable words: glossary of every word form (EN + PL), the bubble | `tools/curriculum/content_glossary.py` → `glossary*.json`; `DesignSystem/Components/TappableGeorgian.swift` |
 | Languages: `AppLanguage`, `tr()`, `plural()`, Polish table; checks | `Curriculum/Localization.swift`, `Resources/Localization/`, `tools/l10n/` |
 | Phrasebook types, lookups, phrases as review words, dialogue practice, search (tested) | `Curriculum/PhrasebookModels.swift`, `Phrasebook.swift`, `PhraseSearch.swift` |
 | Exercises: kinds and shapes, building them from lessons, checking answers, the session | `Engine/Exercise.swift`, `ExerciseBuilder.swift`, `AnswerEvaluator.swift`, `LessonSession.swift` |

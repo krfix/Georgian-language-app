@@ -5,6 +5,12 @@ What changed in each version, newest first. Before the App Store, versions are 0
 ## Not released yet
 
 ### 0.2.0 (in progress): the full app, now called Ara
+- Learning first: no XP or levels on screen. Home shows words known and a gentle streak;
+  Progress shows what you can do now ("Order in a café", "Ask the way"); milestones replace
+  the XP achievements; the daily goal is a share of the day
+- Tap any Georgian word in examples and lesson conversations: a bubble explains it (its
+  dictionary form, the ending or person, the polite -თ), in English or Polish; phrase cards
+  have a Word by word section
 - Polski: the whole app in Polish or English, chosen on the welcome screen or in Profile;
   pronunciation and grammar explained for Polish speakers, with comparisons to Polish;
   Polish search and answers that forgive missing ą, ł, ż…

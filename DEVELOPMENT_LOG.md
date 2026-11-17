@@ -35,6 +35,17 @@ more explanation, tappable grammar bubbles.
   tests: the Polish course loads with the same ids and Georgian, Polish search, answers
   without accents, plurals. The QA run also takes 20 Polish screenshots.
 
+### Then (owner: "Merge, go ahead")
+- Merged to `main` (fast-forward, build #23's code).
+- **Learning first:** XP and levels off every screen (kept inside for the daily goal);
+  Progress's level card became "What you can do"; the activity chart counts answers; three
+  XP achievements became milestones (Count to a hundred, Order in a café, Your own sentences).
+- **Tappable words:** `content_glossary.py` (BASES: dictionary words; FORMS: verbs and
+  irregular forms with notes) plus an ending analyser in `build_curriculum.py` explain all
+  834 word forms in examples, conversations and phrases, in English and Polish
+  (`glossary.json`, `glossary-pl.json`). `TappableGeorgian` (DesignSystem) shows a bubble;
+  phrase cards have "Word by word". The build and a logic test fail if a word has none.
+
 ### Not checked yet
 - Nothing compiled here (no Swift on Linux): the Mac run is the first compile.
 - The Polish was written by Claude: a Polish speaker's read-through is the real test.
