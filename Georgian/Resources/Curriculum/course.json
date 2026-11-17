@@ -540,17 +540,307 @@
     {
      "id": "v6",
      "kind": "vocabulary",
-     "title": "Counting in twenties",
+     "title": "Eleven to nineteen",
      "words": [
       "w-tertmeti",
       "w-tormeti",
+      "w-tsameti",
+      "w-totkhmeti",
+      "w-tkhutmeti",
+      "w-tekvsmeti",
+      "w-chvidmeti",
+      "w-tvrameti",
+      "w-tskhrameti"
+     ],
+     "category": "numbers",
+     "subtitle": "თერთმეტი · თორმეტი · ცამეტი"
+    },
+    {
+     "id": "v6b",
+     "kind": "vocabulary",
+     "title": "Twenty to a hundred",
+     "words": [
       "w-otsi",
+      "w-otsdaerti",
       "w-otsdaati",
       "w-ormotsi",
+      "w-ormotsdaati",
       "w-asi"
      ],
      "category": "numbers",
-     "subtitle": "თერთმეტი · თორმეტი · ოცი"
+     "subtitle": "ოცი · ოცდაერთი · ოცდაათი"
+    },
+    {
+     "id": "v6c",
+     "kind": "grammar",
+     "title": "How numbers are built",
+     "words": [],
+     "notes": [
+      {
+       "title": "Eleven to nineteen: ten and more",
+       "text": "Every teen is თ + the number + მეტი, \"more\": თ-ოთხ-მეტი is \"ten, four more\", fourteen. Three of them change a little to be easier to say: ცამეტი (13), ჩვიდმეტი (17) and ცხრამეტი (19).",
+       "table": [
+        {
+         "ka": "თერთმეტი",
+         "lat": "tertmet'i",
+         "en": "11: თ + ერთ + მეტი"
+        },
+        {
+         "ka": "თორმეტი",
+         "lat": "tormet'i",
+         "en": "12: თ + ორ + მეტი"
+        },
+        {
+         "ka": "ცამეტი",
+         "lat": "tsamet'i",
+         "en": "13: from სამი, changed"
+        },
+        {
+         "ka": "თოთხმეტი",
+         "lat": "totkhmet'i",
+         "en": "14: თ + ოთხ + მეტი"
+        },
+        {
+         "ka": "თხუთმეტი",
+         "lat": "tkhutmet'i",
+         "en": "15: თ + ხუთ + მეტი"
+        },
+        {
+         "ka": "თექვსმეტი",
+         "lat": "tekvsmet'i",
+         "en": "16: თ + ექვს + მეტი"
+        },
+        {
+         "ka": "ჩვიდმეტი",
+         "lat": "chvidmet'i",
+         "en": "17: from შვიდი, changed"
+        },
+        {
+         "ka": "თვრამეტი",
+         "lat": "tvramet'i",
+         "en": "18: თ + რვა + მეტი, რვ turns to ვრ"
+        },
+        {
+         "ka": "ცხრამეტი",
+         "lat": "tskhramet'i",
+         "en": "19: ცხრა + მეტი"
+        }
+       ]
+      },
+      {
+       "title": "Counting in twenties",
+       "text": "From twenty up, Georgian counts in twenties, a little like French quatre-vingts (four twenties, 80). ორმოცი is \"two twenties\", სამოცი \"three twenties\", ოთხმოცი \"four twenties\".",
+       "table": [
+        {
+         "ka": "ოცი",
+         "lat": "otsi",
+         "en": "20"
+        },
+        {
+         "ka": "ორმოცი",
+         "lat": "ormotsi",
+         "en": "40: two twenties"
+        },
+        {
+         "ka": "სამოცი",
+         "lat": "samotsi",
+         "en": "60: three twenties"
+        },
+        {
+         "ka": "ოთხმოცი",
+         "lat": "otkhmotsi",
+         "en": "80: four twenties"
+        },
+        {
+         "ka": "ასი",
+         "lat": "asi",
+         "en": "100"
+        }
+       ]
+      },
+      {
+       "title": "Twenty and…",
+       "text": "To go past a twenty, drop its last ი, add და (\"and\"), then a number from 1 to 19. So 21 is \"twenty and one\", 30 is \"twenty and ten\" and 31 is \"twenty and eleven\".",
+       "table": [
+        {
+         "ka": "ოცდაერთი",
+         "lat": "otsdaerti",
+         "en": "21: twenty and one"
+        },
+        {
+         "ka": "ოცდაორი",
+         "lat": "otsdaori",
+         "en": "22: twenty and two"
+        },
+        {
+         "ka": "ოცდახუთი",
+         "lat": "otsdakhuti",
+         "en": "25: twenty and five"
+        },
+        {
+         "ka": "ოცდაათი",
+         "lat": "otsdaati",
+         "en": "30: twenty and ten"
+        },
+        {
+         "ka": "ოცდათერთმეტი",
+         "lat": "otsdatertmet'i",
+         "en": "31: twenty and eleven"
+        },
+        {
+         "ka": "ოცდაცხრამეტი",
+         "lat": "otsdatskhramet'i",
+         "en": "39: twenty and nineteen"
+        },
+        {
+         "ka": "ორმოცდაორი",
+         "lat": "ormotsdaori",
+         "en": "42: two twenties and two"
+        },
+        {
+         "ka": "ორმოცდაათი",
+         "lat": "ormotsdaati",
+         "en": "50: two twenties and ten"
+        },
+        {
+         "ka": "ოთხმოცდაცხრამეტი",
+         "lat": "otkhmotsdatskhramet'i",
+         "en": "99: four twenties and nineteen"
+        }
+       ]
+      },
+      {
+       "title": "A number and a noun",
+       "text": "After a number the noun stays singular: ორი ყავა is \"two coffee\". Before a noun with an ending, the number drops its ი: შვიდ საათზე, \"at seven o'clock\".",
+       "table": [
+        {
+         "ka": "ორი ყავა",
+         "lat": "ori q'ava",
+         "en": "two coffees"
+        },
+        {
+         "ka": "სამი ბილეთი",
+         "lat": "sami bileti",
+         "en": "three tickets"
+        },
+        {
+         "ka": "ოცი ლარი",
+         "lat": "otsi lari",
+         "en": "twenty lari"
+        },
+        {
+         "ka": "შვიდ საათზე",
+         "lat": "shvid saatze",
+         "en": "at seven o'clock"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "choice",
+       "prompt": "What is თოთხმეტი?",
+       "options": [
+        "14",
+        "4",
+        "40",
+        "15"
+       ],
+       "answer": 0,
+       "explanation": "თ + ოთხ (four) + მეტი (more): fourteen."
+      },
+      {
+       "type": "choice",
+       "prompt": "ორმოცი is built from…",
+       "options": [
+        "two twenties",
+        "four tens",
+        "twenty and twenty",
+        "two and ten"
+       ],
+       "answer": 0,
+       "explanation": "ორ (two) + მ + ოცი (twenty)."
+      },
+      {
+       "type": "choice",
+       "prompt": "Which one is 21?",
+       "options": [
+        "ოცდაერთი",
+        "ერთოცი",
+        "თერთმეტი",
+        "ორმოცდაერთი"
+       ],
+       "answer": 0,
+       "explanation": "ოც-და-ერთი: twenty and one."
+      },
+      {
+       "type": "choice",
+       "prompt": "Which one is 31?",
+       "options": [
+        "ოცდათერთმეტი",
+        "ოცდაერთი",
+        "სამოცდაერთი",
+        "ოცდაათი"
+       ],
+       "answer": 0,
+       "explanation": "Twenty and eleven: ოცდა + თერთმეტი."
+      },
+      {
+       "type": "fill",
+       "sentence": "___ წუთი, თუ შეიძლება.",
+       "translation": "Fifteen minutes, please.",
+       "options": [
+        "თხუთმეტი",
+        "ხუთი",
+        "ორმოცდაათი",
+        "თორმეტი"
+       ],
+       "answer": 0,
+       "explanation": "თ + ხუთ + მეტი: fifteen."
+      },
+      {
+       "type": "fill",
+       "sentence": "ოცდა___ ლარი.",
+       "translation": "Thirty lari.",
+       "options": [
+        "ათი",
+        "ერთი",
+        "ორი",
+        "ცხრა"
+       ],
+       "answer": 0,
+       "explanation": "30 is twenty and ten: ოცდაათი."
+      },
+      {
+       "type": "choice",
+       "prompt": "How do you say 50?",
+       "options": [
+        "ორმოცდაათი",
+        "ხუთოცი",
+        "ორმოცი",
+        "ოცდაათი"
+       ],
+       "answer": 0,
+       "explanation": "Two twenties and ten."
+      },
+      {
+       "type": "build",
+       "english": "Twenty-two lari.",
+       "tiles": [
+        "ოცდაორი",
+        "ლარი."
+       ],
+       "extra": [
+        "ორი",
+        "ლარს"
+       ],
+       "tilesLatin": [
+        "otsdaori",
+        "lari."
+       ]
+      }
+     ],
+     "subtitle": "Eleven to nineteen: ten and more"
     },
     {
      "id": "v7",

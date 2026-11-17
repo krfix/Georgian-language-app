@@ -682,7 +682,8 @@
     "ka": "თერთმეტი საათია.",
     "lat": "tertmet'i saatia.",
     "en": "It's eleven o'clock."
-   }
+   },
+   "note": "თ + ერთ + მეტი: \"ten, one more\". All the teens are built this way."
   },
   {
    "id": "w-tormeti",
@@ -697,7 +698,120 @@
     "ka": "წელიწადში თორმეტი თვეა.",
     "lat": "ts'elits'adshi tormet'i tvea.",
     "en": "There are twelve months in a year."
-   }
+   },
+   "note": "თ + ორ + მეტი: ten, two more."
+  },
+  {
+   "id": "w-tsameti",
+   "ka": "ცამეტი",
+   "lat": "tsamet'i",
+   "en": "thirteen",
+   "alt": [
+    "13"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ჩემი შვილი ცამეტი წლისაა.",
+    "lat": "chemi shvili tsamet'i ts'lisaa.",
+    "en": "My child is thirteen."
+   },
+   "note": "From სამი, three: ცა + მეტი. One of the three teens that change a little."
+  },
+  {
+   "id": "w-totkhmeti",
+   "ka": "თოთხმეტი",
+   "lat": "totkhmet'i",
+   "en": "fourteen",
+   "alt": [
+    "14"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ავტობუსი თოთხმეტი წუთში მოვა.",
+    "lat": "avt'obusi totkhmet'i ts'utshi mova.",
+    "en": "The bus will come in fourteen minutes."
+   },
+   "note": "თ + ოთხ + მეტი: ten, four more."
+  },
+  {
+   "id": "w-tkhutmeti",
+   "ka": "თხუთმეტი",
+   "lat": "tkhutmet'i",
+   "en": "fifteen",
+   "alt": [
+    "15"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "თხუთმეტი ლარი ღირს.",
+    "lat": "tkhutmet'i lari ghirs.",
+    "en": "It costs fifteen lari."
+   },
+   "note": "თ + ხუთ + მეტი: ten, five more."
+  },
+  {
+   "id": "w-tekvsmeti",
+   "ka": "თექვსმეტი",
+   "lat": "tekvsmet'i",
+   "en": "sixteen",
+   "alt": [
+    "16"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "სახლს თექვსმეტი სართული აქვს.",
+    "lat": "sakhls tekvsmet'i sartuli akvs.",
+    "en": "The building has sixteen floors."
+   },
+   "note": "თ + ექვს + მეტი: ten, six more."
+  },
+  {
+   "id": "w-chvidmeti",
+   "ka": "ჩვიდმეტი",
+   "lat": "chvidmet'i",
+   "en": "seventeen",
+   "alt": [
+    "17"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ოთახში ჩვიდმეტი სკამია.",
+    "lat": "otakhshi chvidmet'i sk'amia.",
+    "en": "There are seventeen chairs in the room."
+   },
+   "note": "From შვიდი, seven: შ becomes ჩ, ჩვიდ + მეტი."
+  },
+  {
+   "id": "w-tvrameti",
+   "ka": "თვრამეტი",
+   "lat": "tvramet'i",
+   "en": "eighteen",
+   "alt": [
+    "18"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "თვრამეტი წლის ვარ.",
+    "lat": "tvramet'i ts'lis var.",
+    "en": "I'm eighteen."
+   },
+   "note": "თ + რვა + მეტი, with რ and ვ swapping places: თვრამეტი."
+  },
+  {
+   "id": "w-tskhrameti",
+   "ka": "ცხრამეტი",
+   "lat": "tskhramet'i",
+   "en": "nineteen",
+   "alt": [
+    "19"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ბილეთი ცხრამეტი ლარი ღირს.",
+    "lat": "bileti tskhramet'i lari ghirs.",
+    "en": "The ticket costs nineteen lari."
+   },
+   "note": "ცხრა + მეტი, with no თ in front."
   },
   {
    "id": "w-otsi",
@@ -714,6 +828,23 @@
     "en": "It costs twenty lari."
    },
    "note": "Georgian counts in twenties: 30 is \"twenty and ten\", 40 is \"two twenties\"."
+  },
+  {
+   "id": "w-otsdaerti",
+   "ka": "ოცდაერთი",
+   "lat": "otsdaerti",
+   "en": "twenty-one",
+   "alt": [
+    "21",
+    "twenty one"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ოცდაერთი წლის ვარ.",
+    "lat": "otsdaerti ts'lis var.",
+    "en": "I'm twenty-one."
+   },
+   "note": "ოც-და-ერთი: twenty and one. ოცი drops its ი and adds და, \"and\"."
   },
   {
    "id": "w-otsdaati",
@@ -746,6 +877,22 @@
     "en": "Forty lari is expensive."
    },
    "note": "ორ-მ-ოცი: two twenties."
+  },
+  {
+   "id": "w-ormotsdaati",
+   "ka": "ორმოცდაათი",
+   "lat": "ormotsdaati",
+   "en": "fifty",
+   "alt": [
+    "50"
+   ],
+   "category": "numbers",
+   "example": {
+    "ka": "ორმოცდაათი ლარი ძალიან ძვირია.",
+    "lat": "ormotsdaati lari dzalian dzviria.",
+    "en": "Fifty lari is very expensive."
+   },
+   "note": "ორმოც-და-ათი: two twenties and ten."
   },
   {
    "id": "w-asi",
