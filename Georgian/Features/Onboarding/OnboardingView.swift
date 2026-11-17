@@ -74,8 +74,8 @@ struct OnboardingView: View {
         case .level: ChoicePage(title: tr("How much Georgian do you know?"), subtitle: tr("We'll start you in the right place. You can change it later."),
                                 options: StartingLevel.allCases.map { ($0.rawValue, $0.title, $0.detail, $0.symbol) },
                                 selected: level.rawValue, color: .tkemali) { level = StartingLevel(rawValue: $0) ?? .beginner }
-        case .goal: ChoicePage(title: tr("Pick a daily goal"), subtitle: tr("Little and often works best. You earn XP for every lesson and review."),
-                               options: DailyGoal.allCases.map { ("\($0.rawValue)", tr("{0} · {1} XP", $0.title, $0.rawValue), $0.minutes.capitalizedFirst, goalSymbol($0)) },
+        case .goal: ChoicePage(title: tr("Pick a daily goal"), subtitle: tr("Little and often works best: a short lesson or a review most days."),
+                               options: DailyGoal.allCases.map { ("\($0.rawValue)", $0.title, $0.minutes.capitalizedFirst, goalSymbol($0)) },
                                selected: "\(goal.rawValue)", color: .gold) { goal = DailyGoal(rawValue: Int($0) ?? 20) ?? .regular }
         case .name: namePage
         case .ready: readyPage
@@ -144,7 +144,7 @@ struct OnboardingView: View {
                 .gradientCard(.pomegranate)
             }
             HStack(spacing: 10) {
-                Pill(text: tr("{0} XP a day", goal.rawValue), color: Palette.gold, symbol: "target")
+                Pill(text: goal.minutes.capitalizedFirst, color: Palette.gold, symbol: "target")
                 Pill(text: level.title, color: Palette.tkemali, symbol: level.symbol)
             }
         }
@@ -322,7 +322,7 @@ private struct MethodPage: View {
             FactRow(symbol: "1.circle.fill", title: tr("Learn"), text: tr("Short lessons: a few new letters or words, shown, then practised straight away."), color: .pomegranate, delay: 0)
             FactRow(symbol: "2.circle.fill", title: tr("Practise"), text: tr("Ten kinds of exercise: matching, spelling with letter tiles, building sentences, conversations…"), color: .saperavi, delay: 0.08)
             FactRow(symbol: "3.circle.fill", title: tr("Review"), text: tr("Every word comes back just before you'd forget it. Mistakes come back sooner."), color: .blacksea, delay: 0.16)
-            FactRow(symbol: "flame.fill", title: tr("Keep a streak"), text: tr("Earn XP, reach your daily goal and unlock achievements."), color: .gold, delay: 0.24)
+            FactRow(symbol: "lightbulb.fill", title: tr("Understand why"), text: tr("Every rule explained with examples and comparisons. Tap a word to see why it looks the way it does."), color: .gold, delay: 0.24)
         }
     }
 }

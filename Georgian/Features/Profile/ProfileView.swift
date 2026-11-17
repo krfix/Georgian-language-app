@@ -27,8 +27,7 @@ struct ProfileView: View {
                                 .submitLabel(.done)
                                 .onSubmit(saveName)
                                 .accessibilityIdentifier("profile-name")
-                            let xp = store.totalXP
-                            Text(tr("Level {0} · {1} XP · {2}-day streak", LearnerLevel.level(forXP: xp), xp, store.streak))
+                            Text(tr("{0}-day streak", store.streak) + " · " + plural(store.snapshot.wordsLearned, "word known", "words known", pl: ("znane słowo", "znane słowa", "znanych słów")))
                                 .font(.caption)
                                 .foregroundStyle(Palette.inkSoft)
                         }
@@ -39,7 +38,7 @@ struct ProfileView: View {
                 Section(tr("Learning")) {
                     Picker(tr("Daily goal"), selection: goalBinding) {
                         ForEach(DailyGoal.allCases) { g in
-                            Text(tr("{0} · {1} XP", g.title, g.rawValue)).tag(g.rawValue)
+                            Text(g.title + " · " + g.minutes).tag(g.rawValue)
                         }
                     }
                     Picker(tr("Starting point"), selection: levelBinding) {
@@ -48,9 +47,9 @@ struct ProfileView: View {
                     NavigationLink {
                         ScrollView { AchievementsGrid().padding(20) }
                             .background(Palette.background.ignoresSafeArea())
-                            .navigationTitle(tr("Achievements"))
+                            .navigationTitle(tr("Milestones"))
                     } label: {
-                        LabeledContent(tr("Achievements"), value: tr("{0} of {1}", store.achievementDates.count, Achievement.all.count))
+                        LabeledContent(tr("Milestones"), value: tr("{0} of {1}", store.unlockedAchievementCount, Achievement.all.count))
                     }
                     LabeledContent(tr("Lessons finished"), value: tr("{0} of {1}", store.completedLessons.count, store.curriculum.lessons.count))
                     LabeledContent(tr("Words learned"), value: "\(store.snapshot.wordsLearned)")
@@ -154,7 +153,7 @@ struct ProfileView: View {
                     store.resetAll()
                 }
             } message: {
-                Text(tr("Your lessons, words, XP and streak will be gone. This can't be undone."))
+                Text(tr("Your lessons, words and streak will be gone. This can't be undone."))
             }
             .onAppear { name = store.profile.name }
         }

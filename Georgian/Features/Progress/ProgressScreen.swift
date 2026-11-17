@@ -2,8 +2,8 @@ import Charts
 import SwiftData
 import SwiftUI
 
-/// Statistics: XP, streak, lessons, words, accuracy, the week in a chart, modules,
-/// achievements and the history of lessons.
+/// What you know and can do: words, letters, phrases, the course level, the streak, the week
+/// in a chart, modules, milestones and the history of lessons. No XP or levels on screen.
 struct ProgressScreen: View {
     @Environment(LearningStore.self) private var store
     @State private var range = 7
@@ -12,8 +12,7 @@ struct ProgressScreen: View {
         Group {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
-                    levelCard
-                    ChallengeCard()
+                    knowCard
                     tiles
                     activityChart
                     modulesCard
@@ -28,32 +27,47 @@ struct ProgressScreen: View {
         }
     }
 
-    private var levelCard: some View {
-        let xp = store.totalXP
-        let level = LearnerLevel.level(forXP: xp)
-        let next = LearnerLevel.threshold(level + 1)
-        return HStack(spacing: 18) {
-            ProgressRing(progress: LearnerLevel.progress(forXP: xp), lineWidth: 12, colors: [.white, .white.opacity(0.6)]) {
-                VStack(spacing: 0) {
-                    Text("\(level)").font(.titleBold).foregroundStyle(.white)
-                    Text(tr("level")).font(.caption2.weight(.bold)).foregroundStyle(.white.opacity(0.85))
+    /// What the learner can do now, in plain words.
+    private var knowCard: some View {
+        let s = store.snapshot
+        let done = s.lessonsCompleted
+        let total = max(1, store.curriculum.lessons.count)
+        return VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 16) {
+                ProgressRing(progress: Double(done.count) / Double(total), lineWidth: 12, colors: [.white, .white.opacity(0.6)]) {
+                    Text("\(Int((Double(done.count) / Double(total) * 100).rounded()))%").font(.title3.weight(.bold)).foregroundStyle(.white)
                 }
+                .frame(width: 84, height: 84)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(tr("What you can do")).font(.title2Bold).foregroundStyle(.white)
+                    Text(cefr).font(.captionBold).foregroundStyle(.white.opacity(0.85)).textCase(.uppercase)
+                }
+                Spacer(minLength: 0)
             }
-            .frame(width: 92, height: 92)
-            VStack(alignment: .leading, spacing: 6) {
-                Text(levelName(level)).font(.title2Bold).foregroundStyle(.white)
-                Text(tr("{0} XP · {1} to level {2}", xp, next - xp, level + 1)).font(.calloutRounded).foregroundStyle(.white.opacity(0.9))
-                Text(cefr).font(.captionBold).foregroundStyle(.white.opacity(0.85)).textCase(.uppercase)
+            ForEach(canDo(done: done, modules: s.modulesCompleted), id: \.self) { line in
+                Label(line, systemImage: "checkmark.circle.fill")
+                    .font(.calloutRounded.weight(.semibold))
+                    .foregroundStyle(.white)
             }
-            Spacer(minLength: 0)
         }
         .gradientCard(.saperavi)
         .accessibilityElement(children: .combine)
     }
 
-    private func levelName(_ level: Int) -> String {
-        let names = [tr("Newcomer"), tr("Letter hunter"), tr("Reader"), tr("Word gatherer"), tr("Phrase maker"), tr("Conversationalist"), tr("Supra guest"), tr("Tamada in training")]
-        return names[min(level - 1, names.count - 1)]
+    /// Real things the finished lessons let you do.
+    private func canDo(done: Set<String>, modules: Set<String>) -> [String] {
+        var out: [String] = []
+        if modules.contains("alphabet") { out.append(tr("Read any Georgian word aloud")) }
+        else if done.contains("a1") { out.append(tr("Read your first Georgian words")) }
+        if done.contains("v1") && done.contains("v2") { out.append(tr("Greet people, thank them and say sorry")) }
+        if done.contains("v6c") { out.append(tr("Count, and understand prices up to a hundred")) }
+        else if done.contains("v5") { out.append(tr("Count to ten")) }
+        if done.contains("e1") || done.contains("c1") { out.append(tr("Order in a café")) }
+        if done.contains("e3") || done.contains("c4") { out.append(tr("Take a taxi")) }
+        if done.contains("c5") || done.contains("e4") { out.append(tr("Ask the way")) }
+        if modules.contains("grammar") { out.append(tr("Build your own simple sentences")) }
+        if out.isEmpty { out.append(tr("Finish your first lesson to see what you can do")) }
+        return out
     }
 
     /// A rough course level: A0 until the alphabet is done, then towards A1.
@@ -68,7 +82,7 @@ struct ProgressScreen: View {
         let s = store.snapshot
         return LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
             StatTile(symbol: "flame.fill", value: "\(s.streak)", label: tr("day streak · best {0}", s.longestStreak), color: Palette.flame)
-            StatTile(symbol: "bolt.fill", value: "\(s.totalXP)", label: tr("total XP"), color: Palette.gold)
+            StatTile(symbol: "star.fill", value: "\(store.savedPhrases.count)", label: tr("phrases saved"), color: Palette.gold)
             StatTile(symbol: "flag.checkered", value: "\(s.lessonsCompleted.count)", label: tr("lessons of {0}", store.curriculum.lessons.count), color: Palette.pomegranate)
             StatTile(symbol: "character.book.closed.fill", value: "\(s.wordsLearned)", label: tr("words learned"), color: Palette.tkemali)
             StatTile(symbol: "textformat", value: "\(s.lettersLearned)/33", label: tr("letters learned"), color: Palette.blacksea)
@@ -77,8 +91,7 @@ struct ProgressScreen: View {
     }
 
     private var activityChart: some View {
-        let data = store.weeklyXP(range)
-        let goal = store.profile.dailyGoal
+        let data = store.weeklyAnswers(range)
         return VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Text(tr("Activity")).font(.title2Bold).foregroundStyle(Palette.ink)
@@ -92,16 +105,10 @@ struct ProgressScreen: View {
             }
             Chart {
                 ForEach(data, id: \.day) { d in
-                    BarMark(x: .value(tr("Day"), DayKey.date(d.day) ?? Date(), unit: .day), y: .value(tr("XP"), d.xp))
-                        .foregroundStyle(d.xp >= goal ? AnyShapeStyle(Gradients.gold) : AnyShapeStyle(Palette.pomegranate.opacity(0.75)))
+                    BarMark(x: .value(tr("Day"), DayKey.date(d.day) ?? Date(), unit: .day), y: .value(tr("Answers"), d.answers))
+                        .foregroundStyle(Palette.pomegranate.opacity(0.75))
                         .cornerRadius(6)
                 }
-                RuleMark(y: .value(tr("Goal"), goal))
-                    .lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 4]))
-                    .foregroundStyle(Palette.tkemali)
-                    .annotation(position: .top, alignment: .leading) {
-                        Text(tr("Goal {0} XP", goal)).font(.caption2.weight(.bold)).foregroundStyle(Palette.tkemali)
-                    }
             }
             .chartXAxis {
                 AxisMarks(values: .stride(by: .day, count: range == 7 ? 1 : 7)) { _ in
@@ -110,8 +117,8 @@ struct ProgressScreen: View {
             }
             .frame(height: 190)
             .motion(Motion.spring, value: range)
-            .accessibilityLabel(tr("XP per day. {0} active days.", data.filter { $0.xp > 0 }.count))
-            Text(tr("{0} XP in the last {1} days · {2} days at goal", data.reduce(0) { $0 + $1.xp }, range, data.filter { $0.xp >= goal }.count))
+            .accessibilityLabel(tr("Answers per day. {0} active days.", data.filter { $0.answers > 0 }.count))
+            Text(tr("{0} answers · {1} active days", data.reduce(0) { $0 + $1.answers }, data.filter { $0.answers > 0 }.count))
                 .font(.caption)
                 .foregroundStyle(Palette.inkSoft)
         }
@@ -152,10 +159,7 @@ struct ProgressScreen: View {
                         Text(r.completedAt.formatted(date: .abbreviated, time: .shortened)).font(.caption).foregroundStyle(Palette.inkSoft)
                     }
                     Spacer()
-                    VStack(alignment: .trailing, spacing: 2) {
-                        Text(tr("+{0} XP", r.xp)).font(.captionBold).foregroundStyle(Palette.gold)
-                        Text("\(Int((r.accuracy * 100).rounded()))%").font(.caption).foregroundStyle(Palette.inkSoft)
-                    }
+                    Text("\(Int((r.accuracy * 100).rounded()))%").font(.captionBold).foregroundStyle(Palette.inkSoft)
                 }
                 .padding(.vertical, 4)
                 .accessibilityElement(children: .combine)
@@ -173,9 +177,9 @@ struct AchievementsGrid: View {
         let s = store.snapshot
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text(tr("Achievements")).font(.title2Bold).foregroundStyle(Palette.ink)
+                Text(tr("Milestones")).font(.title2Bold).foregroundStyle(Palette.ink)
                 Spacer()
-                Text("\(store.achievementDates.count)/\(Achievement.all.count)").font(.captionBold).foregroundStyle(Palette.inkSoft)
+                Text("\(store.unlockedAchievementCount)/\(Achievement.all.count)").font(.captionBold).foregroundStyle(Palette.inkSoft)
             }
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 96), spacing: 12)], spacing: 14) {
                 ForEach(Achievement.all) { a in
@@ -234,7 +238,7 @@ struct AchievementRow: View {
                 .frame(width: 54, height: 54)
                 .background(Circle().fill(color.gradient))
             VStack(alignment: .leading, spacing: 3) {
-                Text(tr("Achievement unlocked")).font(.captionBold).textCase(.uppercase).foregroundStyle(color.color)
+                Text(tr("Milestone reached")).font(.captionBold).textCase(.uppercase).foregroundStyle(color.color)
                 Text(achievement.title).font(.headlineRounded).foregroundStyle(Palette.ink)
                 Text(achievement.detail).font(.caption).foregroundStyle(Palette.inkSoft)
             }

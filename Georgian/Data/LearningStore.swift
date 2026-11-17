@@ -14,6 +14,8 @@ struct LessonReward: Equatable {
     var challengeCompletedNow: Bool
     var achievements: [Achievement]
     var newLevel: Int?
+    /// Words (and phrases) the learner knows now: shown instead of XP (KART #4).
+    var wordsKnown: Int = 0
 }
 
 /// How well a letter or word is known, for badges in the vocabulary.
@@ -172,6 +174,17 @@ final class LearningStore {
         DayKey.lastDays(count, endingOn: today).map { (day: $0, xp: days[$0]?.xp ?? 0) }
     }
 
+    /// Answers given per day over the last `count` days, oldest first: the activity chart.
+    func weeklyAnswers(_ count: Int = 7) -> [(day: String, answers: Int)] {
+        DayKey.lastDays(count, endingOn: today).map { (day: $0, answers: days[$0]?.answers ?? 0) }
+    }
+
+    /// Achievements reached, counting only those the app still has.
+    var unlockedAchievementCount: Int { Achievement.all.filter { achievementDates[$0.id] != nil }.count }
+
+    /// Today's goal as a share, 0…1 (the goal is kept in XP inside; the screens don't show it).
+    var goalProgressToday: Double { Double(xpToday) / Double(max(1, profile.dailyGoal)) }
+
     // MARK: Writing
 
     func completeOnboarding(name: String, level: StartingLevel, goal: DailyGoal) {
@@ -290,7 +303,7 @@ final class LearningStore {
                             dailyGoal: profile.dailyGoal,
                             goalReachedNow: xpBefore < profile.dailyGoal && after.xpToday >= profile.dailyGoal,
                             challengeCompletedNow: challengeNow, achievements: unlocked,
-                            newLevel: levelAfter > levelBefore ? levelAfter : nil)
+                            newLevel: levelAfter > levelBefore ? levelAfter : nil, wordsKnown: after.wordsLearned)
     }
 
     /// Deletes all progress and starts again from the welcome screen.

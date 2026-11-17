@@ -100,7 +100,8 @@ final class LessonPlayerModel {
     func showSampleReward() {
         phase = .finished(LessonReward(xp: 27, accuracy: 0.92, isPerfect: false, streak: store.streak, xpToday: store.xpToday,
                                        dailyGoal: store.profile.dailyGoal, goalReachedNow: true, challengeCompletedNow: false,
-                                       achievements: Array(Achievement.all.prefix(1)), newLevel: nil))
+                                       achievements: Array(Achievement.all.prefix(1)), newLevel: nil,
+                                       wordsKnown: store.snapshot.wordsLearned))
     }
 
     private func describe(_ a: Answer, in ex: Exercise) -> String {

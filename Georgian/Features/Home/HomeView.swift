@@ -59,10 +59,14 @@ struct HomeView: View {
                     .foregroundStyle(Palette.ink)
                     .lineLimit(2)
                     .minimumScaleFactor(0.7)
-                if store.streak > 0 || store.totalXP > 0 {
+                let known = store.snapshot.wordsLearned
+                if store.streak > 0 || known > 0 {
                     HStack(spacing: 10) {
-                        Label(tr("{0}-day streak", store.streak), systemImage: "flame.fill").foregroundStyle(Palette.flame)
-                        Label(tr("{0} XP", store.totalXP), systemImage: "bolt.fill").foregroundStyle(Palette.gold)
+                        if store.streak > 0 {
+                            Label(tr("{0}-day streak", store.streak), systemImage: "flame.fill").foregroundStyle(Palette.flame)
+                        }
+                        Label(plural(known, "word known", "words known", pl: ("znane słowo", "znane słowa", "znanych słów")),
+                              systemImage: "character.book.closed.fill").foregroundStyle(Palette.tkemali)
                     }
                     .font(.captionBold)
                     .padding(.top, 2)
@@ -189,20 +193,20 @@ struct DailyGoalCard: View {
     @Environment(LearningStore.self) private var store
 
     var body: some View {
-        let goal = store.profile.dailyGoal
-        let xp = store.xpToday
-        let progress = Double(xp) / Double(max(1, goal))
+        let progress = store.goalProgressToday
         return HStack(spacing: 18) {
             ProgressRing(progress: progress, lineWidth: 12) {
-                VStack(spacing: 0) {
-                    Text("\(min(xp, 999))").font(.title2Bold).foregroundStyle(Palette.ink).contentTransition(.numericText())
-                    Text(tr("of {0}", goal)).font(.caption2).foregroundStyle(Palette.inkSoft)
+                if progress >= 1 {
+                    Image(systemName: "checkmark").font(.system(size: 26, weight: .heavy)).foregroundStyle(Palette.success)
+                } else {
+                    Text("\(Int((min(progress, 1) * 100).rounded()))%").font(.title3.weight(.bold)).foregroundStyle(Palette.ink)
+                        .contentTransition(.numericText())
                 }
             }
             .frame(width: 84, height: 84)
             VStack(alignment: .leading, spacing: 5) {
                 Text(tr("Daily goal")).font(.headlineRounded).foregroundStyle(Palette.ink)
-                Text(progress >= 1 ? tr("Done for today. ყოჩაღ!") : tr("{0} XP to go: about one lesson.", max(0, goal - xp)))
+                Text(progress >= 1 ? tr("Done for today. ყოჩაღ!") : (progress > 0 ? tr("A little more today: one lesson or a review.") : tr("One lesson or a review a day keeps Georgian growing.")))
                     .font(.calloutRounded)
                     .foregroundStyle(Palette.inkSoft)
                     .fixedSize(horizontal: false, vertical: true)
@@ -212,7 +216,7 @@ struct DailyGoalCard: View {
         }
         .card()
         .accessibilityElement(children: .combine)
-        .accessibilityLabel(tr("Daily goal: {0} of {1} XP", xp, goal))
+        .accessibilityLabel(tr("Daily goal: {0} percent", Int((min(progress, 1) * 100).rounded())))
     }
 }
 
@@ -317,7 +321,7 @@ struct ChallengeCard: View {
                 HStack {
                     Text(tr("Daily challenge")).font(.captionBold).textCase(.uppercase).foregroundStyle(Palette.saperavi)
                     Spacer()
-                    Pill(text: done ? tr("Done") : "+\(XPRules.challengeBonus) XP", color: done ? Palette.success : Palette.gold)
+                    if done { Pill(text: tr("Done"), color: Palette.success) }
                 }
                 Text(c.title).font(.headlineRounded).foregroundStyle(Palette.ink).fixedSize(horizontal: false, vertical: true)
                 ProgressBar(progress: Double(value) / Double(max(1, c.target)), color: Palette.saperavi, height: 10)

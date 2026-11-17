@@ -1,7 +1,7 @@
 import SwiftUI
 
-/// The end of a lesson: confetti, the XP counting up, accuracy, streak, the daily goal and
-/// any achievements reached.
+/// The end of a lesson: confetti, accuracy, the words you know, the streak, the daily goal
+/// and any milestones reached. No XP on screen (KART #4): learning, not points.
 struct LessonCompleteView: View {
     let reward: LessonReward
     let title: String
@@ -9,7 +9,6 @@ struct LessonCompleteView: View {
     var isDialogue = false
     let onDone: () -> Void
 
-    @State private var shownXP = 0
     @State private var appeared = false
 
     var body: some View {
@@ -49,19 +48,13 @@ struct LessonCompleteView: View {
                     .accessibilityIdentifier("lesson-complete")
 
                     HStack(spacing: 12) {
-                        rewardTile(symbol: "bolt.fill", value: "+\(shownXP)", label: tr("XP"), color: Palette.gold)
                         rewardTile(symbol: "target", value: "\(Int((reward.accuracy * 100).rounded()))%", label: tr("Accuracy"), color: Palette.tkemali)
+                        rewardTile(symbol: "character.book.closed.fill", value: "\(reward.wordsKnown)", label: tr("Words you know"), color: Palette.saperavi)
                         rewardTile(symbol: "flame.fill", value: "\(reward.streak)", label: tr("Day streak"), color: Palette.flame)
                     }
 
                     goalCard
 
-                    if reward.challengeCompletedNow {
-                        banner(symbol: "trophy.fill", text: tr("Daily challenge done: +{0} XP", XPRules.challengeBonus), color: .saperavi)
-                    }
-                    if let level = reward.newLevel {
-                        banner(symbol: "arrow.up.circle.fill", text: tr("You reached level {0}!", level), color: .blacksea)
-                    }
                     ForEach(reward.achievements) { a in
                         AchievementRow(achievement: a, unlocked: true, progress: 1)
                             .transition(.scale.combined(with: .opacity))
@@ -82,19 +75,6 @@ struct LessonCompleteView: View {
         }
         .onAppear {
             withMotion(Motion.bouncy) { appeared = true }
-            countUp()
-        }
-    }
-
-    /// The XP climbs to its total.
-    private func countUp() {
-        let steps = min(reward.xp, 30)
-        guard steps > 0 else { return }
-        for i in 1...steps {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35 + Double(i) * 0.03) {
-                withAnimation(.snappy) { shownXP = reward.xp * i / steps }
-                if i % 5 == 0 { Haptics.select() }
-            }
         }
     }
 
@@ -124,7 +104,7 @@ struct LessonCompleteView: View {
                 Text(progress >= 1 ? (reward.goalReachedNow ? tr("Daily goal reached!") : tr("Daily goal done")) : tr("Daily goal"))
                     .font(.headlineRounded)
                     .foregroundStyle(Palette.ink)
-                Text(tr("{0} of {1} XP today", reward.xpToday, reward.dailyGoal))
+                Text(progress >= 1 ? tr("Done for today. ყოჩაღ!") : tr("{0}% of today's goal", Int((progress * 100).rounded())))
                     .font(.calloutRounded)
                     .foregroundStyle(Palette.inkSoft)
             }

@@ -214,12 +214,12 @@ check("half way to level 2", LearnerLevel.progress(forXP: 25), 0.5)
 var snap = ProgressSnapshot()
 snap.today = "2026-11-15"
 let before = snap
-snap.lessonsCompleted = ["a1"]
+snap.lessonsCompleted = ["a1", "c1"]
 snap.totalXP = 120
 snap.perfectLessons = 1
 let unlocked = Achievement.newlyUnlocked(before: before, after: snap, alreadyRecorded: []).map(\.id)
-check("first lesson, perfect and 100 XP unlocked", Set(unlocked), Set(["first-lesson", "perfect", "xp-100"]))
-check("already recorded ones aren't repeated", Achievement.newlyUnlocked(before: before, after: snap, alreadyRecorded: ["first-lesson", "perfect", "xp-100"]).isEmpty, true)
+check("first lesson, perfect and the café unlocked", Set(unlocked), Set(["first-lesson", "perfect", "cafe"]))
+check("already recorded ones aren't repeated", Achievement.newlyUnlocked(before: before, after: snap, alreadyRecorded: ["first-lesson", "perfect", "cafe"]).isEmpty, true)
 check("achievement ids unique", Set(Achievement.all.map(\.id)).count, Achievement.all.count)
 check("challenge is the same all day", DailyChallenge.of(day: "2026-11-15", dailyGoal: 20), DailyChallenge.of(day: "2026-11-15", dailyGoal: 20))
 let kinds = Set((1...28).map { DailyChallenge.of(day: String(format: "2026-02-%02d", $0), dailyGoal: 20).kind })

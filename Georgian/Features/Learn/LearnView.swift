@@ -280,7 +280,6 @@ struct LessonPreviewSheet: View {
                     }
                 }
                 HStack(spacing: 12) {
-                    Pill(text: tr("Up to {0} XP", XPRules.lessonComplete + 20), color: Palette.gold, symbol: "bolt.fill")
                     if state == .completed { Pill(text: tr("Done: practise again"), color: Palette.success, symbol: "checkmark") }
                 }
                 Button {
