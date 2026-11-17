@@ -21,6 +21,7 @@ struct PhraseDetailView: View {
                     hero
                     actions
                     sayIt
+                    wordByWord
                     if phrase.note != nil || phrase.lit != nil || phrase.register != nil { usage }
                     if let v = phrase.variants, !v.isEmpty { forms(tr("Other ways to say it"), v, symbol: "arrow.triangle.branch") }
                     if let r = phrase.replies, !r.isEmpty { forms(tr("You may hear"), r, symbol: "ear.fill") }
@@ -150,6 +151,36 @@ struct PhraseDetailView: View {
     }
 
     // MARK: Saying it and using it
+
+    /// Every word of the phrase: what it is and why it looks like this.
+    @ViewBuilder private var wordByWord: some View {
+        let words = Curriculum.wordsForTapping(phrase.ka).compactMap { w in store.curriculum.gloss(w).map { (Curriculum.glossaryKey(w), $0) } }
+        if words.count > 1 {
+            VStack(alignment: .leading, spacing: 12) {
+                Label(tr("Word by word"), systemImage: "text.magnifyingglass").font(.headlineRounded).foregroundStyle(Palette.saperavi)
+                ForEach(Array(words.enumerated()), id: \.offset) { _, pair in
+                    VStack(alignment: .leading, spacing: 3) {
+                        HStack(alignment: .firstTextBaseline, spacing: 8) {
+                            Text(pair.0).font(.system(.headline, weight: .bold)).foregroundStyle(Palette.ink)
+                            Text(pair.1.lat).font(.caption.italic()).foregroundStyle(Palette.inkSoft)
+                            Spacer(minLength: 4)
+                            Text(pair.1.meaning ?? pair.1.baseMeaning ?? "").font(.calloutRounded).foregroundStyle(Palette.saperavi)
+                                .multilineTextAlignment(.trailing)
+                        }
+                        if let base = pair.1.base, pair.1.meaning == nil || pair.1.baseMeaning != nil {
+                            Text(tr("From {0}", base + (pair.1.baseMeaning.map { " (\($0))" } ?? "")))
+                                .font(.caption).foregroundStyle(Palette.inkSoft)
+                        }
+                        if let note = pair.1.note {
+                            Text(note).font(.caption).foregroundStyle(Palette.inkSoft).fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
+                    .accessibilityElement(children: .combine)
+                }
+            }
+            .card()
+        }
+    }
 
     private var sayIt: some View {
         let hints = Pronunciation.hints(for: phrase.ka, in: store.curriculum)

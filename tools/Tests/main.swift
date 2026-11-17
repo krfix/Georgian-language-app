@@ -360,6 +360,20 @@ if let pl = polish {
     check("Polish: the numbers grammar lesson has notes and exercises", plLesson.filter { $0.kind == .note }.count, 4)
     AppLanguage.use(.en, save: false)
 }
+// Tappable words: every word of every example, conversation and phrase has an explanation.
+check("the glossary loads", course.glossary.count > 700, true)
+var noGloss: [String] = []
+var glossTexts = course.words.map(\.example.ka) + pb.phrases.map(\.ka) + pb.dialogues.flatMap { $0.lines.map(\.ka) }
+for l in course.lessons { glossTexts += l.dialogue?.lines.map(\.ka) ?? [] }
+for text in glossTexts {
+    for w in Curriculum.wordsForTapping(text) where w.unicodeScalars.contains(where: isGeorgianLetter) && course.gloss(w) == nil {
+        noGloss.append(w)
+    }
+}
+check("every word can be tapped", Array(Set(noGloss)).sorted(), [])
+check("სახლში comes from სახლი", course.gloss("სახლში,")?.base, "სახლი")
+check("Polish glossary", polish?.gloss("გაქვთ?")?.meaning?.contains("pan") ?? false, true)
+
 Localizer.load(table: ["Lesson {0} of {1}": "Lekcja {0} z {1}"])
 check("tr fills placeholders", tr("Lesson {0} of {1}", 3, 10), "Lekcja 3 z 10")
 check("tr falls back to English", tr("Not in the table"), "Not in the table")

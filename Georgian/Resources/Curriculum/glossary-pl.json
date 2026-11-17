@@ -1,0 +1,4154 @@
+{
+ "version": 1,
+ "words": {
+  "გამარჯობა": {
+   "lat": "gamarjoba",
+   "meaning": "cześć"
+  },
+  "ნინო": {
+   "lat": "nino",
+   "meaning": "Nino (imię)"
+  },
+  "გაგიმარჯოს": {
+   "lat": "gagimarjos",
+   "meaning": "cześć (w odpowiedzi)"
+  },
+  "როგორ": {
+   "lat": "rogor",
+   "meaning": "jak?"
+  },
+  "ხარ": {
+   "lat": "khar",
+   "meaning": "jesteś"
+  },
+  "დილა": {
+   "lat": "dila",
+   "meaning": "rano"
+  },
+  "მშვიდობისა": {
+   "lat": "mshvidobisa",
+   "meaning": "pokoju (w powitaniach: დილა მშვიდობისა)"
+  },
+  "დედა": {
+   "lat": "deda",
+   "meaning": "matka"
+  },
+  "საღამო": {
+   "lat": "saghamo",
+   "meaning": "wieczór"
+  },
+  "ბატონო": {
+   "lat": "bat'ono",
+   "meaning": "panie (w wołaczu)"
+  },
+  "გიორგი": {
+   "lat": "giorgi",
+   "meaning": "Giorgi (imię)"
+  },
+  "ღამე": {
+   "lat": "ghame",
+   "meaning": "noc"
+  },
+  "ნახვამდის": {
+   "lat": "nakhvamdis",
+   "meaning": "do widzenia"
+  },
+  "ხვალამდე": {
+   "lat": "khvalamde",
+   "base": "ხვალ",
+   "baseLat": "khval",
+   "baseMeaning": "jutro",
+   "note": "-მდე: aż do (z łącznikiem -ა-)"
+  },
+  "მადლობა": {
+   "lat": "madloba",
+   "meaning": "dziękuję"
+  },
+  "დიდი": {
+   "lat": "didi",
+   "meaning": "duży, wielki"
+  },
+  "გმადლობთ": {
+   "lat": "gmadlobt",
+   "meaning": "dziękuję (grzecznie)"
+  },
+  "ძალიან": {
+   "lat": "dzalian",
+   "meaning": "bardzo"
+  },
+  "კარგია": {
+   "lat": "k'argia",
+   "base": "კარგი",
+   "baseLat": "k'argi",
+   "baseMeaning": "dobry; dobrze, OK",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "არაფრის": {
+   "lat": "arapris",
+   "meaning": "nie ma za co"
+  },
+  "ბოდიში": {
+   "lat": "bodishi",
+   "meaning": "przepraszam"
+  },
+  "ვერ": {
+   "lat": "ver",
+   "meaning": "nie mogę, nie dam rady"
+  },
+  "გავიგე": {
+   "lat": "gavige",
+   "meaning": "zrozumiałem, usłyszałem",
+   "note": "Czas przeszły. ვერ გავიგე: nie dałem rady zrozumieć."
+  },
+  "კი": {
+   "lat": "k'i",
+   "meaning": "tak"
+  },
+  "მინდა": {
+   "lat": "minda",
+   "meaning": "chcę"
+  },
+  "დიახ": {
+   "lat": "diakh",
+   "meaning": "tak (grzecznie)"
+  },
+  "არა": {
+   "lat": "ara",
+   "meaning": "nie"
+  },
+  "კარგად": {
+   "lat": "k'argad",
+   "meaning": "dobrze"
+  },
+  "მე": {
+   "lat": "me",
+   "meaning": "ja"
+  },
+  "ვარ": {
+   "lat": "var",
+   "meaning": "jestem"
+  },
+  "შენ": {
+   "lat": "shen",
+   "meaning": "ty"
+  },
+  "ვინ": {
+   "lat": "vin",
+   "meaning": "kto?"
+  },
+  "სახელი": {
+   "lat": "sakheli",
+   "meaning": "imię"
+  },
+  "ჩემი": {
+   "lat": "chemi",
+   "meaning": "mój, moja"
+  },
+  "ნინოა": {
+   "lat": "ninoa",
+   "base": "ნინო",
+   "baseLat": "nino",
+   "baseMeaning": "Nino (imię)",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "მქვია": {
+   "lat": "mkvia",
+   "meaning": "nazywam się"
+  },
+  "რა": {
+   "lat": "ra",
+   "meaning": "co?"
+  },
+  "გქვია": {
+   "lat": "gkvia",
+   "meaning": "nazywasz się",
+   "note": "Jak მქვია, „nazywam się”, z გ- dla „ty”.\nგ- w środku: „ci/tobie”."
+  },
+  "სასიამოვნოა": {
+   "lat": "sasiamovnoa",
+   "meaning": "miło mi"
+  },
+  "საიდან": {
+   "lat": "saidan",
+   "meaning": "skąd"
+  },
+  "სტუდენტი": {
+   "lat": "st'udent'i",
+   "meaning": "student"
+  },
+  "ქართველი": {
+   "lat": "kartveli",
+   "meaning": "Gruzin, Gruzinka"
+  },
+  "ქართველია": {
+   "lat": "kartvelia",
+   "base": "ქართველი",
+   "baseLat": "kartveli",
+   "baseMeaning": "Gruzin, Gruzinka",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ქართული": {
+   "lat": "kartuli",
+   "meaning": "gruziński (język)"
+  },
+  "ლამაზი": {
+   "lat": "lamazi",
+   "meaning": "piękny"
+  },
+  "ენაა": {
+   "lat": "enaa",
+   "base": "ენა",
+   "baseLat": "ena",
+   "baseMeaning": "język",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ენა": {
+   "lat": "ena",
+   "meaning": "język"
+  },
+  "ეს": {
+   "lat": "es",
+   "meaning": "to, ten, ta"
+  },
+  "ვსწავლობ": {
+   "lat": "vsts'avlob",
+   "meaning": "uczę się"
+  },
+  "ქართულს": {
+   "lat": "kartuls",
+   "base": "ქართული",
+   "baseLat": "kartuli",
+   "baseMeaning": "gruziński (język)",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "ცოტა": {
+   "lat": "tsot'a",
+   "meaning": "trochę"
+  },
+  "ვიცი": {
+   "lat": "vitsi",
+   "meaning": "wiem"
+  },
+  "ნული": {
+   "lat": "nuli",
+   "meaning": "zero"
+  },
+  "ერთი": {
+   "lat": "erti",
+   "meaning": "jeden"
+  },
+  "ორი": {
+   "lat": "ori",
+   "meaning": "dwa"
+  },
+  "სამი": {
+   "lat": "sami",
+   "meaning": "trzy"
+  },
+  "ყავა": {
+   "lat": "q'ava",
+   "meaning": "kawa"
+  },
+  "თუ": {
+   "lat": "tu",
+   "meaning": "jeśli; czy (w pytaniach „… czy …?”)"
+  },
+  "შეიძლება": {
+   "lat": "sheidzleba",
+   "meaning": "można?"
+  },
+  "ჩაი": {
+   "lat": "chai",
+   "meaning": "herbata"
+  },
+  "შვილი": {
+   "lat": "shvili",
+   "meaning": "dziecko (syn lub córka)"
+  },
+  "მყავს": {
+   "lat": "mq'avs",
+   "meaning": "mam (osobę, zwierzę)",
+   "note": "O ludziach i zwierzętach: მყავს; o rzeczach: მაქვს.\nმ- w środku: „mi/mnie”, jak w „podoba mi się”."
+  },
+  "ოთხი": {
+   "lat": "otkhi",
+   "meaning": "cztery"
+  },
+  "ბილეთი": {
+   "lat": "bileti",
+   "meaning": "bilet"
+  },
+  "ხუთი": {
+   "lat": "khuti",
+   "meaning": "pięć"
+  },
+  "წუთი": {
+   "lat": "ts'uti",
+   "meaning": "minuta"
+  },
+  "ექვსი": {
+   "lat": "ekvsi",
+   "meaning": "sześć"
+  },
+  "საათია": {
+   "lat": "saatia",
+   "base": "საათი",
+   "baseLat": "saati",
+   "baseMeaning": "godzina; zegar",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "შვიდი": {
+   "lat": "shvidi",
+   "meaning": "siedem"
+  },
+  "კვირაში": {
+   "lat": "k'virashi",
+   "base": "კვირა",
+   "baseLat": "k'vira",
+   "baseMeaning": "tydzień; niedziela",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "დღეა": {
+   "lat": "dghea",
+   "base": "დღე",
+   "baseLat": "dghe",
+   "baseMeaning": "dzień",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "რვა": {
+   "lat": "rva",
+   "meaning": "osiem"
+  },
+  "ლარი": {
+   "lat": "lari",
+   "meaning": "lari"
+  },
+  "ღირს": {
+   "lat": "ghirs",
+   "meaning": "kosztuje",
+   "note": "რა ღირს? „co kosztuje?”: ile to kosztuje.\n-ს na końcu: on, ona."
+  },
+  "ცხრა": {
+   "lat": "tskhra",
+   "meaning": "dziewięć"
+  },
+  "საათზე": {
+   "lat": "saatze",
+   "base": "საათი",
+   "baseLat": "saati",
+   "baseMeaning": "godzina; zegar",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "გნახავ": {
+   "lat": "gnakhav",
+   "meaning": "zobaczę cię",
+   "note": "ხვალ გნახავ: do zobaczenia jutro.\nგ- w środku: „ci/tobie”."
+  },
+  "ათი": {
+   "lat": "ati",
+   "meaning": "dziesięć"
+  },
+  "თერთმეტი": {
+   "lat": "tertmet'i",
+   "meaning": "jedenaście"
+  },
+  "თორმეტი": {
+   "lat": "tormet'i",
+   "meaning": "dwanaście"
+  },
+  "წელიწადში": {
+   "lat": "ts'elits'adshi",
+   "base": "წელიწადი",
+   "baseLat": "ts'elits'adi",
+   "baseMeaning": "rok",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "თვეა": {
+   "lat": "tvea",
+   "base": "თვე",
+   "baseLat": "tve",
+   "baseMeaning": "miesiąc",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ცამეტი": {
+   "lat": "tsamet'i",
+   "meaning": "trzynaście"
+  },
+  "წლისაა": {
+   "lat": "ts'lisaa",
+   "meaning": "ma ... lat",
+   "base": "წელი",
+   "baseLat": "ts'eli",
+   "baseMeaning": "rok",
+   "note": "წლის + -ა (jest)."
+  },
+  "თოთხმეტი": {
+   "lat": "totkhmet'i",
+   "meaning": "czternaście"
+  },
+  "ავტობუსი": {
+   "lat": "avt'obusi",
+   "meaning": "autobus"
+  },
+  "წუთში": {
+   "lat": "ts'utshi",
+   "base": "წუთი",
+   "baseLat": "ts'uti",
+   "baseMeaning": "minuta",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "მოვა": {
+   "lat": "mova",
+   "meaning": "przyjdzie, przyjedzie",
+   "note": "Czas przyszły od მოდის."
+  },
+  "თხუთმეტი": {
+   "lat": "tkhutmet'i",
+   "meaning": "piętnaście"
+  },
+  "თექვსმეტი": {
+   "lat": "tekvsmet'i",
+   "meaning": "szesnaście"
+  },
+  "სახლს": {
+   "lat": "sakhls",
+   "base": "სახლი",
+   "baseLat": "sakhli",
+   "baseMeaning": "dom",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "სართული": {
+   "lat": "sartuli",
+   "meaning": "piętro"
+  },
+  "აქვს": {
+   "lat": "akvs",
+   "meaning": "ma (rzecz)",
+   "note": "Ma coś: o rzeczach. O ludziach i zwierzętach: ჰყავს."
+  },
+  "ჩვიდმეტი": {
+   "lat": "chvidmet'i",
+   "meaning": "siedemnaście"
+  },
+  "ოთახში": {
+   "lat": "otakhshi",
+   "base": "ოთახი",
+   "baseLat": "otakhi",
+   "baseMeaning": "pokój",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "სკამია": {
+   "lat": "sk'amia",
+   "base": "სკამი",
+   "baseLat": "sk'ami",
+   "baseMeaning": "krzesło",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "თვრამეტი": {
+   "lat": "tvramet'i",
+   "meaning": "osiemnaście"
+  },
+  "წლის": {
+   "lat": "ts'lis",
+   "meaning": "roku: ... წლის ვარ, mam ... lat",
+   "base": "წელი",
+   "baseLat": "ts'eli",
+   "baseMeaning": "rok",
+   "note": "წელი gubi ე przed -ის."
+  },
+  "ცხრამეტი": {
+   "lat": "tskhramet'i",
+   "meaning": "dziewiętnaście"
+  },
+  "ოცი": {
+   "lat": "otsi",
+   "meaning": "dwadzieścia"
+  },
+  "ოცდაერთი": {
+   "lat": "otsdaerti",
+   "meaning": "dwadzieścia jeden"
+  },
+  "ოცდაათი": {
+   "lat": "otsdaati",
+   "meaning": "trzydzieści"
+  },
+  "მჭირდება": {
+   "lat": "mch'irdeba",
+   "meaning": "potrzebuję"
+  },
+  "ორმოცი": {
+   "lat": "ormotsi",
+   "meaning": "czterdzieści"
+  },
+  "ძვირია": {
+   "lat": "dzviria",
+   "base": "ძვირი",
+   "baseLat": "dzviri",
+   "baseMeaning": "drogi",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ორმოცდაათი": {
+   "lat": "ormotsdaati",
+   "meaning": "pięćdziesiąt"
+  },
+  "ასი": {
+   "lat": "asi",
+   "meaning": "sto"
+  },
+  "პური": {
+   "lat": "p'uri",
+   "meaning": "chleb"
+  },
+  "გემრიელია": {
+   "lat": "gemrielia",
+   "base": "გემრიელი",
+   "baseLat": "gemrieli",
+   "baseMeaning": "smaczny",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ყველი": {
+   "lat": "q'veli",
+   "meaning": "ser"
+  },
+  "და": {
+   "lat": "da",
+   "meaning": "siostra"
+  },
+  "წყალი": {
+   "lat": "ts'q'ali",
+   "meaning": "woda"
+  },
+  "ჭიქა": {
+   "lat": "ch'ika",
+   "meaning": "szklanka"
+  },
+  "ღვინო": {
+   "lat": "ghvino",
+   "meaning": "wino"
+  },
+  "შაქრით": {
+   "lat": "shakrit",
+   "meaning": "z cukrem",
+   "base": "შაქარი",
+   "baseLat": "shakari",
+   "baseMeaning": "cukier",
+   "note": "შაქარი gubi drugie ა, jak nasze „cukier → cukrem”."
+  },
+  "რძით": {
+   "lat": "rdzit",
+   "base": "რძე",
+   "baseLat": "rdze",
+   "baseMeaning": "mleko",
+   "note": "-ით: narzędnik: czym? z czym? (samochodem, z mlekiem)"
+  },
+  "მიყვარს": {
+   "lat": "miq'vars",
+   "meaning": "kocham"
+  },
+  "რძე": {
+   "lat": "rdze",
+   "meaning": "mleko"
+  },
+  "მაცივარშია": {
+   "lat": "matsivarshia",
+   "base": "მაცივარი",
+   "baseLat": "matsivari",
+   "baseMeaning": "lodówka",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)\n-ა na końcu: skrót od არის, „jest”"
+  },
+  "ხორცი": {
+   "lat": "khortsi",
+   "meaning": "mięso"
+  },
+  "ხორცს": {
+   "lat": "khortss",
+   "base": "ხორცი",
+   "baseLat": "khortsi",
+   "baseMeaning": "mięso",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "არ": {
+   "lat": "ar",
+   "meaning": "nie"
+  },
+  "ვჭამ": {
+   "lat": "vch'am",
+   "meaning": "jem"
+  },
+  "ხაჭაპური": {
+   "lat": "khach'ap'uri",
+   "meaning": "chaczapuri"
+  },
+  "ცხელია": {
+   "lat": "tskhelia",
+   "base": "ცხელი",
+   "baseLat": "tskheli",
+   "baseMeaning": "gorący",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ხინკალი": {
+   "lat": "khink'ali",
+   "meaning": "chinkali"
+  },
+  "ვაშლი": {
+   "lat": "vashli",
+   "meaning": "jabłko"
+  },
+  "წითელია": {
+   "lat": "ts'itelia",
+   "base": "წითელი",
+   "baseLat": "ts'iteli",
+   "baseMeaning": "czerwony",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ლუდი": {
+   "lat": "ludi",
+   "meaning": "piwo"
+  },
+  "შაქარი": {
+   "lat": "shakari",
+   "meaning": "cukier"
+  },
+  "მარილი": {
+   "lat": "marili",
+   "meaning": "sól"
+  },
+  "სად": {
+   "lat": "sad",
+   "meaning": "gdzie?"
+  },
+  "არის": {
+   "lat": "aris",
+   "meaning": "jest"
+  },
+  "ხილი": {
+   "lat": "khili",
+   "meaning": "owoce"
+  },
+  "ბაზარზე": {
+   "lat": "bazarze",
+   "base": "ბაზარი",
+   "baseLat": "bazari",
+   "baseMeaning": "targ",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "იაფია": {
+   "lat": "iapia",
+   "base": "იაფი",
+   "baseLat": "iapi",
+   "baseMeaning": "tani",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ბოსტნეული": {
+   "lat": "bost'neuli",
+   "meaning": "warzywa"
+  },
+  "ჯანსაღია": {
+   "lat": "jansaghia",
+   "base": "ჯანსაღი",
+   "baseLat": "jansaghi",
+   "baseMeaning": "zdrowy",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "მანქანა": {
+   "lat": "mankana",
+   "meaning": "samochód"
+  },
+  "თეთრია": {
+   "lat": "tetria",
+   "base": "თეთრი",
+   "baseLat": "tetri",
+   "baseMeaning": "biały",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "მალე": {
+   "lat": "male",
+   "meaning": "wkrótce, zaraz"
+  },
+  "მეტრო": {
+   "lat": "met'ro",
+   "meaning": "metro"
+  },
+  "მეტროთი": {
+   "lat": "met'roti",
+   "base": "მეტრო",
+   "baseLat": "met'ro",
+   "baseMeaning": "metro",
+   "note": "-თ(ი): narzędnik po samogłosce (metrem)"
+  },
+  "მივდივარ": {
+   "lat": "mivdivar",
+   "meaning": "idę, jadę",
+   "note": "მი- oznacza „od mówiącego”: idę tam.\nვ- na początku: „ja”."
+  },
+  "ტაქსი": {
+   "lat": "t'aksi",
+   "meaning": "taksówka"
+  },
+  "გამოვიძახე": {
+   "lat": "gamovidzakhe",
+   "meaning": "wezwałem",
+   "note": "Czas przeszły od „wzywać”."
+  },
+  "მატარებელი": {
+   "lat": "mat'arebeli",
+   "meaning": "pociąg"
+  },
+  "ბათუმში": {
+   "lat": "batumshi",
+   "base": "ბათუმი",
+   "baseLat": "batumi",
+   "baseMeaning": "Batumi",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "მიდის": {
+   "lat": "midis",
+   "meaning": "jedzie, idzie",
+   "note": "-ს na końcu: on, ona."
+  },
+  "თვითმფრინავი": {
+   "lat": "tvitmprinavi",
+   "meaning": "samolot"
+  },
+  "ცაშია": {
+   "lat": "tsashia",
+   "base": "ცა",
+   "baseLat": "tsa",
+   "baseMeaning": "niebo",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)\n-ა na końcu: skrót od არის, „jest”"
+  },
+  "აეროპორტი": {
+   "lat": "aerop'ort'i",
+   "meaning": "lotnisko"
+  },
+  "შორს": {
+   "lat": "shors",
+   "meaning": "daleko"
+  },
+  "სადგური": {
+   "lat": "sadguri",
+   "meaning": "dworzec"
+  },
+  "ახლოს": {
+   "lat": "akhlos",
+   "meaning": "blisko"
+  },
+  "გაჩერება": {
+   "lat": "gachereba",
+   "meaning": "przystanek"
+  },
+  "აქ": {
+   "lat": "ak",
+   "meaning": "tutaj"
+  },
+  "ველოსიპედი": {
+   "lat": "velosip'edi",
+   "meaning": "rower"
+  },
+  "ველოსიპედით": {
+   "lat": "velosip'edit",
+   "base": "ველოსიპედი",
+   "baseLat": "velosip'edi",
+   "baseMeaning": "rower",
+   "note": "-ით: narzędnik: czym? z czym? (samochodem, z mlekiem)"
+  },
+  "დავდივარ": {
+   "lat": "davdivar",
+   "meaning": "jeżdżę, chodzę (regularnie)",
+   "note": "ვ- na początku: „ja”."
+  },
+  "მარჯვნივ": {
+   "lat": "marjvniv",
+   "meaning": "w prawo"
+  },
+  "მოუხვიეთ": {
+   "lat": "moukhviet",
+   "meaning": "proszę skręcić",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "მარცხნივ": {
+   "lat": "martskhniv",
+   "meaning": "w lewo"
+  },
+  "პირდაპირ": {
+   "lat": "p'irdap'ir",
+   "meaning": "prosto"
+  },
+  "წადით": {
+   "lat": "ts'adit",
+   "meaning": "proszę iść",
+   "note": "Grzeczny rozkaz: -თ.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "მოდი": {
+   "lat": "modi",
+   "meaning": "chodź!",
+   "note": "Na ty; grzecznie მობრძანდით."
+  },
+  "იქ": {
+   "lat": "ik",
+   "meaning": "tam"
+  },
+  "ბანკი": {
+   "lat": "bank'i",
+   "meaning": "bank"
+  },
+  "ბაზარი": {
+   "lat": "bazari",
+   "meaning": "targ"
+  },
+  "ქუჩა": {
+   "lat": "kucha",
+   "meaning": "ulica"
+  },
+  "ქუჩაა": {
+   "lat": "kuchaa",
+   "base": "ქუჩა",
+   "baseLat": "kucha",
+   "baseMeaning": "ulica",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "რუკა": {
+   "lat": "ruk'a",
+   "meaning": "mapa"
+  },
+  "გაქვს": {
+   "lat": "gakvs",
+   "meaning": "masz",
+   "note": "Jak მაქვს, z გ- dla „ty”.\nგ- w środku: „ci/tobie”."
+  },
+  "უკან": {
+   "lat": "uk'an",
+   "meaning": "za"
+  },
+  "სახლის": {
+   "lat": "sakhlis",
+   "base": "სახლი",
+   "baseLat": "sakhli",
+   "baseMeaning": "dom",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "დგას": {
+   "lat": "dgas",
+   "meaning": "stoi",
+   "note": "-ს na końcu: on, ona."
+  },
+  "გვერდით": {
+   "lat": "gverdit",
+   "meaning": "obok"
+  },
+  "აფთიაქი": {
+   "lat": "aptiaki",
+   "meaning": "apteka"
+  },
+  "ბანკის": {
+   "lat": "bank'is",
+   "base": "ბანკი",
+   "baseLat": "bank'i",
+   "baseMeaning": "bank",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "მაღაზია": {
+   "lat": "maghazia",
+   "meaning": "sklep"
+  },
+  "დაკეტილია": {
+   "lat": "dak'et'ilia",
+   "base": "დაკეტილი",
+   "baseLat": "dak'et'ili",
+   "baseMeaning": "zamknięty",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ფული": {
+   "lat": "puli",
+   "meaning": "pieniądze"
+  },
+  "მაქვს": {
+   "lat": "makvs",
+   "meaning": "mam"
+  },
+  "ფასი": {
+   "lat": "pasi",
+   "meaning": "cena"
+  },
+  "ფასია": {
+   "lat": "pasia",
+   "base": "ფასი",
+   "baseLat": "pasi",
+   "baseMeaning": "cena",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ძვირი": {
+   "lat": "dzviri",
+   "meaning": "drogi"
+  },
+  "იაფი": {
+   "lat": "iapi",
+   "meaning": "tani"
+  },
+  "ჩანთა": {
+   "lat": "chanta",
+   "meaning": "torba"
+  },
+  "ბარათი": {
+   "lat": "barati",
+   "meaning": "karta"
+  },
+  "ბარათით": {
+   "lat": "baratit",
+   "base": "ბარათი",
+   "baseLat": "barati",
+   "baseMeaning": "karta",
+   "note": "-ით: narzędnik: czym? z czym? (samochodem, z mlekiem)"
+  },
+  "გადავიხდი": {
+   "lat": "gadavikhdi",
+   "meaning": "zapłacę",
+   "note": "Czas przyszły od გადახდა, płacić.\nვ- na początku: „ja”."
+  },
+  "ნაღდი": {
+   "lat": "naghdi",
+   "meaning": "gotówka (ნაღდი ფული)"
+  },
+  "გაქვთ": {
+   "lat": "gakvt",
+   "meaning": "czy ma pan/pani, macie",
+   "note": "Jak მაქვს, „mam”, z გ- dla „ty”.\nგ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ღია": {
+   "lat": "ghia",
+   "meaning": "otwarty"
+  },
+  "ღიაა": {
+   "lat": "ghiaa",
+   "base": "ღია",
+   "baseLat": "ghia",
+   "baseMeaning": "otwarty",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "დაკეტილი": {
+   "lat": "dak'et'ili",
+   "meaning": "zamknięty"
+  },
+  "ოჯახი": {
+   "lat": "ojakhi",
+   "meaning": "rodzina"
+  },
+  "დიდია": {
+   "lat": "didia",
+   "base": "დიდი",
+   "baseLat": "didi",
+   "baseMeaning": "duży, wielki",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "სახლშია": {
+   "lat": "sakhlshia",
+   "base": "სახლი",
+   "baseLat": "sakhli",
+   "baseMeaning": "dom",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)\n-ა na końcu: skrót od არის, „jest”"
+  },
+  "მამა": {
+   "lat": "mama",
+   "meaning": "ojciec"
+  },
+  "ექიმია": {
+   "lat": "ekimia",
+   "base": "ექიმი",
+   "baseLat": "ekimi",
+   "baseMeaning": "lekarz",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ძმა": {
+   "lat": "dzma",
+   "meaning": "brat"
+  },
+  "თბილისში": {
+   "lat": "tbilisshi",
+   "base": "თბილისი",
+   "baseLat": "tbilisi",
+   "baseMeaning": "Tbilisi",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "ცხოვრობს": {
+   "lat": "tskhovrobs",
+   "meaning": "mieszka",
+   "note": "-ს na końcu: on, ona."
+  },
+  "სტუდენტია": {
+   "lat": "st'udent'ia",
+   "base": "სტუდენტი",
+   "baseLat": "st'udent'i",
+   "baseMeaning": "student",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ბებია": {
+   "lat": "bebia",
+   "meaning": "babcia"
+  },
+  "ხაჭაპურს": {
+   "lat": "khach'ap'urs",
+   "base": "ხაჭაპური",
+   "baseLat": "khach'ap'uri",
+   "baseMeaning": "chaczapuri",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "აცხობს": {
+   "lat": "atskhobs",
+   "meaning": "piecze",
+   "note": "-ს na końcu: on, ona."
+  },
+  "ბაბუა": {
+   "lat": "babua",
+   "meaning": "dziadek"
+  },
+  "ბაღშია": {
+   "lat": "baghshia",
+   "base": "ბაღი",
+   "baseLat": "baghi",
+   "baseMeaning": "ogród",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)\n-ა na końcu: skrót od არის, „jest”"
+  },
+  "ცოლი": {
+   "lat": "tsoli",
+   "meaning": "żona"
+  },
+  "ცოლია": {
+   "lat": "tsolia",
+   "base": "ცოლი",
+   "baseLat": "tsoli",
+   "baseMeaning": "żona",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ქმარი": {
+   "lat": "kmari",
+   "meaning": "mąż"
+  },
+  "ქმარია": {
+   "lat": "kmaria",
+   "base": "ქმარი",
+   "baseLat": "kmari",
+   "baseMeaning": "mąż",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ბავშვი": {
+   "lat": "bavshvi",
+   "meaning": "dziecko"
+  },
+  "სკოლაშია": {
+   "lat": "sk'olashia",
+   "base": "სკოლა",
+   "baseLat": "sk'ola",
+   "baseMeaning": "szkoła",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)\n-ა na końcu: skrót od არის, „jest”"
+  },
+  "მეგობარი": {
+   "lat": "megobari",
+   "meaning": "przyjaciel"
+  },
+  "ის": {
+   "lat": "is",
+   "meaning": "on, ona, ono"
+  },
+  "მეგობარია": {
+   "lat": "megobaria",
+   "base": "მეგობარი",
+   "baseLat": "megobari",
+   "baseMeaning": "przyjaciel",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "სახლი": {
+   "lat": "sakhli",
+   "meaning": "dom"
+  },
+  "ოთახი": {
+   "lat": "otakhi",
+   "meaning": "pokój"
+  },
+  "ნათელია": {
+   "lat": "natelia",
+   "base": "ნათელი",
+   "baseLat": "nateli",
+   "baseMeaning": "jasny",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "კარი": {
+   "lat": "k'ari",
+   "meaning": "drzwi"
+  },
+  "დახურეთ": {
+   "lat": "dakhuret",
+   "meaning": "proszę zamknąć",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ფანჯარა": {
+   "lat": "panjara",
+   "meaning": "okno"
+  },
+  "გააღე": {
+   "lat": "gaaghe",
+   "meaning": "otwórz!",
+   "note": "Na ty."
+  },
+  "მაგიდა": {
+   "lat": "magida",
+   "meaning": "stół"
+  },
+  "წიგნი": {
+   "lat": "ts'igni",
+   "meaning": "książka"
+  },
+  "მაგიდაზეა": {
+   "lat": "magidazea",
+   "base": "მაგიდა",
+   "baseLat": "magida",
+   "baseMeaning": "stół",
+   "note": "-ზე: na; o (godzinie); o (czymś)\n-ა na końcu: skrót od არის, „jest”"
+  },
+  "სკამი": {
+   "lat": "sk'ami",
+   "meaning": "krzesło"
+  },
+  "სკამზე": {
+   "lat": "sk'amze",
+   "base": "სკამი",
+   "baseLat": "sk'ami",
+   "baseMeaning": "krzesło",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "დაჯექი": {
+   "lat": "dajeki",
+   "meaning": "usiądź",
+   "note": "Na ty; grzecznie დაჯექით."
+  },
+  "საინტერესოა": {
+   "lat": "saint'eresoa",
+   "base": "საინტერესო",
+   "baseLat": "saint'ereso",
+   "baseMeaning": "ciekawy",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ტელეფონი": {
+   "lat": "t'eleponi",
+   "meaning": "telefon"
+  },
+  "გასაღები": {
+   "lat": "gasaghebi",
+   "meaning": "klucz"
+  },
+  "დავკარგე": {
+   "lat": "davk'arge",
+   "meaning": "zgubiłem, zgubiłam",
+   "note": "Czas przeszły, ja."
+  },
+  "საწოლი": {
+   "lat": "sats'oli",
+   "meaning": "łóżko"
+  },
+  "კალამი": {
+   "lat": "k'alami",
+   "meaning": "długopis"
+  },
+  "დღეს": {
+   "lat": "dghes",
+   "meaning": "dzisiaj"
+  },
+  "ორშაბათია": {
+   "lat": "orshabatia",
+   "base": "ორშაბათი",
+   "baseLat": "orshabati",
+   "baseMeaning": "poniedziałek",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ხვალ": {
+   "lat": "khval",
+   "meaning": "jutro"
+  },
+  "გუშინ": {
+   "lat": "gushin",
+   "meaning": "wczoraj"
+  },
+  "ბაზარში": {
+   "lat": "bazarshi",
+   "base": "ბაზარი",
+   "baseLat": "bazari",
+   "baseMeaning": "targ",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "ვიყავი": {
+   "lat": "viq'avi",
+   "meaning": "byłem, byłam",
+   "note": "ვ- na początku: „ja”.\nCzas przeszły od ვარ."
+  },
+  "დღე": {
+   "lat": "dghe",
+   "meaning": "dzień"
+  },
+  "კარგი": {
+   "lat": "k'argi",
+   "meaning": "dobry; dobrze, OK"
+  },
+  "კვირა": {
+   "lat": "k'vira",
+   "meaning": "tydzień; niedziela"
+  },
+  "ერთ": {
+   "lat": "ert",
+   "meaning": "jeden (przed rzeczownikiem z końcówką)"
+  },
+  "დავბრუნდები": {
+   "lat": "davbrundebi",
+   "meaning": "wrócę",
+   "note": "ვ- na początku: „ja”."
+  },
+  "თვე": {
+   "lat": "tve",
+   "meaning": "miesiąc"
+  },
+  "ვიქნები": {
+   "lat": "viknebi",
+   "meaning": "będę",
+   "note": "ვ- na początku: „ja”."
+  },
+  "წელი": {
+   "lat": "ts'eli",
+   "meaning": "rok"
+  },
+  "ახალი": {
+   "lat": "akhali",
+   "meaning": "nowy; świeży"
+  },
+  "მოდის": {
+   "lat": "modis",
+   "meaning": "idzie, przychodzi",
+   "note": "-ს na końcu: on, ona."
+  },
+  "საათი": {
+   "lat": "saati",
+   "meaning": "godzina; zegar"
+  },
+  "რომელი": {
+   "lat": "romeli",
+   "meaning": "który"
+  },
+  "ახლა": {
+   "lat": "akhla",
+   "meaning": "teraz"
+  },
+  "დაკავებული": {
+   "lat": "dak'avebuli",
+   "meaning": "zajęty"
+  },
+  "დილით": {
+   "lat": "dilit",
+   "meaning": "rano",
+   "base": "დილა",
+   "baseLat": "dila",
+   "baseMeaning": "rano",
+   "note": "-ით przy czasie: kiedy, jak „rano”."
+  },
+  "ყავას": {
+   "lat": "q'avas",
+   "base": "ყავა",
+   "baseLat": "q'ava",
+   "baseMeaning": "kawa",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "ვსვამ": {
+   "lat": "vsvam",
+   "meaning": "piję"
+  },
+  "საღამოს": {
+   "lat": "saghamos",
+   "meaning": "wieczorem",
+   "base": "საღამო",
+   "baseLat": "saghamo",
+   "baseMeaning": "wieczór",
+   "note": "-ს przy czasie mówi „kiedy”, jak nasze „wieczorem”."
+  },
+  "სახლში": {
+   "lat": "sakhlshi",
+   "base": "სახლი",
+   "baseLat": "sakhli",
+   "baseMeaning": "dom",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "ორშაბათი": {
+   "lat": "orshabati",
+   "meaning": "poniedziałek"
+  },
+  "ორშაბათს": {
+   "lat": "orshabats",
+   "meaning": "w poniedziałek",
+   "base": "ორშაბათი",
+   "baseLat": "orshabati",
+   "baseMeaning": "poniedziałek",
+   "note": "-ს przy dniu: „w” (w poniedziałek)."
+  },
+  "ვმუშაობ": {
+   "lat": "vmushaob",
+   "meaning": "pracuję",
+   "note": "ვ- na początku: „ja”."
+  },
+  "პარასკევი": {
+   "lat": "p'arask'evi",
+   "meaning": "piątek"
+  },
+  "პარასკევს": {
+   "lat": "p'arask'evs",
+   "meaning": "w piątek",
+   "base": "პარასკევი",
+   "baseLat": "p'arask'evi",
+   "baseMeaning": "piątek",
+   "note": "-ს przy dniu: „w”."
+  },
+  "კინოში": {
+   "lat": "k'inoshi",
+   "base": "კინო",
+   "baseLat": "k'ino",
+   "baseMeaning": "kino",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "მივდივართ": {
+   "lat": "mivdivart",
+   "meaning": "idziemy, jedziemy",
+   "note": "ვ- … -თ: „my”."
+  },
+  "შაბათი": {
+   "lat": "shabati",
+   "meaning": "sobota"
+  },
+  "შაბათს": {
+   "lat": "shabats",
+   "meaning": "w sobotę",
+   "base": "შაბათი",
+   "baseLat": "shabati",
+   "baseMeaning": "sobota",
+   "note": "-ს przy dniu: „w”."
+  },
+  "მენიუ": {
+   "lat": "meniu",
+   "meaning": "menu"
+  },
+  "აი": {
+   "lat": "ai",
+   "meaning": "o, proszę (tu jest)"
+  },
+  "ინებეთ": {
+   "lat": "inebet",
+   "meaning": "proszę bardzo",
+   "note": "Bardzo uprzejme, mówi się, podając coś."
+  },
+  "რას": {
+   "lat": "ras",
+   "base": "რა",
+   "baseLat": "ra",
+   "baseMeaning": "co?",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "მირჩევთ": {
+   "lat": "mirchevt",
+   "meaning": "co mi pan poleca",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ხინკალს": {
+   "lat": "khink'als",
+   "base": "ხინკალი",
+   "baseLat": "khink'ali",
+   "baseMeaning": "chinkali",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "გნებავთ": {
+   "lat": "gnebavt",
+   "meaning": "czego pan sobie życzy",
+   "note": "Uprzejme „życzy pan sobie” kelnerów.\nგ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ანგარიში": {
+   "lat": "angarishi",
+   "meaning": "rachunek; konto"
+  },
+  "წუთით": {
+   "lat": "ts'utit",
+   "base": "წუთი",
+   "baseLat": "ts'uti",
+   "baseMeaning": "minuta",
+   "note": "-ით: narzędnik: czym? z czym? (samochodem, z mlekiem)"
+  },
+  "გაუმარჯოს": {
+   "lat": "gaumarjos",
+   "meaning": "Na zdrowie!"
+  },
+  "ჩვენს": {
+   "lat": "chvens",
+   "meaning": "naszą, naszej",
+   "base": "ჩვენი",
+   "baseLat": "chveni",
+   "note": "ჩვენი, nasz, dostaje -ს jak rzeczownik po nim."
+  },
+  "მეგობრობას": {
+   "lat": "megobrobas",
+   "base": "მეგობრობა",
+   "baseLat": "megobroba",
+   "baseMeaning": "przyjaźń",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "კილო": {
+   "lat": "k'ilo",
+   "meaning": "kilo"
+  },
+  "უფრო": {
+   "lat": "upro",
+   "meaning": "bardziej, -ej (wolniej, taniej)"
+  },
+  "თქმა": {
+   "lat": "tkma",
+   "meaning": "mówienie (რა თქმა უნდა: oczywiście)"
+  },
+  "უნდა": {
+   "lat": "unda",
+   "meaning": "trzeba, muszę"
+  },
+  "პარკი": {
+   "lat": "p'ark'i",
+   "meaning": "reklamówka"
+  },
+  "სულ": {
+   "lat": "sul",
+   "meaning": "w sumie, wszystko"
+  },
+  "კიდევ": {
+   "lat": "k'idev",
+   "meaning": "jeszcze"
+  },
+  "რამე": {
+   "lat": "rame",
+   "meaning": "coś"
+  },
+  "აეროპორტში": {
+   "lat": "aerop'ort'shi",
+   "base": "აეროპორტი",
+   "baseLat": "aerop'ort'i",
+   "baseMeaning": "lotnisko",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "მიდიხართ": {
+   "lat": "midikhart",
+   "meaning": "pan jedzie, jedziecie",
+   "note": "Kierowcy pytają სად მიდიხართ?\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ცენტრამდე": {
+   "lat": "tsent'ramde",
+   "base": "ცენტრი",
+   "baseLat": "tsent'ri",
+   "baseMeaning": "centrum",
+   "note": "-მდე: aż do (z łącznikiem -ა-)"
+  },
+  "გამიჩერეთ": {
+   "lat": "gamicheret",
+   "meaning": "proszę mi się zatrzymać",
+   "note": "გა- … -თ: grzeczny rozkaz; მ- to „dla mnie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ნელა": {
+   "lat": "nela",
+   "meaning": "powoli"
+  },
+  "რამდენი": {
+   "lat": "ramdeni",
+   "meaning": "ile?"
+  },
+  "ხანი": {
+   "lat": "khani",
+   "meaning": "czas, chwila"
+  },
+  "მერე": {
+   "lat": "mere",
+   "meaning": "potem"
+  },
+  "ბანკთან": {
+   "lat": "bank'tan",
+   "base": "ბანკი",
+   "baseLat": "bank'i",
+   "baseMeaning": "bank",
+   "note": "-თან: u, przy; u kogoś"
+  },
+  "ქუჩის": {
+   "lat": "kuchis",
+   "base": "ქუჩა",
+   "baseLat": "kucha",
+   "baseMeaning": "ulica",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "ბოლოს": {
+   "lat": "bolos",
+   "base": "ბოლო",
+   "baseLat": "bolo",
+   "baseMeaning": "koniec; ostatni",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "გაიმეორეთ": {
+   "lat": "gaimeoret",
+   "meaning": "proszę powtórzyć",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ხართ": {
+   "lat": "khart",
+   "meaning": "pan jest, wy jesteście",
+   "note": "Od „być”: შენ ხარ, თქვენ ხართ.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ქალბატონო": {
+   "lat": "kalbat'ono",
+   "meaning": "pani (w wołaczu)"
+  },
+  "ნანა": {
+   "lat": "nana",
+   "meaning": "Nana (imię)"
+  },
+  "თქვენ": {
+   "lat": "tkven",
+   "meaning": "wy; pan, pani"
+  },
+  "მეზობელი": {
+   "lat": "mezobeli",
+   "meaning": "sąsiad"
+  },
+  "შემოდით": {
+   "lat": "shemodit",
+   "meaning": "Proszę wejść!"
+  },
+  "დალიეთ": {
+   "lat": "daliet",
+   "meaning": "proszę się napić",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "კარგ": {
+   "lat": "k'arg",
+   "meaning": "dobry (przed rzeczownikiem z końcówką)"
+  },
+  "გისურვებთ": {
+   "lat": "gisurvebt",
+   "meaning": "życzę panu",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ცუდად": {
+   "lat": "tsudad",
+   "meaning": "źle"
+  },
+  "ექიმო": {
+   "lat": "ekimo",
+   "base": "ექიმი",
+   "baseLat": "ekimi",
+   "baseMeaning": "lekarz",
+   "note": "-ო: wołacz, jak nasze „panie doktorze!”"
+  },
+  "თავი": {
+   "lat": "tavi",
+   "meaning": "głowa"
+  },
+  "მტკივა": {
+   "lat": "mt'k'iva",
+   "meaning": "boli mnie",
+   "note": "Działa jak „boli mnie”: część ciała jest podmiotem.\nმ- w środku: „mi/mnie”, jak w „podoba mi się”."
+  },
+  "დილიდან": {
+   "lat": "dilidan",
+   "base": "დილა",
+   "baseLat": "dila",
+   "baseMeaning": "rano",
+   "note": "-დან: z, od (z łącznikiem -ი-)"
+  },
+  "მუცელი": {
+   "lat": "mutseli",
+   "meaning": "brzuch"
+  },
+  "ბავშვს": {
+   "lat": "bavshvs",
+   "base": "ბავშვი",
+   "baseLat": "bavshvi",
+   "baseMeaning": "dziecko",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "სტკივა": {
+   "lat": "st'k'iva",
+   "meaning": "boli go / ją",
+   "note": "Jak მტკივა, z ს- dla „jego/jej”."
+  },
+  "სიცხე": {
+   "lat": "sitskhe",
+   "meaning": "gorączka; upał"
+  },
+  "გუშინიდან": {
+   "lat": "gushinidan",
+   "base": "გუშინ",
+   "baseLat": "gushin",
+   "baseMeaning": "wczoraj",
+   "note": "-დან: z, od (z łącznikiem -ი-)"
+  },
+  "ექიმი": {
+   "lat": "ekimi",
+   "meaning": "lekarz"
+  },
+  "სასწრაფოდ": {
+   "lat": "sasts'rapod",
+   "meaning": "pilnie"
+  },
+  "მუშაობ": {
+   "lat": "mushaob",
+   "meaning": "pracujesz",
+   "note": "Od მუშაობა, pracować."
+  },
+  "ბანკში": {
+   "lat": "bank'shi",
+   "base": "ბანკი",
+   "baseLat": "bank'i",
+   "baseMeaning": "bank",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "ოფისში": {
+   "lat": "opisshi",
+   "base": "ოფისი",
+   "baseLat": "opisi",
+   "baseMeaning": "biuro",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "ცენტრში": {
+   "lat": "tsent'rshi",
+   "base": "ცენტრი",
+   "baseLat": "tsent'ri",
+   "baseMeaning": "centrum",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "შეხვედრა": {
+   "lat": "shekhvedra",
+   "meaning": "spotkanie"
+  },
+  "ათ": {
+   "lat": "at",
+   "meaning": "dziesięć (przed rzeczownikiem z końcówką)"
+  },
+  "ახლავე": {
+   "lat": "akhlave",
+   "meaning": "zaraz, od razu"
+  },
+  "მოვალ": {
+   "lat": "moval",
+   "meaning": "przyjdę",
+   "note": "მო- (tu, do mnie) + ვ- (ja)."
+  },
+  "იდეაა": {
+   "lat": "ideaa",
+   "base": "იდეა",
+   "baseLat": "idea",
+   "baseMeaning": "pomysł",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ამინდია": {
+   "lat": "amindia",
+   "base": "ამინდი",
+   "baseLat": "amindi",
+   "baseMeaning": "pogoda",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ცხელა": {
+   "lat": "tskhela",
+   "meaning": "jest gorąco"
+  },
+  "ზღვაზე": {
+   "lat": "zghvaze",
+   "base": "ზღვა",
+   "baseLat": "zghva",
+   "baseMeaning": "morze",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "წავიდეთ": {
+   "lat": "ts'avidet",
+   "meaning": "chodźmy",
+   "note": "-თ dla „-my”: jak „chodźmy”."
+  },
+  "ცივა": {
+   "lat": "tsiva",
+   "meaning": "jest zimno"
+  },
+  "ქუდი": {
+   "lat": "kudi",
+   "meaning": "czapka"
+  },
+  "დაიხურე": {
+   "lat": "daikhure",
+   "meaning": "załóż (czapkę)",
+   "note": "Na ty."
+  },
+  "საქართველო": {
+   "lat": "sakartvelo",
+   "meaning": "Gruzja"
+  },
+  "მომწონს": {
+   "lat": "momts'ons",
+   "meaning": "podoba mi się"
+  },
+  "ხალხი": {
+   "lat": "khalkhi",
+   "meaning": "ludzie"
+  },
+  "თბილია": {
+   "lat": "tbilia",
+   "base": "თბილი",
+   "baseLat": "tbili",
+   "baseMeaning": "ciepły",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "თბილისი": {
+   "lat": "tbilisi",
+   "meaning": "Tbilisi"
+  },
+  "ქალაქია": {
+   "lat": "kalakia",
+   "base": "ქალაქი",
+   "baseLat": "kalaki",
+   "baseMeaning": "miasto",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "განსაკუთრებით": {
+   "lat": "gansak'utrebit",
+   "meaning": "zwłaszcza"
+  },
+  "მოდიხარ": {
+   "lat": "modikhar",
+   "meaning": "przychodzisz",
+   "note": "მო- oznacza „do mówiącego”, jak nasze „przy-” w „przychodzić”."
+  },
+  "ჩვენ": {
+   "lat": "chven",
+   "meaning": "my"
+  },
+  "სტუდენტები": {
+   "lat": "st'udent'ebi",
+   "base": "სტუდენტი",
+   "baseLat": "st'udent'i",
+   "baseMeaning": "student",
+   "note": "-ები: liczba mnoga"
+  },
+  "ვართ": {
+   "lat": "vart",
+   "meaning": "jesteśmy",
+   "note": "Od „być”: მე ვარ, ჩვენ ვართ.\nვ- … -თ: „my”."
+  },
+  "ისინი": {
+   "lat": "isini",
+   "meaning": "oni, one"
+  },
+  "ცხოვრობენ": {
+   "lat": "tskhovroben",
+   "meaning": "mieszkają",
+   "note": "-ენ na końcu: „oni”."
+  },
+  "კითხვა": {
+   "lat": "k'itkhva",
+   "meaning": "pytanie"
+  },
+  "ვლაპარაკობ": {
+   "lat": "vlap'arak'ob",
+   "meaning": "mówię"
+  },
+  "ქართულად": {
+   "lat": "kartulad",
+   "base": "ქართული",
+   "baseLat": "kartuli",
+   "baseMeaning": "gruziński (język)",
+   "note": "-ად: jako, w jakiś sposób; po (po gruzińsku)"
+  },
+  "ვცხოვრობ": {
+   "lat": "vtskhovrob",
+   "meaning": "mieszkam"
+  },
+  "ჩაის": {
+   "lat": "chais",
+   "base": "ჩაი",
+   "baseLat": "chai",
+   "baseMeaning": "herbata",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "ვწერ": {
+   "lat": "vts'er",
+   "meaning": "piszę"
+  },
+  "წერილს": {
+   "lat": "ts'erils",
+   "base": "წერილი",
+   "baseLat": "ts'erili",
+   "baseMeaning": "list",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "როდის": {
+   "lat": "rodis",
+   "meaning": "kiedy?"
+  },
+  "რატომ": {
+   "lat": "rat'om",
+   "meaning": "dlaczego?"
+  },
+  "გყავს": {
+   "lat": "gq'avs",
+   "meaning": "masz (kogoś)",
+   "note": "O ludziach: გყავს; o rzeczach: გაქვს.\nგ- w środku: „ci/tobie”."
+  },
+  "დაჯდომა": {
+   "lat": "dajdoma",
+   "meaning": "usiąść, siadanie"
+  },
+  "დახმარება": {
+   "lat": "dakhmareba",
+   "meaning": "pomoc"
+  },
+  "ფილმი": {
+   "lat": "pilmi",
+   "meaning": "film"
+  },
+  "ბადე": {
+   "lat": "bade",
+   "meaning": "sieć"
+  },
+  "დაბა": {
+   "lat": "daba",
+   "meaning": "miasteczko"
+  },
+  "ვაზი": {
+   "lat": "vazi",
+   "meaning": "winorośl"
+  },
+  "გზა": {
+   "lat": "gza",
+   "meaning": "droga"
+  },
+  "თევზი": {
+   "lat": "tevzi",
+   "meaning": "ryba"
+  },
+  "დათვი": {
+   "lat": "datvi",
+   "meaning": "niedźwiedź"
+  },
+  "ნავი": {
+   "lat": "navi",
+   "meaning": "łódka"
+  },
+  "ლომი": {
+   "lat": "lomi",
+   "meaning": "lew"
+  },
+  "მზე": {
+   "lat": "mze",
+   "meaning": "słońce"
+  },
+  "მთა": {
+   "lat": "mta",
+   "meaning": "góra"
+  },
+  "კატა": {
+   "lat": "k'at'a",
+   "meaning": "kot"
+  },
+  "ტბა": {
+   "lat": "t'ba",
+   "meaning": "jezioro"
+  },
+  "მთვარე": {
+   "lat": "mtvare",
+   "meaning": "księżyc"
+  },
+  "პომიდორი": {
+   "lat": "p'omidori",
+   "meaning": "pomidor"
+  },
+  "ქალაქი": {
+   "lat": "kalaki",
+   "meaning": "miasto"
+  },
+  "ცა": {
+   "lat": "tsa",
+   "meaning": "niebo"
+  },
+  "ცისარტყელა": {
+   "lat": "tsisart'q'ela",
+   "meaning": "tęcza"
+  },
+  "ხე": {
+   "lat": "khe",
+   "meaning": "drzewo"
+  },
+  "ძაღლი": {
+   "lat": "dzaghli",
+   "meaning": "pies"
+  },
+  "ჯიბე": {
+   "lat": "jibe",
+   "meaning": "kieszeń"
+  },
+  "ჰაერი": {
+   "lat": "haeri",
+   "meaning": "powietrze"
+  },
+  "ქარი": {
+   "lat": "kari",
+   "meaning": "wiatr"
+  },
+  "ფური": {
+   "lat": "puri",
+   "meaning": "krowa"
+  },
+  "ცელი": {
+   "lat": "tseli",
+   "meaning": "kosa"
+  },
+  "ურძოდ": {
+   "lat": "urdzod",
+   "meaning": "bez mleka"
+  },
+  "ხაჭაპურიც": {
+   "lat": "khach'ap'urits",
+   "base": "ხაჭაპური",
+   "baseLat": "khach'ap'uri",
+   "baseMeaning": "chaczapuri",
+   "note": "-ც na końcu: „też, także”"
+  },
+  "ანა": {
+   "lat": "ana",
+   "meaning": "Ana (imię)"
+  },
+  "ინგლისიდან": {
+   "lat": "inglisidan",
+   "base": "ინგლისი",
+   "baseLat": "inglisi",
+   "baseMeaning": "Anglia",
+   "note": "-დან: z, od (z łącznikiem -ი-)"
+  },
+  "თბილისელი": {
+   "lat": "tbiliseli",
+   "meaning": "tbilisczyk"
+  },
+  "იცი": {
+   "lat": "itsi",
+   "meaning": "wiesz, znasz",
+   "note": "Od ვიცი, „wiem”: bez ვ- dla „ty”."
+  },
+  "ყოჩაღ": {
+   "lat": "q'ochagh",
+   "meaning": "brawo!"
+  },
+  "იყოს": {
+   "lat": "iq'os",
+   "meaning": "niech będzie",
+   "note": "Jak nasze „niech będzie”: tak się zgadza na cenę."
+  },
+  "ნახევარი": {
+   "lat": "nakhevari",
+   "meaning": "pół, połowa"
+  },
+  "დაახლოებით": {
+   "lat": "daakhloebit",
+   "meaning": "około"
+  },
+  "აკეთებ": {
+   "lat": "ak'eteb",
+   "meaning": "robisz",
+   "note": "Od კეთება, robić."
+  },
+  "ვჭამოთ": {
+   "lat": "vch'amot",
+   "meaning": "zjedzmy",
+   "note": "ვ- … -თ: „my”."
+  },
+  "რომელ": {
+   "lat": "romel",
+   "meaning": "który (przed rzeczownikiem z końcówką)"
+  },
+  "შვიდ": {
+   "lat": "shvid",
+   "meaning": "siedem (przed rzeczownikiem z końcówką)"
+  },
+  "ხო": {
+   "lat": "kho",
+   "meaning": "no, aha"
+  },
+  "გთხოვთ": {
+   "lat": "gtkhovt",
+   "meaning": "proszę (pana)",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "მესმის": {
+   "lat": "mesmis",
+   "meaning": "rozumiem; słyszę",
+   "note": "Dosłownie „słyszy mi się”.\nმ- w środku: „mi/mnie”, jak w „podoba mi się”."
+  },
+  "ინგლისური": {
+   "lat": "inglisuri",
+   "meaning": "angielski"
+  },
+  "იცით": {
+   "lat": "itsit",
+   "meaning": "czy pan zna, znacie",
+   "note": "Od ვიცი, „wiem”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "რუსული": {
+   "lat": "rusuli",
+   "meaning": "rosyjski"
+  },
+  "ილაპარაკეთ": {
+   "lat": "ilap'arak'et",
+   "meaning": "proszę mówić",
+   "note": "Od ლაპარაკი, mówienie.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "დამიწერეთ": {
+   "lat": "damits'eret",
+   "meaning": "proszę mi napisać",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ნიშნავს": {
+   "lat": "nishnavs",
+   "meaning": "znaczy",
+   "note": "-ს na końcu: on, ona."
+  },
+  "ტუალეტი": {
+   "lat": "t'ualet'i",
+   "meaning": "toaleta"
+  },
+  "შეგიძლიათ": {
+   "lat": "shegidzliat",
+   "meaning": "czy może pan/pani",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "დამეხმაროთ": {
+   "lat": "damekhmarot",
+   "meaning": "pomóc mi (grzecznie)",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "შეგიძლია": {
+   "lat": "shegidzlia",
+   "meaning": "możesz",
+   "note": "გ- w środku: „ci/tobie”."
+  },
+  "დამეხმარო": {
+   "lat": "damekhmaro",
+   "meaning": "pomóc mi",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”."
+  },
+  "ამ": {
+   "lat": "am",
+   "meaning": "ten (przed rzeczownikiem z końcówką)"
+  },
+  "მისამართზე": {
+   "lat": "misamartze",
+   "base": "მისამართი",
+   "baseLat": "misamarti",
+   "baseMeaning": "adres",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "იქნება": {
+   "lat": "ikneba",
+   "meaning": "będzie",
+   "note": "Czas przyszły od არის."
+  },
+  "მოიცადეთ": {
+   "lat": "moitsadet",
+   "meaning": "proszę poczekać",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "კონდიციონერი": {
+   "lat": "k'onditsioneri",
+   "meaning": "klimatyzacja"
+  },
+  "ჩართეთ": {
+   "lat": "chartet",
+   "meaning": "proszę włączyć",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ხურდა": {
+   "lat": "khurda",
+   "meaning": "drobne, reszta"
+  },
+  "ბოლტი": {
+   "lat": "bolt'i",
+   "meaning": "Bolt (aplikacja)"
+  },
+  "შესასვლელთან": {
+   "lat": "shesasvleltan",
+   "base": "შესასვლელი",
+   "baseLat": "shesasvleli",
+   "baseMeaning": "wejście",
+   "note": "-თან: u, przy; u kogoś"
+  },
+  "ჩემოდანი": {
+   "lat": "chemodani",
+   "meaning": "walizka"
+  },
+  "ავტობუსის": {
+   "lat": "avt'obusis",
+   "base": "ავტობუსი",
+   "baseLat": "avt'obusi",
+   "baseMeaning": "autobus",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "მარშრუტკა": {
+   "lat": "marshrut'k'a",
+   "meaning": "marszrutka, bus"
+  },
+  "სადგურთან": {
+   "lat": "sadgurtan",
+   "base": "სადგური",
+   "baseLat": "sadguri",
+   "baseMeaning": "dworzec",
+   "note": "-თან: u, przy; u kogoś"
+  },
+  "ჩერდება": {
+   "lat": "cherdeba",
+   "meaning": "zatrzymuje się",
+   "note": "-ს na końcu: on, ona."
+  },
+  "გაჩერებაზე": {
+   "lat": "gacherebaze",
+   "base": "გაჩერება",
+   "baseLat": "gachereba",
+   "baseMeaning": "przystanek",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "ჩავდივარ": {
+   "lat": "chavdivar",
+   "meaning": "wysiadam",
+   "note": "ჩა- oznacza „w dół”: wysiadam.\nვ- na początku: „ja”."
+  },
+  "შემდეგი": {
+   "lat": "shemdegi",
+   "meaning": "następny"
+  },
+  "რომელია": {
+   "lat": "romelia",
+   "meaning": "który jest"
+  },
+  "მეტროს": {
+   "lat": "met'ros",
+   "base": "მეტრო",
+   "baseLat": "met'ro",
+   "baseMeaning": "metro",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "ვიყიდო": {
+   "lat": "viq'ido",
+   "meaning": "(gdzie) mam kupić",
+   "note": "Forma pytająca: gdzie mam kupić?"
+  },
+  "ბათუმამდე": {
+   "lat": "batumamde",
+   "base": "ბათუმი",
+   "baseLat": "batumi",
+   "baseMeaning": "Batumi",
+   "note": "-მდე: aż do (z łącznikiem -ა-)"
+  },
+  "გადის": {
+   "lat": "gadis",
+   "meaning": "odjeżdża",
+   "note": "-ს na końcu: on, ona."
+  },
+  "ბაქანზე": {
+   "lat": "bakanze",
+   "base": "ბაქანი",
+   "baseLat": "bakani",
+   "baseMeaning": "peron",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "ადგილი": {
+   "lat": "adgili",
+   "meaning": "miejsce"
+  },
+  "თავისუფალია": {
+   "lat": "tavisupalia",
+   "base": "თავისუფალი",
+   "baseLat": "tavisupali",
+   "baseMeaning": "wolny",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "რეგისტრაცია": {
+   "lat": "regist'ratsia",
+   "meaning": "odprawa, rejestracja"
+  },
+  "ფრენა": {
+   "lat": "prena",
+   "meaning": "lot"
+  },
+  "იგვიანებს": {
+   "lat": "igvianebs",
+   "meaning": "spóźnia się",
+   "note": "-ს na końcu: on, ona."
+  },
+  "ბარგი": {
+   "lat": "bargi",
+   "meaning": "bagaż"
+  },
+  "ჩამოვიდა": {
+   "lat": "chamovida",
+   "meaning": "przyleciał, dotarł",
+   "note": "Czas przeszły: dotarł."
+  },
+  "გასასვლელი": {
+   "lat": "gasasvleli",
+   "meaning": "wyjście"
+  },
+  "ქალაქში": {
+   "lat": "kalakshi",
+   "base": "ქალაქი",
+   "baseLat": "kalaki",
+   "baseMeaning": "miasto",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "მივიდე": {
+   "lat": "mivide",
+   "meaning": "(żebym) doszedł",
+   "note": "Pytanie: jak mam dojść…?"
+  },
+  "აქედან": {
+   "lat": "akedan",
+   "meaning": "stąd"
+  },
+  "ფეხით": {
+   "lat": "pekhit",
+   "base": "ფეხი",
+   "baseLat": "pekhi",
+   "baseMeaning": "noga",
+   "note": "-ით: narzędnik: czym? z czym? (samochodem, z mlekiem)"
+  },
+  "წუთია": {
+   "lat": "ts'utia",
+   "base": "წუთი",
+   "baseLat": "ts'uti",
+   "baseMeaning": "minuta",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "რუკაზე": {
+   "lat": "ruk'aze",
+   "base": "რუკა",
+   "baseLat": "ruk'a",
+   "baseMeaning": "mapa",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "მაჩვენეთ": {
+   "lat": "machvenet",
+   "meaning": "proszę mi pokazać",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ძველ": {
+   "lat": "dzvel",
+   "meaning": "stary (przed rzeczownikiem z końcówką)"
+  },
+  "თბილისამდე": {
+   "lat": "tbilisamde",
+   "base": "თბილისი",
+   "baseLat": "tbilisi",
+   "baseMeaning": "Tbilisi",
+   "note": "-მდე: aż do (z łącznikiem -ა-)"
+  },
+  "დამიკელით": {
+   "lat": "damik'elit",
+   "meaning": "proszę mi opuścić",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "დამიკელი": {
+   "lat": "damik'eli",
+   "meaning": "opuść mi",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”."
+  },
+  "ბოლო": {
+   "lat": "bolo",
+   "meaning": "koniec; ostatni"
+  },
+  "ცალი": {
+   "lat": "tsali",
+   "meaning": "sztuka"
+  },
+  "ახალია": {
+   "lat": "akhalia",
+   "base": "ახალი",
+   "baseLat": "akhali",
+   "baseMeaning": "nowy; świeży",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ყველია": {
+   "lat": "q'velia",
+   "base": "ყველი",
+   "baseLat": "q'veli",
+   "baseMeaning": "ser",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "გასინჯვა": {
+   "lat": "gasinjva",
+   "meaning": "próbowanie"
+  },
+  "ამას": {
+   "lat": "amas",
+   "meaning": "to (dopełnienie)",
+   "base": "ეს",
+   "baseLat": "es",
+   "baseMeaning": "to, ten, ta",
+   "note": "ეს zmienia się w ამ- przed końcówką."
+  },
+  "ავიღებ": {
+   "lat": "avigheb",
+   "meaning": "wezmę",
+   "note": "Czas przyszły od აღება, brać: tak się zgadza na cenę."
+  },
+  "მხოლოდ": {
+   "lat": "mkholod",
+   "meaning": "tylko"
+  },
+  "ვათვალიერებ": {
+   "lat": "vatvaliereb",
+   "meaning": "rozglądam się",
+   "note": "ვ- na początku: „ja”."
+  },
+  "მომეცით": {
+   "lat": "mometsit",
+   "meaning": "proszę mi dać",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ბოთლი": {
+   "lat": "botli",
+   "meaning": "butelka"
+  },
+  "გაზიანი": {
+   "lat": "gaziani",
+   "meaning": "gazowany"
+  },
+  "ზომა": {
+   "lat": "zoma",
+   "meaning": "rozmiar"
+  },
+  "პატარა": {
+   "lat": "p'at'ara",
+   "meaning": "mały"
+  },
+  "მოზომვა": {
+   "lat": "mozomva",
+   "meaning": "przymierzanie"
+  },
+  "გასახდელი": {
+   "lat": "gasakhdeli",
+   "meaning": "przebieralnia, przymierzalnia"
+  },
+  "სხვა": {
+   "lat": "skhva",
+   "meaning": "inny"
+  },
+  "ფერი": {
+   "lat": "peri",
+   "meaning": "kolor"
+  },
+  "ტელეფონის": {
+   "lat": "t'eleponis",
+   "base": "ტელეფონი",
+   "baseLat": "t'eleponi",
+   "baseMeaning": "telefon",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "დამტენი": {
+   "lat": "damt'eni",
+   "meaning": "ładowarka"
+  },
+  "ადაპტერი": {
+   "lat": "adap't'eri",
+   "meaning": "przejściówka"
+  },
+  "გარანტია": {
+   "lat": "garant'ia",
+   "meaning": "gwarancja"
+  },
+  "ფულით": {
+   "lat": "pulit",
+   "base": "ფული",
+   "baseLat": "puli",
+   "baseMeaning": "pieniądze",
+   "note": "-ით: narzędnik: czym? z czym? (samochodem, z mlekiem)"
+  },
+  "ქვითარი": {
+   "lat": "kvitari",
+   "meaning": "paragon, potwierdzenie"
+  },
+  "ბანკომატი": {
+   "lat": "bank'omat'i",
+   "meaning": "bankomat"
+  },
+  "მენიუს": {
+   "lat": "menius",
+   "base": "მენიუ",
+   "baseLat": "meniu",
+   "baseMeaning": "menu",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "მომიტანთ": {
+   "lat": "momit'ant",
+   "meaning": "przyniesie mi pan",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "თავისუფალი": {
+   "lat": "tavisupali",
+   "meaning": "wolny"
+  },
+  "ორნი": {
+   "lat": "orni",
+   "meaning": "we dwoje"
+  },
+  "შაქრის": {
+   "lat": "shakris",
+   "meaning": "cukru",
+   "base": "შაქარი",
+   "baseLat": "shakari",
+   "baseMeaning": "cukier",
+   "note": "შაქარი gubi drugie ა."
+  },
+  "გარეშე": {
+   "lat": "gareshe",
+   "meaning": "bez (po słowie z -ის)"
+  },
+  "წასაღებად": {
+   "lat": "ts'asaghebad",
+   "meaning": "na wynos"
+  },
+  "დავლევ": {
+   "lat": "davlev",
+   "meaning": "wypiję",
+   "note": "და- czyni czasownik dokonanym, jak „wy-” w „wypiję”.\nვ- na początku: „ja”."
+  },
+  "უგაზო": {
+   "lat": "ugazo",
+   "meaning": "niegazowana"
+  },
+  "ვეგეტარიანელი": {
+   "lat": "veget'arianeli",
+   "meaning": "wegetarianin"
+  },
+  "ამაში": {
+   "lat": "amashi",
+   "meaning": "w tym",
+   "base": "ეს",
+   "baseLat": "es",
+   "baseMeaning": "to, ten, ta",
+   "note": "ამ- + -ში."
+  },
+  "უხორცო": {
+   "lat": "ukhortso",
+   "meaning": "bezmięsny"
+  },
+  "თხილეულზე": {
+   "lat": "tkhileulze",
+   "base": "თხილეული",
+   "baseLat": "tkhileuli",
+   "baseMeaning": "orzechy",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "ალერგია": {
+   "lat": "alergia",
+   "meaning": "alergia"
+  },
+  "ცხარეა": {
+   "lat": "tskharea",
+   "base": "ცხარე",
+   "baseLat": "tskhare",
+   "baseMeaning": "ostry, pikantny",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "მოგვიტანეთ": {
+   "lat": "mogvit'anet",
+   "meaning": "proszę nam przynieść",
+   "note": "გვ-: „nam”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ცალ-ცალკე": {
+   "lat": "tsal-tsalk'e",
+   "meaning": "osobno"
+  },
+  "გადავიხდით": {
+   "lat": "gadavikhdit",
+   "meaning": "zapłacimy",
+   "note": "ვ- … -თ: „my”."
+  },
+  "მომსახურება": {
+   "lat": "momsakhureba",
+   "meaning": "obsługa, serwis"
+  },
+  "შედის": {
+   "lat": "shedis",
+   "meaning": "jest wliczone; wchodzi",
+   "note": "-ს na końcu: on, ona."
+  },
+  "მაგიდის": {
+   "lat": "magidis",
+   "base": "მაგიდა",
+   "baseLat": "magida",
+   "baseMeaning": "stół",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "დაჯავშნა": {
+   "lat": "dajavshna",
+   "meaning": "rezerwacja"
+  },
+  "ადამიანისთვის": {
+   "lat": "adamianistvis",
+   "base": "ადამიანი",
+   "baseLat": "adamiani",
+   "baseMeaning": "człowiek, osoba",
+   "note": "-ისთვის: dla (dopełniacz -ის + -თვის)"
+  },
+  "ჯავშანი": {
+   "lat": "javshani",
+   "meaning": "rezerwacja"
+  },
+  "ბინას": {
+   "lat": "binas",
+   "base": "ბინა",
+   "baseLat": "bina",
+   "baseMeaning": "mieszkanie",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "ვქირაობ": {
+   "lat": "vkiraob",
+   "meaning": "wynajmuję",
+   "note": "ვ- na początku: „ja”."
+  },
+  "ბინა": {
+   "lat": "bina",
+   "meaning": "mieszkanie"
+  },
+  "ქირავდება": {
+   "lat": "kiravdeba",
+   "meaning": "jest do wynajęcia"
+  },
+  "ქირა": {
+   "lat": "kira",
+   "meaning": "czynsz"
+  },
+  "თვეში": {
+   "lat": "tveshi",
+   "base": "თვე",
+   "baseLat": "tve",
+   "baseMeaning": "miesiąc",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "კომუნალურები": {
+   "lat": "k'omunalurebi",
+   "meaning": "rachunki za media"
+  },
+  "დეპოზიტი": {
+   "lat": "dep'ozit'i",
+   "meaning": "kaucja"
+  },
+  "რამდენია": {
+   "lat": "ramdenia",
+   "base": "რამდენი",
+   "baseLat": "ramdeni",
+   "baseMeaning": "ile?",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ხელშეკრულებას": {
+   "lat": "khelshek'rulebas",
+   "base": "ხელშეკრულება",
+   "baseLat": "khelshek'ruleba",
+   "baseMeaning": "umowa",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "გავაფორმებთ": {
+   "lat": "gavapormebt",
+   "meaning": "podpiszemy",
+   "note": "ვ- … -თ: „my”."
+  },
+  "წყალთან": {
+   "lat": "ts'q'altan",
+   "base": "წყალი",
+   "baseLat": "ts'q'ali",
+   "baseMeaning": "woda",
+   "note": "-თან: u, przy; u kogoś"
+  },
+  "პრობლემაა": {
+   "lat": "p'roblemaa",
+   "base": "პრობლემა",
+   "baseLat": "p'roblema",
+   "baseMeaning": "problem",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ცხელი": {
+   "lat": "tskheli",
+   "meaning": "gorący"
+  },
+  "დენი": {
+   "lat": "deni",
+   "meaning": "prąd"
+  },
+  "ინტერნეტი": {
+   "lat": "int'ernet'i",
+   "meaning": "internet"
+  },
+  "მუშაობს": {
+   "lat": "mushaobs",
+   "meaning": "pracuje, działa",
+   "note": "-ს na końcu: on, ona."
+  },
+  "გათბობა": {
+   "lat": "gatboba",
+   "meaning": "ogrzewanie"
+  },
+  "ონკანი": {
+   "lat": "onk'ani",
+   "meaning": "kran"
+  },
+  "წვეთავს": {
+   "lat": "ts'vetavs",
+   "meaning": "kapie, cieknie",
+   "note": "-ს na końcu: on, ona."
+  },
+  "ხელოსანი": {
+   "lat": "khelosani",
+   "meaning": "fachowiec"
+  },
+  "მოსვლა": {
+   "lat": "mosvla",
+   "meaning": "przyjście"
+  },
+  "მოხვალთ": {
+   "lat": "mokhvalt",
+   "meaning": "przyjdzie pan",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "გადასახადი": {
+   "lat": "gadasakhadi",
+   "meaning": "rachunek, opłata"
+  },
+  "გადავიხადო": {
+   "lat": "gadavikhado",
+   "meaning": "(gdzie) mam zapłacić",
+   "note": "Forma pytająca."
+  },
+  "ვაიფაის": {
+   "lat": "vaipais",
+   "base": "ვაიფაი",
+   "baseLat": "vaipai",
+   "baseMeaning": "wifi",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "პაროლი": {
+   "lat": "p'aroli",
+   "meaning": "hasło"
+  },
+  "მეხუთე": {
+   "lat": "mekhute",
+   "meaning": "piąty"
+  },
+  "სართულზე": {
+   "lat": "sartulze",
+   "base": "სართული",
+   "baseLat": "sartuli",
+   "baseMeaning": "piętro",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "კართან": {
+   "lat": "k'artan",
+   "base": "კარი",
+   "baseLat": "k'ari",
+   "baseMeaning": "drzwi",
+   "note": "-თან: u, przy; u kogoś"
+  },
+  "დატოვეთ": {
+   "lat": "dat'ovet",
+   "meaning": "proszę zostawić",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ჩამოვდივარ": {
+   "lat": "chamovdivar",
+   "meaning": "schodzę",
+   "note": "ვ- na początku: „ja”."
+  },
+  "ლიფტი": {
+   "lat": "lipt'i",
+   "meaning": "winda"
+  },
+  "ნაგავი": {
+   "lat": "nagavi",
+   "meaning": "śmieci"
+  },
+  "გადავყარო": {
+   "lat": "gadavq'aro",
+   "meaning": "(gdzie) mam wyrzucić",
+   "note": "Forma pytająca."
+  },
+  "დამლაგებელი": {
+   "lat": "damlagebeli",
+   "meaning": "sprzątaczka"
+  },
+  "სარეცხი": {
+   "lat": "saretskhi",
+   "meaning": "pranie (სარეცხი მანქანა: pralka)"
+  },
+  "ჩავრთო": {
+   "lat": "chavrto",
+   "meaning": "(jak) mam włączyć",
+   "note": "Forma pytająca."
+  },
+  "აბონემენტი": {
+   "lat": "abonement'i",
+   "meaning": "karnet"
+  },
+  "თვიური": {
+   "lat": "tviuri",
+   "meaning": "miesięczny"
+  },
+  "ერთჯერადი": {
+   "lat": "ertjeradi",
+   "meaning": "jednorazowy"
+  },
+  "ვიზიტი": {
+   "lat": "vizit'i",
+   "meaning": "wizyta"
+  },
+  "საათამდე": {
+   "lat": "saatamde",
+   "base": "საათი",
+   "baseLat": "saati",
+   "baseMeaning": "godzina; zegar",
+   "note": "-მდე: aż do (z łącznikiem -ა-)"
+  },
+  "მუშაობთ": {
+   "lat": "mushaobt",
+   "meaning": "pracujecie (jesteście otwarci)",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "გასახდელები": {
+   "lat": "gasakhdelebi",
+   "base": "გასახდელი",
+   "baseLat": "gasakhdeli",
+   "baseMeaning": "przebieralnia, przymierzalnia",
+   "note": "-ები: liczba mnoga"
+  },
+  "შხაპი": {
+   "lat": "shkhap'i",
+   "meaning": "prysznic"
+  },
+  "პირსახოცი": {
+   "lat": "p'irsakhotsi",
+   "meaning": "ręcznik"
+  },
+  "ტრენაჟორი": {
+   "lat": "t'renazhori",
+   "meaning": "maszyna (na siłowni)"
+  },
+  "მაჩვენოთ": {
+   "lat": "machvenot",
+   "meaning": "(żeby) mi pan pokazał",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "გამოვიყენო": {
+   "lat": "gamoviq'eno",
+   "meaning": "(jak) mam używać",
+   "note": "Forma pytająca."
+  },
+  "გამეორება": {
+   "lat": "gameoreba",
+   "meaning": "powtórzenie"
+  },
+  "მიდგომა": {
+   "lat": "midgoma",
+   "meaning": "seria (na siłowni)"
+  },
+  "ვვარჯიშობ": {
+   "lat": "vvarjishob",
+   "meaning": "trenuję",
+   "note": "ვ- na początku: „ja”."
+  },
+  "პირადი": {
+   "lat": "p'iradi",
+   "meaning": "osobisty, personalny"
+  },
+  "მწვრთნელი": {
+   "lat": "mts'vrtneli",
+   "meaning": "trener"
+  },
+  "ერთად": {
+   "lat": "ertad",
+   "meaning": "razem",
+   "base": "ერთი",
+   "baseLat": "erti",
+   "baseMeaning": "jeden",
+   "note": "ერთ- (jeden) + -ად: „jako jedno”."
+  },
+  "ვივარჯიშოთ": {
+   "lat": "vivarjishot",
+   "meaning": "potrenujmy",
+   "note": "ვ- … -თ: „my”."
+  },
+  "აუზი": {
+   "lat": "auzi",
+   "meaning": "basen"
+  },
+  "აუცილებელია": {
+   "lat": "autsilebelia",
+   "base": "აუცილებელი",
+   "baseLat": "autsilebeli",
+   "baseMeaning": "konieczny, obowiązkowy",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "სირბილი": {
+   "lat": "sirbili",
+   "meaning": "bieganie"
+  },
+  "ცოცვის": {
+   "lat": "tsotsvis",
+   "base": "ცოცვა",
+   "baseLat": "tsotsva",
+   "baseMeaning": "wspinaczka",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "დარბაზი": {
+   "lat": "darbazi",
+   "meaning": "sala"
+  },
+  "ფეხბურთი": {
+   "lat": "pekhburti",
+   "meaning": "piłka nożna"
+  },
+  "ვითამაშოთ": {
+   "lat": "vitamashot",
+   "meaning": "zagrajmy",
+   "note": "ვ- … -თ: „my”."
+  },
+  "თავის": {
+   "lat": "tavis",
+   "base": "თავი",
+   "baseLat": "tavi",
+   "baseMeaning": "głowa",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "ტკივილის": {
+   "lat": "t'k'ivilis",
+   "base": "ტკივილი",
+   "baseLat": "t'k'ivili",
+   "baseMeaning": "ból",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "წამალი": {
+   "lat": "ts'amali",
+   "meaning": "lekarstwo"
+  },
+  "რეცეპტი": {
+   "lat": "retsep't'i",
+   "meaning": "recepta"
+  },
+  "რეცეპტით": {
+   "lat": "retsep't'it",
+   "base": "რეცეპტი",
+   "baseLat": "retsep't'i",
+   "baseMeaning": "recepta",
+   "note": "-ით: narzędnik: czym? z czym? (samochodem, z mlekiem)"
+  },
+  "დღეში": {
+   "lat": "dgheshi",
+   "base": "დღე",
+   "baseLat": "dghe",
+   "baseMeaning": "dzień",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "რამდენჯერ": {
+   "lat": "ramdenjer",
+   "meaning": "ile razy"
+  },
+  "ჭამამდე": {
+   "lat": "ch'amamde",
+   "base": "ჭამა",
+   "baseLat": "ch'ama",
+   "baseMeaning": "jedzenie, posiłek",
+   "note": "-მდე: aż do (z łącznikiem -ა-)"
+  },
+  "ჭამის": {
+   "lat": "ch'amis",
+   "base": "ჭამა",
+   "baseLat": "ch'ama",
+   "baseMeaning": "jedzenie, posiłek",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "შემდეგ": {
+   "lat": "shemdeg",
+   "meaning": "po"
+  },
+  "პლასტერი": {
+   "lat": "p'last'eri",
+   "meaning": "plaster"
+  },
+  "ყელი": {
+   "lat": "q'eli",
+   "meaning": "gardło"
+  },
+  "კბილი": {
+   "lat": "k'bili",
+   "meaning": "ząb"
+  },
+  "ხველა": {
+   "lat": "khvela",
+   "meaning": "kaszel"
+  },
+  "გული": {
+   "lat": "guli",
+   "meaning": "serce"
+  },
+  "მერევა": {
+   "lat": "mereva",
+   "meaning": "mdli mnie (გული მერევა)",
+   "note": "Dosłownie „serce mi się przewraca”.\nმ- w środku: „mi/mnie”, jak w „podoba mi się”."
+  },
+  "თავბრუ": {
+   "lat": "tavbru",
+   "meaning": "zawroty głowy"
+  },
+  "მეხვევა": {
+   "lat": "mekhveva",
+   "meaning": "kręci mi się (თავბრუ მეხვევა)",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”."
+  },
+  "დიაბეტი": {
+   "lat": "diabet'i",
+   "meaning": "cukrzyca"
+  },
+  "ორსულად": {
+   "lat": "orsulad",
+   "meaning": "w ciąży"
+  },
+  "ექიმთან": {
+   "lat": "ekimtan",
+   "base": "ექიმი",
+   "baseLat": "ekimi",
+   "baseMeaning": "lekarz",
+   "note": "-თან: u, przy; u kogoś"
+  },
+  "ჩაწერა": {
+   "lat": "chats'era",
+   "meaning": "zapis"
+  },
+  "ინგლისურად": {
+   "lat": "inglisurad",
+   "base": "ინგლისური",
+   "baseLat": "inglisuri",
+   "baseMeaning": "angielski",
+   "note": "-ად: jako, w jakiś sposób; po (po gruzińsku)"
+  },
+  "მოლაპარაკე": {
+   "lat": "molap'arak'e",
+   "meaning": "mówiący"
+  },
+  "გყავთ": {
+   "lat": "gq'avt",
+   "meaning": "czy macie (kogoś)",
+   "note": "O ludziach: გყავთ; o rzeczach: გაქვთ.\nგ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "დაზღვევა": {
+   "lat": "dazghveva",
+   "meaning": "ubezpieczenie"
+  },
+  "საავადმყოფო": {
+   "lat": "saavadmq'opo",
+   "meaning": "szpital"
+  },
+  "სერიოზულია": {
+   "lat": "seriozulia",
+   "base": "სერიოზული",
+   "baseLat": "seriozuli",
+   "baseMeaning": "poważny",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ჯონი": {
+   "lat": "joni",
+   "meaning": "John (z gruzińskim -ი)"
+  },
+  "გქვიათ": {
+   "lat": "gkviat",
+   "meaning": "nazywa się pan/pani",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "მესამე": {
+   "lat": "mesame",
+   "meaning": "trzeci"
+  },
+  "ხდება": {
+   "lat": "khdeba",
+   "meaning": "dzieje się",
+   "note": "რა ხდება? „co się dzieje?”"
+  },
+  "სტუმრად": {
+   "lat": "st'umrad",
+   "meaning": "w gości"
+  },
+  "მობრძანდით": {
+   "lat": "mobrdzandit",
+   "meaning": "zapraszamy, proszę wejść",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ყავაზე": {
+   "lat": "q'avaze",
+   "base": "ყავა",
+   "baseLat": "q'ava",
+   "baseMeaning": "kawa",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "დაგპატიჟებ": {
+   "lat": "dagp'at'izheb",
+   "meaning": "zaproszę cię",
+   "note": "გ- w środku: „ci/tobie”."
+  },
+  "სიამოვნებით": {
+   "lat": "siamovnebit",
+   "meaning": "z przyjemnością"
+  },
+  "სამწუხაროდ": {
+   "lat": "samts'ukharod",
+   "meaning": "niestety"
+  },
+  "მოვიტანო": {
+   "lat": "movit'ano",
+   "meaning": "(co) mam przynieść",
+   "note": "Forma pytająca."
+  },
+  "გილოცავ": {
+   "lat": "gilotsav",
+   "meaning": "gratuluję ci",
+   "note": "გ- w środku: „ci/tobie”."
+  },
+  "დაბადების": {
+   "lat": "dabadebis",
+   "base": "დაბადება",
+   "baseLat": "dabadeba",
+   "baseMeaning": "urodzenie (დაბადების დღე: urodziny)",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "გილოცავთ": {
+   "lat": "gilotsavt",
+   "meaning": "gratuluję panu",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ახალ": {
+   "lat": "akhal",
+   "meaning": "nowy (przed rzeczownikiem z końcówką)"
+  },
+  "წელს": {
+   "lat": "ts'els",
+   "base": "წელი",
+   "baseLat": "ts'eli",
+   "baseMeaning": "rok",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "დახმარებისთვის": {
+   "lat": "dakhmarebistvis",
+   "base": "დახმარება",
+   "baseLat": "dakhmareba",
+   "baseMeaning": "pomoc",
+   "note": "-ისთვის: dla (dopełniacz -ის + -თვის)"
+  },
+  "გემრიელი": {
+   "lat": "gemrieli",
+   "meaning": "smaczny"
+  },
+  "იყო": {
+   "lat": "iq'o",
+   "meaning": "był, była, było",
+   "note": "Czas przeszły od არის, „jest”."
+  },
+  "დავაგვიანე": {
+   "lat": "davagviane",
+   "meaning": "spóźniłem się",
+   "note": "Czas przeszły: spóźniłem się."
+  },
+  "უშავს": {
+   "lat": "ushavs",
+   "meaning": "szkodzi (არა უშავს: nic nie szkodzi)",
+   "note": "Prawie tylko w არა უშავს."
+  },
+  "საათზეა": {
+   "lat": "saatzea",
+   "base": "საათი",
+   "baseLat": "saati",
+   "baseMeaning": "godzina; zegar",
+   "note": "-ზე: na; o (godzinie); o (czymś)\n-ა na końcu: skrót od არის, „jest”"
+  },
+  "ელფოსტით": {
+   "lat": "elpost'it",
+   "base": "ელფოსტა",
+   "baseLat": "elpost'a",
+   "baseMeaning": "e-mail",
+   "note": "-ით: narzędnik: czym? z czym? (samochodem, z mlekiem)"
+  },
+  "გამომიგზავნეთ": {
+   "lat": "gamomigzavnet",
+   "meaning": "proszę mi wysłać",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "სახლიდან": {
+   "lat": "sakhlidan",
+   "base": "სახლი",
+   "baseLat": "sakhli",
+   "baseMeaning": "dom",
+   "note": "-დან: z, od (z łącznikiem -ი-)"
+  },
+  "დაგირეკავთ": {
+   "lat": "dagirek'avt",
+   "meaning": "zadzwonię do pana",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "იუსტიციის": {
+   "lat": "iust'itsiis",
+   "base": "იუსტიცია",
+   "baseLat": "iust'itsia",
+   "baseMeaning": "sprawiedliwość (იუსტიციის სახლი: Dom Sprawiedliwości)",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "რიგის": {
+   "lat": "rigis",
+   "base": "რიგი",
+   "baseLat": "rigi",
+   "baseMeaning": "kolejka",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "ნომერი": {
+   "lat": "nomeri",
+   "meaning": "numer"
+  },
+  "ავიღო": {
+   "lat": "avigho",
+   "meaning": "(gdzie) mam wziąć",
+   "note": "Forma pytająca: gdzie mam wziąć?"
+  },
+  "საბუთები": {
+   "lat": "sabutebi",
+   "meaning": "dokumenty"
+  },
+  "პასპორტი": {
+   "lat": "p'asp'ort'i",
+   "meaning": "paszport"
+  },
+  "თან": {
+   "lat": "tan",
+   "meaning": "przy sobie, ze sobą"
+  },
+  "ბინადრობის": {
+   "lat": "binadrobis",
+   "base": "ბინადრობა",
+   "baseLat": "binadroba",
+   "baseMeaning": "pobyt",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "ნებართვა": {
+   "lat": "nebartva",
+   "meaning": "zezwolenie"
+  },
+  "ფორმა": {
+   "lat": "porma",
+   "meaning": "formularz"
+  },
+  "შევავსო": {
+   "lat": "shevavso",
+   "meaning": "(jak) mam wypełnić",
+   "note": "Forma pytająca."
+  },
+  "ანგარიშის": {
+   "lat": "angarishis",
+   "base": "ანგარიში",
+   "baseLat": "angarishi",
+   "baseMeaning": "rachunek; konto",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "გახსნა": {
+   "lat": "gakhsna",
+   "meaning": "otwarcie"
+  },
+  "დამებლოკა": {
+   "lat": "dameblok'a",
+   "meaning": "zablokowała mi się",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”."
+  },
+  "ფულის": {
+   "lat": "pulis",
+   "base": "ფული",
+   "baseLat": "puli",
+   "baseMeaning": "pieniądze",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "გადარიცხვა": {
+   "lat": "gadaritskhva",
+   "meaning": "przelew"
+  },
+  "გადაცვლა": {
+   "lat": "gadatsvla",
+   "meaning": "wymiana"
+  },
+  "დოლარის": {
+   "lat": "dolaris",
+   "base": "დოლარი",
+   "baseLat": "dolari",
+   "baseMeaning": "dolar",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "კურსი": {
+   "lat": "k'ursi",
+   "meaning": "kurs"
+  },
+  "ფოსტა": {
+   "lat": "post'a",
+   "meaning": "poczta"
+  },
+  "ამანათი": {
+   "lat": "amanati",
+   "meaning": "paczka"
+  },
+  "გავაგზავნო": {
+   "lat": "gavagzavno",
+   "meaning": "(żebym) wysłał",
+   "note": "Po უნდა: muszę wysłać."
+  },
+  "ამანათის": {
+   "lat": "amanatis",
+   "base": "ამანათი",
+   "baseLat": "amanati",
+   "baseMeaning": "paczka",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "ასაღებად": {
+   "lat": "asaghebad",
+   "meaning": "żeby odebrać"
+  },
+  "მოვედი": {
+   "lat": "movedi",
+   "meaning": "przyszedłem, przyszłam",
+   "note": "Czas przeszły."
+  },
+  "სიმ": {
+   "lat": "sim",
+   "meaning": "SIM"
+  },
+  "ინტერნეტის": {
+   "lat": "int'ernet'is",
+   "base": "ინტერნეტი",
+   "baseLat": "int'ernet'i",
+   "baseMeaning": "internet",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "პაკეტი": {
+   "lat": "p'ak'et'i",
+   "meaning": "pakiet"
+  },
+  "ბალანსი": {
+   "lat": "balansi",
+   "meaning": "saldo, konto"
+  },
+  "შეყვანა": {
+   "lat": "sheq'vana",
+   "meaning": "założenie, podłączenie"
+  },
+  "შეხვედრის": {
+   "lat": "shekhvedris",
+   "base": "შეხვედრა",
+   "baseLat": "shekhvedra",
+   "baseMeaning": "spotkanie",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "ჩანიშვნა": {
+   "lat": "chanishvna",
+   "meaning": "umówienie"
+  },
+  "დრო": {
+   "lat": "dro",
+   "meaning": "czas, termin"
+  },
+  "გადავიტანოთ": {
+   "lat": "gadavit'anot",
+   "meaning": "przełóżmy",
+   "note": "ვ- … -თ: „my”."
+  },
+  "დაჯავშნილი": {
+   "lat": "dajavshnili",
+   "meaning": "zarezerwowany"
+  },
+  "საუზმე": {
+   "lat": "sauzme",
+   "meaning": "śniadanie"
+  },
+  "დავტოვო": {
+   "lat": "davt'ovo",
+   "meaning": "(kiedy) mam zostawić",
+   "note": "Forma pytająca."
+  },
+  "ბარგის": {
+   "lat": "bargis",
+   "base": "ბარგი",
+   "baseLat": "bargi",
+   "baseMeaning": "bagaż",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "დატოვება": {
+   "lat": "dat'oveba",
+   "meaning": "zostawienie"
+  },
+  "შენობაა": {
+   "lat": "shenobaa",
+   "base": "შენობა",
+   "baseLat": "shenoba",
+   "baseMeaning": "budynek",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "მუზეუმი": {
+   "lat": "muzeumi",
+   "meaning": "muzeum"
+  },
+  "იხსნება": {
+   "lat": "ikhsneba",
+   "meaning": "otwiera się"
+  },
+  "სურათის": {
+   "lat": "suratis",
+   "base": "სურათი",
+   "baseLat": "surati",
+   "baseMeaning": "zdjęcie, obraz",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "გადაღება": {
+   "lat": "gadagheba",
+   "meaning": "robienie (zdjęcia)"
+  },
+  "გადამიღებთ": {
+   "lat": "gadamighebt",
+   "meaning": "zrobi mi pan zdjęcie",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "თავსაფარი": {
+   "lat": "tavsapari",
+   "meaning": "chusta"
+  },
+  "რესტორანი": {
+   "lat": "rest'orani",
+   "meaning": "restauracja"
+  },
+  "აუცილებლად": {
+   "lat": "autsileblad",
+   "meaning": "koniecznie"
+  },
+  "ვნახო": {
+   "lat": "vnakho",
+   "meaning": "(żebym) zobaczył",
+   "note": "Co mam zobaczyć?"
+  },
+  "ადგილობრივები": {
+   "lat": "adgilobrivebi",
+   "meaning": "miejscowi"
+  },
+  "ჭამენ": {
+   "lat": "ch'amen",
+   "meaning": "jedzą",
+   "note": "-ენ na końcu: „oni”."
+  },
+  "ბილიკი": {
+   "lat": "bilik'i",
+   "meaning": "ścieżka, szlak"
+  },
+  "მწვერვალამდე": {
+   "lat": "mts'vervalamde",
+   "base": "მწვერვალი",
+   "baseLat": "mts'vervali",
+   "baseMeaning": "szczyt",
+   "note": "-მდე: aż do (z łącznikiem -ა-)"
+  },
+  "კარვის": {
+   "lat": "k'arvis",
+   "meaning": "namiotu",
+   "base": "კარავი",
+   "baseLat": "k'aravi",
+   "baseMeaning": "namiot",
+   "note": "კარავი gubi drugie ა przed -ის."
+  },
+  "გაშლა": {
+   "lat": "gashla",
+   "meaning": "rozbicie (namiotu)"
+  },
+  "წყარო": {
+   "lat": "ts'q'aro",
+   "meaning": "źródło"
+  },
+  "ამინდი": {
+   "lat": "amindi",
+   "meaning": "pogoda"
+  },
+  "როგორი": {
+   "lat": "rogori",
+   "meaning": "jaki"
+  },
+  "უსაფრთხოა": {
+   "lat": "usaprtkhoa",
+   "base": "უსაფრთხო",
+   "baseLat": "usaprtkho",
+   "baseMeaning": "bezpieczny",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "მანქანის": {
+   "lat": "mankanis",
+   "base": "მანქანა",
+   "baseLat": "mankana",
+   "baseMeaning": "samochód",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "დაქირავება": {
+   "lat": "dakiraveba",
+   "meaning": "wynajem"
+  },
+  "ბენზინგასამართი": {
+   "lat": "benzingasamarti",
+   "meaning": "benzynowa (stacja)"
+  },
+  "სავსე": {
+   "lat": "savse",
+   "meaning": "pełny"
+  },
+  "ავზი": {
+   "lat": "avzi",
+   "meaning": "bak"
+  },
+  "დაყენება": {
+   "lat": "daq'eneba",
+   "meaning": "postawienie, parkowanie"
+  },
+  "მიშველეთ": {
+   "lat": "mishvelet",
+   "meaning": "pomocy!",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "დარეკეთ": {
+   "lat": "darek'et",
+   "meaning": "proszę dzwonić",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "112-ზე": {
+   "lat": "112-ze",
+   "meaning": "na 112",
+   "note": "-ზე: na (numer)."
+  },
+  "სასწრაფო": {
+   "lat": "sasts'rapo",
+   "meaning": "karetka; pilny"
+  },
+  "გამოიძახეთ": {
+   "lat": "gamoidzakhet",
+   "meaning": "proszę wezwać",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "პოლიცია": {
+   "lat": "p'olitsia",
+   "meaning": "policja"
+  },
+  "ხანძარია": {
+   "lat": "khandzaria",
+   "base": "ხანძარი",
+   "baseLat": "khandzari",
+   "baseMeaning": "pożar",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "სუნთქავს": {
+   "lat": "suntkavs",
+   "meaning": "oddycha",
+   "note": "-ს na końcu: on, ona."
+  },
+  "გონება": {
+   "lat": "goneba",
+   "meaning": "przytomność, umysł"
+  },
+  "დაკარგა": {
+   "lat": "dak'arga",
+   "meaning": "stracił(a)",
+   "note": "Czas przeszły, on/ona."
+  },
+  "სისხლი": {
+   "lat": "siskhli",
+   "meaning": "krew"
+  },
+  "მომპარეს": {
+   "lat": "momp'ares",
+   "meaning": "ukradli mi",
+   "note": "მ-: mnie; -ეს: oni."
+  },
+  "პოლიციის": {
+   "lat": "p'olitsiis",
+   "base": "პოლიცია",
+   "baseLat": "p'olitsia",
+   "baseMeaning": "policja",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "განყოფილება": {
+   "lat": "ganq'opileba",
+   "meaning": "wydział, komisariat"
+  },
+  "თარჯიმანი": {
+   "lat": "tarjimani",
+   "meaning": "tłumacz"
+  },
+  "დავიკარგე": {
+   "lat": "davik'arge",
+   "meaning": "zgubiłem się",
+   "note": "-ი- dodaje „się”: zgubiłem się."
+  },
+  "საელჩო": {
+   "lat": "saelcho",
+   "meaning": "ambasada"
+  },
+  "დაიკარგა": {
+   "lat": "daik'arga",
+   "meaning": "zgubił(a) się"
+  },
+  "ავარია": {
+   "lat": "avaria",
+   "meaning": "wypadek"
+  },
+  "მოხდა": {
+   "lat": "mokhda",
+   "meaning": "zdarzył się",
+   "note": "Czas przeszły od ხდება."
+  },
+  "ვიღაც": {
+   "lat": "vighats",
+   "meaning": "ktoś"
+  },
+  "დაშავდა": {
+   "lat": "dashavda",
+   "meaning": "został ranny",
+   "note": "Czas przeszły."
+  },
+  "რუსთაველის": {
+   "lat": "rustavelis",
+   "base": "რუსთაველი",
+   "baseLat": "rustaveli",
+   "baseMeaning": "Rustaweli (poeta; aleja)",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "გამზირზე": {
+   "lat": "gamzirze",
+   "base": "გამზირი",
+   "baseLat": "gamziri",
+   "baseMeaning": "aleja",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "მოვედით": {
+   "lat": "movedit",
+   "meaning": "dojechaliśmy",
+   "note": "ვ- … -თ: „my”."
+  },
+  "სამ": {
+   "lat": "sam",
+   "meaning": "trzy (przed rzeczownikiem z końcówką)"
+  },
+  "ლარად": {
+   "lat": "larad",
+   "meaning": "za (… lari)",
+   "base": "ლარი",
+   "baseLat": "lari",
+   "baseMeaning": "lari",
+   "note": "-ად przy cenie: „za”, jak „za trzy lari”."
+  },
+  "მოგცემთ": {
+   "lat": "mogtsemt",
+   "meaning": "dam panu",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ბადრიჯანი": {
+   "lat": "badrijani",
+   "meaning": "bakłażan"
+  },
+  "ნიგვზით": {
+   "lat": "nigvzit",
+   "meaning": "z orzechami",
+   "base": "ნიგოზი",
+   "baseLat": "nigozi",
+   "note": "ნიგოზი (orzech) zmienia się w środku przed -ით."
+  },
+  "აჭარული": {
+   "lat": "ach'aruli",
+   "meaning": "adżarski"
+  },
+  "ლობიოში": {
+   "lat": "lobioshi",
+   "base": "ლობიო",
+   "baseLat": "lobio",
+   "baseMeaning": "lobio (gulasz z fasoli)",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "ლობიო": {
+   "lat": "lobio",
+   "meaning": "lobio (gulasz z fasoli)"
+  },
+  "უხორცოა": {
+   "lat": "ukhortsoa",
+   "base": "უხორცო",
+   "baseLat": "ukhortso",
+   "baseMeaning": "bezmięsny",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "მაშინ": {
+   "lat": "mashin",
+   "meaning": "to, w takim razie"
+  },
+  "დასალევად": {
+   "lat": "dasalevad",
+   "meaning": "do picia"
+  },
+  "ინებებთ": {
+   "lat": "inebebt",
+   "meaning": "czego pan sobie życzy",
+   "note": "Czas przyszły od ინებეთ: co pan weźmie?\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "დალევთ": {
+   "lat": "dalevt",
+   "meaning": "wypije pan",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "წაიღებთ": {
+   "lat": "ts'aighebt",
+   "meaning": "weźmie pan na wynos",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ხომ": {
+   "lat": "khom",
+   "meaning": "…, prawda? (upewnia się)"
+  },
+  "ინსტრუქციაში": {
+   "lat": "inst'ruktsiashi",
+   "base": "ინსტრუქცია",
+   "baseLat": "inst'ruktsia",
+   "baseMeaning": "ulotka, instrukcja",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "წერია": {
+   "lat": "ts'eria",
+   "meaning": "jest napisane",
+   "note": "Od წერა, pisanie."
+  },
+  "გისმენთ": {
+   "lat": "gisment",
+   "meaning": "słucham pana",
+   "note": "Tak odbierają w urzędach: „słucham?”.\nგ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "გაწუხებთ": {
+   "lat": "gats'ukhebt",
+   "meaning": "pana dolega, martwi",
+   "note": "რა გაწუხებთ? co panu dolega?\nგ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "თერთმეტ": {
+   "lat": "tertmet'",
+   "meaning": "jedenaście (przed rzeczownikiem z końcówką)"
+  },
+  "შეძლებთ": {
+   "lat": "shedzlebt",
+   "meaning": "czy da pan radę",
+   "note": "Czas przyszły od შეგიძლიათ.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "გვყავს": {
+   "lat": "gvq'avs",
+   "meaning": "mamy (kogoś)",
+   "note": "გვ- w środku: „nam”. O ludziach i zwierzętach."
+  },
+  "თქვენი": {
+   "lat": "tkveni",
+   "meaning": "pana, pani; wasz"
+  },
+  "ჯონ": {
+   "lat": "jon",
+   "meaning": "John"
+  },
+  "სმიტი": {
+   "lat": "smit'i",
+   "meaning": "Smith"
+  },
+  "გელოდებით": {
+   "lat": "gelodebit",
+   "meaning": "czekamy na pana",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "გაგიმარჯოთ": {
+   "lat": "gagimarjot",
+   "meaning": "dzień dobry (odpowiedź, grzecznie)",
+   "note": "გაგიმარჯოს z -თ dla kilku osób.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "კეთილი": {
+   "lat": "k'etili",
+   "meaning": "dobry, miły"
+  },
+  "მობრძანება": {
+   "lat": "mobrdzaneba",
+   "meaning": "przybycie (bardzo grzecznie)"
+  },
+  "დაგჭირდებათ": {
+   "lat": "dagch'irdebat",
+   "meaning": "będzie pan potrzebował",
+   "note": "Czas przyszły od გჭირდებათ.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "მითხარით": {
+   "lat": "mitkharit",
+   "meaning": "proszę mi powiedzieć",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ჩემთვისაც": {
+   "lat": "chemtvisats",
+   "meaning": "dla mnie też",
+   "base": "ჩემი",
+   "baseLat": "chemi",
+   "baseMeaning": "mój, moja",
+   "note": "ჩემ- + -თვის (dla) + -აც (też)."
+  },
+  "ოჰ": {
+   "lat": "oh",
+   "meaning": "och"
+  },
+  "ქვაბი": {
+   "lat": "kvabi",
+   "meaning": "piecyk, bojler"
+  },
+  "ჩართულია": {
+   "lat": "chartulia",
+   "base": "ჩართული",
+   "baseLat": "chartuli",
+   "baseMeaning": "włączony",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "მაგრამ": {
+   "lat": "magram",
+   "meaning": "ale"
+  },
+  "ხელოსანს": {
+   "lat": "khelosans",
+   "base": "ხელოსანი",
+   "baseLat": "khelosani",
+   "baseMeaning": "fachowiec",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "გამოვგზავნი": {
+   "lat": "gamovgzavni",
+   "meaning": "przyślę",
+   "note": "ვ- na początku: „ja”."
+  },
+  "დილის": {
+   "lat": "dilis",
+   "meaning": "rano (dziesiąta rano)",
+   "base": "დილა",
+   "baseLat": "dila",
+   "baseMeaning": "rano",
+   "note": "-ის: „poranka”."
+  },
+  "იქნებით": {
+   "lat": "iknebit",
+   "meaning": "będzie pan, będziecie",
+   "note": "Czas przyszły od „być”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "რით": {
+   "lat": "rit",
+   "meaning": "czym, w czym"
+  },
+  "შემიძლია": {
+   "lat": "shemidzlia",
+   "meaning": "mogę",
+   "note": "Jak „mogę”, ale zbudowane jak მინდა: „jest mi możliwe”.\nმ- w środku: „mi/mnie”, jak w „podoba mi się”."
+  },
+  "დაგეხმაროთ": {
+   "lat": "dagekhmarot",
+   "meaning": "pomóc panu",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ლარია": {
+   "lat": "laria",
+   "base": "ლარი",
+   "baseLat": "lari",
+   "baseMeaning": "lari",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "მწვრთნელიც": {
+   "lat": "mts'vrtnelits",
+   "base": "მწვრთნელი",
+   "baseLat": "mts'vrtneli",
+   "baseMeaning": "trener",
+   "note": "-ც na końcu: „też, także”"
+  },
+  "პირსახოცები": {
+   "lat": "p'irsakhotsebi",
+   "base": "პირსახოცი",
+   "baseLat": "p'irsakhotsi",
+   "baseMeaning": "ręcznik",
+   "note": "-ები: liczba mnoga"
+  },
+  "შვიდიდან": {
+   "lat": "shvididan",
+   "meaning": "od siódmej",
+   "base": "შვიდი",
+   "baseLat": "shvidi",
+   "baseMeaning": "siedem",
+   "note": "-დან: od."
+  },
+  "ბარათზე": {
+   "lat": "baratze",
+   "base": "ბარათი",
+   "baseLat": "barati",
+   "baseMeaning": "karta",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "ათამდე": {
+   "lat": "atamde",
+   "meaning": "do dziesiątej",
+   "base": "ათი",
+   "baseLat": "ati",
+   "baseMeaning": "dziesięć",
+   "note": "-მდე: do."
+  },
+  "ულიმიტო": {
+   "lat": "ulimit'o",
+   "meaning": "bez limitu"
+  },
+  "ჭავჭავაძის": {
+   "lat": "ch'avch'avadzis",
+   "base": "ჭავჭავაძე",
+   "baseLat": "ch'avch'avadze",
+   "baseMeaning": "Czawczawadze (pisarz; aleja)",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "უნივერსიტეტთან": {
+   "lat": "universit'et'tan",
+   "base": "უნივერსიტეტი",
+   "baseLat": "universit'et'i",
+   "baseMeaning": "uniwersytet",
+   "note": "-თან: u, przy; u kogoś"
+  },
+  "იქვე": {
+   "lat": "ikve",
+   "meaning": "tam, na miejscu"
+  },
+  "დარჩით": {
+   "lat": "darchit",
+   "meaning": "proszę zostać",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "პოლონეთში": {
+   "lat": "p'olonetshi",
+   "base": "პოლონეთი",
+   "baseLat": "p'oloneti",
+   "baseMeaning": "Polska",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "დადეთ": {
+   "lat": "dadet",
+   "meaning": "proszę położyć",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "შიგნით": {
+   "lat": "shignit",
+   "meaning": "w środku"
+  },
+  "წიგნები": {
+   "lat": "ts'ignebi",
+   "base": "წიგნი",
+   "baseLat": "ts'igni",
+   "baseMeaning": "książka",
+   "note": "-ები: liczba mnoga"
+  },
+  "ჩვეულებრივი": {
+   "lat": "chveulebrivi",
+   "meaning": "zwykły"
+  },
+  "ექსპრესი": {
+   "lat": "eksp'resi",
+   "meaning": "ekspres"
+  },
+  "დასჭირდება": {
+   "lat": "dasch'irdeba",
+   "meaning": "będzie potrzebne, zajmie",
+   "note": "Czas przyszły: „zajmie (czas)”."
+  },
+  "დაბრძანდით": {
+   "lat": "dabrdzandit",
+   "meaning": "proszę usiąść",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "თმის": {
+   "lat": "tmis",
+   "base": "თმა",
+   "baseLat": "tma",
+   "baseMeaning": "włosy",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "შეჭრა": {
+   "lat": "shech'ra",
+   "meaning": "strzyżenie"
+  },
+  "შეგჭრათ": {
+   "lat": "shegch'rat",
+   "meaning": "jak pana ostrzyc",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "მოკლედ": {
+   "lat": "mok'led",
+   "meaning": "krótko"
+  },
+  "გვერდებზე": {
+   "lat": "gverdebze",
+   "base": "გვერდი",
+   "baseLat": "gverdi",
+   "baseMeaning": "bok",
+   "note": "-ებ- (liczba mnoga) + -ზე: na"
+  },
+  "მოკლე": {
+   "lat": "mok'le",
+   "meaning": "krótki"
+  },
+  "ზემოთ": {
+   "lat": "zemot",
+   "meaning": "na górze"
+  },
+  "თმა": {
+   "lat": "tma",
+   "meaning": "włosy"
+  },
+  "დაგბანოთ": {
+   "lat": "dagbanot",
+   "meaning": "umyć panu",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ოცდახუთი": {
+   "lat": "otsdakhuti",
+   "meaning": "dwadzieścia pięć"
+  },
+  "ევროს": {
+   "lat": "evros",
+   "base": "ევრო",
+   "baseLat": "evro",
+   "baseMeaning": "euro",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
+  "ევრო": {
+   "lat": "evro",
+   "meaning": "euro"
+  },
+  "ქვითარიც": {
+   "lat": "kvitarits",
+   "base": "ქვითარი",
+   "baseLat": "kvitari",
+   "baseMeaning": "paragon, potwierdzenie",
+   "note": "-ც na końcu: „też, także”"
+  },
+  "ვაკეში": {
+   "lat": "vak'eshi",
+   "base": "ვაკე",
+   "baseLat": "vak'e",
+   "baseMeaning": "Wake (dzielnica Tbilisi)",
+   "note": "-ში: w, do (np. „w domu” i „do domu”)"
+  },
+  "დაჯექით": {
+   "lat": "dajekit",
+   "meaning": "proszę usiąść",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "როცა": {
+   "lat": "rotsa",
+   "meaning": "kiedy, gdy"
+  },
+  "ჭავჭავაძეზე": {
+   "lat": "ch'avch'avadzeze",
+   "base": "ჭავჭავაძე",
+   "baseLat": "ch'avch'avadze",
+   "baseMeaning": "Czawczawadze (pisarz; aleja)",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "მივალთ": {
+   "lat": "mivalt",
+   "meaning": "dojedziemy",
+   "note": "Czas przyszły: dojedziemy."
+  },
+  "გეტყვით": {
+   "lat": "get'q'vit",
+   "meaning": "powiem panu",
+   "note": "გ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ჭავჭავაძე": {
+   "lat": "ch'avch'avadze",
+   "meaning": "Czawczawadze (pisarz; aleja)"
+  },
+  "შემოდი": {
+   "lat": "shemodi",
+   "meaning": "wejdź!",
+   "note": "Na ty; grzecznie შემოდით."
+  },
+  "შენთვის": {
+   "lat": "shentvis",
+   "base": "შენ",
+   "baseLat": "shen",
+   "baseMeaning": "ty",
+   "note": "-თვის: dla"
+  },
+  "საჭირო": {
+   "lat": "sach'iro",
+   "meaning": "potrzebny"
+  },
+  "მიირთვი": {
+   "lat": "miirtvi",
+   "meaning": "częstuj się",
+   "note": "Ciepłe „jedz”, mówione do gości."
+  },
+  "ფხალი": {
+   "lat": "pkhali",
+   "meaning": "pchali (warzywa z orzechami)"
+  },
+  "გაკეთებული": {
+   "lat": "gak'etebuli",
+   "meaning": "zrobiony"
+  },
+  "დაგისხა": {
+   "lat": "dagiskha",
+   "meaning": "nalać ci",
+   "note": "გ- w środku: „ci/tobie”."
+  },
+  "შენი": {
+   "lat": "sheni",
+   "meaning": "twój"
+  },
+  "ჯანმრთელობის": {
+   "lat": "janmrtelobis",
+   "base": "ჯანმრთელობა",
+   "baseLat": "janmrteloba",
+   "baseMeaning": "zdrowie",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "სტუმართმოყვარეობისთვის": {
+   "lat": "st'umartmoq'vareobistvis",
+   "base": "სტუმართმოყვარეობა",
+   "baseLat": "st'umartmoq'vareoba",
+   "baseMeaning": "gościnność",
+   "note": "-ისთვის: dla (dopełniacz -ის + -თვის)"
+  },
+  "გჭირდებათ": {
+   "lat": "gch'irdebat",
+   "meaning": "potrzebuje pan/pani",
+   "note": "Jak მჭირდება, „potrzebuję”.\nგ- w środku: „ci/tobie”.\n-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "მაისური": {
+   "lat": "maisuri",
+   "meaning": "koszulka"
+  },
+  "მოზომეთ": {
+   "lat": "mozomet",
+   "meaning": "proszę przymierzyć",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "მერგება": {
+   "lat": "mergeba",
+   "meaning": "pasuje na mnie",
+   "note": "მ- w środku: „mi/mnie”, jak w „podoba mi się”."
+  },
+  "ფასდაკლებაა": {
+   "lat": "pasdak'lebaa",
+   "base": "ფასდაკლება",
+   "baseLat": "pasdak'leba",
+   "baseMeaning": "wyprzedaż, zniżka",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "ფასდაკლება": {
+   "lat": "pasdak'leba",
+   "meaning": "wyprzedaż, zniżka"
+  },
+  "ტბასთან": {
+   "lat": "t'bastan",
+   "base": "ტბა",
+   "baseLat": "t'ba",
+   "baseMeaning": "jezioro",
+   "note": "-თან: u, przy, koło (-ს- po samogłosce)"
+  },
+  "ხიდამდე": {
+   "lat": "khidamde",
+   "base": "ხიდი",
+   "baseLat": "khidi",
+   "baseMeaning": "most",
+   "note": "-მდე: aż do (z łącznikiem -ა-)"
+  },
+  "გზაზე": {
+   "lat": "gzaze",
+   "base": "გზა",
+   "baseLat": "gza",
+   "baseMeaning": "droga",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "ხიდის": {
+   "lat": "khidis",
+   "base": "ხიდი",
+   "baseLat": "khidi",
+   "baseMeaning": "most",
+   "note": "-ის: dopełniacz: czyj? czego?"
+  },
+  "სუფთაა": {
+   "lat": "suptaa",
+   "base": "სუფთა",
+   "baseLat": "supta",
+   "baseMeaning": "czysty",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "იწვიმოს": {
+   "lat": "its'vimos",
+   "meaning": "(może) padać",
+   "note": "Po შეიძლება: może padać."
+  },
+  "ადრე": {
+   "lat": "adre",
+   "meaning": "wcześnie"
+  },
+  "დაბრუნდით": {
+   "lat": "dabrundit",
+   "meaning": "proszę wrócić",
+   "note": "-თ na końcu: grzecznie (do pana/pani) albo do kilku osób."
+  },
+  "ფეხების": {
+   "lat": "pekhebis",
+   "base": "ფეხი",
+   "baseLat": "pekhi",
+   "baseMeaning": "noga",
+   "note": "-ებ- (liczba mnoga) + -ის: dopełniacz"
+  },
+  "ვარჯიში": {
+   "lat": "varjishi",
+   "meaning": "trening"
+  },
+  "გვაქვს": {
+   "lat": "gvakvs",
+   "meaning": "mamy",
+   "note": "გვ- w środku: „nam”."
+  },
+  "მძიმეა": {
+   "lat": "mdzimea",
+   "base": "მძიმე",
+   "baseLat": "mdzime",
+   "baseMeaning": "ciężki",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "შევამსუბუქოთ": {
+   "lat": "shevamsubukot",
+   "meaning": "zmniejszmy ciężar",
+   "note": "ვ- … -თ: „my”."
+  },
+  "ასე": {
+   "lat": "ase",
+   "meaning": "tak"
+  },
+  "უკეთესია": {
+   "lat": "uk'etesia",
+   "base": "უკეთესი",
+   "baseLat": "uk'etesi",
+   "baseMeaning": "lepszy",
+   "note": "-ა na końcu: skrót od არის, „jest”"
+  },
+  "შესვენება": {
+   "lat": "shesveneba",
+   "meaning": "przerwa"
+  },
+  "დაისვენე": {
+   "lat": "daisvene",
+   "meaning": "odpocznij",
+   "note": "Na ty; grzecznie დაისვენეთ."
+  },
+  "გავაგრძელოთ": {
+   "lat": "gavagrdzelot",
+   "meaning": "kontynuujmy",
+   "note": "ვ- … -თ: „my”."
+  }
+ }
+}

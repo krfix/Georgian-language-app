@@ -12,6 +12,8 @@ final class Curriculum {
     let words: [Word]
     /// Phrases for real situations, usable without the course (Resources/Curriculum/phrasebook.json).
     let phrasebook: Phrasebook
+    /// Every word form in the examples, conversations and phrases, explained (glossary.json).
+    let glossary: [String: GlossaryEntry]
 
     /// Every lesson in course order.
     let lessons: [Lesson]
@@ -20,7 +22,9 @@ final class Curriculum {
     private let moduleByLesson: [String: CourseModule]
     private let lessonByID: [String: Lesson]
 
-    init(course: CourseFile, letters: LettersFile, vocabulary: VocabularyFile, phrasebook: PhrasebookFile = .empty) {
+    init(course: CourseFile, letters: LettersFile, vocabulary: VocabularyFile, phrasebook: PhrasebookFile = .empty,
+         glossary: [String: GlossaryEntry] = [:]) {
+        self.glossary = glossary
         courseID = course.id
         version = course.version
         title = course.title
@@ -56,12 +60,26 @@ final class Curriculum {
         let letters = try decoder.decode(LettersFile.self, from: Data(contentsOf: url("letters")))
         let vocabulary = try decoder.decode(VocabularyFile.self, from: Data(contentsOf: url("vocabulary")))
         let phrasebook = try decoder.decode(PhrasebookFile.self, from: Data(contentsOf: url("phrasebook")))
-        return Curriculum(course: course, letters: letters, vocabulary: vocabulary, phrasebook: phrasebook)
+        let glossary = (try? decoder.decode(GlossaryFile.self, from: Data(contentsOf: url("glossary"))))?.words ?? [:]
+        return Curriculum(course: course, letters: letters, vocabulary: vocabulary, phrasebook: phrasebook, glossary: glossary)
     }
 
     /// A course word, or a phrasebook phrase as a word (ids starting "pb-").
     func word(_ id: String) -> Word? { wordsByID[id] ?? (Phrasebook.isPhraseID(id) ? phrasebook.word(id) : nil) }
     func letter(_ char: String) -> LetterInfo? { lettersByChar[char] }
+
+    /// The explanation of one word as it appears in a sentence ("სახლში,", "გაქვთ?").
+    func gloss(_ word: String) -> GlossaryEntry? { glossary[Self.glossaryKey(word)] }
+
+    /// A word without the punctuation around it: the key in the glossary.
+    static func glossaryKey(_ word: String) -> String {
+        word.trimmingCharacters(in: CharacterSet(charactersIn: ".,?!—–:;\"«»…-"))
+    }
+
+    /// A sentence cut into words for tapping: each keeps its punctuation for display.
+    static func wordsForTapping(_ text: String) -> [String] {
+        text.split(separator: " ", omittingEmptySubsequences: true).map(String.init)
+    }
     func lesson(_ id: String) -> Lesson? { lessonByID[id] }
     func module(of lessonID: String) -> CourseModule? { moduleByLesson[lessonID] }
     func category(_ id: String) -> WordCategory? { categories.first { $0.id == id } }

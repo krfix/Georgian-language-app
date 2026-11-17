@@ -466,6 +466,11 @@ PL = {
     "Answers per day. {0} active days.": "Odpowiedzi dziennie. Aktywne dni: {0}.",
     "{0} answers · {1} active days": "Odpowiedzi: {0} · aktywne dni: {1}",
     "Milestone reached": "Kamień milowy osiągnięty",
+    # Tappable words
+    "Explains this word": "Wyjaśnia to słowo",
+    "Dictionary form": "Forma słownikowa",
+    "Word by word": "Słowo po słowie",
+    "From {0}": "Od: {0}",
 }
 
 if __name__ == "__main__":

@@ -5,13 +5,15 @@ struct FlowLayout: Layout {
     var spacing: CGFloat = 8
     var rowSpacing: CGFloat = 10
     var alignment: HorizontalAlignment = .center
+    /// Take only the width the rows need (a speech bubble), not all that is offered.
+    var hugsContent = false
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
         let width = proposal.width ?? .infinity
         let rows = arrange(width: width, subviews: subviews)
         let height = rows.reduce(0) { $0 + $1.height } + rowSpacing * CGFloat(max(0, rows.count - 1))
         let used = rows.map(\.width).max() ?? 0
-        return CGSize(width: proposal.width ?? used, height: height)
+        return CGSize(width: hugsContent ? min(used, proposal.width ?? used) : (proposal.width ?? used), height: height)
     }
 
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {

@@ -185,12 +185,12 @@ struct ExampleCard: View {
                 Spacer()
                 SpeakerButton(text: example.ka, size: 32)
             }
-            Text(example.ka).font(.system(.title3, weight: .semibold)).foregroundStyle(Palette.ink).fixedSize(horizontal: false, vertical: true)
+            TappableGeorgian(text: example.ka)
             Text(example.lat).font(.calloutRounded.italic()).foregroundStyle(Palette.inkSoft)
             Text(example.en).font(.bodyRounded).foregroundStyle(Palette.ink)
         }
         .card()
-        .accessibilityElement(children: .combine)
+        .accessibilityElement(children: .contain)
     }
 }
 

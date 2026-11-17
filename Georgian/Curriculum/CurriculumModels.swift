@@ -129,6 +129,25 @@ struct LettersFile: Codable {
     let lookalikes: [[String]]
 }
 
+/// What one Georgian word in a sentence is, and why it looks the way it does (tap a word:
+/// TappableGeorgian). Built by build_curriculum.py from content_glossary.py.
+struct GlossaryEntry: Codable, Hashable {
+    let lat: String
+    /// What this form means here (verbs, irregular words); nil when the base says it.
+    let meaning: String?
+    /// The dictionary form, when this word is a changed form of it.
+    let base: String?
+    let baseLat: String?
+    let baseMeaning: String?
+    /// Why it looks like this: the ending, the person, the polite -თ…
+    let note: String?
+}
+
+struct GlossaryFile: Codable {
+    let version: Int
+    let words: [String: GlossaryEntry]
+}
+
 struct VocabularyFile: Codable {
     let version: Int
     let categories: [WordCategory]

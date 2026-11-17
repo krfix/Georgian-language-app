@@ -278,7 +278,8 @@ struct Bubble: View {
                     .accessibilityHidden(true)
             }
             VStack(alignment: line.isLearner ? .trailing : .leading, spacing: 3) {
-                Text(line.ka).font(.system(.body, weight: .semibold)).foregroundStyle(line.isLearner ? .white : Palette.ink)
+                TappableGeorgian(text: line.ka, font: .system(.body, weight: .semibold),
+                                 color: line.isLearner ? .white : Palette.ink, alignment: line.isLearner ? .trailing : .leading)
                 Text(line.en).font(.caption).foregroundStyle(line.isLearner ? .white.opacity(0.8) : Palette.inkSoft)
             }
             .padding(.horizontal, 14)

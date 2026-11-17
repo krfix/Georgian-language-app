@@ -594,6 +594,124 @@ def polish_phrasebook():
     return cats, phrases, dialogues, synonyms, suggestions
 
 
+# ---- Tappable words (content_glossary.py): every word in examples, conversations and phrases.
+import content_glossary as G  # noqa: E402
+
+TOKEN_SPLIT = re.compile(r"[\s,.?!—–:;\"«»…]+")
+
+
+def tokens(text):
+    out = []
+    for x in TOKEN_SPLIT.split(text):
+        x = x.strip("-")
+        if x and any(ch in LATIN for ch in x):
+            out.append(x)
+    return out
+
+
+gloss_sentences = []
+for w in words:
+    gloss_sentences += [w["ka"], w["example"]["ka"]]
+for m in modules:
+    for L in m["lessons"]:
+        for line in (L.get("dialogue") or {}).get("lines", []):
+            gloss_sentences.append(line["ka"])
+        for g in L.get("read", []):
+            gloss_sentences.append(g["ka"])
+for p in pb_phrases:
+    gloss_sentences.append(p["ka"])
+    gloss_sentences += [f["ka"] for f in p.get("variants", []) + p.get("replies", [])]
+for d in pb_dialogues:
+    gloss_sentences += [line["ka"] for line in d["lines"]]
+    gloss_sentences += [n["ka"] for n in d["notes"]]
+
+# Dictionary words: course words (one word only) and BASES; meanings in both languages.
+pl_word_by_ka = {}
+if PL is not None:
+    for ka, val in getattr(PL, "WORDS", {}).items():
+        pl_word_by_ka[ka] = val[0]
+dictionary = {}
+for w in words:
+    bare_ka = w["ka"].strip("?.!")
+    if " " not in bare_ka and bare_ka not in dictionary:
+        dictionary[bare_ka] = (w["en"], pl_word_by_ka.get(w["ka"], w["en"]))
+for ka, (en, pl) in G.BASES.items():
+    check_georgian(ka, "glossary base")
+    dictionary.setdefault(ka, (en, pl))
+
+
+def analyse(t):
+    """(base, [notes as (en, pl)]) or None."""
+    if t in dictionary:
+        return t, []
+    for e_ka, e_en, e_pl in G.ENDINGS:
+        if t.endswith(e_ka) and len(t) > len(e_ka) + 1:
+            stem = t[: -len(e_ka)]
+            for b in (stem, stem + "ი", stem + "ა", stem + "ე", stem + "ო"):
+                if b in dictionary:
+                    return b, [(e_en, e_pl)]
+    if t.endswith("ც") and len(t) > 2:
+        r = analyse(t[:-1])
+        if r:
+            return r[0], r[1] + [G.ALSO]
+    if t.endswith("ა") and len(t) > 2:
+        if t[:-1] + "ი" in dictionary:
+            return t[:-1] + "ი", [G.COPULA]
+        r = analyse(t[:-1])
+        if r:
+            return r[0], r[1] + [G.COPULA]
+    if t + "ი" in dictionary:
+        return t + "ი", [G.DROPPED_I]
+    return None
+
+
+glossary_en, glossary_pl, unexplained = {}, {}, []
+for s_ in gloss_sentences:
+    for tok in tokens(s_):
+        if tok in glossary_en or not any(ch in LATIN for ch in tok):
+            continue
+        if tok in G.FORMS:
+            base, en, pl, note_en, note_pl = G.FORMS[tok]
+            check_georgian(re.sub(r"[0-9]", "", tok), "glossary form")
+            e_en = {"lat": latin(tok), "meaning": en}
+            e_pl = {"lat": latin(tok), "meaning": pl}
+            if base:
+                e_en["base"] = e_pl["base"] = base
+                e_en["baseLat"] = e_pl["baseLat"] = latin(base)
+                if base in dictionary:
+                    e_en["baseMeaning"], e_pl["baseMeaning"] = dictionary[base]
+            if note_en:
+                e_en["note"], e_pl["note"] = note_en, note_pl
+            glossary_en[tok], glossary_pl[tok] = e_en, e_pl
+            continue
+        r = analyse(tok)
+        if not r:
+            unexplained.append(tok)
+            continue
+        base, notes = r
+        en, pl = dictionary[base]
+        e_en = {"lat": latin(tok)}
+        e_pl = {"lat": latin(tok)}
+        if base != tok:
+            e_en["base"] = e_pl["base"] = base
+            e_en["baseLat"] = e_pl["baseLat"] = latin(base)
+            e_en["baseMeaning"], e_pl["baseMeaning"] = en, pl
+        else:
+            e_en["meaning"], e_pl["meaning"] = en, pl
+        if notes:
+            e_en["note"] = "\n".join(n[0] for n in notes)
+            e_pl["note"] = "\n".join(n[1] for n in notes)
+        glossary_en[tok], glossary_pl[tok] = e_en, e_pl
+unexplained = sorted(set(unexplained), key=lambda x: (-sum(s_.count(x) for s_ in gloss_sentences), x))
+if "--glossary" in sys.argv:
+    print(f"# {len(glossary_en)} explained, {len(unexplained)} not")
+    print(" ".join(unexplained))
+    sys.exit(0)
+for t in unexplained[:20]:
+    fail(f"glossary: no explanation for {t!r} (add it to content_glossary.py)")
+if len(unexplained) > 20:
+    fail(f"glossary: … and {len(unexplained) - 20} more (run with --glossary to list them)")
+
 pl_letters = polish_letters()
 pl_words = polish_words()
 pl_categories = [{**c, "title": t(c["title"], "category " + c["id"])} for c in categories]
@@ -632,6 +750,8 @@ write("phrasebook.json", {"version": VERSION, "checkedBy": PB.PHRASEBOOK_STATUS,
                          "categories": list(pb_cats.values()), "phrases": pb_phrases, "dialogues": pb_dialogues,
                          "synonyms": PB.SYNONYMS, "suggestions": PB.SUGGESTIONS})
 # Polish: the same files with "-pl" (the field names stay: "en" holds the learner's language).
+write("glossary.json", {"version": VERSION, "words": glossary_en})
+write("glossary-pl.json", {"version": VERSION, "words": glossary_pl})
 write("letters-pl.json", {"version": VERSION, "letters": pl_letters, "lookalikes": C.LOOKALIKES})
 write("vocabulary-pl.json", {"version": VERSION, "categories": pl_categories, "words": pl_words})
 write("course-pl.json", {"id": "georgian-a0", "version": VERSION, "title": "Gruziński od zera", "modules": pl_modules})
@@ -642,3 +762,4 @@ lesson_count = sum(len(m["lessons"]) for m in modules)
 print(f"OK: {len(letters)} letters, {len(words)} words and phrases, {len(modules)} modules, {lesson_count} lessons")
 print(f"OK: phrasebook with {len(pb_cats)} categories, {len(pb_phrases)} phrases, {len(pb_dialogues)} dialogues")
 print("OK: Polish for all of it")
+print(f"OK: {len(glossary_en)} tappable words explained")
