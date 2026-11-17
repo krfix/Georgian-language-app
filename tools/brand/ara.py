@@ -194,7 +194,9 @@ def _wing(sp, raised=False):
         if raised:
             pts = [_rot(p, piv, 110) for p in pts]
         return _path(sp, pts[0], [pts[1:4], pts[4:7], pts[7:10]], fill)
-    return layer((-0.62, 3.05), MACAW, 1.0) + layer((-0.38, 2.35), GOLD, 0.68) + layer((-0.12, 1.72), POMEGRANATE, 0.35)
+    wing = layer((-0.62, 3.05), MACAW, 1.0) + layer((-0.38, 2.35), GOLD, 0.68)
+    # Folded, a red shoulder covers the wing's root; raised, it would look like a stubby arm.
+    return wing if raised else wing + layer((-0.12, 1.72), POMEGRANATE, 0.35)
 
 
 # Poses: body lean (degrees), head tilt, eye, where the pupil looks, wing raised.

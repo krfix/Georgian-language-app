@@ -36,6 +36,13 @@ The welcome screen already explains the name ("you'll be saying კი: yes!").
 - QA also photographs the home screen (light, dark) and a search with no results.
 
 ### Runs and refinement cycles
+- **QA run** (#44031006043, iPhone 17 Pro, Xcode 26.3): compiled first time, 0 warnings,
+  142/142 logic checks, 5/5 UI tests, 79 pictures. Looked at: the icon on the real home
+  screen (light and dark wallpaper; iOS 26 adds its glass edge; it stays the light icon
+  unless the owner picks the Dark style), welcome (hello), Lesson complete (cheer), "Nothing
+  found" (think), Review, Profile. All drawn crisp from the vector PDFs.
+- **Cycle 1** (from those pictures): the raised wing's red shoulder looked like a stubby arm
+  on Lesson complete. → Removed in the cheer pose (checked in the rendered master).
 
 ## KART #2 · 16/11/26 · Use in Georgia (branch `claude/use-in-georgia`, from `claude/full-app`)
 
