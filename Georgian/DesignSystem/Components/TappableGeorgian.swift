@@ -1,7 +1,8 @@
 import SwiftUI
 
 /// Georgian text whose words can be tapped: a small bubble says what the word is and why it
-/// looks the way it does (the ending, the person, the polite -თ…), in the learner's language.
+/// looks the way it does (the ending, the person, the polite -თ…), in the learner's language;
+/// tap the word again, or ×, to fold it away.
 /// Words with an explanation have a dotted underline. The explanations come from
 /// glossary.json (content_glossary.py), so every word in examples, conversations and phrases
 /// has one.
@@ -13,31 +14,41 @@ struct TappableGeorgian: View {
     @Environment(LearningStore.self) private var store
     @State private var open: Int?
 
+    // The explanation unfolds under the sentence, inside the same screen. (A system popover
+    // here could close the lesson's full-screen cover with it when dismissed: build #25.)
     var body: some View {
         let words = Curriculum.wordsForTapping(text)
-        FlowLayout(spacing: 5, rowSpacing: 4, alignment: alignment, hugsContent: true) {
-            ForEach(Array(words.enumerated()), id: \.offset) { i, word in
-                if let entry = store.curriculum.gloss(word) {
-                    Button {
-                        Haptics.select()
-                        open = i
-                    } label: {
-                        Text(word)
-                            .underline(true, pattern: .dot, color: color.opacity(0.45))
-                            .font(font)
-                            .foregroundStyle(color)
+        VStack(alignment: alignment, spacing: 8) {
+            FlowLayout(spacing: 5, rowSpacing: 4, alignment: alignment, hugsContent: true) {
+                ForEach(Array(words.enumerated()), id: \.offset) { i, word in
+                    if store.curriculum.gloss(word) != nil {
+                        Button {
+                            Haptics.select()
+                            withMotion(Motion.spring) { open = open == i ? nil : i }
+                        } label: {
+                            Text(word)
+                                .underline(true, pattern: .dot, color: color.opacity(0.45))
+                                .font(font)
+                                .foregroundStyle(color)
+                                .padding(.horizontal, 2)
+                                .background(RoundedRectangle(cornerRadius: 6, style: .continuous)
+                                    .fill(open == i ? Palette.gold.opacity(0.35) : Color.clear))
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityHint(tr("Explains this word"))
+                    } else {
+                        Text(word).font(font).foregroundStyle(color)
                     }
-                    .buttonStyle(.plain)
-                    .accessibilityHint(tr("Explains this word"))
-                    .popover(isPresented: Binding(get: { open == i }, set: { if !$0 { open = nil } })) {
-                        WordBubble(word: Curriculum.glossaryKey(word), entry: entry)
-                            .presentationCompactAdaptation(.popover)
-                    }
-                } else {
-                    Text(word).font(font).foregroundStyle(color)
                 }
             }
+            if let i = open, words.indices.contains(i), let entry = store.curriculum.gloss(words[i]) {
+                WordBubble(word: Curriculum.glossaryKey(words[i]), entry: entry) {
+                    withMotion(Motion.spring) { open = nil }
+                }
+                .transition(.scale(scale: 0.9, anchor: .top).combined(with: .opacity))
+            }
         }
+        .onChange(of: text) { _, _ in open = nil }
     }
 }
 
@@ -45,12 +56,21 @@ struct TappableGeorgian: View {
 struct WordBubble: View {
     let word: String
     let entry: GlossaryEntry
+    var onClose: (() -> Void)?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .firstTextBaseline, spacing: 8) {
                 Text(word).font(.system(.title2, weight: .bold)).foregroundStyle(Palette.ink)
                 Text(entry.lat).font(.calloutRounded.italic()).foregroundStyle(Palette.inkSoft)
+                Spacer(minLength: 0)
+                if let onClose {
+                    Button(action: onClose) {
+                        Image(systemName: "xmark.circle.fill").font(.title3).foregroundStyle(Palette.inkFaint)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(tr("Close"))
+                }
             }
             if let meaning = entry.meaning {
                 Text(meaning).font(.headlineRounded).foregroundStyle(Palette.saperavi)
@@ -79,8 +99,11 @@ struct WordBubble: View {
                 }
             }
         }
-        .padding(16)
-        .frame(width: 290, alignment: .leading)
-        .accessibilityElement(children: .combine)
+        .padding(14)
+        .frame(maxWidth: 340, alignment: .leading)
+        .background(RoundedRectangle(cornerRadius: 18, style: .continuous).fill(Palette.surface))
+        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).strokeBorder(Palette.gold.opacity(0.6), lineWidth: 1.5))
+        .shadow(color: .black.opacity(0.08), radius: 8, y: 3)
+        .accessibilityElement(children: .contain)
     }
 }
