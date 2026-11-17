@@ -1550,3 +1550,206 @@ T.update({
     "rest": "odpocznij",
     "To a friend; politely: დაისვენეთ.": "Na ty; grzecznie: დაისვენეთ.",
 })
+
+# ---- KART #4: new grammar words, grammar lessons g10–g13 and the "why" cards
+WORDS.update({
+    "მყავს": ("mam (osobę, zwierzę)", ["mam"], "Mam dwoje dzieci.", "O ludziach i zwierzętach; o rzeczach: მაქვს."),
+    "გყავს": ("masz (osobę, zwierzę)", ["masz"], "Masz brata?", None),
+    "ვიყავი": ("byłem, byłam", ["byłem", "byłam"], "Wczoraj byłem na targu.", None),
+    "წავედი": ("poszedłem, poszłam", ["poszedłem", "poszłam", "pojechałem", "pojechałam"], "Wczoraj poszedłem do kina.", None),
+    "ვნახე": ("zobaczyłem, zobaczyłam", ["zobaczyłem", "zobaczyłam", "widziałem", "widziałam"], "Widziałem Nino.", None),
+    "ვჭამე": ("zjadłem, zjadłam", ["zjadłem", "zjadłam", "jadłem", "jadłam"], "Zjadłem chinkali.",
+              "W czasie przeszłym to, co zjedzone, stoi w mianowniku: ხინკალი, nie ხინკალს. Odwrotnie niż po polsku!"),
+    "დავლიე": ("wypiłem, wypiłam", ["wypiłem", "wypiłam", "piłem", "piłam"], "Wypiłem kawę.", None),
+    "ვიყიდე": ("kupiłem, kupiłam", ["kupiłem", "kupiłam"], "Kupiłem chleb.", None),
+})
+
+T.update({
+    # g10
+    "Things and people": "Rzeczy i ludzie",
+    "Two ways to have": "Dwa rodzaje „mieć”",
+    "Georgian has two verbs for \"have\": მაქვს for things, მყავს for people and animals. Both put \"me\" inside the verb with მ-, like მინდა, and \"you\" with გ-.":
+        "Gruziński ma dwa czasowniki „mieć”: მაქვს dla rzeczy i მყავს dla ludzi i zwierząt. Trochę jak gdyby po polsku inaczej się „miało” telefon, a inaczej brata. Oba mają „mi” w środku (მ-), jak მინდა, a „ci” to გ-.",
+    "I have money": "mam pieniądze",
+    "I have a car": "mam samochód",
+    "I have a brother": "mam brata",
+    "I have a dog": "mam psa",
+    "do you have (a thing)?": "masz (rzecz)?",
+    "do you have (someone)?": "masz (kogoś)?",
+    "Children are people: მყავს.": "Dzieci to ludzie: მყავს.",
+    "I have two children.": "Mam dwoje dzieci.",
+    "A phone is a thing: მაქვს.": "Telefon to rzecz: მაქვს.",
+    "I have a phone.": "Mam telefon.",
+    "გ- for you, and a brother is a person.": "გ- dla „ty”, a brat to osoba.",
+    "Do you have a brother?": "Masz brata?",
+    "For a cat, \"I have\" is…": "„Mam kota” to…",
+    "Animals count like people: მყავს.": "Zwierzęta liczą się jak ludzie: მყავს.",
+    "I have a dog.": "Mam psa.",
+    # g11
+    "More than one": "Liczba mnoga",
+    "Plurals with -ები": "Liczba mnoga z -ები",
+    "Most nouns drop their final -ი and add -ები: სახლი, სახლები. Nouns ending in a vowel keep it: დედა, დედები. A few lose a vowel inside, as in მეგობრები.":
+        "Większość rzeczowników gubi końcowe -ი i dostaje -ები: სახლი, სახლები. Słowa na samogłoskę ją zachowują: დედა, დედები. Jedna końcówka dla wszystkich, bez polskich „-y, -i, -e, -owie”. Niektóre gubią samogłoskę w środku, jak მეგობრები (jak nasze „pies → psy”).",
+    "house": "dom",
+    "houses": "domy",
+    "book": "książka",
+    "books": "książki",
+    "friend": "przyjaciel",
+    "friends: the second ა drops": "przyjaciele: drugie ა znika",
+    "mothers": "matki",
+    "Not after numbers": "Nie po liczebnikach",
+    "After a number the noun stays singular: სამი წიგნი, \"three book\". The plural is only for \"books\" with no number.":
+        "Po liczebniku rzeczownik zostaje w liczbie pojedynczej: სამი წიგნი, „trzy książka”. Liczba mnoga jest tylko bez liczebnika.",
+    "three books": "trzy książki",
+    "The plural of წიგნი is…": "Liczba mnoga od წიგნი to…",
+    "-ი becomes -ები.": "-ი zmienia się w -ები.",
+    "ცხოვრობენ is \"they live\", so the plural: მეგობრები.": "ცხოვრობენ to „mieszkają”, więc liczba mnoga: მეგობრები.",
+    "My friends live in Tbilisi.": "Moi przyjaciele mieszkają w Tbilisi.",
+    "After a number, the singular.": "Po liczebniku liczba pojedyncza.",
+    "I want three tickets.": "Chcę trzy bilety.",
+    "მეგობარი becomes…": "მეგობარი zmienia się w…",
+    "The second ა drops: მეგობრები.": "Drugie ა znika: მეგობრები.",
+    "The houses are big.": "Domy są duże.",
+    # g12
+    "Polite you": "Forma grzecznościowa",
+    "The polite -თ": "Grzecznościowe -თ",
+    "Georgian has a polite \"you\": თქვენ, which is also \"you\" for several people. The verb gets -თ at the end: გაქვს becomes გაქვთ, იცი becomes იცით. Use it with strangers, in shops, with older people and officials.":
+        "Polak mówi do obcego „pan/pani” w trzeciej osobie. Gruzin mówi „wy”: თქვენ, jak dawniej na polskiej wsi. Czasownik dostaje -თ na końcu: გაქვს → გაქვთ, იცი → იცით. Używaj tego z obcymi, w sklepach, ze starszymi i w urzędach.",
+    "do you have? (to a friend)": "masz? (do znajomego)",
+    "do you have? (polite)": "ma pan/pani? (grzecznie)",
+    "do you know? (to a friend)": "wiesz? (do znajomego)",
+    "do you know? (polite)": "wie pan/pani? (grzecznie)",
+    "how are you? (to a friend)": "jak się masz? (do znajomego)",
+    "how are you? (polite)": "jak się pan/pani ma? (grzecznie)",
+    "Polite requests": "Grzeczne prośby",
+    "Requests end in -თ too, and თუ შეიძლება makes them softer still: აქ გამიჩერეთ, თუ შეიძლება.":
+        "Prośby też kończą się na -თ, a თუ შეიძლება dodatkowo je łagodzi, jak nasze „proszę”: აქ გამიჩერეთ, თუ შეიძლება.",
+    "wait (to a friend)": "poczekaj (do znajomego)",
+    "wait (polite)": "proszę poczekać",
+    "sit down (to a friend)": "usiądź (do znajomego)",
+    "sit down (polite)": "proszę usiąść",
+    "-თ: polite.": "-თ: grzecznie.",
+    "Do you speak English? (to a stranger)": "Mówi pan po angielsku? (do obcego)",
+    "How are you? (to your teacher)": "Jak się pani ma? (do nauczycielki)",
+    "To a taxi driver, \"stop here\" is…": "Do taksówkarza „proszę się tu zatrzymać” to…",
+    "-თ: polite. გამიჩერე is for a friend.": "-თ: grzecznie. გამიჩერე mówi się do znajomego.",
+    "თქვენ can mean…": "თქვენ może znaczyć…",
+    "polite you, or you (several people)": "pan/pani albo wy",
+    "only you (several people)": "tylko wy",
+    "Do you have change?": "Ma pan drobne?",
+    # g13
+    "Yesterday": "Wczoraj",
+    "Things you did": "Co zrobiłeś",
+    "The past has its own forms: learn these six as words first. Each has ვ- for \"I\", at the start or after a little prefix: წა-ვ-ედი, და-ვ-ლიე.":
+        "Czas przeszły ma własne formy: naucz się tych sześciu jak słówek. Każda ma ვ- dla „ja”, na początku albo po małym przedrostku: წა-ვ-ედი, და-ვ-ლიე. Te przedrostki działają jak polskie „wy-, po-, z-”: robią z czasownika dokonany (piłem → wypiłem).",
+    "I was": "byłem, byłam",
+    "I went": "poszedłem, poszłam",
+    "I saw": "zobaczyłem, zobaczyłam",
+    "I ate": "zjadłem, zjadłam",
+    "I drank": "wypiłem, wypiłam",
+    "I bought": "kupiłem, kupiłam",
+    "The object changes": "Dopełnienie się zmienia",
+    "In the present the thing you eat takes -ს: ხინკალს ვჭამ. In the past it goes back to its plain form: ხინკალი ვჭამე.":
+        "W czasie teraźniejszym to, co jesz, dostaje -ს: ხინკალს ვჭამ. W przeszłym wraca do mianownika: ხინკალი ვჭამე. Po polsku tak się nie dzieje, więc po prostu to zapamiętaj: przeszłość, forma podstawowa.",
+    "I'm eating khinkali": "jem chinkali",
+    "I ate khinkali": "zjadłem chinkali",
+    "I'm drinking coffee": "piję kawę",
+    "I drank coffee": "wypiłem kawę",
+    "გუშინ, yesterday: the past.": "გუშინ, wczoraj: czas przeszły.",
+    "Yesterday I was at the market.": "Wczoraj byłem na targu.",
+    "ვჭამე: I ate.": "ვჭამე: zjadłem.",
+    "Yesterday I ate khinkali.": "Wczoraj zjadłem chinkali.",
+    "ვიყიდე: I bought.": "ვიყიდე: kupiłem.",
+    "I bought bread.": "Kupiłem chleb.",
+    "\"I ate khinkali\" is…": "„Zjadłem chinkali” to…",
+    "In the past the object is in its plain form.": "W czasie przeszłym dopełnienie stoi w mianowniku.",
+    "I went to the cinema.": "Poszedłem do kina.",
+    # "Why" cards
+    "Hello means victory": "„Cześć” znaczy „zwycięstwo”",
+    "გამარჯობა comes from გამარჯვება, victory: you wish someone victory. The reply, გაგიმარჯოს, wishes it back. Greetings for the time of day end in მშვიდობისა, \"of peace\".":
+        "გამარჯობა pochodzi od გამარჯვება, zwycięstwo: życzysz komuś zwycięstwa. Odpowiedź, გაგიმარჯოს, życzy go z powrotem. Powitania o porze dnia kończą się na მშვიდობისა, „pokoju”, jak staropolskie „pokój z tobą”.",
+    "Two kinds of thanks": "Dwa rodzaje „dziękuję”",
+    "მადლობა is everyday thanks. გმადლობთ is polite: the გ- means \"you\" and the -თ makes it polite. You'll meet this -თ everywhere.":
+        "მადლობა to zwykłe „dzięki”. გმადლობთ jest grzeczne: გ- to „ci/panu”, a -თ dodaje grzeczności, jak nasze „dziękuję panu”. To -თ spotkasz wszędzie.",
+    "Called, not named": "„Nazywa mi się”",
+    "Georgian says \"to me it is called\": მე ნინო მქვია. The მ- inside the verb is \"me\". To ask: რა გქვია? with გ- for \"you\".":
+        "Gruzin mówi „nazywa mi się”: მე ნინო მქვია. მ- w środku czasownika to nasze „mi”. Pytanie: რა გქვია?, z გ- jako „ci”: „jak ci na imię?”, prawie jak po polsku!",
+    "From where": "Skąd",
+    "საიდან means \"from where\": სად (where) + -იდან (from). The same -დან turns any place into \"from\": თბილისიდან, from Tbilisi.":
+        "საიდან to „skąd”: სად (gdzie) + -იდან (z, od). Ta sama końcówka -დან robi z każdego miejsca „z”: თბილისიდან, z Tbilisi. Gdzie my mamy przyimek z przodu, Gruzin dokleja końcówkę.",
+    "Counting to ten": "Liczymy do dziesięciu",
+    "Georgian numbers are short and regular. After a number the noun stays singular: ორი ჩაი, \"two tea\". No changing endings to learn.":
+        "Gruzińskie liczebniki są krótkie i regularne. Po liczebniku rzeczownik zostaje w liczbie pojedynczej: ორი ჩაი, „dwie herbata”. Żadnych polskich „dwie herbaty, pięć herbat”.",
+    "Ten and more": "Dziesięć i więcej",
+    "The teens are built from ten and the number: თ (from ათი, ten) + ოთხ (four) + მეტი (more) makes თოთხმეტი, fourteen. Look for the pattern in each one.":
+        "„Nastki” buduje się z dziesięciu i liczby: თ (od ათი, dziesięć) + ოთხ (cztery) + მეტი (więcej) daje თოთხმეტი, czternaście. Jak nasze „cztery-naście”, tylko w odwrotnej kolejności.",
+    "Above twenty Georgian counts in twenties: ორმოცი is \"two twenties\". The next lesson shows how to build every number from these.":
+        "Powyżej dwudziestu Gruzini liczą dwudziestkami: ორმოცი to „dwie dwudziestki”. Następna lekcja pokazuje, jak z tego zbudować każdą liczbę.",
+    "Food words": "Słowa o jedzeniu",
+    "Many Georgian food words end in -ი: პური, ყველი, ჩაი. That -ი is the plain form; it changes when the word does a job in the sentence: ყავას ვსვამ, I drink coffee.":
+        "Wiele gruzińskich słów kończy się na -ი: პური, ყველი, ჩაი. To -ი to mianownik; zmienia się, gdy słowo pełni inną rolę w zdaniu, jak u nas „kawa → piję kawę”: ყავას ვსვამ.",
+    "ხაჭაპური and ხინკალი are names you'll see on every menu. Words for things you eat often come in the singular: ხილი is fruit, ბოსტნეული vegetables.":
+        "ხაჭაპური i ხინკალი zobaczysz w każdym menu. Jedzenie często występuje w liczbie pojedynczej: ხილი to owoce, ბოსტნეული warzywa, jak nasze „owoc, warzywo” w zbiorczym znaczeniu.",
+    "Most transport words are international: ავტობუსი, მეტრო, ტაქსი. Add -ით for \"by\": მანქანით, by car; after a vowel just -თი: მეტროთი.":
+        "Większość słów o transporcie jest międzynarodowa: ავტობუსი, მეტრო, ტაქსი. Końcówka -ით to nasz narzędnik: მანქანით, samochodem; po samogłosce -თი: მეტროთი, metrem.",
+    "Long words are often built from parts: თვითმფრინავი is \"self-flying\". აეროპორტი and სადგური take -ში for \"to\": აეროპორტში, to the airport.":
+        "Długie słowa składa się z części: თვითმფრინავი to „sam-latający”, zupełnie jak polski samolot. აეროპორტი i სადგური dostają -ში dla „do”: აეროპორტში, na lotnisko.",
+    "მარჯვნივ and მარცხნივ end in -ივ, which means \"towards\". The polite command is მოუხვიეთ, turn: you'll hear it in every taxi.":
+        "მარჯვნივ i მარცხნივ kończą się na -ივ, „w stronę”, jak nasze „w prawo”. Grzeczny rozkaz to მოუხვიეთ, „proszę skręcić”: usłyszysz go w każdej taksówce.",
+    "ახლოს and შორს are said with არის, is: ახლოს არის, it's near. Put the place first: ბაზარი ახლოს არის?":
+        "ახლოს i შორს mówi się z არის, „jest”: ახლოს არის, jest blisko. Miejsce stoi na początku: ბაზარი ახლოს არის?, „targ blisko jest?”.",
+    "Shops and prices": "Sklepy i ceny",
+    "რა ღირს? literally \"what is it worth?\": the everyday \"how much?\". ღია and დაკეტილი, open and closed, are on every shop door.":
+        "რა ღირს? to dosłownie „ile to warte?”, codzienne „ile kosztuje?”. ღია i დაკეტილი, otwarte i zamknięte, są na drzwiach każdego sklepu.",
+    "ლარი is the money, თეთრი the coins (100 tetri in a lari). By card is ბარათით: ბარათი + -ით, \"with the card\".":
+        "ლარი to waluta, თეთრი to grosze (100 tetri w jednym lari). Kartą to ბარათით: ბარათი + -ით, nasz narzędnik.",
+    "Mother and father": "Matka i ojciec",
+    "Careful: დედა is mother and მამა is father, the opposite of what you might expect. შვილი is someone's child, ბავშვი a child in general.":
+        "Uwaga: დედა to matka, a მამა to ojciec, odwrotnie niż podpowiada polskie ucho! შვილი to czyjeś dziecko (syn, córka), ბავშვი to dziecko w ogóle.",
+    "და means both \"sister\" and \"and\": the sentence makes it clear. Family words don't change for my and your: ჩემი ძმა, my brother.":
+        "და to i „siostra”, i „i”: zdanie wyjaśnia, o co chodzi. ჩემი (mój) nie zmienia się dla rodzaju: ჩემი ძმა, mój brat; ჩემი და, moja siostra.",
+    "Places take -ში for \"in\": სახლში, at home; ოთახში, in the room. Things on top take -ზე: მაგიდაზე, on the table.":
+        "Miejsca dostają -ში dla „w”: სახლში, w domu; ოთახში, w pokoju. Na wierzchu: -ზე, მაგიდაზე, na stole. Przyimek, tylko na końcu.",
+    "To say a thing is somewhere, add -ა (short for არის, is) to the place: წიგნი მაგიდაზეა, the book is on the table.":
+        "Żeby powiedzieć, że coś gdzieś jest, dodaj -ა (skrót od არის, „jest”) do miejsca: წიგნი მაგიდაზეა, książka jest na stole.",
+    "Time words need no little words before them: დღეს, today; ხვალ, tomorrow. დილით and საღამოს are \"in the morning\" and \"in the evening\".":
+        "Słowa o czasie nie potrzebują przyimków: დღეს, dziś; ხვალ, jutro. დილით i საღამოს to „rano” i „wieczorem”: końcówki robią z nich „kiedy?”, jak nasze „wieczor-em”.",
+    "Days of the week": "Dni tygodnia",
+    "From Monday to Thursday the days count from Saturday: ორშაბათი is \"two after Saturday\". კვირა is both Sunday and week.":
+        "Od poniedziałku do czwartku dni liczy się od soboty: ორშაბათი to „dwa po sobocie”. Podobnie nasze „wtorek, czwartek, piątek” to „drugi, czwarty, piąty”. კვირა to i niedziela, i tydzień.",
+    "Asking politely": "Grzeczne prośby",
+    "In cafés Georgians add თუ შეიძლება, \"if it's possible\", after what they ask for: მენიუ, თუ შეიძლება. It's the everyday please.":
+        "W kawiarni Gruzini dodają თუ შეიძლება, „jeśli można”, po tym, o co proszą: მენიუ, თუ შეიძლება. To codzienne „poproszę”.",
+    "At the shop": "W sklepie",
+    "To buy, name the thing and the amount: ერთი კილო ვაშლი. To check the price: რა ღირს ეს? Bargaining is normal at a bazaar.":
+        "Kupując, podaj ilość i rzecz: ერთი კილო ვაშლი, „kilo jabłko”, bez dopełniacza. Cena: რა ღირს ეს? Na bazarze targowanie się jest normalne.",
+    "Drivers say თქვენ to you, the polite you, with -თ on the verb: სად მიდიხართ? Answer with the place and -ში: აეროპორტში.":
+        "Kierowcy mówią do ciebie თქვენ, grzecznie, z -თ na czasowniku: სად მიდიხართ?, „dokąd pan jedzie?”. Odpowiadasz miejscem z -ში: აეროპორტში, na lotnisko.",
+    "Commands to strangers end in -თ: წადით, go; მოუხვიეთ, turn. If you don't follow, ვერ გავიგე: \"I couldn't catch it\".":
+        "Polecenia do obcych kończą się na -თ: წადით, proszę iść; მოუხვიეთ, proszę skręcić. Jeśli nie nadążasz: ვერ გავიგე, „nie dałem rady zrozumieć”.",
+    "Meeting neighbours": "Poznajemy sąsiadów",
+    "With neighbours you don't know yet, use the polite forms: როგორ ხართ? With friends: როგორ ხარ?":
+        "Z sąsiadami, których jeszcze nie znasz, mów grzecznie: როგორ ხართ?, „jak się pan ma?”. Ze znajomymi: როგორ ხარ?",
+    "Saying what hurts": "Co boli",
+    "Georgian says \"to me hurts\": თავი მტკივა, my head hurts. The body part is the subject.":
+        "Gruzin mówi dokładnie jak Polak: თავი მტკივა, „boli mnie głowa”. Część ciała jest podmiotem, a მ- to „mnie”.",
+    "ვმუშაობ is \"I work\": ვ- for I. Where you work takes -ში: ოფისში ვმუშაობ.":
+        "ვმუშაობ to „pracuję”: ვ- oznacza „ja”. Miejsce pracy dostaje -ში: ოფისში ვმუშაობ, pracuję w biurze.",
+    "Weather is said with one word: ცხელა, it's hot; ცივა, it's cold. რა + a word in -ა makes an exclamation: რა ამინდია! What weather!":
+        "Pogodę mówi się jednym słowem: ცხელა, gorąco; ცივა, zimno, jak nasze „zimno!”. რა + słowo na -ა to wykrzyknik: რა ამინდია! Co za pogoda!",
+    "Your first conversation": "Twoja pierwsza rozmowa",
+    "Choose what you would say. The waiter is polite (რა გნებავთ? what would you like?); you answer with თუ შეიძლება. Tap any word to see why it looks that way.":
+        "Wybierz, co byś powiedział. Kelner mówi grzecznie (რა გნებავთ?, czego pan sobie życzy?), ty odpowiadasz z თუ შეიძლება. Stuknij dowolne słowo, żeby zobaczyć, dlaczego tak wygląda.",
+    "Introducing yourself": "Przedstawiamy się",
+    "Giorgi is your age, so you both say შენ and use friendly forms: რა გქვია? not რა გქვიათ?":
+        "Giorgi jest w twoim wieku, więc mówicie sobie na ty (შენ): რა გქვია?, a nie grzeczne რა გქვიათ?",
+    "Prices are numbers + ლარი, with ლარი singular: თხუთმეტი ლარი. Haggling is part of it: ეს ძალიან ძვირია.":
+        "Ceny to liczba + ლარი, zawsze w liczbie pojedynczej: თხუთმეტი ლარი, „piętnaście lari”. Targowanie się należy do zabawy: ეს ძალიან ძვირია.",
+    "To the airport is აეროპორტში: -ში means \"into\" as well as \"in\". Agree the price before you set off.":
+        "Na lotnisko to აეროპორტში: -ში znaczy i „w”, i „do”. Gruziński nie odróżnia „gdzie?” od „dokąd?”. Cenę ustal przed odjazdem.",
+    "Listen for მარჯვნივ, მარცხნივ, პირდაპირ. If it's too fast: გაიმეორეთ, თუ შეიძლება.":
+        "Nasłuchuj მარჯვნივ, მარცხნივ, პირდაპირ (w prawo, w lewo, prosto). Za szybko? გაიმეორეთ, თუ შეიძლება, „proszę powtórzyć”.",
+    "Making plans": "Planujemy",
+    "Friends use the informal forms. ვჭამოთ is \"let's eat\": the -თ here means \"we\".":
+        "Znajomi mówią sobie na ty. ვჭამოთ to „zjedzmy”: -თ oznacza tu „my”, jak nasze „-my” w „zjedzmy”.",
+})

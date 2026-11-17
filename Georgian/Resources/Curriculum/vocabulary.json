@@ -3369,6 +3369,120 @@
    }
   },
   {
+   "id": "w-mqavs",
+   "ka": "მყავს",
+   "lat": "mq'avs",
+   "en": "I have (a person or animal)",
+   "alt": [
+    "i have",
+    "i've got"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ორი შვილი მყავს.",
+    "lat": "ori shvili mq'avs.",
+    "en": "I have two children."
+   },
+   "note": "For people and animals; for things: მაქვს."
+  },
+  {
+   "id": "w-gqavs",
+   "ka": "გყავს",
+   "lat": "gq'avs",
+   "en": "you have (a person or animal)",
+   "alt": [
+    "you have",
+    "have you got"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ძმა გყავს?",
+    "lat": "dzma gq'avs?",
+    "en": "Do you have a brother?"
+   }
+  },
+  {
+   "id": "w-viqavi",
+   "ka": "ვიყავი",
+   "lat": "viq'avi",
+   "en": "I was",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "გუშინ ბაზარში ვიყავი.",
+    "lat": "gushin bazarshi viq'avi.",
+    "en": "Yesterday I was at the market."
+   }
+  },
+  {
+   "id": "w-tsavedi",
+   "ka": "წავედი",
+   "lat": "ts'avedi",
+   "en": "I went",
+   "alt": [
+    "i left"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "გუშინ კინოში წავედი.",
+    "lat": "gushin k'inoshi ts'avedi.",
+    "en": "Yesterday I went to the cinema."
+   }
+  },
+  {
+   "id": "w-vnakhe",
+   "ka": "ვნახე",
+   "lat": "vnakhe",
+   "en": "I saw",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "ნინო ვნახე.",
+    "lat": "nino vnakhe.",
+    "en": "I saw Nino."
+   }
+  },
+  {
+   "id": "w-vchame",
+   "ka": "ვჭამე",
+   "lat": "vch'ame",
+   "en": "I ate",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "ხინკალი ვჭამე.",
+    "lat": "khink'ali vch'ame.",
+    "en": "I ate khinkali."
+   },
+   "note": "In the past the thing eaten is in its plain form: ხინკალი, not ხინკალს."
+  },
+  {
+   "id": "w-davlie",
+   "ka": "დავლიე",
+   "lat": "davlie",
+   "en": "I drank",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "ყავა დავლიე.",
+    "lat": "q'ava davlie.",
+    "en": "I drank a coffee."
+   }
+  },
+  {
+   "id": "w-viqide",
+   "ka": "ვიყიდე",
+   "lat": "viq'ide",
+   "en": "I bought",
+   "alt": [],
+   "category": "grammar",
+   "example": {
+    "ka": "პური ვიყიდე.",
+    "lat": "p'uri viq'ide.",
+    "en": "I bought bread."
+   }
+  },
+  {
    "id": "w-ver",
    "ka": "ვერ",
    "lat": "ver",

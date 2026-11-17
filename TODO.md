@@ -25,10 +25,9 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 ## Next
 - [ ] Polish (KART #4): a Polish speaker reads the app and the course; Polish App Store text
       and screenshots; the c2 conversation and some phrases still say "from England".
-- [ ] Busuu-like direction, next steps (KART #4; quieter XP and tappable words are done): a
-      short "why" card before each exercise set; grammar lessons on the past tense, მყავს/მაქვს,
-      plurals, the "me inside" verbs and polite you; tappable words in the phrasebook's
-      conversations (their lines are play buttons now).
+- [ ] Busuu-like direction, next (KART #4 did quieter XP, tappable words, why cards and
+      grammar g10–g13): tappable words in the phrasebook's conversations (their lines are play
+      buttons now); more past tense (he/she, the -მ ending); a native check of the new grammar.
 - [ ] Icon Composer (on a Mac): a layered `.icon` for iOS 26's Liquid Glass from the
       symbol's parts; the PNG icons work meanwhile.
 - [ ] More mascot poses from the same parts (pointing for tips, holding a phrase card for

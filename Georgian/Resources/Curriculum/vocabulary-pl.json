@@ -3365,6 +3365,142 @@
    }
   },
   {
+   "id": "w-mqavs",
+   "ka": "მყავს",
+   "lat": "mq'avs",
+   "en": "mam (osobę, zwierzę)",
+   "alt": [
+    "mam"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ორი შვილი მყავს.",
+    "lat": "ori shvili mq'avs.",
+    "en": "Mam dwoje dzieci."
+   },
+   "note": "O ludziach i zwierzętach; o rzeczach: მაქვს."
+  },
+  {
+   "id": "w-gqavs",
+   "ka": "გყავს",
+   "lat": "gq'avs",
+   "en": "masz (osobę, zwierzę)",
+   "alt": [
+    "masz"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ძმა გყავს?",
+    "lat": "dzma gq'avs?",
+    "en": "Masz brata?"
+   }
+  },
+  {
+   "id": "w-viqavi",
+   "ka": "ვიყავი",
+   "lat": "viq'avi",
+   "en": "byłem, byłam",
+   "alt": [
+    "byłem",
+    "byłam"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "გუშინ ბაზარში ვიყავი.",
+    "lat": "gushin bazarshi viq'avi.",
+    "en": "Wczoraj byłem na targu."
+   }
+  },
+  {
+   "id": "w-tsavedi",
+   "ka": "წავედი",
+   "lat": "ts'avedi",
+   "en": "poszedłem, poszłam",
+   "alt": [
+    "poszedłem",
+    "poszłam",
+    "pojechałem",
+    "pojechałam"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "გუშინ კინოში წავედი.",
+    "lat": "gushin k'inoshi ts'avedi.",
+    "en": "Wczoraj poszedłem do kina."
+   }
+  },
+  {
+   "id": "w-vnakhe",
+   "ka": "ვნახე",
+   "lat": "vnakhe",
+   "en": "zobaczyłem, zobaczyłam",
+   "alt": [
+    "zobaczyłem",
+    "zobaczyłam",
+    "widziałem",
+    "widziałam"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ნინო ვნახე.",
+    "lat": "nino vnakhe.",
+    "en": "Widziałem Nino."
+   }
+  },
+  {
+   "id": "w-vchame",
+   "ka": "ვჭამე",
+   "lat": "vch'ame",
+   "en": "zjadłem, zjadłam",
+   "alt": [
+    "zjadłem",
+    "zjadłam",
+    "jadłem",
+    "jadłam"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ხინკალი ვჭამე.",
+    "lat": "khink'ali vch'ame.",
+    "en": "Zjadłem chinkali."
+   },
+   "note": "W czasie przeszłym to, co zjedzone, stoi w mianowniku: ხინკალი, nie ხინკალს. Odwrotnie niż po polsku!"
+  },
+  {
+   "id": "w-davlie",
+   "ka": "დავლიე",
+   "lat": "davlie",
+   "en": "wypiłem, wypiłam",
+   "alt": [
+    "wypiłem",
+    "wypiłam",
+    "piłem",
+    "piłam"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "ყავა დავლიე.",
+    "lat": "q'ava davlie.",
+    "en": "Wypiłem kawę."
+   }
+  },
+  {
+   "id": "w-viqide",
+   "ka": "ვიყიდე",
+   "lat": "viq'ide",
+   "en": "kupiłem, kupiłam",
+   "alt": [
+    "kupiłem",
+    "kupiłam"
+   ],
+   "category": "grammar",
+   "example": {
+    "ka": "პური ვიყიდე.",
+    "lat": "p'uri viq'ide.",
+    "en": "Kupiłem chleb."
+   }
+  },
+  {
    "id": "w-ver",
    "ka": "ვერ",
    "lat": "ver",

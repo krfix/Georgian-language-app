@@ -794,8 +794,16 @@
    "file": "ka-ae226558a284.mp3",
    "source": "synthetic"
   },
+  "გუშინ კინოში წავედი.": {
+   "file": "ka-c40e47378f73.mp3",
+   "source": "synthetic"
+  },
   "გუშინიდან სიცხე მაქვს.": {
    "file": "ka-2ab2228394b4.mp3",
+   "source": "synthetic"
+  },
+  "გყავს": {
+   "file": "ka-9dd76b05f0ce.mp3",
    "source": "synthetic"
   },
   "დ": {
@@ -828,6 +836,10 @@
   },
   "დავიკარგე.": {
    "file": "ka-57ead0fedf60.mp3",
+   "source": "synthetic"
+  },
+  "დავლიე": {
+   "file": "ka-16f048f0cea7.mp3",
    "source": "synthetic"
   },
   "დაზღვევა მაქვს.": {
@@ -1306,12 +1318,24 @@
    "file": "ka-46356b466284.mp3",
    "source": "synthetic"
   },
+  "ვიყავი": {
+   "file": "ka-5047546ddc4c.mp3",
+   "source": "synthetic"
+  },
+  "ვიყიდე": {
+   "file": "ka-8deffcd41aa6.mp3",
+   "source": "synthetic"
+  },
   "ვიცი": {
    "file": "ka-b54cf58b8d00.mp3",
    "source": "synthetic"
   },
   "ვლაპარაკობ": {
    "file": "ka-43a53b7fbc85.mp3",
+   "source": "synthetic"
+  },
+  "ვნახე": {
+   "file": "ka-7000aa7abe28.mp3",
    "source": "synthetic"
   },
   "ვსვამ": {
@@ -1332,6 +1356,10 @@
   },
   "ვჭამ": {
    "file": "ka-2dedee28c784.mp3",
+   "source": "synthetic"
+  },
+  "ვჭამე": {
+   "file": "ka-e843bb211457.mp3",
    "source": "synthetic"
   },
   "ზ": {
@@ -2074,6 +2102,10 @@
    "file": "ka-ae90915d068a.mp3",
    "source": "synthetic"
   },
+  "მყავს": {
+   "file": "ka-a345d978e731.mp3",
+   "source": "synthetic"
+  },
   "მწვერვალამდე რამდენი საათია?": {
    "file": "ka-4bf63d01f376.mp3",
    "source": "synthetic"
@@ -2144,6 +2176,10 @@
   },
   "ნელა, თუ შეიძლება.": {
    "file": "ka-e3d4d787201a.mp3",
+   "source": "synthetic"
+  },
+  "ნინო ვნახე.": {
+   "file": "ka-8d031f74dd33.mp3",
    "source": "synthetic"
   },
   "ნინო სახლში არის.": {
@@ -2392,6 +2428,10 @@
   },
   "პური": {
    "file": "ka-5b8ada9db073.mp3",
+   "source": "synthetic"
+  },
+  "პური ვიყიდე.": {
+   "file": "ka-05b97d11d004.mp3",
    "source": "synthetic"
   },
   "პური სად გაქვთ?": {
@@ -3086,6 +3126,10 @@
    "file": "ka-8c63d5e1daa3.mp3",
    "source": "synthetic"
   },
+  "ყავა დავლიე.": {
+   "file": "ka-4f5af5473632.mp3",
+   "source": "synthetic"
+  },
   "ყავა მინდა.": {
    "file": "ka-1694db0843e3.mp3",
    "source": "synthetic"
@@ -3494,8 +3538,16 @@
    "file": "ka-6861667f873c.mp3",
    "source": "synthetic"
   },
+  "ძმა გყავს?": {
+   "file": "ka-c6ea39d4c08e.mp3",
+   "source": "synthetic"
+  },
   "წ": {
    "file": "ka-16f5cfceee56.mp3",
+   "source": "synthetic"
+  },
+  "წავედი": {
+   "file": "ka-0a344fb65086.mp3",
    "source": "synthetic"
   },
   "წასაღებად, თუ შეიძლება.": {
@@ -3672,6 +3724,10 @@
   },
   "ხინკალი": {
    "file": "ka-d02b0d925636.mp3",
+   "source": "synthetic"
+  },
+  "ხინკალი ვჭამე.": {
+   "file": "ka-ebec40ed1d1d.mp3",
    "source": "synthetic"
   },
   "ხინკალი მიყვარს.": {

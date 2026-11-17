@@ -360,6 +360,12 @@ if let pl = polish {
     check("Polish: the numbers grammar lesson has notes and exercises", plLesson.filter { $0.kind == .note }.count, 4)
     AppLanguage.use(.en, save: false)
 }
+// "Why" cards and the new grammar (KART #4).
+var ri = SeededGenerator(seed: 3)
+check("a vocabulary lesson starts with its why card", builder.exercises(for: course.lesson("v1")!, using: &ri).first?.kind, .note)
+check("the past-tense lesson exists", course.lesson("g13")?.notes?.count, 2)
+check("13 grammar lessons", course.lessons.filter { $0.kind == .grammar }.count >= 13, true)
+
 // Tappable words: every word of every example, conversation and phrase has an explanation.
 check("the glossary loads", course.glossary.count > 700, true)
 var noGloss: [String] = []

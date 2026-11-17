@@ -257,10 +257,16 @@ for m in C.MODULES:
             out["dialogue"] = {"partner": L["partner"], "lines": lines}
             out["exercises"] = [e for e in (exercise(("build",) + b, where) for b in L.get("build", [])) if e]
             out["subtitle"] = "With " + (L["partner"] if L["partner"] in ("Giorgi", "Nino") else "a " + L["partner"].lower())
+        if L["id"] in getattr(C, "INTROS", {}):
+            it, ix = C.INTROS[L["id"]]
+            out["intro"] = {"title": it, "text": ix, "table": []}
         lessons.append(out)
     modules.append({"id": m["id"], "title": m["title"], "subtitle": m["subtitle"], "symbol": m["symbol"],
                     "color": m["color"], "intro": m["intro"], "lessons": lessons})
 
+for lid in getattr(C, "INTROS", {}):
+    if lid not in seen_lessons:
+        fail(f"intro for unknown lesson {lid}")
 if taught != set(LATIN):
     fail(f"alphabet lessons leave out: {''.join(sorted(set(LATIN) - taught))}")
 unused = [w["ka"] for w in words if w["id"] not in used_words]
@@ -525,6 +531,9 @@ def polish_course():
                 L["subtitle"] = t(L["subtitle"], where)
             if L.get("note"):
                 L["note"] = t(L["note"], where)
+            if L.get("intro"):
+                L["intro"]["title"] = t(L["intro"]["title"], where)
+                L["intro"]["text"] = t(L["intro"]["text"], where)
             for g in L.get("read", []):
                 g["en"] = t(g["en"], where)
             for n in L.get("notes", []):

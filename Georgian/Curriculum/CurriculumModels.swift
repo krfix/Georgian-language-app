@@ -104,6 +104,8 @@ struct Lesson: Codable, Hashable, Identifiable {
     let notes: [GrammarNote]?
     let exercises: [ExerciseSpec]?
     let dialogue: Dialogue?
+    /// A short "why" card shown before the exercises (KART #4).
+    var intro: GrammarNote? = nil
 }
 
 struct CourseModule: Codable, Hashable, Identifiable {

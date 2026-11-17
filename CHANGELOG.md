@@ -11,6 +11,9 @@ What changed in each version, newest first. Before the App Store, versions are 0
 - Tap any Georgian word in examples and lesson conversations: a bubble explains it (its
   dictionary form, the ending or person, the polite -თ), in English or Polish; phrase cards
   have a Word by word section
+- A short "why" card opens every word, phrase and conversation lesson (34 of them)
+- Four new grammar lessons: things and people (მაქვს / მყავს), plurals, the polite you,
+  and the past (ვიყავი, წავედი, ვჭამე…, and why the object changes)
 - Polski: the whole app in Polish or English, chosen on the welcome screen or in Profile;
   pronunciation and grammar explained for Polish speakers, with comparisons to Polish;
   Polish search and answers that forgive missing ą, ł, ż…

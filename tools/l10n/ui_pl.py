@@ -471,6 +471,7 @@ PL = {
     "Dictionary form": "Forma słownikowa",
     "Word by word": "Słowo po słowie",
     "From {0}": "Od: {0}",
+    "Before you start": "Zanim zaczniesz",
 }
 
 if __name__ == "__main__":

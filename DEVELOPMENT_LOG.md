@@ -46,6 +46,14 @@ more explanation, tappable grammar bubbles.
   (`glossary.json`, `glossary-pl.json`). `TappableGeorgian` (DesignSystem) shows a bubble;
   phrase cards have "Word by word". The build and a logic test fail if a word has none.
 
+### Then (owner: "Merge and continue"; bug: tapping words sometimes closed the lesson)
+- Merged build #25's code to `main`.
+- **Bug fixed:** the word bubble was a system popover inside the lesson's full-screen cover;
+  dismissing it could dismiss the cover too. The explanation now unfolds under the sentence.
+- **"Why" cards:** `INTROS` in content_course.py (34 lessons, Polish versions compare with
+  Polish), shown first by `ExerciseBuilder`.
+- **Grammar g10–g13:** have (things/people), plurals, polite you, the past; 8 new words, 14 clips.
+
 ### Not checked yet
 - Nothing compiled here (no Swift on Linux): the Mac run is the first compile.
 - The Polish was written by Claude: a Polish speaker's read-through is the real test.

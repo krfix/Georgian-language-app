@@ -468,7 +468,12 @@
       "w-kargad"
      ],
      "category": "greetings",
-     "subtitle": "გამარჯობა · გაგიმარჯოს · დილა მშვიდობისა"
+     "subtitle": "გამარჯობა · გაგიმარჯოს · დილა მშვიდობისა",
+     "intro": {
+      "title": "„Cześć” znaczy „zwycięstwo”",
+      "text": "გამარჯობა pochodzi od გამარჯვება, zwycięstwo: życzysz komuś zwycięstwa. Odpowiedź, გაგიმარჯოს, życzy go z powrotem. Powitania o porze dnia kończą się na მშვიდობისა, „pokoju”, jak staropolskie „pokój z tobą”.",
+      "table": []
+     }
     },
     {
      "id": "v2",
@@ -484,7 +489,12 @@
       "w-ara"
      ],
      "category": "greetings",
-     "subtitle": "მადლობა · გმადლობთ · არაფრის"
+     "subtitle": "მადლობა · გმადლობთ · არაფრის",
+     "intro": {
+      "title": "Dwa rodzaje „dziękuję”",
+      "text": "მადლობა to zwykłe „dzięki”. გმადლობთ jest grzeczne: გ- to „ci/panu”, a -თ dodaje grzeczności, jak nasze „dziękuję panu”. To -თ spotkasz wszędzie.",
+      "table": []
+     }
     },
     {
      "id": "v3",
@@ -500,7 +510,12 @@
       "w-var"
      ],
      "category": "introductions",
-     "subtitle": "მე · შენ · სახელი"
+     "subtitle": "მე · შენ · სახელი",
+     "intro": {
+      "title": "„Nazywa mi się”",
+      "text": "Gruzin mówi „nazywa mi się”: მე ნინო მქვია. მ- w środku czasownika to nasze „mi”. Pytanie: რა გქვია?, z გ- jako „ci”: „jak ci na imię?”, prawie jak po polsku!",
+      "table": []
+     }
     },
     {
      "id": "v4",
@@ -515,7 +530,12 @@
       "w-tsota"
      ],
      "category": "introductions",
-     "subtitle": "საიდან ხარ · ქართველი · ქართული"
+     "subtitle": "საიდან ხარ · ქართველი · ქართული",
+     "intro": {
+      "title": "Skąd",
+      "text": "საიდან to „skąd”: სად (gdzie) + -იდან (z, od). Ta sama końcówka -დან robi z każdego miejsca „z”: თბილისიდან, z Tbilisi. Gdzie my mamy przyimek z przodu, Gruzin dokleja końcówkę.",
+      "table": []
+     }
     },
     {
      "id": "v5",
@@ -535,7 +555,12 @@
       "w-ati"
      ],
      "category": "numbers",
-     "subtitle": "ნული · ერთი · ორი"
+     "subtitle": "ნული · ერთი · ორი",
+     "intro": {
+      "title": "Liczymy do dziesięciu",
+      "text": "Gruzińskie liczebniki są krótkie i regularne. Po liczebniku rzeczownik zostaje w liczbie pojedynczej: ორი ჩაი, „dwie herbata”. Żadnych polskich „dwie herbaty, pięć herbat”.",
+      "table": []
+     }
     },
     {
      "id": "v6",
@@ -553,7 +578,12 @@
       "w-tskhrameti"
      ],
      "category": "numbers",
-     "subtitle": "თერთმეტი · თორმეტი · ცამეტი"
+     "subtitle": "თერთმეტი · თორმეტი · ცამეტი",
+     "intro": {
+      "title": "Dziesięć i więcej",
+      "text": "„Nastki” buduje się z dziesięciu i liczby: თ (od ათი, dziesięć) + ოთხ (cztery) + მეტი (więcej) daje თოთხმეტი, czternaście. Jak nasze „cztery-naście”, tylko w odwrotnej kolejności.",
+      "table": []
+     }
     },
     {
      "id": "v6b",
@@ -568,7 +598,12 @@
       "w-asi"
      ],
      "category": "numbers",
-     "subtitle": "ოცი · ოცდაერთი · ოცდაათი"
+     "subtitle": "ოცი · ოცდაერთი · ოცდაათი",
+     "intro": {
+      "title": "Liczenie dwudziestkami",
+      "text": "Powyżej dwudziestu Gruzini liczą dwudziestkami: ორმოცი to „dwie dwudziestki”. Następna lekcja pokazuje, jak z tego zbudować każdą liczbę.",
+      "table": []
+     }
     },
     {
      "id": "v6c",
@@ -857,7 +892,12 @@
       "w-ludi"
      ],
      "category": "food",
-     "subtitle": "პური · ყველი · წყალი"
+     "subtitle": "პური · ყველი · წყალი",
+     "intro": {
+      "title": "Słowa o jedzeniu",
+      "text": "Wiele gruzińskich słów kończy się na -ი: პური, ყველი, ჩაი. To -ი to mianownik; zmienia się, gdy słowo pełni inną rolę w zdaniu, jak u nas „kawa → piję kawę”: ყავას ვსვამ.",
+      "table": []
+     }
     },
     {
      "id": "v8",
@@ -874,7 +914,12 @@
       "w-bostneuli"
      ],
      "category": "food",
-     "subtitle": "ხორცი · ხაჭაპური · ხინკალი"
+     "subtitle": "ხორცი · ხაჭაპური · ხინკალი",
+     "intro": {
+      "title": "Kuchnia gruzińska",
+      "text": "ხაჭაპური i ხინკალი zobaczysz w każdym menu. Jedzenie często występuje w liczbie pojedynczej: ხილი to owoce, ბოსტნეული warzywa, jak nasze „owoc, warzywo” w zbiorczym znaczeniu.",
+      "table": []
+     }
     },
     {
      "id": "v9",
@@ -889,7 +934,12 @@
       "w-gachereba"
      ],
      "category": "transport",
-     "subtitle": "მანქანა · ავტობუსი · მეტრო"
+     "subtitle": "მანქანა · ავტობუსი · მეტრო",
+     "intro": {
+      "title": "Poruszanie się po mieście",
+      "text": "Większość słów o transporcie jest międzynarodowa: ავტობუსი, მეტრო, ტაქსი. Końcówka -ით to nasz narzędnik: მანქანით, samochodem; po samogłosce -თი: მეტროთი, metrem.",
+      "table": []
+     }
     },
     {
      "id": "v10",
@@ -903,7 +953,12 @@
       "w-bileti"
      ],
      "category": "transport",
-     "subtitle": "მატარებელი · თვითმფრინავი · აეროპორტი"
+     "subtitle": "მატარებელი · თვითმფრინავი · აეროპორტი",
+     "intro": {
+      "title": "Dalekie podróże",
+      "text": "Długie słowa składa się z części: თვითმფრინავი to „sam-latający”, zupełnie jak polski samolot. აეროპორტი i სადგური dostają -ში dla „do”: აეროპორტში, na lotnisko.",
+      "table": []
+     }
     },
     {
      "id": "v11",
@@ -918,7 +973,12 @@
       "w-sad"
      ],
      "category": "directions",
-     "subtitle": "მარჯვნივ · მარცხნივ · პირდაპირ"
+     "subtitle": "მარჯვნივ · მარცხნივ · პირდაპირ",
+     "intro": {
+      "title": "Kierunki",
+      "text": "მარჯვნივ i მარცხნივ kończą się na -ივ, „w stronę”, jak nasze „w prawo”. Grzeczny rozkaz to მოუხვიეთ, „proszę skręcić”: usłyszysz go w każdej taksówce.",
+      "table": []
+     }
     },
     {
      "id": "v12",
@@ -933,7 +993,12 @@
       "w-gverdit"
      ],
      "category": "directions",
-     "subtitle": "ახლოს · შორს · ქუჩა"
+     "subtitle": "ახლოს · შორს · ქუჩა",
+     "intro": {
+      "title": "Blisko i daleko",
+      "text": "ახლოს i შორს mówi się z არის, „jest”: ახლოს არის, jest blisko. Miejsce stoi na początku: ბაზარი ახლოს არის?, „targ blisko jest?”.",
+      "table": []
+     }
     },
     {
      "id": "v13",
@@ -948,7 +1013,12 @@
       "w-ra-ghirs"
      ],
      "category": "shopping",
-     "subtitle": "მაღაზია · ბაზარი · ღია"
+     "subtitle": "მაღაზია · ბაზარი · ღია",
+     "intro": {
+      "title": "Sklepy i ceny",
+      "text": "რა ღირს? to dosłownie „ile to warte?”, codzienne „ile kosztuje?”. ღია i დაკეტილი, otwarte i zamknięte, są na drzwiach każdego sklepu.",
+      "table": []
+     }
     },
     {
      "id": "v14",
@@ -964,7 +1034,12 @@
       "w-naghdi-puli"
      ],
      "category": "shopping",
-     "subtitle": "ფული · ფასი · ძვირი"
+     "subtitle": "ფული · ფასი · ძვირი",
+     "intro": {
+      "title": "Płacenie",
+      "text": "ლარი to waluta, თეთრი to grosze (100 tetri w jednym lari). Kartą to ბარათით: ბარათი + -ით, nasz narzędnik.",
+      "table": []
+     }
     },
     {
      "id": "v15",
@@ -979,7 +1054,12 @@
       "w-megobari"
      ],
      "category": "family",
-     "subtitle": "ოჯახი · დედა · მამა"
+     "subtitle": "ოჯახი · დედა · მამა",
+     "intro": {
+      "title": "Matka i ojciec",
+      "text": "Uwaga: დედა to matka, a მამა to ojciec, odwrotnie niż podpowiada polskie ucho! შვილი to czyjeś dziecko (syn, córka), ბავშვი to dziecko w ogóle.",
+      "table": []
+     }
     },
     {
      "id": "v16",
@@ -994,7 +1074,12 @@
       "w-kmari"
      ],
      "category": "family",
-     "subtitle": "ძმა · და · ბებია"
+     "subtitle": "ძმა · და · ბებია",
+     "intro": {
+      "title": "Cała rodzina",
+      "text": "და to i „siostra”, i „i”: zdanie wyjaśnia, o co chodzi. ჩემი (mój) nie zmienia się dla rodzaju: ჩემი ძმა, mój brat; ჩემი და, moja siostra.",
+      "table": []
+     }
     },
     {
      "id": "v17",
@@ -1009,7 +1094,12 @@
       "w-skami"
      ],
      "category": "objects",
-     "subtitle": "სახლი · ოთახი · კარი"
+     "subtitle": "სახლი · ოთახი · კარი",
+     "intro": {
+      "title": "W domu",
+      "text": "Miejsca dostają -ში dla „w”: სახლში, w domu; ოთახში, w pokoju. Na wierzchu: -ზე, მაგიდაზე, na stole. Przyimek, tylko na końcu.",
+      "table": []
+     }
     },
     {
      "id": "v18",
@@ -1024,7 +1114,12 @@
       "w-kalami"
      ],
      "category": "objects",
-     "subtitle": "წიგნი · ტელეფონი · გასაღები"
+     "subtitle": "წიგნი · ტელეფონი · გასაღები",
+     "intro": {
+      "title": "Rzeczy wokół ciebie",
+      "text": "Żeby powiedzieć, że coś gdzieś jest, dodaj -ა (skrót od არის, „jest”) do miejsca: წიგნი მაგიდაზეა, książka jest na stole.",
+      "table": []
+     }
     },
     {
      "id": "v19",
@@ -1040,7 +1135,12 @@
       "w-saati"
      ],
      "category": "time",
-     "subtitle": "დღეს · ხვალ · გუშინ"
+     "subtitle": "დღეს · ხვალ · გუშინ",
+     "intro": {
+      "title": "Dziś i jutro",
+      "text": "Słowa o czasie nie potrzebują przyimków: დღეს, dziś; ხვალ, jutro. დილით i საღამოს to „rano” i „wieczorem”: końcówki robią z nich „kiedy?”, jak nasze „wieczor-em”.",
+      "table": []
+     }
     },
     {
      "id": "v20",
@@ -1056,7 +1156,12 @@
       "w-shabati"
      ],
      "category": "time",
-     "subtitle": "დღე · კვირა · თვე"
+     "subtitle": "დღე · კვირა · თვე",
+     "intro": {
+      "title": "Dni tygodnia",
+      "text": "Od poniedziałku do czwartku dni liczy się od soboty: ორშაბათი to „dwa po sobocie”. Podobnie nasze „wtorek, czwartek, piątek” to „drugi, czwarty, piąty”. კვირა to i niedziela, i tydzień.",
+      "table": []
+     }
     }
    ]
   },
@@ -1081,7 +1186,12 @@
       "p-gaumarjos"
      ],
      "situation": "food",
-     "subtitle": "მენიუ, თუ შეიძლება."
+     "subtitle": "მენიუ, თუ შეიძლება.",
+     "intro": {
+      "title": "Grzeczne prośby",
+      "text": "W kawiarni Gruzini dodają თუ შეიძლება, „jeśli można”, po tym, o co proszą: მენიუ, თუ შეიძლება. To codzienne „poproszę”.",
+      "table": []
+     }
     },
     {
      "id": "e2",
@@ -1096,7 +1206,12 @@
       "p-sul-es-aris"
      ],
      "situation": "groceries",
-     "subtitle": "რა ღირს ეს?"
+     "subtitle": "რა ღირს ეს?",
+     "intro": {
+      "title": "W sklepie",
+      "text": "Kupując, podaj ilość i rzecz: ერთი კილო ვაშლი, „kilo jabłko”, bez dopełniacza. Cena: რა ღირს ეს? Na bazarze targowanie się jest normalne.",
+      "table": []
+     }
     },
     {
      "id": "e3",
@@ -1111,7 +1226,12 @@
       "p-ramdeni-khani"
      ],
      "situation": "taxi",
-     "subtitle": "აეროპორტში, თუ შეიძლება."
+     "subtitle": "აეროპორტში, თუ შეიძლება.",
+     "intro": {
+      "title": "W taksówce",
+      "text": "Kierowcy mówią do ciebie თქვენ, grzecznie, z -თ na czasowniku: სად მიდიხართ?, „dokąd pan jedzie?”. Odpowiadasz miejscem z -ში: აეროპორტში, na lotnisko.",
+      "table": []
+     }
     },
     {
      "id": "e4",
@@ -1126,7 +1246,12 @@
       "p-gaimeoret-tu-sheidzleba"
      ],
      "situation": "directions",
-     "subtitle": "სად არის მეტრო?"
+     "subtitle": "სად არის მეტრო?",
+     "intro": {
+      "title": "Pytanie o drogę",
+      "text": "Polecenia do obcych kończą się na -თ: წადით, proszę iść; მოუხვიეთ, proszę skręcić. Jeśli nie nadążasz: ვერ გავიგე, „nie dałem rady zrozumieć”.",
+      "table": []
+     }
     },
     {
      "id": "e5",
@@ -1141,7 +1266,12 @@
       "p-dzalian-sasiamovnoa"
      ],
      "situation": "neighbours",
-     "subtitle": "როგორ ხართ?"
+     "subtitle": "როგორ ხართ?",
+     "intro": {
+      "title": "Poznajemy sąsiadów",
+      "text": "Z sąsiadami, których jeszcze nie znasz, mów grzecznie: როგორ ხართ?, „jak się pan ma?”. Ze znajomymi: როგორ ხარ?",
+      "table": []
+     }
     },
     {
      "id": "e6",
@@ -1156,7 +1286,12 @@
       "p-aptiaki-sad-aris"
      ],
      "situation": "doctor",
-     "subtitle": "ცუდად ვარ."
+     "subtitle": "ცუდად ვარ.",
+     "intro": {
+      "title": "Co boli",
+      "text": "Gruzin mówi dokładnie jak Polak: თავი მტკივა, „boli mnie głowa”. Część ciała jest podmiotem, a მ- to „mnie”.",
+      "table": []
+     }
     },
     {
      "id": "e7",
@@ -1171,7 +1306,12 @@
       "p-kargi-ideaa"
      ],
      "situation": "work",
-     "subtitle": "სად მუშაობ?"
+     "subtitle": "სად მუშაობ?",
+     "intro": {
+      "title": "W pracy",
+      "text": "ვმუშაობ to „pracuję”: ვ- oznacza „ja”. Miejsce pracy dostaje -ში: ოფისში ვმუშაობ, pracuję w biurze.",
+      "table": []
+     }
     },
     {
      "id": "e8",
@@ -1186,7 +1326,12 @@
       "p-ra-kargia"
      ],
      "situation": "smalltalk",
-     "subtitle": "რა ამინდია!"
+     "subtitle": "რა ამინდია!",
+     "intro": {
+      "title": "Pogawędka",
+      "text": "Pogodę mówi się jednym słowem: ცხელა, gorąco; ცივა, zimno, jak nasze „zimno!”. რა + słowo na -ა to wykrzyknik: რა ამინდია! Co za pogoda!",
+      "table": []
+     }
     }
    ]
   },
@@ -2358,6 +2503,550 @@
       }
      ],
      "subtitle": "Trzy schematy na co dzień"
+    },
+    {
+     "id": "g10",
+     "kind": "grammar",
+     "title": "Rzeczy i ludzie",
+     "words": [
+      "w-mqavs",
+      "w-gqavs"
+     ],
+     "notes": [
+      {
+       "title": "Dwa rodzaje „mieć”",
+       "text": "Gruziński ma dwa czasowniki „mieć”: მაქვს dla rzeczy i მყავს dla ludzi i zwierząt. Trochę jak gdyby po polsku inaczej się „miało” telefon, a inaczej brata. Oba mają „mi” w środku (მ-), jak მინდა, a „ci” to გ-.",
+       "table": [
+        {
+         "ka": "ფული მაქვს",
+         "lat": "puli makvs",
+         "en": "mam pieniądze"
+        },
+        {
+         "ka": "მანქანა მაქვს",
+         "lat": "mankana makvs",
+         "en": "mam samochód"
+        },
+        {
+         "ka": "ძმა მყავს",
+         "lat": "dzma mq'avs",
+         "en": "mam brata"
+        },
+        {
+         "ka": "ძაღლი მყავს",
+         "lat": "dzaghli mq'avs",
+         "en": "mam psa"
+        },
+        {
+         "ka": "გაქვს?",
+         "lat": "gakvs?",
+         "en": "masz (rzecz)?"
+        },
+        {
+         "ka": "გყავს?",
+         "lat": "gq'avs?",
+         "en": "masz (kogoś)?"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "ორი შვილი ___.",
+       "translation": "Mam dwoje dzieci.",
+       "options": [
+        "მყავს",
+        "მაქვს",
+        "გყავს",
+        "მინდა"
+       ],
+       "answer": 0,
+       "explanation": "Dzieci to ludzie: მყავს."
+      },
+      {
+       "type": "fill",
+       "sentence": "ტელეფონი ___.",
+       "translation": "Mam telefon.",
+       "options": [
+        "მაქვს",
+        "მყავს",
+        "გაქვს",
+        "ვარ"
+       ],
+       "answer": 0,
+       "explanation": "Telefon to rzecz: მაქვს."
+      },
+      {
+       "type": "fill",
+       "sentence": "ძმა ___?",
+       "translation": "Masz brata?",
+       "options": [
+        "გყავს",
+        "გაქვს",
+        "მყავს",
+        "მაქვს"
+       ],
+       "answer": 0,
+       "explanation": "გ- dla „ty”, a brat to osoba."
+      },
+      {
+       "type": "choice",
+       "prompt": "„Mam kota” to…",
+       "options": [
+        "მყავს",
+        "მაქვს",
+        "მინდა",
+        "ვარ"
+       ],
+       "answer": 0,
+       "explanation": "Zwierzęta liczą się jak ludzie: მყავს."
+      },
+      {
+       "type": "build",
+       "english": "Mam psa.",
+       "tiles": [
+        "ძაღლი",
+        "მყავს."
+       ],
+       "extra": [
+        "მაქვს.",
+        "ძაღლს"
+       ],
+       "tilesLatin": [
+        "dzaghli",
+        "mq'avs."
+       ]
+      }
+     ],
+     "subtitle": "Dwa rodzaje „mieć”"
+    },
+    {
+     "id": "g11",
+     "kind": "grammar",
+     "title": "Liczba mnoga",
+     "words": [],
+     "notes": [
+      {
+       "title": "Liczba mnoga z -ები",
+       "text": "Większość rzeczowników gubi końcowe -ი i dostaje -ები: სახლი, სახლები. Słowa na samogłoskę ją zachowują: დედა, დედები. Jedna końcówka dla wszystkich, bez polskich „-y, -i, -e, -owie”. Niektóre gubią samogłoskę w środku, jak მეგობრები (jak nasze „pies → psy”).",
+       "table": [
+        {
+         "ka": "სახლი",
+         "lat": "sakhli",
+         "en": "dom"
+        },
+        {
+         "ka": "სახლები",
+         "lat": "sakhlebi",
+         "en": "domy"
+        },
+        {
+         "ka": "წიგნი",
+         "lat": "ts'igni",
+         "en": "książka"
+        },
+        {
+         "ka": "წიგნები",
+         "lat": "ts'ignebi",
+         "en": "książki"
+        },
+        {
+         "ka": "მეგობარი",
+         "lat": "megobari",
+         "en": "przyjaciel"
+        },
+        {
+         "ka": "მეგობრები",
+         "lat": "megobrebi",
+         "en": "przyjaciele: drugie ა znika"
+        },
+        {
+         "ka": "დედა",
+         "lat": "deda",
+         "en": "matka"
+        },
+        {
+         "ka": "დედები",
+         "lat": "dedebi",
+         "en": "matki"
+        }
+       ]
+      },
+      {
+       "title": "Nie po liczebnikach",
+       "text": "Po liczebniku rzeczownik zostaje w liczbie pojedynczej: სამი წიგნი, „trzy książka”. Liczba mnoga jest tylko bez liczebnika.",
+       "table": [
+        {
+         "ka": "სამი წიგნი",
+         "lat": "sami ts'igni",
+         "en": "trzy książki"
+        },
+        {
+         "ka": "წიგნები",
+         "lat": "ts'ignebi",
+         "en": "książki"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "choice",
+       "prompt": "Liczba mnoga od წიგნი to…",
+       "options": [
+        "წიგნები",
+        "წიგნი",
+        "წიგნს",
+        "წიგნით"
+       ],
+       "answer": 0,
+       "explanation": "-ი zmienia się w -ები."
+      },
+      {
+       "type": "fill",
+       "sentence": "ჩემი ___ თბილისში ცხოვრობენ.",
+       "translation": "Moi przyjaciele mieszkają w Tbilisi.",
+       "options": [
+        "მეგობრები",
+        "მეგობარი",
+        "მეგობარს",
+        "მეგობრით"
+       ],
+       "answer": 0,
+       "explanation": "ცხოვრობენ to „mieszkają”, więc liczba mnoga: მეგობრები."
+      },
+      {
+       "type": "fill",
+       "sentence": "სამი ___ მინდა.",
+       "translation": "Chcę trzy bilety.",
+       "options": [
+        "ბილეთი",
+        "ბილეთები",
+        "ბილეთს",
+        "ბილეთით"
+       ],
+       "answer": 0,
+       "explanation": "Po liczebniku liczba pojedyncza."
+      },
+      {
+       "type": "choice",
+       "prompt": "მეგობარი zmienia się w…",
+       "options": [
+        "მეგობრები",
+        "მეგობარები",
+        "მეგობრი",
+        "მეგობარიები"
+       ],
+       "answer": 0,
+       "explanation": "Drugie ა znika: მეგობრები."
+      },
+      {
+       "type": "build",
+       "english": "Domy są duże.",
+       "tiles": [
+        "სახლები",
+        "დიდია."
+       ],
+       "extra": [
+        "სახლი",
+        "დიდი"
+       ],
+       "tilesLatin": [
+        "sakhlebi",
+        "didia."
+       ]
+      }
+     ],
+     "subtitle": "Liczba mnoga z -ები"
+    },
+    {
+     "id": "g12",
+     "kind": "grammar",
+     "title": "Forma grzecznościowa",
+     "words": [
+      "w-tkven"
+     ],
+     "notes": [
+      {
+       "title": "Grzecznościowe -თ",
+       "text": "Polak mówi do obcego „pan/pani” w trzeciej osobie. Gruzin mówi „wy”: თქვენ, jak dawniej na polskiej wsi. Czasownik dostaje -თ na końcu: გაქვს → გაქვთ, იცი → იცით. Używaj tego z obcymi, w sklepach, ze starszymi i w urzędach.",
+       "table": [
+        {
+         "ka": "გაქვს?",
+         "lat": "gakvs?",
+         "en": "masz? (do znajomego)"
+        },
+        {
+         "ka": "გაქვთ?",
+         "lat": "gakvt?",
+         "en": "ma pan/pani? (grzecznie)"
+        },
+        {
+         "ka": "იცი?",
+         "lat": "itsi?",
+         "en": "wiesz? (do znajomego)"
+        },
+        {
+         "ka": "იცით?",
+         "lat": "itsit?",
+         "en": "wie pan/pani? (grzecznie)"
+        },
+        {
+         "ka": "როგორ ხარ?",
+         "lat": "rogor khar?",
+         "en": "jak się masz? (do znajomego)"
+        },
+        {
+         "ka": "როგორ ხართ?",
+         "lat": "rogor khart?",
+         "en": "jak się pan/pani ma? (grzecznie)"
+        }
+       ]
+      },
+      {
+       "title": "Grzeczne prośby",
+       "text": "Prośby też kończą się na -თ, a თუ შეიძლება dodatkowo je łagodzi, jak nasze „proszę”: აქ გამიჩერეთ, თუ შეიძლება.",
+       "table": [
+        {
+         "ka": "მოიცადე",
+         "lat": "moitsade",
+         "en": "poczekaj (do znajomego)"
+        },
+        {
+         "ka": "მოიცადეთ",
+         "lat": "moitsadet",
+         "en": "proszę poczekać"
+        },
+        {
+         "ka": "დაჯექი",
+         "lat": "dajeki",
+         "en": "usiądź (do znajomego)"
+        },
+        {
+         "ka": "დაჯექით",
+         "lat": "dajekit",
+         "en": "proszę usiąść"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "ინგლისური ___?",
+       "translation": "Mówi pan po angielsku? (do obcego)",
+       "options": [
+        "იცით",
+        "იცი",
+        "ვიცი",
+        "იცის"
+       ],
+       "answer": 0,
+       "explanation": "-თ: grzecznie."
+      },
+      {
+       "type": "fill",
+       "sentence": "როგორ ___?",
+       "translation": "Jak się pani ma? (do nauczycielki)",
+       "options": [
+        "ხართ",
+        "ხარ",
+        "ვარ",
+        "არის"
+       ],
+       "answer": 0,
+       "explanation": "-თ: grzecznie."
+      },
+      {
+       "type": "choice",
+       "prompt": "Do taksówkarza „proszę się tu zatrzymać” to…",
+       "options": [
+        "აქ გამიჩერეთ.",
+        "აქ გამიჩერე.",
+        "აქ ვჩერდები.",
+        "აქ ჩერდება."
+       ],
+       "answer": 0,
+       "explanation": "-თ: grzecznie. გამიჩერე mówi się do znajomego."
+      },
+      {
+       "type": "choice",
+       "prompt": "თქვენ może znaczyć…",
+       "options": [
+        "pan/pani albo wy",
+        "tylko wy",
+        "oni, one",
+        "my"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "build",
+       "english": "Ma pan drobne?",
+       "tiles": [
+        "ხურდა",
+        "გაქვთ?"
+       ],
+       "extra": [
+        "გაქვს?",
+        "ხურდას"
+       ],
+       "tilesLatin": [
+        "khurda",
+        "gakvt?"
+       ]
+      }
+     ],
+     "subtitle": "Grzecznościowe -თ"
+    },
+    {
+     "id": "g13",
+     "kind": "grammar",
+     "title": "Wczoraj",
+     "words": [
+      "w-viqavi",
+      "w-tsavedi",
+      "w-vnakhe",
+      "w-vchame",
+      "w-davlie",
+      "w-viqide"
+     ],
+     "notes": [
+      {
+       "title": "Co zrobiłeś",
+       "text": "Czas przeszły ma własne formy: naucz się tych sześciu jak słówek. Każda ma ვ- dla „ja”, na początku albo po małym przedrostku: წა-ვ-ედი, და-ვ-ლიე. Te przedrostki działają jak polskie „wy-, po-, z-”: robią z czasownika dokonany (piłem → wypiłem).",
+       "table": [
+        {
+         "ka": "ვიყავი",
+         "lat": "viq'avi",
+         "en": "byłem, byłam"
+        },
+        {
+         "ka": "წავედი",
+         "lat": "ts'avedi",
+         "en": "poszedłem, poszłam"
+        },
+        {
+         "ka": "ვნახე",
+         "lat": "vnakhe",
+         "en": "zobaczyłem, zobaczyłam"
+        },
+        {
+         "ka": "ვჭამე",
+         "lat": "vch'ame",
+         "en": "zjadłem, zjadłam"
+        },
+        {
+         "ka": "დავლიე",
+         "lat": "davlie",
+         "en": "wypiłem, wypiłam"
+        },
+        {
+         "ka": "ვიყიდე",
+         "lat": "viq'ide",
+         "en": "kupiłem, kupiłam"
+        }
+       ]
+      },
+      {
+       "title": "Dopełnienie się zmienia",
+       "text": "W czasie teraźniejszym to, co jesz, dostaje -ს: ხინკალს ვჭამ. W przeszłym wraca do mianownika: ხინკალი ვჭამე. Po polsku tak się nie dzieje, więc po prostu to zapamiętaj: przeszłość, forma podstawowa.",
+       "table": [
+        {
+         "ka": "ხინკალს ვჭამ",
+         "lat": "khink'als vch'am",
+         "en": "jem chinkali"
+        },
+        {
+         "ka": "ხინკალი ვჭამე",
+         "lat": "khink'ali vch'ame",
+         "en": "zjadłem chinkali"
+        },
+        {
+         "ka": "ყავას ვსვამ",
+         "lat": "q'avas vsvam",
+         "en": "piję kawę"
+        },
+        {
+         "ka": "ყავა დავლიე",
+         "lat": "q'ava davlie",
+         "en": "wypiłem kawę"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "გუშინ ბაზარში ___.",
+       "translation": "Wczoraj byłem na targu.",
+       "options": [
+        "ვიყავი",
+        "ვარ",
+        "ვიქნები",
+        "არის"
+       ],
+       "answer": 0,
+       "explanation": "გუშინ, wczoraj: czas przeszły."
+      },
+      {
+       "type": "fill",
+       "sentence": "გუშინ ხინკალი ___.",
+       "translation": "Wczoraj zjadłem chinkali.",
+       "options": [
+        "ვჭამე",
+        "ვჭამ",
+        "ჭამს",
+        "ვჭამოთ"
+       ],
+       "answer": 0,
+       "explanation": "ვჭამე: zjadłem."
+      },
+      {
+       "type": "fill",
+       "sentence": "პური ___.",
+       "translation": "Kupiłem chleb.",
+       "options": [
+        "ვიყიდე",
+        "ვყიდულობ",
+        "იყიდა",
+        "ვიყიდო"
+       ],
+       "answer": 0,
+       "explanation": "ვიყიდე: kupiłem."
+      },
+      {
+       "type": "choice",
+       "prompt": "„Zjadłem chinkali” to…",
+       "options": [
+        "ხინკალი ვჭამე.",
+        "ხინკალს ვჭამე.",
+        "ხინკალი ვჭამ.",
+        "ხინკალით ვჭამე."
+       ],
+       "answer": 0,
+       "explanation": "W czasie przeszłym dopełnienie stoi w mianowniku."
+      },
+      {
+       "type": "build",
+       "english": "Poszedłem do kina.",
+       "tiles": [
+        "კინოში",
+        "წავედი."
+       ],
+       "extra": [
+        "კინო",
+        "ვიყავი."
+       ],
+       "tilesLatin": [
+        "k'inoshi",
+        "ts'avedi."
+       ]
+      }
+     ],
+     "subtitle": "Co zrobiłeś"
     }
    ]
   },
@@ -2490,7 +3179,12 @@
        ]
       }
      ],
-     "subtitle": "Z kelnerem"
+     "subtitle": "Z kelnerem",
+     "intro": {
+      "title": "Twoja pierwsza rozmowa",
+      "text": "Wybierz, co byś powiedział. Kelner mówi grzecznie (რა გნებავთ?, czego pan sobie życzy?), ty odpowiadasz z თუ შეიძლება. Stuknij dowolne słowo, żeby zobaczyć, dlaczego tak wygląda.",
+      "table": []
+     }
     },
     {
      "id": "c2",
@@ -2580,7 +3274,12 @@
        ]
       }
      ],
-     "subtitle": "Z Giorgim"
+     "subtitle": "Z Giorgim",
+     "intro": {
+      "title": "Przedstawiamy się",
+      "text": "Giorgi jest w twoim wieku, więc mówicie sobie na ty (შენ): რა გქვია?, a nie grzeczne რა გქვიათ?",
+      "table": []
+     }
     },
     {
      "id": "c3",
@@ -2676,7 +3375,12 @@
        ]
       }
      ],
-     "subtitle": "Ze sprzedawcą"
+     "subtitle": "Ze sprzedawcą",
+     "intro": {
+      "title": "Na targu",
+      "text": "Ceny to liczba + ლარი, zawsze w liczbie pojedynczej: თხუთმეტი ლარი, „piętnaście lari”. Targowanie się należy do zabawy: ეს ძალიან ძვირია.",
+      "table": []
+     }
     },
     {
      "id": "c4",
@@ -2779,7 +3483,12 @@
        ]
       }
      ],
-     "subtitle": "Z kierowcą"
+     "subtitle": "Z kierowcą",
+     "intro": {
+      "title": "Jazda taksówką",
+      "text": "Na lotnisko to აეროპორტში: -ში znaczy i „w”, i „do”. Gruziński nie odróżnia „gdzie?” od „dokąd?”. Cenę ustal przed odjazdem.",
+      "table": []
+     }
     },
     {
      "id": "c5",
@@ -2864,7 +3573,12 @@
        ]
       }
      ],
-     "subtitle": "Z przechodniem"
+     "subtitle": "Z przechodniem",
+     "intro": {
+      "title": "Pytanie o drogę",
+      "text": "Nasłuchuj მარჯვნივ, მარცხნივ, პირდაპირ (w prawo, w lewo, prosto). Za szybko? გაიმეორეთ, თუ შეიძლება, „proszę powtórzyć”.",
+      "table": []
+     }
     },
     {
      "id": "c6",
@@ -2954,7 +3668,12 @@
        ]
       }
      ],
-     "subtitle": "Z Nino"
+     "subtitle": "Z Nino",
+     "intro": {
+      "title": "Planujemy",
+      "text": "Znajomi mówią sobie na ty. ვჭამოთ to „zjedzmy”: -თ oznacza tu „my”, jak nasze „-my” w „zjedzmy”.",
+      "table": []
+     }
     }
    ]
   }

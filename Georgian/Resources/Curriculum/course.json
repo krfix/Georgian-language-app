@@ -468,7 +468,12 @@
       "w-kargad"
      ],
      "category": "greetings",
-     "subtitle": "გამარჯობა · გაგიმარჯოს · დილა მშვიდობისა"
+     "subtitle": "გამარჯობა · გაგიმარჯოს · დილა მშვიდობისა",
+     "intro": {
+      "title": "Hello means victory",
+      "text": "გამარჯობა comes from გამარჯვება, victory: you wish someone victory. The reply, გაგიმარჯოს, wishes it back. Greetings for the time of day end in მშვიდობისა, \"of peace\".",
+      "table": []
+     }
     },
     {
      "id": "v2",
@@ -484,7 +489,12 @@
       "w-ara"
      ],
      "category": "greetings",
-     "subtitle": "მადლობა · გმადლობთ · არაფრის"
+     "subtitle": "მადლობა · გმადლობთ · არაფრის",
+     "intro": {
+      "title": "Two kinds of thanks",
+      "text": "მადლობა is everyday thanks. გმადლობთ is polite: the გ- means \"you\" and the -თ makes it polite. You'll meet this -თ everywhere.",
+      "table": []
+     }
     },
     {
      "id": "v3",
@@ -500,7 +510,12 @@
       "w-var"
      ],
      "category": "introductions",
-     "subtitle": "მე · შენ · სახელი"
+     "subtitle": "მე · შენ · სახელი",
+     "intro": {
+      "title": "Called, not named",
+      "text": "Georgian says \"to me it is called\": მე ნინო მქვია. The მ- inside the verb is \"me\". To ask: რა გქვია? with გ- for \"you\".",
+      "table": []
+     }
     },
     {
      "id": "v4",
@@ -515,7 +530,12 @@
       "w-tsota"
      ],
      "category": "introductions",
-     "subtitle": "საიდან ხარ · ქართველი · ქართული"
+     "subtitle": "საიდან ხარ · ქართველი · ქართული",
+     "intro": {
+      "title": "From where",
+      "text": "საიდან means \"from where\": სად (where) + -იდან (from). The same -დან turns any place into \"from\": თბილისიდან, from Tbilisi.",
+      "table": []
+     }
     },
     {
      "id": "v5",
@@ -535,7 +555,12 @@
       "w-ati"
      ],
      "category": "numbers",
-     "subtitle": "ნული · ერთი · ორი"
+     "subtitle": "ნული · ერთი · ორი",
+     "intro": {
+      "title": "Counting to ten",
+      "text": "Georgian numbers are short and regular. After a number the noun stays singular: ორი ჩაი, \"two tea\". No changing endings to learn.",
+      "table": []
+     }
     },
     {
      "id": "v6",
@@ -553,7 +578,12 @@
       "w-tskhrameti"
      ],
      "category": "numbers",
-     "subtitle": "თერთმეტი · თორმეტი · ცამეტი"
+     "subtitle": "თერთმეტი · თორმეტი · ცამეტი",
+     "intro": {
+      "title": "Ten and more",
+      "text": "The teens are built from ten and the number: თ (from ათი, ten) + ოთხ (four) + მეტი (more) makes თოთხმეტი, fourteen. Look for the pattern in each one.",
+      "table": []
+     }
     },
     {
      "id": "v6b",
@@ -568,7 +598,12 @@
       "w-asi"
      ],
      "category": "numbers",
-     "subtitle": "ოცი · ოცდაერთი · ოცდაათი"
+     "subtitle": "ოცი · ოცდაერთი · ოცდაათი",
+     "intro": {
+      "title": "Counting in twenties",
+      "text": "Above twenty Georgian counts in twenties: ორმოცი is \"two twenties\". The next lesson shows how to build every number from these.",
+      "table": []
+     }
     },
     {
      "id": "v6c",
@@ -857,7 +892,12 @@
       "w-ludi"
      ],
      "category": "food",
-     "subtitle": "პური · ყველი · წყალი"
+     "subtitle": "პური · ყველი · წყალი",
+     "intro": {
+      "title": "Food words",
+      "text": "Many Georgian food words end in -ი: პური, ყველი, ჩაი. That -ი is the plain form; it changes when the word does a job in the sentence: ყავას ვსვამ, I drink coffee.",
+      "table": []
+     }
     },
     {
      "id": "v8",
@@ -874,7 +914,12 @@
       "w-bostneuli"
      ],
      "category": "food",
-     "subtitle": "ხორცი · ხაჭაპური · ხინკალი"
+     "subtitle": "ხორცი · ხაჭაპური · ხინკალი",
+     "intro": {
+      "title": "Georgian kitchen",
+      "text": "ხაჭაპური and ხინკალი are names you'll see on every menu. Words for things you eat often come in the singular: ხილი is fruit, ბოსტნეული vegetables.",
+      "table": []
+     }
     },
     {
      "id": "v9",
@@ -889,7 +934,12 @@
       "w-gachereba"
      ],
      "category": "transport",
-     "subtitle": "მანქანა · ავტობუსი · მეტრო"
+     "subtitle": "მანქანა · ავტობუსი · მეტრო",
+     "intro": {
+      "title": "Getting around",
+      "text": "Most transport words are international: ავტობუსი, მეტრო, ტაქსი. Add -ით for \"by\": მანქანით, by car; after a vowel just -თი: მეტროთი.",
+      "table": []
+     }
     },
     {
      "id": "v10",
@@ -903,7 +953,12 @@
       "w-bileti"
      ],
      "category": "transport",
-     "subtitle": "მატარებელი · თვითმფრინავი · აეროპორტი"
+     "subtitle": "მატარებელი · თვითმფრინავი · აეროპორტი",
+     "intro": {
+      "title": "Travelling far",
+      "text": "Long words are often built from parts: თვითმფრინავი is \"self-flying\". აეროპორტი and სადგური take -ში for \"to\": აეროპორტში, to the airport.",
+      "table": []
+     }
     },
     {
      "id": "v11",
@@ -918,7 +973,12 @@
       "w-sad"
      ],
      "category": "directions",
-     "subtitle": "მარჯვნივ · მარცხნივ · პირდაპირ"
+     "subtitle": "მარჯვნივ · მარცხნივ · პირდაპირ",
+     "intro": {
+      "title": "Directions",
+      "text": "მარჯვნივ and მარცხნივ end in -ივ, which means \"towards\". The polite command is მოუხვიეთ, turn: you'll hear it in every taxi.",
+      "table": []
+     }
     },
     {
      "id": "v12",
@@ -933,7 +993,12 @@
       "w-gverdit"
      ],
      "category": "directions",
-     "subtitle": "ახლოს · შორს · ქუჩა"
+     "subtitle": "ახლოს · შორს · ქუჩა",
+     "intro": {
+      "title": "Near and far",
+      "text": "ახლოს and შორს are said with არის, is: ახლოს არის, it's near. Put the place first: ბაზარი ახლოს არის?",
+      "table": []
+     }
     },
     {
      "id": "v13",
@@ -948,7 +1013,12 @@
       "w-ra-ghirs"
      ],
      "category": "shopping",
-     "subtitle": "მაღაზია · ბაზარი · ღია"
+     "subtitle": "მაღაზია · ბაზარი · ღია",
+     "intro": {
+      "title": "Shops and prices",
+      "text": "რა ღირს? literally \"what is it worth?\": the everyday \"how much?\". ღია and დაკეტილი, open and closed, are on every shop door.",
+      "table": []
+     }
     },
     {
      "id": "v14",
@@ -964,7 +1034,12 @@
       "w-naghdi-puli"
      ],
      "category": "shopping",
-     "subtitle": "ფული · ფასი · ძვირი"
+     "subtitle": "ფული · ფასი · ძვირი",
+     "intro": {
+      "title": "Paying",
+      "text": "ლარი is the money, თეთრი the coins (100 tetri in a lari). By card is ბარათით: ბარათი + -ით, \"with the card\".",
+      "table": []
+     }
     },
     {
      "id": "v15",
@@ -979,7 +1054,12 @@
       "w-megobari"
      ],
      "category": "family",
-     "subtitle": "ოჯახი · დედა · მამა"
+     "subtitle": "ოჯახი · დედა · მამა",
+     "intro": {
+      "title": "Mother and father",
+      "text": "Careful: დედა is mother and მამა is father, the opposite of what you might expect. შვილი is someone's child, ბავშვი a child in general.",
+      "table": []
+     }
     },
     {
      "id": "v16",
@@ -994,7 +1074,12 @@
       "w-kmari"
      ],
      "category": "family",
-     "subtitle": "ძმა · და · ბებია"
+     "subtitle": "ძმა · და · ბებია",
+     "intro": {
+      "title": "The whole family",
+      "text": "და means both \"sister\" and \"and\": the sentence makes it clear. Family words don't change for my and your: ჩემი ძმა, my brother.",
+      "table": []
+     }
     },
     {
      "id": "v17",
@@ -1009,7 +1094,12 @@
       "w-skami"
      ],
      "category": "objects",
-     "subtitle": "სახლი · ოთახი · კარი"
+     "subtitle": "სახლი · ოთახი · კარი",
+     "intro": {
+      "title": "At home",
+      "text": "Places take -ში for \"in\": სახლში, at home; ოთახში, in the room. Things on top take -ზე: მაგიდაზე, on the table.",
+      "table": []
+     }
     },
     {
      "id": "v18",
@@ -1024,7 +1114,12 @@
       "w-kalami"
      ],
      "category": "objects",
-     "subtitle": "წიგნი · ტელეფონი · გასაღები"
+     "subtitle": "წიგნი · ტელეფონი · გასაღები",
+     "intro": {
+      "title": "Things around you",
+      "text": "To say a thing is somewhere, add -ა (short for არის, is) to the place: წიგნი მაგიდაზეა, the book is on the table.",
+      "table": []
+     }
     },
     {
      "id": "v19",
@@ -1040,7 +1135,12 @@
       "w-saati"
      ],
      "category": "time",
-     "subtitle": "დღეს · ხვალ · გუშინ"
+     "subtitle": "დღეს · ხვალ · გუშინ",
+     "intro": {
+      "title": "Today and tomorrow",
+      "text": "Time words need no little words before them: დღეს, today; ხვალ, tomorrow. დილით and საღამოს are \"in the morning\" and \"in the evening\".",
+      "table": []
+     }
     },
     {
      "id": "v20",
@@ -1056,7 +1156,12 @@
       "w-shabati"
      ],
      "category": "time",
-     "subtitle": "დღე · კვირა · თვე"
+     "subtitle": "დღე · კვირა · თვე",
+     "intro": {
+      "title": "Days of the week",
+      "text": "From Monday to Thursday the days count from Saturday: ორშაბათი is \"two after Saturday\". კვირა is both Sunday and week.",
+      "table": []
+     }
     }
    ]
   },
@@ -1081,7 +1186,12 @@
       "p-gaumarjos"
      ],
      "situation": "food",
-     "subtitle": "მენიუ, თუ შეიძლება."
+     "subtitle": "მენიუ, თუ შეიძლება.",
+     "intro": {
+      "title": "Asking politely",
+      "text": "In cafés Georgians add თუ შეიძლება, \"if it's possible\", after what they ask for: მენიუ, თუ შეიძლება. It's the everyday please.",
+      "table": []
+     }
     },
     {
      "id": "e2",
@@ -1096,7 +1206,12 @@
       "p-sul-es-aris"
      ],
      "situation": "groceries",
-     "subtitle": "რა ღირს ეს?"
+     "subtitle": "რა ღირს ეს?",
+     "intro": {
+      "title": "At the shop",
+      "text": "To buy, name the thing and the amount: ერთი კილო ვაშლი. To check the price: რა ღირს ეს? Bargaining is normal at a bazaar.",
+      "table": []
+     }
     },
     {
      "id": "e3",
@@ -1111,7 +1226,12 @@
       "p-ramdeni-khani"
      ],
      "situation": "taxi",
-     "subtitle": "აეროპორტში, თუ შეიძლება."
+     "subtitle": "აეროპორტში, თუ შეიძლება.",
+     "intro": {
+      "title": "In a taxi",
+      "text": "Drivers say თქვენ to you, the polite you, with -თ on the verb: სად მიდიხართ? Answer with the place and -ში: აეროპორტში.",
+      "table": []
+     }
     },
     {
      "id": "e4",
@@ -1126,7 +1246,12 @@
       "p-gaimeoret-tu-sheidzleba"
      ],
      "situation": "directions",
-     "subtitle": "სად არის მეტრო?"
+     "subtitle": "სად არის მეტრო?",
+     "intro": {
+      "title": "Asking the way",
+      "text": "Commands to strangers end in -თ: წადით, go; მოუხვიეთ, turn. If you don't follow, ვერ გავიგე: \"I couldn't catch it\".",
+      "table": []
+     }
     },
     {
      "id": "e5",
@@ -1141,7 +1266,12 @@
       "p-dzalian-sasiamovnoa"
      ],
      "situation": "neighbours",
-     "subtitle": "როგორ ხართ?"
+     "subtitle": "როგორ ხართ?",
+     "intro": {
+      "title": "Meeting neighbours",
+      "text": "With neighbours you don't know yet, use the polite forms: როგორ ხართ? With friends: როგორ ხარ?",
+      "table": []
+     }
     },
     {
      "id": "e6",
@@ -1156,7 +1286,12 @@
       "p-aptiaki-sad-aris"
      ],
      "situation": "doctor",
-     "subtitle": "ცუდად ვარ."
+     "subtitle": "ცუდად ვარ.",
+     "intro": {
+      "title": "Saying what hurts",
+      "text": "Georgian says \"to me hurts\": თავი მტკივა, my head hurts. The body part is the subject.",
+      "table": []
+     }
     },
     {
      "id": "e7",
@@ -1171,7 +1306,12 @@
       "p-kargi-ideaa"
      ],
      "situation": "work",
-     "subtitle": "სად მუშაობ?"
+     "subtitle": "სად მუშაობ?",
+     "intro": {
+      "title": "At work",
+      "text": "ვმუშაობ is \"I work\": ვ- for I. Where you work takes -ში: ოფისში ვმუშაობ.",
+      "table": []
+     }
     },
     {
      "id": "e8",
@@ -1186,7 +1326,12 @@
       "p-ra-kargia"
      ],
      "situation": "smalltalk",
-     "subtitle": "რა ამინდია!"
+     "subtitle": "რა ამინდია!",
+     "intro": {
+      "title": "Small talk",
+      "text": "Weather is said with one word: ცხელა, it's hot; ცივა, it's cold. რა + a word in -ა makes an exclamation: რა ამინდია! What weather!",
+      "table": []
+     }
     }
    ]
   },
@@ -2358,6 +2503,550 @@
       }
      ],
      "subtitle": "Three patterns for every day"
+    },
+    {
+     "id": "g10",
+     "kind": "grammar",
+     "title": "Things and people",
+     "words": [
+      "w-mqavs",
+      "w-gqavs"
+     ],
+     "notes": [
+      {
+       "title": "Two ways to have",
+       "text": "Georgian has two verbs for \"have\": მაქვს for things, მყავს for people and animals. Both put \"me\" inside the verb with მ-, like მინდა, and \"you\" with გ-.",
+       "table": [
+        {
+         "ka": "ფული მაქვს",
+         "lat": "puli makvs",
+         "en": "I have money"
+        },
+        {
+         "ka": "მანქანა მაქვს",
+         "lat": "mankana makvs",
+         "en": "I have a car"
+        },
+        {
+         "ka": "ძმა მყავს",
+         "lat": "dzma mq'avs",
+         "en": "I have a brother"
+        },
+        {
+         "ka": "ძაღლი მყავს",
+         "lat": "dzaghli mq'avs",
+         "en": "I have a dog"
+        },
+        {
+         "ka": "გაქვს?",
+         "lat": "gakvs?",
+         "en": "do you have (a thing)?"
+        },
+        {
+         "ka": "გყავს?",
+         "lat": "gq'avs?",
+         "en": "do you have (someone)?"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "ორი შვილი ___.",
+       "translation": "I have two children.",
+       "options": [
+        "მყავს",
+        "მაქვს",
+        "გყავს",
+        "მინდა"
+       ],
+       "answer": 0,
+       "explanation": "Children are people: მყავს."
+      },
+      {
+       "type": "fill",
+       "sentence": "ტელეფონი ___.",
+       "translation": "I have a phone.",
+       "options": [
+        "მაქვს",
+        "მყავს",
+        "გაქვს",
+        "ვარ"
+       ],
+       "answer": 0,
+       "explanation": "A phone is a thing: მაქვს."
+      },
+      {
+       "type": "fill",
+       "sentence": "ძმა ___?",
+       "translation": "Do you have a brother?",
+       "options": [
+        "გყავს",
+        "გაქვს",
+        "მყავს",
+        "მაქვს"
+       ],
+       "answer": 0,
+       "explanation": "გ- for you, and a brother is a person."
+      },
+      {
+       "type": "choice",
+       "prompt": "For a cat, \"I have\" is…",
+       "options": [
+        "მყავს",
+        "მაქვს",
+        "მინდა",
+        "ვარ"
+       ],
+       "answer": 0,
+       "explanation": "Animals count like people: მყავს."
+      },
+      {
+       "type": "build",
+       "english": "I have a dog.",
+       "tiles": [
+        "ძაღლი",
+        "მყავს."
+       ],
+       "extra": [
+        "მაქვს.",
+        "ძაღლს"
+       ],
+       "tilesLatin": [
+        "dzaghli",
+        "mq'avs."
+       ]
+      }
+     ],
+     "subtitle": "Two ways to have"
+    },
+    {
+     "id": "g11",
+     "kind": "grammar",
+     "title": "More than one",
+     "words": [],
+     "notes": [
+      {
+       "title": "Plurals with -ები",
+       "text": "Most nouns drop their final -ი and add -ები: სახლი, სახლები. Nouns ending in a vowel keep it: დედა, დედები. A few lose a vowel inside, as in მეგობრები.",
+       "table": [
+        {
+         "ka": "სახლი",
+         "lat": "sakhli",
+         "en": "house"
+        },
+        {
+         "ka": "სახლები",
+         "lat": "sakhlebi",
+         "en": "houses"
+        },
+        {
+         "ka": "წიგნი",
+         "lat": "ts'igni",
+         "en": "book"
+        },
+        {
+         "ka": "წიგნები",
+         "lat": "ts'ignebi",
+         "en": "books"
+        },
+        {
+         "ka": "მეგობარი",
+         "lat": "megobari",
+         "en": "friend"
+        },
+        {
+         "ka": "მეგობრები",
+         "lat": "megobrebi",
+         "en": "friends: the second ა drops"
+        },
+        {
+         "ka": "დედა",
+         "lat": "deda",
+         "en": "mother"
+        },
+        {
+         "ka": "დედები",
+         "lat": "dedebi",
+         "en": "mothers"
+        }
+       ]
+      },
+      {
+       "title": "Not after numbers",
+       "text": "After a number the noun stays singular: სამი წიგნი, \"three book\". The plural is only for \"books\" with no number.",
+       "table": [
+        {
+         "ka": "სამი წიგნი",
+         "lat": "sami ts'igni",
+         "en": "three books"
+        },
+        {
+         "ka": "წიგნები",
+         "lat": "ts'ignebi",
+         "en": "books"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "choice",
+       "prompt": "The plural of წიგნი is…",
+       "options": [
+        "წიგნები",
+        "წიგნი",
+        "წიგნს",
+        "წიგნით"
+       ],
+       "answer": 0,
+       "explanation": "-ი becomes -ები."
+      },
+      {
+       "type": "fill",
+       "sentence": "ჩემი ___ თბილისში ცხოვრობენ.",
+       "translation": "My friends live in Tbilisi.",
+       "options": [
+        "მეგობრები",
+        "მეგობარი",
+        "მეგობარს",
+        "მეგობრით"
+       ],
+       "answer": 0,
+       "explanation": "ცხოვრობენ is \"they live\", so the plural: მეგობრები."
+      },
+      {
+       "type": "fill",
+       "sentence": "სამი ___ მინდა.",
+       "translation": "I want three tickets.",
+       "options": [
+        "ბილეთი",
+        "ბილეთები",
+        "ბილეთს",
+        "ბილეთით"
+       ],
+       "answer": 0,
+       "explanation": "After a number, the singular."
+      },
+      {
+       "type": "choice",
+       "prompt": "მეგობარი becomes…",
+       "options": [
+        "მეგობრები",
+        "მეგობარები",
+        "მეგობრი",
+        "მეგობარიები"
+       ],
+       "answer": 0,
+       "explanation": "The second ა drops: მეგობრები."
+      },
+      {
+       "type": "build",
+       "english": "The houses are big.",
+       "tiles": [
+        "სახლები",
+        "დიდია."
+       ],
+       "extra": [
+        "სახლი",
+        "დიდი"
+       ],
+       "tilesLatin": [
+        "sakhlebi",
+        "didia."
+       ]
+      }
+     ],
+     "subtitle": "Plurals with -ები"
+    },
+    {
+     "id": "g12",
+     "kind": "grammar",
+     "title": "Polite you",
+     "words": [
+      "w-tkven"
+     ],
+     "notes": [
+      {
+       "title": "The polite -თ",
+       "text": "Georgian has a polite \"you\": თქვენ, which is also \"you\" for several people. The verb gets -თ at the end: გაქვს becomes გაქვთ, იცი becomes იცით. Use it with strangers, in shops, with older people and officials.",
+       "table": [
+        {
+         "ka": "გაქვს?",
+         "lat": "gakvs?",
+         "en": "do you have? (to a friend)"
+        },
+        {
+         "ka": "გაქვთ?",
+         "lat": "gakvt?",
+         "en": "do you have? (polite)"
+        },
+        {
+         "ka": "იცი?",
+         "lat": "itsi?",
+         "en": "do you know? (to a friend)"
+        },
+        {
+         "ka": "იცით?",
+         "lat": "itsit?",
+         "en": "do you know? (polite)"
+        },
+        {
+         "ka": "როგორ ხარ?",
+         "lat": "rogor khar?",
+         "en": "how are you? (to a friend)"
+        },
+        {
+         "ka": "როგორ ხართ?",
+         "lat": "rogor khart?",
+         "en": "how are you? (polite)"
+        }
+       ]
+      },
+      {
+       "title": "Polite requests",
+       "text": "Requests end in -თ too, and თუ შეიძლება makes them softer still: აქ გამიჩერეთ, თუ შეიძლება.",
+       "table": [
+        {
+         "ka": "მოიცადე",
+         "lat": "moitsade",
+         "en": "wait (to a friend)"
+        },
+        {
+         "ka": "მოიცადეთ",
+         "lat": "moitsadet",
+         "en": "wait (polite)"
+        },
+        {
+         "ka": "დაჯექი",
+         "lat": "dajeki",
+         "en": "sit down (to a friend)"
+        },
+        {
+         "ka": "დაჯექით",
+         "lat": "dajekit",
+         "en": "sit down (polite)"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "ინგლისური ___?",
+       "translation": "Do you speak English? (to a stranger)",
+       "options": [
+        "იცით",
+        "იცი",
+        "ვიცი",
+        "იცის"
+       ],
+       "answer": 0,
+       "explanation": "-თ: polite."
+      },
+      {
+       "type": "fill",
+       "sentence": "როგორ ___?",
+       "translation": "How are you? (to your teacher)",
+       "options": [
+        "ხართ",
+        "ხარ",
+        "ვარ",
+        "არის"
+       ],
+       "answer": 0,
+       "explanation": "-თ: polite."
+      },
+      {
+       "type": "choice",
+       "prompt": "To a taxi driver, \"stop here\" is…",
+       "options": [
+        "აქ გამიჩერეთ.",
+        "აქ გამიჩერე.",
+        "აქ ვჩერდები.",
+        "აქ ჩერდება."
+       ],
+       "answer": 0,
+       "explanation": "-თ: polite. გამიჩერე is for a friend."
+      },
+      {
+       "type": "choice",
+       "prompt": "თქვენ can mean…",
+       "options": [
+        "polite you, or you (several people)",
+        "only you (several people)",
+        "they",
+        "we"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "build",
+       "english": "Do you have change?",
+       "tiles": [
+        "ხურდა",
+        "გაქვთ?"
+       ],
+       "extra": [
+        "გაქვს?",
+        "ხურდას"
+       ],
+       "tilesLatin": [
+        "khurda",
+        "gakvt?"
+       ]
+      }
+     ],
+     "subtitle": "The polite -თ"
+    },
+    {
+     "id": "g13",
+     "kind": "grammar",
+     "title": "Yesterday",
+     "words": [
+      "w-viqavi",
+      "w-tsavedi",
+      "w-vnakhe",
+      "w-vchame",
+      "w-davlie",
+      "w-viqide"
+     ],
+     "notes": [
+      {
+       "title": "Things you did",
+       "text": "The past has its own forms: learn these six as words first. Each has ვ- for \"I\", at the start or after a little prefix: წა-ვ-ედი, და-ვ-ლიე.",
+       "table": [
+        {
+         "ka": "ვიყავი",
+         "lat": "viq'avi",
+         "en": "I was"
+        },
+        {
+         "ka": "წავედი",
+         "lat": "ts'avedi",
+         "en": "I went"
+        },
+        {
+         "ka": "ვნახე",
+         "lat": "vnakhe",
+         "en": "I saw"
+        },
+        {
+         "ka": "ვჭამე",
+         "lat": "vch'ame",
+         "en": "I ate"
+        },
+        {
+         "ka": "დავლიე",
+         "lat": "davlie",
+         "en": "I drank"
+        },
+        {
+         "ka": "ვიყიდე",
+         "lat": "viq'ide",
+         "en": "I bought"
+        }
+       ]
+      },
+      {
+       "title": "The object changes",
+       "text": "In the present the thing you eat takes -ს: ხინკალს ვჭამ. In the past it goes back to its plain form: ხინკალი ვჭამე.",
+       "table": [
+        {
+         "ka": "ხინკალს ვჭამ",
+         "lat": "khink'als vch'am",
+         "en": "I'm eating khinkali"
+        },
+        {
+         "ka": "ხინკალი ვჭამე",
+         "lat": "khink'ali vch'ame",
+         "en": "I ate khinkali"
+        },
+        {
+         "ka": "ყავას ვსვამ",
+         "lat": "q'avas vsvam",
+         "en": "I'm drinking coffee"
+        },
+        {
+         "ka": "ყავა დავლიე",
+         "lat": "q'ava davlie",
+         "en": "I drank coffee"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "გუშინ ბაზარში ___.",
+       "translation": "Yesterday I was at the market.",
+       "options": [
+        "ვიყავი",
+        "ვარ",
+        "ვიქნები",
+        "არის"
+       ],
+       "answer": 0,
+       "explanation": "გუშინ, yesterday: the past."
+      },
+      {
+       "type": "fill",
+       "sentence": "გუშინ ხინკალი ___.",
+       "translation": "Yesterday I ate khinkali.",
+       "options": [
+        "ვჭამე",
+        "ვჭამ",
+        "ჭამს",
+        "ვჭამოთ"
+       ],
+       "answer": 0,
+       "explanation": "ვჭამე: I ate."
+      },
+      {
+       "type": "fill",
+       "sentence": "პური ___.",
+       "translation": "I bought bread.",
+       "options": [
+        "ვიყიდე",
+        "ვყიდულობ",
+        "იყიდა",
+        "ვიყიდო"
+       ],
+       "answer": 0,
+       "explanation": "ვიყიდე: I bought."
+      },
+      {
+       "type": "choice",
+       "prompt": "\"I ate khinkali\" is…",
+       "options": [
+        "ხინკალი ვჭამე.",
+        "ხინკალს ვჭამე.",
+        "ხინკალი ვჭამ.",
+        "ხინკალით ვჭამე."
+       ],
+       "answer": 0,
+       "explanation": "In the past the object is in its plain form."
+      },
+      {
+       "type": "build",
+       "english": "I went to the cinema.",
+       "tiles": [
+        "კინოში",
+        "წავედი."
+       ],
+       "extra": [
+        "კინო",
+        "ვიყავი."
+       ],
+       "tilesLatin": [
+        "k'inoshi",
+        "ts'avedi."
+       ]
+      }
+     ],
+     "subtitle": "Things you did"
     }
    ]
   },
@@ -2490,7 +3179,12 @@
        ]
       }
      ],
-     "subtitle": "With a waiter"
+     "subtitle": "With a waiter",
+     "intro": {
+      "title": "Your first conversation",
+      "text": "Choose what you would say. The waiter is polite (რა გნებავთ? what would you like?); you answer with თუ შეიძლება. Tap any word to see why it looks that way.",
+      "table": []
+     }
     },
     {
      "id": "c2",
@@ -2580,7 +3274,12 @@
        ]
       }
      ],
-     "subtitle": "With Giorgi"
+     "subtitle": "With Giorgi",
+     "intro": {
+      "title": "Introducing yourself",
+      "text": "Giorgi is your age, so you both say შენ and use friendly forms: რა გქვია? not რა გქვიათ?",
+      "table": []
+     }
     },
     {
      "id": "c3",
@@ -2676,7 +3375,12 @@
        ]
       }
      ],
-     "subtitle": "With a seller"
+     "subtitle": "With a seller",
+     "intro": {
+      "title": "At the market",
+      "text": "Prices are numbers + ლარი, with ლარი singular: თხუთმეტი ლარი. Haggling is part of it: ეს ძალიან ძვირია.",
+      "table": []
+     }
     },
     {
      "id": "c4",
@@ -2779,7 +3483,12 @@
        ]
       }
      ],
-     "subtitle": "With a driver"
+     "subtitle": "With a driver",
+     "intro": {
+      "title": "Taking a taxi",
+      "text": "To the airport is აეროპორტში: -ში means \"into\" as well as \"in\". Agree the price before you set off.",
+      "table": []
+     }
     },
     {
      "id": "c5",
@@ -2864,7 +3573,12 @@
        ]
       }
      ],
-     "subtitle": "With a passer-by"
+     "subtitle": "With a passer-by",
+     "intro": {
+      "title": "Asking the way",
+      "text": "Listen for მარჯვნივ, მარცხნივ, პირდაპირ. If it's too fast: გაიმეორეთ, თუ შეიძლება.",
+      "table": []
+     }
     },
     {
      "id": "c6",
@@ -2954,7 +3668,12 @@
        ]
       }
      ],
-     "subtitle": "With Nino"
+     "subtitle": "With Nino",
+     "intro": {
+      "title": "Making plans",
+      "text": "Friends use the informal forms. ვჭამოთ is \"let's eat\": the -თ here means \"we\".",
+      "table": []
+     }
     }
    ]
   }

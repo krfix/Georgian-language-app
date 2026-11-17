@@ -12,6 +12,14 @@ struct ExerciseBuilder {
     // MARK: Lessons
 
     func exercises<G: RandomNumberGenerator>(for lesson: Lesson, using rng: inout G) -> [Exercise] {
+        let body = lessonBody(lesson, using: &rng)
+        guard let intro = lesson.intro else { return body }
+        // The "why" card first: what to notice in this lesson.
+        return [Exercise(id: "\(lesson.id).intro", kind: .note, instruction: tr("Before you start"), itemID: nil,
+                         content: .note(intro))] + body
+    }
+
+    private func lessonBody<G: RandomNumberGenerator>(_ lesson: Lesson, using rng: inout G) -> [Exercise] {
         switch lesson.kind {
         case .letters: return letterLesson(lesson, using: &rng)
         case .contrast: return contrastLesson(lesson, using: &rng)

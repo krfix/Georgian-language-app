@@ -1802,6 +1802,26 @@
    "lat": "pilmi",
    "meaning": "film"
   },
+  "წავედი": {
+   "lat": "ts'avedi",
+   "meaning": "I went"
+  },
+  "ვნახე": {
+   "lat": "vnakhe",
+   "meaning": "I saw"
+  },
+  "ვჭამე": {
+   "lat": "vch'ame",
+   "meaning": "I ate"
+  },
+  "დავლიე": {
+   "lat": "davlie",
+   "meaning": "I drank"
+  },
+  "ვიყიდე": {
+   "lat": "viq'ide",
+   "meaning": "I bought"
+  },
   "ბადე": {
    "lat": "bade",
    "meaning": "net"
