@@ -8427,6 +8427,626 @@
      "why": "If Georgian fails you, ask: ინგლისური იცით?"
     }
    ]
+  },
+  {
+   "id": "pd-post",
+   "category": "work",
+   "title": "Sending a parcel",
+   "roles": [
+    "Customer",
+    "Post office clerk"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა! რით შემიძლია დაგეხმაროთ?",
+     "lat": "gamarjoba! rit shemidzlia dagekhmarot?",
+     "en": "Hello! How can I help you?"
+    },
+    {
+     "who": 0,
+     "ka": "გამარჯობა. ეს ამანათი პოლონეთში უნდა გავაგზავნო.",
+     "lat": "gamarjoba. es amanati p'olonetshi unda gavagzavno.",
+     "en": "Hello. I need to send this parcel to Poland."
+    },
+    {
+     "who": 1,
+     "ka": "აქ დადეთ, თუ შეიძლება. რა არის შიგნით?",
+     "lat": "ak dadet, tu sheidzleba. ra aris shignit?",
+     "en": "Put it here, please. What's inside?"
+    },
+    {
+     "who": 0,
+     "ka": "წიგნები და ჩაი.",
+     "lat": "ts'ignebi da chai.",
+     "en": "Books and tea."
+    },
+    {
+     "who": 1,
+     "ka": "ჩვეულებრივი თუ ექსპრესი?",
+     "lat": "chveulebrivi tu eksp'resi?",
+     "en": "Standard or express?"
+    },
+    {
+     "who": 0,
+     "ka": "ჩვეულებრივი. რამდენი ხანი დასჭირდება?",
+     "lat": "chveulebrivi. ramdeni khani dasch'irdeba?",
+     "en": "Standard. How long will it take?"
+    },
+    {
+     "who": 1,
+     "ka": "დაახლოებით ორი კვირა. ორმოცდაათი ლარი.",
+     "lat": "daakhloebit ori k'vira. ormotsdaati lari.",
+     "en": "About two weeks. Fifty lari."
+    },
+    {
+     "who": 0,
+     "ka": "კარგი. ბარათით შეიძლება?",
+     "lat": "k'argi. baratit sheidzleba?",
+     "en": "OK. Can I pay by card?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, რა თქმა უნდა.",
+     "lat": "k'i, ra tkma unda.",
+     "en": "Yes, of course."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "პოლონეთში",
+     "lat": "p'olonetshi",
+     "en": "to Poland",
+     "why": "-ში means both in and into: პოლონეთში, in Poland or to Poland."
+    },
+    {
+     "ka": "უნდა გავაგზავნო",
+     "lat": "unda gavagzavno",
+     "en": "I need to send",
+     "why": "უნდა + a verb: \"I have to\", \"I need to\"."
+    }
+   ]
+  },
+  {
+   "id": "pd-hairdresser",
+   "category": "home",
+   "title": "At the hairdresser's",
+   "roles": [
+    "Customer",
+    "Hairdresser"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა! დაბრძანდით.",
+     "lat": "gamarjoba! dabrdzandit.",
+     "en": "Hello! Have a seat."
+    },
+    {
+     "who": 0,
+     "ka": "გამარჯობა. თმის შეჭრა მინდა.",
+     "lat": "gamarjoba. tmis shech'ra minda.",
+     "en": "Hello. I'd like a haircut."
+    },
+    {
+     "who": 1,
+     "ka": "როგორ შეგჭრათ?",
+     "lat": "rogor shegch'rat?",
+     "en": "How would you like it?"
+    },
+    {
+     "who": 0,
+     "ka": "ცოტა მოკლედ, აქ და აქ.",
+     "lat": "tsot'a mok'led, ak da ak.",
+     "en": "A little shorter, here and here."
+    },
+    {
+     "who": 1,
+     "ka": "გვერდებზე უფრო მოკლე?",
+     "lat": "gverdebze upro mok'le?",
+     "en": "Shorter on the sides?"
+    },
+    {
+     "who": 0,
+     "ka": "კი. ზემოთ მხოლოდ ცოტა, თუ შეიძლება.",
+     "lat": "k'i. zemot mkholod tsot'a, tu sheidzleba.",
+     "en": "Yes. Only a little on top, please."
+    },
+    {
+     "who": 1,
+     "ka": "კარგი. თმა დაგბანოთ?",
+     "lat": "k'argi. tma dagbanot?",
+     "en": "OK. Shall I wash your hair?"
+    },
+    {
+     "who": 0,
+     "ka": "არა, მადლობა. რა ღირს?",
+     "lat": "ara, madloba. ra ghirs?",
+     "en": "No, thanks. How much is it?"
+    },
+    {
+     "who": 1,
+     "ka": "ოცდახუთი ლარი.",
+     "lat": "otsdakhuti lari.",
+     "en": "Twenty-five lari."
+    },
+    {
+     "who": 0,
+     "ka": "ძალიან მომწონს, დიდი მადლობა!",
+     "lat": "dzalian momts'ons, didi madloba!",
+     "en": "I really like it, thank you very much!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "დაბრძანდით",
+     "lat": "dabrdzandit",
+     "en": "have a seat",
+     "why": "Very polite. It can also mean \"come in\" or \"welcome\"."
+    },
+    {
+     "ka": "თმის შეჭრა",
+     "lat": "tmis shech'ra",
+     "en": "a haircut",
+     "why": "Literally \"the cutting of hair\": თმა is hair."
+    }
+   ]
+  },
+  {
+   "id": "pd-exchange",
+   "category": "work",
+   "title": "Changing money",
+   "roles": [
+    "Customer",
+    "Cashier"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა, გისმენთ.",
+     "lat": "gamarjoba, gisment.",
+     "en": "Hello, how can I help?"
+    },
+    {
+     "who": 0,
+     "ka": "გამარჯობა. ევროს გადაცვლა მინდა.",
+     "lat": "gamarjoba. evros gadatsvla minda.",
+     "en": "Hello. I'd like to change some euros."
+    },
+    {
+     "who": 1,
+     "ka": "რამდენი?",
+     "lat": "ramdeni?",
+     "en": "How much?"
+    },
+    {
+     "who": 0,
+     "ka": "ასი ევრო.",
+     "lat": "asi evro.",
+     "en": "A hundred euros."
+    },
+    {
+     "who": 1,
+     "ka": "პასპორტი გაქვთ?",
+     "lat": "p'asp'ort'i gakvt?",
+     "en": "Do you have your passport?"
+    },
+    {
+     "who": 0,
+     "ka": "კი, აი.",
+     "lat": "k'i, ai.",
+     "en": "Yes, here."
+    },
+    {
+     "who": 1,
+     "ka": "აი, ინებეთ. ქვითარიც აქ არის.",
+     "lat": "ai, inebet. kvitarits ak aris.",
+     "en": "Here you are. The receipt is here too."
+    },
+    {
+     "who": 0,
+     "ka": "მადლობა. ბანკომატი სად არის?",
+     "lat": "madloba. bank'omat'i sad aris?",
+     "en": "Thank you. Where is the cash machine?"
+    },
+    {
+     "who": 1,
+     "ka": "შესასვლელთან, მარჯვნივ.",
+     "lat": "shesasvleltan, marjvniv.",
+     "en": "By the entrance, on the right."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "გადაცვლა",
+     "lat": "gadatsvla",
+     "en": "changing (money)",
+     "why": "From ფულის გადაცვლა, changing money."
+    },
+    {
+     "ka": "ქვითარიც",
+     "lat": "kvitarits",
+     "en": "the receipt too",
+     "why": "-ც on the end of a word means \"too, also\"."
+    }
+   ]
+  },
+  {
+   "id": "pd-marshrutka",
+   "category": "transport",
+   "title": "On a marshrutka",
+   "roles": [
+    "Passenger",
+    "Driver"
+   ],
+   "lines": [
+    {
+     "who": 0,
+     "ka": "ბოდიში, ეს მარშრუტკა ვაკეში მიდის?",
+     "lat": "bodishi, es marshrut'k'a vak'eshi midis?",
+     "en": "Excuse me, does this marshrutka go to Vake?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, მიდის. დაჯექით.",
+     "lat": "k'i, midis. dajekit.",
+     "en": "Yes, it does. Have a seat."
+    },
+    {
+     "who": 0,
+     "ka": "რა ღირს?",
+     "lat": "ra ghirs?",
+     "en": "How much is it?"
+    },
+    {
+     "who": 1,
+     "ka": "ერთი ლარი.",
+     "lat": "erti lari.",
+     "en": "One lari."
+    },
+    {
+     "who": 0,
+     "ka": "როცა ჭავჭავაძეზე მივალთ, მითხარით, თუ შეიძლება.",
+     "lat": "rotsa ch'avch'avadzeze mivalt, mitkharit, tu sheidzleba.",
+     "en": "Please tell me when we get to Chavchavadze."
+    },
+    {
+     "who": 1,
+     "ka": "კარგი, გეტყვით.",
+     "lat": "k'argi, get'q'vit.",
+     "en": "OK, I'll tell you."
+    },
+    {
+     "who": 1,
+     "ka": "აი, ჭავჭავაძე.",
+     "lat": "ai, ch'avch'avadze.",
+     "en": "Here's Chavchavadze."
+    },
+    {
+     "who": 0,
+     "ka": "აქ გამიჩერეთ, თუ შეიძლება!",
+     "lat": "ak gamicheret, tu sheidzleba!",
+     "en": "Stop here, please!"
+    },
+    {
+     "who": 0,
+     "ka": "მადლობა!",
+     "lat": "madloba!",
+     "en": "Thanks!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "მითხარით",
+     "lat": "mitkharit",
+     "en": "tell me",
+     "why": "მი- puts \"me\" in the verb, and -თ makes it polite."
+    },
+    {
+     "ka": "გეტყვით",
+     "lat": "get'q'vit",
+     "en": "I'll tell you",
+     "why": "გ- is \"you\", as in გინდა."
+    }
+   ]
+  },
+  {
+   "id": "pd-supra",
+   "category": "social",
+   "title": "Dinner at a friend's",
+   "roles": [
+    "Guest",
+    "Host"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "შემოდი, შემოდი! როგორ ხარ?",
+     "lat": "shemodi, shemodi! rogor khar?",
+     "en": "Come in, come in! How are you?"
+    },
+    {
+     "who": 0,
+     "ka": "კარგად, მადლობა. ეს შენთვის.",
+     "lat": "k'argad, madloba. es shentvis.",
+     "en": "Fine, thanks. This is for you."
+    },
+    {
+     "who": 1,
+     "ka": "რა საჭირო იყო! დაჯექი, მიირთვი.",
+     "lat": "ra sach'iro iq'o! dajeki, miirtvi.",
+     "en": "You shouldn't have! Sit down, help yourself."
+    },
+    {
+     "who": 0,
+     "ka": "რა გემრიელია! ეს რა არის?",
+     "lat": "ra gemrielia! es ra aris?",
+     "en": "This is delicious! What is it?"
+    },
+    {
+     "who": 1,
+     "ka": "ფხალი. ნიგვზით არის გაკეთებული.",
+     "lat": "pkhali. nigvzit aris gak'etebuli.",
+     "en": "Pkhali. It's made with walnuts."
+    },
+    {
+     "who": 1,
+     "ka": "ღვინო დაგისხა?",
+     "lat": "ghvino dagiskha?",
+     "en": "Shall I pour you some wine?"
+    },
+    {
+     "who": 0,
+     "ka": "ცოტა, თუ შეიძლება.",
+     "lat": "tsot'a, tu sheidzleba.",
+     "en": "Just a little, please."
+    },
+    {
+     "who": 1,
+     "ka": "შენი ჯანმრთელობის გაუმარჯოს!",
+     "lat": "sheni janmrtelobis gaumarjos!",
+     "en": "To your health!"
+    },
+    {
+     "who": 0,
+     "ka": "გაუმარჯოს! დიდი მადლობა სტუმართმოყვარეობისთვის.",
+     "lat": "gaumarjos! didi madloba st'umartmoq'vareobistvis.",
+     "en": "Cheers! Thank you so much for your hospitality."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "მიირთვი",
+     "lat": "miirtvi",
+     "en": "help yourself, eat",
+     "why": "A warm, polite word for \"eat\", said to guests."
+    },
+    {
+     "ka": "გაუმარჯოს",
+     "lat": "gaumarjos",
+     "en": "cheers, to…",
+     "why": "\"Victory to…\": the toast. What you drink to comes first: შენი ჯანმრთელობის გაუმარჯოს."
+    }
+   ]
+  },
+  {
+   "id": "pd-clothes",
+   "category": "shopping",
+   "title": "Buying clothes",
+   "roles": [
+    "Customer",
+    "Shop assistant"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა! რამე ხომ არ გჭირდებათ?",
+     "lat": "gamarjoba! rame khom ar gch'irdebat?",
+     "en": "Hello! Can I help you with anything?"
+    },
+    {
+     "who": 0,
+     "ka": "ეს მაისური მომწონს. უფრო დიდი ზომა გაქვთ?",
+     "lat": "es maisuri momts'ons. upro didi zoma gakvt?",
+     "en": "I like this T-shirt. Do you have a bigger size?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, აი. მოზომეთ, გასახდელი იქ არის.",
+     "lat": "k'i, ai. mozomet, gasakhdeli ik aris.",
+     "en": "Yes, here. Try it on, the fitting room is over there."
+    },
+    {
+     "who": 0,
+     "ka": "კარგად მერგება. რა ღირს?",
+     "lat": "k'argad mergeba. ra ghirs?",
+     "en": "It fits well. How much is it?"
+    },
+    {
+     "who": 1,
+     "ka": "ოცდაათი ლარი. ახლა ფასდაკლებაა.",
+     "lat": "otsdaati lari. akhla pasdak'lebaa.",
+     "en": "Thirty lari. There's a sale on now."
+    },
+    {
+     "who": 0,
+     "ka": "ამას ავიღებ. ბარათით შეიძლება?",
+     "lat": "amas avigheb. baratit sheidzleba?",
+     "en": "I'll take it. Can I pay by card?"
+    },
+    {
+     "who": 1,
+     "ka": "რა თქმა უნდა.",
+     "lat": "ra tkma unda.",
+     "en": "Of course."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "მერგება",
+     "lat": "mergeba",
+     "en": "it fits me",
+     "why": "მ- for \"me\" again, as in მინდა and მომწონს."
+    },
+    {
+     "ka": "ფასდაკლება",
+     "lat": "pasdak'leba",
+     "en": "a sale, a discount",
+     "why": "ფასი (price) + დაკლება (taking off)."
+    }
+   ]
+  },
+  {
+   "id": "pd-hiking",
+   "category": "travel",
+   "title": "Asking about a trail",
+   "roles": [
+    "Hiker",
+    "Local"
+   ],
+   "lines": [
+    {
+     "who": 0,
+     "ka": "გამარჯობა! ეს ბილიკი ტბასთან მიდის?",
+     "lat": "gamarjoba! es bilik'i t'bastan midis?",
+     "en": "Hello! Does this path go to the lake?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, პირდაპირ წადით, ხიდამდე.",
+     "lat": "k'i, p'irdap'ir ts'adit, khidamde.",
+     "en": "Yes, go straight on, as far as the bridge."
+    },
+    {
+     "who": 0,
+     "ka": "ფეხით რამდენი საათია?",
+     "lat": "pekhit ramdeni saatia?",
+     "en": "How many hours is it on foot?"
+    },
+    {
+     "who": 1,
+     "ka": "დაახლოებით სამი საათი.",
+     "lat": "daakhloebit sami saati.",
+     "en": "About three hours."
+    },
+    {
+     "who": 0,
+     "ka": "წყარო გზაზე არის?",
+     "lat": "ts'q'aro gzaze aris?",
+     "en": "Is there a spring on the way?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, ხიდის შემდეგ. წყალი სუფთაა.",
+     "lat": "k'i, khidis shemdeg. ts'q'ali suptaa.",
+     "en": "Yes, after the bridge. The water is clean."
+    },
+    {
+     "who": 0,
+     "ka": "ამინდი როგორი იქნება?",
+     "lat": "amindi rogori ikneba?",
+     "en": "What will the weather be like?"
+    },
+    {
+     "who": 1,
+     "ka": "საღამოს შეიძლება იწვიმოს. ადრე დაბრუნდით.",
+     "lat": "saghamos sheidzleba its'vimos. adre dabrundit.",
+     "en": "It may rain in the evening. Come back early."
+    },
+    {
+     "who": 0,
+     "ka": "კარგი, დიდი მადლობა!",
+     "lat": "k'argi, didi madloba!",
+     "en": "OK, thank you very much!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "ხიდამდე",
+     "lat": "khidamde",
+     "en": "as far as the bridge",
+     "why": "-მდე: up to, as far as."
+    },
+    {
+     "ka": "შეიძლება იწვიმოს",
+     "lat": "sheidzleba its'vimos",
+     "en": "it may rain",
+     "why": "შეიძლება also means \"maybe, it may\"."
+    }
+   ]
+  },
+  {
+   "id": "pd-trainer",
+   "category": "sport",
+   "title": "With a personal trainer",
+   "roles": [
+    "Client",
+    "Trainer"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "დღეს ფეხების ვარჯიში გვაქვს.",
+     "lat": "dghes pekhebis varjishi gvakvs.",
+     "en": "Today we're doing legs."
+    },
+    {
+     "who": 0,
+     "ka": "კარგი. რამდენი მიდგომა?",
+     "lat": "k'argi. ramdeni midgoma?",
+     "en": "OK. How many sets?"
+    },
+    {
+     "who": 1,
+     "ka": "სამი მიდგომა, თორმეტი გამეორება.",
+     "lat": "sami midgoma, tormet'i gameoreba.",
+     "en": "Three sets of twelve."
+    },
+    {
+     "who": 0,
+     "ka": "ეს ძალიან მძიმეა.",
+     "lat": "es dzalian mdzimea.",
+     "en": "This is very heavy."
+    },
+    {
+     "who": 1,
+     "ka": "კარგი, ცოტა შევამსუბუქოთ.",
+     "lat": "k'argi, tsot'a shevamsubukot.",
+     "en": "OK, let's make it a bit lighter."
+    },
+    {
+     "who": 0,
+     "ka": "ასე უკეთესია. შესვენება შეიძლება?",
+     "lat": "ase uk'etesia. shesveneba sheidzleba?",
+     "en": "That's better. Can I take a break?"
+    },
+    {
+     "who": 1,
+     "ka": "ერთი წუთი დაისვენე, მერე გავაგრძელოთ.",
+     "lat": "erti ts'uti daisvene, mere gavagrdzelot.",
+     "en": "Rest for a minute, then we'll carry on."
+    },
+    {
+     "who": 0,
+     "ka": "კარგი, მადლობა!",
+     "lat": "k'argi, madloba!",
+     "en": "OK, thanks!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "გამეორება",
+     "lat": "gameoreba",
+     "en": "a repetition, a rep",
+     "why": "Also \"repeating\": გაიმეორეთ, please repeat."
+    },
+    {
+     "ka": "დაისვენე",
+     "lat": "daisvene",
+     "en": "rest",
+     "why": "To a friend; politely: დაისვენეთ."
+    }
+   ]
   }
  ],
  "synonyms": {

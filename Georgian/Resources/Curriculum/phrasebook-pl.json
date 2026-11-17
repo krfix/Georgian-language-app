@@ -8433,6 +8433,626 @@
      "why": "Jeśli zabraknie ci gruzińskiego, zapytaj: ინგლისური იცით? (mówi pan po angielsku?)"
     }
    ]
+  },
+  {
+   "id": "pd-post",
+   "category": "work",
+   "title": "Wysyłamy paczkę",
+   "roles": [
+    "Klient",
+    "Pracownica poczty"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა! რით შემიძლია დაგეხმაროთ?",
+     "lat": "gamarjoba! rit shemidzlia dagekhmarot?",
+     "en": "Dzień dobry! W czym mogę pomóc?"
+    },
+    {
+     "who": 0,
+     "ka": "გამარჯობა. ეს ამანათი პოლონეთში უნდა გავაგზავნო.",
+     "lat": "gamarjoba. es amanati p'olonetshi unda gavagzavno.",
+     "en": "Dzień dobry. Muszę wysłać tę paczkę do Polski."
+    },
+    {
+     "who": 1,
+     "ka": "აქ დადეთ, თუ შეიძლება. რა არის შიგნით?",
+     "lat": "ak dadet, tu sheidzleba. ra aris shignit?",
+     "en": "Proszę ją tu położyć. Co jest w środku?"
+    },
+    {
+     "who": 0,
+     "ka": "წიგნები და ჩაი.",
+     "lat": "ts'ignebi da chai.",
+     "en": "Książki i herbata."
+    },
+    {
+     "who": 1,
+     "ka": "ჩვეულებრივი თუ ექსპრესი?",
+     "lat": "chveulebrivi tu eksp'resi?",
+     "en": "Zwykła czy ekspresowa?"
+    },
+    {
+     "who": 0,
+     "ka": "ჩვეულებრივი. რამდენი ხანი დასჭირდება?",
+     "lat": "chveulebrivi. ramdeni khani dasch'irdeba?",
+     "en": "Zwykła. Ile to potrwa?"
+    },
+    {
+     "who": 1,
+     "ka": "დაახლოებით ორი კვირა. ორმოცდაათი ლარი.",
+     "lat": "daakhloebit ori k'vira. ormotsdaati lari.",
+     "en": "Około dwóch tygodni. Pięćdziesiąt lari."
+    },
+    {
+     "who": 0,
+     "ka": "კარგი. ბარათით შეიძლება?",
+     "lat": "k'argi. baratit sheidzleba?",
+     "en": "Dobrze. Mogę zapłacić kartą?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, რა თქმა უნდა.",
+     "lat": "k'i, ra tkma unda.",
+     "en": "Tak, oczywiście."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "პოლონეთში",
+     "lat": "p'olonetshi",
+     "en": "do Polski",
+     "why": "-ში znaczy i „w”, i „do”: პოლონეთში to „w Polsce” albo „do Polski”. Gruziński nie odróżnia „gdzie?” od „dokąd?”, w przeciwieństwie do polskiego."
+    },
+    {
+     "ka": "უნდა გავაგზავნო",
+     "lat": "unda gavagzavno",
+     "en": "muszę wysłać",
+     "why": "უნდა + czasownik: „muszę”, „trzeba”. უნდა się nie odmienia, jak nasze „trzeba”."
+    }
+   ]
+  },
+  {
+   "id": "pd-hairdresser",
+   "category": "home",
+   "title": "U fryzjera",
+   "roles": [
+    "Klient",
+    "Fryzjerka"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა! დაბრძანდით.",
+     "lat": "gamarjoba! dabrdzandit.",
+     "en": "Dzień dobry! Proszę usiąść."
+    },
+    {
+     "who": 0,
+     "ka": "გამარჯობა. თმის შეჭრა მინდა.",
+     "lat": "gamarjoba. tmis shech'ra minda.",
+     "en": "Dzień dobry. Chciałbym (chciałabym) się ostrzyc."
+    },
+    {
+     "who": 1,
+     "ka": "როგორ შეგჭრათ?",
+     "lat": "rogor shegch'rat?",
+     "en": "Jak strzyżemy?"
+    },
+    {
+     "who": 0,
+     "ka": "ცოტა მოკლედ, აქ და აქ.",
+     "lat": "tsot'a mok'led, ak da ak.",
+     "en": "Trochę krócej, tu i tu."
+    },
+    {
+     "who": 1,
+     "ka": "გვერდებზე უფრო მოკლე?",
+     "lat": "gverdebze upro mok'le?",
+     "en": "Krócej po bokach?"
+    },
+    {
+     "who": 0,
+     "ka": "კი. ზემოთ მხოლოდ ცოტა, თუ შეიძლება.",
+     "lat": "k'i. zemot mkholod tsot'a, tu sheidzleba.",
+     "en": "Tak. Na górze tylko trochę, proszę."
+    },
+    {
+     "who": 1,
+     "ka": "კარგი. თმა დაგბანოთ?",
+     "lat": "k'argi. tma dagbanot?",
+     "en": "Dobrze. Umyć włosy?"
+    },
+    {
+     "who": 0,
+     "ka": "არა, მადლობა. რა ღირს?",
+     "lat": "ara, madloba. ra ghirs?",
+     "en": "Nie, dziękuję. Ile płacę?"
+    },
+    {
+     "who": 1,
+     "ka": "ოცდახუთი ლარი.",
+     "lat": "otsdakhuti lari.",
+     "en": "Dwadzieścia pięć lari."
+    },
+    {
+     "who": 0,
+     "ka": "ძალიან მომწონს, დიდი მადლობა!",
+     "lat": "dzalian momts'ons, didi madloba!",
+     "en": "Bardzo mi się podoba, wielkie dzięki!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "დაბრძანდით",
+     "lat": "dabrdzandit",
+     "en": "proszę usiąść",
+     "why": "Bardzo uprzejme. Może też znaczyć „proszę wejść” albo „witamy”."
+    },
+    {
+     "ka": "თმის შეჭრა",
+     "lat": "tmis shech'ra",
+     "en": "strzyżenie",
+     "why": "Dosłownie „cięcie włosów”: თმა to włosy."
+    }
+   ]
+  },
+  {
+   "id": "pd-exchange",
+   "category": "work",
+   "title": "Wymiana pieniędzy",
+   "roles": [
+    "Klient",
+    "Kasjerka"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა, გისმენთ.",
+     "lat": "gamarjoba, gisment.",
+     "en": "Dzień dobry, słucham?"
+    },
+    {
+     "who": 0,
+     "ka": "გამარჯობა. ევროს გადაცვლა მინდა.",
+     "lat": "gamarjoba. evros gadatsvla minda.",
+     "en": "Dzień dobry. Chciałbym (chciałabym) wymienić euro."
+    },
+    {
+     "who": 1,
+     "ka": "რამდენი?",
+     "lat": "ramdeni?",
+     "en": "Ile?"
+    },
+    {
+     "who": 0,
+     "ka": "ასი ევრო.",
+     "lat": "asi evro.",
+     "en": "Sto euro."
+    },
+    {
+     "who": 1,
+     "ka": "პასპორტი გაქვთ?",
+     "lat": "p'asp'ort'i gakvt?",
+     "en": "Ma pan paszport?"
+    },
+    {
+     "who": 0,
+     "ka": "კი, აი.",
+     "lat": "k'i, ai.",
+     "en": "Tak, proszę."
+    },
+    {
+     "who": 1,
+     "ka": "აი, ინებეთ. ქვითარიც აქ არის.",
+     "lat": "ai, inebet. kvitarits ak aris.",
+     "en": "Proszę bardzo. Tu jest też potwierdzenie."
+    },
+    {
+     "who": 0,
+     "ka": "მადლობა. ბანკომატი სად არის?",
+     "lat": "madloba. bank'omat'i sad aris?",
+     "en": "Dziękuję. Gdzie jest bankomat?"
+    },
+    {
+     "who": 1,
+     "ka": "შესასვლელთან, მარჯვნივ.",
+     "lat": "shesasvleltan, marjvniv.",
+     "en": "Przy wejściu, po prawej."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "გადაცვლა",
+     "lat": "gadatsvla",
+     "en": "wymiana (pieniędzy)",
+     "why": "Od ფულის გადაცვლა, wymiana pieniędzy."
+    },
+    {
+     "ka": "ქვითარიც",
+     "lat": "kvitarits",
+     "en": "też potwierdzenie",
+     "why": "-ც na końcu słowa znaczy „też, także”, trochę jak nasze „i” w „i ja”."
+    }
+   ]
+  },
+  {
+   "id": "pd-marshrutka",
+   "category": "transport",
+   "title": "W marszrutce",
+   "roles": [
+    "Pasażer",
+    "Kierowca"
+   ],
+   "lines": [
+    {
+     "who": 0,
+     "ka": "ბოდიში, ეს მარშრუტკა ვაკეში მიდის?",
+     "lat": "bodishi, es marshrut'k'a vak'eshi midis?",
+     "en": "Przepraszam, czy ta marszrutka jedzie na Wake?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, მიდის. დაჯექით.",
+     "lat": "k'i, midis. dajekit.",
+     "en": "Tak, jedzie. Proszę siadać."
+    },
+    {
+     "who": 0,
+     "ka": "რა ღირს?",
+     "lat": "ra ghirs?",
+     "en": "Ile to kosztuje?"
+    },
+    {
+     "who": 1,
+     "ka": "ერთი ლარი.",
+     "lat": "erti lari.",
+     "en": "Jedno lari."
+    },
+    {
+     "who": 0,
+     "ka": "როცა ჭავჭავაძეზე მივალთ, მითხარით, თუ შეიძლება.",
+     "lat": "rotsa ch'avch'avadzeze mivalt, mitkharit, tu sheidzleba.",
+     "en": "Proszę mi powiedzieć, kiedy będziemy na Czawczawadzego."
+    },
+    {
+     "who": 1,
+     "ka": "კარგი, გეტყვით.",
+     "lat": "k'argi, get'q'vit.",
+     "en": "Dobrze, powiem panu."
+    },
+    {
+     "who": 1,
+     "ka": "აი, ჭავჭავაძე.",
+     "lat": "ai, ch'avch'avadze.",
+     "en": "O, Czawczawadze."
+    },
+    {
+     "who": 0,
+     "ka": "აქ გამიჩერეთ, თუ შეიძლება!",
+     "lat": "ak gamicheret, tu sheidzleba!",
+     "en": "Proszę tu stanąć!"
+    },
+    {
+     "who": 0,
+     "ka": "მადლობა!",
+     "lat": "madloba!",
+     "en": "Dzięki!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "მითხარით",
+     "lat": "mitkharit",
+     "en": "proszę mi powiedzieć",
+     "why": "მი- wkłada do czasownika „mi”, a -თ czyni go grzecznym, jak nasze „proszę pana”."
+    },
+    {
+     "ka": "გეტყვით",
+     "lat": "get'q'vit",
+     "en": "powiem panu",
+     "why": "გ- to „ci/panu”, jak w გინდა."
+    }
+   ]
+  },
+  {
+   "id": "pd-supra",
+   "category": "social",
+   "title": "Kolacja u przyjaciół",
+   "roles": [
+    "Gość",
+    "Gospodarz"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "შემოდი, შემოდი! როგორ ხარ?",
+     "lat": "shemodi, shemodi! rogor khar?",
+     "en": "Wchodź, wchodź! Jak się masz?"
+    },
+    {
+     "who": 0,
+     "ka": "კარგად, მადლობა. ეს შენთვის.",
+     "lat": "k'argad, madloba. es shentvis.",
+     "en": "Dobrze, dzięki. To dla ciebie."
+    },
+    {
+     "who": 1,
+     "ka": "რა საჭირო იყო! დაჯექი, მიირთვი.",
+     "lat": "ra sach'iro iq'o! dajeki, miirtvi.",
+     "en": "Nie trzeba było! Siadaj, częstuj się."
+    },
+    {
+     "who": 0,
+     "ka": "რა გემრიელია! ეს რა არის?",
+     "lat": "ra gemrielia! es ra aris?",
+     "en": "Pyszne! Co to jest?"
+    },
+    {
+     "who": 1,
+     "ka": "ფხალი. ნიგვზით არის გაკეთებული.",
+     "lat": "pkhali. nigvzit aris gak'etebuli.",
+     "en": "Pchali. Jest zrobione z orzechami włoskimi."
+    },
+    {
+     "who": 1,
+     "ka": "ღვინო დაგისხა?",
+     "lat": "ghvino dagiskha?",
+     "en": "Nalać ci wina?"
+    },
+    {
+     "who": 0,
+     "ka": "ცოტა, თუ შეიძლება.",
+     "lat": "tsot'a, tu sheidzleba.",
+     "en": "Tylko trochę, proszę."
+    },
+    {
+     "who": 1,
+     "ka": "შენი ჯანმრთელობის გაუმარჯოს!",
+     "lat": "sheni janmrtelobis gaumarjos!",
+     "en": "Za twoje zdrowie!"
+    },
+    {
+     "who": 0,
+     "ka": "გაუმარჯოს! დიდი მადლობა სტუმართმოყვარეობისთვის.",
+     "lat": "gaumarjos! didi madloba st'umartmoq'vareobistvis.",
+     "en": "Na zdrowie! Bardzo dziękuję za gościnę."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "მიირთვი",
+     "lat": "miirtvi",
+     "en": "częstuj się, jedz",
+     "why": "Ciepłe, uprzejme słowo „jedz”, mówione do gości."
+    },
+    {
+     "ka": "გაუმარჯოს",
+     "lat": "gaumarjos",
+     "en": "na zdrowie, za…",
+     "why": "„Niech żyje…”, toast. To, za co pijesz, stoi na początku, w dopełniaczu, jak nasze „za zdrowie”: შენი ჯანმრთელობის გაუმარჯოს."
+    }
+   ]
+  },
+  {
+   "id": "pd-clothes",
+   "category": "shopping",
+   "title": "Kupujemy ubrania",
+   "roles": [
+    "Klient",
+    "Sprzedawca"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "გამარჯობა! რამე ხომ არ გჭირდებათ?",
+     "lat": "gamarjoba! rame khom ar gch'irdebat?",
+     "en": "Dzień dobry! W czymś pomóc?"
+    },
+    {
+     "who": 0,
+     "ka": "ეს მაისური მომწონს. უფრო დიდი ზომა გაქვთ?",
+     "lat": "es maisuri momts'ons. upro didi zoma gakvt?",
+     "en": "Podoba mi się ta koszulka. Jest większy rozmiar?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, აი. მოზომეთ, გასახდელი იქ არის.",
+     "lat": "k'i, ai. mozomet, gasakhdeli ik aris.",
+     "en": "Tak, proszę. Proszę przymierzyć, przymierzalnia jest tam."
+    },
+    {
+     "who": 0,
+     "ka": "კარგად მერგება. რა ღირს?",
+     "lat": "k'argad mergeba. ra ghirs?",
+     "en": "Dobrze leży. Ile kosztuje?"
+    },
+    {
+     "who": 1,
+     "ka": "ოცდაათი ლარი. ახლა ფასდაკლებაა.",
+     "lat": "otsdaati lari. akhla pasdak'lebaa.",
+     "en": "Trzydzieści lari. Teraz jest wyprzedaż."
+    },
+    {
+     "who": 0,
+     "ka": "ამას ავიღებ. ბარათით შეიძლება?",
+     "lat": "amas avigheb. baratit sheidzleba?",
+     "en": "Wezmę. Mogę zapłacić kartą?"
+    },
+    {
+     "who": 1,
+     "ka": "რა თქმა უნდა.",
+     "lat": "ra tkma unda.",
+     "en": "Oczywiście."
+    }
+   ],
+   "notes": [
+    {
+     "ka": "მერგება",
+     "lat": "mergeba",
+     "en": "pasuje na mnie",
+     "why": "Znowu მ- jako „mi/na mnie”, jak w მინდა i მომწონს."
+    },
+    {
+     "ka": "ფასდაკლება",
+     "lat": "pasdak'leba",
+     "en": "wyprzedaż, zniżka",
+     "why": "ფასი (cena) + დაკლება (obniżanie): „obniżka ceny”."
+    }
+   ]
+  },
+  {
+   "id": "pd-hiking",
+   "category": "travel",
+   "title": "Pytamy o szlak",
+   "roles": [
+    "Turysta",
+    "Miejscowy"
+   ],
+   "lines": [
+    {
+     "who": 0,
+     "ka": "გამარჯობა! ეს ბილიკი ტბასთან მიდის?",
+     "lat": "gamarjoba! es bilik'i t'bastan midis?",
+     "en": "Dzień dobry! Czy ta ścieżka prowadzi nad jezioro?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, პირდაპირ წადით, ხიდამდე.",
+     "lat": "k'i, p'irdap'ir ts'adit, khidamde.",
+     "en": "Tak, proszę iść prosto, aż do mostu."
+    },
+    {
+     "who": 0,
+     "ka": "ფეხით რამდენი საათია?",
+     "lat": "pekhit ramdeni saatia?",
+     "en": "Ile godzin pieszo?"
+    },
+    {
+     "who": 1,
+     "ka": "დაახლოებით სამი საათი.",
+     "lat": "daakhloebit sami saati.",
+     "en": "Mniej więcej trzy godziny."
+    },
+    {
+     "who": 0,
+     "ka": "წყარო გზაზე არის?",
+     "lat": "ts'q'aro gzaze aris?",
+     "en": "Czy po drodze jest źródło?"
+    },
+    {
+     "who": 1,
+     "ka": "კი, ხიდის შემდეგ. წყალი სუფთაა.",
+     "lat": "k'i, khidis shemdeg. ts'q'ali suptaa.",
+     "en": "Tak, za mostem. Woda jest czysta."
+    },
+    {
+     "who": 0,
+     "ka": "ამინდი როგორი იქნება?",
+     "lat": "amindi rogori ikneba?",
+     "en": "Jaka będzie pogoda?"
+    },
+    {
+     "who": 1,
+     "ka": "საღამოს შეიძლება იწვიმოს. ადრე დაბრუნდით.",
+     "lat": "saghamos sheidzleba its'vimos. adre dabrundit.",
+     "en": "Wieczorem może padać. Proszę wrócić wcześnie."
+    },
+    {
+     "who": 0,
+     "ka": "კარგი, დიდი მადლობა!",
+     "lat": "k'argi, didi madloba!",
+     "en": "Dobrze, bardzo dziękuję!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "ხიდამდე",
+     "lat": "khidamde",
+     "en": "aż do mostu",
+     "why": "-მდე: aż do."
+    },
+    {
+     "ka": "შეიძლება იწვიმოს",
+     "lat": "sheidzleba its'vimos",
+     "en": "może padać",
+     "why": "შეიძლება znaczy też „może, możliwe”, jak nasze „można” i „może” w jednym."
+    }
+   ]
+  },
+  {
+   "id": "pd-trainer",
+   "category": "sport",
+   "title": "Z trenerem personalnym",
+   "roles": [
+    "Klient",
+    "Trener"
+   ],
+   "lines": [
+    {
+     "who": 1,
+     "ka": "დღეს ფეხების ვარჯიში გვაქვს.",
+     "lat": "dghes pekhebis varjishi gvakvs.",
+     "en": "Dziś robimy nogi."
+    },
+    {
+     "who": 0,
+     "ka": "კარგი. რამდენი მიდგომა?",
+     "lat": "k'argi. ramdeni midgoma?",
+     "en": "Dobrze. Ile serii?"
+    },
+    {
+     "who": 1,
+     "ka": "სამი მიდგომა, თორმეტი გამეორება.",
+     "lat": "sami midgoma, tormet'i gameoreba.",
+     "en": "Trzy serie po dwanaście."
+    },
+    {
+     "who": 0,
+     "ka": "ეს ძალიან მძიმეა.",
+     "lat": "es dzalian mdzimea.",
+     "en": "To jest bardzo ciężkie."
+    },
+    {
+     "who": 1,
+     "ka": "კარგი, ცოტა შევამსუბუქოთ.",
+     "lat": "k'argi, tsot'a shevamsubukot.",
+     "en": "Dobra, zmniejszmy trochę ciężar."
+    },
+    {
+     "who": 0,
+     "ka": "ასე უკეთესია. შესვენება შეიძლება?",
+     "lat": "ase uk'etesia. shesveneba sheidzleba?",
+     "en": "Tak lepiej. Mogę zrobić przerwę?"
+    },
+    {
+     "who": 1,
+     "ka": "ერთი წუთი დაისვენე, მერე გავაგრძელოთ.",
+     "lat": "erti ts'uti daisvene, mere gavagrdzelot.",
+     "en": "Odpocznij minutę, potem lecimy dalej."
+    },
+    {
+     "who": 0,
+     "ka": "კარგი, მადლობა!",
+     "lat": "k'argi, madloba!",
+     "en": "Dobra, dzięki!"
+    }
+   ],
+   "notes": [
+    {
+     "ka": "გამეორება",
+     "lat": "gameoreba",
+     "en": "powtórzenie",
+     "why": "Też „powtarzanie”: გაიმეორეთ, proszę powtórzyć."
+    },
+    {
+     "ka": "დაისვენე",
+     "lat": "daisvene",
+     "en": "odpocznij",
+     "why": "Na ty; grzecznie: დაისვენეთ."
+    }
+   ]
   }
  ],
  "synonyms": {
