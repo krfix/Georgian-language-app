@@ -37,7 +37,7 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 - [ ] Phrases with a gap for your own word (a street, a number, a name), shown to someone
       with the word filled in.
 - [ ] A home-screen widget or a Siri/Shortcuts action for "Show: please stop here".
-- [ ] Audio packs to download (the app is ~34 MB of clips now, two voices); native recordings first.
+- [ ] Audio packs to download (the app is ~45 MB of clips now: two voices, More words included); native recordings first.
 - [ ] The owner's list of small corrections from testing build #7.
 - [ ] Listening exercises are built only when audio exists, so they can't be tried yet on
       phones without a Georgian voice.
