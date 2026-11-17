@@ -48,18 +48,18 @@ enum DailyGoal: Int, CaseIterable, Identifiable {
     var id: Int { rawValue }
     var title: String {
         switch self {
-        case .casual: return "Casual"
-        case .regular: return "Regular"
-        case .serious: return "Serious"
-        case .intense: return "Intense"
+        case .casual: return tr("Casual")
+        case .regular: return tr("Regular")
+        case .serious: return tr("Serious")
+        case .intense: return tr("Intense")
         }
     }
     var minutes: String {
         switch self {
-        case .casual: return "about 5 minutes a day"
-        case .regular: return "about 10 minutes a day"
-        case .serious: return "about 15 minutes a day"
-        case .intense: return "about 25 minutes a day"
+        case .casual: return tr("about 5 minutes a day")
+        case .regular: return tr("about 10 minutes a day")
+        case .serious: return tr("about 15 minutes a day")
+        case .intense: return tr("about 25 minutes a day")
         }
     }
 }
@@ -139,8 +139,9 @@ struct ProgressSnapshot: Equatable {
 
 struct Achievement: Identifiable, Hashable {
     let id: String
-    let title: String
-    let detail: String
+    /// English; shown through `title` and `detail` in the learner's language.
+    let titleEN: String
+    let detailEN: String
     let symbol: String
     let color: String
     /// How far towards it, 0…1.
@@ -149,40 +150,43 @@ struct Achievement: Identifiable, Hashable {
     static func == (a: Achievement, b: Achievement) -> Bool { a.id == b.id }
     func hash(into h: inout Hasher) { h.combine(id) }
 
+    var title: String { tr(titleEN) }
+    var detail: String { tr(detailEN) }
+
     func isUnlocked(_ s: ProgressSnapshot) -> Bool { progress(s) >= 1 }
 
     static func ratio(_ value: Int, _ target: Int) -> Double { min(1, Double(value) / Double(target)) }
 
     static let all: [Achievement] = [
-        Achievement(id: "first-lesson", title: "First steps", detail: "Finish your first lesson", symbol: "figure.walk", color: "tkemali",
+        Achievement(id: "first-lesson", titleEN: "First steps", detailEN: "Finish your first lesson", symbol: "figure.walk", color: "tkemali",
                     progress: { Achievement.ratio($0.lessonsCompleted.count, 1) }),
-        Achievement(id: "letters-10", title: "Ten letters", detail: "Learn 10 letters", symbol: "textformat", color: "blacksea",
+        Achievement(id: "letters-10", titleEN: "Ten letters", detailEN: "Learn 10 letters", symbol: "textformat", color: "blacksea",
                     progress: { Achievement.ratio($0.lettersLearned, 10) }),
-        Achievement(id: "alphabet", title: "ანბანი", detail: "Finish the whole alphabet module", symbol: "character.book.closed.fill", color: "pomegranate",
+        Achievement(id: "alphabet", titleEN: "ანბანი", detailEN: "Finish the whole alphabet module", symbol: "character.book.closed.fill", color: "pomegranate",
                     progress: { $0.modulesCompleted.contains("alphabet") ? 1 : 0 }),
-        Achievement(id: "perfect", title: "Flawless", detail: "Finish a lesson without a mistake", symbol: "sparkles", color: "gold",
+        Achievement(id: "perfect", titleEN: "Flawless", detailEN: "Finish a lesson without a mistake", symbol: "sparkles", color: "gold",
                     progress: { Achievement.ratio($0.perfectLessons, 1) }),
-        Achievement(id: "streak-3", title: "On a roll", detail: "Learn 3 days in a row", symbol: "flame.fill", color: "pomegranate",
+        Achievement(id: "streak-3", titleEN: "On a roll", detailEN: "Learn 3 days in a row", symbol: "flame.fill", color: "pomegranate",
                     progress: { Achievement.ratio($0.longestStreak, 3) }),
-        Achievement(id: "streak-7", title: "One week", detail: "Learn 7 days in a row", symbol: "flame.fill", color: "gold",
+        Achievement(id: "streak-7", titleEN: "One week", detailEN: "Learn 7 days in a row", symbol: "flame.fill", color: "gold",
                     progress: { Achievement.ratio($0.longestStreak, 7) }),
-        Achievement(id: "streak-30", title: "A month of Georgian", detail: "Learn 30 days in a row", symbol: "crown.fill", color: "saperavi",
+        Achievement(id: "streak-30", titleEN: "A month of Georgian", detailEN: "Learn 30 days in a row", symbol: "crown.fill", color: "saperavi",
                     progress: { Achievement.ratio($0.longestStreak, 30) }),
-        Achievement(id: "words-25", title: "Word collector", detail: "Learn 25 words", symbol: "text.book.closed.fill", color: "tkemali",
+        Achievement(id: "words-25", titleEN: "Word collector", detailEN: "Learn 25 words", symbol: "text.book.closed.fill", color: "tkemali",
                     progress: { Achievement.ratio($0.wordsLearned, 25) }),
-        Achievement(id: "words-100", title: "Wordsmith", detail: "Learn 100 words", symbol: "books.vertical.fill", color: "saperavi",
+        Achievement(id: "words-100", titleEN: "Wordsmith", detailEN: "Learn 100 words", symbol: "books.vertical.fill", color: "saperavi",
                     progress: { Achievement.ratio($0.wordsLearned, 100) }),
-        Achievement(id: "xp-100", title: "100 XP", detail: "Earn 100 XP", symbol: "star.fill", color: "gold",
+        Achievement(id: "xp-100", titleEN: "100 XP", detailEN: "Earn 100 XP", symbol: "star.fill", color: "gold",
                     progress: { Achievement.ratio($0.totalXP, 100) }),
-        Achievement(id: "xp-1000", title: "1000 XP", detail: "Earn 1000 XP", symbol: "star.circle.fill", color: "pomegranate",
+        Achievement(id: "xp-1000", titleEN: "1000 XP", detailEN: "Earn 1000 XP", symbol: "star.circle.fill", color: "pomegranate",
                     progress: { Achievement.ratio($0.totalXP, 1000) }),
-        Achievement(id: "goal-7", title: "Goal getter", detail: "Reach your daily goal on 7 days", symbol: "target", color: "blacksea",
+        Achievement(id: "goal-7", titleEN: "Goal getter", detailEN: "Reach your daily goal on 7 days", symbol: "target", color: "blacksea",
                     progress: { Achievement.ratio($0.goalDays, 7) }),
-        Achievement(id: "review-10", title: "Never forget", detail: "Finish 10 review sessions", symbol: "arrow.triangle.2.circlepath", color: "saperavi",
+        Achievement(id: "review-10", titleEN: "Never forget", detailEN: "Finish 10 review sessions", symbol: "arrow.triangle.2.circlepath", color: "saperavi",
                     progress: { Achievement.ratio($0.reviewSessions, 10) }),
-        Achievement(id: "everyday", title: "Ready for Tbilisi", detail: "Finish Everyday Georgian", symbol: "map.fill", color: "gold",
+        Achievement(id: "everyday", titleEN: "Ready for Tbilisi", detailEN: "Finish Everyday Georgian", symbol: "map.fill", color: "gold",
                     progress: { $0.modulesCompleted.contains("everyday") ? 1 : 0 }),
-        Achievement(id: "conversation", title: "Chatterbox", detail: "Finish every conversation", symbol: "bubble.left.and.bubble.right.fill", color: "tkemali",
+        Achievement(id: "conversation", titleEN: "Chatterbox", detailEN: "Finish every conversation", symbol: "bubble.left.and.bubble.right.fill", color: "tkemali",
                     progress: { $0.modulesCompleted.contains("conversation") ? 1 : 0 }),
     ]
 
@@ -213,10 +217,10 @@ struct DailyChallenge: Equatable {
 
     var title: String {
         switch kind {
-        case .doubleGoal: return "Earn \(target) XP today"
-        case .perfectLesson: return "Finish a lesson without a mistake"
-        case .review: return "Review \(target) words or letters"
-        case .twoLessons: return "Finish 2 lessons"
+        case .doubleGoal: return tr("Earn {0} XP today", target)
+        case .perfectLesson: return tr("Finish a lesson without a mistake")
+        case .review: return tr("Review {0} words or letters", target)
+        case .twoLessons: return tr("Finish 2 lessons")
         }
     }
 
@@ -276,16 +280,16 @@ enum StartingLevel: String, CaseIterable, Identifiable {
     var id: String { rawValue }
     var title: String {
         switch self {
-        case .beginner: return "I'm brand new"
-        case .someLetters: return "I know a few letters"
-        case .canRead: return "I can read Georgian"
+        case .beginner: return tr("I'm brand new")
+        case .someLetters: return tr("I know a few letters")
+        case .canRead: return tr("I can read Georgian")
         }
     }
     var detail: String {
         switch self {
-        case .beginner: return "Start with the alphabet, from the first letter."
-        case .someLetters: return "Start with the alphabet; every letter lesson is open to jump ahead."
-        case .canRead: return "Skip to everyday words. The alphabet stays open for revision."
+        case .beginner: return tr("Start with the alphabet, from the first letter.")
+        case .someLetters: return tr("Start with the alphabet; every letter lesson is open to jump ahead.")
+        case .canRead: return tr("Skip to everyday words. The alphabet stays open for revision.")
         }
     }
     var symbol: String {

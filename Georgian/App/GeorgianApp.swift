@@ -11,6 +11,8 @@ struct GeorgianApp: App {
                 switch app.state {
                 case .ready(let store, let audio):
                     RootView()
+                        .id(app.language)
+                        .environment(\.locale, app.language.locale)
                         .environment(store)
                         .environment(audio)
                         .environment(app)
@@ -39,6 +41,8 @@ final class AppModel {
 
     private(set) var state: State = .loading
     private(set) var container: ModelContainer?
+    /// The language the app speaks (English or Polish); changing it reloads the course.
+    private(set) var language: AppLanguage = .en
 
     var colorScheme: ColorScheme? {
         guard case .ready(let store, _) = state else { return nil }
@@ -52,8 +56,10 @@ final class AppModel {
     func start() {
         if case .ready = state { return }
         let options = LaunchOptions.current
+        AppLanguage.use(AppLanguage.stored, save: false)
+        language = AppLanguage.current
         do {
-            let curriculum = try Curriculum.load()
+            let curriculum = try Curriculum.load(language: language)
             let schema = Schema(versionedSchema: GeorgianSchemaV2.self)
             let config: ModelConfiguration
             if options.inMemory {
@@ -87,6 +93,27 @@ final class AppModel {
             state = .failed(error.localizedDescription)
         }
     }
+
+    /// Switches the app to another language: its own words, the course and the phrasebook.
+    /// Progress is kept (it's stored by id, the same in every language); the screens start
+    /// again from the top.
+    func setLanguage(_ new: AppLanguage) {
+        guard new != language, case .ready(let old, let audio) = state, let container else { return }
+        do {
+            let curriculum = try Curriculum.load(language: new)
+            AppLanguage.use(new)
+            let store = LearningStore(curriculum: curriculum, context: container.mainContext)
+            store.unlockAllLessons = old.unlockAllLessons
+            language = new
+            state = .ready(store, audio)
+            let p = store.profile
+            if p.remindersOn {
+                Task { _ = await ReminderScheduler.enable(hour: p.reminderHour, minute: p.reminderMinute, name: p.name) }
+            }
+        } catch {
+            // The other language's files are missing: stay in this one.
+        }
+    }
 }
 
 /// Shown only if the course or the saved progress can't be opened.
@@ -97,14 +124,14 @@ struct StartupProblemView: View {
     var body: some View {
         VStack(spacing: 20) {
             ParrotView(height: 120, mood: .think, bobbing: false)
-            Text("Something went wrong opening the app")
+            Text(tr("Something went wrong opening the app"))
                 .font(.title2Bold)
                 .multilineTextAlignment(.center)
             Text(message)
                 .font(.calloutRounded)
                 .foregroundStyle(Palette.inkSoft)
                 .multilineTextAlignment(.center)
-            Button("Try again", action: retry)
+            Button(tr("Try again"), action: retry)
                 .buttonStyle(ChunkyButtonStyle())
         }
         .padding(32)

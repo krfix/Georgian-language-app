@@ -42,11 +42,11 @@ struct GrammarLink: Codable, Hashable {
 enum PhraseRegister: String {
     case polite, informal
 
-    var title: String { self == .polite ? "Polite" : "Informal" }
+    var title: String { self == .polite ? tr("Polite") : tr("Informal") }
     var explanation: String {
         switch self {
-        case .polite: return "The polite form: for strangers, shops, older people and officials."
-        case .informal: return "For friends, family and children."
+        case .polite: return tr("The polite form: for strangers, shops, older people and officials.")
+        case .informal: return tr("For friends, family and children.")
         }
     }
 }

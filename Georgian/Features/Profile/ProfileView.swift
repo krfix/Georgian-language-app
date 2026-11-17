@@ -4,6 +4,7 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(LearningStore.self) private var store
     @Environment(AudioService.self) private var audio
+    @Environment(AppModel.self) private var app
     @Environment(\.dismiss) private var dismiss
     @State private var name = ""
     @State private var confirmReset = false
@@ -21,13 +22,13 @@ struct ProfileView: View {
                             .background(Circle().fill(Gradients.hero))
                             .accessibilityHidden(true)
                         VStack(alignment: .leading, spacing: 4) {
-                            TextField("Your name", text: $name)
+                            TextField(tr("Your name"), text: $name)
                                 .font(.title3.weight(.bold))
                                 .submitLabel(.done)
                                 .onSubmit(saveName)
                                 .accessibilityIdentifier("profile-name")
                             let xp = store.totalXP
-                            Text("Level \(LearnerLevel.level(forXP: xp)) · \(xp) XP · \(store.streak)-day streak")
+                            Text(tr("Level {0} · {1} XP · {2}-day streak", LearnerLevel.level(forXP: xp), xp, store.streak))
                                 .font(.caption)
                                 .foregroundStyle(Palette.inkSoft)
                         }
@@ -35,110 +36,125 @@ struct ProfileView: View {
                     .padding(.vertical, 6)
                 }
 
-                Section("Learning") {
-                    Picker("Daily goal", selection: goalBinding) {
+                Section(tr("Learning")) {
+                    Picker(tr("Daily goal"), selection: goalBinding) {
                         ForEach(DailyGoal.allCases) { g in
-                            Text("\(g.title) · \(g.rawValue) XP").tag(g.rawValue)
+                            Text(tr("{0} · {1} XP", g.title, g.rawValue)).tag(g.rawValue)
                         }
                     }
-                    Picker("Starting point", selection: levelBinding) {
+                    Picker(tr("Starting point"), selection: levelBinding) {
                         ForEach(StartingLevel.allCases) { l in Text(l.title).tag(l.rawValue) }
                     }
                     NavigationLink {
                         ScrollView { AchievementsGrid().padding(20) }
                             .background(Palette.background.ignoresSafeArea())
-                            .navigationTitle("Achievements")
+                            .navigationTitle(tr("Achievements"))
                     } label: {
-                        LabeledContent("Achievements", value: "\(store.achievementDates.count) of \(Achievement.all.count)")
+                        LabeledContent(tr("Achievements"), value: tr("{0} of {1}", store.achievementDates.count, Achievement.all.count))
                     }
-                    LabeledContent("Lessons finished", value: "\(store.completedLessons.count) of \(store.curriculum.lessons.count)")
-                    LabeledContent("Words learned", value: "\(store.snapshot.wordsLearned)")
+                    LabeledContent(tr("Lessons finished"), value: tr("{0} of {1}", store.completedLessons.count, store.curriculum.lessons.count))
+                    LabeledContent(tr("Words learned"), value: "\(store.snapshot.wordsLearned)")
                 }
 
                 Section {
-                    LabeledContent("Phrases", value: "\(store.phrasebook.phrases.count) in \(store.phrasebook.categories.count) situations")
-                    LabeledContent("Saved", value: "\(store.savedPhrases.count)")
-                    LabeledContent("Checked by", value: store.phrasebook.isNativeChecked ? "A native speaker" : "Claude (AI)")
+                    LabeledContent(tr("Phrases"), value: tr("{0} in {1} situations", store.phrasebook.phrases.count, store.phrasebook.categories.count))
+                    LabeledContent(tr("Saved"), value: "\(store.savedPhrases.count)")
+                    LabeledContent(tr("Checked by"), value: store.phrasebook.isNativeChecked ? tr("A native speaker") : tr("Claude (AI)"))
                 } header: {
-                    Text("Phrasebook")
+                    Text(tr("Phrasebook"))
                 } footer: {
-                    Text("Everything works offline: phrases, search, audio and your saved phrases are all on this iPhone.")
+                    Text(tr("Everything works offline: phrases, search, audio and your saved phrases are all on this iPhone."))
                 }
 
                 Section {
-                    Toggle("Slower Georgian audio", isOn: binding(\.slowAudio) { audio.slow = $0 })
-                    LabeledContent("Voice in the app", value: audio.syntheticClipCount > 0 ? "Eka · synthetic" : "None")
-                    LabeledContent("Native recordings", value: audio.nativeClipCount > 0 ? "\(audio.nativeClipCount) clips" : "Not included yet")
-                    LabeledContent("iPhone's Georgian voice", value: audio.georgianVoice == nil ? "Not on this iPhone" : (audio.georgianVoice?.name ?? "Installed"))
+                    Toggle(tr("Slower Georgian audio"), isOn: binding(\.slowAudio) { audio.slow = $0 })
+                    LabeledContent(tr("Voice in the app"), value: audio.syntheticClipCount > 0 ? tr("Eka · synthetic") : tr("None"))
+                    LabeledContent(tr("Native recordings"), value: audio.nativeClipCount > 0 ? tr("{0} clips", audio.nativeClipCount) : tr("Not included yet"))
+                    LabeledContent(tr("iPhone's Georgian voice"), value: audio.georgianVoice == nil ? tr("Not on this iPhone") : (audio.georgianVoice?.name ?? tr("Installed")))
                 } header: {
-                    Text("Audio")
+                    Text(tr("Audio"))
                 } footer: {
-                    Text("Georgian is spoken by Eka, a computer voice from Microsoft Azure, and labelled \"Synthetic voice\". A native speaker's recordings will replace her clips one by one and are labelled \"Native recording\".")
+                    Text(tr("Georgian is spoken by Eka, a computer voice from Microsoft Azure, and labelled \"Synthetic voice\". A native speaker's recordings will replace her clips one by one and are labelled \"Native recording\"."))
                 }
 
                 Section {
-                    Toggle("Daily reminder", isOn: reminderBinding)
+                    Toggle(tr("Daily reminder"), isOn: reminderBinding)
                         .accessibilityIdentifier("reminder-toggle")
                     if store.profile.remindersOn {
-                        DatePicker("Time", selection: reminderTime, displayedComponents: .hourAndMinute)
+                        DatePicker(tr("Time"), selection: reminderTime, displayedComponents: .hourAndMinute)
                     }
                     if reminderDenied {
-                        Text("Notifications are off for this app. Turn them on in the iPhone's Settings › Notifications.")
+                        Text(tr("Notifications are off for this app. Turn them on in the iPhone's Settings › Notifications."))
                             .font(.caption)
                             .foregroundStyle(Palette.error)
                     }
                 } header: {
-                    Text("Reminders")
+                    Text(tr("Reminders"))
                 }
 
-                Section("App") {
-                    Toggle("Haptics", isOn: binding(\.hapticsOn) { Haptics.enabled = $0 })
-                    Picker("Appearance", selection: binding(\.appearance)) {
-                        Text("System").tag("system")
-                        Text("Light").tag("light")
-                        Text("Dark").tag("dark")
+                Section {
+                    Picker(tr("Language"), selection: Binding(get: { app.language }, set: { new in
+                        // The app reloads in the new language; close this sheet first.
+                        dismiss()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { app.setLanguage(new) }
+                    })) {
+                        ForEach(AppLanguage.allCases) { l in Text(l.flag + " " + l.nativeName).tag(l) }
+                    }
+                    .accessibilityIdentifier("language-picker")
+                } header: {
+                    Text(tr("Language"))
+                } footer: {
+                    Text(tr("Explanations, meanings and the app itself in your language. Your progress stays the same."))
+                }
+
+                Section(tr("App")) {
+                    Toggle(tr("Haptics"), isOn: binding(\.hapticsOn) { Haptics.enabled = $0 })
+                    Picker(tr("Appearance"), selection: binding(\.appearance)) {
+                        Text(tr("System")).tag("system")
+                        Text(tr("Light")).tag("light")
+                        Text(tr("Dark")).tag("dark")
                     }
                 }
 
                 Section {
-                    Toggle("Open all lessons", isOn: Binding(get: { store.unlockAllLessons },
+                    Toggle(tr("Open all lessons"), isOn: Binding(get: { store.unlockAllLessons },
                                                              set: { store.unlockAllLessons = $0 }))
                         .accessibilityIdentifier("dev-unlock-all")
                 } header: {
-                    Text("Developer")
+                    Text(tr("Developer"))
                 } footer: {
-                    Text("For testing: every lesson can be opened, whatever you've finished. Your progress isn't changed.")
+                    Text(tr("For testing: every lesson can be opened, whatever you've finished. Your progress isn't changed."))
                 }
 
                 Section {
-                    Button("Start over", role: .destructive) { confirmReset = true }
+                    Button(tr("Start over"), role: .destructive) { confirmReset = true }
                         .accessibilityIdentifier("reset-progress")
                 } footer: {
                     VStack(alignment: .leading, spacing: 6) {
-                        Text("Everything stays on this iPhone: no account, no tracking.")
+                        Text(tr("Everything stays on this iPhone: no account, no tracking."))
                         AraSymbol(size: 34)
                             .padding(.top, 8)
-                        Text("Ara \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") · course v\(store.curriculum.version)")
+                        Text(tr("Ara {0} · course v{1}", Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "", store.curriculum.version))
                     }
                 }
             }
             .scrollContentBackground(.hidden)
             .background(AmbientBackground(tint: .saperavi))
-            .navigationTitle("Profile")
+            .navigationTitle(tr("Profile"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { saveName(); dismiss() }.accessibilityIdentifier("profile-done")
+                    Button(tr("Done")) { saveName(); dismiss() }.accessibilityIdentifier("profile-done")
                 }
             }
-            .confirmationDialog("Delete all progress?", isPresented: $confirmReset, titleVisibility: .visible) {
-                Button("Delete everything", role: .destructive) {
+            .confirmationDialog(tr("Delete all progress?"), isPresented: $confirmReset, titleVisibility: .visible) {
+                Button(tr("Delete everything"), role: .destructive) {
                     ReminderScheduler.disable()
                     dismiss()
                     store.resetAll()
                 }
             } message: {
-                Text("Your lessons, words, XP and streak will be gone. This can't be undone.")
+                Text(tr("Your lessons, words, XP and streak will be gone. This can't be undone."))
             }
             .onAppear { name = store.profile.name }
         }

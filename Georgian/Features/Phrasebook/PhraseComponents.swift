@@ -30,7 +30,7 @@ struct PlayButton: View {
                     .symbolEffect(.variableColor.iterative, isActive: audio.isPlaying(text))
             }
             .buttonStyle(.pressable)
-            .accessibilityLabel("Play")
+            .accessibilityLabel(tr("Play"))
         }
     }
 }
@@ -74,7 +74,7 @@ struct PhraseRow: View {
             }
             .buttonStyle(.pressable)
             .accessibilityElement(children: .combine)
-            .accessibilityHint("Opens the phrase card")
+            .accessibilityHint(tr("Opens the phrase card"))
             .accessibilityIdentifier("phrase-\(phrase.id)")
 
             VStack(spacing: 8) {
@@ -90,7 +90,7 @@ struct PhraseRow: View {
                         .background(Circle().fill(brand.color.opacity(0.14)))
                 }
                 .buttonStyle(.pressable)
-                .accessibilityLabel("Show to someone")
+                .accessibilityLabel(tr("Show to someone"))
                 .accessibilityIdentifier("show-\(phrase.id)")
             }
         }
@@ -112,7 +112,7 @@ struct PhraseRow: View {
                     .font(.system(size: 10, weight: .bold))
                     .foregroundStyle(Palette.gold)
                     .padding(8)
-                    .accessibilityLabel("Saved")
+                    .accessibilityLabel(tr("Saved"))
             }
         }
     }
@@ -142,7 +142,7 @@ struct CategoryTile: View {
                 .foregroundStyle(category.brand.onColor.opacity(0.85))
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
-            Text("\(count) phrases")
+            Text(tr("{0} phrases", count))
                 .font(.caption2.weight(.bold))
                 .foregroundStyle(category.brand.onColor.opacity(0.8))
         }
@@ -153,7 +153,7 @@ struct CategoryTile: View {
 
 /// A search field that isn't one yet: Home and the Phrasebook open the Search tab with it.
 struct SearchBarButton: View {
-    var prompt = "Search phrases: taxi, how much, pharmacy…"
+    var prompt = tr("Search phrases: taxi, how much, pharmacy…")
     let action: () -> Void
 
     var body: some View {
@@ -179,7 +179,7 @@ struct SearchBarButton: View {
             .shadow(color: Palette.pomegranate.opacity(0.10), radius: 10, y: 4)
         }
         .buttonStyle(.pressable)
-        .accessibilityLabel("Search phrases")
+        .accessibilityLabel(tr("Search phrases"))
         .accessibilityIdentifier("search-bar")
     }
 }
@@ -227,7 +227,7 @@ struct PhraseMiniCard: View {
                         .background(Circle().fill(brand.color.opacity(0.14)))
                 }
                 .buttonStyle(.pressable)
-                .accessibilityLabel("Show to someone")
+                .accessibilityLabel(tr("Show to someone"))
             }
         }
         .padding(14)
@@ -262,7 +262,7 @@ struct DialogueCard: View {
                 .font(.caption)
                 .foregroundStyle(Palette.inkSoft)
                 .lineLimit(1)
-            Text("\(dialogue.lines.count) lines")
+            Text(tr("{0} lines", dialogue.lines.count))
                 .font(.caption2.weight(.bold))
                 .foregroundStyle(brand.color)
         }
@@ -309,8 +309,8 @@ struct ContentCheckNote: View {
     var body: some View {
         Label {
             Text(store.phrasebook.isNativeChecked
-                 ? "Phrases checked by a native Georgian speaker. Audio: Eka, a synthetic voice."
-                 : "Phrases written and checked by Claude, an AI, for natural everyday Georgian. A native speaker's check is still to come. Audio: Eka, a synthetic voice.")
+                 ? tr("Phrases checked by a native Georgian speaker. Audio: Eka, a synthetic voice.")
+                 : tr("Phrases written and checked by Claude, an AI, for natural everyday Georgian. A native speaker's check is still to come. Audio: Eka, a synthetic voice."))
         } icon: {
             Image(systemName: "checkmark.shield.fill")
         }

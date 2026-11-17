@@ -27,7 +27,7 @@ struct SearchView: View {
             }
             .scrollDismissesKeyboard(.interactively)
             .background(AmbientBackground(tint: .pomegranate))
-            .navigationTitle("Search")
+            .navigationTitle(tr("Search"))
             .sheet(item: $openWord) { w in
                 WordDetailView(word: w)
                     .presentationDetents([.large])
@@ -62,7 +62,7 @@ struct SearchView: View {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 17, weight: .bold))
                 .foregroundStyle(Palette.pomegranate)
-            TextField("English, ქართული or Latin", text: $query)
+            TextField(tr("English, ქართული or Latin"), text: $query)
                 .font(.bodyRounded)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
@@ -77,7 +77,7 @@ struct SearchView: View {
                 } label: {
                     Image(systemName: "xmark.circle.fill").foregroundStyle(Palette.inkFaint)
                 }
-                .accessibilityLabel("Clear")
+                .accessibilityLabel(tr("Clear"))
             }
         }
         .padding(.horizontal, 16)
@@ -91,7 +91,7 @@ struct SearchView: View {
 
     @ViewBuilder private var idle: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Try").font(.headlineRounded).foregroundStyle(Palette.ink)
+            Text(tr("Try")).font(.headlineRounded).foregroundStyle(Palette.ink)
             FlowLayout(spacing: 8, alignment: .leading) {
                 ForEach(store.phrasebook.suggestions, id: \.self) { s in
                     Button {
@@ -113,9 +113,9 @@ struct SearchView: View {
         }
         if !recent.isEmpty {
             HStack {
-                Text("Recent searches").font(.headlineRounded).foregroundStyle(Palette.ink)
+                Text(tr("Recent searches")).font(.headlineRounded).foregroundStyle(Palette.ink)
                 Spacer()
-                Button("Clear") { RecentSearches.clear(); recent = [] }
+                Button(tr("Clear")) { RecentSearches.clear(); recent = [] }
                     .font(.calloutRounded.weight(.semibold))
                     .foregroundStyle(Palette.pomegranate)
             }
@@ -134,7 +134,7 @@ struct SearchView: View {
         }
         let used = store.recentPhrases
         if !used.isEmpty {
-            Text("Recently used").font(.headlineRounded).foregroundStyle(Palette.ink).padding(.top, 6)
+            Text(tr("Recently used")).font(.headlineRounded).foregroundStyle(Palette.ink).padding(.top, 6)
             ForEach(used.prefix(6)) { p in PhraseRow(phrase: p, showsCategory: true) }
         }
         ContentCheckNote()
@@ -146,12 +146,12 @@ struct SearchView: View {
         if r.isEmpty {
             ContentUnavailableView {
                 Label {
-                    Text("Nothing found")
+                    Text(tr("Nothing found"))
                 } icon: {
                     ParrotView(height: 110, mood: .think)
                 }
             } description: {
-                Text("Try one simple word, like \"taxi\", \"price\" or \"doctor\".")
+                Text(tr("Try one simple word, like \"taxi\", \"price\" or \"doctor\"."))
             }
             .padding(.top, 20)
         }
@@ -171,7 +171,7 @@ struct SearchView: View {
             }
         }
         if !r.phrases.isEmpty {
-            Text(r.phrases.count == 1 ? "1 phrase" : "\(r.phrases.count) phrases")
+            Text(plural(r.phrases.count, "phrase", "phrases", pl: ("zwrot", "zwroty", "zwrotów")))
                 .font(.captionBold).textCase(.uppercase).foregroundStyle(Palette.inkSoft)
             ForEach(r.phrases) { p in
                 PhraseRow(phrase: p, showsCategory: true)
@@ -184,7 +184,7 @@ struct SearchView: View {
             }
         }
         if !r.dialogues.isEmpty {
-            Text("Conversations").font(.headlineRounded).foregroundStyle(Palette.ink).padding(.top, 6)
+            Text(tr("Conversations")).font(.headlineRounded).foregroundStyle(Palette.ink).padding(.top, 6)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     ForEach(r.dialogues) { d in
@@ -196,7 +196,7 @@ struct SearchView: View {
             }
         }
         if !r.words.isEmpty {
-            Text("Words in the course").font(.headlineRounded).foregroundStyle(Palette.ink).padding(.top, 6)
+            Text(tr("Words in the course")).font(.headlineRounded).foregroundStyle(Palette.ink).padding(.top, 6)
             ForEach(r.words) { w in
                 Button {
                     Haptics.tap()

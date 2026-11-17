@@ -60,18 +60,18 @@ struct LessonPlayerView: View {
                     BottomBar(exercise: ex, model: model, tint: tint)
                 }
             }
-            .confirmationDialog("Leave this lesson?", isPresented: $confirmQuit, titleVisibility: .visible) {
-                Button("Leave", role: .destructive) { dismiss() }
-                Button("Keep learning", role: .cancel) {}
+            .confirmationDialog(tr("Leave this lesson?"), isPresented: $confirmQuit, titleVisibility: .visible) {
+                Button(tr("Leave"), role: .destructive) { dismiss() }
+                Button(tr("Keep learning"), role: .cancel) {}
             } message: {
-                Text("Your answers so far are saved, but the lesson won't count as finished.")
+                Text(tr("Your answers so far are saved, but the lesson won't count as finished."))
             }
         }
     }
 
     private func topBar(_ model: LessonPlayerModel) -> some View {
         HStack(spacing: 14) {
-            CircleIconButton(symbol: "xmark", label: "Close") {
+            CircleIconButton(symbol: "xmark", label: tr("Close")) {
                 if model.session.answered > 0 { confirmQuit = true } else { dismiss() }
             }
             .accessibilityIdentifier("lesson-close")
@@ -84,7 +84,7 @@ struct LessonPlayerView: View {
                 .font(.captionBold)
                 .foregroundStyle(Palette.flame)
                 .transition(.scale.combined(with: .opacity))
-                .accessibilityLabel("\(model.combo) right in a row")
+                .accessibilityLabel(tr("{0} right in a row", model.combo))
             }
         }
         .padding(.horizontal, 16)
@@ -109,11 +109,11 @@ private struct BottomBar: View {
             default:
                 VStack {
                     if !exercise.isGraded {
-                        Button("Continue") { Haptics.tap(); withMotion { model.next() } }
+                        Button(tr("Continue")) { Haptics.tap(); withMotion { model.next() } }
                             .buttonStyle(ChunkyButtonStyle(color: tint))
                             .accessibilityIdentifier("lesson-continue")
                     } else if showsCheck {
-                        Button("Check") { model.check() }
+                        Button(tr("Check")) { model.check() }
                             .buttonStyle(ChunkyButtonStyle(color: tint, isEnabled: model.canCheck))
                             .disabled(!model.canCheck)
                             .accessibilityIdentifier("lesson-check")
@@ -139,7 +139,7 @@ private struct BottomBar: View {
 struct FeedbackPanel: View {
     let evaluation: Evaluation
     let onContinue: () -> Void
-    @State private var praise = ["Brilliant!", "Great job!", "ყოჩაღ! Well done!", "Perfect!", "Spot on!", "Excellent!"].randomElement()!
+    @State private var praise = [tr("Brilliant!"), tr("Great job!"), tr("ყოჩაღ! Well done!"), tr("Perfect!"), tr("Spot on!"), tr("Excellent!")].randomElement()!
 
     private var color: Color {
         switch evaluation.verdict {
@@ -161,7 +161,7 @@ struct FeedbackPanel: View {
             .foregroundStyle(color)
             if evaluation.verdict != .correct, !evaluation.correctAnswer.isEmpty {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(evaluation.verdict == .almost ? "Watch the spelling:" : "Right answer:")
+                    Text(evaluation.verdict == .almost ? tr("Watch the spelling:") : tr("Right answer:"))
                         .font(.calloutRounded.weight(.semibold))
                         .foregroundStyle(color)
                     Text(evaluation.correctAnswer)
@@ -175,7 +175,7 @@ struct FeedbackPanel: View {
                     .foregroundStyle(Palette.inkSoft)
                     .fixedSize(horizontal: false, vertical: true)
             }
-            Button("Continue", action: { Haptics.tap(); onContinue() })
+            Button(tr("Continue"), action: { Haptics.tap(); onContinue() })
                 .buttonStyle(ChunkyButtonStyle(color: evaluation.verdict == .wrong ? .pomegranate : (evaluation.verdict == .almost ? .gold : .tkemali)))
                 .accessibilityIdentifier("lesson-continue")
         }
@@ -194,8 +194,8 @@ struct FeedbackPanel: View {
     private var title: String {
         switch evaluation.verdict {
         case .correct: return praise
-        case .almost: return "Almost!"
-        case .wrong: return "Not quite"
+        case .almost: return tr("Almost!")
+        case .wrong: return tr("Not quite")
         }
     }
 }

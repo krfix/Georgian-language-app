@@ -32,25 +32,25 @@ struct MyPhrasebookView: View {
                 if store.savedPhrases.isEmpty {
                     ContentUnavailableView {
                         Label {
-                            Text("Nothing saved yet")
+                            Text(tr("Nothing saved yet"))
                         } icon: {
                             ParrotView(height: 110, mood: .hello)
                         }
                     } description: {
-                        Text("Open any phrase and tap Save. It stays here, ready to show or practise.")
+                        Text(tr("Open any phrase and tap Save. It stays here, ready to show or practise."))
                     } actions: {
-                        Button("Browse situations") { navigator.phrasebookPath = NavigationPath() }
+                        Button(tr("Browse situations")) { navigator.phrasebookPath = NavigationPath() }
                             .buttonStyle(ChunkyButtonStyle(color: .gold))
                     }
                     .padding(.top, 30)
                 } else if list.isEmpty {
-                    Text("No phrases here yet.").font(.calloutRounded).foregroundStyle(Palette.inkSoft).padding(.top, 10)
+                    Text(tr("No phrases here yet.")).font(.calloutRounded).foregroundStyle(Palette.inkSoft).padding(.top, 10)
                 } else {
                     Button {
                         Haptics.tap()
-                        navigator.review(store.studyItems(list), title: "My phrasebook")
+                        navigator.review(store.studyItems(list), title: tr("My phrasebook"))
                     } label: {
-                        Label("Practise these \(list.count)", systemImage: "play.fill")
+                        Label(tr("Practise these {0}", list.count), systemImage: "play.fill")
                     }
                     .buttonStyle(ChunkyButtonStyle(color: .blacksea))
                     .accessibilityIdentifier("practise-saved")
@@ -66,7 +66,7 @@ struct MyPhrasebookView: View {
                                 .contextMenu { menu(for: p) }
                         }
                     }
-                    Text("Touch and hold a phrase to move it to a list or remove it.")
+                    Text(tr("Touch and hold a phrase to move it to a list or remove it."))
                         .font(.caption).foregroundStyle(Palette.inkFaint)
                 }
             }
@@ -74,26 +74,26 @@ struct MyPhrasebookView: View {
             .padding(.bottom, 30)
         }
         .background(AmbientBackground(tint: .gold))
-        .navigationTitle("My phrasebook")
+        .navigationTitle(tr("My phrasebook"))
         .navigationBarTitleDisplayMode(.large)
     }
 
     private var summary: some View {
         HStack(spacing: 12) {
-            StatTile(symbol: "star.fill", value: "\(store.savedPhrases.count)", label: "saved", color: Palette.gold, singleLine: true)
-            StatTile(symbol: "arrow.triangle.2.circlepath", value: "\(store.practisingPhraseCount)", label: "in review",
+            StatTile(symbol: "star.fill", value: "\(store.savedPhrases.count)", label: tr("saved"), color: Palette.gold, singleLine: true)
+            StatTile(symbol: "arrow.triangle.2.circlepath", value: "\(store.practisingPhraseCount)", label: tr("in review"),
                      color: Palette.blacksea, singleLine: true)
             StatTile(symbol: "checkmark.seal.fill", value: "\(store.savedPhrases.filter { store.isLearned($0.id) }.count)",
-                     label: "learned", color: Palette.tkemali, singleLine: true)
+                     label: tr("learned"), color: Palette.tkemali, singleLine: true)
         }
     }
 
     private var chips: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                chip("All", symbol: "square.grid.2x2.fill", .all)
-                chip("In review", symbol: "arrow.triangle.2.circlepath", .practising)
-                chip("Learned", symbol: "checkmark.seal.fill", .learned)
+                chip(tr("All"), symbol: "square.grid.2x2.fill", .all)
+                chip(tr("In review"), symbol: "arrow.triangle.2.circlepath", .practising)
+                chip(tr("Learned"), symbol: "checkmark.seal.fill", .learned)
                 ForEach(store.phraseLists, id: \.self) { name in chip(name, symbol: "folder.fill", .list(name)) }
             }
             .padding(.vertical, 4)
@@ -119,17 +119,17 @@ struct MyPhrasebookView: View {
 
     @ViewBuilder private func menu(for p: Phrase) -> some View {
         if store.isPractising(p.id) {
-            Button("Take out of review", systemImage: "arrow.uturn.backward") { store.stopPractising(p) }
+            Button(tr("Take out of review"), systemImage: "arrow.uturn.backward") { store.stopPractising(p) }
         } else {
-            Button("Practise in review", systemImage: "arrow.triangle.2.circlepath") { store.practiseLater(p) }
+            Button(tr("Practise in review"), systemImage: "arrow.triangle.2.circlepath") { store.practiseLater(p) }
         }
-        Button(store.isLearned(p.id) ? "Not learned yet" : "Mark as learned", systemImage: "checkmark.seal") {
+        Button(store.isLearned(p.id) ? tr("Not learned yet") : tr("Mark as learned"), systemImage: "checkmark.seal") {
             store.setLearned(p, !store.isLearned(p.id))
         }
-        Menu("Move to list") {
-            Button("No list") { store.move(p, toList: "") }
+        Menu(tr("Move to list")) {
+            Button(tr("No list")) { store.move(p, toList: "") }
             ForEach(store.phraseLists, id: \.self) { name in Button(name) { store.move(p, toList: name) } }
         }
-        Button("Remove from my phrasebook", systemImage: "star.slash", role: .destructive) { store.setSaved(p, false) }
+        Button(tr("Remove from my phrasebook"), systemImage: "star.slash", role: .destructive) { store.setSaved(p, false) }
     }
 }

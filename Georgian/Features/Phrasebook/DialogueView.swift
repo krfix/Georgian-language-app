@@ -41,7 +41,7 @@ struct DialogueView: View {
                 .font(.captionBold).textCase(.uppercase)
                 .foregroundStyle(brand.onColor.opacity(0.85))
             Text(dialogue.title).font(.titleBold).foregroundStyle(brand.onColor)
-            Text("\(name(0)) and \(name(1)). Tap a line to hear it.")
+            Text(tr("{0} and {1}. Tap a line to hear it.", name(0), name(1)))
                 .font(.calloutRounded).foregroundStyle(brand.onColor.opacity(0.9))
         }
         .gradientCard(brand)
@@ -50,8 +50,8 @@ struct DialogueView: View {
 
     private var toggles: some View {
         HStack(spacing: 8) {
-            toggle("English", on: $showEnglish)
-            toggle("Latin letters", on: $showLatin)
+            toggle(tr("English"), on: $showEnglish)
+            toggle(tr("Latin letters"), on: $showLatin)
             Spacer()
         }
     }
@@ -74,7 +74,7 @@ struct DialogueView: View {
 
     private var notes: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Label("Useful expressions", systemImage: "lightbulb.fill").font(.headlineRounded).foregroundStyle(Palette.gold)
+            Label(tr("Useful expressions"), systemImage: "lightbulb.fill").font(.headlineRounded).foregroundStyle(Palette.gold)
             ForEach(dialogue.notes, id: \.ka) { n in
                 VStack(alignment: .leading, spacing: 2) {
                     HStack(alignment: .firstTextBaseline) {
@@ -91,14 +91,14 @@ struct DialogueView: View {
 
     private var practice: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionTitle(title: "Practise it")
-            Text("Choose each of your lines; the other side speaks. Then swap.")
+            SectionTitle(title: tr("Practise it"))
+            Text(tr("Choose each of your lines; the other side speaks. Then swap."))
                 .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
             Button {
                 Haptics.tap()
                 navigator.practise(dialogue, as: 0, in: store.phrasebook)
             } label: {
-                Label("Be the \(name(0).lowercased())", systemImage: "play.fill")
+                Label(tr("Be the {0}", name(0).lowercased()), systemImage: "play.fill")
             }
             .buttonStyle(ChunkyButtonStyle(color: brand == .gold ? .pomegranate : brand))
             .accessibilityIdentifier("practise-0")
@@ -106,7 +106,7 @@ struct DialogueView: View {
                 Haptics.tap()
                 navigator.practise(dialogue, as: 1, in: store.phrasebook)
             } label: {
-                Label(name(1) == "Nana" ? "Be Nana" : "Be the \(name(1).lowercased())", systemImage: "arrow.left.arrow.right")
+                Label(name(1) == "Nana" ? tr("Be Nana") : tr("Be the {0}", name(1).lowercased()), systemImage: "arrow.left.arrow.right")
             }
             .buttonStyle(SoftButtonStyle())
             .accessibilityIdentifier("practise-1")
@@ -167,7 +167,7 @@ private struct LineBubble: View {
             }
             .buttonStyle(.pressable)
             .accessibilityElement(children: .combine)
-            .accessibilityHint("Plays the line")
+            .accessibilityHint(tr("Plays the line"))
             if !mine { Spacer(minLength: 40) }
         }
     }

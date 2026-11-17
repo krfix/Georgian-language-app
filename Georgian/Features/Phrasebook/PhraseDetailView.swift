@@ -22,8 +22,8 @@ struct PhraseDetailView: View {
                     actions
                     sayIt
                     if phrase.note != nil || phrase.lit != nil || phrase.register != nil { usage }
-                    if let v = phrase.variants, !v.isEmpty { forms("Other ways to say it", v, symbol: "arrow.triangle.branch") }
-                    if let r = phrase.replies, !r.isEmpty { forms("You may hear", r, symbol: "ear.fill") }
+                    if let v = phrase.variants, !v.isEmpty { forms(tr("Other ways to say it"), v, symbol: "arrow.triangle.branch") }
+                    if let r = phrase.replies, !r.isEmpty { forms(tr("You may hear"), r, symbol: "ear.fill") }
                     if !linkedWords.isEmpty { wordsCard }
                     if !grammar.isEmpty { grammarCard }
                     if store.isPractising(phrase.id) { reviewCard }
@@ -31,29 +31,29 @@ struct PhraseDetailView: View {
                 .padding(20)
             }
             .background(AmbientBackground(tint: brand).ignoresSafeArea())
-            .navigationTitle(store.phrasebook.category(phrase.category)?.title ?? "Phrase")
+            .navigationTitle(store.phrasebook.category(phrase.category)?.title ?? tr("Phrase"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }.accessibilityIdentifier("phrase-done")
+                    Button(tr("Done")) { dismiss() }.accessibilityIdentifier("phrase-done")
                 }
             }
             .overlay(alignment: .bottom) {
                 if let toast { Toast(text: toast).padding(.bottom, 20) }
             }
             .fullScreenCover(isPresented: $showing) { ShowPhraseView(phrase: phrase) }
-            .alert("New list", isPresented: $askListName) {
-                TextField("For example: At the bazaar", text: $newListName)
-                Button("Add") {
+            .alert(tr("New list"), isPresented: $askListName) {
+                TextField(tr("For example: At the bazaar"), text: $newListName)
+                Button(tr("Add")) {
                     if !newListName.trimmingCharacters(in: .whitespaces).isEmpty {
                         store.move(phrase, toList: newListName)
-                        flash("Added to \(newListName.trimmingCharacters(in: .whitespaces))")
+                        flash(tr("Added to {0}", newListName.trimmingCharacters(in: .whitespaces)))
                     }
                     newListName = ""
                 }
-                Button("Cancel", role: .cancel) { newListName = "" }
+                Button(tr("Cancel"), role: .cancel) { newListName = "" }
             } message: {
-                Text("A list of your own in your phrasebook.")
+                Text(tr("A list of your own in your phrasebook."))
             }
         }
         .onAppear { store.noteOpened(phrase) }
@@ -66,7 +66,7 @@ struct PhraseDetailView: View {
     private var hero: some View {
         VStack(spacing: 10) {
             if phrase.urgent {
-                Label("Emergency · call 112", systemImage: "exclamationmark.triangle.fill")
+                Label(tr("Emergency · call 112"), systemImage: "exclamationmark.triangle.fill")
                     .font(.captionBold)
                     .foregroundStyle(.white)
                     .padding(.horizontal, 12)
@@ -100,35 +100,35 @@ struct PhraseDetailView: View {
         let learned = store.isLearned(phrase.id)
         return VStack(spacing: 12) {
           HStack(spacing: 8) {
-            ActionTile(symbol: "textformat.size", title: "Show", color: brand.color, id: "action-show") {
+            ActionTile(symbol: "textformat.size", title: tr("Show"), color: brand.color, id: "action-show") {
                 showing = true
             }
-            ActionTile(symbol: saved ? "star.fill" : "star", title: saved ? "Saved" : "Save", color: Palette.gold,
+            ActionTile(symbol: saved ? "star.fill" : "star", title: saved ? tr("Saved") : tr("Save"), color: Palette.gold,
                        active: saved, id: "action-save") {
                 store.toggleSaved(phrase)
-                flash(saved ? "Removed from your phrasebook" : "Saved to your phrasebook")
+                flash(saved ? tr("Removed from your phrasebook") : tr("Saved to your phrasebook"))
             }
             ActionTile(symbol: practising ? "checkmark.circle.fill" : "arrow.triangle.2.circlepath",
-                       title: practising ? "In review" : "Practise", color: Palette.blacksea, active: practising,
+                       title: practising ? tr("In review") : tr("Practise"), color: Palette.blacksea, active: practising,
                        id: "action-practise") {
                 if !practising {
                     store.practiseLater(phrase)
-                    flash("Added to your review")
+                    flash(tr("Added to your review"))
                 }
             }
-            ActionTile(symbol: learned ? "checkmark.seal.fill" : "checkmark.seal", title: "Learned", color: Palette.tkemali,
+            ActionTile(symbol: learned ? "checkmark.seal.fill" : "checkmark.seal", title: tr("Learned"), color: Palette.tkemali,
                        active: learned, id: "action-learned") {
                 store.setLearned(phrase, !learned)
-                flash(learned ? "Not marked as learned" : "Marked as learned")
+                flash(learned ? tr("Not marked as learned") : tr("Marked as learned"))
             }
-            ActionTile(symbol: "doc.on.doc", title: "Copy", color: Palette.saperavi, id: "action-copy") {
+            ActionTile(symbol: "doc.on.doc", title: tr("Copy"), color: Palette.saperavi, id: "action-copy") {
                 UIPasteboard.general.string = phrase.ka
-                flash("Georgian copied")
+                flash(tr("Georgian copied"))
             }
           }
           Menu { listMenu } label: {
               let list = store.list(of: phrase.id)
-              Label(list.isEmpty ? "Add to a list" : "In your list: \(list)", systemImage: "folder.badge.plus")
+              Label(list.isEmpty ? tr("Add to a list") : tr("In your list: {0}", list), systemImage: "folder.badge.plus")
                   .font(.calloutRounded.weight(.semibold))
                   .foregroundStyle(Palette.saperavi)
                   .frame(maxWidth: .infinity)
@@ -141,12 +141,12 @@ struct PhraseDetailView: View {
 
     @ViewBuilder private var listMenu: some View {
         if !store.list(of: phrase.id).isEmpty {
-            Button("No list", systemImage: "folder") { store.move(phrase, toList: ""); flash("Kept in your phrasebook") }
+            Button(tr("No list"), systemImage: "folder") { store.move(phrase, toList: ""); flash(tr("Kept in your phrasebook")) }
         }
         ForEach(store.phraseLists, id: \.self) { name in
-            Button(name) { store.move(phrase, toList: name); flash("Added to \(name)") }
+            Button(name) { store.move(phrase, toList: name); flash(tr("Added to {0}", name)) }
         }
-        Button("New list…", systemImage: "plus") { askListName = true }
+        Button(tr("New list…"), systemImage: "plus") { askListName = true }
     }
 
     // MARK: Saying it and using it
@@ -154,13 +154,13 @@ struct PhraseDetailView: View {
     private var sayIt: some View {
         let hints = Pronunciation.hints(for: phrase.ka, in: store.curriculum)
         return VStack(alignment: .leading, spacing: 8) {
-            Label("Say it", systemImage: "waveform").font(.headlineRounded).foregroundStyle(Palette.blacksea)
+            Label(tr("Say it"), systemImage: "waveform").font(.headlineRounded).foregroundStyle(Palette.blacksea)
             Text(phrase.sound)
                 .font(.system(.title3, design: .rounded, weight: .bold))
                 .foregroundStyle(Palette.ink)
                 .fixedSize(horizontal: false, vertical: true)
-                .accessibilityLabel("Sounds like \(phrase.sound)")
-            Text("A rough English sound-alike. Vowels are short and clear (ah, eh, ee, oh, oo); stress is light, so give every syllable the same weight.")
+                .accessibilityLabel(tr("Sounds like {0}", phrase.sound))
+            Text(tr("A rough English sound-alike. Vowels are short and clear (ah, eh, ee, oh, oo); stress is light, so give every syllable the same weight."))
                 .font(.caption)
                 .foregroundStyle(Palette.inkSoft)
                 .fixedSize(horizontal: false, vertical: true)
@@ -173,12 +173,12 @@ struct PhraseDetailView: View {
 
     private var usage: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Label("When to use it", systemImage: "lightbulb.fill").font(.headlineRounded).foregroundStyle(Palette.gold)
+            Label(tr("When to use it"), systemImage: "lightbulb.fill").font(.headlineRounded).foregroundStyle(Palette.gold)
             if let note = phrase.note {
                 Text(note).font(.bodyRounded).foregroundStyle(Palette.ink).fixedSize(horizontal: false, vertical: true)
             }
             if let lit = phrase.lit {
-                (Text("Literally: ").bold() + Text(lit))
+                (Text(tr("Literally: ")).bold() + Text(lit))
                     .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
             }
             if let r = phrase.register {
@@ -219,8 +219,8 @@ struct PhraseDetailView: View {
 
     private var wordsCard: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Label("Learn the words", systemImage: "character.book.closed.fill").font(.headlineRounded).foregroundStyle(Palette.tkemali)
-            Text("These words from the phrase are in the course.")
+            Label(tr("Learn the words"), systemImage: "character.book.closed.fill").font(.headlineRounded).foregroundStyle(Palette.tkemali)
+            Text(tr("These words from the phrase are in the course."))
                 .font(.caption).foregroundStyle(Palette.inkSoft)
             FlowLayout(spacing: 8, alignment: .leading) {
                 ForEach(linkedWords) { w in
@@ -249,7 +249,7 @@ struct PhraseDetailView: View {
 
     private var grammarCard: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Label("The grammar behind it", systemImage: "puzzlepiece.fill").font(.headlineRounded).foregroundStyle(Palette.saperavi)
+            Label(tr("The grammar behind it"), systemImage: "puzzlepiece.fill").font(.headlineRounded).foregroundStyle(Palette.saperavi)
             ForEach(grammar, id: \.0.id) { lesson, why in
                 Button {
                     Haptics.tap()
@@ -261,7 +261,7 @@ struct PhraseDetailView: View {
                             .frame(width: 36, height: 36)
                             .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(BrandColor.saperavi.gradient))
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("Lesson: \(lesson.title)").font(.headlineRounded).foregroundStyle(Palette.ink)
+                            Text(tr("Lesson: {0}", lesson.title)).font(.headlineRounded).foregroundStyle(Palette.ink)
                             Text(why).font(.caption).foregroundStyle(Palette.inkSoft).fixedSize(horizontal: false, vertical: true)
                         }
                         Spacer(minLength: 0)
@@ -282,14 +282,14 @@ struct PhraseDetailView: View {
                 .font(.system(size: 20, weight: .bold))
                 .foregroundStyle(Palette.blacksea)
             VStack(alignment: .leading, spacing: 3) {
-                Text("In your review").font(.headlineRounded).foregroundStyle(Palette.ink)
+                Text(tr("In your review")).font(.headlineRounded).foregroundStyle(Palette.ink)
                 if let m {
-                    Text(m.due <= Date() ? "Due now: it's waiting in Review." : "Next review \(m.due.formatted(.relative(presentation: .named))).")
+                    Text(m.due <= Date() ? tr("Due now: it's waiting in Review.") : tr("Next review {0}.", m.due.relativeInAppLanguage))
                         .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
                 }
             }
             Spacer()
-            Button("Stop") { store.stopPractising(phrase); flash("Taken out of your review") }
+            Button(tr("Stop")) { store.stopPractising(phrase); flash(tr("Taken out of your review")) }
                 .font(.calloutRounded.weight(.semibold))
                 .foregroundStyle(Palette.inkSoft)
         }

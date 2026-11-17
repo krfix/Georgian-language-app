@@ -41,9 +41,11 @@ final class Curriculum {
 
     enum LoadError: Error { case missing(String) }
 
-    /// Reads the JSON files from a folder (the tests) or from the app bundle.
-    static func load(from directory: URL? = nil, bundle: Bundle = .main) throws -> Curriculum {
-        func url(_ name: String) throws -> URL {
+    /// Reads the JSON files from a folder (the tests) or from the app bundle, in the
+    /// learner's language (course.json, or course-pl.json for Polish).
+    static func load(from directory: URL? = nil, bundle: Bundle = .main, language: AppLanguage = .en) throws -> Curriculum {
+        func url(_ base: String) throws -> URL {
+            let name = base + language.fileSuffix
             if let directory { return directory.appendingPathComponent(name + ".json") }
             if let u = bundle.url(forResource: name, withExtension: "json") { return u }
             if let u = bundle.url(forResource: name, withExtension: "json", subdirectory: "Curriculum") { return u }
@@ -127,7 +129,7 @@ enum StudyItem: Hashable, Identifiable {
     }
     var english: String {
         switch self {
-        case .letter(let l): return "the letter \(l.name)"
+        case .letter(let l): return tr("the letter {0}", l.name)
         case .word(let w): return w.en
         }
     }

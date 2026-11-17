@@ -42,10 +42,10 @@ enum AnswerEvaluator {
         return .wrong
     }
 
-    /// Lower case, straight apostrophes, no punctuation, single spaces, and without a leading
-    /// "the", "a", "an" or "to".
+    /// Lower case, straight apostrophes, no punctuation, no accents (Polish ą, ł…), single
+    /// spaces, and without a leading "the", "a", "an" or "to".
     static func plain(_ s: String) -> String {
-        var t = s.lowercased()
+        var t = withoutAccents(s.lowercased())
         for curly in ["’", "‘", "ʼ", "`", "´"] { t = t.replacingOccurrences(of: curly, with: "'") }
         t = String(t.map { ch -> Character in
             if ch.isLetter || ch.isNumber || ch == "'" { return ch }

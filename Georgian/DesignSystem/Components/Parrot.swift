@@ -26,10 +26,10 @@ struct ParrotView: View {
 
         var label: String {
             switch self {
-            case .hello: return "Ara the parrot"
-            case .cheer: return "Ara the parrot, cheering"
-            case .think: return "Ara the parrot, thinking"
-            case .sleep: return "Ara the parrot, asleep"
+            case .hello: return tr("Ara the parrot")
+            case .cheer: return tr("Ara the parrot, cheering")
+            case .think: return tr("Ara the parrot, thinking")
+            case .sleep: return tr("Ara the parrot, asleep")
             }
         }
     }

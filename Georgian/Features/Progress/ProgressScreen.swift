@@ -24,7 +24,7 @@ struct ProgressScreen: View {
                 .padding(.bottom, 30)
             }
             .background(AmbientBackground(tint: .gold))
-            .navigationTitle("Progress")
+            .navigationTitle(tr("Progress"))
         }
     }
 
@@ -36,13 +36,13 @@ struct ProgressScreen: View {
             ProgressRing(progress: LearnerLevel.progress(forXP: xp), lineWidth: 12, colors: [.white, .white.opacity(0.6)]) {
                 VStack(spacing: 0) {
                     Text("\(level)").font(.titleBold).foregroundStyle(.white)
-                    Text("level").font(.caption2.weight(.bold)).foregroundStyle(.white.opacity(0.85))
+                    Text(tr("level")).font(.caption2.weight(.bold)).foregroundStyle(.white.opacity(0.85))
                 }
             }
             .frame(width: 92, height: 92)
             VStack(alignment: .leading, spacing: 6) {
                 Text(levelName(level)).font(.title2Bold).foregroundStyle(.white)
-                Text("\(xp) XP · \(next - xp) to level \(level + 1)").font(.calloutRounded).foregroundStyle(.white.opacity(0.9))
+                Text(tr("{0} XP · {1} to level {2}", xp, next - xp, level + 1)).font(.calloutRounded).foregroundStyle(.white.opacity(0.9))
                 Text(cefr).font(.captionBold).foregroundStyle(.white.opacity(0.85)).textCase(.uppercase)
             }
             Spacer(minLength: 0)
@@ -52,27 +52,27 @@ struct ProgressScreen: View {
     }
 
     private func levelName(_ level: Int) -> String {
-        let names = ["Newcomer", "Letter hunter", "Reader", "Word gatherer", "Phrase maker", "Conversationalist", "Supra guest", "Tamada in training"]
+        let names = [tr("Newcomer"), tr("Letter hunter"), tr("Reader"), tr("Word gatherer"), tr("Phrase maker"), tr("Conversationalist"), tr("Supra guest"), tr("Tamada in training")]
         return names[min(level - 1, names.count - 1)]
     }
 
     /// A rough course level: A0 until the alphabet is done, then towards A1.
     private var cefr: String {
         let done = store.snapshot.modulesCompleted
-        if done.contains("conversation") { return "Course level: A1" }
-        if done.contains("alphabet") { return "Course level: A0+ (heading for A1)" }
-        return "Course level: A0"
+        if done.contains("conversation") { return tr("Course level: A1") }
+        if done.contains("alphabet") { return tr("Course level: A0+ (heading for A1)") }
+        return tr("Course level: A0")
     }
 
     private var tiles: some View {
         let s = store.snapshot
         return LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
-            StatTile(symbol: "flame.fill", value: "\(s.streak)", label: "day streak · best \(s.longestStreak)", color: Palette.flame)
-            StatTile(symbol: "bolt.fill", value: "\(s.totalXP)", label: "total XP", color: Palette.gold)
-            StatTile(symbol: "flag.checkered", value: "\(s.lessonsCompleted.count)", label: "lessons of \(store.curriculum.lessons.count)", color: Palette.pomegranate)
-            StatTile(symbol: "character.book.closed.fill", value: "\(s.wordsLearned)", label: "words learned", color: Palette.tkemali)
-            StatTile(symbol: "textformat", value: "\(s.lettersLearned)/33", label: "letters learned", color: Palette.blacksea)
-            StatTile(symbol: "target", value: store.answerTotals.all == 0 ? "–" : "\(Int((store.accuracy * 100).rounded()))%", label: "accuracy", color: Palette.saperavi)
+            StatTile(symbol: "flame.fill", value: "\(s.streak)", label: tr("day streak · best {0}", s.longestStreak), color: Palette.flame)
+            StatTile(symbol: "bolt.fill", value: "\(s.totalXP)", label: tr("total XP"), color: Palette.gold)
+            StatTile(symbol: "flag.checkered", value: "\(s.lessonsCompleted.count)", label: tr("lessons of {0}", store.curriculum.lessons.count), color: Palette.pomegranate)
+            StatTile(symbol: "character.book.closed.fill", value: "\(s.wordsLearned)", label: tr("words learned"), color: Palette.tkemali)
+            StatTile(symbol: "textformat", value: "\(s.lettersLearned)/33", label: tr("letters learned"), color: Palette.blacksea)
+            StatTile(symbol: "target", value: store.answerTotals.all == 0 ? "–" : "\(Int((store.accuracy * 100).rounded()))%", label: tr("accuracy"), color: Palette.saperavi)
         }
     }
 
@@ -81,26 +81,26 @@ struct ProgressScreen: View {
         let goal = store.profile.dailyGoal
         return VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("Activity").font(.title2Bold).foregroundStyle(Palette.ink)
+                Text(tr("Activity")).font(.title2Bold).foregroundStyle(Palette.ink)
                 Spacer()
-                Picker("Range", selection: $range) {
-                    Text("Week").tag(7)
-                    Text("Month").tag(30)
+                Picker(tr("Range"), selection: $range) {
+                    Text(tr("Week")).tag(7)
+                    Text(tr("Month")).tag(30)
                 }
                 .pickerStyle(.segmented)
                 .frame(width: 160)
             }
             Chart {
                 ForEach(data, id: \.day) { d in
-                    BarMark(x: .value("Day", DayKey.date(d.day) ?? Date(), unit: .day), y: .value("XP", d.xp))
+                    BarMark(x: .value(tr("Day"), DayKey.date(d.day) ?? Date(), unit: .day), y: .value(tr("XP"), d.xp))
                         .foregroundStyle(d.xp >= goal ? AnyShapeStyle(Gradients.gold) : AnyShapeStyle(Palette.pomegranate.opacity(0.75)))
                         .cornerRadius(6)
                 }
-                RuleMark(y: .value("Goal", goal))
+                RuleMark(y: .value(tr("Goal"), goal))
                     .lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 4]))
                     .foregroundStyle(Palette.tkemali)
                     .annotation(position: .top, alignment: .leading) {
-                        Text("Goal \(goal) XP").font(.caption2.weight(.bold)).foregroundStyle(Palette.tkemali)
+                        Text(tr("Goal {0} XP", goal)).font(.caption2.weight(.bold)).foregroundStyle(Palette.tkemali)
                     }
             }
             .chartXAxis {
@@ -110,8 +110,8 @@ struct ProgressScreen: View {
             }
             .frame(height: 190)
             .motion(Motion.spring, value: range)
-            .accessibilityLabel("XP per day. \(data.filter { $0.xp > 0 }.count) active days.")
-            Text("\(data.reduce(0) { $0 + $1.xp }) XP in the last \(range) days · \(data.filter { $0.xp >= goal }.count) days at goal")
+            .accessibilityLabel(tr("XP per day. {0} active days.", data.filter { $0.xp > 0 }.count))
+            Text(tr("{0} XP in the last {1} days · {2} days at goal", data.reduce(0) { $0 + $1.xp }, range, data.filter { $0.xp >= goal }.count))
                 .font(.caption)
                 .foregroundStyle(Palette.inkSoft)
         }
@@ -120,7 +120,7 @@ struct ProgressScreen: View {
 
     private var modulesCard: some View {
         VStack(alignment: .leading, spacing: 14) {
-            Text("Modules").font(.title2Bold).foregroundStyle(Palette.ink)
+            Text(tr("Modules")).font(.title2Bold).foregroundStyle(Palette.ink)
             ForEach(store.curriculum.modules) { m in
                 let done = store.completedCount(in: m)
                 VStack(alignment: .leading, spacing: 6) {
@@ -139,9 +139,9 @@ struct ProgressScreen: View {
 
     private var history: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("History").font(.title2Bold).foregroundStyle(Palette.ink)
+            Text(tr("History")).font(.title2Bold).foregroundStyle(Palette.ink)
             if store.lessonRecords.isEmpty {
-                Text("Finished lessons show up here.").font(.calloutRounded).foregroundStyle(Palette.inkSoft)
+                Text(tr("Finished lessons show up here.")).font(.calloutRounded).foregroundStyle(Palette.inkSoft)
             }
             ForEach(store.lessonRecords.prefix(12), id: \.persistentModelID) { r in
                 HStack(spacing: 12) {
@@ -153,7 +153,7 @@ struct ProgressScreen: View {
                     }
                     Spacer()
                     VStack(alignment: .trailing, spacing: 2) {
-                        Text("+\(r.xp) XP").font(.captionBold).foregroundStyle(Palette.gold)
+                        Text(tr("+{0} XP", r.xp)).font(.captionBold).foregroundStyle(Palette.gold)
                         Text("\(Int((r.accuracy * 100).rounded()))%").font(.caption).foregroundStyle(Palette.inkSoft)
                     }
                 }
@@ -173,7 +173,7 @@ struct AchievementsGrid: View {
         let s = store.snapshot
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("Achievements").font(.title2Bold).foregroundStyle(Palette.ink)
+                Text(tr("Achievements")).font(.title2Bold).foregroundStyle(Palette.ink)
                 Spacer()
                 Text("\(store.achievementDates.count)/\(Achievement.all.count)").font(.captionBold).foregroundStyle(Palette.inkSoft)
             }
@@ -215,7 +215,7 @@ struct AchievementBadge: View {
         }
         .frame(maxWidth: .infinity)
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(achievement.title): \(achievement.detail). \(unlocked ? "Unlocked" : "\(Int(progress * 100)) percent")")
+        .accessibilityLabel("\(achievement.title): \(achievement.detail). \(unlocked ? tr("Unlocked") : tr("{0} percent", Int(progress * 100)))")
     }
 }
 
@@ -234,7 +234,7 @@ struct AchievementRow: View {
                 .frame(width: 54, height: 54)
                 .background(Circle().fill(color.gradient))
             VStack(alignment: .leading, spacing: 3) {
-                Text("Achievement unlocked").font(.captionBold).textCase(.uppercase).foregroundStyle(color.color)
+                Text(tr("Achievement unlocked")).font(.captionBold).textCase(.uppercase).foregroundStyle(color.color)
                 Text(achievement.title).font(.headlineRounded).foregroundStyle(Palette.ink)
                 Text(achievement.detail).font(.caption).foregroundStyle(Palette.inkSoft)
             }

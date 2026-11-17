@@ -19,7 +19,7 @@ struct ReviewView: View {
                 .padding(.bottom, 30)
             }
             .background(AmbientBackground(tint: .blacksea))
-            .navigationTitle("Review")
+            .navigationTitle(tr("Review"))
         }
     }
 
@@ -29,15 +29,15 @@ struct ReviewView: View {
         return VStack(alignment: .leading, spacing: 14) {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(due.isEmpty ? "All caught up" : "Due today")
+                    Text(due.isEmpty ? tr("All caught up") : tr("Due today"))
                         .font(.calloutRounded.weight(.semibold))
                         .foregroundStyle(.white.opacity(0.85))
-                    Text(due.isEmpty ? "Nothing due" : "\(due.count) \(due.count == 1 ? "item" : "items")")
+                    Text(due.isEmpty ? tr("Nothing due") : plural(due.count, "item", "items", pl: ("powtórka", "powtórki", "powtórek")))
                         .font(.display)
                         .foregroundStyle(.white)
                         .contentTransition(.numericText())
-                    Text(due.isEmpty ? (practice.isEmpty ? "Finish a lesson and its words come back here at the right time." : "Practise your weakest words anyway.")
-                                     : "Review now, before they slip away.")
+                    Text(due.isEmpty ? (practice.isEmpty ? tr("Finish a lesson and its words come back here at the right time.") : tr("Practise your weakest words anyway."))
+                                     : tr("Review now, before they slip away."))
                         .font(.calloutRounded)
                         .foregroundStyle(.white.opacity(0.9))
                         .fixedSize(horizontal: false, vertical: true)
@@ -52,9 +52,9 @@ struct ReviewView: View {
             if !practice.isEmpty {
                 Button {
                     Haptics.tap()
-                    navigator.review(practice, title: due.isEmpty ? "Practice" : "Daily review")
+                    navigator.review(practice, title: due.isEmpty ? tr("Practice") : tr("Daily review"))
                 } label: {
-                    Label(due.isEmpty ? "Practise" : "Start review", systemImage: "play.fill")
+                    Label(due.isEmpty ? tr("Practise") : tr("Start review"), systemImage: "play.fill")
                 }
                 .buttonStyle(ChunkyButtonStyle(color: .gold))
                 .accessibilityIdentifier("start-review")
@@ -66,8 +66,8 @@ struct ReviewView: View {
     private var difficult: some View {
         let items = Array(store.difficultItems.prefix(8))
         return VStack(alignment: .leading, spacing: 10) {
-            SectionTitle(title: "Difficult", trailing: "Practise") {
-                navigator.review(items, title: "Difficult words")
+            SectionTitle(title: tr("Difficult"), trailing: tr("Practise")) {
+                navigator.review(items, title: tr("Difficult words"))
             }
             ForEach(items) { item in
                 HStack {
@@ -75,7 +75,7 @@ struct ReviewView: View {
                     Text(item.latin).font(.caption.italic()).foregroundStyle(Palette.inkSoft)
                     Spacer()
                     Text(item.english).font(.calloutRounded).foregroundStyle(Palette.inkSoft).lineLimit(1)
-                    Image(systemName: "exclamationmark.triangle.fill").foregroundStyle(Palette.error).accessibilityLabel("difficult")
+                    Image(systemName: "exclamationmark.triangle.fill").foregroundStyle(Palette.error).accessibilityLabel(tr("difficult"))
                 }
                 .card(padding: 14, cornerRadius: 18)
                 .accessibilityElement(children: .combine)
@@ -87,9 +87,9 @@ struct ReviewView: View {
         let recent = Array(store.recentMistakes.prefix(6))
         let items = recent.compactMap { store.curriculum.item($0.itemID) }
         return VStack(alignment: .leading, spacing: 10) {
-            SectionTitle(title: "Recent mistakes", trailing: items.isEmpty ? nil : "Practise") {
+            SectionTitle(title: tr("Recent mistakes"), trailing: items.isEmpty ? nil : tr("Practise")) {
                 var seen = Set<String>()
-                navigator.review(items.filter { seen.insert($0.id).inserted }, title: "Your mistakes")
+                navigator.review(items.filter { seen.insert($0.id).inserted }, title: tr("Your mistakes"))
             }
             ForEach(Array(recent.enumerated()), id: \.offset) { _, m in
                 VStack(alignment: .leading, spacing: 6) {
@@ -122,21 +122,21 @@ struct ReviewView: View {
                 .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Gradients.hero))
                 .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 4) {
-                Text("Letter workout").font(.headlineRounded).foregroundStyle(Palette.ink)
-                Text(letters.isEmpty ? "Meet your first letters in Learn." : "\(letters.count) letters met. Keep them sharp.")
+                Text(tr("Letter workout")).font(.headlineRounded).foregroundStyle(Palette.ink)
+                Text(letters.isEmpty ? tr("Meet your first letters in Learn.") : tr("{0} letters met. Keep them sharp.", letters.count))
                     .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
             }
             Spacer()
             if !letters.isEmpty {
                 Button {
                     Haptics.tap()
-                    navigator.review(Array(letters.shuffled().prefix(12)).map(StudyItem.letter), title: "Letter workout")
+                    navigator.review(Array(letters.shuffled().prefix(12)).map(StudyItem.letter), title: tr("Letter workout"))
                 } label: {
                     Image(systemName: "play.fill").font(.system(size: 18, weight: .bold)).foregroundStyle(.white)
                         .frame(width: 46, height: 46).background(Circle().fill(Palette.pomegranate))
                 }
                 .buttonStyle(.pressable)
-                .accessibilityLabel("Start letter workout")
+                .accessibilityLabel(tr("Start letter workout"))
             }
         }
         .card()
@@ -144,8 +144,8 @@ struct ReviewView: View {
 
     private var howItWorks: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Label("How review works", systemImage: "info.circle.fill").font(.headlineRounded).foregroundStyle(Palette.blacksea)
-            Text("Every word and letter has its own schedule. Get it right and it comes back later each time: tomorrow, in three days, then weeks. Miss it and it comes back soon. A few minutes a day keeps everything you've learned.")
+            Label(tr("How review works"), systemImage: "info.circle.fill").font(.headlineRounded).foregroundStyle(Palette.blacksea)
+            Text(tr("Every word and letter has its own schedule. Get it right and it comes back later each time: tomorrow, in three days, then weeks. Miss it and it comes back soon. A few minutes a day keeps everything you've learned."))
                 .font(.calloutRounded)
                 .foregroundStyle(Palette.inkSoft)
                 .fixedSize(horizontal: false, vertical: true)

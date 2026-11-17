@@ -99,17 +99,17 @@ struct TeachLetterView: View {
             .frame(width: 210, height: 210)
             .frame(maxWidth: .infinity)
             .accessibilityElement()
-            .accessibilityLabel("The letter \(letter.name), written \(letter.latin)")
+            .accessibilityLabel(tr("The letter {0}, written {1}", letter.name, letter.latin))
 
             HStack(spacing: 10) {
-                Pill(text: "Name: \(letter.name)", color: Palette.saperavi)
-                Pill(text: "Written \(letter.latin)", color: Palette.blacksea)
+                Pill(text: tr("Name: {0}", letter.name), color: Palette.saperavi)
+                Pill(text: tr("Written {0}", letter.latin), color: Palette.blacksea)
                 SpeakerButton(text: letter.char, size: 36)
             }
             .frame(maxWidth: .infinity)
 
             VStack(alignment: .leading, spacing: 10) {
-                Label("Sounds like \(letter.sound)", systemImage: "mouth.fill")
+                Label(tr("Sounds like {0}", letter.sound), systemImage: "mouth.fill")
                     .font(.headlineRounded)
                     .foregroundStyle(Palette.ink)
                 if !letter.tip.isEmpty {
@@ -156,7 +156,7 @@ struct TeachWordView: View {
             let hints = Pronunciation.hints(for: word.ka, in: store.curriculum)
             if !hints.isEmpty || word.pron != nil {
                 VStack(alignment: .leading, spacing: 6) {
-                    Label("Say it", systemImage: "waveform").font(.headlineRounded).foregroundStyle(Palette.blacksea)
+                    Label(tr("Say it"), systemImage: "waveform").font(.headlineRounded).foregroundStyle(Palette.blacksea)
                     if let p = word.pron { Text(p).font(.calloutRounded).foregroundStyle(Palette.ink) }
                     ForEach(hints, id: \.self) { Text($0).font(.calloutRounded).foregroundStyle(Palette.inkSoft) }
                 }
@@ -181,7 +181,7 @@ struct ExampleCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack {
-                Text("Example").font(.captionBold).foregroundStyle(Palette.gold).textCase(.uppercase)
+                Text(tr("Example")).font(.captionBold).foregroundStyle(Palette.gold).textCase(.uppercase)
                 Spacer()
                 SpeakerButton(text: example.ka, size: 32)
             }

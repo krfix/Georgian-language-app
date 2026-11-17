@@ -329,6 +329,48 @@ check("nothing for an empty query", pb.search.search("   ").isEmpty, true)
 check("stem of pharmacies", PhraseSearch.stem("pharmacies"), "pharmacy")
 check("plain removes apostrophes", PhraseSearch.plain("Ts'q'ali, don't!"), "tsqali dont")
 
+// MARK: Polish (KART #4)
+
+let polish: Curriculum? = try? Curriculum.load(from: dataDir, language: .pl)
+check("the Polish course loads", polish != nil, true)
+if let pl = polish {
+    check("Polish: same lessons", pl.lessons.map(\.id), course.lessons.map(\.id))
+    check("Polish: same words", pl.words.map(\.id), course.words.map(\.id))
+    check("Polish: same Georgian", pl.words.map(\.ka), course.words.map(\.ka))
+    check("Polish: same phrases", pl.phrasebook.phrases.map(\.id), pb.phrases.map(\.id))
+    check("Polish: ხ is like ch in chleb", pl.letter("ხ")?.sound.contains("chleb"), true)
+    check("Polish: მამა… a word in Polish", pl.word("w-mama")?.en, "ojciec")
+    check("Polish: the sound guide uses Polish spelling", pl.phrasebook.phrase("pb-gamarjoba")?.sound, "ga-mar-dżo-ba")
+    var english: [String] = []
+    for w in pl.words where w.en == course.word(w.id)?.en && w.en.range(of: "[a-z]{4,}", options: .regularExpression) != nil
+        && !["zero", "metro", "lari"].contains(w.en) { english.append(w.id) }
+    check("Polish: no word left in English", english, [])
+    AppLanguage.use(.pl, save: false)
+    func plTop(_ q: String) -> [String] { pl.phrasebook.search.top(q, 3).map(\.id) }
+    check("Polish search: apteka", plTop("apteka").contains("pb-aptiaki-sad-aris"), true)
+    check("Polish search: taksowka without accents", pl.phrasebook.search.top("taksowka", 1).first?.category, "transport")
+    check("Polish search: toaleta", plTop("gdzie jest toaleta").contains("pb-sad-aris-tualeti"), true)
+    check("Polish search: rachunek", plTop("rachunek").contains("pb-angarishi-tu-sheidzleba"), true)
+    check("Polish search: Georgian still works", plTop("გამარჯობა").first, "pb-gamarjoba")
+    let typed = AnswerEvaluator.acceptedEnglish(for: pl.word("p-ver-gavige")!)
+    check("Polish answer: without ł", AnswerEvaluator.typed("nie zrozumialem", accepted: typed), .correct)
+    check("Polish answer: feminine form", AnswerEvaluator.typed("Nie zrozumiałam", accepted: typed), .correct)
+    var rp = SeededGenerator(seed: 7)
+    let plLesson = ExerciseBuilder(curriculum: pl).exercises(for: pl.lesson("v6c")!, using: &rp)
+    check("Polish: the numbers grammar lesson has notes and exercises", plLesson.filter { $0.kind == .note }.count, 4)
+    AppLanguage.use(.en, save: false)
+}
+Localizer.load(table: ["Lesson {0} of {1}": "Lekcja {0} z {1}"])
+check("tr fills placeholders", tr("Lesson {0} of {1}", 3, 10), "Lekcja 3 z 10")
+check("tr falls back to English", tr("Not in the table"), "Not in the table")
+Localizer.load(table: [:])
+check("Polish plural 1", PolishPlural.form(1, "słowo", "słowa", "słów"), "słowo")
+check("Polish plural 3", PolishPlural.form(3, "słowo", "słowa", "słów"), "słowa")
+check("Polish plural 12", PolishPlural.form(12, "słowo", "słowa", "słów"), "słów")
+check("Polish plural 22", PolishPlural.form(22, "słowo", "słowa", "słów"), "słowa")
+check("Polish plural 25", PolishPlural.form(25, "słowo", "słowa", "słów"), "słów")
+check("accents off", withoutAccents("Zażółć gęślą jaźń"), "Zazolc gesla jazn")
+
 // MARK: Learning path
 
 let ids = ["a", "b", "c", "d"]

@@ -22,11 +22,11 @@ enum AppTab: String, Hashable, CaseIterable {
 
     var title: String {
         switch self {
-        case .home: return "Home"
-        case .learn: return "Learn"
-        case .phrasebook: return "Phrasebook"
-        case .search: return "Search"
-        case .review: return "Review"
+        case .home: return tr("Home")
+        case .learn: return tr("Learn")
+        case .phrasebook: return tr("Phrasebook")
+        case .search: return tr("Search")
+        case .review: return tr("Review")
         }
     }
 

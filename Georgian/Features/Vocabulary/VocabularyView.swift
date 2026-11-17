@@ -48,8 +48,8 @@ struct VocabularyView: View {
                 .padding(.bottom, 30)
             }
             .background(AmbientBackground(tint: .tkemali))
-            .navigationTitle("Words")
-            .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: "Georgian, English or Latin")
+            .navigationTitle(tr("Words"))
+            .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: tr("Georgian, English or Latin"))
             .sheet(item: $open) { w in
                 WordDetailView(word: w)
                     .presentationDetents([.large])
@@ -66,16 +66,16 @@ struct VocabularyView: View {
         let learned = words.filter { store.status(of: $0.id) == .learned }.count
         let learning = words.filter { [.learning, .difficult].contains(store.status(of: $0.id)) }.count
         return HStack(spacing: 12) {
-            StatTile(symbol: "checkmark.seal.fill", value: "\(learned)", label: "learned", color: Palette.success)
-            StatTile(symbol: "brain.head.profile", value: "\(learning)", label: "learning", color: Palette.gold)
-            StatTile(symbol: "books.vertical.fill", value: "\(words.count)", label: "in the course", color: Palette.saperavi)
+            StatTile(symbol: "checkmark.seal.fill", value: "\(learned)", label: tr("learned"), color: Palette.success)
+            StatTile(symbol: "brain.head.profile", value: "\(learning)", label: tr("learning"), color: Palette.gold)
+            StatTile(symbol: "books.vertical.fill", value: "\(words.count)", label: tr("in the course"), color: Palette.saperavi)
         }
     }
 
     private var categoryChips: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                chip(title: "All", symbol: "square.grid.2x2.fill", id: nil, color: Palette.ink)
+                chip(title: tr("All"), symbol: "square.grid.2x2.fill", id: nil, color: Palette.ink)
                 ForEach(store.curriculum.categories) { c in
                     chip(title: c.title, symbol: c.symbol, id: c.id, color: BrandColor(named: c.color).color)
                 }
@@ -131,10 +131,10 @@ struct StatusBadge: View {
 
     var body: some View {
         switch status {
-        case .new: Pill(text: "New", color: Palette.inkFaint)
-        case .learning: Pill(text: "Learning", color: Palette.gold, symbol: "circle.lefthalf.filled")
-        case .learned: Pill(text: "Learned", color: Palette.success, symbol: "checkmark")
-        case .difficult: Pill(text: "Difficult", color: Palette.error, symbol: "exclamationmark.triangle.fill")
+        case .new: Pill(text: tr("New"), color: Palette.inkFaint)
+        case .learning: Pill(text: tr("Learning"), color: Palette.gold, symbol: "circle.lefthalf.filled")
+        case .learned: Pill(text: tr("Learned"), color: Palette.success, symbol: "checkmark")
+        case .difficult: Pill(text: tr("Difficult"), color: Palette.error, symbol: "exclamationmark.triangle.fill")
         }
     }
 }
@@ -152,7 +152,7 @@ struct WordDetailView: View {
             VStack(alignment: .leading, spacing: 16) {
                 TeachWordView(word: word)
                 if audio.source(for: word.ka) == nil {
-                    Label("No audio for this one yet. Use the pronunciation help above.", systemImage: "speaker.slash.fill")
+                    Label(tr("No audio for this one yet. Use the pronunciation help above."), systemImage: "speaker.slash.fill")
                         .font(.caption)
                         .foregroundStyle(Palette.inkSoft)
                         .card(padding: 14, cornerRadius: 16)
@@ -161,7 +161,7 @@ struct WordDetailView: View {
                 let phrases = store.phrasebook.phrases.filter { ($0.words ?? []).contains(word.id) && $0.id != word.id }
                 if !phrases.isEmpty {
                     VStack(alignment: .leading, spacing: 10) {
-                        Label("In everyday phrases", systemImage: "bubble.left.and.text.bubble.right.fill")
+                        Label(tr("In everyday phrases"), systemImage: "bubble.left.and.text.bubble.right.fill")
                             .font(.headlineRounded).foregroundStyle(Palette.pomegranate)
                         ForEach(phrases.prefix(5)) { p in
                             HStack(spacing: 10) {
@@ -174,7 +174,7 @@ struct WordDetailView: View {
                             }
                             .accessibilityElement(children: .combine)
                         }
-                        Text("Find them all in the Phrasebook.").font(.caption).foregroundStyle(Palette.inkFaint)
+                        Text(tr("Find them all in the Phrasebook.")).font(.caption).foregroundStyle(Palette.inkFaint)
                     }
                     .card()
                 }
@@ -183,7 +183,7 @@ struct WordDetailView: View {
                     navigator.sheetOpen = true
                     dismiss()
                     navigator.review([.word(word)], title: word.ka)
-                } label: { Label("Practise this word", systemImage: "play.fill") }
+                } label: { Label(tr("Practise this word"), systemImage: "play.fill") }
                 .buttonStyle(ChunkyButtonStyle(color: .tkemali))
             }
             .padding(20)
@@ -195,12 +195,12 @@ struct WordDetailView: View {
         let m = store.mastery[word.id]
         return HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text("Your progress").font(.headlineRounded).foregroundStyle(Palette.ink)
+                Text(tr("Your progress")).font(.headlineRounded).foregroundStyle(Palette.ink)
                 if let m {
-                    Text("Right \(m.correctCount) times, missed \(m.wrongCount). Next review \(m.due.formatted(.relative(presentation: .named))).")
+                    Text(tr("Right {0} times, missed {1}. Next review {2}.", m.correctCount, m.wrongCount, m.due.relativeInAppLanguage))
                         .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
                 } else {
-                    Text("Not practised yet.").font(.calloutRounded).foregroundStyle(Palette.inkSoft)
+                    Text(tr("Not practised yet.")).font(.calloutRounded).foregroundStyle(Palette.inkSoft)
                 }
             }
             Spacer()

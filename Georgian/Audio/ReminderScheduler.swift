@@ -14,7 +14,7 @@ enum ReminderScheduler {
         center.removePendingNotificationRequests(withIdentifiers: [id])
         let content = UNMutableNotificationContent()
         content.title = name.isEmpty ? "გამარჯობა!" : "გამარჯობა, \(name)!"
-        content.body = "Ara is waiting: a few minutes of Georgian keeps your streak alive."
+        content.body = tr("Ara is waiting: a few minutes of Georgian keeps your streak alive.")
         content.sound = .default
         var when = DateComponents()
         when.hour = hour

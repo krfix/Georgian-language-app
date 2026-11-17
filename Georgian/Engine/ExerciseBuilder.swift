@@ -28,13 +28,13 @@ struct ExerciseBuilder {
         // Meet each letter, then recognise it straight away.
         for (i, l) in new.enumerated() {
             out.append(Exercise(id: "\(lesson.id).teach.\(l.char)", kind: .teachLetter,
-                                instruction: "New letter", itemID: l.itemID, content: .teachLetter(l)))
+                                instruction: tr("New letter"), itemID: l.itemID, content: .teachLetter(l)))
             out.append(letterToLatin(l, among: known, id: "\(lesson.id).rec.\(l.char)", using: &rng))
             if i > 0 { out.append(latinToLetter(new[i - 1], among: known, id: "\(lesson.id).back.\(new[i - 1].char)", using: &rng)) }
         }
         if let last = new.last { out.append(latinToLetter(last, among: known, id: "\(lesson.id).back.\(last.char)", using: &rng)) }
         if new.count >= 3 {
-            out.append(matching(lettersPairs(new), id: "\(lesson.id).match", instruction: "Match each letter to its sound"))
+            out.append(matching(lettersPairs(new), id: "\(lesson.id).match", instruction: tr("Match each letter to its sound")))
         }
         let read = lesson.read ?? []
         let newChars = Set(new.map(\.char))
@@ -56,7 +56,7 @@ struct ExerciseBuilder {
             // The review lesson: match the whole alphabet in groups, and spell two words.
             for (n, chunk) in known.chunked(into: 6).enumerated() where n < 3 {
                 out.append(matching(lettersPairs(chunk.shuffled(using: &rng)), id: "\(lesson.id).match.\(n)",
-                                    instruction: "Match each letter to its sound"))
+                                    instruction: tr("Match each letter to its sound")))
             }
             for (i, g) in read.prefix(2).enumerated() {
                 out.append(spelling(g, itemID: nil, letters: known, id: "\(lesson.id).spell.\(i)", using: &rng))
@@ -73,23 +73,23 @@ struct ExerciseBuilder {
         var out: [Exercise] = []
         let pairs = (lesson.pairs ?? []).map { $0.compactMap(curriculum.letter) }.filter { $0.count == 2 }
         let table = pairs.flatMap { $0 }.map { Gloss(ka: $0.char, lat: $0.latin, en: $0.sound) }
-        out.append(Exercise(id: "\(lesson.id).note", kind: .note, instruction: "Listen with your eyes",
+        out.append(Exercise(id: "\(lesson.id).note", kind: .note, instruction: tr("Listen with your eyes"),
                             itemID: nil, content: .note(GrammarNote(title: lesson.title, text: lesson.note ?? "", table: table))))
         for (i, p) in pairs.enumerated() {
             let target = p[i % 2]
             let options = p.shuffled(using: &rng)
-            let choice = Choice(prompt: "Which letter is \(target.latin)?", promptIsGeorgian: false,
+            let choice = Choice(prompt: tr("Which letter is {0}?", target.latin), promptIsGeorgian: false,
                                 promptDetail: target.sound,
                                 options: options.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element.char, detail: nil) },
                                 optionsAreGeorgian: true,
                                 answer: options.firstIndex(of: target) ?? 0,
-                                explanation: "\(p[0].char) is \(p[0].latin): \(p[0].sound). \(p[1].char) is \(p[1].latin): \(p[1].sound).",
+                                explanation: tr("{0} is {1}: {2}.", p[0].char, p[0].latin, p[0].sound) + " " + tr("{0} is {1}: {2}.", p[1].char, p[1].latin, p[1].sound),
                                 audioText: nil)
-            out.append(Exercise(id: "\(lesson.id).pair.\(i)", kind: .letterRecognition, instruction: "Tight or with air?",
+            out.append(Exercise(id: "\(lesson.id).pair.\(i)", kind: .letterRecognition, instruction: tr("Tight or with air?"),
                                 itemID: target.itemID, content: .choice(choice)))
         }
         out.append(matching(lettersPairs(Array(pairs.flatMap { $0 }.prefix(6))), id: "\(lesson.id).match",
-                            instruction: "Match each letter to its sound"))
+                            instruction: tr("Match each letter to its sound")))
         let read = lesson.read ?? []
         for (i, g) in read.enumerated() {
             out.append(i % 2 == 0 ? reading(g, id: "\(lesson.id).read.\(i)", using: &rng)
@@ -105,7 +105,7 @@ struct ExerciseBuilder {
         var out: [Exercise] = []
         // Teach two words, then test the one before: each word is seen, then asked.
         for (i, w) in words.enumerated() {
-            out.append(Exercise(id: "\(lesson.id).teach.\(w.id)", kind: .teachWord, instruction: "New word",
+            out.append(Exercise(id: "\(lesson.id).teach.\(w.id)", kind: .teachWord, instruction: tr("New word"),
                                 itemID: w.id, content: .teachWord(w)))
             if i >= 1 {
                 let prev = words[i - 1]
@@ -115,7 +115,7 @@ struct ExerciseBuilder {
         }
         if let last = words.last { out.append(englishToGeorgian(last, pool: words + pool, id: "\(lesson.id).ek.\(last.id)", using: &rng)) }
         out.append(matching(wordPairs(Array(words.shuffled(using: &rng).prefix(5))), id: "\(lesson.id).match",
-                            instruction: "Tap the pairs"))
+                            instruction: tr("Tap the pairs")))
         let shuffled = words.shuffled(using: &rng)
         // Fill the gap in an example sentence.
         var fills = 0
@@ -152,7 +152,7 @@ struct ExerciseBuilder {
     private func grammarLesson<G: RandomNumberGenerator>(_ lesson: Lesson, using rng: inout G) -> [Exercise] {
         var out: [Exercise] = []
         for (i, n) in (lesson.notes ?? []).enumerated() {
-            out.append(Exercise(id: "\(lesson.id).note.\(i)", kind: .note, instruction: "Grammar", itemID: nil, content: .note(n)))
+            out.append(Exercise(id: "\(lesson.id).note.\(i)", kind: .note, instruction: tr("Grammar"), itemID: nil, content: .note(n)))
         }
         let words = curriculum.words(in: lesson)
         for w in words.prefix(4) {
@@ -160,7 +160,7 @@ struct ExerciseBuilder {
         }
         out.append(contentsOf: authored(lesson, using: &rng))
         if words.count >= 3 {
-            out.append(matching(wordPairs(Array(words.prefix(5))), id: "\(lesson.id).match", instruction: "Tap the pairs"))
+            out.append(matching(wordPairs(Array(words.prefix(5))), id: "\(lesson.id).match", instruction: tr("Tap the pairs")))
         }
         return out
     }
@@ -172,7 +172,7 @@ struct ExerciseBuilder {
         for (i, line) in d.lines.enumerated() {
             if line.isLearner, let wrong = line.wrong {
                 let options = ([line.ka] + wrong).shuffled(using: &rng)
-                out.append(Exercise(id: "\(lesson.id).turn.\(i)", kind: .dialogue, instruction: "Choose your reply",
+                out.append(Exercise(id: "\(lesson.id).turn.\(i)", kind: .dialogue, instruction: tr("Choose your reply"),
                                     itemID: nil,
                                     content: .dialogue(DialogueTurn(partner: d.partner, history: history, line: line,
                                                                     options: options, answer: options.firstIndex(of: line.ka) ?? 0))))
@@ -206,16 +206,16 @@ struct ExerciseBuilder {
                 let georgian = options.allSatisfy { Self.isGeorgian($0) }
                 return choiceExercise(prompt: spec.prompt ?? "", promptIsGeorgian: false, detail: nil, options: options,
                                       answer: answer, optionsAreGeorgian: georgian, explanation: spec.explanation,
-                                      kind: .multipleChoice, instruction: "Choose the right answer", itemID: nil, id: id, using: &rng)
+                                      kind: .multipleChoice, instruction: tr("Choose the right answer"), itemID: nil, id: id, using: &rng)
             case "fill":
                 guard let options = spec.options, let answer = spec.answer, let sentence = spec.sentence else { return nil }
                 return choiceExercise(prompt: sentence, promptIsGeorgian: true, detail: spec.translation, options: options,
                                       answer: answer, optionsAreGeorgian: true, explanation: spec.explanation,
-                                      kind: .fillBlank, instruction: "Fill in the gap", itemID: nil, id: id, using: &rng)
+                                      kind: .fillBlank, instruction: tr("Fill in the gap"), itemID: nil, id: id, using: &rng)
             case "build":
                 guard let tiles = spec.tiles else { return nil }
                 let bank = (tiles + (spec.extra ?? [])).shuffled(using: &rng)
-                return Exercise(id: id, kind: .sentenceBuilder, instruction: "Build the sentence", itemID: nil,
+                return Exercise(id: id, kind: .sentenceBuilder, instruction: tr("Build the sentence"), itemID: nil,
                                 content: .tiles(Tiles(prompt: spec.english ?? "", promptDetail: nil, answer: tiles, bank: bank,
                                                       joiner: " ", isSpelling: false)))
             default:
@@ -273,8 +273,8 @@ struct ExerciseBuilder {
         let choice = Choice(prompt: l.char, promptIsGeorgian: true, promptDetail: nil,
                             options: options.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element.latin, detail: nil) },
                             optionsAreGeorgian: false, answer: options.firstIndex(of: l) ?? 0,
-                            explanation: "\(l.char) sounds like \(l.sound).", audioText: nil)
-        return Exercise(id: id, kind: .letterRecognition, instruction: "What sound does this letter make?",
+                            explanation: tr("{0} sounds like {1}.", l.char, l.sound), audioText: nil)
+        return Exercise(id: id, kind: .letterRecognition, instruction: tr("What sound does this letter make?"),
                         itemID: l.itemID, content: .choice(choice))
     }
 
@@ -284,8 +284,8 @@ struct ExerciseBuilder {
         let choice = Choice(prompt: l.latin, promptIsGeorgian: false, promptDetail: l.sound,
                             options: options.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element.char, detail: nil) },
                             optionsAreGeorgian: true, answer: options.firstIndex(of: l) ?? 0,
-                            explanation: "\(l.latin) is written \(l.char).", audioText: nil)
-        return Exercise(id: id, kind: .letterRecognition, instruction: "Which letter makes this sound?",
+                            explanation: tr("{0} is written {1}.", l.latin, l.char), audioText: nil)
+        return Exercise(id: id, kind: .letterRecognition, instruction: tr("Which letter makes this sound?"),
                         itemID: l.itemID, content: .choice(choice))
     }
 
@@ -324,8 +324,8 @@ struct ExerciseBuilder {
         let choice = Choice(prompt: shown.joined(), promptIsGeorgian: true, promptDetail: "\(g.lat) · \(g.en)",
                             options: options.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element.char, detail: nil) },
                             optionsAreGeorgian: true, answer: options.firstIndex(of: target) ?? 0,
-                            explanation: "\(g.ka) is \(g.lat).", audioText: nil)
-        return Exercise(id: id, kind: .missingLetter, instruction: "Which letter is missing?", itemID: target.itemID, content: .choice(choice))
+                            explanation: tr("{0} is {1}.", g.ka, g.lat), audioText: nil)
+        return Exercise(id: id, kind: .missingLetter, instruction: tr("Which letter is missing?"), itemID: target.itemID, content: .choice(choice))
     }
 
     /// Read a word: choose its Latin spelling among near misses (one letter swapped for a look-alike).
@@ -347,8 +347,8 @@ struct ExerciseBuilder {
         let choice = Choice(prompt: g.ka, promptIsGeorgian: true, promptDetail: nil,
                             options: shuffled.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element, detail: nil) },
                             optionsAreGeorgian: false, answer: shuffled.firstIndex(of: g.lat) ?? 0,
-                            explanation: "\(g.ka) reads \(g.lat): \(g.en).", audioText: nil)
-        return Exercise(id: id, kind: .reading, instruction: "Read this word", itemID: nil, content: .choice(choice))
+                            explanation: tr("{0} reads {1}: {2}.", g.ka, g.lat, g.en), audioText: nil)
+        return Exercise(id: id, kind: .reading, instruction: tr("Read this word"), itemID: nil, content: .choice(choice))
     }
 
     private func meaning<G: RandomNumberGenerator>(_ g: Gloss, others: [Gloss], id: String, using rng: inout G) -> Exercise {
@@ -359,7 +359,7 @@ struct ExerciseBuilder {
         let choice = Choice(prompt: g.ka, promptIsGeorgian: true, promptDetail: g.lat,
                             options: shuffled.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element, detail: nil) },
                             optionsAreGeorgian: false, answer: shuffled.firstIndex(of: g.en) ?? 0, explanation: nil, audioText: nil)
-        return Exercise(id: id, kind: .multipleChoice, instruction: "What does it mean?", itemID: nil, content: .choice(choice))
+        return Exercise(id: id, kind: .multipleChoice, instruction: tr("What does it mean?"), itemID: nil, content: .choice(choice))
     }
 
     private func georgianToEnglish<G: RandomNumberGenerator>(_ w: Word, pool: [Word], id: String, using rng: inout G) -> Exercise {
@@ -368,7 +368,7 @@ struct ExerciseBuilder {
         let choice = Choice(prompt: w.ka, promptIsGeorgian: true, promptDetail: w.lat,
                             options: options.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element.en, detail: nil) },
                             optionsAreGeorgian: false, answer: options.firstIndex(of: w) ?? 0, explanation: w.note, audioText: nil)
-        return Exercise(id: id, kind: .multipleChoice, instruction: "What does it mean?", itemID: w.id, content: .choice(choice))
+        return Exercise(id: id, kind: .multipleChoice, instruction: tr("What does it mean?"), itemID: w.id, content: .choice(choice))
     }
 
     private func englishToGeorgian<G: RandomNumberGenerator>(_ w: Word, pool: [Word], id: String, using rng: inout G) -> Exercise {
@@ -377,7 +377,7 @@ struct ExerciseBuilder {
         let choice = Choice(prompt: w.en, promptIsGeorgian: false, promptDetail: nil,
                             options: options.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element.ka, detail: $0.element.lat) },
                             optionsAreGeorgian: true, answer: options.firstIndex(of: w) ?? 0, explanation: w.note, audioText: nil)
-        return Exercise(id: id, kind: .multipleChoice, instruction: "How do you say it in Georgian?", itemID: w.id, content: .choice(choice))
+        return Exercise(id: id, kind: .multipleChoice, instruction: tr("How do you say it in Georgian?"), itemID: w.id, content: .choice(choice))
     }
 
     /// Three other words with different meanings and spellings.
@@ -392,12 +392,12 @@ struct ExerciseBuilder {
     }
 
     private func translation(_ w: Word, id: String) -> Exercise {
-        Exercise(id: id, kind: .translation, instruction: "Type it in English", itemID: w.id,
+        Exercise(id: id, kind: .translation, instruction: tr("Type it in English"), itemID: w.id,
                  content: .typing(Typing(prompt: w.ka, promptLatin: w.lat, accepted: AnswerEvaluator.acceptedEnglish(for: w), display: w.en)))
     }
 
     private func flashcard(_ w: Word, id: String) -> Exercise {
-        Exercise(id: id, kind: .flashcard, instruction: "Do you remember it?", itemID: w.id,
+        Exercise(id: id, kind: .flashcard, instruction: tr("Do you remember it?"), itemID: w.id,
                  content: .flashcard(Flashcard(front: w.ka, frontLatin: w.lat, back: w.en, note: w.note)))
     }
 
@@ -418,7 +418,7 @@ struct ExerciseBuilder {
                             options: shuffled.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element, detail: curriculum.latin($0.element)) },
                             optionsAreGeorgian: true, answer: shuffled.firstIndex(of: target) ?? 0,
                             explanation: "\(w.example.ka) — \(w.example.lat)", audioText: nil)
-        return Exercise(id: id, kind: .fillBlank, instruction: "Fill in the gap", itemID: w.id, content: .choice(choice))
+        return Exercise(id: id, kind: .fillBlank, instruction: tr("Fill in the gap"), itemID: w.id, content: .choice(choice))
     }
 
     private func spelling<G: RandomNumberGenerator>(_ g: Gloss, itemID: String?, letters: [LetterInfo], id: String, using rng: inout G) -> Exercise {
@@ -433,7 +433,7 @@ struct ExerciseBuilder {
             if extra.count >= 3 { break }
         }
         bank += extra
-        return Exercise(id: id, kind: .spelling, instruction: "Spell it in Georgian", itemID: itemID,
+        return Exercise(id: id, kind: .spelling, instruction: tr("Spell it in Georgian"), itemID: itemID,
                         content: .tiles(Tiles(prompt: g.en, promptDetail: g.lat, answer: answer, bank: bank.shuffled(using: &rng),
                                               joiner: "", isSpelling: true)))
     }
@@ -447,7 +447,7 @@ struct ExerciseBuilder {
                 extra.append(t)
             }
         }
-        return Exercise(id: id, kind: .sentenceBuilder, instruction: "Build the sentence", itemID: itemID,
+        return Exercise(id: id, kind: .sentenceBuilder, instruction: tr("Build the sentence"), itemID: itemID,
                         content: .tiles(Tiles(prompt: g.en, promptDetail: nil, answer: tiles,
                                               bank: (tiles + extra).shuffled(using: &rng), joiner: " ", isSpelling: false)))
     }
@@ -460,7 +460,7 @@ struct ExerciseBuilder {
                             options: shuffled.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element, detail: nil) },
                             optionsAreGeorgian: false, answer: shuffled.firstIndex(of: right) ?? 0,
                             explanation: prompt, audioText: prompt)
-        return Exercise(id: id, kind: .listening, instruction: "What did you hear?", itemID: itemID, content: .choice(choice))
+        return Exercise(id: id, kind: .listening, instruction: tr("What did you hear?"), itemID: itemID, content: .choice(choice))
     }
 
     private func choiceExercise<G: RandomNumberGenerator>(prompt: String, promptIsGeorgian: Bool, detail: String?, options: [String],

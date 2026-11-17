@@ -17,7 +17,7 @@ struct LearnView: View {
                             ModuleSection(module: module, showAlphabet: $showAlphabet) { lesson, state in
                                 if state == .locked {
                                     Haptics.error()
-                                    withMotion { lockedNotice = "Finish the lessons before \"\(lesson.title)\" to open it." }
+                                    withMotion { lockedNotice = tr("Finish the lessons before \"{0}\" to open it.", lesson.title) }
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.4) { withMotion { lockedNotice = nil } }
                                 } else {
                                     Haptics.tap()
@@ -38,15 +38,15 @@ struct LearnView: View {
                 }
             }
             .background(AmbientBackground(tint: .saperavi))
-            .navigationTitle("Learn")
+            .navigationTitle(tr("Learn"))
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     NavigationLink(value: LearnRoute.words) {
-                        Text("Words").font(.calloutRounded.weight(.semibold))
+                        Text(tr("Words")).font(.calloutRounded.weight(.semibold))
                     }
                     .accessibilityIdentifier("learn-words")
                     NavigationLink(value: LearnRoute.progress) {
-                        Text("Progress").font(.calloutRounded.weight(.semibold))
+                        Text(tr("Progress")).font(.calloutRounded.weight(.semibold))
                     }
                     .accessibilityIdentifier("learn-progress")
                 }
@@ -109,7 +109,7 @@ private struct ModuleSection: View {
                         Haptics.tap()
                         showAlphabet = true
                     } label: {
-                        Label("All 33 letters", systemImage: "square.grid.3x3.fill")
+                        Label(tr("All 33 letters"), systemImage: "square.grid.3x3.fill")
                             .font(.calloutRounded.weight(.bold))
                             .foregroundStyle(color.color)
                             .padding(.horizontal, 14)
@@ -268,7 +268,7 @@ struct LessonPreviewSheet: View {
                         Text(kindLabel).font(.calloutRounded).foregroundStyle(Palette.inkSoft)
                     }
                 }
-                Text("You'll learn").font(.headlineRounded).foregroundStyle(Palette.ink)
+                Text(tr("You'll learn")).font(.headlineRounded).foregroundStyle(Palette.ink)
                 FlowLayout(spacing: 8, alignment: .leading) {
                     ForEach(previewItems, id: \.self) { item in
                         Text(item)
@@ -280,14 +280,14 @@ struct LessonPreviewSheet: View {
                     }
                 }
                 HStack(spacing: 12) {
-                    Pill(text: "Up to \(XPRules.lessonComplete + 20) XP", color: Palette.gold, symbol: "bolt.fill")
-                    if state == .completed { Pill(text: "Done: practise again", color: Palette.success, symbol: "checkmark") }
+                    Pill(text: tr("Up to {0} XP", XPRules.lessonComplete + 20), color: Palette.gold, symbol: "bolt.fill")
+                    if state == .completed { Pill(text: tr("Done: practise again"), color: Palette.success, symbol: "checkmark") }
                 }
                 Button {
                     Haptics.tap()
                     navigator.start(lesson)
                 } label: {
-                    Label(state == .completed ? "Practise again" : "Start", systemImage: "play.fill")
+                    Label(state == .completed ? tr("Practise again") : tr("Start"), systemImage: "play.fill")
                 }
                 .buttonStyle(ChunkyButtonStyle(color: color))
                 .accessibilityIdentifier("start-lesson")
@@ -299,12 +299,12 @@ struct LessonPreviewSheet: View {
 
     private var kindLabel: String {
         switch lesson.kind {
-        case .letters: return lesson.letters?.isEmpty == false ? "New letters and your first reading" : "Reading practice"
-        case .contrast: return "Sound pairs"
-        case .vocabulary: return "New words"
-        case .phrases: return "Everyday phrases"
-        case .grammar: return "Grammar, step by step"
-        case .conversation: return "A conversation"
+        case .letters: return lesson.letters?.isEmpty == false ? tr("New letters and your first reading") : tr("Reading practice")
+        case .contrast: return tr("Sound pairs")
+        case .vocabulary: return tr("New words")
+        case .phrases: return tr("Everyday phrases")
+        case .grammar: return tr("Grammar, step by step")
+        case .conversation: return tr("A conversation")
         }
     }
 

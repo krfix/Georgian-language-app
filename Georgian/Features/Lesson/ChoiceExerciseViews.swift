@@ -36,8 +36,8 @@ struct ChoiceExerciseView: View {
                         .symbolEffect(.variableColor.iterative, isActive: audio.isPlaying(text))
                 }
                 .buttonStyle(.pressable)
-                .accessibilityLabel("Play again")
-                Button("Slower") { audio.play(text, slow: true) }
+                .accessibilityLabel(tr("Play again"))
+                Button(tr("Slower")) { audio.play(text, slow: true) }
                     .font(.calloutRounded.weight(.semibold))
                 if revealed != nil {
                     GeorgianText(text, size: 28)
@@ -172,7 +172,7 @@ struct OptionTile: View {
         .buttonStyle(.pressable)
         .accessibilityIdentifier("option-\(position)")
         .accessibilityAddTraits(state == .selected ? .isSelected : [])
-        .accessibilityHint(state == .right ? "Right answer" : state == .wrong ? "Your answer, wrong" : "")
+        .accessibilityHint(state == .right ? tr("Right answer") : state == .wrong ? tr("Your answer, wrong") : "")
     }
 }
 
@@ -206,7 +206,7 @@ struct TypingExerciseView: View {
             }
             .promptCard()
 
-            TextField("Type in English", text: $text)
+            TextField(tr("Type in English"), text: $text)
                 .font(.title3.weight(.semibold))
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
@@ -293,6 +293,6 @@ struct Bubble: View {
             if !line.isLearner { Spacer(minLength: 20) }
         }
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(line.isLearner ? "You" : line.speaker): \(line.ka), \(line.en)")
+        .accessibilityLabel("\(line.isLearner ? tr("You") : line.speaker): \(line.ka), \(line.en)")
     }
 }

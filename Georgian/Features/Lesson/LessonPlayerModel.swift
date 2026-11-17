@@ -109,8 +109,8 @@ final class LessonPlayerModel {
         case (.choice(let i), .dialogue(let d)): return i < d.options.count ? d.options[i] : ""
         case (.text(let s), _): return s
         case (.tiles(let t), .tiles(let tiles)): return t.joined(separator: tiles.joiner)
-        case (.matched(let m), _): return m == 0 ? "all matched" : "\(m) wrong pairs"
-        case (.recalled(let k), _): return k ? "remembered" : "didn't remember"
+        case (.matched(let m), _): return m == 0 ? tr("all matched") : tr("{0} wrong pairs", m)
+        case (.recalled(let k), _): return k ? tr("remembered") : tr("didn't remember")
         default: return ""
         }
     }

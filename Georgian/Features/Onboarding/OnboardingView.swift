@@ -49,7 +49,7 @@ struct OnboardingView: View {
 
     private var topBar: some View {
         HStack(spacing: 12) {
-            CircleIconButton(symbol: "chevron.left", label: "Back") { go(-1) }
+            CircleIconButton(symbol: "chevron.left", label: tr("Back")) { go(-1) }
                 .accessibilityIdentifier("onboarding-back")
             HStack(spacing: 6) {
                 ForEach(Step.allCases.dropFirst(), id: \.self) { s in
@@ -60,7 +60,7 @@ struct OnboardingView: View {
             }
             .motion(Motion.spring, value: step)
             .accessibilityElement()
-            .accessibilityLabel("Step \(step.rawValue) of \(Step.allCases.count - 1)")
+            .accessibilityLabel(tr("Step {0} of {1}", step.rawValue, Step.allCases.count - 1))
         }
         .padding(.horizontal, 20)
         .padding(.top, 8)
@@ -71,11 +71,11 @@ struct OnboardingView: View {
         case .welcome: WelcomePage()
         case .language: LanguagePage()
         case .method: MethodPage()
-        case .level: ChoicePage(title: "How much Georgian do you know?", subtitle: "We'll start you in the right place. You can change it later.",
+        case .level: ChoicePage(title: tr("How much Georgian do you know?"), subtitle: tr("We'll start you in the right place. You can change it later."),
                                 options: StartingLevel.allCases.map { ($0.rawValue, $0.title, $0.detail, $0.symbol) },
                                 selected: level.rawValue, color: .tkemali) { level = StartingLevel(rawValue: $0) ?? .beginner }
-        case .goal: ChoicePage(title: "Pick a daily goal", subtitle: "Little and often works best. You earn XP for every lesson and review.",
-                               options: DailyGoal.allCases.map { ("\($0.rawValue)", "\($0.title) · \($0.rawValue) XP", $0.minutes.capitalizedFirst, goalSymbol($0)) },
+        case .goal: ChoicePage(title: tr("Pick a daily goal"), subtitle: tr("Little and often works best. You earn XP for every lesson and review."),
+                               options: DailyGoal.allCases.map { ("\($0.rawValue)", tr("{0} · {1} XP", $0.title, $0.rawValue), $0.minutes.capitalizedFirst, goalSymbol($0)) },
                                selected: "\(goal.rawValue)", color: .gold) { goal = DailyGoal(rawValue: Int($0) ?? 20) ?? .regular }
         case .name: namePage
         case .ready: readyPage
@@ -93,10 +93,10 @@ struct OnboardingView: View {
 
     private var namePage: some View {
         VStack(alignment: .leading, spacing: 18) {
-            Text("What should we call you?").font(.titleBold).foregroundStyle(Palette.ink)
-            Text("Optional. It's only used to greet you, and it stays on this iPhone.")
+            Text(tr("What should we call you?")).font(.titleBold).foregroundStyle(Palette.ink)
+            Text(tr("Optional. It's only used to greet you, and it stays on this iPhone."))
                 .font(.bodyRounded).foregroundStyle(Palette.inkSoft)
-            TextField("Your name", text: $name)
+            TextField(tr("Your name"), text: $name)
                 .font(.title2.weight(.semibold))
                 .textContentType(.givenName)
                 .submitLabel(.done)
@@ -124,10 +124,10 @@ struct OnboardingView: View {
         VStack(spacing: 22) {
             ParrotView(height: 150, mood: .cheer)
                 .padding(.top, 10)
-            Text("You're all set!")
+            Text(tr("You're all set!"))
                 .font(.display)
                 .foregroundStyle(Palette.ink)
-            Text("Your first lesson takes about five minutes.")
+            Text(tr("Your first lesson takes about five minutes."))
                 .font(.bodyRounded)
                 .foregroundStyle(Palette.inkSoft)
                 .multilineTextAlignment(.center)
@@ -135,7 +135,7 @@ struct OnboardingView: View {
                 HStack(spacing: 14) {
                     LessonGlyph(lesson: lesson, size: 60, onColor: .white)
                     VStack(alignment: .leading, spacing: 3) {
-                        Text("First lesson").font(.captionBold).textCase(.uppercase).foregroundStyle(.white.opacity(0.85))
+                        Text(tr("First lesson")).font(.captionBold).textCase(.uppercase).foregroundStyle(.white.opacity(0.85))
                         Text(lesson.title).font(.title2Bold).foregroundStyle(.white)
                         Text(lesson.subtitle).font(.calloutRounded).foregroundStyle(.white.opacity(0.9))
                     }
@@ -144,7 +144,7 @@ struct OnboardingView: View {
                 .gradientCard(.pomegranate)
             }
             HStack(spacing: 10) {
-                Pill(text: "\(goal.rawValue) XP a day", color: Palette.gold, symbol: "target")
+                Pill(text: tr("{0} XP a day", goal.rawValue), color: Palette.gold, symbol: "target")
                 Pill(text: level.title, color: Palette.tkemali, symbol: level.symbol)
             }
         }
@@ -154,7 +154,7 @@ struct OnboardingView: View {
         switch step {
         case .welcome:
             VStack(spacing: 10) {
-                Button("Get started") { go(1) }
+                Button(tr("Get started")) { go(1) }
                     .buttonStyle(ChunkyButtonStyle(color: .pomegranate))
                     .accessibilityIdentifier("onboarding-next")
                 Button {
@@ -162,11 +162,11 @@ struct OnboardingView: View {
                     let nav = navigator
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { nav.tab = .phrasebook }
                 } label: {
-                    Label("I just need phrases now", systemImage: "bubble.left.and.text.bubble.right.fill")
+                    Label(tr("I just need phrases now"), systemImage: "bubble.left.and.text.bubble.right.fill")
                 }
                 .buttonStyle(SoftButtonStyle())
                 .accessibilityIdentifier("onboarding-phrasebook")
-                Text("No account needed. Everything stays on your iPhone and works offline.")
+                Text(tr("No account needed. Everything stays on your iPhone and works offline."))
                     .font(.caption)
                     .foregroundStyle(Palette.inkSoft)
             }
@@ -174,21 +174,21 @@ struct OnboardingView: View {
             VStack(spacing: 8) {
                 Button {
                     finish(startLesson: true)
-                } label: { Label("Start my first lesson", systemImage: "play.fill") }
+                } label: { Label(tr("Start my first lesson"), systemImage: "play.fill") }
                     .buttonStyle(ChunkyButtonStyle(color: .pomegranate))
                     .accessibilityIdentifier("onboarding-start-lesson")
-                Button("Explore first") { finish(startLesson: false) }
+                Button(tr("Explore first")) { finish(startLesson: false) }
                     .font(.headlineRounded)
                     .foregroundStyle(Palette.inkSoft)
                     .frame(minHeight: 44)
                     .accessibilityIdentifier("onboarding-skip-lesson")
             }
         case .name:
-            Button(name.trimmingCharacters(in: .whitespaces).isEmpty ? "Skip" : "Continue") { go(1) }
+            Button(name.trimmingCharacters(in: .whitespaces).isEmpty ? tr("Skip") : tr("Continue")) { go(1) }
                 .buttonStyle(ChunkyButtonStyle(color: tint))
                 .accessibilityIdentifier("onboarding-next")
         default:
-            Button("Continue") { go(1) }
+            Button(tr("Continue")) { go(1) }
                 .buttonStyle(ChunkyButtonStyle(color: tint))
                 .accessibilityIdentifier("onboarding-next")
         }
@@ -226,6 +226,9 @@ private struct WelcomePage: View {
 
     var body: some View {
         VStack(spacing: 26) {
+            LanguageSwitcher()
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.top, -24)
             ZStack {
                 ForEach(Array(letters.enumerated()), id: \.offset) { i, l in
                     let angle = Double(i) / Double(letters.count) * 2 * .pi
@@ -240,14 +243,14 @@ private struct WelcomePage: View {
             }
             .frame(height: 300)
             VStack(spacing: 10) {
-                Text("Ara")
+                Text(tr("Ara"))
                     .font(.system(size: 64, weight: .black, design: .rounded))
                     .foregroundStyle(Gradients.hero)
-                Text("Learn Georgian, and use it every day")
+                Text(tr("Learn Georgian, and use it every day"))
                     .font(.titleBold)
                     .foregroundStyle(Palette.ink)
                     .multilineTextAlignment(.center)
-                Text("Ara (**არა**) means \u{201C}no\u{201D} in Georgian. By the end, you\u{2019}ll be saying **კი**: yes!")
+                Text(LocalizedStringKey(tr("Ara (**არა**) means \u{201C}no\u{201D} in Georgian. By the end, you\u{2019}ll be saying **კი**: yes!")))
                     .font(.bodyRounded)
                     .foregroundStyle(Palette.inkSoft)
                     .multilineTextAlignment(.center)
@@ -261,17 +264,50 @@ private struct WelcomePage: View {
     }
 }
 
+/// English or Polish, on the welcome screen: the whole app switches at once.
+struct LanguageSwitcher: View {
+    @Environment(AppModel.self) private var app
+
+    var body: some View {
+        HStack(spacing: 4) {
+            ForEach(AppLanguage.allCases) { l in
+                let on = l == app.language
+                Button {
+                    guard !on else { return }
+                    Haptics.select()
+                    app.setLanguage(l)
+                } label: {
+                    Text(l.flag + " " + l.nativeName)
+                        .font(.calloutRounded.weight(.semibold))
+                        .foregroundStyle(on ? Color.white : Palette.ink)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 7)
+                        .background(Capsule().fill(on ? AnyShapeStyle(Gradients.hero) : AnyShapeStyle(Color.clear)))
+                }
+                .buttonStyle(.pressable)
+                .accessibilityAddTraits(on ? .isSelected : [])
+                .accessibilityIdentifier("language-\(l.rawValue)")
+            }
+        }
+        .padding(4)
+        .background(Capsule().fill(Palette.surface))
+        .overlay(Capsule().strokeBorder(Palette.line, lineWidth: 1))
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel(tr("Language"))
+    }
+}
+
 private struct LanguagePage: View {
     private let facts: [(String, String, String, BrandColor)] = [
-        ("character.book.closed.fill", "33 letters, no capitals", "Mkhedruli, today's alphabet, has one form for every letter.", .pomegranate),
-        ("speaker.wave.2.fill", "One letter, one sound", "Words are spelled exactly as they're said. Learn the letters and you can read anything aloud.", .saperavi),
-        ("scroll.fill", "Over 1,500 years of writing", "Georgian has its own script. UNESCO lists the living culture of its three alphabets.", .gold),
-        ("globe.europe.africa.fill", "A language family of its own", "Georgian is Kartvelian: not related to Russian, Turkish or any language outside the Caucasus. About four million people speak it.", .blacksea),
+        ("character.book.closed.fill", tr("33 letters, no capitals"), tr("Mkhedruli, today's alphabet, has one form for every letter."), .pomegranate),
+        ("speaker.wave.2.fill", tr("One letter, one sound"), tr("Words are spelled exactly as they're said. Learn the letters and you can read anything aloud."), .saperavi),
+        ("scroll.fill", tr("Over 1,500 years of writing"), tr("Georgian has its own script. UNESCO lists the living culture of its three alphabets."), .gold),
+        ("globe.europe.africa.fill", tr("A language family of its own"), tr("Georgian is Kartvelian: not related to Russian, Turkish or any language outside the Caucasus. About four million people speak it."), .blacksea),
     ]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Meet Georgian").font(.titleBold).foregroundStyle(Palette.ink)
+            Text(tr("Meet Georgian")).font(.titleBold).foregroundStyle(Palette.ink)
             ForEach(Array(facts.enumerated()), id: \.offset) { i, f in
                 FactRow(symbol: f.0, title: f.1, text: f.2, color: f.3, delay: Double(i) * 0.08)
             }
@@ -282,11 +318,11 @@ private struct LanguagePage: View {
 private struct MethodPage: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("How you'll learn").font(.titleBold).foregroundStyle(Palette.ink)
-            FactRow(symbol: "1.circle.fill", title: "Learn", text: "Short lessons: a few new letters or words, shown, then practised straight away.", color: .pomegranate, delay: 0)
-            FactRow(symbol: "2.circle.fill", title: "Practise", text: "Ten kinds of exercise: matching, spelling with letter tiles, building sentences, conversations…", color: .saperavi, delay: 0.08)
-            FactRow(symbol: "3.circle.fill", title: "Review", text: "Every word comes back just before you'd forget it. Mistakes come back sooner.", color: .blacksea, delay: 0.16)
-            FactRow(symbol: "flame.fill", title: "Keep a streak", text: "Earn XP, reach your daily goal and unlock achievements.", color: .gold, delay: 0.24)
+            Text(tr("How you'll learn")).font(.titleBold).foregroundStyle(Palette.ink)
+            FactRow(symbol: "1.circle.fill", title: tr("Learn"), text: tr("Short lessons: a few new letters or words, shown, then practised straight away."), color: .pomegranate, delay: 0)
+            FactRow(symbol: "2.circle.fill", title: tr("Practise"), text: tr("Ten kinds of exercise: matching, spelling with letter tiles, building sentences, conversations…"), color: .saperavi, delay: 0.08)
+            FactRow(symbol: "3.circle.fill", title: tr("Review"), text: tr("Every word comes back just before you'd forget it. Mistakes come back sooner."), color: .blacksea, delay: 0.16)
+            FactRow(symbol: "flame.fill", title: tr("Keep a streak"), text: tr("Earn XP, reach your daily goal and unlock achievements."), color: .gold, delay: 0.24)
         }
     }
 }

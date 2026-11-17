@@ -34,14 +34,14 @@ struct LessonCompleteView: View {
                     .accessibilityHidden(true)
 
                     VStack(spacing: 6) {
-                        Text(reward.isPerfect ? "Flawless!" : (isDialogue ? "Conversation done!" : isReview ? "Review complete!" : "Lesson complete!"))
+                        Text(reward.isPerfect ? tr("Flawless!") : (isDialogue ? tr("Conversation done!") : isReview ? tr("Review complete!") : tr("Lesson complete!")))
                             .font(.display)
                             .foregroundStyle(Palette.ink)
                             .multilineTextAlignment(.center)
                         Text(title)
                             .font(.headlineRounded)
                             .foregroundStyle(Palette.inkSoft)
-                        Text("ყოჩაღ! (well done!)")
+                        Text(tr("ყოჩაღ! (well done!)"))
                             .font(.calloutRounded)
                             .foregroundStyle(Palette.inkFaint)
                     }
@@ -49,18 +49,18 @@ struct LessonCompleteView: View {
                     .accessibilityIdentifier("lesson-complete")
 
                     HStack(spacing: 12) {
-                        rewardTile(symbol: "bolt.fill", value: "+\(shownXP)", label: "XP", color: Palette.gold)
-                        rewardTile(symbol: "target", value: "\(Int((reward.accuracy * 100).rounded()))%", label: "Accuracy", color: Palette.tkemali)
-                        rewardTile(symbol: "flame.fill", value: "\(reward.streak)", label: "Day streak", color: Palette.flame)
+                        rewardTile(symbol: "bolt.fill", value: "+\(shownXP)", label: tr("XP"), color: Palette.gold)
+                        rewardTile(symbol: "target", value: "\(Int((reward.accuracy * 100).rounded()))%", label: tr("Accuracy"), color: Palette.tkemali)
+                        rewardTile(symbol: "flame.fill", value: "\(reward.streak)", label: tr("Day streak"), color: Palette.flame)
                     }
 
                     goalCard
 
                     if reward.challengeCompletedNow {
-                        banner(symbol: "trophy.fill", text: "Daily challenge done: +\(XPRules.challengeBonus) XP", color: .saperavi)
+                        banner(symbol: "trophy.fill", text: tr("Daily challenge done: +{0} XP", XPRules.challengeBonus), color: .saperavi)
                     }
                     if let level = reward.newLevel {
-                        banner(symbol: "arrow.up.circle.fill", text: "You reached level \(level)!", color: .blacksea)
+                        banner(symbol: "arrow.up.circle.fill", text: tr("You reached level {0}!", level), color: .blacksea)
                     }
                     ForEach(reward.achievements) { a in
                         AchievementRow(achievement: a, unlocked: true, progress: 1)
@@ -72,7 +72,7 @@ struct LessonCompleteView: View {
             }
             VStack {
                 Spacer()
-                Button("Continue", action: { Haptics.tap(); onDone() })
+                Button(tr("Continue"), action: { Haptics.tap(); onDone() })
                     .buttonStyle(ChunkyButtonStyle(color: .tkemali))
                     .padding(.horizontal, 20)
                     .padding(.bottom, 12)
@@ -121,10 +121,10 @@ struct LessonCompleteView: View {
             }
             .frame(width: 64, height: 64)
             VStack(alignment: .leading, spacing: 4) {
-                Text(progress >= 1 ? (reward.goalReachedNow ? "Daily goal reached!" : "Daily goal done") : "Daily goal")
+                Text(progress >= 1 ? (reward.goalReachedNow ? tr("Daily goal reached!") : tr("Daily goal done")) : tr("Daily goal"))
                     .font(.headlineRounded)
                     .foregroundStyle(Palette.ink)
-                Text("\(reward.xpToday) of \(reward.dailyGoal) XP today")
+                Text(tr("{0} of {1} XP today", reward.xpToday, reward.dailyGoal))
                     .font(.calloutRounded)
                     .foregroundStyle(Palette.inkSoft)
             }

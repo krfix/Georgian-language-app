@@ -19,6 +19,9 @@ struct LessonReward: Equatable {
 /// How well a letter or word is known, for badges in the vocabulary.
 enum ItemStatus: String {
     case new = "New", learning = "Learning", learned = "Learned", difficult = "Difficult"
+
+    /// The status in the learner's language.
+    var title: String { tr(rawValue) }
 }
 
 /// The app's saved progress and everything worked out from it. Views read from here and

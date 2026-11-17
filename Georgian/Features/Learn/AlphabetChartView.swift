@@ -13,7 +13,7 @@ struct AlphabetChartView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Mkhedruli: 33 letters, no capitals, one sound each.")
+                    Text(tr("Mkhedruli: 33 letters, no capitals, one sound each."))
                         .font(.calloutRounded)
                         .foregroundStyle(Palette.inkSoft)
                     LazyVGrid(columns: columns, spacing: 10) {
@@ -23,7 +23,7 @@ struct AlphabetChartView: View {
                                 open = l
                             } label: { tile(l) }
                             .buttonStyle(.pressable)
-                            .accessibilityLabel("\(l.name), \(l.latin), \(store.status(of: l.itemID).rawValue)")
+                            .accessibilityLabel("\(l.name), \(l.latin), \(store.status(of: l.itemID).title)")
                         }
                     }
                     legend
@@ -32,19 +32,19 @@ struct AlphabetChartView: View {
                         Haptics.tap()
                         navigator.sheetOpen = true
                         dismiss()
-                        navigator.review(Array(letters.shuffled().prefix(12)), title: "Letter practice")
+                        navigator.review(Array(letters.shuffled().prefix(12)), title: tr("Letter practice"))
                     } label: {
-                        Label("Practise 12 letters", systemImage: "shuffle")
+                        Label(tr("Practise 12 letters"), systemImage: "shuffle")
                     }
                     .buttonStyle(ChunkyButtonStyle(color: .pomegranate))
                 }
                 .padding(20)
             }
             .background(AmbientBackground(tint: .pomegranate))
-            .navigationTitle("ანბანი · Alphabet")
+            .navigationTitle(tr("ანბანი · Alphabet"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } }
+                ToolbarItem(placement: .confirmationAction) { Button(tr("Done")) { dismiss() } }
             }
             .sheet(item: $open) { l in
                 ScrollView { TeachLetterView(letter: l).padding(20) }
@@ -74,10 +74,10 @@ struct AlphabetChartView: View {
 
     private var legend: some View {
         HStack(spacing: 14) {
-            legendItem("New", Palette.line)
-            legendItem("Learning", Palette.gold)
-            legendItem("Learned", Palette.success)
-            legendItem("Difficult", Palette.error)
+            legendItem(tr("New"), Palette.line)
+            legendItem(tr("Learning"), Palette.gold)
+            legendItem(tr("Learned"), Palette.success)
+            legendItem(tr("Difficult"), Palette.error)
         }
         .font(.caption)
         .foregroundStyle(Palette.inkSoft)

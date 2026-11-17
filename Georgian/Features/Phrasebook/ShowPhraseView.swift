@@ -75,13 +75,13 @@ struct ShowPhraseView: View {
 
     private var topBar: some View {
         HStack(spacing: 12) {
-            roundButton("xmark", label: "Close", id: "show-close") { dismiss() }
+            roundButton("xmark", label: tr("Close"), id: "show-close") { dismiss() }
             Spacer()
-            roundButton(showTranslation ? "character.bubble.fill" : "character.bubble", label: showTranslation ? "Hide English" : "Show English",
+            roundButton(showTranslation ? "character.bubble.fill" : "character.bubble", label: showTranslation ? tr("Hide English") : tr("Show English"),
                         id: "show-translation") {
                 withMotion(Motion.gentle) { showTranslation.toggle() }
             }
-            roundButton("arrow.up.arrow.down", label: flipped ? "Turn the right way up" : "Turn upside down for the person opposite",
+            roundButton("arrow.up.arrow.down", label: flipped ? tr("Turn the right way up") : tr("Turn upside down for the person opposite"),
                         id: "show-flip") {
                 withMotion(Motion.spring) { flipped.toggle() }
             }
@@ -98,7 +98,7 @@ struct ShowPhraseView: View {
                         Haptics.tap()
                         if audio.isPlaying(phrase.ka) { audio.stop() } else { audio.play(phrase.ka) }
                     } label: {
-                        Label("Play", systemImage: audio.isPlaying(phrase.ka) ? "speaker.wave.3.fill" : "speaker.wave.2.fill")
+                        Label(tr("Play"), systemImage: audio.isPlaying(phrase.ka) ? "speaker.wave.3.fill" : "speaker.wave.2.fill")
                             .font(.headlineRounded)
                             .foregroundStyle(.black)
                             .padding(.horizontal, 28)
@@ -119,9 +119,9 @@ struct ShowPhraseView: View {
                             .background(Circle().fill(.white.opacity(0.16)))
                     }
                     .buttonStyle(.pressable)
-                    .accessibilityLabel("Play slowly")
+                    .accessibilityLabel(tr("Play slowly"))
                 }
-                Text(audio.source(for: phrase.ka)?.isSynthetic == false ? "Native recording" : "Synthetic voice")
+                Text(audio.source(for: phrase.ka)?.isSynthetic == false ? tr("Native recording") : tr("Synthetic voice"))
                     .font(.caption2)
                     .foregroundStyle(.white.opacity(0.4))
             }

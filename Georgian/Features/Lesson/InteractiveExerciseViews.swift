@@ -137,7 +137,7 @@ struct TilesExerciseView: View {
                     .strokeBorder(answerBorder, style: StrokeStyle(lineWidth: 2, dash: chosen.isEmpty ? [6, 6] : []))
             )
             .accessibilityElement(children: .contain)
-            .accessibilityLabel("Your answer")
+            .accessibilityLabel(tr("Your answer"))
 
             // The bank.
             FlowLayout(spacing: tiles.isSpelling ? 6 : 8) {
@@ -219,22 +219,22 @@ struct FlashcardExerciseView: View {
             .onTapGesture { flip() }
             .accessibilityElement(children: .combine)
             .accessibilityAddTraits(.isButton)
-            .accessibilityHint(flipped ? "" : "Shows the meaning")
+            .accessibilityHint(flipped ? "" : tr("Shows the meaning"))
             .accessibilityAction { flip() }
             .accessibilityIdentifier("flashcard")
 
             if flipped && revealed == nil {
                 HStack(spacing: 12) {
-                    Button("Still learning") { onRecall(false) }
+                    Button(tr("Still learning")) { onRecall(false) }
                         .buttonStyle(SoftButtonStyle())
                         .accessibilityIdentifier("recall-no")
-                    Button("I knew it") { onRecall(true) }
+                    Button(tr("I knew it")) { onRecall(true) }
                         .buttonStyle(ChunkyButtonStyle(color: .tkemali))
                         .accessibilityIdentifier("recall-yes")
                 }
                 .transition(.move(edge: .bottom).combined(with: .opacity))
             } else if !flipped {
-                Button("Show the meaning") { flip() }
+                Button(tr("Show the meaning")) { flip() }
                     .buttonStyle(SoftButtonStyle())
                     .accessibilityIdentifier("flip")
             }

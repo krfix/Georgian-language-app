@@ -26,7 +26,7 @@ struct SpeakerButton: View {
                         .symbolEffect(.variableColor.iterative, isActive: audio.isPlaying(text))
                 }
                 .buttonStyle(.pressable)
-                .accessibilityLabel("Play")
+                .accessibilityLabel(tr("Play"))
                 .accessibilityIdentifier("speaker")
                 Button {
                     Haptics.tap()
@@ -39,9 +39,9 @@ struct SpeakerButton: View {
                         .background(Circle().fill(onColor ? Color.white.opacity(0.24) : Palette.blacksea.opacity(0.15)))
                 }
                 .buttonStyle(.pressable)
-                .accessibilityLabel("Play slowly")
+                .accessibilityLabel(tr("Play slowly"))
                 if showsSource {
-                    Pill(text: source.isSynthetic ? "Synthetic voice" : "Native recording",
+                    Pill(text: source.isSynthetic ? tr("Synthetic voice") : tr("Native recording"),
                          color: onColor ? .white : (source.isSynthetic ? Palette.inkSoft : Palette.tkemali),
                          symbol: source.isSynthetic ? "waveform" : "person.wave.2.fill")
                 }

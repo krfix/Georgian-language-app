@@ -41,10 +41,13 @@ struct PhraseSearch {
     private let synonyms: [String: [String]]
 
     static let stopwords: Set<String> = ["a", "an", "the", "to", "of", "is", "are", "am", "i", "im", "me", "my", "it",
-                                         "its", "please", "for", "and", "or", "be", "some", "any"]
+                                         "its", "please", "for", "and", "or", "be", "some", "any",
+                                         // Polish (without accents, as plain() leaves them)
+                                         "ja", "jest", "sa", "w", "we", "na", "z", "ze", "do", "o", "u",
+                                         "sie", "mi", "mnie", "prosze", "poprosze", "czy", "jak", "ten", "ta"]
 
     init(file: PhrasebookFile, courseWords: [Word], courseCategories: [WordCategory]) {
-        synonyms = file.synonyms
+        synonyms = Dictionary(file.synonyms.map { (Self.plain($0.key), $0.value.map(Self.plain)) }, uniquingKeysWith: { a, _ in a })
         phrases = file.phrases
         let cats = Dictionary(file.categories.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
         phraseDocs = file.phrases.map { p in
@@ -172,9 +175,9 @@ struct PhraseSearch {
 
     // MARK: Text
 
-    /// Lower case, no apostrophes, letters and digits only, single spaces.
+    /// Lower case, no apostrophes or accents, letters and digits only, single spaces.
     static func plain(_ s: String) -> String {
-        var t = s.lowercased()
+        var t = withoutAccents(s.lowercased())
         for a in ["'", "’", "‘", "ʼ", "`", "´"] { t = t.replacingOccurrences(of: a, with: "") }
         let mapped = String(t.map { $0.isLetter || $0.isNumber ? $0 : " " })
         return mapped.split(separator: " ").joined(separator: " ")
@@ -184,9 +187,20 @@ struct PhraseSearch {
 
     /// A plain English stem: phones → phone, pharmacies → pharmacy, training → train.
     static func stem(_ t: String) -> String {
+        if AppLanguage.current == .pl { return polishStem(t) }
         if t.count > 4 && t.hasSuffix("ies") { return String(t.dropLast(3)) + "y" }
         if t.count > 5 && t.hasSuffix("ing") { return String(t.dropLast(3)) }
         if t.count > 3 && t.hasSuffix("s") && !t.hasSuffix("ss") { return String(t.dropLast()) }
+        return t
+    }
+
+    /// A rough Polish stem: the common case endings off, so "apteki", "aptece" and "apteka"
+    /// meet at "aptek" (the prefix match does the rest).
+    static func polishStem(_ t: String) -> String {
+        guard t.count > 4 else { return t }
+        for ending in ["ami", "ach", "owi", "iem", "om", "em", "ow", "ie", "ia", "y", "i", "a", "e", "u", "o"] where t.hasSuffix(ending) && t.count - ending.count >= 4 {
+            return String(t.dropLast(ending.count))
+        }
         return t
     }
 

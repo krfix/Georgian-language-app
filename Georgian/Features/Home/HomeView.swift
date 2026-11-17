@@ -16,7 +16,7 @@ struct HomeView: View {
                     PurposeRow()
                     QuickSituations()
                     PhraseShelf()
-                    SectionTitle(title: "Continue learning", trailing: "Course") { navigator.tab = .learn }
+                    SectionTitle(title: tr("Continue learning"), trailing: tr("Course")) { navigator.tab = .learn }
                     if let lesson = store.nextLesson { ContinueCard(lesson: lesson) }
                     else { CourseDoneCard() }
                     ReviewNudgeCard()
@@ -42,9 +42,9 @@ struct HomeView: View {
     private var greetingLatin: String {
         let hour = Calendar.current.component(.hour, from: Date())
         switch hour {
-        case 5..<12: return "Good morning"
-        case 18..<24: return "Good evening"
-        default: return "Hello"
+        case 5..<12: return tr("Good morning")
+        case 18..<24: return tr("Good evening")
+        default: return tr("Hello")
         }
     }
 
@@ -54,15 +54,15 @@ struct HomeView: View {
                 Text(greeting)
                     .font(.system(.title2, weight: .bold))
                     .foregroundStyle(Palette.pomegranate)
-                Text(store.profile.name.isEmpty ? "\(greetingLatin)!" : "\(greetingLatin), \(store.profile.name)!")
+                Text(store.profile.name.isEmpty ? greetingLatin + "!" : greetingLatin + ", " + store.profile.name + "!")
                     .font(.display)
                     .foregroundStyle(Palette.ink)
                     .lineLimit(2)
                     .minimumScaleFactor(0.7)
                 if store.streak > 0 || store.totalXP > 0 {
                     HStack(spacing: 10) {
-                        Label("\(store.streak)-day streak", systemImage: "flame.fill").foregroundStyle(Palette.flame)
-                        Label("\(store.totalXP) XP", systemImage: "bolt.fill").foregroundStyle(Palette.gold)
+                        Label(tr("{0}-day streak", store.streak), systemImage: "flame.fill").foregroundStyle(Palette.flame)
+                        Label(tr("{0} XP", store.totalXP), systemImage: "bolt.fill").foregroundStyle(Palette.gold)
                     }
                     .font(.captionBold)
                     .padding(.top, 2)
@@ -83,7 +83,7 @@ struct HomeView: View {
                     .shadow(color: Palette.pomegranate.opacity(0.3), radius: 8, y: 4)
             }
             .buttonStyle(.pressable)
-            .accessibilityLabel("Profile and settings")
+            .accessibilityLabel(tr("Profile and settings"))
             .accessibilityIdentifier("profile-button")
         }
         .padding(.top, 12)
@@ -113,7 +113,7 @@ struct ContinueCard: View {
             }
             HStack(alignment: .center, spacing: 16) {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(store.completedLessons.isEmpty ? "Start learning" : "Continue")
+                    Text(store.completedLessons.isEmpty ? tr("Start learning") : tr("Continue"))
                         .font(.calloutRounded.weight(.semibold))
                         .foregroundStyle(color.onColor.opacity(0.85))
                     Text(lesson.title)
@@ -133,7 +133,7 @@ struct ContinueCard: View {
                 Haptics.tap()
                 navigator.start(lesson)
             } label: {
-                Label("Start lesson", systemImage: "play.fill")
+                Label(tr("Start lesson"), systemImage: "play.fill")
             }
             .buttonStyle(ChunkyButtonStyle(color: color == .gold ? .pomegranate : .gold))
             .accessibilityIdentifier("continue-lesson")
@@ -178,8 +178,8 @@ struct LessonGlyph: View {
 struct CourseDoneCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("You've finished the course!").font(.titleBold).foregroundStyle(.white)
-            Text("Keep your Georgian fresh with daily reviews.").font(.calloutRounded).foregroundStyle(.white.opacity(0.9))
+            Text(tr("You've finished the course!")).font(.titleBold).foregroundStyle(.white)
+            Text(tr("Keep your Georgian fresh with daily reviews.")).font(.calloutRounded).foregroundStyle(.white.opacity(0.9))
         }
         .gradientCard(.tkemali)
     }
@@ -196,13 +196,13 @@ struct DailyGoalCard: View {
             ProgressRing(progress: progress, lineWidth: 12) {
                 VStack(spacing: 0) {
                     Text("\(min(xp, 999))").font(.title2Bold).foregroundStyle(Palette.ink).contentTransition(.numericText())
-                    Text("of \(goal)").font(.caption2).foregroundStyle(Palette.inkSoft)
+                    Text(tr("of {0}", goal)).font(.caption2).foregroundStyle(Palette.inkSoft)
                 }
             }
             .frame(width: 84, height: 84)
             VStack(alignment: .leading, spacing: 5) {
-                Text("Daily goal").font(.headlineRounded).foregroundStyle(Palette.ink)
-                Text(progress >= 1 ? "Done for today. ყოჩაღ!" : "\(max(0, goal - xp)) XP to go: about one lesson.")
+                Text(tr("Daily goal")).font(.headlineRounded).foregroundStyle(Palette.ink)
+                Text(progress >= 1 ? tr("Done for today. ყოჩაღ!") : tr("{0} XP to go: about one lesson.", max(0, goal - xp)))
                     .font(.calloutRounded)
                     .foregroundStyle(Palette.inkSoft)
                     .fixedSize(horizontal: false, vertical: true)
@@ -212,7 +212,7 @@ struct DailyGoalCard: View {
         }
         .card()
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("Daily goal: \(xp) of \(goal) XP")
+        .accessibilityLabel(tr("Daily goal: {0} of {1} XP", xp, goal))
     }
 }
 
@@ -259,7 +259,7 @@ struct PathPreview: View {
         let start = lessons.firstIndex { states[$0.id] == .current } ?? 0
         let slice = Array(lessons[max(0, start - 1)..<min(lessons.count, start + 5)])
         return VStack(alignment: .leading, spacing: 10) {
-            SectionTitle(title: "Your path", trailing: "See all") { navigator.tab = .learn }
+            SectionTitle(title: tr("Your path"), trailing: tr("See all")) { navigator.tab = .learn }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 14) {
                     ForEach(slice) { lesson in
@@ -292,10 +292,10 @@ struct PathPreview: View {
 
 func stateLabel(_ s: LessonState) -> String {
     switch s {
-    case .completed: return "done"
-    case .current: return "up next"
-    case .available: return "open"
-    case .locked: return "locked"
+    case .completed: return tr("done")
+    case .current: return tr("up next")
+    case .available: return tr("open")
+    case .locked: return tr("locked")
     }
 }
 
@@ -315,9 +315,9 @@ struct ChallengeCard: View {
                 .symbolEffect(.bounce, value: done)
             VStack(alignment: .leading, spacing: 6) {
                 HStack {
-                    Text("Daily challenge").font(.captionBold).textCase(.uppercase).foregroundStyle(Palette.saperavi)
+                    Text(tr("Daily challenge")).font(.captionBold).textCase(.uppercase).foregroundStyle(Palette.saperavi)
                     Spacer()
-                    Pill(text: done ? "Done" : "+\(XPRules.challengeBonus) XP", color: done ? Palette.success : Palette.gold)
+                    Pill(text: done ? tr("Done") : "+\(XPRules.challengeBonus) XP", color: done ? Palette.success : Palette.gold)
                 }
                 Text(c.title).font(.headlineRounded).foregroundStyle(Palette.ink).fixedSize(horizontal: false, vertical: true)
                 ProgressBar(progress: Double(value) / Double(max(1, c.target)), color: Palette.saperavi, height: 10)
@@ -338,8 +338,8 @@ struct ReviewNudgeCard: View {
         return VStack(alignment: .leading, spacing: 12) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(due.isEmpty ? "Nothing to review" : "\(due.count) to review").font(.headlineRounded).foregroundStyle(Palette.ink)
-                    Text(due.isEmpty ? "Learn something new, and it comes back here at the right time." : "Words and letters you're about to forget.")
+                    Text(due.isEmpty ? tr("Nothing to review") : tr("{0} to review", due.count)).font(.headlineRounded).foregroundStyle(Palette.ink)
+                    Text(due.isEmpty ? tr("Learn something new, and it comes back here at the right time.") : tr("Words and letters you're about to forget."))
                         .font(.calloutRounded).foregroundStyle(Palette.inkSoft).fixedSize(horizontal: false, vertical: true)
                 }
                 Spacer()
@@ -360,9 +360,9 @@ struct ReviewNudgeCard: View {
                 }
                 Button {
                     Haptics.tap()
-                    navigator.review(due, title: "Daily review")
+                    navigator.review(due, title: tr("Daily review"))
                 } label: {
-                    Label("Review now", systemImage: "play.fill")
+                    Label(tr("Review now"), systemImage: "play.fill")
                 }
                 .buttonStyle(ChunkyButtonStyle(color: .blacksea))
                 .accessibilityIdentifier("home-review")
@@ -383,12 +383,12 @@ struct PurposeRow: View {
         let lessonsDone = store.completedLessons.count
         let total = store.curriculum.lessons.count
         HStack(spacing: 12) {
-            tile(color: .saperavi, symbol: "map.fill", title: "Learn",
-                 text: "Continue your Georgian course",
-                 detail: "\(lessonsDone) of \(total) lessons", id: "purpose-learn") { navigator.tab = .learn }
-            tile(color: .pomegranate, symbol: "bubble.left.and.text.bubble.right.fill", title: "Use in Georgia",
-                 text: "Find the right words for everyday situations",
-                 detail: "\(store.phrasebook.phrases.count) phrases", id: "purpose-use") { navigator.tab = .phrasebook }
+            tile(color: .saperavi, symbol: "map.fill", title: tr("Learn"),
+                 text: tr("Continue your Georgian course"),
+                 detail: tr("{0} of {1} lessons", lessonsDone, total), id: "purpose-learn") { navigator.tab = .learn }
+            tile(color: .pomegranate, symbol: "bubble.left.and.text.bubble.right.fill", title: tr("Use in Georgia"),
+                 text: tr("Find the right words for everyday situations"),
+                 detail: tr("{0} phrases", store.phrasebook.phrases.count), id: "purpose-use") { navigator.tab = .phrasebook }
         }
     }
 
@@ -434,7 +434,7 @@ struct QuickSituations: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionTitle(title: "Right now I need…", trailing: "All") { navigator.tab = .phrasebook }
+            SectionTitle(title: tr("Right now I need…"), trailing: tr("All")) { navigator.tab = .phrasebook }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
                     ForEach(ids.compactMap(store.phrasebook.category)) { c in
@@ -473,13 +473,13 @@ struct QuickSituations: View {
 
     private func shortName(_ c: PhraseCategory) -> String {
         switch c.id {
-        case "transport": return "Taxi & bus"
-        case "shopping": return "Shopping"
-        case "food": return "Café"
-        case "health": return "Pharmacy"
-        case "home": return "Home"
-        case "social": return "People"
-        case "emergency": return "Emergency"
+        case "transport": return tr("Taxi & bus")
+        case "shopping": return tr("Shopping")
+        case "food": return tr("Café")
+        case "health": return tr("Pharmacy")
+        case "home": return tr("At home")
+        case "social": return tr("People")
+        case "emergency": return tr("Emergency")
         default: return c.title
         }
     }
@@ -496,8 +496,8 @@ struct PhraseShelf: View {
         let list = recent.isEmpty ? saved : recent
         if !list.isEmpty {
             VStack(alignment: .leading, spacing: 10) {
-                SectionTitle(title: recent.isEmpty ? "Your saved phrases" : "Recently used",
-                             trailing: saved.isEmpty ? nil : "My phrasebook") { navigator.openSaved() }
+                SectionTitle(title: recent.isEmpty ? tr("Your saved phrases") : tr("Recently used"),
+                             trailing: saved.isEmpty ? nil : tr("My phrasebook")) { navigator.openSaved() }
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         ForEach(list.prefix(8)) { p in PhraseMiniCard(phrase: p) }

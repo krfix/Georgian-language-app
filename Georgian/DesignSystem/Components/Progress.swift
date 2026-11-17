@@ -44,6 +44,6 @@ struct ProgressBar: View {
         .frame(height: height)
         .motion(Motion.spring, value: progress)
         .accessibilityElement()
-        .accessibilityValue("\(Int((progress * 100).rounded())) percent")
+        .accessibilityValue(tr("{0} percent", Int((progress * 100).rounded())))
     }
 }

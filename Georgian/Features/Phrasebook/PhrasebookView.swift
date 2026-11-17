@@ -17,7 +17,7 @@ struct PhrasebookView: View {
                     SearchBarButton { navigator.search() }
                     EmergencyStrip()
                     MyPhrasebookCard()
-                    SectionTitle(title: "Situations")
+                    SectionTitle(title: tr("Situations"))
                     LazyVGrid(columns: columns, spacing: 12) {
                         ForEach(store.phrasebook.categories.filter { !$0.isEmergency }) { c in
                             NavigationLink(value: PhrasebookRoute.category(c.id)) {
@@ -27,8 +27,8 @@ struct PhrasebookView: View {
                             .accessibilityIdentifier("category-\(c.id)")
                         }
                     }
-                    SectionTitle(title: "Conversations")
-                    Text("Real everyday exchanges. Read them, listen, then play either side.")
+                    SectionTitle(title: tr("Conversations"))
+                    Text(tr("Real everyday exchanges. Read them, listen, then play either side."))
                         .font(.calloutRounded)
                         .foregroundStyle(Palette.inkSoft)
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -67,10 +67,10 @@ struct PhrasebookView: View {
             Text("საქართველოში")
                 .font(.system(.title2, weight: .bold))
                 .foregroundStyle(Palette.pomegranate)
-            Text("Use in Georgia")
+            Text(tr("Use in Georgia"))
                 .font(.display)
                 .foregroundStyle(Palette.ink)
-            Text("The right words for everyday situations, ready when you need them.")
+            Text(tr("The right words for everyday situations, ready when you need them."))
                 .font(.calloutRounded)
                 .foregroundStyle(Palette.inkSoft)
                 .fixedSize(horizontal: false, vertical: true)
@@ -97,8 +97,8 @@ struct EmergencyStrip: View {
                         .frame(width: 44, height: 44)
                         .background(Circle().fill(.white.opacity(0.2)))
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Emergency phrases").font(.headlineRounded).foregroundStyle(.white)
-                        Text("Help, police, accidents, lost").font(.caption).foregroundStyle(.white.opacity(0.9))
+                        Text(tr("Emergency phrases")).font(.headlineRounded).foregroundStyle(.white)
+                        Text(tr("Help, police, accidents, lost")).font(.caption).foregroundStyle(.white.opacity(0.9))
                     }
                     Spacer(minLength: 0)
                 }
@@ -115,7 +115,7 @@ struct EmergencyStrip: View {
                 .frame(width: 64, height: 56)
                 .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(.white))
             }
-            .accessibilityLabel("Call 112, the emergency number")
+            .accessibilityLabel(tr("Call 112, the emergency number"))
         }
         .padding(12)
         .background(
@@ -144,9 +144,9 @@ struct MyPhrasebookCard: View {
                     .frame(width: 52, height: 52)
                     .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Gradients.gold))
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("My phrasebook").font(.headlineRounded).foregroundStyle(Palette.ink)
-                    Text(saved == 0 ? "Tap ☆ on any phrase to keep it here." :
-                            "\(saved) saved · \(store.practisingPhraseCount) in review")
+                    Text(tr("My phrasebook")).font(.headlineRounded).foregroundStyle(Palette.ink)
+                    Text(saved == 0 ? tr("Tap ☆ on any phrase to keep it here.") :
+                            tr("{0} saved · {1} in review", saved, store.practisingPhraseCount))
                         .font(.calloutRounded)
                         .foregroundStyle(Palette.inkSoft)
                 }
@@ -187,7 +187,7 @@ struct CategoryView: View {
                 }
                 let dialogues = store.phrasebook.dialogues(in: category.id)
                 if !dialogues.isEmpty && sub == nil {
-                    SectionTitle(title: "Conversations")
+                    SectionTitle(title: tr("Conversations"))
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 12) {
                             ForEach(dialogues) { d in
@@ -199,7 +199,7 @@ struct CategoryView: View {
                     }
                 }
                 if category.id == "health" {
-                    Label("These phrases help you describe a problem. They are not medical advice. In an emergency, call 112.",
+                    Label(tr("These phrases help you describe a problem. They are not medical advice. In an emergency, call 112."),
                           systemImage: "info.circle.fill")
                         .font(.caption)
                         .foregroundStyle(Palette.inkSoft)
@@ -242,7 +242,7 @@ struct CategoryView: View {
 
     private var callCard: some View {
         Link(destination: URL(string: "tel:112")!) {
-            Label("Call 112: ambulance, police, fire", systemImage: "phone.fill")
+            Label(tr("Call 112: ambulance, police, fire"), systemImage: "phone.fill")
         }
         .buttonStyle(ChunkyButtonStyle(color: .pomegranate))
         .accessibilityIdentifier("call-112")
@@ -251,7 +251,7 @@ struct CategoryView: View {
     private var chips: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                chip("All", id: nil)
+                chip(tr("All"), id: nil)
                 ForEach(category.subs) { s in chip(s.title, id: s.id) }
             }
             .padding(.vertical, 4)

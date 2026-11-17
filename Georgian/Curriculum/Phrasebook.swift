@@ -50,7 +50,7 @@ final class Phrasebook {
         var alt = [plainEnglish]
         for v in p.variants ?? [] where !alt.contains(v.en) { alt.append(v.en.trimmingCharacters(in: CharacterSet(charactersIn: ".!?"))) }
         return Word(id: p.id, ka: p.ka, lat: p.lat, en: p.en, alt: alt, category: p.category, situation: p.sub,
-                    example: Gloss(ka: p.ka, lat: p.lat, en: p.en), note: p.note ?? p.lit.map { "Literally: \($0)" }, pron: nil)
+                    example: Gloss(ka: p.ka, lat: p.lat, en: p.en), note: p.note ?? p.lit.map { tr("Literally: {0}", $0) }, pron: nil)
     }
 
     func word(_ id: String) -> Word? { phrase(id).map(word(for:)) }
@@ -88,10 +88,10 @@ final class Phrasebook {
             lines.append(DialogueLine(speaker: mine ? "You" : speaker, ka: line.ka, lat: line.lat, en: line.en,
                                       isLearner: mine, wrong: mine ? wrong : nil))
         }
-        let partner = d.roles.indices.contains(1 - role) ? d.roles[1 - role] : "Them"
+        let partner = d.roles.indices.contains(1 - role) ? d.roles[1 - role] : tr("Them")
         let roleName = d.roles.indices.contains(role) ? d.roles[role] : "You"
         return Lesson(id: "\(d.id).as\(role)", kind: .conversation, title: d.title,
-                      subtitle: role == 0 ? "You speak" : "You are the \(roleName.lowercased())",
+                      subtitle: role == 0 ? tr("You speak") : tr("You are the {0}", roleName.lowercased()),
                       letters: nil, pairs: nil, note: nil, read: nil, words: nil, category: d.category, situation: nil,
                       notes: nil, exercises: nil, dialogue: Dialogue(partner: partner, lines: lines))
     }
