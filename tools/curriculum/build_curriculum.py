@@ -727,6 +727,119 @@ pl_categories = [{**c, "title": t(c["title"], "category " + c["id"])} for c in c
 pl_modules = polish_course()
 pl_pb = polish_phrasebook()
 
+# ---- More words (KART #5): every Georgian word the app shows anywhere (letters, examples,
+# conversations, phrases, grammar tables, exercises) is in the Words tab. Words outside the
+# course's own vocabulary go into the "more" list of vocabulary.json, each with a sentence
+# where it appears (or, for a letter's example word, the word itself).
+def visible_texts():
+    """(Georgian, English, Polish) for every Georgian text on screen; translations may be None."""
+    out = []
+    for w, wp in zip(words, pl_words):
+        out.append((w["ka"], w["en"], wp["en"]))
+        out.append((w["example"]["ka"], w["example"]["en"], wp["example"]["en"]))
+    for m, mp in zip(modules, pl_modules):
+        for L, Lp in zip(m["lessons"], mp["lessons"]):
+            if not is_english(L["subtitle"]):
+                out.append((L["subtitle"], None, None))
+            for g, gp in zip(L.get("read", []), Lp.get("read", [])):
+                out.append((g["ka"], g["en"], gp["en"]))
+            for n, np_ in zip(L.get("notes", []), Lp.get("notes", [])):
+                for row, rowp in zip(n["table"], np_["table"]):
+                    out.append((row["ka"], row["en"], rowp["en"]))
+            for e in L.get("exercises", []):
+                # The right answer and the sentence tiles; wrong options can be made-up forms.
+                opts = e.get("options") or []
+                right = [opts[e["answer"]]] if isinstance(e.get("answer"), int) and e["answer"] < len(opts) else []
+                for o in right + (e.get("tiles") or []):
+                    if not is_english(o) and "___" not in o:
+                        out.append((o, None, None))
+                if e.get("sentence") and right:
+                    out.append((e["sentence"].replace("___", right[0]), e.get("translation"), None))
+            if L.get("dialogue"):
+                for line, linep in zip(L["dialogue"]["lines"], Lp["dialogue"]["lines"]):
+                    out.append((line["ka"], line["en"], linep["en"]))
+    for p, pp in zip(pb_phrases, pl_pb[1]):
+        out.append((p["ka"], p["en"], pp["en"]))
+        for f, fp in zip(p.get("variants", []) + p.get("replies", []), pp.get("variants", []) + pp.get("replies", [])):
+            out.append((f["ka"], f["en"], fp["en"]))
+    for d, dp in zip(pb_dialogues, pl_pb[2]):
+        for line, linep in zip(d["lines"], dp["lines"]):
+            out.append((line["ka"], line["en"], linep["en"]))
+        for n, np_ in zip(d["notes"], dp["notes"]):
+            out.append((n["ka"], None, None))
+    return out
+
+
+def explain(tok):
+    """(dictionary word, english, polish) for a word form, or None."""
+    if tok in G.FORMS:
+        base, en, pl, _, _ = G.FORMS[tok]
+        if base and base in dictionary:
+            return (base,) + dictionary[base]
+        return tok, en, pl
+    r = analyse(tok)
+    if r:
+        return (r[0],) + dictionary[r[0]]
+    return None
+
+
+course_ka = {w["ka"].strip("?.!") for w in words}
+more_by_ka, more_unexplained = {}, []
+pl_letter_meaning = {l["char"]: l["meaning"] for l in pl_letters}
+for l in letters:
+    if l["word"] not in course_ka:
+        more_by_ka.setdefault(l["word"], {"en": l["meaning"], "pl": pl_letter_meaning[l["char"]],
+                                          "letter": l["char"], "seen": []})
+texts_ = visible_texts()
+for ka, en, pl in texts_:
+    for tok in tokens(ka):
+        if re.search(r"[0-9/_]", tok) or len(tok) < 2:
+            continue
+        r = explain(tok)
+        if not r:
+            more_unexplained.append(tok)
+            continue
+        base, b_en, b_pl = r
+        # A shortened form before a noun (ერთ, კარგ, ახალ): the full word is the one to list.
+        if base[-1] not in VOWELS and base + "ი" in dictionary:
+            base, b_en, b_pl = (base + "ი",) + dictionary[base + "ი"]
+        if base in course_ka:
+            continue
+        entry = more_by_ka.setdefault(base, {"en": b_en, "pl": b_pl, "seen": []})
+        if en and pl:
+            entry["seen"].append((ka, en, pl))
+more_unexplained = sorted(set(more_unexplained))
+if "--more" in sys.argv:
+    print(f"# {len(more_by_ka)} more words; {len(more_unexplained)} not explained")
+    print(" ".join(more_unexplained))
+    sys.exit(0)
+for tok in more_unexplained[:20]:
+    fail(f"more words: no explanation for {tok!r} (add it to content_glossary.py)")
+if len(more_unexplained) > 20:
+    fail(f"more words: … and {len(more_unexplained) - 20} more (run with --more to list them)")
+
+MORE_CATEGORY = {"id": "more", "title": "More words", "symbol": "text.book.closed.fill", "color": "blacksea"}
+MORE_CATEGORY_PL = {**MORE_CATEGORY, "title": "Więcej słów"}
+more_words, more_words_pl = [], []
+used_ids = {w["id"] for w in words}
+for ka in sorted(more_by_ka, key=latin):
+    e = more_by_ka[ka]
+    wid = "x-" + slug(ka)
+    n = 2
+    while wid in used_ids:
+        wid = f"x-{slug(ka)}-{n}"
+        n += 1
+    used_ids.add(wid)
+    if e["seen"]:
+        # The shortest real sentence: more than the word itself, if there is one.
+        ex_ka, ex_en, ex_pl = min(e["seen"], key=lambda s_: (len(tokens(s_[0])) < 2, len(s_[0]), s_[0]))
+    else:
+        ch = e.get("letter") or ka[0]
+        ex_ka, ex_en, ex_pl = ka, f"{e['en']}: the example word for the letter {ch}", f"{e['pl']}: przykładowe słowo dla litery {ch}"
+    base_ = {"id": wid, "ka": ka, "lat": latin(ka), "alt": [], "category": "more"}
+    more_words.append({**base_, "en": e["en"], "example": {"ka": ex_ka, "lat": latin(ex_ka), "en": ex_en}})
+    more_words_pl.append({**base_, "en": e["pl"], "example": {"ka": ex_ka, "lat": latin(ex_ka), "en": ex_pl}})
+
 if DUMP:
     import pprint
     for section, items in missing.items():
@@ -753,7 +866,8 @@ def write(name, data):
 
 
 write("letters.json", {"version": VERSION, "letters": letters, "lookalikes": C.LOOKALIKES})
-write("vocabulary.json", {"version": VERSION, "categories": categories, "words": words})
+write("vocabulary.json", {"version": VERSION, "categories": categories + [MORE_CATEGORY], "words": words,
+                          "more": more_words})
 write("course.json", {"id": "georgian-a0", "version": VERSION, "title": "Georgian from zero", "modules": modules})
 write("phrasebook.json", {"version": VERSION, "checkedBy": PB.PHRASEBOOK_STATUS,
                          "categories": list(pb_cats.values()), "phrases": pb_phrases, "dialogues": pb_dialogues,
@@ -762,7 +876,8 @@ write("phrasebook.json", {"version": VERSION, "checkedBy": PB.PHRASEBOOK_STATUS,
 write("glossary.json", {"version": VERSION, "words": glossary_en})
 write("glossary-pl.json", {"version": VERSION, "words": glossary_pl})
 write("letters-pl.json", {"version": VERSION, "letters": pl_letters, "lookalikes": C.LOOKALIKES})
-write("vocabulary-pl.json", {"version": VERSION, "categories": pl_categories, "words": pl_words})
+write("vocabulary-pl.json", {"version": VERSION, "categories": pl_categories + [MORE_CATEGORY_PL], "words": pl_words,
+                             "more": more_words_pl})
 write("course-pl.json", {"id": "georgian-a0", "version": VERSION, "title": "Gruziński od zera", "modules": pl_modules})
 write("phrasebook-pl.json", {"version": VERSION, "checkedBy": PB.PHRASEBOOK_STATUS,
                             "categories": pl_pb[0], "phrases": pl_pb[1], "dialogues": pl_pb[2],
@@ -772,3 +887,4 @@ print(f"OK: {len(letters)} letters, {len(words)} words and phrases, {len(modules
 print(f"OK: phrasebook with {len(pb_cats)} categories, {len(pb_phrases)} phrases, {len(pb_dialogues)} dialogues")
 print("OK: Polish for all of it")
 print(f"OK: {len(glossary_en)} tappable words explained")
+print(f"OK: {len(more_words)} more words in the Words tab (seen in the app, outside the lessons)")

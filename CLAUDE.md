@@ -102,6 +102,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | What | Where |
 | --- | --- |
 | Course and phrasebook content (source) and the checker | `tools/curriculum/content_words.py`, `content_course.py`, `content_phrasebook.py`, `build_curriculum.py` → `Georgian/Resources/Curriculum/*.json` |
+| Every word on screen in Words: "More words" (`more` in vocabulary.json, ids `x-…`), made by the build from all visible Georgian | `build_curriculum.py` (`--more`), `Curriculum.moreWords` |
 | Content types, loading, look-ups, Latin spelling, pronunciation help | `Curriculum/` |
 | Tappable words: glossary of every word form (EN + PL), the bubble | `tools/curriculum/content_glossary.py` → `glossary*.json`; `DesignSystem/Components/TappableGeorgian.swift` |
 | Languages: `AppLanguage`, `tr()`, `plural()`, Polish table; checks | `Curriculum/Localization.swift`, `Resources/Localization/`, `tools/l10n/` |

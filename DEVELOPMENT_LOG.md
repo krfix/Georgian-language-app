@@ -19,6 +19,20 @@ way to change it in settings; then release straight away (one build, the release
 - The phrasebook's note and Profile's footer name the chosen voice. Polish for every new text.
 - UI test: one more step in onboarding, and the voice cards are there.
 
+### Then (owner: every word seen on screen should be in Words, e.g. გული from the letters)
+- `build_curriculum.py` collects every Georgian text on screen (letters' example words,
+  course words and examples, reading, dialogues, grammar tables, exercise answers and
+  tiles, phrases, replies, conversations), finds each word's dictionary form (the glossary's
+  forms and endings; ერთ → ერთი) and lists those outside the course as `more` in
+  vocabulary(-pl).json: 528 words, id `x-<latin>`, category "more" ("More words" / „Więcej
+  słów”), with the shortest sentence they appear in (or the letter's word itself). The build
+  stops if a word on screen has no explanation (`--more` lists them); 20 added to
+  content_glossary.py (numbers 22–99 from the tables, write and want forms, ნუ, მოიცადე…).
+- `Curriculum.moreWords`; `word(id)` finds them, so a card's "Practise this word" and Review
+  work; Words lists them after the course's themes; Search finds them ("heart" → გული).
+  Logic tests: every letter's word is in Words, გული in English and Polish, ids, Latin.
+- Audio for them in both voices (make_audio.py now includes `more`).
+
 ### Released
 - Run #29 on `main`: 174/174 logic checks passed, app built (Xcode 26.3), GitHub Release
   v0.2.0 published with Georgian-0.2.0.ipa. The UI tests (new voice step) weren't run: they

@@ -382,6 +382,12 @@ BASES.update({
     "ჯიბე": ("pocket", "kieszeń"), "ჰაერი": ("air", "powietrze"),
     "მშვიდობისა": ("of peace (in greetings: დილა მშვიდობისა)", "pokoju (w powitaniach: დილა მშვიდობისა)"),
     "წასაღებად": ("to take away", "na wynos"), "ასაღებად": ("to pick up", "żeby odebrać"),
+    # Numbers and little words in the grammar tables (KART #5: every word on screen is in Words)
+    "ოცდაორი": ("twenty-two", "dwadzieścia dwa"), "ოცდათერთმეტი": ("thirty-one", "trzydzieści jeden"),
+    "ოცდაცხრამეტი": ("thirty-nine", "trzydzieści dziewięć"), "ორმოცდაორი": ("forty-two", "czterdzieści dwa"),
+    "სამოცი": ("sixty", "sześćdziesiąt"), "ოთხმოცი": ("eighty", "osiemdziesiąt"),
+    "ოთხმოცდაცხრამეტი": ("ninety-nine", "dziewięćdziesiąt dziewięć"),
+    "ნუ": ("don't (before a verb: ნუ ღელავ)", "nie (zakaz przed czasownikiem: ნუ ღელავ)"),
 })
 
 # Shared notes for verbs.
@@ -550,6 +556,18 @@ FORMS = {
     "გამიჩერეთ": F("", "stop for me (polite)", "proszę mi się zatrzymać", ("გა- … -თ: the polite command; მ- is \"for me\".", "გა- … -თ: grzeczny rozkaz; მ- to „dla mnie”."), _POL),
     "ჩერდება": F("", "stops", "zatrzymuje się", _HE),
     "მოიცადეთ": F("", "wait (polite)", "proszę poczekać", _POL),
+    "მოიცადე": F("", "wait (to a friend)", "zaczekaj", ("To someone you call pan/pani: მოიცადეთ.", "Do kogoś na pan/pani: მოიცადეთ.")),
+    "ღელავ": F("", "you worry", "martwisz się", ("ნუ ღელავ: \"don't worry\".", "ნუ ღელავ: „nie martw się”.")),
+    "არიან": F("", "they are", "są", ("From \"to be\": ის არის, ისინი არიან.", "Od „być”: ის არის, ისინი არიან.")),
+    "გინდა": F("მინდა", "you want", "chcesz", ("Like მინდა, \"I want\", with გ- for you.", "Jak მინდა, „chcę”, z გ- dla „ty”."), _YOU),
+    "გიყვარს": F("მიყვარს", "you love", "kochasz", ("Like მიყვარს, \"I love\", with გ- for you.", "Jak მიყვარს, „kocham”, z გ- dla „ty”."), _YOU),
+    "ვსწავლობთ": F("ვსწავლობ", "we learn, we study", "uczymy się", _WE),
+    "წერ": F("ვწერ", "you write", "piszesz", ("Like ვწერ, \"I write\", without ვ-.", "Jak ვწერ, „piszę”, bez ვ-.")),
+    "წერს": F("ვწერ", "he / she writes", "pisze", _HE),
+    "ვწერთ": F("ვწერ", "we write", "piszemy", _WE),
+    "წერთ": F("ვწერ", "you write (polite or plural)", "piszecie; pan pisze", _POL),
+    "წერენ": F("ვწერ", "they write", "piszą", _THEY),
+    "მეგობრები": F("მეგობარი", "friends", "przyjaciele", ("The plural -ები; the second ა of მეგობარი drops.", "Liczba mnoga -ები; drugie ა z მეგობარი wypada.")),
     "ჩართეთ": F("", "switch on (polite)", "proszę włączyć", _POL),
     "ჩავრთო": F("", "(how do) I switch on", "(jak) mam włączyć", ("A question form.", "Forma pytająca.")),
     "დახურეთ": F("", "close (polite)", "proszę zamknąć", _POL),

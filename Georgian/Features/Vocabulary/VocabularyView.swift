@@ -1,6 +1,7 @@
 import SwiftUI
 
-/// Every word and phrase in the course: search, filter by theme, tap for the full card.
+/// Every word and phrase in the course, then every other word the app shows (letters'
+/// example words, examples, conversations, phrases: "More words"): search, filter, tap.
 struct VocabularyView: View {
     @Environment(LearningStore.self) private var store
     @State private var query = ""
@@ -9,7 +10,7 @@ struct VocabularyView: View {
 
     private var results: [Word] {
         let q = AnswerEvaluator.plain(query)
-        return store.curriculum.words.filter { w in
+        return (store.curriculum.words + store.curriculum.moreWords).filter { w in
             (category == nil || w.category == category) &&
             (q.isEmpty || w.ka.contains(query.trimmingCharacters(in: .whitespaces)) || AnswerEvaluator.plain(w.en).contains(q)
              || w.lat.replacingOccurrences(of: "'", with: "").contains(q.replacingOccurrences(of: "'", with: "")))

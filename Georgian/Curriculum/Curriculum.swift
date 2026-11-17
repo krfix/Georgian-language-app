@@ -10,6 +10,8 @@ final class Curriculum {
     let lookalikes: [[String]]
     let categories: [WordCategory]
     let words: [Word]
+    /// The other words seen in the app, outside the lessons (Words › More words).
+    let moreWords: [Word]
     /// Phrases for real situations, usable without the course (Resources/Curriculum/phrasebook.json).
     let phrasebook: Phrasebook
     /// Every word form in the examples, conversations and phrases, explained (glossary.json).
@@ -33,14 +35,15 @@ final class Curriculum {
         lookalikes = letters.lookalikes
         categories = vocabulary.categories
         words = vocabulary.words
+        moreWords = vocabulary.more ?? []
         lessons = course.modules.flatMap(\.lessons)
-        wordsByID = Dictionary(vocabulary.words.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
+        wordsByID = Dictionary((vocabulary.words + (vocabulary.more ?? [])).map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
         lettersByChar = Dictionary(letters.letters.map { ($0.char, $0) }, uniquingKeysWith: { a, _ in a })
         var byLesson: [String: CourseModule] = [:]
         for m in course.modules { for l in m.lessons { byLesson[l.id] = m } }
         moduleByLesson = byLesson
         lessonByID = Dictionary(lessons.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
-        self.phrasebook = Phrasebook(file: phrasebook, courseWords: vocabulary.words, courseCategories: vocabulary.categories)
+        self.phrasebook = Phrasebook(file: phrasebook, courseWords: vocabulary.words + (vocabulary.more ?? []), courseCategories: vocabulary.categories)
     }
 
     enum LoadError: Error { case missing(String) }
@@ -64,7 +67,7 @@ final class Curriculum {
         return Curriculum(course: course, letters: letters, vocabulary: vocabulary, phrasebook: phrasebook, glossary: glossary)
     }
 
-    /// A course word, or a phrasebook phrase as a word (ids starting "pb-").
+    /// A course word, one of the more words ("x-…"), or a phrasebook phrase as a word ("pb-…").
     func word(_ id: String) -> Word? { wordsByID[id] ?? (Phrasebook.isPhraseID(id) ? phrasebook.word(id) : nil) }
     func letter(_ char: String) -> LetterInfo? { lettersByChar[char] }
 

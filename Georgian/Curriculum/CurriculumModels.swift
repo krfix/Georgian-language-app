@@ -154,4 +154,7 @@ struct VocabularyFile: Codable {
     let version: Int
     let categories: [WordCategory]
     let words: [Word]
+    /// Every other word the app shows (letters' example words, examples, conversations,
+    /// phrases, grammar tables), category "more": listed in Words, not taught in lessons.
+    var more: [Word]? = nil
 }

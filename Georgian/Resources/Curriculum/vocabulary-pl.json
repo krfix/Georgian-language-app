@@ -72,6 +72,12 @@
    "title": "Słówka gramatyczne",
    "symbol": "puzzlepiece.extension.fill",
    "color": "saperavi"
+  },
+  {
+   "id": "more",
+   "title": "Więcej słów",
+   "symbol": "text.book.closed.fill",
+   "color": "blacksea"
   }
  ],
  "words": [
@@ -3516,6 +3522,6872 @@
     "en": "Nie zrozumiałem (nie dałem rady zrozumieć)."
    },
    "note": "„Nie móc”, „nie dać rady”: stawia się przed czasownikiem zamiast არ."
+  }
+ ],
+ "more": [
+  {
+   "id": "x-abonementi",
+   "ka": "აბონემენტი",
+   "lat": "abonement'i",
+   "alt": [],
+   "category": "more",
+   "en": "karnet",
+   "example": {
+    "ka": "აბონემენტი რა ღირს?",
+    "lat": "abonement'i ra ghirs?",
+    "en": "Ile kosztuje karnet?"
+   }
+  },
+  {
+   "id": "x-acharuli",
+   "ka": "აჭარული",
+   "lat": "ach'aruli",
+   "alt": [],
+   "category": "more",
+   "en": "adżarski",
+   "example": {
+    "ka": "ბადრიჯანი ნიგვზით და აჭარული ხაჭაპური.",
+    "lat": "badrijani nigvzit da ach'aruli khach'ap'uri.",
+    "en": "Bakłażana z orzechami i chaczapuri po adżarsku."
+   }
+  },
+  {
+   "id": "x-adamiani",
+   "ka": "ადამიანი",
+   "lat": "adamiani",
+   "alt": [],
+   "category": "more",
+   "en": "człowiek, osoba",
+   "example": {
+    "ka": "ხვალ, რვა საათზე, ოთხი ადამიანისთვის.",
+    "lat": "khval, rva saatze, otkhi adamianistvis.",
+    "en": "Jutro o ósmej, dla czterech osób."
+   }
+  },
+  {
+   "id": "x-adapteri",
+   "ka": "ადაპტერი",
+   "lat": "adap't'eri",
+   "alt": [],
+   "category": "more",
+   "en": "przejściówka",
+   "example": {
+    "ka": "ადაპტერი მჭირდება.",
+    "lat": "adap't'eri mch'irdeba.",
+    "en": "Potrzebuję przejściówki."
+   }
+  },
+  {
+   "id": "x-adgili",
+   "ka": "ადგილი",
+   "lat": "adgili",
+   "alt": [],
+   "category": "more",
+   "en": "miejsce",
+   "example": {
+    "ka": "ეს ადგილი თავისუფალია?",
+    "lat": "es adgili tavisupalia?",
+    "en": "Czy to miejsce jest wolne?"
+   }
+  },
+  {
+   "id": "x-adgilobrivebi",
+   "ka": "ადგილობრივები",
+   "lat": "adgilobrivebi",
+   "alt": [],
+   "category": "more",
+   "en": "miejscowi",
+   "example": {
+    "ka": "ადგილობრივები სად ჭამენ?",
+    "lat": "adgilobrivebi sad ch'amen?",
+    "en": "Gdzie jedzą miejscowi?"
+   }
+  },
+  {
+   "id": "x-adre",
+   "ka": "ადრე",
+   "lat": "adre",
+   "alt": [],
+   "category": "more",
+   "en": "wcześnie",
+   "example": {
+    "ka": "საღამოს შეიძლება იწვიმოს. ადრე დაბრუნდით.",
+    "lat": "saghamos sheidzleba its'vimos. adre dabrundit.",
+    "en": "Wieczorem może padać. Proszę wrócić wcześnie."
+   }
+  },
+  {
+   "id": "x-ai",
+   "ka": "აი",
+   "lat": "ai",
+   "alt": [],
+   "category": "more",
+   "en": "o, proszę (tu jest)",
+   "example": {
+    "ka": "კი, აი.",
+    "lat": "k'i, ai.",
+    "en": "Tak, proszę."
+   }
+  },
+  {
+   "id": "x-aketeb",
+   "ka": "აკეთებ",
+   "lat": "ak'eteb",
+   "alt": [],
+   "category": "more",
+   "en": "robisz",
+   "example": {
+    "ka": "ხვალ რას აკეთებ?",
+    "lat": "khval ras ak'eteb?",
+    "en": "Co robisz jutro?"
+   }
+  },
+  {
+   "id": "x-akedan",
+   "ka": "აქედან",
+   "lat": "akedan",
+   "alt": [],
+   "category": "more",
+   "en": "stąd",
+   "example": {
+    "ka": "აქედან შორს არის?",
+    "lat": "akedan shors aris?",
+    "en": "Czy to daleko stąd?"
+   }
+  },
+  {
+   "id": "x-akhali",
+   "ka": "ახალი",
+   "lat": "akhali",
+   "alt": [],
+   "category": "more",
+   "en": "nowy; świeży",
+   "example": {
+    "ka": "ეს ახალია?",
+    "lat": "es akhalia?",
+    "en": "Czy to jest świeże?"
+   }
+  },
+  {
+   "id": "x-akhlave",
+   "ka": "ახლავე",
+   "lat": "akhlave",
+   "alt": [],
+   "category": "more",
+   "en": "zaraz, od razu",
+   "example": {
+    "ka": "კარგი, ახლავე.",
+    "lat": "k'argi, akhlave.",
+    "en": "Dobrze, już podaję."
+   }
+  },
+  {
+   "id": "x-akvs",
+   "ka": "აქვს",
+   "lat": "akvs",
+   "alt": [],
+   "category": "more",
+   "en": "ma (rzecz)",
+   "example": {
+    "ka": "გარანტია აქვს?",
+    "lat": "garant'ia akvs?",
+    "en": "Czy jest gwarancja?"
+   }
+  },
+  {
+   "id": "x-alergia",
+   "ka": "ალერგია",
+   "lat": "alergia",
+   "alt": [],
+   "category": "more",
+   "en": "alergia",
+   "example": {
+    "ka": "ალერგია მაქვს.",
+    "lat": "alergia makvs.",
+    "en": "Mam alergię."
+   }
+  },
+  {
+   "id": "x-am",
+   "ka": "ამ",
+   "lat": "am",
+   "alt": [],
+   "category": "more",
+   "en": "ten (przed rzeczownikiem z końcówką)",
+   "example": {
+    "ka": "ამ მისამართზე, თუ შეიძლება.",
+    "lat": "am misamartze, tu sheidzleba.",
+    "en": "Pod ten adres, poproszę."
+   }
+  },
+  {
+   "id": "x-amanati",
+   "ka": "ამანათი",
+   "lat": "amanati",
+   "alt": [],
+   "category": "more",
+   "en": "paczka",
+   "example": {
+    "ka": "ამანათი უნდა გავაგზავნო.",
+    "lat": "amanati unda gavagzavno.",
+    "en": "Muszę wysłać paczkę."
+   }
+  },
+  {
+   "id": "x-amindi",
+   "ka": "ამინდი",
+   "lat": "amindi",
+   "alt": [],
+   "category": "more",
+   "en": "pogoda",
+   "example": {
+    "ka": "რა ამინდია!",
+    "lat": "ra amindia!",
+    "en": "Co za pogoda!"
+   }
+  },
+  {
+   "id": "x-ana",
+   "ka": "ანა",
+   "lat": "ana",
+   "alt": [],
+   "category": "more",
+   "en": "Ana (imię)",
+   "example": {
+    "ka": "გაგიმარჯოს! მე ანა მქვია.",
+    "lat": "gagimarjos! me ana mkvia.",
+    "en": "Cześć! Mam na imię Ana."
+   }
+  },
+  {
+   "id": "x-anbani",
+   "ka": "ანბანი",
+   "lat": "anbani",
+   "alt": [],
+   "category": "more",
+   "en": "alfabet",
+   "example": {
+    "ka": "ანბანი",
+    "lat": "anbani",
+    "en": "alfabet: przykładowe słowo dla litery ა"
+   }
+  },
+  {
+   "id": "x-angarishi",
+   "ka": "ანგარიში",
+   "lat": "angarishi",
+   "alt": [],
+   "category": "more",
+   "en": "rachunek; konto",
+   "example": {
+    "ka": "ანგარიში, თუ შეიძლება.",
+    "lat": "angarishi, tu sheidzleba.",
+    "en": "Poproszę rachunek."
+   }
+  },
+  {
+   "id": "x-aptiaki",
+   "ka": "აფთიაქი",
+   "lat": "aptiaki",
+   "alt": [],
+   "category": "more",
+   "en": "apteka",
+   "example": {
+    "ka": "აფთიაქი სად არის?",
+    "lat": "aptiaki sad aris?",
+    "en": "Gdzie jest apteka?"
+   }
+  },
+  {
+   "id": "x-arian",
+   "ka": "არიან",
+   "lat": "arian",
+   "alt": [],
+   "category": "more",
+   "en": "są",
+   "example": {
+    "ka": "ისინი არიან",
+    "lat": "isini arian",
+    "en": "są"
+   }
+  },
+  {
+   "id": "x-asaghebad",
+   "ka": "ასაღებად",
+   "lat": "asaghebad",
+   "alt": [],
+   "category": "more",
+   "en": "żeby odebrać",
+   "example": {
+    "ka": "ამანათის ასაღებად მოვედი.",
+    "lat": "amanatis asaghebad movedi.",
+    "en": "Przyszedłem (przyszłam) odebrać paczkę."
+   }
+  },
+  {
+   "id": "x-ase",
+   "ka": "ასე",
+   "lat": "ase",
+   "alt": [],
+   "category": "more",
+   "en": "tak",
+   "example": {
+    "ka": "ასე უკეთესია. შესვენება შეიძლება?",
+    "lat": "ase uk'etesia. shesveneba sheidzleba?",
+    "en": "Tak lepiej. Mogę zrobić przerwę?"
+   }
+  },
+  {
+   "id": "x-atskhobs",
+   "ka": "აცხობს",
+   "lat": "atskhobs",
+   "alt": [],
+   "category": "more",
+   "en": "piecze",
+   "example": {
+    "ka": "ბებია ხაჭაპურს აცხობს.",
+    "lat": "bebia khach'ap'urs atskhobs.",
+    "en": "Babcia piecze chaczapuri."
+   }
+  },
+  {
+   "id": "x-autsilebeli",
+   "ka": "აუცილებელი",
+   "lat": "autsilebeli",
+   "alt": [],
+   "category": "more",
+   "en": "konieczny, obowiązkowy",
+   "example": {
+    "ka": "ქუდი აუცილებელია?",
+    "lat": "kudi autsilebelia?",
+    "en": "Czy czepek jest obowiązkowy?"
+   }
+  },
+  {
+   "id": "x-autsileblad",
+   "ka": "აუცილებლად",
+   "lat": "autsileblad",
+   "alt": [],
+   "category": "more",
+   "en": "koniecznie",
+   "example": {
+    "ka": "აუცილებლად რა უნდა ვნახო?",
+    "lat": "autsileblad ra unda vnakho?",
+    "en": "Co koniecznie muszę zobaczyć?"
+   }
+  },
+  {
+   "id": "x-auzi",
+   "ka": "აუზი",
+   "lat": "auzi",
+   "alt": [],
+   "category": "more",
+   "en": "basen",
+   "example": {
+    "ka": "აუზი სად არის?",
+    "lat": "auzi sad aris?",
+    "en": "Gdzie jest basen?"
+   }
+  },
+  {
+   "id": "x-avaria",
+   "ka": "ავარია",
+   "lat": "avaria",
+   "alt": [],
+   "category": "more",
+   "en": "wypadek",
+   "example": {
+    "ka": "ავარია მოხდა.",
+    "lat": "avaria mokhda.",
+    "en": "Był wypadek."
+   }
+  },
+  {
+   "id": "x-avigheb",
+   "ka": "ავიღებ",
+   "lat": "avigheb",
+   "alt": [],
+   "category": "more",
+   "en": "wezmę",
+   "example": {
+    "ka": "ამას ავიღებ.",
+    "lat": "amas avigheb.",
+    "en": "Wezmę to."
+   }
+  },
+  {
+   "id": "x-avigho",
+   "ka": "ავიღო",
+   "lat": "avigho",
+   "alt": [],
+   "category": "more",
+   "en": "(gdzie) mam wziąć",
+   "example": {
+    "ka": "რიგის ნომერი სად ავიღო?",
+    "lat": "rigis nomeri sad avigho?",
+    "en": "Gdzie wziąć numerek do kolejki?"
+   }
+  },
+  {
+   "id": "x-avzi",
+   "ka": "ავზი",
+   "lat": "avzi",
+   "alt": [],
+   "category": "more",
+   "en": "bak",
+   "example": {
+    "ka": "სავსე ავზი, თუ შეიძლება.",
+    "lat": "savse avzi, tu sheidzleba.",
+    "en": "Do pełna, poproszę."
+   }
+  },
+  {
+   "id": "x-bade",
+   "ka": "ბადე",
+   "lat": "bade",
+   "alt": [],
+   "category": "more",
+   "en": "sieć",
+   "example": {
+    "ka": "ბადე",
+    "lat": "bade",
+    "en": "sieć"
+   }
+  },
+  {
+   "id": "x-badrijani",
+   "ka": "ბადრიჯანი",
+   "lat": "badrijani",
+   "alt": [],
+   "category": "more",
+   "en": "bakłażan",
+   "example": {
+    "ka": "ბადრიჯანი ნიგვზით და აჭარული ხაჭაპური.",
+    "lat": "badrijani nigvzit da ach'aruli khach'ap'uri.",
+    "en": "Bakłażana z orzechami i chaczapuri po adżarsku."
+   }
+  },
+  {
+   "id": "x-baghi",
+   "ka": "ბაღი",
+   "lat": "baghi",
+   "alt": [],
+   "category": "more",
+   "en": "ogród",
+   "example": {
+    "ka": "ბაბუა ბაღშია.",
+    "lat": "babua baghshia.",
+    "en": "Dziadek jest w ogrodzie."
+   }
+  },
+  {
+   "id": "x-bakani",
+   "ka": "ბაქანი",
+   "lat": "bakani",
+   "alt": [],
+   "category": "more",
+   "en": "peron",
+   "example": {
+    "ka": "რომელ ბაქანზე?",
+    "lat": "romel bakanze?",
+    "en": "Z którego peronu?"
+   }
+  },
+  {
+   "id": "x-balansi",
+   "ka": "ბალანსი",
+   "lat": "balansi",
+   "alt": [],
+   "category": "more",
+   "en": "saldo, konto",
+   "example": {
+    "ka": "ბალანსი როგორ შევავსო?",
+    "lat": "balansi rogor shevavso?",
+    "en": "Jak doładować konto?"
+   }
+  },
+  {
+   "id": "x-banki",
+   "ka": "ბანკი",
+   "lat": "bank'i",
+   "alt": [],
+   "category": "more",
+   "en": "bank",
+   "example": {
+    "ka": "სად არის ბანკი?",
+    "lat": "sad aris bank'i?",
+    "en": "Gdzie jest bank?"
+   }
+  },
+  {
+   "id": "x-bankomati",
+   "ka": "ბანკომატი",
+   "lat": "bank'omat'i",
+   "alt": [],
+   "category": "more",
+   "en": "bankomat",
+   "example": {
+    "ka": "ბანკომატი სად არის?",
+    "lat": "bank'omat'i sad aris?",
+    "en": "Gdzie jest bankomat?"
+   }
+  },
+  {
+   "id": "x-bargi",
+   "ka": "ბარგი",
+   "lat": "bargi",
+   "alt": [],
+   "category": "more",
+   "en": "bagaż",
+   "example": {
+    "ka": "ჩემი ბარგი არ ჩამოვიდა.",
+    "lat": "chemi bargi ar chamovida.",
+    "en": "Mój bagaż nie przyleciał."
+   }
+  },
+  {
+   "id": "x-batono",
+   "ka": "ბატონო",
+   "lat": "bat'ono",
+   "alt": [],
+   "category": "more",
+   "en": "panie (w wołaczu)",
+   "example": {
+    "ka": "დიახ, ბატონო.",
+    "lat": "diakh, bat'ono.",
+    "en": "Tak, proszę pana."
+   }
+  },
+  {
+   "id": "x-batumi",
+   "ka": "ბათუმი",
+   "lat": "batumi",
+   "alt": [],
+   "category": "more",
+   "en": "Batumi",
+   "example": {
+    "ka": "მატარებელი ბათუმში მიდის.",
+    "lat": "mat'arebeli batumshi midis.",
+    "en": "Pociąg jedzie do Batumi."
+   }
+  },
+  {
+   "id": "x-benzingasamarti",
+   "ka": "ბენზინგასამართი",
+   "lat": "benzingasamarti",
+   "alt": [],
+   "category": "more",
+   "en": "benzynowa (stacja)",
+   "example": {
+    "ka": "ბენზინგასამართი სადგური სად არის?",
+    "lat": "benzingasamarti sadguri sad aris?",
+    "en": "Gdzie jest stacja benzynowa?"
+   }
+  },
+  {
+   "id": "x-biliki",
+   "ka": "ბილიკი",
+   "lat": "bilik'i",
+   "alt": [],
+   "category": "more",
+   "en": "ścieżka, szlak",
+   "example": {
+    "ka": "ეს ბილიკი სად მიდის?",
+    "lat": "es bilik'i sad midis?",
+    "en": "Dokąd prowadzi ten szlak?"
+   }
+  },
+  {
+   "id": "x-bina",
+   "ka": "ბინა",
+   "lat": "bina",
+   "alt": [],
+   "category": "more",
+   "en": "mieszkanie",
+   "example": {
+    "ka": "ბინას ვქირაობ.",
+    "lat": "binas vkiraob.",
+    "en": "Wynajmuję mieszkanie."
+   }
+  },
+  {
+   "id": "x-binadroba",
+   "ka": "ბინადრობა",
+   "lat": "binadroba",
+   "alt": [],
+   "category": "more",
+   "en": "pobyt",
+   "example": {
+    "ka": "ბინადრობის ნებართვა მჭირდება.",
+    "lat": "binadrobis nebartva mch'irdeba.",
+    "en": "Potrzebuję karty pobytu."
+   }
+  },
+  {
+   "id": "x-bolo",
+   "ka": "ბოლო",
+   "lat": "bolo",
+   "alt": [],
+   "category": "more",
+   "en": "koniec; ostatni",
+   "example": {
+    "ka": "ბოლო ფასი რა არის?",
+    "lat": "bolo pasi ra aris?",
+    "en": "Jaka jest ostateczna cena?"
+   }
+  },
+  {
+   "id": "x-bolti",
+   "ka": "ბოლტი",
+   "lat": "bolt'i",
+   "alt": [],
+   "category": "more",
+   "en": "Bolt (aplikacja)",
+   "example": {
+    "ka": "ბოლტი გამოვიძახე.",
+    "lat": "bolt'i gamovidzakhe.",
+    "en": "Zamówiłem(-am) Bolta."
+   }
+  },
+  {
+   "id": "x-botli",
+   "ka": "ბოთლი",
+   "lat": "botli",
+   "alt": [],
+   "category": "more",
+   "en": "butelka",
+   "example": {
+    "ka": "ერთი ბოთლი წყალი, თუ შეიძლება.",
+    "lat": "erti botli ts'q'ali, tu sheidzleba.",
+    "en": "Butelkę wody, poproszę."
+   }
+  },
+  {
+   "id": "x-chama",
+   "ka": "ჭამა",
+   "lat": "ch'ama",
+   "alt": [],
+   "category": "more",
+   "en": "jedzenie, posiłek",
+   "example": {
+    "ka": "ჭამამდე თუ ჭამის შემდეგ?",
+    "lat": "ch'amamde tu ch'amis shemdeg?",
+    "en": "Przed jedzeniem czy po jedzeniu?"
+   }
+  },
+  {
+   "id": "x-chamen",
+   "ka": "ჭამენ",
+   "lat": "ch'amen",
+   "alt": [],
+   "category": "more",
+   "en": "jedzą",
+   "example": {
+    "ka": "ადგილობრივები სად ჭამენ?",
+    "lat": "adgilobrivebi sad ch'amen?",
+    "en": "Gdzie jedzą miejscowi?"
+   }
+  },
+  {
+   "id": "x-chavchavadze",
+   "ka": "ჭავჭავაძე",
+   "lat": "ch'avch'avadze",
+   "alt": [],
+   "category": "more",
+   "en": "Czawczawadze (pisarz; aleja)",
+   "example": {
+    "ka": "აი, ჭავჭავაძე.",
+    "lat": "ai, ch'avch'avadze.",
+    "en": "O, Czawczawadze."
+   }
+  },
+  {
+   "id": "x-chamovdivar",
+   "ka": "ჩამოვდივარ",
+   "lat": "chamovdivar",
+   "alt": [],
+   "category": "more",
+   "en": "schodzę",
+   "example": {
+    "ka": "ჩამოვდივარ.",
+    "lat": "chamovdivar.",
+    "en": "Już schodzę."
+   }
+  },
+  {
+   "id": "x-chamovida",
+   "ka": "ჩამოვიდა",
+   "lat": "chamovida",
+   "alt": [],
+   "category": "more",
+   "en": "przyleciał, dotarł",
+   "example": {
+    "ka": "ჩემი ბარგი არ ჩამოვიდა.",
+    "lat": "chemi bargi ar chamovida.",
+    "en": "Mój bagaż nie przyleciał."
+   }
+  },
+  {
+   "id": "x-chanishvna",
+   "ka": "ჩანიშვნა",
+   "lat": "chanishvna",
+   "alt": [],
+   "category": "more",
+   "en": "umówienie",
+   "example": {
+    "ka": "შეხვედრის ჩანიშვნა მინდა.",
+    "lat": "shekhvedris chanishvna minda.",
+    "en": "Chcę umówić wizytę."
+   }
+  },
+  {
+   "id": "x-chartet",
+   "ka": "ჩართეთ",
+   "lat": "chartet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę włączyć",
+   "example": {
+    "ka": "კონდიციონერი ჩართეთ, თუ შეიძლება.",
+    "lat": "k'onditsioneri chartet, tu sheidzleba.",
+    "en": "Proszę włączyć klimatyzację."
+   }
+  },
+  {
+   "id": "x-chartuli",
+   "ka": "ჩართული",
+   "lat": "chartuli",
+   "alt": [],
+   "category": "more",
+   "en": "włączony",
+   "example": {
+    "ka": "ოჰ, ბოდიში. ქვაბი ჩართულია?",
+    "lat": "oh, bodishi. kvabi chartulia?",
+    "en": "O, przepraszam. Piecyk jest włączony?"
+   }
+  },
+  {
+   "id": "x-chatsera",
+   "ka": "ჩაწერა",
+   "lat": "chats'era",
+   "alt": [],
+   "category": "more",
+   "en": "zapis",
+   "example": {
+    "ka": "ექიმთან ჩაწერა მინდა.",
+    "lat": "ekimtan chats'era minda.",
+    "en": "Chcę się zapisać do lekarza."
+   }
+  },
+  {
+   "id": "x-chavdivar",
+   "ka": "ჩავდივარ",
+   "lat": "chavdivar",
+   "alt": [],
+   "category": "more",
+   "en": "wysiadam",
+   "example": {
+    "ka": "აქ ჩავდივარ.",
+    "lat": "ak chavdivar.",
+    "en": "Wysiadam tutaj."
+   }
+  },
+  {
+   "id": "x-chavrto",
+   "ka": "ჩავრთო",
+   "lat": "chavrto",
+   "alt": [],
+   "category": "more",
+   "en": "(jak) mam włączyć",
+   "example": {
+    "ka": "სარეცხი მანქანა როგორ ჩავრთო?",
+    "lat": "saretskhi mankana rogor chavrto?",
+    "en": "Jak włączyć pralkę?"
+   }
+  },
+  {
+   "id": "x-chemi",
+   "ka": "ჩემი",
+   "lat": "chemi",
+   "alt": [],
+   "category": "more",
+   "en": "mój, moja",
+   "example": {
+    "ka": "ეს ჩემი ცოლია.",
+    "lat": "es chemi tsolia.",
+    "en": "To moja żona."
+   }
+  },
+  {
+   "id": "x-chemodani",
+   "ka": "ჩემოდანი",
+   "lat": "chemodani",
+   "alt": [],
+   "category": "more",
+   "en": "walizka",
+   "example": {
+    "ka": "ჩემოდანი მაქვს.",
+    "lat": "chemodani makvs.",
+    "en": "Mam walizkę."
+   }
+  },
+  {
+   "id": "x-cherdeba",
+   "ka": "ჩერდება",
+   "lat": "cherdeba",
+   "alt": [],
+   "category": "more",
+   "en": "zatrzymuje się",
+   "example": {
+    "ka": "ეს მარშრუტკა სადგურთან ჩერდება?",
+    "lat": "es marshrut'k'a sadgurtan cherdeba?",
+    "en": "Czy ta marszrutka zatrzymuje się przy dworcu?"
+   }
+  },
+  {
+   "id": "x-chvens",
+   "ka": "ჩვენს",
+   "lat": "chvens",
+   "alt": [],
+   "category": "more",
+   "en": "naszą, naszej",
+   "example": {
+    "ka": "ჩვენს მეგობრობას გაუმარჯოს!",
+    "lat": "chvens megobrobas gaumarjos!",
+    "en": "Za naszą przyjaźń!"
+   }
+  },
+  {
+   "id": "x-chveulebrivi",
+   "ka": "ჩვეულებრივი",
+   "lat": "chveulebrivi",
+   "alt": [],
+   "category": "more",
+   "en": "zwykły",
+   "example": {
+    "ka": "ჩვეულებრივი თუ ექსპრესი?",
+    "lat": "chveulebrivi tu eksp'resi?",
+    "en": "Zwykła czy ekspresowa?"
+   }
+  },
+  {
+   "id": "x-daakhloebit",
+   "ka": "დაახლოებით",
+   "lat": "daakhloebit",
+   "alt": [],
+   "category": "more",
+   "en": "około",
+   "example": {
+    "ka": "დაახლოებით სამი საათი.",
+    "lat": "daakhloebit sami saati.",
+    "en": "Mniej więcej trzy godziny."
+   }
+  },
+  {
+   "id": "x-daba",
+   "ka": "დაბა",
+   "lat": "daba",
+   "alt": [],
+   "category": "more",
+   "en": "miasteczko",
+   "example": {
+    "ka": "დაბა",
+    "lat": "daba",
+    "en": "miasteczko"
+   }
+  },
+  {
+   "id": "x-dabadeba",
+   "ka": "დაბადება",
+   "lat": "dabadeba",
+   "alt": [],
+   "category": "more",
+   "en": "urodzenie (დაბადების დღე: urodziny)",
+   "example": {
+    "ka": "გილოცავ დაბადების დღეს!",
+    "lat": "gilotsav dabadebis dghes!",
+    "en": "Wszystkiego najlepszego z okazji urodzin!"
+   }
+  },
+  {
+   "id": "x-dabrdzandit",
+   "ka": "დაბრძანდით",
+   "lat": "dabrdzandit",
+   "alt": [],
+   "category": "more",
+   "en": "proszę usiąść",
+   "example": {
+    "ka": "გამარჯობა! დაბრძანდით.",
+    "lat": "gamarjoba! dabrdzandit.",
+    "en": "Dzień dobry! Proszę usiąść."
+   }
+  },
+  {
+   "id": "x-dabrundit",
+   "ka": "დაბრუნდით",
+   "lat": "dabrundit",
+   "alt": [],
+   "category": "more",
+   "en": "proszę wrócić",
+   "example": {
+    "ka": "საღამოს შეიძლება იწვიმოს. ადრე დაბრუნდით.",
+    "lat": "saghamos sheidzleba its'vimos. adre dabrundit.",
+    "en": "Wieczorem może padać. Proszę wrócić wcześnie."
+   }
+  },
+  {
+   "id": "x-dadet",
+   "ka": "დადეთ",
+   "lat": "dadet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę położyć",
+   "example": {
+    "ka": "აქ დადეთ, თუ შეიძლება. რა არის შიგნით?",
+    "lat": "ak dadet, tu sheidzleba. ra aris shignit?",
+    "en": "Proszę ją tu położyć. Co jest w środku?"
+   }
+  },
+  {
+   "id": "x-dagbanot",
+   "ka": "დაგბანოთ",
+   "lat": "dagbanot",
+   "alt": [],
+   "category": "more",
+   "en": "umyć panu",
+   "example": {
+    "ka": "კარგი. თმა დაგბანოთ?",
+    "lat": "k'argi. tma dagbanot?",
+    "en": "Dobrze. Umyć włosy?"
+   }
+  },
+  {
+   "id": "x-dagchirdebat",
+   "ka": "დაგჭირდებათ",
+   "lat": "dagch'irdebat",
+   "alt": [],
+   "category": "more",
+   "en": "będzie pan potrzebował",
+   "example": {
+    "ka": "ყოჩაღ! რამე თუ დაგჭირდებათ, მითხარით.",
+    "lat": "q'ochagh! rame tu dagch'irdebat, mitkharit.",
+    "en": "Brawo! Jak będzie pan czegoś potrzebował, proszę mówić."
+   }
+  },
+  {
+   "id": "x-dagekhmarot",
+   "ka": "დაგეხმაროთ",
+   "lat": "dagekhmarot",
+   "alt": [],
+   "category": "more",
+   "en": "pomóc panu",
+   "example": {
+    "ka": "გამარჯობა! რით შემიძლია დაგეხმაროთ?",
+    "lat": "gamarjoba! rit shemidzlia dagekhmarot?",
+    "en": "Dzień dobry! W czym mogę pomóc?"
+   }
+  },
+  {
+   "id": "x-dagirekavt",
+   "ka": "დაგირეკავთ",
+   "lat": "dagirek'avt",
+   "alt": [],
+   "category": "more",
+   "en": "zadzwonię do pana",
+   "example": {
+    "ka": "დაგირეკავთ.",
+    "lat": "dagirek'avt.",
+    "en": "Zadzwonię do pana/pani."
+   }
+  },
+  {
+   "id": "x-dagiskha",
+   "ka": "დაგისხა",
+   "lat": "dagiskha",
+   "alt": [],
+   "category": "more",
+   "en": "nalać ci",
+   "example": {
+    "ka": "ღვინო დაგისხა?",
+    "lat": "ghvino dagiskha?",
+    "en": "Nalać ci wina?"
+   }
+  },
+  {
+   "id": "x-dagpatizheb",
+   "ka": "დაგპატიჟებ",
+   "lat": "dagp'at'izheb",
+   "alt": [],
+   "category": "more",
+   "en": "zaproszę cię",
+   "example": {
+    "ka": "ყავაზე დაგპატიჟებ.",
+    "lat": "q'avaze dagp'at'izheb.",
+    "en": "Zapraszam cię na kawę."
+   }
+  },
+  {
+   "id": "x-daikarga",
+   "ka": "დაიკარგა",
+   "lat": "daik'arga",
+   "alt": [],
+   "category": "more",
+   "en": "zgubił(a) się",
+   "example": {
+    "ka": "ბავშვი დაიკარგა.",
+    "lat": "bavshvi daik'arga.",
+    "en": "Zgubiło się dziecko."
+   }
+  },
+  {
+   "id": "x-daikhure",
+   "ka": "დაიხურე",
+   "lat": "daikhure",
+   "alt": [],
+   "category": "more",
+   "en": "załóż (czapkę)",
+   "example": {
+    "ka": "დღეს ცივა, ქუდი დაიხურე.",
+    "lat": "dghes tsiva, kudi daikhure.",
+    "en": "Dziś jest zimno, załóż czapkę."
+   }
+  },
+  {
+   "id": "x-daisvene",
+   "ka": "დაისვენე",
+   "lat": "daisvene",
+   "alt": [],
+   "category": "more",
+   "en": "odpocznij",
+   "example": {
+    "ka": "ერთი წუთი დაისვენე, მერე გავაგრძელოთ.",
+    "lat": "erti ts'uti daisvene, mere gavagrdzelot.",
+    "en": "Odpocznij minutę, potem lecimy dalej."
+   }
+  },
+  {
+   "id": "x-dajavshna",
+   "ka": "დაჯავშნა",
+   "lat": "dajavshna",
+   "alt": [],
+   "category": "more",
+   "en": "rezerwacja",
+   "example": {
+    "ka": "მაგიდის დაჯავშნა მინდა.",
+    "lat": "magidis dajavshna minda.",
+    "en": "Chciałbym (chciałabym) zarezerwować stolik."
+   }
+  },
+  {
+   "id": "x-dajavshnili",
+   "ka": "დაჯავშნილი",
+   "lat": "dajavshnili",
+   "alt": [],
+   "category": "more",
+   "en": "zarezerwowany",
+   "example": {
+    "ka": "ოთახი დაჯავშნილი მაქვს.",
+    "lat": "otakhi dajavshnili makvs.",
+    "en": "Mam zarezerwowany pokój."
+   }
+  },
+  {
+   "id": "x-dajdoma",
+   "ka": "დაჯდომა",
+   "lat": "dajdoma",
+   "alt": [],
+   "category": "more",
+   "en": "usiąść, siadanie",
+   "example": {
+    "ka": "აქ დაჯდომა შეიძლება?",
+    "lat": "ak dajdoma sheidzleba?",
+    "en": "Można tu usiąść?"
+   }
+  },
+  {
+   "id": "x-dajeki",
+   "ka": "დაჯექი",
+   "lat": "dajeki",
+   "alt": [],
+   "category": "more",
+   "en": "usiądź",
+   "example": {
+    "ka": "სკამზე დაჯექი.",
+    "lat": "sk'amze dajeki.",
+    "en": "Usiądź na krześle."
+   }
+  },
+  {
+   "id": "x-dajekit",
+   "ka": "დაჯექით",
+   "lat": "dajekit",
+   "alt": [],
+   "category": "more",
+   "en": "proszę usiąść",
+   "example": {
+    "ka": "კი, მიდის. დაჯექით.",
+    "lat": "k'i, midis. dajekit.",
+    "en": "Tak, jedzie. Proszę siadać."
+   }
+  },
+  {
+   "id": "x-dakarga",
+   "ka": "დაკარგა",
+   "lat": "dak'arga",
+   "alt": [],
+   "category": "more",
+   "en": "stracił(a)",
+   "example": {
+    "ka": "გონება დაკარგა.",
+    "lat": "goneba dak'arga.",
+    "en": "On/ona zemdlał(a)."
+   }
+  },
+  {
+   "id": "x-dakavebuli",
+   "ka": "დაკავებული",
+   "lat": "dak'avebuli",
+   "alt": [],
+   "category": "more",
+   "en": "zajęty",
+   "example": {
+    "ka": "დაკავებული ვარ.",
+    "lat": "dak'avebuli var.",
+    "en": "Jestem zajęty(-a)."
+   }
+  },
+  {
+   "id": "x-dakhmareba",
+   "ka": "დახმარება",
+   "lat": "dakhmareba",
+   "alt": [],
+   "category": "more",
+   "en": "pomoc",
+   "example": {
+    "ka": "დახმარება მჭირდება.",
+    "lat": "dakhmareba mch'irdeba.",
+    "en": "Potrzebuję pomocy."
+   }
+  },
+  {
+   "id": "x-dakhuret",
+   "ka": "დახურეთ",
+   "lat": "dakhuret",
+   "alt": [],
+   "category": "more",
+   "en": "proszę zamknąć",
+   "example": {
+    "ka": "კარი დახურეთ, თუ შეიძლება.",
+    "lat": "k'ari dakhuret, tu sheidzleba.",
+    "en": "Proszę zamknąć drzwi."
+   }
+  },
+  {
+   "id": "x-dakiraveba",
+   "ka": "დაქირავება",
+   "lat": "dakiraveba",
+   "alt": [],
+   "category": "more",
+   "en": "wynajem",
+   "example": {
+    "ka": "მანქანის დაქირავება მინდა.",
+    "lat": "mankanis dakiraveba minda.",
+    "en": "Chcę wynająć samochód."
+   }
+  },
+  {
+   "id": "x-dalevt",
+   "ka": "დალევთ",
+   "lat": "dalevt",
+   "alt": [],
+   "category": "more",
+   "en": "wypije pan",
+   "example": {
+    "ka": "აქ დალევთ თუ წაიღებთ?",
+    "lat": "ak dalevt tu ts'aighebt?",
+    "en": "Na miejscu czy na wynos?"
+   }
+  },
+  {
+   "id": "x-daliet",
+   "ka": "დალიეთ",
+   "lat": "daliet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę się napić",
+   "example": {
+    "ka": "შემოდით, ჩაი დალიეთ!",
+    "lat": "shemodit, chai daliet!",
+    "en": "Proszę wejść, napije się pan herbaty!"
+   }
+  },
+  {
+   "id": "x-damebloka",
+   "ka": "დამებლოკა",
+   "lat": "dameblok'a",
+   "alt": [],
+   "category": "more",
+   "en": "zablokowała mi się",
+   "example": {
+    "ka": "ბარათი დამებლოკა.",
+    "lat": "barati dameblok'a.",
+    "en": "Zablokowała mi się karta."
+   }
+  },
+  {
+   "id": "x-damekhmaro",
+   "ka": "დამეხმარო",
+   "lat": "damekhmaro",
+   "alt": [],
+   "category": "more",
+   "en": "pomóc mi",
+   "example": {
+    "ka": "შეგიძლია დამეხმარო?",
+    "lat": "shegidzlia damekhmaro?",
+    "en": "Możesz mi pomóc?"
+   }
+  },
+  {
+   "id": "x-damekhmarot",
+   "ka": "დამეხმაროთ",
+   "lat": "damekhmarot",
+   "alt": [],
+   "category": "more",
+   "en": "pomóc mi (grzecznie)",
+   "example": {
+    "ka": "შეგიძლიათ დამეხმაროთ?",
+    "lat": "shegidzliat damekhmarot?",
+    "en": "Może mi pan/pani pomóc?"
+   }
+  },
+  {
+   "id": "x-damikeli",
+   "ka": "დამიკელი",
+   "lat": "damik'eli",
+   "alt": [],
+   "category": "more",
+   "en": "opuść mi",
+   "example": {
+    "ka": "ცოტა დამიკელი.",
+    "lat": "tsot'a damik'eli.",
+    "en": "Opuść trochę."
+   }
+  },
+  {
+   "id": "x-damikelit",
+   "ka": "დამიკელით",
+   "lat": "damik'elit",
+   "alt": [],
+   "category": "more",
+   "en": "proszę mi opuścić",
+   "example": {
+    "ka": "ცოტა დამიკელით, თუ შეიძლება.",
+    "lat": "tsot'a damik'elit, tu sheidzleba.",
+    "en": "Może pan/pani trochę opuścić?"
+   }
+  },
+  {
+   "id": "x-damitseret",
+   "ka": "დამიწერეთ",
+   "lat": "damits'eret",
+   "alt": [],
+   "category": "more",
+   "en": "proszę mi napisać",
+   "example": {
+    "ka": "დამიწერეთ, თუ შეიძლება.",
+    "lat": "damits'eret, tu sheidzleba.",
+    "en": "Proszę mi to napisać."
+   }
+  },
+  {
+   "id": "x-damlagebeli",
+   "ka": "დამლაგებელი",
+   "lat": "damlagebeli",
+   "alt": [],
+   "category": "more",
+   "en": "sprzątaczka",
+   "example": {
+    "ka": "დამლაგებელი მჭირდება.",
+    "lat": "damlagebeli mch'irdeba.",
+    "en": "Potrzebuję kogoś do sprzątania."
+   }
+  },
+  {
+   "id": "x-damteni",
+   "ka": "დამტენი",
+   "lat": "damt'eni",
+   "alt": [],
+   "category": "more",
+   "en": "ładowarka",
+   "example": {
+    "ka": "ამ ტელეფონის დამტენი გაქვთ?",
+    "lat": "am t'eleponis damt'eni gakvt?",
+    "en": "Jest ładowarka do tego telefonu?"
+   }
+  },
+  {
+   "id": "x-daqeneba",
+   "ka": "დაყენება",
+   "lat": "daq'eneba",
+   "alt": [],
+   "category": "more",
+   "en": "postawienie, parkowanie",
+   "example": {
+    "ka": "სად შეიძლება მანქანის დაყენება?",
+    "lat": "sad sheidzleba mankanis daq'eneba?",
+    "en": "Gdzie mogę zaparkować?"
+   }
+  },
+  {
+   "id": "x-darbazi",
+   "ka": "დარბაზი",
+   "lat": "darbazi",
+   "alt": [],
+   "category": "more",
+   "en": "sala",
+   "example": {
+    "ka": "ცოცვის დარბაზი სად არის?",
+    "lat": "tsotsvis darbazi sad aris?",
+    "en": "Gdzie jest ścianka wspinaczkowa?"
+   }
+  },
+  {
+   "id": "x-darchit",
+   "ka": "დარჩით",
+   "lat": "darchit",
+   "alt": [],
+   "category": "more",
+   "en": "proszę zostać",
+   "example": {
+    "ka": "სასწრაფო მოდის. იქვე დარჩით.",
+    "lat": "sasts'rapo modis. ikve darchit.",
+    "en": "Karetka jedzie. Proszę zostać na miejscu."
+   }
+  },
+  {
+   "id": "x-dareket",
+   "ka": "დარეკეთ",
+   "lat": "darek'et",
+   "alt": [],
+   "category": "more",
+   "en": "proszę dzwonić",
+   "example": {
+    "ka": "დარეკეთ 112-ზე!",
+    "lat": "darek'et 112-ze!",
+    "en": "Proszę dzwonić na 112!"
+   }
+  },
+  {
+   "id": "x-dasalevad",
+   "ka": "დასალევად",
+   "lat": "dasalevad",
+   "alt": [],
+   "category": "more",
+   "en": "do picia",
+   "example": {
+    "ka": "დასალევად რას ინებებთ?",
+    "lat": "dasalevad ras inebebt?",
+    "en": "Co do picia?"
+   }
+  },
+  {
+   "id": "x-daschirdeba",
+   "ka": "დასჭირდება",
+   "lat": "dasch'irdeba",
+   "alt": [],
+   "category": "more",
+   "en": "będzie potrzebne, zajmie",
+   "example": {
+    "ka": "ჩვეულებრივი. რამდენი ხანი დასჭირდება?",
+    "lat": "chveulebrivi. ramdeni khani dasch'irdeba?",
+    "en": "Zwykła. Ile to potrwa?"
+   }
+  },
+  {
+   "id": "x-dashavda",
+   "ka": "დაშავდა",
+   "lat": "dashavda",
+   "alt": [],
+   "category": "more",
+   "en": "został ranny",
+   "example": {
+    "ka": "ვიღაც დაშავდა.",
+    "lat": "vighats dashavda.",
+    "en": "Ktoś jest ranny."
+   }
+  },
+  {
+   "id": "x-datoveba",
+   "ka": "დატოვება",
+   "lat": "dat'oveba",
+   "alt": [],
+   "category": "more",
+   "en": "zostawienie",
+   "example": {
+    "ka": "ბარგის დატოვება შეიძლება?",
+    "lat": "bargis dat'oveba sheidzleba?",
+    "en": "Mogę zostawić bagaż?"
+   }
+  },
+  {
+   "id": "x-datovet",
+   "ka": "დატოვეთ",
+   "lat": "dat'ovet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę zostawić",
+   "example": {
+    "ka": "კართან დატოვეთ, თუ შეიძლება.",
+    "lat": "k'artan dat'ovet, tu sheidzleba.",
+    "en": "Proszę zostawić pod drzwiami."
+   }
+  },
+  {
+   "id": "x-datvi",
+   "ka": "დათვი",
+   "lat": "datvi",
+   "alt": [],
+   "category": "more",
+   "en": "niedźwiedź",
+   "example": {
+    "ka": "დათვი",
+    "lat": "datvi",
+    "en": "niedźwiedź"
+   }
+  },
+  {
+   "id": "x-davagviane",
+   "ka": "დავაგვიანე",
+   "lat": "davagviane",
+   "alt": [],
+   "category": "more",
+   "en": "spóźniłem się",
+   "example": {
+    "ka": "ბოდიში, დავაგვიანე.",
+    "lat": "bodishi, davagviane.",
+    "en": "Przepraszam za spóźnienie."
+   }
+  },
+  {
+   "id": "x-davbrundebi",
+   "ka": "დავბრუნდები",
+   "lat": "davbrundebi",
+   "alt": [],
+   "category": "more",
+   "en": "wrócę",
+   "example": {
+    "ka": "ერთ კვირაში დავბრუნდები.",
+    "lat": "ert k'virashi davbrundebi.",
+    "en": "Wrócę za tydzień."
+   }
+  },
+  {
+   "id": "x-davdivar",
+   "ka": "დავდივარ",
+   "lat": "davdivar",
+   "alt": [],
+   "category": "more",
+   "en": "jeżdżę, chodzę (regularnie)",
+   "example": {
+    "ka": "ველოსიპედით დავდივარ.",
+    "lat": "velosip'edit davdivar.",
+    "en": "Jeżdżę rowerem."
+   }
+  },
+  {
+   "id": "x-davikarge",
+   "ka": "დავიკარგე",
+   "lat": "davik'arge",
+   "alt": [],
+   "category": "more",
+   "en": "zgubiłem się",
+   "example": {
+    "ka": "დავიკარგე.",
+    "lat": "davik'arge.",
+    "en": "Zgubiłem (zgubiłam) się."
+   }
+  },
+  {
+   "id": "x-davkarge",
+   "ka": "დავკარგე",
+   "lat": "davk'arge",
+   "alt": [],
+   "category": "more",
+   "en": "zgubiłem, zgubiłam",
+   "example": {
+    "ka": "გასაღები დავკარგე.",
+    "lat": "gasaghebi davk'arge.",
+    "en": "Zgubiłem klucz."
+   }
+  },
+  {
+   "id": "x-davlev",
+   "ka": "დავლევ",
+   "lat": "davlev",
+   "alt": [],
+   "category": "more",
+   "en": "wypiję",
+   "example": {
+    "ka": "აქ დავლევ.",
+    "lat": "ak davlev.",
+    "en": "Wypiję tutaj."
+   }
+  },
+  {
+   "id": "x-davtovo",
+   "ka": "დავტოვო",
+   "lat": "davt'ovo",
+   "alt": [],
+   "category": "more",
+   "en": "(kiedy) mam zostawić",
+   "example": {
+    "ka": "ოთახი რომელ საათამდე უნდა დავტოვო?",
+    "lat": "otakhi romel saatamde unda davt'ovo?",
+    "en": "Do której muszę zwolnić pokój?"
+   }
+  },
+  {
+   "id": "x-dazghveva",
+   "ka": "დაზღვევა",
+   "lat": "dazghveva",
+   "alt": [],
+   "category": "more",
+   "en": "ubezpieczenie",
+   "example": {
+    "ka": "დაზღვევა მაქვს.",
+    "lat": "dazghveva makvs.",
+    "en": "Mam ubezpieczenie."
+   }
+  },
+  {
+   "id": "x-deni",
+   "ka": "დენი",
+   "lat": "deni",
+   "alt": [],
+   "category": "more",
+   "en": "prąd",
+   "example": {
+    "ka": "დენი არ არის.",
+    "lat": "deni ar aris.",
+    "en": "Nie ma prądu."
+   }
+  },
+  {
+   "id": "x-depoziti",
+   "ka": "დეპოზიტი",
+   "lat": "dep'ozit'i",
+   "alt": [],
+   "category": "more",
+   "en": "kaucja",
+   "example": {
+    "ka": "დეპოზიტი რამდენია?",
+    "lat": "dep'ozit'i ramdenia?",
+    "en": "Ile wynosi kaucja?"
+   }
+  },
+  {
+   "id": "x-dgas",
+   "ka": "დგას",
+   "lat": "dgas",
+   "alt": [],
+   "category": "more",
+   "en": "stoi",
+   "example": {
+    "ka": "მანქანა სახლის უკან დგას.",
+    "lat": "mankana sakhlis uk'an dgas.",
+    "en": "Samochód stoi za domem."
+   }
+  },
+  {
+   "id": "x-diabeti",
+   "ka": "დიაბეტი",
+   "lat": "diabet'i",
+   "alt": [],
+   "category": "more",
+   "en": "cukrzyca",
+   "example": {
+    "ka": "დიაბეტი მაქვს.",
+    "lat": "diabet'i makvs.",
+    "en": "Mam cukrzycę."
+   }
+  },
+  {
+   "id": "x-didi",
+   "ka": "დიდი",
+   "lat": "didi",
+   "alt": [],
+   "category": "more",
+   "en": "duży, wielki",
+   "example": {
+    "ka": "დიდი მადლობა",
+    "lat": "didi madloba",
+    "en": "Bardzo dziękuję."
+   }
+  },
+  {
+   "id": "x-dolari",
+   "ka": "დოლარი",
+   "lat": "dolari",
+   "alt": [],
+   "category": "more",
+   "en": "dolar",
+   "example": {
+    "ka": "დოლარის კურსი რა არის?",
+    "lat": "dolaris k'ursi ra aris?",
+    "en": "Jaki jest kurs dolara?"
+   }
+  },
+  {
+   "id": "x-dro",
+   "ka": "დრო",
+   "lat": "dro",
+   "alt": [],
+   "category": "more",
+   "en": "czas, termin",
+   "example": {
+    "ka": "დრო გადავიტანოთ?",
+    "lat": "dro gadavit'anot?",
+    "en": "Możemy przełożyć termin?"
+   }
+  },
+  {
+   "id": "x-dzaghli",
+   "ka": "ძაღლი",
+   "lat": "dzaghli",
+   "alt": [],
+   "category": "more",
+   "en": "pies",
+   "example": {
+    "ka": "ძაღლი მყავს",
+    "lat": "dzaghli mq'avs",
+    "en": "mam psa"
+   }
+  },
+  {
+   "id": "x-dzalian",
+   "ka": "ძალიან",
+   "lat": "dzalian",
+   "alt": [],
+   "category": "more",
+   "en": "bardzo",
+   "example": {
+    "ka": "ძალიან ძვირია.",
+    "lat": "dzalian dzviria.",
+    "en": "To za drogo."
+   }
+  },
+  {
+   "id": "x-dzvel",
+   "ka": "ძველ",
+   "lat": "dzvel",
+   "alt": [],
+   "category": "more",
+   "en": "stary (przed rzeczownikiem z końcówką)",
+   "example": {
+    "ka": "ძველ თბილისამდე როგორ მივიდე?",
+    "lat": "dzvel tbilisamde rogor mivide?",
+    "en": "Jak dojść do Starego Tbilisi?"
+   }
+  },
+  {
+   "id": "x-ekimi",
+   "ka": "ექიმი",
+   "lat": "ekimi",
+   "alt": [],
+   "category": "more",
+   "en": "lekarz",
+   "example": {
+    "ka": "ნინო ექიმია",
+    "lat": "nino ekimia",
+    "en": "Nino jest lekarką (krótko)"
+   }
+  },
+  {
+   "id": "x-ekspresi",
+   "ka": "ექსპრესი",
+   "lat": "eksp'resi",
+   "alt": [],
+   "category": "more",
+   "en": "ekspres",
+   "example": {
+    "ka": "ჩვეულებრივი თუ ექსპრესი?",
+    "lat": "chveulebrivi tu eksp'resi?",
+    "en": "Zwykła czy ekspresowa?"
+   }
+  },
+  {
+   "id": "x-elposta",
+   "ka": "ელფოსტა",
+   "lat": "elpost'a",
+   "alt": [],
+   "category": "more",
+   "en": "e-mail",
+   "example": {
+    "ka": "ელფოსტით გამომიგზავნეთ, თუ შეიძლება.",
+    "lat": "elpost'it gamomigzavnet, tu sheidzleba.",
+    "en": "Proszę mi to wysłać mailem."
+   }
+  },
+  {
+   "id": "x-ertjeradi",
+   "ka": "ერთჯერადი",
+   "lat": "ertjeradi",
+   "alt": [],
+   "category": "more",
+   "en": "jednorazowy",
+   "example": {
+    "ka": "ერთჯერადი ვიზიტი რა ღირს?",
+    "lat": "ertjeradi vizit'i ra ghirs?",
+    "en": "Ile kosztuje jednorazowe wejście?"
+   }
+  },
+  {
+   "id": "x-es",
+   "ka": "ეს",
+   "lat": "es",
+   "alt": [],
+   "category": "more",
+   "en": "to, ten, ta",
+   "example": {
+    "ka": "ეს მინდა.",
+    "lat": "es minda.",
+    "en": "Poproszę to."
+   }
+  },
+  {
+   "id": "x-evro",
+   "ka": "ევრო",
+   "lat": "evro",
+   "alt": [],
+   "category": "more",
+   "en": "euro",
+   "example": {
+    "ka": "ასი ევრო.",
+    "lat": "asi evro.",
+    "en": "Sto euro."
+   }
+  },
+  {
+   "id": "x-ezo",
+   "ka": "ეზო",
+   "lat": "ezo",
+   "alt": [],
+   "category": "more",
+   "en": "podwórko",
+   "example": {
+    "ka": "ეზო",
+    "lat": "ezo",
+    "en": "podwórko: przykładowe słowo dla litery ე"
+   }
+  },
+  {
+   "id": "x-gaaghe",
+   "ka": "გააღე",
+   "lat": "gaaghe",
+   "alt": [],
+   "category": "more",
+   "en": "otwórz!",
+   "example": {
+    "ka": "ფანჯარა გააღე.",
+    "lat": "panjara gaaghe.",
+    "en": "Otwórz okno."
+   }
+  },
+  {
+   "id": "x-gadagheba",
+   "ka": "გადაღება",
+   "lat": "gadagheba",
+   "alt": [],
+   "category": "more",
+   "en": "robienie (zdjęcia)",
+   "example": {
+    "ka": "სურათის გადაღება შეიძლება?",
+    "lat": "suratis gadagheba sheidzleba?",
+    "en": "Można robić zdjęcia?"
+   }
+  },
+  {
+   "id": "x-gadamighebt",
+   "ka": "გადამიღებთ",
+   "lat": "gadamighebt",
+   "alt": [],
+   "category": "more",
+   "en": "zrobi mi pan zdjęcie",
+   "example": {
+    "ka": "გადამიღებთ?",
+    "lat": "gadamighebt?",
+    "en": "Zrobi mi pan/pani zdjęcie?"
+   }
+  },
+  {
+   "id": "x-gadaritskhva",
+   "ka": "გადარიცხვა",
+   "lat": "gadaritskhva",
+   "alt": [],
+   "category": "more",
+   "en": "przelew",
+   "example": {
+    "ka": "ფულის გადარიცხვა მინდა.",
+    "lat": "pulis gadaritskhva minda.",
+    "en": "Chcę zrobić przelew."
+   }
+  },
+  {
+   "id": "x-gadasakhadi",
+   "ka": "გადასახადი",
+   "lat": "gadasakhadi",
+   "alt": [],
+   "category": "more",
+   "en": "rachunek, opłata",
+   "example": {
+    "ka": "გადასახადი სად გადავიხადო?",
+    "lat": "gadasakhadi sad gadavikhado?",
+    "en": "Gdzie zapłacić rachunek?"
+   }
+  },
+  {
+   "id": "x-gadatsvla",
+   "ka": "გადაცვლა",
+   "lat": "gadatsvla",
+   "alt": [],
+   "category": "more",
+   "en": "wymiana",
+   "example": {
+    "ka": "ფულის გადაცვლა სად შეიძლება?",
+    "lat": "pulis gadatsvla sad sheidzleba?",
+    "en": "Gdzie można wymienić pieniądze?"
+   }
+  },
+  {
+   "id": "x-gadavikhado",
+   "ka": "გადავიხადო",
+   "lat": "gadavikhado",
+   "alt": [],
+   "category": "more",
+   "en": "(gdzie) mam zapłacić",
+   "example": {
+    "ka": "გადასახადი სად გადავიხადო?",
+    "lat": "gadasakhadi sad gadavikhado?",
+    "en": "Gdzie zapłacić rachunek?"
+   }
+  },
+  {
+   "id": "x-gadavikhdi",
+   "ka": "გადავიხდი",
+   "lat": "gadavikhdi",
+   "alt": [],
+   "category": "more",
+   "en": "zapłacę",
+   "example": {
+    "ka": "ბარათით გადავიხდი.",
+    "lat": "baratit gadavikhdi.",
+    "en": "Zapłacę kartą."
+   }
+  },
+  {
+   "id": "x-gadavikhdit",
+   "ka": "გადავიხდით",
+   "lat": "gadavikhdit",
+   "alt": [],
+   "category": "more",
+   "en": "zapłacimy",
+   "example": {
+    "ka": "ცალ-ცალკე გადავიხდით.",
+    "lat": "tsal-tsalk'e gadavikhdit.",
+    "en": "Zapłacimy osobno."
+   }
+  },
+  {
+   "id": "x-gadavitanot",
+   "ka": "გადავიტანოთ",
+   "lat": "gadavit'anot",
+   "alt": [],
+   "category": "more",
+   "en": "przełóżmy",
+   "example": {
+    "ka": "დრო გადავიტანოთ?",
+    "lat": "dro gadavit'anot?",
+    "en": "Możemy przełożyć termin?"
+   }
+  },
+  {
+   "id": "x-gadavqaro",
+   "ka": "გადავყარო",
+   "lat": "gadavq'aro",
+   "alt": [],
+   "category": "more",
+   "en": "(gdzie) mam wyrzucić",
+   "example": {
+    "ka": "ნაგავი სად გადავყარო?",
+    "lat": "nagavi sad gadavq'aro?",
+    "en": "Gdzie wyrzucić śmieci?"
+   }
+  },
+  {
+   "id": "x-gadis",
+   "ka": "გადის",
+   "lat": "gadis",
+   "alt": [],
+   "category": "more",
+   "en": "odjeżdża",
+   "example": {
+    "ka": "მატარებელი როდის გადის?",
+    "lat": "mat'arebeli rodis gadis?",
+    "en": "Kiedy odjeżdża pociąg?"
+   }
+  },
+  {
+   "id": "x-gagimarjot",
+   "ka": "გაგიმარჯოთ",
+   "lat": "gagimarjot",
+   "alt": [],
+   "category": "more",
+   "en": "dzień dobry (odpowiedź, grzecznie)",
+   "example": {
+    "ka": "გაგიმარჯოთ! კეთილი იყოს თქვენი მობრძანება!",
+    "lat": "gagimarjot! k'etili iq'os tkveni mobrdzaneba!",
+    "en": "Dzień dobry! Witamy!"
+   }
+  },
+  {
+   "id": "x-gaimeoret",
+   "ka": "გაიმეორეთ",
+   "lat": "gaimeoret",
+   "alt": [],
+   "category": "more",
+   "en": "proszę powtórzyć",
+   "example": {
+    "ka": "გაიმეორეთ, თუ შეიძლება.",
+    "lat": "gaimeoret, tu sheidzleba.",
+    "en": "Proszę powtórzyć."
+   }
+  },
+  {
+   "id": "x-gaketebuli",
+   "ka": "გაკეთებული",
+   "lat": "gak'etebuli",
+   "alt": [],
+   "category": "more",
+   "en": "zrobiony",
+   "example": {
+    "ka": "ფხალი. ნიგვზით არის გაკეთებული.",
+    "lat": "pkhali. nigvzit aris gak'etebuli.",
+    "en": "Pchali. Jest zrobione z orzechami włoskimi."
+   }
+  },
+  {
+   "id": "x-gakhsna",
+   "ka": "გახსნა",
+   "lat": "gakhsna",
+   "alt": [],
+   "category": "more",
+   "en": "otwarcie",
+   "example": {
+    "ka": "ანგარიშის გახსნა მინდა.",
+    "lat": "angarishis gakhsna minda.",
+    "en": "Chcę otworzyć konto."
+   }
+  },
+  {
+   "id": "x-gakvs",
+   "ka": "გაქვს",
+   "lat": "gakvs",
+   "alt": [],
+   "category": "more",
+   "en": "masz",
+   "example": {
+    "ka": "რუკა გაქვს?",
+    "lat": "ruk'a gakvs?",
+    "en": "Masz mapę?"
+   }
+  },
+  {
+   "id": "x-gakvt",
+   "ka": "გაქვთ",
+   "lat": "gakvt",
+   "alt": [],
+   "category": "more",
+   "en": "czy ma pan/pani, macie",
+   "example": {
+    "ka": "რძე გაქვთ?",
+    "lat": "rdze gakvt?",
+    "en": "Jest mleko?"
+   }
+  },
+  {
+   "id": "x-gameoreba",
+   "ka": "გამეორება",
+   "lat": "gameoreba",
+   "alt": [],
+   "category": "more",
+   "en": "powtórzenie",
+   "example": {
+    "ka": "რამდენი გამეორება?",
+    "lat": "ramdeni gameoreba?",
+    "en": "Ile powtórzeń?"
+   }
+  },
+  {
+   "id": "x-gamicheret",
+   "ka": "გამიჩერეთ",
+   "lat": "gamicheret",
+   "alt": [],
+   "category": "more",
+   "en": "proszę mi się zatrzymać",
+   "example": {
+    "ka": "აქ გამიჩერეთ.",
+    "lat": "ak gamicheret.",
+    "en": "Proszę się tu zatrzymać."
+   }
+  },
+  {
+   "id": "x-gamoidzakhet",
+   "ka": "გამოიძახეთ",
+   "lat": "gamoidzakhet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę wezwać",
+   "example": {
+    "ka": "პოლიცია გამოიძახეთ!",
+    "lat": "p'olitsia gamoidzakhet!",
+    "en": "Proszę wezwać policję!"
+   }
+  },
+  {
+   "id": "x-gamomigzavnet",
+   "ka": "გამომიგზავნეთ",
+   "lat": "gamomigzavnet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę mi wysłać",
+   "example": {
+    "ka": "ელფოსტით გამომიგზავნეთ, თუ შეიძლება.",
+    "lat": "elpost'it gamomigzavnet, tu sheidzleba.",
+    "en": "Proszę mi to wysłać mailem."
+   }
+  },
+  {
+   "id": "x-gamovgzavni",
+   "ka": "გამოვგზავნი",
+   "lat": "gamovgzavni",
+   "alt": [],
+   "category": "more",
+   "en": "przyślę",
+   "example": {
+    "ka": "ხვალ ხელოსანს გამოვგზავნი.",
+    "lat": "khval khelosans gamovgzavni.",
+    "en": "Jutro przyślę fachowca."
+   }
+  },
+  {
+   "id": "x-gamovidzakhe",
+   "ka": "გამოვიძახე",
+   "lat": "gamovidzakhe",
+   "alt": [],
+   "category": "more",
+   "en": "wezwałem",
+   "example": {
+    "ka": "ბოლტი გამოვიძახე.",
+    "lat": "bolt'i gamovidzakhe.",
+    "en": "Zamówiłem(-am) Bolta."
+   }
+  },
+  {
+   "id": "x-gamoviqeno",
+   "ka": "გამოვიყენო",
+   "lat": "gamoviq'eno",
+   "alt": [],
+   "category": "more",
+   "en": "(jak) mam używać",
+   "example": {
+    "ka": "შეგიძლიათ მაჩვენოთ, როგორ გამოვიყენო?",
+    "lat": "shegidzliat machvenot, rogor gamoviq'eno?",
+    "en": "Może mi pan/pani pokazać, jak tego używać?"
+   }
+  },
+  {
+   "id": "x-gamziri",
+   "ka": "გამზირი",
+   "lat": "gamziri",
+   "alt": [],
+   "category": "more",
+   "en": "aleja",
+   "example": {
+    "ka": "ჭავჭავაძის გამზირზე, უნივერსიტეტთან.",
+    "lat": "ch'avch'avadzis gamzirze, universit'et'tan.",
+    "en": "Na alei Czawczawadzego, przy uniwersytecie."
+   }
+  },
+  {
+   "id": "x-ganqopileba",
+   "ka": "განყოფილება",
+   "lat": "ganq'opileba",
+   "alt": [],
+   "category": "more",
+   "en": "wydział, komisariat",
+   "example": {
+    "ka": "პოლიციის განყოფილება სად არის?",
+    "lat": "p'olitsiis ganq'opileba sad aris?",
+    "en": "Gdzie jest komisariat?"
+   }
+  },
+  {
+   "id": "x-gansakutrebit",
+   "ka": "განსაკუთრებით",
+   "lat": "gansak'utrebit",
+   "alt": [],
+   "category": "more",
+   "en": "zwłaszcza",
+   "example": {
+    "ka": "თბილისი ლამაზი ქალაქია, განსაკუთრებით საღამოს.",
+    "lat": "tbilisi lamazi kalakia, gansak'utrebit saghamos.",
+    "en": "Tbilisi to piękne miasto, zwłaszcza wieczorem."
+   }
+  },
+  {
+   "id": "x-garantia",
+   "ka": "გარანტია",
+   "lat": "garant'ia",
+   "alt": [],
+   "category": "more",
+   "en": "gwarancja",
+   "example": {
+    "ka": "გარანტია აქვს?",
+    "lat": "garant'ia akvs?",
+    "en": "Czy jest gwarancja?"
+   }
+  },
+  {
+   "id": "x-gareshe",
+   "ka": "გარეშე",
+   "lat": "gareshe",
+   "alt": [],
+   "category": "more",
+   "en": "bez (po słowie z -ის)",
+   "example": {
+    "ka": "შაქრის გარეშე.",
+    "lat": "shakris gareshe.",
+    "en": "Bez cukru."
+   }
+  },
+  {
+   "id": "x-gasakhdeli",
+   "ka": "გასახდელი",
+   "lat": "gasakhdeli",
+   "alt": [],
+   "category": "more",
+   "en": "przebieralnia, przymierzalnia",
+   "example": {
+    "ka": "გასახდელი სად არის?",
+    "lat": "gasakhdeli sad aris?",
+    "en": "Gdzie jest przymierzalnia?"
+   }
+  },
+  {
+   "id": "x-gasasvleli",
+   "ka": "გასასვლელი",
+   "lat": "gasasvleli",
+   "alt": [],
+   "category": "more",
+   "en": "wyjście",
+   "example": {
+    "ka": "სად არის გასასვლელი?",
+    "lat": "sad aris gasasvleli?",
+    "en": "Gdzie jest wyjście?"
+   }
+  },
+  {
+   "id": "x-gashla",
+   "ka": "გაშლა",
+   "lat": "gashla",
+   "alt": [],
+   "category": "more",
+   "en": "rozbicie (namiotu)",
+   "example": {
+    "ka": "აქ კარვის გაშლა შეიძლება?",
+    "lat": "ak k'arvis gashla sheidzleba?",
+    "en": "Można tu rozbić namiot?"
+   }
+  },
+  {
+   "id": "x-gasinjva",
+   "ka": "გასინჯვა",
+   "lat": "gasinjva",
+   "alt": [],
+   "category": "more",
+   "en": "próbowanie",
+   "example": {
+    "ka": "გასინჯვა შეიძლება?",
+    "lat": "gasinjva sheidzleba?",
+    "en": "Mogę spróbować?"
+   }
+  },
+  {
+   "id": "x-gatboba",
+   "ka": "გათბობა",
+   "lat": "gatboba",
+   "alt": [],
+   "category": "more",
+   "en": "ogrzewanie",
+   "example": {
+    "ka": "გათბობა არ მუშაობს.",
+    "lat": "gatboba ar mushaobs.",
+    "en": "Ogrzewanie nie działa."
+   }
+  },
+  {
+   "id": "x-gatsukhebt",
+   "ka": "გაწუხებთ",
+   "lat": "gats'ukhebt",
+   "alt": [],
+   "category": "more",
+   "en": "pana dolega, martwi",
+   "example": {
+    "ka": "რა გაწუხებთ?",
+    "lat": "ra gats'ukhebt?",
+    "en": "Co panu dolega?"
+   }
+  },
+  {
+   "id": "x-gavagrdzelot",
+   "ka": "გავაგრძელოთ",
+   "lat": "gavagrdzelot",
+   "alt": [],
+   "category": "more",
+   "en": "kontynuujmy",
+   "example": {
+    "ka": "ერთი წუთი დაისვენე, მერე გავაგრძელოთ.",
+    "lat": "erti ts'uti daisvene, mere gavagrdzelot.",
+    "en": "Odpocznij minutę, potem lecimy dalej."
+   }
+  },
+  {
+   "id": "x-gavagzavno",
+   "ka": "გავაგზავნო",
+   "lat": "gavagzavno",
+   "alt": [],
+   "category": "more",
+   "en": "(żebym) wysłał",
+   "example": {
+    "ka": "ამანათი უნდა გავაგზავნო.",
+    "lat": "amanati unda gavagzavno.",
+    "en": "Muszę wysłać paczkę."
+   }
+  },
+  {
+   "id": "x-gavapormebt",
+   "ka": "გავაფორმებთ",
+   "lat": "gavapormebt",
+   "alt": [],
+   "category": "more",
+   "en": "podpiszemy",
+   "example": {
+    "ka": "ხელშეკრულებას გავაფორმებთ?",
+    "lat": "khelshek'rulebas gavapormebt?",
+    "en": "Podpiszemy umowę?"
+   }
+  },
+  {
+   "id": "x-gavige",
+   "ka": "გავიგე",
+   "lat": "gavige",
+   "alt": [],
+   "category": "more",
+   "en": "zrozumiałem, usłyszałem",
+   "example": {
+    "ka": "ვერ გავიგე",
+    "lat": "ver gavige",
+    "en": "nie dałem rady zrozumieć"
+   }
+  },
+  {
+   "id": "x-gaziani",
+   "ka": "გაზიანი",
+   "lat": "gaziani",
+   "alt": [],
+   "category": "more",
+   "en": "gazowany",
+   "example": {
+    "ka": "გაზიანი წყალი გაქვთ?",
+    "lat": "gaziani ts'q'ali gakvt?",
+    "en": "Jest woda gazowana?"
+   }
+  },
+  {
+   "id": "x-gchirdebat",
+   "ka": "გჭირდებათ",
+   "lat": "gch'irdebat",
+   "alt": [],
+   "category": "more",
+   "en": "potrzebuje pan/pani",
+   "example": {
+    "ka": "გამარჯობა! რამე ხომ არ გჭირდებათ?",
+    "lat": "gamarjoba! rame khom ar gch'irdebat?",
+    "en": "Dzień dobry! W czymś pomóc?"
+   }
+  },
+  {
+   "id": "x-gelodebit",
+   "ka": "გელოდებით",
+   "lat": "gelodebit",
+   "alt": [],
+   "category": "more",
+   "en": "czekamy na pana",
+   "example": {
+    "ka": "კარგი, ხვალ გელოდებით.",
+    "lat": "k'argi, khval gelodebit.",
+    "en": "Dobrze, czekamy jutro."
+   }
+  },
+  {
+   "id": "x-gemrieli",
+   "ka": "გემრიელი",
+   "lat": "gemrieli",
+   "alt": [],
+   "category": "more",
+   "en": "smaczny",
+   "example": {
+    "ka": "ძალიან გემრიელია!",
+    "lat": "dzalian gemrielia!",
+    "en": "Bardzo smaczne!"
+   }
+  },
+  {
+   "id": "x-getqvit",
+   "ka": "გეტყვით",
+   "lat": "get'q'vit",
+   "alt": [],
+   "category": "more",
+   "en": "powiem panu",
+   "example": {
+    "ka": "კარგი, გეტყვით.",
+    "lat": "k'argi, get'q'vit.",
+    "en": "Dobrze, powiem panu."
+   }
+  },
+  {
+   "id": "x-ghame",
+   "ka": "ღამე",
+   "lat": "ghame",
+   "alt": [],
+   "category": "more",
+   "en": "noc",
+   "example": {
+    "ka": "ღამე მშვიდობისა",
+    "lat": "ghame mshvidobisa",
+    "en": "dobranoc"
+   }
+  },
+  {
+   "id": "x-ghelav",
+   "ka": "ღელავ",
+   "lat": "ghelav",
+   "alt": [],
+   "category": "more",
+   "en": "martwisz się",
+   "example": {
+    "ka": "ნუ ღელავ",
+    "lat": "nu ghelav",
+    "en": "nie martw się"
+   }
+  },
+  {
+   "id": "x-ghirs",
+   "ka": "ღირს",
+   "lat": "ghirs",
+   "alt": [],
+   "category": "more",
+   "en": "kosztuje",
+   "example": {
+    "ka": "რა ღირს?",
+    "lat": "ra ghirs?",
+    "en": "ile kosztuje?"
+   }
+  },
+  {
+   "id": "x-gilotsav",
+   "ka": "გილოცავ",
+   "lat": "gilotsav",
+   "alt": [],
+   "category": "more",
+   "en": "gratuluję ci",
+   "example": {
+    "ka": "გილოცავ დაბადების დღეს!",
+    "lat": "gilotsav dabadebis dghes!",
+    "en": "Wszystkiego najlepszego z okazji urodzin!"
+   }
+  },
+  {
+   "id": "x-gilotsavt",
+   "ka": "გილოცავთ",
+   "lat": "gilotsavt",
+   "alt": [],
+   "category": "more",
+   "en": "gratuluję panu",
+   "example": {
+    "ka": "ახალ წელს გილოცავთ!",
+    "lat": "akhal ts'els gilotsavt!",
+    "en": "Szczęśliwego Nowego Roku!"
+   }
+  },
+  {
+   "id": "x-giorgi",
+   "ka": "გიორგი",
+   "lat": "giorgi",
+   "alt": [],
+   "category": "more",
+   "en": "Giorgi (imię)",
+   "example": {
+    "ka": "საღამო მშვიდობისა, ბატონო გიორგი.",
+    "lat": "saghamo mshvidobisa, bat'ono giorgi.",
+    "en": "Dobry wieczór, panie Giorgi."
+   }
+  },
+  {
+   "id": "x-gisment",
+   "ka": "გისმენთ",
+   "lat": "gisment",
+   "alt": [],
+   "category": "more",
+   "en": "słucham pana",
+   "example": {
+    "ka": "გამარჯობა, გისმენთ.",
+    "lat": "gamarjoba, gisment.",
+    "en": "Dzień dobry, słucham?"
+   }
+  },
+  {
+   "id": "x-gisurvebt",
+   "ka": "გისურვებთ",
+   "lat": "gisurvebt",
+   "alt": [],
+   "category": "more",
+   "en": "życzę panu",
+   "example": {
+    "ka": "კარგ დღეს გისურვებთ!",
+    "lat": "k'arg dghes gisurvebt!",
+    "en": "Miłego dnia!"
+   }
+  },
+  {
+   "id": "x-gkvia",
+   "ka": "გქვია",
+   "lat": "gkvia",
+   "alt": [],
+   "category": "more",
+   "en": "nazywasz się",
+   "example": {
+    "ka": "რა გქვია?",
+    "lat": "ra gkvia?",
+    "en": "jak masz na imię?"
+   }
+  },
+  {
+   "id": "x-gkviat",
+   "ka": "გქვიათ",
+   "lat": "gkviat",
+   "alt": [],
+   "category": "more",
+   "en": "nazywa się pan/pani",
+   "example": {
+    "ka": "თქვენ რა გქვიათ?",
+    "lat": "tkven ra gkviat?",
+    "en": "Jak pan/pani ma na imię?"
+   }
+  },
+  {
+   "id": "x-gnakhav",
+   "ka": "გნახავ",
+   "lat": "gnakhav",
+   "alt": [],
+   "category": "more",
+   "en": "zobaczę cię",
+   "example": {
+    "ka": "ხვალ გნახავ.",
+    "lat": "khval gnakhav.",
+    "en": "Do zobaczenia jutro."
+   }
+  },
+  {
+   "id": "x-gnebavt",
+   "ka": "გნებავთ",
+   "lat": "gnebavt",
+   "alt": [],
+   "category": "more",
+   "en": "czego pan sobie życzy",
+   "example": {
+    "ka": "გამარჯობა! რა გნებავთ?",
+    "lat": "gamarjoba! ra gnebavt?",
+    "en": "Dzień dobry! Co podać?"
+   }
+  },
+  {
+   "id": "x-goneba",
+   "ka": "გონება",
+   "lat": "goneba",
+   "alt": [],
+   "category": "more",
+   "en": "przytomność, umysł",
+   "example": {
+    "ka": "გონება დაკარგა.",
+    "lat": "goneba dak'arga.",
+    "en": "On/ona zemdlał(a)."
+   }
+  },
+  {
+   "id": "x-gqavt",
+   "ka": "გყავთ",
+   "lat": "gq'avt",
+   "alt": [],
+   "category": "more",
+   "en": "czy macie (kogoś)",
+   "example": {
+    "ka": "ინგლისურად მოლაპარაკე ექიმი გყავთ?",
+    "lat": "inglisurad molap'arak'e ekimi gq'avt?",
+    "en": "Jest lekarz, który mówi po angielsku?"
+   }
+  },
+  {
+   "id": "x-gtkhovt",
+   "ka": "გთხოვთ",
+   "lat": "gtkhovt",
+   "alt": [],
+   "category": "more",
+   "en": "proszę (pana)",
+   "example": {
+    "ka": "გთხოვთ",
+    "lat": "gtkhovt",
+    "en": "Proszę (proszę pana/panią)."
+   }
+  },
+  {
+   "id": "x-guli",
+   "ka": "გული",
+   "lat": "guli",
+   "alt": [],
+   "category": "more",
+   "en": "serce",
+   "example": {
+    "ka": "გული მერევა.",
+    "lat": "guli mereva.",
+    "en": "Jest mi niedobrze."
+   }
+  },
+  {
+   "id": "x-gvakvs",
+   "ka": "გვაქვს",
+   "lat": "gvakvs",
+   "alt": [],
+   "category": "more",
+   "en": "mamy",
+   "example": {
+    "ka": "დღეს ფეხების ვარჯიში გვაქვს.",
+    "lat": "dghes pekhebis varjishi gvakvs.",
+    "en": "Dziś robimy nogi."
+   }
+  },
+  {
+   "id": "x-gverdi",
+   "ka": "გვერდი",
+   "lat": "gverdi",
+   "alt": [],
+   "category": "more",
+   "en": "bok",
+   "example": {
+    "ka": "გვერდებზე უფრო მოკლე?",
+    "lat": "gverdebze upro mok'le?",
+    "en": "Krócej po bokach?"
+   }
+  },
+  {
+   "id": "x-gvqavs",
+   "ka": "გვყავს",
+   "lat": "gvq'avs",
+   "alt": [],
+   "category": "more",
+   "en": "mamy (kogoś)",
+   "example": {
+    "ka": "კი, გვყავს.",
+    "lat": "k'i, gvq'avs.",
+    "en": "Tak, mamy."
+   }
+  },
+  {
+   "id": "x-gza",
+   "ka": "გზა",
+   "lat": "gza",
+   "alt": [],
+   "category": "more",
+   "en": "droga",
+   "example": {
+    "ka": "გზა უსაფრთხოა?",
+    "lat": "gza usaprtkhoa?",
+    "en": "Czy droga jest bezpieczna?"
+   }
+  },
+  {
+   "id": "x-haeri",
+   "ka": "ჰაერი",
+   "lat": "haeri",
+   "alt": [],
+   "category": "more",
+   "en": "powietrze",
+   "example": {
+    "ka": "ჰაერი",
+    "lat": "haeri",
+    "en": "powietrze"
+   }
+  },
+  {
+   "id": "x-ia",
+   "ka": "ია",
+   "lat": "ia",
+   "alt": [],
+   "category": "more",
+   "en": "fiołek",
+   "example": {
+    "ka": "ია",
+    "lat": "ia",
+    "en": "fiołek: przykładowe słowo dla litery ი"
+   }
+  },
+  {
+   "id": "x-idea",
+   "ka": "იდეა",
+   "lat": "idea",
+   "alt": [],
+   "category": "more",
+   "en": "pomysł",
+   "example": {
+    "ka": "კარგი იდეაა!",
+    "lat": "k'argi ideaa!",
+    "en": "Dobry pomysł!"
+   }
+  },
+  {
+   "id": "x-igvianebs",
+   "ka": "იგვიანებს",
+   "lat": "igvianebs",
+   "alt": [],
+   "category": "more",
+   "en": "spóźnia się",
+   "example": {
+    "ka": "ფრენა იგვიანებს?",
+    "lat": "prena igvianebs?",
+    "en": "Czy lot jest opóźniony?"
+   }
+  },
+  {
+   "id": "x-ikhsneba",
+   "ka": "იხსნება",
+   "lat": "ikhsneba",
+   "alt": [],
+   "category": "more",
+   "en": "otwiera się",
+   "example": {
+    "ka": "მუზეუმი რომელ საათზე იხსნება?",
+    "lat": "muzeumi romel saatze ikhsneba?",
+    "en": "O której otwierają muzeum?"
+   }
+  },
+  {
+   "id": "x-ikneba",
+   "ka": "იქნება",
+   "lat": "ikneba",
+   "alt": [],
+   "category": "more",
+   "en": "będzie",
+   "example": {
+    "ka": "რამდენი იქნება?",
+    "lat": "ramdeni ikneba?",
+    "en": "Ile to będzie kosztować?"
+   }
+  },
+  {
+   "id": "x-iknebit",
+   "ka": "იქნებით",
+   "lat": "iknebit",
+   "alt": [],
+   "category": "more",
+   "en": "będzie pan, będziecie",
+   "example": {
+    "ka": "დილის ათ საათზე. სახლში იქნებით?",
+    "lat": "dilis at saatze. sakhlshi iknebit?",
+    "en": "O dziesiątej rano. Będzie pan w domu?"
+   }
+  },
+  {
+   "id": "x-ikve",
+   "ka": "იქვე",
+   "lat": "ikve",
+   "alt": [],
+   "category": "more",
+   "en": "tam, na miejscu",
+   "example": {
+    "ka": "სასწრაფო მოდის. იქვე დარჩით.",
+    "lat": "sasts'rapo modis. ikve darchit.",
+    "en": "Karetka jedzie. Proszę zostać na miejscu."
+   }
+  },
+  {
+   "id": "x-ilaparaket",
+   "ka": "ილაპარაკეთ",
+   "lat": "ilap'arak'et",
+   "alt": [],
+   "category": "more",
+   "en": "proszę mówić",
+   "example": {
+    "ka": "უფრო ნელა ილაპარაკეთ, თუ შეიძლება.",
+    "lat": "upro nela ilap'arak'et, tu sheidzleba.",
+    "en": "Proszę mówić wolniej."
+   }
+  },
+  {
+   "id": "x-inebebt",
+   "ka": "ინებებთ",
+   "lat": "inebebt",
+   "alt": [],
+   "category": "more",
+   "en": "czego pan sobie życzy",
+   "example": {
+    "ka": "დასალევად რას ინებებთ?",
+    "lat": "dasalevad ras inebebt?",
+    "en": "Co do picia?"
+   }
+  },
+  {
+   "id": "x-inebet",
+   "ka": "ინებეთ",
+   "lat": "inebet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę bardzo",
+   "example": {
+    "ka": "აი, ინებეთ.",
+    "lat": "ai, inebet.",
+    "en": "Proszę bardzo."
+   }
+  },
+  {
+   "id": "x-inglisi",
+   "ka": "ინგლისი",
+   "lat": "inglisi",
+   "alt": [],
+   "category": "more",
+   "en": "Anglia",
+   "example": {
+    "ka": "ინგლისიდან ვარ.",
+    "lat": "inglisidan var.",
+    "en": "Jestem z Anglii."
+   }
+  },
+  {
+   "id": "x-inglisuri",
+   "ka": "ინგლისური",
+   "lat": "inglisuri",
+   "alt": [],
+   "category": "more",
+   "en": "angielski",
+   "example": {
+    "ka": "ინგლისური იცი?",
+    "lat": "inglisuri itsi?",
+    "en": "Mówisz po angielsku?"
+   }
+  },
+  {
+   "id": "x-instruktsia",
+   "ka": "ინსტრუქცია",
+   "lat": "inst'ruktsia",
+   "alt": [],
+   "category": "more",
+   "en": "ulotka, instrukcja",
+   "example": {
+    "ka": "ინსტრუქციაში წერია.",
+    "lat": "inst'ruktsiashi ts'eria.",
+    "en": "Jest napisane w ulotce."
+   }
+  },
+  {
+   "id": "x-interneti",
+   "ka": "ინტერნეტი",
+   "lat": "int'ernet'i",
+   "alt": [],
+   "category": "more",
+   "en": "internet",
+   "example": {
+    "ka": "ინტერნეტი არ მუშაობს.",
+    "lat": "int'ernet'i ar mushaobs.",
+    "en": "Internet nie działa."
+   }
+  },
+  {
+   "id": "x-iqo",
+   "ka": "იყო",
+   "lat": "iq'o",
+   "alt": [],
+   "category": "more",
+   "en": "był, była, było",
+   "example": {
+    "ka": "ძალიან გემრიელი იყო, მადლობა.",
+    "lat": "dzalian gemrieli iq'o, madloba.",
+    "en": "Było pyszne, dziękuję."
+   }
+  },
+  {
+   "id": "x-iqos",
+   "ka": "იყოს",
+   "lat": "iq'os",
+   "alt": [],
+   "category": "more",
+   "en": "niech będzie",
+   "example": {
+    "ka": "კარგი, თოთხმეტი იყოს.",
+    "lat": "k'argi, totkhmet'i iq'os.",
+    "en": "Dobrze, niech będzie czternaście."
+   }
+  },
+  {
+   "id": "x-itsvimos",
+   "ka": "იწვიმოს",
+   "lat": "its'vimos",
+   "alt": [],
+   "category": "more",
+   "en": "(może) padać",
+   "example": {
+    "ka": "საღამოს შეიძლება იწვიმოს. ადრე დაბრუნდით.",
+    "lat": "saghamos sheidzleba its'vimos. adre dabrundit.",
+    "en": "Wieczorem może padać. Proszę wrócić wcześnie."
+   }
+  },
+  {
+   "id": "x-itsi",
+   "ka": "იცი",
+   "lat": "itsi",
+   "alt": [],
+   "category": "more",
+   "en": "wiesz, znasz",
+   "example": {
+    "ka": "ინგლისური იცი?",
+    "lat": "inglisuri itsi?",
+    "en": "Mówisz po angielsku?"
+   }
+  },
+  {
+   "id": "x-itsit",
+   "ka": "იცით",
+   "lat": "itsit",
+   "alt": [],
+   "category": "more",
+   "en": "czy pan zna, znacie",
+   "example": {
+    "ka": "ინგლისური იცით?",
+    "lat": "inglisuri itsit?",
+    "en": "Mówi pan/pani po angielsku?"
+   }
+  },
+  {
+   "id": "x-iustitsia",
+   "ka": "იუსტიცია",
+   "lat": "iust'itsia",
+   "alt": [],
+   "category": "more",
+   "en": "sprawiedliwość (იუსტიციის სახლი: Dom Sprawiedliwości)",
+   "example": {
+    "ka": "იუსტიციის სახლი სად არის?",
+    "lat": "iust'itsiis sakhli sad aris?",
+    "en": "Gdzie jest Dom Sprawiedliwości?"
+   }
+  },
+  {
+   "id": "x-janmrteloba",
+   "ka": "ჯანმრთელობა",
+   "lat": "janmrteloba",
+   "alt": [],
+   "category": "more",
+   "en": "zdrowie",
+   "example": {
+    "ka": "შენი ჯანმრთელობის გაუმარჯოს!",
+    "lat": "sheni janmrtelobis gaumarjos!",
+    "en": "Za twoje zdrowie!"
+   }
+  },
+  {
+   "id": "x-jansaghi",
+   "ka": "ჯანსაღი",
+   "lat": "jansaghi",
+   "alt": [],
+   "category": "more",
+   "en": "zdrowy",
+   "example": {
+    "ka": "ბოსტნეული ჯანსაღია.",
+    "lat": "bost'neuli jansaghia.",
+    "en": "Warzywa są zdrowe."
+   }
+  },
+  {
+   "id": "x-javshani",
+   "ka": "ჯავშანი",
+   "lat": "javshani",
+   "alt": [],
+   "category": "more",
+   "en": "rezerwacja",
+   "example": {
+    "ka": "ჯავშანი მაქვს.",
+    "lat": "javshani makvs.",
+    "en": "Mam rezerwację."
+   }
+  },
+  {
+   "id": "x-jibe",
+   "ka": "ჯიბე",
+   "lat": "jibe",
+   "alt": [],
+   "category": "more",
+   "en": "kieszeń",
+   "example": {
+    "ka": "ჯიბე",
+    "lat": "jibe",
+    "en": "kieszeń"
+   }
+  },
+  {
+   "id": "x-joni",
+   "ka": "ჯონი",
+   "lat": "joni",
+   "alt": [],
+   "category": "more",
+   "en": "John (z gruzińskim -ი)",
+   "example": {
+    "ka": "ჯონ სმიტი.",
+    "lat": "jon smit'i.",
+    "en": "John Smith."
+   }
+  },
+  {
+   "id": "x-karavi",
+   "ka": "კარავი",
+   "lat": "k'aravi",
+   "alt": [],
+   "category": "more",
+   "en": "namiot",
+   "example": {
+    "ka": "აქ კარვის გაშლა შეიძლება?",
+    "lat": "ak k'arvis gashla sheidzleba?",
+    "en": "Można tu rozbić namiot?"
+   }
+  },
+  {
+   "id": "x-kargi",
+   "ka": "კარგი",
+   "lat": "k'argi",
+   "alt": [],
+   "category": "more",
+   "en": "dobry; dobrze, OK",
+   "example": {
+    "ka": "რა კარგია!",
+    "lat": "ra k'argia!",
+    "en": "Jak fajnie!"
+   }
+  },
+  {
+   "id": "x-kata",
+   "ka": "კატა",
+   "lat": "k'at'a",
+   "alt": [],
+   "category": "more",
+   "en": "kot",
+   "example": {
+    "ka": "კატა",
+    "lat": "k'at'a",
+    "en": "kot"
+   }
+  },
+  {
+   "id": "x-kbili",
+   "ka": "კბილი",
+   "lat": "k'bili",
+   "alt": [],
+   "category": "more",
+   "en": "ząb",
+   "example": {
+    "ka": "კბილი მტკივა.",
+    "lat": "k'bili mt'k'iva.",
+    "en": "Boli mnie ząb."
+   }
+  },
+  {
+   "id": "x-ketili",
+   "ka": "კეთილი",
+   "lat": "k'etili",
+   "alt": [],
+   "category": "more",
+   "en": "dobry, miły",
+   "example": {
+    "ka": "გაგიმარჯოთ! კეთილი იყოს თქვენი მობრძანება!",
+    "lat": "gagimarjot! k'etili iq'os tkveni mobrdzaneba!",
+    "en": "Dzień dobry! Witamy!"
+   }
+  },
+  {
+   "id": "x-kidev",
+   "ka": "კიდევ",
+   "lat": "k'idev",
+   "alt": [],
+   "category": "more",
+   "en": "jeszcze",
+   "example": {
+    "ka": "კიდევ რამე?",
+    "lat": "k'idev rame?",
+    "en": "Coś jeszcze?"
+   }
+  },
+  {
+   "id": "x-kilo",
+   "ka": "კილო",
+   "lat": "k'ilo",
+   "alt": [],
+   "category": "more",
+   "en": "kilo",
+   "example": {
+    "ka": "კილო რა ღირს?",
+    "lat": "k'ilo ra ghirs?",
+    "en": "Ile za kilogram?"
+   }
+  },
+  {
+   "id": "x-kino",
+   "ka": "კინო",
+   "lat": "k'ino",
+   "alt": [],
+   "category": "more",
+   "en": "kino",
+   "example": {
+    "ka": "გუშინ კინოში წავედი.",
+    "lat": "gushin k'inoshi ts'avedi.",
+    "en": "Wczoraj poszedłem do kina."
+   }
+  },
+  {
+   "id": "x-kitkhva",
+   "ka": "კითხვა",
+   "lat": "k'itkhva",
+   "alt": [],
+   "category": "more",
+   "en": "pytanie",
+   "example": {
+    "ka": "ერთი კითხვა მაქვს.",
+    "lat": "erti k'itkhva makvs.",
+    "en": "Mam pytanie."
+   }
+  },
+  {
+   "id": "x-komunalurebi",
+   "ka": "კომუნალურები",
+   "lat": "k'omunalurebi",
+   "alt": [],
+   "category": "more",
+   "en": "rachunki za media",
+   "example": {
+    "ka": "კომუნალურები შედის?",
+    "lat": "k'omunalurebi shedis?",
+    "en": "Czy rachunki są wliczone?"
+   }
+  },
+  {
+   "id": "x-konditsioneri",
+   "ka": "კონდიციონერი",
+   "lat": "k'onditsioneri",
+   "alt": [],
+   "category": "more",
+   "en": "klimatyzacja",
+   "example": {
+    "ka": "კონდიციონერი ჩართეთ, თუ შეიძლება.",
+    "lat": "k'onditsioneri chartet, tu sheidzleba.",
+    "en": "Proszę włączyć klimatyzację."
+   }
+  },
+  {
+   "id": "x-kursi",
+   "ka": "კურსი",
+   "lat": "k'ursi",
+   "alt": [],
+   "category": "more",
+   "en": "kurs",
+   "example": {
+    "ka": "დოლარის კურსი რა არის?",
+    "lat": "dolaris k'ursi ra aris?",
+    "en": "Jaki jest kurs dolara?"
+   }
+  },
+  {
+   "id": "x-kalaki",
+   "ka": "ქალაქი",
+   "lat": "kalaki",
+   "alt": [],
+   "category": "more",
+   "en": "miasto",
+   "example": {
+    "ka": "ქალაქში როგორ მივიდე?",
+    "lat": "kalakshi rogor mivide?",
+    "en": "Jak dojechać do miasta?"
+   }
+  },
+  {
+   "id": "x-kalbatono",
+   "ka": "ქალბატონო",
+   "lat": "kalbat'ono",
+   "alt": [],
+   "category": "more",
+   "en": "pani (w wołaczu)",
+   "example": {
+    "ka": "გამარჯობა, ქალბატონო ნანა, როგორ ხართ?",
+    "lat": "gamarjoba, kalbat'ono nana, rogor khart?",
+    "en": "Dzień dobry, pani Nano, jak się pani ma?"
+   }
+  },
+  {
+   "id": "x-kari",
+   "ka": "ქარი",
+   "lat": "kari",
+   "alt": [],
+   "category": "more",
+   "en": "wiatr",
+   "example": {
+    "ka": "ქარი",
+    "lat": "kari",
+    "en": "wiatr"
+   }
+  },
+  {
+   "id": "x-khalkhi",
+   "ka": "ხალხი",
+   "lat": "khalkhi",
+   "alt": [],
+   "category": "more",
+   "en": "ludzie",
+   "example": {
+    "ka": "საქართველო ძალიან მომწონს, ხალხი თბილია.",
+    "lat": "sakartvelo dzalian momts'ons, khalkhi tbilia.",
+    "en": "Bardzo podoba mi się Gruzja, ludzie są serdeczni."
+   }
+  },
+  {
+   "id": "x-khandzari",
+   "ka": "ხანძარი",
+   "lat": "khandzari",
+   "alt": [],
+   "category": "more",
+   "en": "pożar",
+   "example": {
+    "ka": "ხანძარია!",
+    "lat": "khandzaria!",
+    "en": "Pożar!"
+   }
+  },
+  {
+   "id": "x-khani",
+   "ka": "ხანი",
+   "lat": "khani",
+   "alt": [],
+   "category": "more",
+   "en": "czas, chwila",
+   "example": {
+    "ka": "რამდენი ხანი?",
+    "lat": "ramdeni khani?",
+    "en": "Ile to potrwa?"
+   }
+  },
+  {
+   "id": "x-khart",
+   "ka": "ხართ",
+   "lat": "khart",
+   "alt": [],
+   "category": "more",
+   "en": "pan jest, wy jesteście",
+   "example": {
+    "ka": "სად ხართ?",
+    "lat": "sad khart?",
+    "en": "Gdzie pan/pani jest?"
+   }
+  },
+  {
+   "id": "x-khdeba",
+   "ka": "ხდება",
+   "lat": "khdeba",
+   "alt": [],
+   "category": "more",
+   "en": "dzieje się",
+   "example": {
+    "ka": "რა ხდება?",
+    "lat": "ra khdeba?",
+    "en": "Co słychać?"
+   }
+  },
+  {
+   "id": "x-khe",
+   "ka": "ხე",
+   "lat": "khe",
+   "alt": [],
+   "category": "more",
+   "en": "drzewo",
+   "example": {
+    "ka": "ხე",
+    "lat": "khe",
+    "en": "drzewo"
+   }
+  },
+  {
+   "id": "x-khelosani",
+   "ka": "ხელოსანი",
+   "lat": "khelosani",
+   "alt": [],
+   "category": "more",
+   "en": "fachowiec",
+   "example": {
+    "ka": "ხელოსანი მჭირდება.",
+    "lat": "khelosani mch'irdeba.",
+    "en": "Potrzebuję fachowca."
+   }
+  },
+  {
+   "id": "x-khelshekruleba",
+   "ka": "ხელშეკრულება",
+   "lat": "khelshek'ruleba",
+   "alt": [],
+   "category": "more",
+   "en": "umowa",
+   "example": {
+    "ka": "ხელშეკრულებას გავაფორმებთ?",
+    "lat": "khelshek'rulebas gavapormebt?",
+    "en": "Podpiszemy umowę?"
+   }
+  },
+  {
+   "id": "x-khidi",
+   "ka": "ხიდი",
+   "lat": "khidi",
+   "alt": [],
+   "category": "more",
+   "en": "most",
+   "example": {
+    "ka": "კი, პირდაპირ წადით, ხიდამდე.",
+    "lat": "k'i, p'irdap'ir ts'adit, khidamde.",
+    "en": "Tak, proszę iść prosto, aż do mostu."
+   }
+  },
+  {
+   "id": "x-kho",
+   "ka": "ხო",
+   "lat": "kho",
+   "alt": [],
+   "category": "more",
+   "en": "no, aha",
+   "example": {
+    "ka": "ხო",
+    "lat": "kho",
+    "en": "No."
+   }
+  },
+  {
+   "id": "x-khom",
+   "ka": "ხომ",
+   "lat": "khom",
+   "alt": [],
+   "category": "more",
+   "en": "…, prawda? (upewnia się)",
+   "example": {
+    "ka": "კი. ალერგია ხომ არ გაქვთ?",
+    "lat": "k'i. alergia khom ar gakvt?",
+    "en": "Tak. Nie ma pan żadnych alergii, prawda?"
+   }
+  },
+  {
+   "id": "x-khurda",
+   "ka": "ხურდა",
+   "lat": "khurda",
+   "alt": [],
+   "category": "more",
+   "en": "drobne, reszta",
+   "example": {
+    "ka": "ხურდა გაქვთ?",
+    "lat": "khurda gakvt?",
+    "en": "Ma pan/pani drobne?"
+   }
+  },
+  {
+   "id": "x-khvela",
+   "ka": "ხველა",
+   "lat": "khvela",
+   "alt": [],
+   "category": "more",
+   "en": "kaszel",
+   "example": {
+    "ka": "ხველა მაქვს.",
+    "lat": "khvela makvs.",
+    "en": "Mam kaszel."
+   }
+  },
+  {
+   "id": "x-kira",
+   "ka": "ქირა",
+   "lat": "kira",
+   "alt": [],
+   "category": "more",
+   "en": "czynsz",
+   "example": {
+    "ka": "ქირა რა ღირს თვეში?",
+    "lat": "kira ra ghirs tveshi?",
+    "en": "Ile wynosi czynsz za miesiąc?"
+   }
+  },
+  {
+   "id": "x-kiravdeba",
+   "ka": "ქირავდება",
+   "lat": "kiravdeba",
+   "alt": [],
+   "category": "more",
+   "en": "jest do wynajęcia",
+   "example": {
+    "ka": "ბინა ქირავდება?",
+    "lat": "bina kiravdeba?",
+    "en": "Czy mieszkanie jest do wynajęcia?"
+   }
+  },
+  {
+   "id": "x-kudi",
+   "ka": "ქუდი",
+   "lat": "kudi",
+   "alt": [],
+   "category": "more",
+   "en": "czapka",
+   "example": {
+    "ka": "ქუდი აუცილებელია?",
+    "lat": "kudi autsilebelia?",
+    "en": "Czy czepek jest obowiązkowy?"
+   }
+  },
+  {
+   "id": "x-kvabi",
+   "ka": "ქვაბი",
+   "lat": "kvabi",
+   "alt": [],
+   "category": "more",
+   "en": "piecyk, bojler",
+   "example": {
+    "ka": "ოჰ, ბოდიში. ქვაბი ჩართულია?",
+    "lat": "oh, bodishi. kvabi chartulia?",
+    "en": "O, przepraszam. Piecyk jest włączony?"
+   }
+  },
+  {
+   "id": "x-kvitari",
+   "ka": "ქვითარი",
+   "lat": "kvitari",
+   "alt": [],
+   "category": "more",
+   "en": "paragon, potwierdzenie",
+   "example": {
+    "ka": "აი, ინებეთ. ქვითარიც აქ არის.",
+    "lat": "ai, inebet. kvitarits ak aris.",
+    "en": "Proszę bardzo. Tu jest też potwierdzenie."
+   }
+  },
+  {
+   "id": "x-lamazi",
+   "ka": "ლამაზი",
+   "lat": "lamazi",
+   "alt": [],
+   "category": "more",
+   "en": "piękny",
+   "example": {
+    "ka": "ქართული ლამაზი ენაა.",
+    "lat": "kartuli lamazi enaa.",
+    "en": "Gruziński to piękny język."
+   }
+  },
+  {
+   "id": "x-lipti",
+   "ka": "ლიფტი",
+   "lat": "lipt'i",
+   "alt": [],
+   "category": "more",
+   "en": "winda",
+   "example": {
+    "ka": "ლიფტი არ მუშაობს.",
+    "lat": "lipt'i ar mushaobs.",
+    "en": "Winda nie działa."
+   }
+  },
+  {
+   "id": "x-lobio",
+   "ka": "ლობიო",
+   "lat": "lobio",
+   "alt": [],
+   "category": "more",
+   "en": "lobio (gulasz z fasoli)",
+   "example": {
+    "ka": "არა, ლობიო უხორცოა.",
+    "lat": "ara, lobio ukhortsoa.",
+    "en": "Nie, lobio jest bez mięsa."
+   }
+  },
+  {
+   "id": "x-lomi",
+   "ka": "ლომი",
+   "lat": "lomi",
+   "alt": [],
+   "category": "more",
+   "en": "lew",
+   "example": {
+    "ka": "ლომი",
+    "lat": "lomi",
+    "en": "lew"
+   }
+  },
+  {
+   "id": "x-machvenet",
+   "ka": "მაჩვენეთ",
+   "lat": "machvenet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę mi pokazać",
+   "example": {
+    "ka": "რუკაზე მაჩვენეთ, თუ შეიძლება.",
+    "lat": "ruk'aze machvenet, tu sheidzleba.",
+    "en": "Proszę mi pokazać na mapie."
+   }
+  },
+  {
+   "id": "x-machvenot",
+   "ka": "მაჩვენოთ",
+   "lat": "machvenot",
+   "alt": [],
+   "category": "more",
+   "en": "(żeby) mi pan pokazał",
+   "example": {
+    "ka": "შეგიძლიათ მაჩვენოთ, როგორ გამოვიყენო?",
+    "lat": "shegidzliat machvenot, rogor gamoviq'eno?",
+    "en": "Może mi pan/pani pokazać, jak tego używać?"
+   }
+  },
+  {
+   "id": "x-magram",
+   "ka": "მაგრამ",
+   "lat": "magram",
+   "alt": [],
+   "category": "more",
+   "en": "ale",
+   "example": {
+    "ka": "კი, მაგრამ არ მუშაობს.",
+    "lat": "k'i, magram ar mushaobs.",
+    "en": "Tak, ale nie działa."
+   }
+  },
+  {
+   "id": "x-maisuri",
+   "ka": "მაისური",
+   "lat": "maisuri",
+   "alt": [],
+   "category": "more",
+   "en": "koszulka",
+   "example": {
+    "ka": "ეს მაისური მომწონს. უფრო დიდი ზომა გაქვთ?",
+    "lat": "es maisuri momts'ons. upro didi zoma gakvt?",
+    "en": "Podoba mi się ta koszulka. Jest większy rozmiar?"
+   }
+  },
+  {
+   "id": "x-male",
+   "ka": "მალე",
+   "lat": "male",
+   "alt": [],
+   "category": "more",
+   "en": "wkrótce, zaraz",
+   "example": {
+    "ka": "ავტობუსი მალე მოვა.",
+    "lat": "avt'obusi male mova.",
+    "en": "Autobus zaraz przyjedzie."
+   }
+  },
+  {
+   "id": "x-marshrutka",
+   "ka": "მარშრუტკა",
+   "lat": "marshrut'k'a",
+   "alt": [],
+   "category": "more",
+   "en": "marszrutka, bus",
+   "example": {
+    "ka": "ეს მარშრუტკა სადგურთან ჩერდება?",
+    "lat": "es marshrut'k'a sadgurtan cherdeba?",
+    "en": "Czy ta marszrutka zatrzymuje się przy dworcu?"
+   }
+  },
+  {
+   "id": "x-mashin",
+   "ka": "მაშინ",
+   "lat": "mashin",
+   "alt": [],
+   "category": "more",
+   "en": "to, w takim razie",
+   "example": {
+    "ka": "მაშინ ლობიო და ერთი ხაჭაპური, თუ შეიძლება.",
+    "lat": "mashin lobio da erti khach'ap'uri, tu sheidzleba.",
+    "en": "To poproszę lobio i jedno chaczapuri."
+   }
+  },
+  {
+   "id": "x-matsivari",
+   "ka": "მაცივარი",
+   "lat": "matsivari",
+   "alt": [],
+   "category": "more",
+   "en": "lodówka",
+   "example": {
+    "ka": "რძე მაცივარშია.",
+    "lat": "rdze matsivarshia.",
+    "en": "Mleko jest w lodówce."
+   }
+  },
+  {
+   "id": "x-mdzime",
+   "ka": "მძიმე",
+   "lat": "mdzime",
+   "alt": [],
+   "category": "more",
+   "en": "ciężki",
+   "example": {
+    "ka": "ეს ძალიან მძიმეა.",
+    "lat": "es dzalian mdzimea.",
+    "en": "To jest bardzo ciężkie."
+   }
+  },
+  {
+   "id": "x-megobroba",
+   "ka": "მეგობრობა",
+   "lat": "megobroba",
+   "alt": [],
+   "category": "more",
+   "en": "przyjaźń",
+   "example": {
+    "ka": "ჩვენს მეგობრობას გაუმარჯოს!",
+    "lat": "chvens megobrobas gaumarjos!",
+    "en": "Za naszą przyjaźń!"
+   }
+  },
+  {
+   "id": "x-mekhute",
+   "ka": "მეხუთე",
+   "lat": "mekhute",
+   "alt": [],
+   "category": "more",
+   "en": "piąty",
+   "example": {
+    "ka": "მეხუთე სართულზე ვარ.",
+    "lat": "mekhute sartulze var.",
+    "en": "Jestem na piątym piętrze."
+   }
+  },
+  {
+   "id": "x-mekhveva",
+   "ka": "მეხვევა",
+   "lat": "mekhveva",
+   "alt": [],
+   "category": "more",
+   "en": "kręci mi się (თავბრუ მეხვევა)",
+   "example": {
+    "ka": "თავბრუ მეხვევა.",
+    "lat": "tavbru mekhveva.",
+    "en": "Kręci mi się w głowie."
+   }
+  },
+  {
+   "id": "x-meniu",
+   "ka": "მენიუ",
+   "lat": "meniu",
+   "alt": [],
+   "category": "more",
+   "en": "menu",
+   "example": {
+    "ka": "მენიუს მომიტანთ?",
+    "lat": "menius momit'ant?",
+    "en": "Może pan/pani przynieść menu?"
+   }
+  },
+  {
+   "id": "x-mere",
+   "ka": "მერე",
+   "lat": "mere",
+   "alt": [],
+   "category": "more",
+   "en": "potem",
+   "example": {
+    "ka": "პირდაპირ, მერე მარცხნივ.",
+    "lat": "p'irdap'ir, mere martskhniv.",
+    "en": "Prosto, potem w lewo."
+   }
+  },
+  {
+   "id": "x-mereva",
+   "ka": "მერევა",
+   "lat": "mereva",
+   "alt": [],
+   "category": "more",
+   "en": "mdli mnie (გული მერევა)",
+   "example": {
+    "ka": "გული მერევა.",
+    "lat": "guli mereva.",
+    "en": "Jest mi niedobrze."
+   }
+  },
+  {
+   "id": "x-mergeba",
+   "ka": "მერგება",
+   "lat": "mergeba",
+   "alt": [],
+   "category": "more",
+   "en": "pasuje na mnie",
+   "example": {
+    "ka": "კარგად მერგება. რა ღირს?",
+    "lat": "k'argad mergeba. ra ghirs?",
+    "en": "Dobrze leży. Ile kosztuje?"
+   }
+  },
+  {
+   "id": "x-mesame",
+   "ka": "მესამე",
+   "lat": "mesame",
+   "alt": [],
+   "category": "more",
+   "en": "trzeci",
+   "example": {
+    "ka": "მესამე სართულზე ვცხოვრობ.",
+    "lat": "mesame sartulze vtskhovrob.",
+    "en": "Mieszkam na trzecim piętrze."
+   }
+  },
+  {
+   "id": "x-mesmis",
+   "ka": "მესმის",
+   "lat": "mesmis",
+   "alt": [],
+   "category": "more",
+   "en": "rozumiem; słyszę",
+   "example": {
+    "ka": "ქართული არ მესმის.",
+    "lat": "kartuli ar mesmis.",
+    "en": "Nie rozumiem po gruzińsku."
+   }
+  },
+  {
+   "id": "x-mezobeli",
+   "ka": "მეზობელი",
+   "lat": "mezobeli",
+   "alt": [],
+   "category": "more",
+   "en": "sąsiad",
+   "example": {
+    "ka": "ახალი მეზობელი ვარ.",
+    "lat": "akhali mezobeli var.",
+    "en": "Jestem nowym sąsiadem."
+   }
+  },
+  {
+   "id": "x-midgoma",
+   "ka": "მიდგომა",
+   "lat": "midgoma",
+   "alt": [],
+   "category": "more",
+   "en": "seria (na siłowni)",
+   "example": {
+    "ka": "რამდენი მიდგომა?",
+    "lat": "ramdeni midgoma?",
+    "en": "Ile serii?"
+   }
+  },
+  {
+   "id": "x-midikhart",
+   "ka": "მიდიხართ",
+   "lat": "midikhart",
+   "alt": [],
+   "category": "more",
+   "en": "pan jedzie, jedziecie",
+   "example": {
+    "ka": "გამარჯობა! სად მიდიხართ?",
+    "lat": "gamarjoba! sad midikhart?",
+    "en": "Dzień dobry! Dokąd jedziemy?"
+   }
+  },
+  {
+   "id": "x-midis",
+   "ka": "მიდის",
+   "lat": "midis",
+   "alt": [],
+   "category": "more",
+   "en": "jedzie, idzie",
+   "example": {
+    "ka": "კი, მიდის. დაჯექით.",
+    "lat": "k'i, midis. dajekit.",
+    "en": "Tak, jedzie. Proszę siadać."
+   }
+  },
+  {
+   "id": "x-miirtvi",
+   "ka": "მიირთვი",
+   "lat": "miirtvi",
+   "alt": [],
+   "category": "more",
+   "en": "częstuj się",
+   "example": {
+    "ka": "რა საჭირო იყო! დაჯექი, მიირთვი.",
+    "lat": "ra sach'iro iq'o! dajeki, miirtvi.",
+    "en": "Nie trzeba było! Siadaj, częstuj się."
+   }
+  },
+  {
+   "id": "x-mirchevt",
+   "ka": "მირჩევთ",
+   "lat": "mirchevt",
+   "alt": [],
+   "category": "more",
+   "en": "co mi pan poleca",
+   "example": {
+    "ka": "რას მირჩევთ?",
+    "lat": "ras mirchevt?",
+    "en": "Co pan poleca?"
+   }
+  },
+  {
+   "id": "x-misamarti",
+   "ka": "მისამართი",
+   "lat": "misamarti",
+   "alt": [],
+   "category": "more",
+   "en": "adres",
+   "example": {
+    "ka": "ამ მისამართზე, თუ შეიძლება.",
+    "lat": "am misamartze, tu sheidzleba.",
+    "en": "Pod ten adres, poproszę."
+   }
+  },
+  {
+   "id": "x-mishvelet",
+   "ka": "მიშველეთ",
+   "lat": "mishvelet",
+   "alt": [],
+   "category": "more",
+   "en": "pomocy!",
+   "example": {
+    "ka": "მიშველეთ!",
+    "lat": "mishvelet!",
+    "en": "Pomocy!"
+   }
+  },
+  {
+   "id": "x-mitkharit",
+   "ka": "მითხარით",
+   "lat": "mitkharit",
+   "alt": [],
+   "category": "more",
+   "en": "proszę mi powiedzieć",
+   "example": {
+    "ka": "ყოჩაღ! რამე თუ დაგჭირდებათ, მითხარით.",
+    "lat": "q'ochagh! rame tu dagch'irdebat, mitkharit.",
+    "en": "Brawo! Jak będzie pan czegoś potrzebował, proszę mówić."
+   }
+  },
+  {
+   "id": "x-mivalt",
+   "ka": "მივალთ",
+   "lat": "mivalt",
+   "alt": [],
+   "category": "more",
+   "en": "dojedziemy",
+   "example": {
+    "ka": "როცა ჭავჭავაძეზე მივალთ, მითხარით, თუ შეიძლება.",
+    "lat": "rotsa ch'avch'avadzeze mivalt, mitkharit, tu sheidzleba.",
+    "en": "Proszę mi powiedzieć, kiedy będziemy na Czawczawadzego."
+   }
+  },
+  {
+   "id": "x-mivdivar",
+   "ka": "მივდივარ",
+   "lat": "mivdivar",
+   "alt": [],
+   "category": "more",
+   "en": "idę, jadę",
+   "example": {
+    "ka": "ბაზარზე მივდივარ.",
+    "lat": "bazarze mivdivar.",
+    "en": "Idę na targ."
+   }
+  },
+  {
+   "id": "x-mivdivart",
+   "ka": "მივდივართ",
+   "lat": "mivdivart",
+   "alt": [],
+   "category": "more",
+   "en": "idziemy, jedziemy",
+   "example": {
+    "ka": "პარასკევს კინოში მივდივართ.",
+    "lat": "p'arask'evs k'inoshi mivdivart.",
+    "en": "W piątek idziemy do kina."
+   }
+  },
+  {
+   "id": "x-mivide",
+   "ka": "მივიდე",
+   "lat": "mivide",
+   "alt": [],
+   "category": "more",
+   "en": "(żebym) doszedł",
+   "example": {
+    "ka": "ქალაქში როგორ მივიდე?",
+    "lat": "kalakshi rogor mivide?",
+    "en": "Jak dojechać do miasta?"
+   }
+  },
+  {
+   "id": "x-mkholod",
+   "ka": "მხოლოდ",
+   "lat": "mkholod",
+   "alt": [],
+   "category": "more",
+   "en": "tylko",
+   "example": {
+    "ka": "მხოლოდ ნაღდი ფული.",
+    "lat": "mkholod naghdi puli.",
+    "en": "Tylko gotówka."
+   }
+  },
+  {
+   "id": "x-mobrdzandit",
+   "ka": "მობრძანდით",
+   "lat": "mobrdzandit",
+   "alt": [],
+   "category": "more",
+   "en": "zapraszamy, proszę wejść",
+   "example": {
+    "ka": "სტუმრად მობრძანდით!",
+    "lat": "st'umrad mobrdzandit!",
+    "en": "Zapraszamy w gości!"
+   }
+  },
+  {
+   "id": "x-mobrdzaneba",
+   "ka": "მობრძანება",
+   "lat": "mobrdzaneba",
+   "alt": [],
+   "category": "more",
+   "en": "przybycie (bardzo grzecznie)",
+   "example": {
+    "ka": "გაგიმარჯოთ! კეთილი იყოს თქვენი მობრძანება!",
+    "lat": "gagimarjot! k'etili iq'os tkveni mobrdzaneba!",
+    "en": "Dzień dobry! Witamy!"
+   }
+  },
+  {
+   "id": "x-modi",
+   "ka": "მოდი",
+   "lat": "modi",
+   "alt": [],
+   "category": "more",
+   "en": "chodź!",
+   "example": {
+    "ka": "მოდი აქ!",
+    "lat": "modi ak!",
+    "en": "Chodź tutaj!"
+   }
+  },
+  {
+   "id": "x-modikhar",
+   "ka": "მოდიხარ",
+   "lat": "modikhar",
+   "alt": [],
+   "category": "more",
+   "en": "przychodzisz",
+   "example": {
+    "ka": "როდის მოდიხარ?",
+    "lat": "rodis modikhar?",
+    "en": "Kiedy przyjdziesz?"
+   }
+  },
+  {
+   "id": "x-modis",
+   "ka": "მოდის",
+   "lat": "modis",
+   "alt": [],
+   "category": "more",
+   "en": "idzie, przychodzi",
+   "example": {
+    "ka": "სისხლი მოდის.",
+    "lat": "siskhli modis.",
+    "en": "Leci krew."
+   }
+  },
+  {
+   "id": "x-mogtsemt",
+   "ka": "მოგცემთ",
+   "lat": "mogtsemt",
+   "alt": [],
+   "category": "more",
+   "en": "dam panu",
+   "example": {
+    "ka": "კარგი, სამ ლარად მოგცემთ.",
+    "lat": "k'argi, sam larad mogtsemt.",
+    "en": "Dobrze, dam za trzy lari."
+   }
+  },
+  {
+   "id": "x-mogvitanet",
+   "ka": "მოგვიტანეთ",
+   "lat": "mogvit'anet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę nam przynieść",
+   "example": {
+    "ka": "ანგარიში მოგვიტანეთ, თუ შეიძლება.",
+    "lat": "angarishi mogvit'anet, tu sheidzleba.",
+    "en": "Może pan/pani przynieść rachunek?"
+   }
+  },
+  {
+   "id": "x-moitsade",
+   "ka": "მოიცადე",
+   "lat": "moitsade",
+   "alt": [],
+   "category": "more",
+   "en": "zaczekaj",
+   "example": {
+    "ka": "მოიცადე",
+    "lat": "moitsade",
+    "en": "poczekaj (do znajomego)"
+   }
+  },
+  {
+   "id": "x-moitsadet",
+   "ka": "მოიცადეთ",
+   "lat": "moitsadet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę poczekać",
+   "example": {
+    "ka": "ერთი წუთი მოიცადეთ, თუ შეიძლება.",
+    "lat": "erti ts'uti moitsadet, tu sheidzleba.",
+    "en": "Proszę chwilę poczekać."
+   }
+  },
+  {
+   "id": "x-mokle",
+   "ka": "მოკლე",
+   "lat": "mok'le",
+   "alt": [],
+   "category": "more",
+   "en": "krótki",
+   "example": {
+    "ka": "გვერდებზე უფრო მოკლე?",
+    "lat": "gverdebze upro mok'le?",
+    "en": "Krócej po bokach?"
+   }
+  },
+  {
+   "id": "x-mokled",
+   "ka": "მოკლედ",
+   "lat": "mok'led",
+   "alt": [],
+   "category": "more",
+   "en": "krótko",
+   "example": {
+    "ka": "ცოტა მოკლედ, აქ და აქ.",
+    "lat": "tsot'a mok'led, ak da ak.",
+    "en": "Trochę krócej, tu i tu."
+   }
+  },
+  {
+   "id": "x-mokhda",
+   "ka": "მოხდა",
+   "lat": "mokhda",
+   "alt": [],
+   "category": "more",
+   "en": "zdarzył się",
+   "example": {
+    "ka": "ავარია მოხდა.",
+    "lat": "avaria mokhda.",
+    "en": "Był wypadek."
+   }
+  },
+  {
+   "id": "x-mokhvalt",
+   "ka": "მოხვალთ",
+   "lat": "mokhvalt",
+   "alt": [],
+   "category": "more",
+   "en": "przyjdzie pan",
+   "example": {
+    "ka": "რომელ საათზე მოხვალთ?",
+    "lat": "romel saatze mokhvalt?",
+    "en": "O której pan/pani przyjdzie?"
+   }
+  },
+  {
+   "id": "x-molaparake",
+   "ka": "მოლაპარაკე",
+   "lat": "molap'arak'e",
+   "alt": [],
+   "category": "more",
+   "en": "mówiący",
+   "example": {
+    "ka": "ინგლისურად მოლაპარაკე ექიმი გყავთ?",
+    "lat": "inglisurad molap'arak'e ekimi gq'avt?",
+    "en": "Jest lekarz, który mówi po angielsku?"
+   }
+  },
+  {
+   "id": "x-mometsit",
+   "ka": "მომეცით",
+   "lat": "mometsit",
+   "alt": [],
+   "category": "more",
+   "en": "proszę mi dać",
+   "example": {
+    "ka": "პარკი მომეცით, თუ შეიძლება.",
+    "lat": "p'ark'i mometsit, tu sheidzleba.",
+    "en": "Poproszę reklamówkę."
+   }
+  },
+  {
+   "id": "x-momitant",
+   "ka": "მომიტანთ",
+   "lat": "momit'ant",
+   "alt": [],
+   "category": "more",
+   "en": "przyniesie mi pan",
+   "example": {
+    "ka": "მენიუს მომიტანთ?",
+    "lat": "menius momit'ant?",
+    "en": "Może pan/pani przynieść menu?"
+   }
+  },
+  {
+   "id": "x-mompares",
+   "ka": "მომპარეს",
+   "lat": "momp'ares",
+   "alt": [],
+   "category": "more",
+   "en": "ukradli mi",
+   "example": {
+    "ka": "ჩანთა მომპარეს.",
+    "lat": "chanta momp'ares.",
+    "en": "Ukradli mi torbę."
+   }
+  },
+  {
+   "id": "x-momsakhureba",
+   "ka": "მომსახურება",
+   "lat": "momsakhureba",
+   "alt": [],
+   "category": "more",
+   "en": "obsługa, serwis",
+   "example": {
+    "ka": "მომსახურება შედის?",
+    "lat": "momsakhureba shedis?",
+    "en": "Czy serwis jest wliczony?"
+   }
+  },
+  {
+   "id": "x-mosvla",
+   "ka": "მოსვლა",
+   "lat": "mosvla",
+   "alt": [],
+   "category": "more",
+   "en": "przyjście",
+   "example": {
+    "ka": "ხვალ შეგიძლიათ მოსვლა?",
+    "lat": "khval shegidzliat mosvla?",
+    "en": "Może pan/pani przyjść jutro?"
+   }
+  },
+  {
+   "id": "x-moukhviet",
+   "ka": "მოუხვიეთ",
+   "lat": "moukhviet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę skręcić",
+   "example": {
+    "ka": "მარცხნივ მოუხვიეთ.",
+    "lat": "martskhniv moukhviet.",
+    "en": "Proszę skręcić w lewo."
+   }
+  },
+  {
+   "id": "x-mova",
+   "ka": "მოვა",
+   "lat": "mova",
+   "alt": [],
+   "category": "more",
+   "en": "przyjdzie, przyjedzie",
+   "example": {
+    "ka": "ავტობუსი მალე მოვა.",
+    "lat": "avt'obusi male mova.",
+    "en": "Autobus zaraz przyjedzie."
+   }
+  },
+  {
+   "id": "x-moval",
+   "ka": "მოვალ",
+   "lat": "moval",
+   "alt": [],
+   "category": "more",
+   "en": "przyjdę",
+   "example": {
+    "ka": "სამწუხაროდ, ვერ მოვალ.",
+    "lat": "samts'ukharod, ver moval.",
+    "en": "Niestety nie mogę przyjść."
+   }
+  },
+  {
+   "id": "x-movedi",
+   "ka": "მოვედი",
+   "lat": "movedi",
+   "alt": [],
+   "category": "more",
+   "en": "przyszedłem, przyszłam",
+   "example": {
+    "ka": "ამანათის ასაღებად მოვედი.",
+    "lat": "amanatis asaghebad movedi.",
+    "en": "Przyszedłem (przyszłam) odebrać paczkę."
+   }
+  },
+  {
+   "id": "x-movedit",
+   "ka": "მოვედით",
+   "lat": "movedit",
+   "alt": [],
+   "category": "more",
+   "en": "dojechaliśmy",
+   "example": {
+    "ka": "აი, მოვედით.",
+    "lat": "ai, movedit.",
+    "en": "Jesteśmy na miejscu."
+   }
+  },
+  {
+   "id": "x-movitano",
+   "ka": "მოვიტანო",
+   "lat": "movit'ano",
+   "alt": [],
+   "category": "more",
+   "en": "(co) mam przynieść",
+   "example": {
+    "ka": "რა მოვიტანო?",
+    "lat": "ra movit'ano?",
+    "en": "Co mam przynieść?"
+   }
+  },
+  {
+   "id": "x-mozomet",
+   "ka": "მოზომეთ",
+   "lat": "mozomet",
+   "alt": [],
+   "category": "more",
+   "en": "proszę przymierzyć",
+   "example": {
+    "ka": "კი, აი. მოზომეთ, გასახდელი იქ არის.",
+    "lat": "k'i, ai. mozomet, gasakhdeli ik aris.",
+    "en": "Tak, proszę. Proszę przymierzyć, przymierzalnia jest tam."
+   }
+  },
+  {
+   "id": "x-mozomva",
+   "ka": "მოზომვა",
+   "lat": "mozomva",
+   "alt": [],
+   "category": "more",
+   "en": "przymierzanie",
+   "example": {
+    "ka": "მოზომვა შეიძლება?",
+    "lat": "mozomva sheidzleba?",
+    "en": "Mogę przymierzyć?"
+   }
+  },
+  {
+   "id": "x-mshvidobisa",
+   "ka": "მშვიდობისა",
+   "lat": "mshvidobisa",
+   "alt": [],
+   "category": "more",
+   "en": "pokoju (w powitaniach: დილა მშვიდობისა)",
+   "example": {
+    "ka": "დილა მშვიდობისა",
+    "lat": "dila mshvidobisa",
+    "en": "dzień dobry (rano)"
+   }
+  },
+  {
+   "id": "x-mtkiva",
+   "ka": "მტკივა",
+   "lat": "mt'k'iva",
+   "alt": [],
+   "category": "more",
+   "en": "boli mnie",
+   "example": {
+    "ka": "აქ მტკივა.",
+    "lat": "ak mt'k'iva.",
+    "en": "Tu mnie boli."
+   }
+  },
+  {
+   "id": "x-mta",
+   "ka": "მთა",
+   "lat": "mta",
+   "alt": [],
+   "category": "more",
+   "en": "góra",
+   "example": {
+    "ka": "მთა",
+    "lat": "mta",
+    "en": "góra"
+   }
+  },
+  {
+   "id": "x-mtsvervali",
+   "ka": "მწვერვალი",
+   "lat": "mts'vervali",
+   "alt": [],
+   "category": "more",
+   "en": "szczyt",
+   "example": {
+    "ka": "მწვერვალამდე რამდენი საათია?",
+    "lat": "mts'vervalamde ramdeni saatia?",
+    "en": "Ile godzin na szczyt?"
+   }
+  },
+  {
+   "id": "x-mtsvrtneli",
+   "ka": "მწვრთნელი",
+   "lat": "mts'vrtneli",
+   "alt": [],
+   "category": "more",
+   "en": "trener",
+   "example": {
+    "ka": "პირადი მწვრთნელი მინდა.",
+    "lat": "p'iradi mts'vrtneli minda.",
+    "en": "Chcę trenera personalnego."
+   }
+  },
+  {
+   "id": "x-mtvare",
+   "ka": "მთვარე",
+   "lat": "mtvare",
+   "alt": [],
+   "category": "more",
+   "en": "księżyc",
+   "example": {
+    "ka": "მთვარე",
+    "lat": "mtvare",
+    "en": "księżyc"
+   }
+  },
+  {
+   "id": "x-mushaob",
+   "ka": "მუშაობ",
+   "lat": "mushaob",
+   "alt": [],
+   "category": "more",
+   "en": "pracujesz",
+   "example": {
+    "ka": "სად მუშაობ?",
+    "lat": "sad mushaob?",
+    "en": "Gdzie pracujesz?"
+   }
+  },
+  {
+   "id": "x-mushaobs",
+   "ka": "მუშაობს",
+   "lat": "mushaobs",
+   "alt": [],
+   "category": "more",
+   "en": "pracuje, działa",
+   "example": {
+    "ka": "ლიფტი არ მუშაობს.",
+    "lat": "lipt'i ar mushaobs.",
+    "en": "Winda nie działa."
+   }
+  },
+  {
+   "id": "x-mushaobt",
+   "ka": "მუშაობთ",
+   "lat": "mushaobt",
+   "alt": [],
+   "category": "more",
+   "en": "pracujecie (jesteście otwarci)",
+   "example": {
+    "ka": "რომელ საათამდე მუშაობთ?",
+    "lat": "romel saatamde mushaobt?",
+    "en": "Do której jest otwarte?"
+   }
+  },
+  {
+   "id": "x-mutseli",
+   "ka": "მუცელი",
+   "lat": "mutseli",
+   "alt": [],
+   "category": "more",
+   "en": "brzuch",
+   "example": {
+    "ka": "მუცელი მტკივა.",
+    "lat": "mutseli mt'k'iva.",
+    "en": "Boli mnie brzuch."
+   }
+  },
+  {
+   "id": "x-muzeumi",
+   "ka": "მუზეუმი",
+   "lat": "muzeumi",
+   "alt": [],
+   "category": "more",
+   "en": "muzeum",
+   "example": {
+    "ka": "მუზეუმი რომელ საათზე იხსნება?",
+    "lat": "muzeumi romel saatze ikhsneba?",
+    "en": "O której otwierają muzeum?"
+   }
+  },
+  {
+   "id": "x-mze",
+   "ka": "მზე",
+   "lat": "mze",
+   "alt": [],
+   "category": "more",
+   "en": "słońce",
+   "example": {
+    "ka": "მზე",
+    "lat": "mze",
+    "en": "słońce"
+   }
+  },
+  {
+   "id": "x-nagavi",
+   "ka": "ნაგავი",
+   "lat": "nagavi",
+   "alt": [],
+   "category": "more",
+   "en": "śmieci",
+   "example": {
+    "ka": "ნაგავი სად გადავყარო?",
+    "lat": "nagavi sad gadavq'aro?",
+    "en": "Gdzie wyrzucić śmieci?"
+   }
+  },
+  {
+   "id": "x-naghdi",
+   "ka": "ნაღდი",
+   "lat": "naghdi",
+   "alt": [],
+   "category": "more",
+   "en": "gotówka (ნაღდი ფული)",
+   "example": {
+    "ka": "ნაღდი ფული",
+    "lat": "naghdi puli",
+    "en": "gotówka"
+   }
+  },
+  {
+   "id": "x-nakhevari",
+   "ka": "ნახევარი",
+   "lat": "nakhevari",
+   "alt": [],
+   "category": "more",
+   "en": "pół, połowa",
+   "example": {
+    "ka": "ნახევარი კილო, თუ შეიძლება.",
+    "lat": "nakhevari k'ilo, tu sheidzleba.",
+    "en": "Pół kilo, poproszę."
+   }
+  },
+  {
+   "id": "x-nana",
+   "ka": "ნანა",
+   "lat": "nana",
+   "alt": [],
+   "category": "more",
+   "en": "Nana (imię)",
+   "example": {
+    "ka": "მე ნანა ვარ. საიდან ხართ?",
+    "lat": "me nana var. saidan khart?",
+    "en": "Jestem Nana. Skąd pan jest?"
+   }
+  },
+  {
+   "id": "x-nateli",
+   "ka": "ნათელი",
+   "lat": "nateli",
+   "alt": [],
+   "category": "more",
+   "en": "jasny",
+   "example": {
+    "ka": "ოთახი დიდი და ნათელია.",
+    "lat": "otakhi didi da natelia.",
+    "en": "Pokój jest duży i jasny."
+   }
+  },
+  {
+   "id": "x-navi",
+   "ka": "ნავი",
+   "lat": "navi",
+   "alt": [],
+   "category": "more",
+   "en": "łódka",
+   "example": {
+    "ka": "ნავი",
+    "lat": "navi",
+    "en": "łódka"
+   }
+  },
+  {
+   "id": "x-nebartva",
+   "ka": "ნებართვა",
+   "lat": "nebartva",
+   "alt": [],
+   "category": "more",
+   "en": "zezwolenie",
+   "example": {
+    "ka": "ბინადრობის ნებართვა მჭირდება.",
+    "lat": "binadrobis nebartva mch'irdeba.",
+    "en": "Potrzebuję karty pobytu."
+   }
+  },
+  {
+   "id": "x-nela",
+   "ka": "ნელა",
+   "lat": "nela",
+   "alt": [],
+   "category": "more",
+   "en": "powoli",
+   "example": {
+    "ka": "ნელა, თუ შეიძლება.",
+    "lat": "nela, tu sheidzleba.",
+    "en": "Wolniej, proszę."
+   }
+  },
+  {
+   "id": "x-nigvzit",
+   "ka": "ნიგვზით",
+   "lat": "nigvzit",
+   "alt": [],
+   "category": "more",
+   "en": "z orzechami",
+   "example": {
+    "ka": "ფხალი. ნიგვზით არის გაკეთებული.",
+    "lat": "pkhali. nigvzit aris gak'etebuli.",
+    "en": "Pchali. Jest zrobione z orzechami włoskimi."
+   }
+  },
+  {
+   "id": "x-nino",
+   "ka": "ნინო",
+   "lat": "nino",
+   "alt": [],
+   "category": "more",
+   "en": "Nino (imię)",
+   "example": {
+    "ka": "ნინო ექიმია",
+    "lat": "nino ekimia",
+    "en": "Nino jest lekarką (krótko)"
+   }
+  },
+  {
+   "id": "x-nishnavs",
+   "ka": "ნიშნავს",
+   "lat": "nishnavs",
+   "alt": [],
+   "category": "more",
+   "en": "znaczy",
+   "example": {
+    "ka": "ეს რას ნიშნავს?",
+    "lat": "es ras nishnavs?",
+    "en": "Co to znaczy?"
+   }
+  },
+  {
+   "id": "x-nomeri",
+   "ka": "ნომერი",
+   "lat": "nomeri",
+   "alt": [],
+   "category": "more",
+   "en": "numer",
+   "example": {
+    "ka": "რიგის ნომერი სად ავიღო?",
+    "lat": "rigis nomeri sad avigho?",
+    "en": "Gdzie wziąć numerek do kolejki?"
+   }
+  },
+  {
+   "id": "x-nu",
+   "ka": "ნუ",
+   "lat": "nu",
+   "alt": [],
+   "category": "more",
+   "en": "nie (zakaz przed czasownikiem: ნუ ღელავ)",
+   "example": {
+    "ka": "ნუ ღელავ",
+    "lat": "nu ghelav",
+    "en": "nie martw się"
+   }
+  },
+  {
+   "id": "x-oh",
+   "ka": "ოჰ",
+   "lat": "oh",
+   "alt": [],
+   "category": "more",
+   "en": "och",
+   "example": {
+    "ka": "ოჰ, ბოდიში. ქვაბი ჩართულია?",
+    "lat": "oh, bodishi. kvabi chartulia?",
+    "en": "O, przepraszam. Piecyk jest włączony?"
+   }
+  },
+  {
+   "id": "x-onkani",
+   "ka": "ონკანი",
+   "lat": "onk'ani",
+   "alt": [],
+   "category": "more",
+   "en": "kran",
+   "example": {
+    "ka": "ონკანი წვეთავს.",
+    "lat": "onk'ani ts'vetavs.",
+    "en": "Kran cieknie."
+   }
+  },
+  {
+   "id": "x-opisi",
+   "ka": "ოფისი",
+   "lat": "opisi",
+   "alt": [],
+   "category": "more",
+   "en": "biuro",
+   "example": {
+    "ka": "ოფისში ვმუშაობ.",
+    "lat": "opisshi vmushaob.",
+    "en": "Pracuję w biurze."
+   }
+  },
+  {
+   "id": "x-ormotsdaori",
+   "ka": "ორმოცდაორი",
+   "lat": "ormotsdaori",
+   "alt": [],
+   "category": "more",
+   "en": "czterdzieści dwa",
+   "example": {
+    "ka": "ორმოცდაორი",
+    "lat": "ormotsdaori",
+    "en": "42: dwie dwudziestki i dwa"
+   }
+  },
+  {
+   "id": "x-orni",
+   "ka": "ორნი",
+   "lat": "orni",
+   "alt": [],
+   "category": "more",
+   "en": "we dwoje",
+   "example": {
+    "ka": "ორნი ვართ.",
+    "lat": "orni vart.",
+    "en": "Jest nas dwoje."
+   }
+  },
+  {
+   "id": "x-orsulad",
+   "ka": "ორსულად",
+   "lat": "orsulad",
+   "alt": [],
+   "category": "more",
+   "en": "w ciąży",
+   "example": {
+    "ka": "ორსულად ვარ.",
+    "lat": "orsulad var.",
+    "en": "Jestem w ciąży."
+   }
+  },
+  {
+   "id": "x-otkhmotsdatskhrameti",
+   "ka": "ოთხმოცდაცხრამეტი",
+   "lat": "otkhmotsdatskhramet'i",
+   "alt": [],
+   "category": "more",
+   "en": "dziewięćdziesiąt dziewięć",
+   "example": {
+    "ka": "ოთხმოცდაცხრამეტი",
+    "lat": "otkhmotsdatskhramet'i",
+    "en": "99: cztery dwudziestki i dziewiętnaście"
+   }
+  },
+  {
+   "id": "x-otkhmotsi",
+   "ka": "ოთხმოცი",
+   "lat": "otkhmotsi",
+   "alt": [],
+   "category": "more",
+   "en": "osiemdziesiąt",
+   "example": {
+    "ka": "ოთხმოცი",
+    "lat": "otkhmotsi",
+    "en": "80: cztery dwudziestki"
+   }
+  },
+  {
+   "id": "x-otsdakhuti",
+   "ka": "ოცდახუთი",
+   "lat": "otsdakhuti",
+   "alt": [],
+   "category": "more",
+   "en": "dwadzieścia pięć",
+   "example": {
+    "ka": "ოცდახუთი ლარი.",
+    "lat": "otsdakhuti lari.",
+    "en": "Dwadzieścia pięć lari."
+   }
+  },
+  {
+   "id": "x-otsdaori",
+   "ka": "ოცდაორი",
+   "lat": "otsdaori",
+   "alt": [],
+   "category": "more",
+   "en": "dwadzieścia dwa",
+   "example": {
+    "ka": "ოცდაორი",
+    "lat": "otsdaori",
+    "en": "22: dwadzieścia i dwa"
+   }
+  },
+  {
+   "id": "x-otsdatertmeti",
+   "ka": "ოცდათერთმეტი",
+   "lat": "otsdatertmet'i",
+   "alt": [],
+   "category": "more",
+   "en": "trzydzieści jeden",
+   "example": {
+    "ka": "ოცდათერთმეტი",
+    "lat": "otsdatertmet'i",
+    "en": "31: dwadzieścia i jedenaście"
+   }
+  },
+  {
+   "id": "x-otsdatskhrameti",
+   "ka": "ოცდაცხრამეტი",
+   "lat": "otsdatskhramet'i",
+   "alt": [],
+   "category": "more",
+   "en": "trzydzieści dziewięć",
+   "example": {
+    "ka": "ოცდაცხრამეტი",
+    "lat": "otsdatskhramet'i",
+    "en": "39: dwadzieścia i dziewiętnaście"
+   }
+  },
+  {
+   "id": "x-paketi",
+   "ka": "პაკეტი",
+   "lat": "p'ak'et'i",
+   "alt": [],
+   "category": "more",
+   "en": "pakiet",
+   "example": {
+    "ka": "ინტერნეტის პაკეტი რა ღირს?",
+    "lat": "int'ernet'is p'ak'et'i ra ghirs?",
+    "en": "Ile kosztuje pakiet internetu?"
+   }
+  },
+  {
+   "id": "x-parki",
+   "ka": "პარკი",
+   "lat": "p'ark'i",
+   "alt": [],
+   "category": "more",
+   "en": "reklamówka",
+   "example": {
+    "ka": "პარკი მჭირდება.",
+    "lat": "p'ark'i mch'irdeba.",
+    "en": "Potrzebuję reklamówki."
+   }
+  },
+  {
+   "id": "x-paroli",
+   "ka": "პაროლი",
+   "lat": "p'aroli",
+   "alt": [],
+   "category": "more",
+   "en": "hasło",
+   "example": {
+    "ka": "ვაიფაის პაროლი რა არის?",
+    "lat": "vaipais p'aroli ra aris?",
+    "en": "Jakie jest hasło do wifi?"
+   }
+  },
+  {
+   "id": "x-pasporti",
+   "ka": "პასპორტი",
+   "lat": "p'asp'ort'i",
+   "alt": [],
+   "category": "more",
+   "en": "paszport",
+   "example": {
+    "ka": "პასპორტი გაქვთ?",
+    "lat": "p'asp'ort'i gakvt?",
+    "en": "Ma pan paszport?"
+   }
+  },
+  {
+   "id": "x-patara",
+   "ka": "პატარა",
+   "lat": "p'at'ara",
+   "alt": [],
+   "category": "more",
+   "en": "mały",
+   "example": {
+    "ka": "უფრო პატარა ზომა გაქვთ?",
+    "lat": "upro p'at'ara zoma gakvt?",
+    "en": "Jest mniejszy rozmiar?"
+   }
+  },
+  {
+   "id": "x-piradi",
+   "ka": "პირადი",
+   "lat": "p'iradi",
+   "alt": [],
+   "category": "more",
+   "en": "osobisty, personalny",
+   "example": {
+    "ka": "პირადი მწვრთნელი მინდა.",
+    "lat": "p'iradi mts'vrtneli minda.",
+    "en": "Chcę trenera personalnego."
+   }
+  },
+  {
+   "id": "x-pirsakhotsi",
+   "ka": "პირსახოცი",
+   "lat": "p'irsakhotsi",
+   "alt": [],
+   "category": "more",
+   "en": "ręcznik",
+   "example": {
+    "ka": "პირსახოცი გაქვთ?",
+    "lat": "p'irsakhotsi gakvt?",
+    "en": "Jest ręcznik?"
+   }
+  },
+  {
+   "id": "x-plasteri",
+   "ka": "პლასტერი",
+   "lat": "p'last'eri",
+   "alt": [],
+   "category": "more",
+   "en": "plaster",
+   "example": {
+    "ka": "პლასტერი გაქვთ?",
+    "lat": "p'last'eri gakvt?",
+    "en": "Są plastry?"
+   }
+  },
+  {
+   "id": "x-politsia",
+   "ka": "პოლიცია",
+   "lat": "p'olitsia",
+   "alt": [],
+   "category": "more",
+   "en": "policja",
+   "example": {
+    "ka": "პოლიცია გამოიძახეთ!",
+    "lat": "p'olitsia gamoidzakhet!",
+    "en": "Proszę wezwać policję!"
+   }
+  },
+  {
+   "id": "x-poloneti",
+   "ka": "პოლონეთი",
+   "lat": "p'oloneti",
+   "alt": [],
+   "category": "more",
+   "en": "Polska",
+   "example": {
+    "ka": "გამარჯობა. ეს ამანათი პოლონეთში უნდა გავაგზავნო.",
+    "lat": "gamarjoba. es amanati p'olonetshi unda gavagzavno.",
+    "en": "Dzień dobry. Muszę wysłać tę paczkę do Polski."
+   }
+  },
+  {
+   "id": "x-pomidori",
+   "ka": "პომიდორი",
+   "lat": "p'omidori",
+   "alt": [],
+   "category": "more",
+   "en": "pomidor",
+   "example": {
+    "ka": "პომიდორი რა ღირს?",
+    "lat": "p'omidori ra ghirs?",
+    "en": "Ile kosztują pomidory?"
+   }
+  },
+  {
+   "id": "x-problema",
+   "ka": "პრობლემა",
+   "lat": "p'roblema",
+   "alt": [],
+   "category": "more",
+   "en": "problem",
+   "example": {
+    "ka": "წყალთან პრობლემაა.",
+    "lat": "ts'q'altan p'roblemaa.",
+    "en": "Jest problem z wodą."
+   }
+  },
+  {
+   "id": "x-pasdakleba",
+   "ka": "ფასდაკლება",
+   "lat": "pasdak'leba",
+   "alt": [],
+   "category": "more",
+   "en": "wyprzedaż, zniżka",
+   "example": {
+    "ka": "ოცდაათი ლარი. ახლა ფასდაკლებაა.",
+    "lat": "otsdaati lari. akhla pasdak'lebaa.",
+    "en": "Trzydzieści lari. Teraz jest wyprzedaż."
+   }
+  },
+  {
+   "id": "x-pekhburti",
+   "ka": "ფეხბურთი",
+   "lat": "pekhburti",
+   "alt": [],
+   "category": "more",
+   "en": "piłka nożna",
+   "example": {
+    "ka": "ფეხბურთი ვითამაშოთ?",
+    "lat": "pekhburti vitamashot?",
+    "en": "Zagramy w piłkę?"
+   }
+  },
+  {
+   "id": "x-pekhi",
+   "ka": "ფეხი",
+   "lat": "pekhi",
+   "alt": [],
+   "category": "more",
+   "en": "noga",
+   "example": {
+    "ka": "ფეხით რამდენი წუთია?",
+    "lat": "pekhit ramdeni ts'utia?",
+    "en": "Ile minut pieszo?"
+   }
+  },
+  {
+   "id": "x-peri",
+   "ka": "ფერი",
+   "lat": "peri",
+   "alt": [],
+   "category": "more",
+   "en": "kolor",
+   "example": {
+    "ka": "სხვა ფერი გაქვთ?",
+    "lat": "skhva peri gakvt?",
+    "en": "Jest inny kolor?"
+   }
+  },
+  {
+   "id": "x-pilmi",
+   "ka": "ფილმი",
+   "lat": "pilmi",
+   "alt": [],
+   "category": "more",
+   "en": "film",
+   "example": {
+    "ka": "ეს ფილმი მომწონს.",
+    "lat": "es pilmi momts'ons.",
+    "en": "Ten film mi się podoba."
+   }
+  },
+  {
+   "id": "x-pkhali",
+   "ka": "ფხალი",
+   "lat": "pkhali",
+   "alt": [],
+   "category": "more",
+   "en": "pchali (warzywa z orzechami)",
+   "example": {
+    "ka": "ფხალი. ნიგვზით არის გაკეთებული.",
+    "lat": "pkhali. nigvzit aris gak'etebuli.",
+    "en": "Pchali. Jest zrobione z orzechami włoskimi."
+   }
+  },
+  {
+   "id": "x-porma",
+   "ka": "ფორმა",
+   "lat": "porma",
+   "alt": [],
+   "category": "more",
+   "en": "formularz",
+   "example": {
+    "ka": "ფორმა როგორ შევავსო?",
+    "lat": "porma rogor shevavso?",
+    "en": "Jak wypełnić formularz?"
+   }
+  },
+  {
+   "id": "x-posta",
+   "ka": "ფოსტა",
+   "lat": "post'a",
+   "alt": [],
+   "category": "more",
+   "en": "poczta",
+   "example": {
+    "ka": "ფოსტა სად არის?",
+    "lat": "post'a sad aris?",
+    "en": "Gdzie jest poczta?"
+   }
+  },
+  {
+   "id": "x-prena",
+   "ka": "ფრენა",
+   "lat": "prena",
+   "alt": [],
+   "category": "more",
+   "en": "lot",
+   "example": {
+    "ka": "ფრენა იგვიანებს?",
+    "lat": "prena igvianebs?",
+    "en": "Czy lot jest opóźniony?"
+   }
+  },
+  {
+   "id": "x-puri",
+   "ka": "ფური",
+   "lat": "puri",
+   "alt": [],
+   "category": "more",
+   "en": "krowa",
+   "example": {
+    "ka": "ფური",
+    "lat": "puri",
+    "en": "krowa"
+   }
+  },
+  {
+   "id": "x-qeli",
+   "ka": "ყელი",
+   "lat": "q'eli",
+   "alt": [],
+   "category": "more",
+   "en": "gardło",
+   "example": {
+    "ka": "ყელი მტკივა.",
+    "lat": "q'eli mt'k'iva.",
+    "en": "Boli mnie gardło."
+   }
+  },
+  {
+   "id": "x-qochagh",
+   "ka": "ყოჩაღ",
+   "lat": "q'ochagh",
+   "alt": [],
+   "category": "more",
+   "en": "brawo!",
+   "example": {
+    "ka": "ყოჩაღ! რამე თუ დაგჭირდებათ, მითხარით.",
+    "lat": "q'ochagh! rame tu dagch'irdebat, mitkharit.",
+    "en": "Brawo! Jak będzie pan czegoś potrzebował, proszę mówić."
+   }
+  },
+  {
+   "id": "x-ramdenjer",
+   "ka": "რამდენჯერ",
+   "lat": "ramdenjer",
+   "alt": [],
+   "category": "more",
+   "en": "ile razy",
+   "example": {
+    "ka": "დღეში რამდენჯერ?",
+    "lat": "dgheshi ramdenjer?",
+    "en": "Ile razy dziennie?"
+   }
+  },
+  {
+   "id": "x-rame",
+   "ka": "რამე",
+   "lat": "rame",
+   "alt": [],
+   "category": "more",
+   "en": "coś",
+   "example": {
+    "ka": "კიდევ რამე?",
+    "lat": "k'idev rame?",
+    "en": "Coś jeszcze?"
+   }
+  },
+  {
+   "id": "x-registratsia",
+   "ka": "რეგისტრაცია",
+   "lat": "regist'ratsia",
+   "alt": [],
+   "category": "more",
+   "en": "odprawa, rejestracja",
+   "example": {
+    "ka": "სად არის რეგისტრაცია?",
+    "lat": "sad aris regist'ratsia?",
+    "en": "Gdzie jest odprawa?"
+   }
+  },
+  {
+   "id": "x-restorani",
+   "ka": "რესტორანი",
+   "lat": "rest'orani",
+   "alt": [],
+   "category": "more",
+   "en": "restauracja",
+   "example": {
+    "ka": "აქ კარგი რესტორანი სად არის?",
+    "lat": "ak k'argi rest'orani sad aris?",
+    "en": "Gdzie tu jest dobra restauracja?"
+   }
+  },
+  {
+   "id": "x-retsepti",
+   "ka": "რეცეპტი",
+   "lat": "retsep't'i",
+   "alt": [],
+   "category": "more",
+   "en": "recepta",
+   "example": {
+    "ka": "რეცეპტი მაქვს.",
+    "lat": "retsep't'i makvs.",
+    "en": "Mam receptę."
+   }
+  },
+  {
+   "id": "x-rigi",
+   "ka": "რიგი",
+   "lat": "rigi",
+   "alt": [],
+   "category": "more",
+   "en": "kolejka",
+   "example": {
+    "ka": "რიგის ნომერი სად ავიღო?",
+    "lat": "rigis nomeri sad avigho?",
+    "en": "Gdzie wziąć numerek do kolejki?"
+   }
+  },
+  {
+   "id": "x-rit",
+   "ka": "რით",
+   "lat": "rit",
+   "alt": [],
+   "category": "more",
+   "en": "czym, w czym",
+   "example": {
+    "ka": "გამარჯობა! რით შემიძლია დაგეხმაროთ?",
+    "lat": "gamarjoba! rit shemidzlia dagekhmarot?",
+    "en": "Dzień dobry! W czym mogę pomóc?"
+   }
+  },
+  {
+   "id": "x-rogori",
+   "ka": "როგორი",
+   "lat": "rogori",
+   "alt": [],
+   "category": "more",
+   "en": "jaki",
+   "example": {
+    "ka": "როგორ ხარ?",
+    "lat": "rogor khar?",
+    "en": "jak się masz?"
+   }
+  },
+  {
+   "id": "x-romeli",
+   "ka": "რომელი",
+   "lat": "romeli",
+   "alt": [],
+   "category": "more",
+   "en": "który",
+   "example": {
+    "ka": "რომელ საათზე?",
+    "lat": "romel saatze?",
+    "en": "O której?"
+   }
+  },
+  {
+   "id": "x-romelia",
+   "ka": "რომელია",
+   "lat": "romelia",
+   "alt": [],
+   "category": "more",
+   "en": "który jest",
+   "example": {
+    "ka": "შემდეგი გაჩერება რომელია?",
+    "lat": "shemdegi gachereba romelia?",
+    "en": "Jaki jest następny przystanek?"
+   }
+  },
+  {
+   "id": "x-rotsa",
+   "ka": "როცა",
+   "lat": "rotsa",
+   "alt": [],
+   "category": "more",
+   "en": "kiedy, gdy",
+   "example": {
+    "ka": "როცა ჭავჭავაძეზე მივალთ, მითხარით, თუ შეიძლება.",
+    "lat": "rotsa ch'avch'avadzeze mivalt, mitkharit, tu sheidzleba.",
+    "en": "Proszę mi powiedzieć, kiedy będziemy na Czawczawadzego."
+   }
+  },
+  {
+   "id": "x-rustaveli",
+   "ka": "რუსთაველი",
+   "lat": "rustaveli",
+   "alt": [],
+   "category": "more",
+   "en": "Rustaweli (poeta; aleja)",
+   "example": {
+    "ka": "გამარჯობა. რუსთაველის გამზირზე, თუ შეიძლება.",
+    "lat": "gamarjoba. rustavelis gamzirze, tu sheidzleba.",
+    "en": "Dzień dobry. Na aleję Rustawelego, poproszę."
+   }
+  },
+  {
+   "id": "x-rusuli",
+   "ka": "რუსული",
+   "lat": "rusuli",
+   "alt": [],
+   "category": "more",
+   "en": "rosyjski",
+   "example": {
+    "ka": "რუსული არ ვიცი.",
+    "lat": "rusuli ar vitsi.",
+    "en": "Nie mówię po rosyjsku."
+   }
+  },
+  {
+   "id": "x-saavadmqopo",
+   "ka": "საავადმყოფო",
+   "lat": "saavadmq'opo",
+   "alt": [],
+   "category": "more",
+   "en": "szpital",
+   "example": {
+    "ka": "საავადმყოფო სად არის?",
+    "lat": "saavadmq'opo sad aris?",
+    "en": "Gdzie jest szpital?"
+   }
+  },
+  {
+   "id": "x-sabutebi",
+   "ka": "საბუთები",
+   "lat": "sabutebi",
+   "alt": [],
+   "category": "more",
+   "en": "dokumenty",
+   "example": {
+    "ka": "რა საბუთები მჭირდება?",
+    "lat": "ra sabutebi mch'irdeba?",
+    "en": "Jakie dokumenty są potrzebne?"
+   }
+  },
+  {
+   "id": "x-sachiro",
+   "ka": "საჭირო",
+   "lat": "sach'iro",
+   "alt": [],
+   "category": "more",
+   "en": "potrzebny",
+   "example": {
+    "ka": "რა საჭირო იყო! დაჯექი, მიირთვი.",
+    "lat": "ra sach'iro iq'o! dajeki, miirtvi.",
+    "en": "Nie trzeba było! Siadaj, częstuj się."
+   }
+  },
+  {
+   "id": "x-saelcho",
+   "ka": "საელჩო",
+   "lat": "saelcho",
+   "alt": [],
+   "category": "more",
+   "en": "ambasada",
+   "example": {
+    "ka": "საელჩო სად არის?",
+    "lat": "saelcho sad aris?",
+    "en": "Gdzie jest ambasada?"
+   }
+  },
+  {
+   "id": "x-saidan",
+   "ka": "საიდან",
+   "lat": "saidan",
+   "alt": [],
+   "category": "more",
+   "en": "skąd",
+   "example": {
+    "ka": "საიდან ხარ?",
+    "lat": "saidan khar?",
+    "en": "skąd jesteś?"
+   }
+  },
+  {
+   "id": "x-saintereso",
+   "ka": "საინტერესო",
+   "lat": "saint'ereso",
+   "alt": [],
+   "category": "more",
+   "en": "ciekawy",
+   "example": {
+    "ka": "ეს წიგნი საინტერესოა.",
+    "lat": "es ts'igni saint'eresoa.",
+    "en": "Ta książka jest ciekawa."
+   }
+  },
+  {
+   "id": "x-sakartvelo",
+   "ka": "საქართველო",
+   "lat": "sakartvelo",
+   "alt": [],
+   "category": "more",
+   "en": "Gruzja",
+   "example": {
+    "ka": "საქართველო მიყვარს.",
+    "lat": "sakartvelo miq'vars.",
+    "en": "Kocham Gruzję."
+   }
+  },
+  {
+   "id": "x-samotsi",
+   "ka": "სამოცი",
+   "lat": "samotsi",
+   "alt": [],
+   "category": "more",
+   "en": "sześćdziesiąt",
+   "example": {
+    "ka": "სამოცი",
+    "lat": "samotsi",
+    "en": "60: trzy dwudziestki"
+   }
+  },
+  {
+   "id": "x-samtsukharod",
+   "ka": "სამწუხაროდ",
+   "lat": "samts'ukharod",
+   "alt": [],
+   "category": "more",
+   "en": "niestety",
+   "example": {
+    "ka": "სამწუხაროდ, ვერ მოვალ.",
+    "lat": "samts'ukharod, ver moval.",
+    "en": "Niestety nie mogę przyjść."
+   }
+  },
+  {
+   "id": "x-saretskhi",
+   "ka": "სარეცხი",
+   "lat": "saretskhi",
+   "alt": [],
+   "category": "more",
+   "en": "pranie (სარეცხი მანქანა: pralka)",
+   "example": {
+    "ka": "სარეცხი მანქანა როგორ ჩავრთო?",
+    "lat": "saretskhi mankana rogor chavrto?",
+    "en": "Jak włączyć pralkę?"
+   }
+  },
+  {
+   "id": "x-sartuli",
+   "ka": "სართული",
+   "lat": "sartuli",
+   "alt": [],
+   "category": "more",
+   "en": "piętro",
+   "example": {
+    "ka": "მეხუთე სართულზე ვარ.",
+    "lat": "mekhute sartulze var.",
+    "en": "Jestem na piątym piętrze."
+   }
+  },
+  {
+   "id": "x-sastsrapo",
+   "ka": "სასწრაფო",
+   "lat": "sasts'rapo",
+   "alt": [],
+   "category": "more",
+   "en": "karetka; pilny",
+   "example": {
+    "ka": "სასწრაფო გამოიძახეთ!",
+    "lat": "sasts'rapo gamoidzakhet!",
+    "en": "Proszę wezwać karetkę!"
+   }
+  },
+  {
+   "id": "x-sastsrapod",
+   "ka": "სასწრაფოდ",
+   "lat": "sasts'rapod",
+   "alt": [],
+   "category": "more",
+   "en": "pilnie",
+   "example": {
+    "ka": "ექიმი სასწრაფოდ მჭირდება!",
+    "lat": "ekimi sasts'rapod mch'irdeba!",
+    "en": "Pilnie potrzebuję lekarza!"
+   }
+  },
+  {
+   "id": "x-sauzme",
+   "ka": "საუზმე",
+   "lat": "sauzme",
+   "alt": [],
+   "category": "more",
+   "en": "śniadanie",
+   "example": {
+    "ka": "საუზმე შედის?",
+    "lat": "sauzme shedis?",
+    "en": "Czy śniadanie jest wliczone?"
+   }
+  },
+  {
+   "id": "x-savse",
+   "ka": "სავსე",
+   "lat": "savse",
+   "alt": [],
+   "category": "more",
+   "en": "pełny",
+   "example": {
+    "ka": "სავსე ავზი, თუ შეიძლება.",
+    "lat": "savse avzi, tu sheidzleba.",
+    "en": "Do pełna, poproszę."
+   }
+  },
+  {
+   "id": "x-seriozuli",
+   "ka": "სერიოზული",
+   "lat": "seriozuli",
+   "alt": [],
+   "category": "more",
+   "en": "poważny",
+   "example": {
+    "ka": "ეს სერიოზულია?",
+    "lat": "es seriozulia?",
+    "en": "Czy to coś poważnego?"
+   }
+  },
+  {
+   "id": "x-shechra",
+   "ka": "შეჭრა",
+   "lat": "shech'ra",
+   "alt": [],
+   "category": "more",
+   "en": "strzyżenie",
+   "example": {
+    "ka": "გამარჯობა. თმის შეჭრა მინდა.",
+    "lat": "gamarjoba. tmis shech'ra minda.",
+    "en": "Dzień dobry. Chciałbym (chciałabym) się ostrzyc."
+   }
+  },
+  {
+   "id": "x-shedis",
+   "ka": "შედის",
+   "lat": "shedis",
+   "alt": [],
+   "category": "more",
+   "en": "jest wliczone; wchodzi",
+   "example": {
+    "ka": "საუზმე შედის?",
+    "lat": "sauzme shedis?",
+    "en": "Czy śniadanie jest wliczone?"
+   }
+  },
+  {
+   "id": "x-shedzlebt",
+   "ka": "შეძლებთ",
+   "lat": "shedzlebt",
+   "alt": [],
+   "category": "more",
+   "en": "czy da pan radę",
+   "example": {
+    "ka": "ხვალ, თერთმეტ საათზე შეძლებთ?",
+    "lat": "khval, tertmet' saatze shedzlebt?",
+    "en": "Może pan przyjść jutro o jedenastej?"
+   }
+  },
+  {
+   "id": "x-shegchrat",
+   "ka": "შეგჭრათ",
+   "lat": "shegch'rat",
+   "alt": [],
+   "category": "more",
+   "en": "jak pana ostrzyc",
+   "example": {
+    "ka": "როგორ შეგჭრათ?",
+    "lat": "rogor shegch'rat?",
+    "en": "Jak strzyżemy?"
+   }
+  },
+  {
+   "id": "x-shegidzlia",
+   "ka": "შეგიძლია",
+   "lat": "shegidzlia",
+   "alt": [],
+   "category": "more",
+   "en": "możesz",
+   "example": {
+    "ka": "შეგიძლია დამეხმარო?",
+    "lat": "shegidzlia damekhmaro?",
+    "en": "Możesz mi pomóc?"
+   }
+  },
+  {
+   "id": "x-shegidzliat",
+   "ka": "შეგიძლიათ",
+   "lat": "shegidzliat",
+   "alt": [],
+   "category": "more",
+   "en": "czy może pan/pani",
+   "example": {
+    "ka": "შეგიძლიათ დამეხმაროთ?",
+    "lat": "shegidzliat damekhmarot?",
+    "en": "Może mi pan/pani pomóc?"
+   }
+  },
+  {
+   "id": "x-shekhvedra",
+   "ka": "შეხვედრა",
+   "lat": "shekhvedra",
+   "alt": [],
+   "category": "more",
+   "en": "spotkanie",
+   "example": {
+    "ka": "შეხვედრა მაქვს.",
+    "lat": "shekhvedra makvs.",
+    "en": "Mam spotkanie."
+   }
+  },
+  {
+   "id": "x-shemdegi",
+   "ka": "შემდეგი",
+   "lat": "shemdegi",
+   "alt": [],
+   "category": "more",
+   "en": "następny",
+   "example": {
+    "ka": "ჭამამდე თუ ჭამის შემდეგ?",
+    "lat": "ch'amamde tu ch'amis shemdeg?",
+    "en": "Przed jedzeniem czy po jedzeniu?"
+   }
+  },
+  {
+   "id": "x-shemidzlia",
+   "ka": "შემიძლია",
+   "lat": "shemidzlia",
+   "alt": [],
+   "category": "more",
+   "en": "mogę",
+   "example": {
+    "ka": "გამარჯობა! რით შემიძლია დაგეხმაროთ?",
+    "lat": "gamarjoba! rit shemidzlia dagekhmarot?",
+    "en": "Dzień dobry! W czym mogę pomóc?"
+   }
+  },
+  {
+   "id": "x-shemodi",
+   "ka": "შემოდი",
+   "lat": "shemodi",
+   "alt": [],
+   "category": "more",
+   "en": "wejdź!",
+   "example": {
+    "ka": "შემოდი, შემოდი! როგორ ხარ?",
+    "lat": "shemodi, shemodi! rogor khar?",
+    "en": "Wchodź, wchodź! Jak się masz?"
+   }
+  },
+  {
+   "id": "x-sheni",
+   "ka": "შენი",
+   "lat": "sheni",
+   "alt": [],
+   "category": "more",
+   "en": "twój",
+   "example": {
+    "ka": "შენ წერ",
+    "lat": "shen ts'er",
+    "en": "piszesz"
+   }
+  },
+  {
+   "id": "x-shenoba",
+   "ka": "შენობა",
+   "lat": "shenoba",
+   "alt": [],
+   "category": "more",
+   "en": "budynek",
+   "example": {
+    "ka": "ეს რა შენობაა?",
+    "lat": "es ra shenobaa?",
+    "en": "Co to za budynek?"
+   }
+  },
+  {
+   "id": "x-sheqvana",
+   "ka": "შეყვანა",
+   "lat": "sheq'vana",
+   "alt": [],
+   "category": "more",
+   "en": "założenie, podłączenie",
+   "example": {
+    "ka": "სახლში ინტერნეტის შეყვანა მინდა.",
+    "lat": "sakhlshi int'ernet'is sheq'vana minda.",
+    "en": "Chcę założyć internet w domu."
+   }
+  },
+  {
+   "id": "x-shesasvleli",
+   "ka": "შესასვლელი",
+   "lat": "shesasvleli",
+   "alt": [],
+   "category": "more",
+   "en": "wejście",
+   "example": {
+    "ka": "აქ ვარ, შესასვლელთან.",
+    "lat": "ak var, shesasvleltan.",
+    "en": "Jestem tutaj, przy wejściu."
+   }
+  },
+  {
+   "id": "x-shesveneba",
+   "ka": "შესვენება",
+   "lat": "shesveneba",
+   "alt": [],
+   "category": "more",
+   "en": "przerwa",
+   "example": {
+    "ka": "ასე უკეთესია. შესვენება შეიძლება?",
+    "lat": "ase uk'etesia. shesveneba sheidzleba?",
+    "en": "Tak lepiej. Mogę zrobić przerwę?"
+   }
+  },
+  {
+   "id": "x-shevamsubukot",
+   "ka": "შევამსუბუქოთ",
+   "lat": "shevamsubukot",
+   "alt": [],
+   "category": "more",
+   "en": "zmniejszmy ciężar",
+   "example": {
+    "ka": "კარგი, ცოტა შევამსუბუქოთ.",
+    "lat": "k'argi, tsot'a shevamsubukot.",
+    "en": "Dobra, zmniejszmy trochę ciężar."
+   }
+  },
+  {
+   "id": "x-shevavso",
+   "ka": "შევავსო",
+   "lat": "shevavso",
+   "alt": [],
+   "category": "more",
+   "en": "(jak) mam wypełnić",
+   "example": {
+    "ka": "ფორმა როგორ შევავსო?",
+    "lat": "porma rogor shevavso?",
+    "en": "Jak wypełnić formularz?"
+   }
+  },
+  {
+   "id": "x-shignit",
+   "ka": "შიგნით",
+   "lat": "shignit",
+   "alt": [],
+   "category": "more",
+   "en": "w środku",
+   "example": {
+    "ka": "აქ დადეთ, თუ შეიძლება. რა არის შიგნით?",
+    "lat": "ak dadet, tu sheidzleba. ra aris shignit?",
+    "en": "Proszę ją tu położyć. Co jest w środku?"
+   }
+  },
+  {
+   "id": "x-shkhapi",
+   "ka": "შხაპი",
+   "lat": "shkhap'i",
+   "alt": [],
+   "category": "more",
+   "en": "prysznic",
+   "example": {
+    "ka": "შხაპი სად არის?",
+    "lat": "shkhap'i sad aris?",
+    "en": "Gdzie jest prysznic?"
+   }
+  },
+  {
+   "id": "x-siamovnebit",
+   "ka": "სიამოვნებით",
+   "lat": "siamovnebit",
+   "alt": [],
+   "category": "more",
+   "en": "z przyjemnością",
+   "example": {
+    "ka": "სიამოვნებით!",
+    "lat": "siamovnebit!",
+    "en": "Z przyjemnością!"
+   }
+  },
+  {
+   "id": "x-sim",
+   "ka": "სიმ",
+   "lat": "sim",
+   "alt": [],
+   "category": "more",
+   "en": "SIM",
+   "example": {
+    "ka": "სიმ ბარათი მინდა.",
+    "lat": "sim barati minda.",
+    "en": "Poproszę kartę SIM."
+   }
+  },
+  {
+   "id": "x-sirbili",
+   "ka": "სირბილი",
+   "lat": "sirbili",
+   "alt": [],
+   "category": "more",
+   "en": "bieganie",
+   "example": {
+    "ka": "აქ სირბილი შეიძლება?",
+    "lat": "ak sirbili sheidzleba?",
+    "en": "Można tu biegać?"
+   }
+  },
+  {
+   "id": "x-siskhli",
+   "ka": "სისხლი",
+   "lat": "siskhli",
+   "alt": [],
+   "category": "more",
+   "en": "krew",
+   "example": {
+    "ka": "სისხლი მოდის.",
+    "lat": "siskhli modis.",
+    "en": "Leci krew."
+   }
+  },
+  {
+   "id": "x-sitskhe",
+   "ka": "სიცხე",
+   "lat": "sitskhe",
+   "alt": [],
+   "category": "more",
+   "en": "gorączka; upał",
+   "example": {
+    "ka": "სიცხე მაქვს.",
+    "lat": "sitskhe makvs.",
+    "en": "Mam gorączkę."
+   }
+  },
+  {
+   "id": "x-skola",
+   "ka": "სკოლა",
+   "lat": "sk'ola",
+   "alt": [],
+   "category": "more",
+   "en": "szkoła",
+   "example": {
+    "ka": "ბავშვი სკოლაშია.",
+    "lat": "bavshvi sk'olashia.",
+    "en": "Dziecko jest w szkole."
+   }
+  },
+  {
+   "id": "x-skhva",
+   "ka": "სხვა",
+   "lat": "skhva",
+   "alt": [],
+   "category": "more",
+   "en": "inny",
+   "example": {
+    "ka": "სხვა ფერი გაქვთ?",
+    "lat": "skhva peri gakvt?",
+    "en": "Jest inny kolor?"
+   }
+  },
+  {
+   "id": "x-smiti",
+   "ka": "სმიტი",
+   "lat": "smit'i",
+   "alt": [],
+   "category": "more",
+   "en": "Smith",
+   "example": {
+    "ka": "ჯონ სმიტი.",
+    "lat": "jon smit'i.",
+    "en": "John Smith."
+   }
+  },
+  {
+   "id": "x-stkiva",
+   "ka": "სტკივა",
+   "lat": "st'k'iva",
+   "alt": [],
+   "category": "more",
+   "en": "boli go / ją",
+   "example": {
+    "ka": "ბავშვს მუცელი სტკივა.",
+    "lat": "bavshvs mutseli st'k'iva.",
+    "en": "Dziecko boli brzuch."
+   }
+  },
+  {
+   "id": "x-studenti",
+   "ka": "სტუდენტი",
+   "lat": "st'udent'i",
+   "alt": [],
+   "category": "more",
+   "en": "student",
+   "example": {
+    "ka": "მე სტუდენტი ვარ.",
+    "lat": "me st'udent'i var.",
+    "en": "Jestem studentem."
+   }
+  },
+  {
+   "id": "x-stumartmoqvareoba",
+   "ka": "სტუმართმოყვარეობა",
+   "lat": "st'umartmoq'vareoba",
+   "alt": [],
+   "category": "more",
+   "en": "gościnność",
+   "example": {
+    "ka": "გაუმარჯოს! დიდი მადლობა სტუმართმოყვარეობისთვის.",
+    "lat": "gaumarjos! didi madloba st'umartmoq'vareobistvis.",
+    "en": "Na zdrowie! Bardzo dziękuję za gościnę."
+   }
+  },
+  {
+   "id": "x-stumrad",
+   "ka": "სტუმრად",
+   "lat": "st'umrad",
+   "alt": [],
+   "category": "more",
+   "en": "w gości",
+   "example": {
+    "ka": "სტუმრად მობრძანდით!",
+    "lat": "st'umrad mobrdzandit!",
+    "en": "Zapraszamy w gości!"
+   }
+  },
+  {
+   "id": "x-sul",
+   "ka": "სულ",
+   "lat": "sul",
+   "alt": [],
+   "category": "more",
+   "en": "w sumie, wszystko",
+   "example": {
+    "ka": "სულ ეს არის.",
+    "lat": "sul es aris.",
+    "en": "To wszystko."
+   }
+  },
+  {
+   "id": "x-suntkavs",
+   "ka": "სუნთქავს",
+   "lat": "suntkavs",
+   "alt": [],
+   "category": "more",
+   "en": "oddycha",
+   "example": {
+    "ka": "ვერ სუნთქავს.",
+    "lat": "ver suntkavs.",
+    "en": "On/ona nie może oddychać."
+   }
+  },
+  {
+   "id": "x-supta",
+   "ka": "სუფთა",
+   "lat": "supta",
+   "alt": [],
+   "category": "more",
+   "en": "czysty",
+   "example": {
+    "ka": "კი, ხიდის შემდეგ. წყალი სუფთაა.",
+    "lat": "k'i, khidis shemdeg. ts'q'ali suptaa.",
+    "en": "Tak, za mostem. Woda jest czysta."
+   }
+  },
+  {
+   "id": "x-surati",
+   "ka": "სურათი",
+   "lat": "surati",
+   "alt": [],
+   "category": "more",
+   "en": "zdjęcie, obraz",
+   "example": {
+    "ka": "სურათის გადაღება შეიძლება?",
+    "lat": "suratis gadagheba sheidzleba?",
+    "en": "Można robić zdjęcia?"
+   }
+  },
+  {
+   "id": "x-tba",
+   "ka": "ტბა",
+   "lat": "t'ba",
+   "alt": [],
+   "category": "more",
+   "en": "jezioro",
+   "example": {
+    "ka": "გამარჯობა! ეს ბილიკი ტბასთან მიდის?",
+    "lat": "gamarjoba! es bilik'i t'bastan midis?",
+    "en": "Dzień dobry! Czy ta ścieżka prowadzi nad jezioro?"
+   }
+  },
+  {
+   "id": "x-tkivili",
+   "ka": "ტკივილი",
+   "lat": "t'k'ivili",
+   "alt": [],
+   "category": "more",
+   "en": "ból",
+   "example": {
+    "ka": "თავის ტკივილის წამალი გაქვთ?",
+    "lat": "tavis t'k'ivilis ts'amali gakvt?",
+    "en": "Jest coś na ból głowy?"
+   }
+  },
+  {
+   "id": "x-tqe",
+   "ka": "ტყე",
+   "lat": "t'q'e",
+   "alt": [],
+   "category": "more",
+   "en": "las",
+   "example": {
+    "ka": "ტყე",
+    "lat": "t'q'e",
+    "en": "las: przykładowe słowo dla litery ტ"
+   }
+  },
+  {
+   "id": "x-trenazhori",
+   "ka": "ტრენაჟორი",
+   "lat": "t'renazhori",
+   "alt": [],
+   "category": "more",
+   "en": "maszyna (na siłowni)",
+   "example": {
+    "ka": "ეს ტრენაჟორი თავისუფალია?",
+    "lat": "es t'renazhori tavisupalia?",
+    "en": "Czy ta maszyna jest wolna?"
+   }
+  },
+  {
+   "id": "x-tualeti",
+   "ka": "ტუალეტი",
+   "lat": "t'ualet'i",
+   "alt": [],
+   "category": "more",
+   "en": "toaleta",
+   "example": {
+    "ka": "სად არის ტუალეტი?",
+    "lat": "sad aris t'ualet'i?",
+    "en": "Gdzie jest toaleta?"
+   }
+  },
+  {
+   "id": "x-tan",
+   "ka": "თან",
+   "lat": "tan",
+   "alt": [],
+   "category": "more",
+   "en": "przy sobie, ze sobą",
+   "example": {
+    "ka": "პასპორტი თან მაქვს.",
+    "lat": "p'asp'ort'i tan makvs.",
+    "en": "Mam przy sobie paszport."
+   }
+  },
+  {
+   "id": "x-tarjimani",
+   "ka": "თარჯიმანი",
+   "lat": "tarjimani",
+   "alt": [],
+   "category": "more",
+   "en": "tłumacz",
+   "example": {
+    "ka": "თარჯიმანი მჭირდება.",
+    "lat": "tarjimani mch'irdeba.",
+    "en": "Potrzebuję tłumacza."
+   }
+  },
+  {
+   "id": "x-tavbru",
+   "ka": "თავბრუ",
+   "lat": "tavbru",
+   "alt": [],
+   "category": "more",
+   "en": "zawroty głowy",
+   "example": {
+    "ka": "თავბრუ მეხვევა.",
+    "lat": "tavbru mekhveva.",
+    "en": "Kręci mi się w głowie."
+   }
+  },
+  {
+   "id": "x-tavi",
+   "ka": "თავი",
+   "lat": "tavi",
+   "alt": [],
+   "category": "more",
+   "en": "głowa",
+   "example": {
+    "ka": "თავი მტკივა.",
+    "lat": "tavi mt'k'iva.",
+    "en": "Boli mnie głowa."
+   }
+  },
+  {
+   "id": "x-tavisupali",
+   "ka": "თავისუფალი",
+   "lat": "tavisupali",
+   "alt": [],
+   "category": "more",
+   "en": "wolny",
+   "example": {
+    "ka": "ხვალ თავისუფალი ხარ?",
+    "lat": "khval tavisupali khar?",
+    "en": "Masz jutro czas?"
+   }
+  },
+  {
+   "id": "x-tavsapari",
+   "ka": "თავსაფარი",
+   "lat": "tavsapari",
+   "alt": [],
+   "category": "more",
+   "en": "chusta",
+   "example": {
+    "ka": "თავსაფარი მჭირდება?",
+    "lat": "tavsapari mch'irdeba?",
+    "en": "Potrzebuję chusty na głowę?"
+   }
+  },
+  {
+   "id": "x-tbili",
+   "ka": "თბილი",
+   "lat": "tbili",
+   "alt": [],
+   "category": "more",
+   "en": "ciepły",
+   "example": {
+    "ka": "საქართველო ძალიან მომწონს, ხალხი თბილია.",
+    "lat": "sakartvelo dzalian momts'ons, khalkhi tbilia.",
+    "en": "Bardzo podoba mi się Gruzja, ludzie są serdeczni."
+   }
+  },
+  {
+   "id": "x-tbiliseli",
+   "ka": "თბილისელი",
+   "lat": "tbiliseli",
+   "alt": [],
+   "category": "more",
+   "en": "tbilisczyk",
+   "example": {
+    "ka": "მე თბილისელი ვარ. ქართული იცი?",
+    "lat": "me tbiliseli var. kartuli itsi?",
+    "en": "Jestem z Tbilisi. Znasz gruziński?"
+   }
+  },
+  {
+   "id": "x-tbilisi",
+   "ka": "თბილისი",
+   "lat": "tbilisi",
+   "alt": [],
+   "category": "more",
+   "en": "Tbilisi",
+   "example": {
+    "ka": "თბილისში ვცხოვრობ.",
+    "lat": "tbilisshi vtskhovrob.",
+    "en": "Mieszkam w Tbilisi."
+   }
+  },
+  {
+   "id": "x-tetri",
+   "ka": "თეთრი",
+   "lat": "tetri",
+   "alt": [],
+   "category": "more",
+   "en": "biały",
+   "example": {
+    "ka": "ჩემი მანქანა თეთრია.",
+    "lat": "chemi mankana tetria.",
+    "en": "Mój samochód jest biały."
+   }
+  },
+  {
+   "id": "x-tevzi",
+   "ka": "თევზი",
+   "lat": "tevzi",
+   "alt": [],
+   "category": "more",
+   "en": "ryba",
+   "example": {
+    "ka": "თევზი",
+    "lat": "tevzi",
+    "en": "ryba"
+   }
+  },
+  {
+   "id": "x-tkhileuli",
+   "ka": "თხილეული",
+   "lat": "tkhileuli",
+   "alt": [],
+   "category": "more",
+   "en": "orzechy",
+   "example": {
+    "ka": "თხილეულზე ალერგია მაქვს.",
+    "lat": "tkhileulze alergia makvs.",
+    "en": "Mam alergię na orzechy."
+   }
+  },
+  {
+   "id": "x-tkma",
+   "ka": "თქმა",
+   "lat": "tkma",
+   "alt": [],
+   "category": "more",
+   "en": "mówienie (რა თქმა უნდა: oczywiście)",
+   "example": {
+    "ka": "რა თქმა უნდა.",
+    "lat": "ra tkma unda.",
+    "en": "Oczywiście."
+   }
+  },
+  {
+   "id": "x-tkveni",
+   "ka": "თქვენი",
+   "lat": "tkveni",
+   "alt": [],
+   "category": "more",
+   "en": "pana, pani; wasz",
+   "example": {
+    "ka": "თქვენ წერთ",
+    "lat": "tkven ts'ert",
+    "en": "piszecie"
+   }
+  },
+  {
+   "id": "x-tma",
+   "ka": "თმა",
+   "lat": "tma",
+   "alt": [],
+   "category": "more",
+   "en": "włosy",
+   "example": {
+    "ka": "კარგი. თმა დაგბანოთ?",
+    "lat": "k'argi. tma dagbanot?",
+    "en": "Dobrze. Umyć włosy?"
+   }
+  },
+  {
+   "id": "x-tsadit",
+   "ka": "წადით",
+   "lat": "ts'adit",
+   "alt": [],
+   "category": "more",
+   "en": "proszę iść",
+   "example": {
+    "ka": "პირდაპირ წადით.",
+    "lat": "p'irdap'ir ts'adit.",
+    "en": "Proszę iść prosto."
+   }
+  },
+  {
+   "id": "x-tsaighebt",
+   "ka": "წაიღებთ",
+   "lat": "ts'aighebt",
+   "alt": [],
+   "category": "more",
+   "en": "weźmie pan na wynos",
+   "example": {
+    "ka": "აქ დალევთ თუ წაიღებთ?",
+    "lat": "ak dalevt tu ts'aighebt?",
+    "en": "Na miejscu czy na wynos?"
+   }
+  },
+  {
+   "id": "x-tsamali",
+   "ka": "წამალი",
+   "lat": "ts'amali",
+   "alt": [],
+   "category": "more",
+   "en": "lekarstwo",
+   "example": {
+    "ka": "თავის ტკივილის წამალი გაქვთ?",
+    "lat": "tavis t'k'ivilis ts'amali gakvt?",
+    "en": "Jest coś na ból głowy?"
+   }
+  },
+  {
+   "id": "x-tsasaghebad",
+   "ka": "წასაღებად",
+   "lat": "ts'asaghebad",
+   "alt": [],
+   "category": "more",
+   "en": "na wynos",
+   "example": {
+    "ka": "წასაღებად, თუ შეიძლება.",
+    "lat": "ts'asaghebad, tu sheidzleba.",
+    "en": "Na wynos, poproszę."
+   }
+  },
+  {
+   "id": "x-tsavidet",
+   "ka": "წავიდეთ",
+   "lat": "ts'avidet",
+   "alt": [],
+   "category": "more",
+   "en": "chodźmy",
+   "example": {
+    "ka": "დღეს ცხელა, ზღვაზე წავიდეთ!",
+    "lat": "dghes tskhela, zghvaze ts'avidet!",
+    "en": "Dziś jest gorąco, jedźmy nad morze!"
+   }
+  },
+  {
+   "id": "x-tselitsadi",
+   "ka": "წელიწადი",
+   "lat": "ts'elits'adi",
+   "alt": [],
+   "category": "more",
+   "en": "rok",
+   "example": {
+    "ka": "წელიწადში თორმეტი თვეა.",
+    "lat": "ts'elits'adshi tormet'i tvea.",
+    "en": "Rok ma dwanaście miesięcy."
+   }
+  },
+  {
+   "id": "x-tseria",
+   "ka": "წერია",
+   "lat": "ts'eria",
+   "alt": [],
+   "category": "more",
+   "en": "jest napisane",
+   "example": {
+    "ka": "ბარათზე წერია.",
+    "lat": "baratze ts'eria.",
+    "en": "Jest napisane na karcie."
+   }
+  },
+  {
+   "id": "x-tserili",
+   "ka": "წერილი",
+   "lat": "ts'erili",
+   "alt": [],
+   "category": "more",
+   "en": "list",
+   "example": {
+    "ka": "წერილს ვწერ.",
+    "lat": "ts'erils vts'er.",
+    "en": "Piszę list."
+   }
+  },
+  {
+   "id": "x-tsiteli",
+   "ka": "წითელი",
+   "lat": "ts'iteli",
+   "alt": [],
+   "category": "more",
+   "en": "czerwony",
+   "example": {
+    "ka": "ეს ვაშლი წითელია.",
+    "lat": "es vashli ts'itelia.",
+    "en": "To jabłko jest czerwone."
+   }
+  },
+  {
+   "id": "x-tsqaro",
+   "ka": "წყარო",
+   "lat": "ts'q'aro",
+   "alt": [],
+   "category": "more",
+   "en": "źródło",
+   "example": {
+    "ka": "წყარო ახლოს არის?",
+    "lat": "ts'q'aro akhlos aris?",
+    "en": "Czy jest tu blisko źródło?"
+   }
+  },
+  {
+   "id": "x-tsuti",
+   "ka": "წუთი",
+   "lat": "ts'uti",
+   "alt": [],
+   "category": "more",
+   "en": "minuta",
+   "example": {
+    "ka": "ერთი წუთით",
+    "lat": "erti ts'utit",
+    "en": "Chwileczkę."
+   }
+  },
+  {
+   "id": "x-tsvetavs",
+   "ka": "წვეთავს",
+   "lat": "ts'vetavs",
+   "alt": [],
+   "category": "more",
+   "en": "kapie, cieknie",
+   "example": {
+    "ka": "ონკანი წვეთავს.",
+    "lat": "onk'ani ts'vetavs.",
+    "en": "Kran cieknie."
+   }
+  },
+  {
+   "id": "x-tsa",
+   "ka": "ცა",
+   "lat": "tsa",
+   "alt": [],
+   "category": "more",
+   "en": "niebo",
+   "example": {
+    "ka": "თვითმფრინავი ცაშია.",
+    "lat": "tvitmprinavi tsashia.",
+    "en": "Samolot jest na niebie."
+   }
+  },
+  {
+   "id": "x-tsal-tsalke",
+   "ka": "ცალ-ცალკე",
+   "lat": "tsal-tsalk'e",
+   "alt": [],
+   "category": "more",
+   "en": "osobno",
+   "example": {
+    "ka": "ცალ-ცალკე გადავიხდით.",
+    "lat": "tsal-tsalk'e gadavikhdit.",
+    "en": "Zapłacimy osobno."
+   }
+  },
+  {
+   "id": "x-tsali",
+   "ka": "ცალი",
+   "lat": "tsali",
+   "alt": [],
+   "category": "more",
+   "en": "sztuka",
+   "example": {
+    "ka": "სამი ცალი, თუ შეიძლება.",
+    "lat": "sami tsali, tu sheidzleba.",
+    "en": "Trzy sztuki, poproszę."
+   }
+  },
+  {
+   "id": "x-tseli",
+   "ka": "ცელი",
+   "lat": "tseli",
+   "alt": [],
+   "category": "more",
+   "en": "kosa",
+   "example": {
+    "ka": "ცელი",
+    "lat": "tseli",
+    "en": "kosa"
+   }
+  },
+  {
+   "id": "x-tsentri",
+   "ka": "ცენტრი",
+   "lat": "tsent'ri",
+   "alt": [],
+   "category": "more",
+   "en": "centrum",
+   "example": {
+    "ka": "ცენტრამდე რა ღირს?",
+    "lat": "tsent'ramde ra ghirs?",
+    "en": "Ile do centrum?"
+   }
+  },
+  {
+   "id": "x-tsisartqela",
+   "ka": "ცისარტყელა",
+   "lat": "tsisart'q'ela",
+   "alt": [],
+   "category": "more",
+   "en": "tęcza",
+   "example": {
+    "ka": "ცისარტყელა",
+    "lat": "tsisart'q'ela",
+    "en": "tęcza"
+   }
+  },
+  {
+   "id": "x-tsiva",
+   "ka": "ცივა",
+   "lat": "tsiva",
+   "alt": [],
+   "category": "more",
+   "en": "jest zimno",
+   "example": {
+    "ka": "დღეს ცივა.",
+    "lat": "dghes tsiva.",
+    "en": "Dziś jest zimno."
+   }
+  },
+  {
+   "id": "x-tskhare",
+   "ka": "ცხარე",
+   "lat": "tskhare",
+   "alt": [],
+   "category": "more",
+   "en": "ostry, pikantny",
+   "example": {
+    "ka": "ცხარეა?",
+    "lat": "tskharea?",
+    "en": "Czy to ostre?"
+   }
+  },
+  {
+   "id": "x-tskhela",
+   "ka": "ცხელა",
+   "lat": "tskhela",
+   "alt": [],
+   "category": "more",
+   "en": "jest gorąco",
+   "example": {
+    "ka": "დღეს ცხელა.",
+    "lat": "dghes tskhela.",
+    "en": "Dziś jest gorąco."
+   }
+  },
+  {
+   "id": "x-tskheli",
+   "ka": "ცხელი",
+   "lat": "tskheli",
+   "alt": [],
+   "category": "more",
+   "en": "gorący",
+   "example": {
+    "ka": "ხაჭაპური ცხელია.",
+    "lat": "khach'ap'uri tskhelia.",
+    "en": "Chaczapuri jest gorące."
+   }
+  },
+  {
+   "id": "x-tskhovroben",
+   "ka": "ცხოვრობენ",
+   "lat": "tskhovroben",
+   "alt": [],
+   "category": "more",
+   "en": "mieszkają",
+   "example": {
+    "ka": "ისინი თბილისში ცხოვრობენ.",
+    "lat": "isini tbilisshi tskhovroben.",
+    "en": "Oni mieszkają w Tbilisi."
+   }
+  },
+  {
+   "id": "x-tskhovrobs",
+   "ka": "ცხოვრობს",
+   "lat": "tskhovrobs",
+   "alt": [],
+   "category": "more",
+   "en": "mieszka",
+   "example": {
+    "ka": "ჩემი ძმა თბილისში ცხოვრობს.",
+    "lat": "chemi dzma tbilisshi tskhovrobs.",
+    "en": "Mój brat mieszka w Tbilisi."
+   }
+  },
+  {
+   "id": "x-tsotsva",
+   "ka": "ცოცვა",
+   "lat": "tsotsva",
+   "alt": [],
+   "category": "more",
+   "en": "wspinaczka",
+   "example": {
+    "ka": "ცოცვის დარბაზი სად არის?",
+    "lat": "tsotsvis darbazi sad aris?",
+    "en": "Gdzie jest ścianka wspinaczkowa?"
+   }
+  },
+  {
+   "id": "x-tsudad",
+   "ka": "ცუდად",
+   "lat": "tsudad",
+   "alt": [],
+   "category": "more",
+   "en": "źle",
+   "example": {
+    "ka": "ცუდად ვარ.",
+    "lat": "tsudad var.",
+    "en": "Źle się czuję."
+   }
+  },
+  {
+   "id": "x-tu",
+   "ka": "თუ",
+   "lat": "tu",
+   "alt": [],
+   "category": "more",
+   "en": "jeśli; czy (w pytaniach „… czy …?”)",
+   "example": {
+    "ka": "თუ შეიძლება",
+    "lat": "tu sheidzleba",
+    "en": "proszę (jeśli można)"
+   }
+  },
+  {
+   "id": "x-tviuri",
+   "ka": "თვიური",
+   "lat": "tviuri",
+   "alt": [],
+   "category": "more",
+   "en": "miesięczny",
+   "example": {
+    "ka": "თვიური აბონემენტი მინდა.",
+    "lat": "tviuri abonement'i minda.",
+    "en": "Poproszę karnet miesięczny."
+   }
+  },
+  {
+   "id": "x-ubani",
+   "ka": "უბანი",
+   "lat": "ubani",
+   "alt": [],
+   "category": "more",
+   "en": "dzielnica",
+   "example": {
+    "ka": "უბანი",
+    "lat": "ubani",
+    "en": "dzielnica: przykładowe słowo dla litery უ"
+   }
+  },
+  {
+   "id": "x-ugazo",
+   "ka": "უგაზო",
+   "lat": "ugazo",
+   "alt": [],
+   "category": "more",
+   "en": "niegazowana",
+   "example": {
+    "ka": "უგაზო წყალი, თუ შეიძლება.",
+    "lat": "ugazo ts'q'ali, tu sheidzleba.",
+    "en": "Wodę niegazowaną, poproszę."
+   }
+  },
+  {
+   "id": "x-uketesi",
+   "ka": "უკეთესი",
+   "lat": "uk'etesi",
+   "alt": [],
+   "category": "more",
+   "en": "lepszy",
+   "example": {
+    "ka": "ასე უკეთესია. შესვენება შეიძლება?",
+    "lat": "ase uk'etesia. shesveneba sheidzleba?",
+    "en": "Tak lepiej. Mogę zrobić przerwę?"
+   }
+  },
+  {
+   "id": "x-ukhortso",
+   "ka": "უხორცო",
+   "lat": "ukhortso",
+   "alt": [],
+   "category": "more",
+   "en": "bezmięsny",
+   "example": {
+    "ka": "უხორცო რა გაქვთ?",
+    "lat": "ukhortso ra gakvt?",
+    "en": "Co macie bez mięsa?"
+   }
+  },
+  {
+   "id": "x-ulimito",
+   "ka": "ულიმიტო",
+   "lat": "ulimit'o",
+   "alt": [],
+   "category": "more",
+   "en": "bez limitu",
+   "example": {
+    "ka": "თვეში ოცი ლარი, ულიმიტო.",
+    "lat": "tveshi otsi lari, ulimit'o.",
+    "en": "Dwadzieścia lari miesięcznie, bez limitu."
+   }
+  },
+  {
+   "id": "x-unda",
+   "ka": "უნდა",
+   "lat": "unda",
+   "alt": [],
+   "category": "more",
+   "en": "trzeba, muszę",
+   "example": {
+    "ka": "რა თქმა უნდა.",
+    "lat": "ra tkma unda.",
+    "en": "Oczywiście."
+   }
+  },
+  {
+   "id": "x-universiteti",
+   "ka": "უნივერსიტეტი",
+   "lat": "universit'et'i",
+   "alt": [],
+   "category": "more",
+   "en": "uniwersytet",
+   "example": {
+    "ka": "ჭავჭავაძის გამზირზე, უნივერსიტეტთან.",
+    "lat": "ch'avch'avadzis gamzirze, universit'et'tan.",
+    "en": "Na alei Czawczawadzego, przy uniwersytecie."
+   }
+  },
+  {
+   "id": "x-upro",
+   "ka": "უფრო",
+   "lat": "upro",
+   "alt": [],
+   "category": "more",
+   "en": "bardziej, -ej (wolniej, taniej)",
+   "example": {
+    "ka": "უფრო იაფი გაქვთ?",
+    "lat": "upro iapi gakvt?",
+    "en": "Ma pan/pani coś tańszego?"
+   }
+  },
+  {
+   "id": "x-urdzod",
+   "ka": "ურძოდ",
+   "lat": "urdzod",
+   "alt": [],
+   "category": "more",
+   "en": "bez mleka",
+   "example": {
+    "ka": "რძით თუ ურძოდ?",
+    "lat": "rdzit tu urdzod?",
+    "en": "Z mlekiem czy bez?"
+   }
+  },
+  {
+   "id": "x-usaprtkho",
+   "ka": "უსაფრთხო",
+   "lat": "usaprtkho",
+   "alt": [],
+   "category": "more",
+   "en": "bezpieczny",
+   "example": {
+    "ka": "გზა უსაფრთხოა?",
+    "lat": "gza usaprtkhoa?",
+    "en": "Czy droga jest bezpieczna?"
+   }
+  },
+  {
+   "id": "x-ushavs",
+   "ka": "უშავს",
+   "lat": "ushavs",
+   "alt": [],
+   "category": "more",
+   "en": "szkodzi (არა უშავს: nic nie szkodzi)",
+   "example": {
+    "ka": "არა უშავს.",
+    "lat": "ara ushavs.",
+    "en": "Nic nie szkodzi."
+   }
+  },
+  {
+   "id": "x-vaipai",
+   "ka": "ვაიფაი",
+   "lat": "vaipai",
+   "alt": [],
+   "category": "more",
+   "en": "wifi",
+   "example": {
+    "ka": "ვაიფაის პაროლი რა არის?",
+    "lat": "vaipais p'aroli ra aris?",
+    "en": "Jakie jest hasło do wifi?"
+   }
+  },
+  {
+   "id": "x-vake",
+   "ka": "ვაკე",
+   "lat": "vak'e",
+   "alt": [],
+   "category": "more",
+   "en": "Wake (dzielnica Tbilisi)",
+   "example": {
+    "ka": "ბოდიში, ეს მარშრუტკა ვაკეში მიდის?",
+    "lat": "bodishi, es marshrut'k'a vak'eshi midis?",
+    "en": "Przepraszam, czy ta marszrutka jedzie na Wake?"
+   }
+  },
+  {
+   "id": "x-varjishi",
+   "ka": "ვარჯიში",
+   "lat": "varjishi",
+   "alt": [],
+   "category": "more",
+   "en": "trening",
+   "example": {
+    "ka": "დღეს ფეხების ვარჯიში გვაქვს.",
+    "lat": "dghes pekhebis varjishi gvakvs.",
+    "en": "Dziś robimy nogi."
+   }
+  },
+  {
+   "id": "x-vart",
+   "ka": "ვართ",
+   "lat": "vart",
+   "alt": [],
+   "category": "more",
+   "en": "jesteśmy",
+   "example": {
+    "ka": "ჩვენ ვართ",
+    "lat": "chven vart",
+    "en": "jesteśmy"
+   }
+  },
+  {
+   "id": "x-vatvaliereb",
+   "ka": "ვათვალიერებ",
+   "lat": "vatvaliereb",
+   "alt": [],
+   "category": "more",
+   "en": "rozglądam się",
+   "example": {
+    "ka": "მხოლოდ ვათვალიერებ.",
+    "lat": "mkholod vatvaliereb.",
+    "en": "Tylko się rozglądam."
+   }
+  },
+  {
+   "id": "x-vazi",
+   "ka": "ვაზი",
+   "lat": "vazi",
+   "alt": [],
+   "category": "more",
+   "en": "winorośl",
+   "example": {
+    "ka": "ვაზი",
+    "lat": "vazi",
+    "en": "winorośl"
+   }
+  },
+  {
+   "id": "x-vchamot",
+   "ka": "ვჭამოთ",
+   "lat": "vch'amot",
+   "alt": [],
+   "category": "more",
+   "en": "zjedzmy",
+   "example": {
+    "ka": "საღამოს ხინკალი ვჭამოთ?",
+    "lat": "saghamos khink'ali vch'amot?",
+    "en": "Zjemy wieczorem chinkali?"
+   }
+  },
+  {
+   "id": "x-vegetarianeli",
+   "ka": "ვეგეტარიანელი",
+   "lat": "veget'arianeli",
+   "alt": [],
+   "category": "more",
+   "en": "wegetarianin",
+   "example": {
+    "ka": "ვეგეტარიანელი ვარ.",
+    "lat": "veget'arianeli var.",
+    "en": "Jestem wegetarianinem (wegetarianką)."
+   }
+  },
+  {
+   "id": "x-vighats",
+   "ka": "ვიღაც",
+   "lat": "vighats",
+   "alt": [],
+   "category": "more",
+   "en": "ktoś",
+   "example": {
+    "ka": "ვიღაც დაშავდა.",
+    "lat": "vighats dashavda.",
+    "en": "Ktoś jest ranny."
+   }
+  },
+  {
+   "id": "x-viknebi",
+   "ka": "ვიქნები",
+   "lat": "viknebi",
+   "alt": [],
+   "category": "more",
+   "en": "będę",
+   "example": {
+    "ka": "ერთი თვე თბილისში ვიქნები.",
+    "lat": "erti tve tbilisshi viknebi.",
+    "en": "Będę w Tbilisi przez miesiąc."
+   }
+  },
+  {
+   "id": "x-viqido",
+   "ka": "ვიყიდო",
+   "lat": "viq'ido",
+   "alt": [],
+   "category": "more",
+   "en": "(gdzie) mam kupić",
+   "example": {
+    "ka": "მეტროს ბარათი სად ვიყიდო?",
+    "lat": "met'ros barati sad viq'ido?",
+    "en": "Gdzie kupię kartę na metro?"
+   }
+  },
+  {
+   "id": "x-vitamashot",
+   "ka": "ვითამაშოთ",
+   "lat": "vitamashot",
+   "alt": [],
+   "category": "more",
+   "en": "zagrajmy",
+   "example": {
+    "ka": "ფეხბურთი ვითამაშოთ?",
+    "lat": "pekhburti vitamashot?",
+    "en": "Zagramy w piłkę?"
+   }
+  },
+  {
+   "id": "x-vivarjishot",
+   "ka": "ვივარჯიშოთ",
+   "lat": "vivarjishot",
+   "alt": [],
+   "category": "more",
+   "en": "potrenujmy",
+   "example": {
+    "ka": "ერთად ვივარჯიშოთ?",
+    "lat": "ertad vivarjishot?",
+    "en": "Potrenujemy razem?"
+   }
+  },
+  {
+   "id": "x-viziti",
+   "ka": "ვიზიტი",
+   "lat": "vizit'i",
+   "alt": [],
+   "category": "more",
+   "en": "wizyta",
+   "example": {
+    "ka": "ერთჯერადი ვიზიტი რა ღირს?",
+    "lat": "ertjeradi vizit'i ra ghirs?",
+    "en": "Ile kosztuje jednorazowe wejście?"
+   }
+  },
+  {
+   "id": "x-vkiraob",
+   "ka": "ვქირაობ",
+   "lat": "vkiraob",
+   "alt": [],
+   "category": "more",
+   "en": "wynajmuję",
+   "example": {
+    "ka": "ბინას ვქირაობ.",
+    "lat": "binas vkiraob.",
+    "en": "Wynajmuję mieszkanie."
+   }
+  },
+  {
+   "id": "x-vmushaob",
+   "ka": "ვმუშაობ",
+   "lat": "vmushaob",
+   "alt": [],
+   "category": "more",
+   "en": "pracuję",
+   "example": {
+    "ka": "დილით ვმუშაობ.",
+    "lat": "dilit vmushaob.",
+    "en": "Rano pracuję."
+   }
+  },
+  {
+   "id": "x-vnakho",
+   "ka": "ვნახო",
+   "lat": "vnakho",
+   "alt": [],
+   "category": "more",
+   "en": "(żebym) zobaczył",
+   "example": {
+    "ka": "აუცილებლად რა უნდა ვნახო?",
+    "lat": "autsileblad ra unda vnakho?",
+    "en": "Co koniecznie muszę zobaczyć?"
+   }
+  },
+  {
+   "id": "x-vvarjishob",
+   "ka": "ვვარჯიშობ",
+   "lat": "vvarjishob",
+   "alt": [],
+   "category": "more",
+   "en": "trenuję",
+   "example": {
+    "ka": "დღეს ვვარჯიშობ.",
+    "lat": "dghes vvarjishob.",
+    "en": "Dziś trenuję."
+   }
+  },
+  {
+   "id": "x-zemot",
+   "ka": "ზემოთ",
+   "lat": "zemot",
+   "alt": [],
+   "category": "more",
+   "en": "na górze",
+   "example": {
+    "ka": "კი. ზემოთ მხოლოდ ცოტა, თუ შეიძლება.",
+    "lat": "k'i. zemot mkholod tsot'a, tu sheidzleba.",
+    "en": "Tak. Na górze tylko trochę, proszę."
+   }
+  },
+  {
+   "id": "x-zghva",
+   "ka": "ზღვა",
+   "lat": "zghva",
+   "alt": [],
+   "category": "more",
+   "en": "morze",
+   "example": {
+    "ka": "დღეს ცხელა, ზღვაზე წავიდეთ!",
+    "lat": "dghes tskhela, zghvaze ts'avidet!",
+    "en": "Dziś jest gorąco, jedźmy nad morze!"
+   }
+  },
+  {
+   "id": "x-zhurnali",
+   "ka": "ჟურნალი",
+   "lat": "zhurnali",
+   "alt": [],
+   "category": "more",
+   "en": "czasopismo",
+   "example": {
+    "ka": "ჟურნალი",
+    "lat": "zhurnali",
+    "en": "czasopismo: przykładowe słowo dla litery ჟ"
+   }
+  },
+  {
+   "id": "x-zoma",
+   "ka": "ზომა",
+   "lat": "zoma",
+   "alt": [],
+   "category": "more",
+   "en": "rozmiar",
+   "example": {
+    "ka": "უფრო დიდი ზომა გაქვთ?",
+    "lat": "upro didi zoma gakvt?",
+    "en": "Jest większy rozmiar?"
+   }
   }
  ]
 }

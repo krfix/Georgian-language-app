@@ -56,6 +56,17 @@ check("every category is used", Set(course.words.map(\.category)).isSubset(of: S
 var missingWords: [String] = []
 for l in course.lessons { for id in l.words ?? [] where course.word(id) == nil { missingWords.append("\(l.id):\(id)") } }
 check("every lesson word exists", missingWords, [])
+// Every word the app shows is in the Words tab (KART #5): the course's words or "more".
+let allWordKa = Set((course.words + course.moreWords).map(\.ka))
+check("over 500 more words", course.moreWords.count > 500, true)
+check("more word ids unique and apart", Set((course.words + course.moreWords).map(\.id)).count, course.words.count + course.moreWords.count)
+check("every letter's example word is in Words", course.letters.map(\.word).filter { !allWordKa.contains($0) }, [])
+check("გული (heart) is in Words", course.moreWords.first { $0.ka == "გული" }?.en, "heart")
+check("a more word is found by id", course.word("x-guli")?.ka, "გული")
+check("more words have examples", course.moreWords.filter { $0.example.ka.isEmpty || $0.example.en.isEmpty }.map(\.id), [])
+var badMoreLatin: [String] = []
+for w in course.moreWords where course.latin(w.ka) != w.lat || course.latin(w.example.ka) != w.example.lat { badMoreLatin.append(w.ka) }
+check("more words' Latin matches", badMoreLatin, [])
 check("ქ is k (with air)", course.letter("ქ")?.latin, "k")
 check("კ is k' (tight)", course.letter("კ")?.latin, "k'")
 check("Latin of თბილისი", course.latin("თბილისი"), "tbilisi")
@@ -322,6 +333,7 @@ check("\"cab\" starts with transport", pb.search.top("cab", 1).first?.category, 
 let waterCategories = Set(pb.search.search("water", limit: 12).phrases.map(\.category))
 check("\"water\" finds phrases in shopping, restaurants and home", waterCategories.isSuperset(of: ["shopping", "food", "home"]), true)
 check("\"water\" also finds the course word", pb.search.search("water").words.contains { $0.id == "w-tsqali" }, true)
+check("\"heart\" finds გული in Search", pb.search.search("heart").words.contains { $0.id == "x-guli" }, true)
 check("\"emergency\" finds the situation", pb.search.search("emergency").categories.first?.id, "emergency")
 check("\"taxi\" finds the taxi dialogue", pb.search.search("taxi").dialogues.contains { $0.id == "pd-taxi" }, true)
 check("nothing for nonsense", pb.search.search("zzqxw").isEmpty, true)
@@ -333,6 +345,8 @@ check("plain removes apostrophes", PhraseSearch.plain("Ts'q'ali, don't!"), "tsqa
 
 let polish: Curriculum? = try? Curriculum.load(from: dataDir, language: .pl)
 check("the Polish course loads", polish != nil, true)
+check("Polish more words: same ids", polish?.moreWords.map(\.id), course.moreWords.map(\.id))
+check("გული in Polish", polish?.word("x-guli")?.en, "serce")
 if let pl = polish {
     check("Polish: same lessons", pl.lessons.map(\.id), course.lessons.map(\.id))
     check("Polish: same words", pl.words.map(\.id), course.words.map(\.id))

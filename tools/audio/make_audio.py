@@ -50,7 +50,8 @@ def texts():
         # A letter alone is read oddly; its sound is clearest in a syllable (კ → კა).
         out[l["char"]] = l["char"] if l["char"] in vowels else l["char"] + "ა"
         out[l["word"]] = l["word"]
-    for w in load("vocabulary.json")["words"]:
+    vocabulary = load("vocabulary.json")
+    for w in vocabulary["words"] + vocabulary.get("more", []):
         out[w["ka"]] = w["ka"]
         out[w["example"]["ka"]] = w["example"]["ka"]
     for m in load("course.json")["modules"]:

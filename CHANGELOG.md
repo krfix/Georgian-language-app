@@ -2,6 +2,13 @@
 
 What changed in each version, newest first. Before the App Store, versions are 0.x.y.
 
+## Not released yet
+
+- Words has every Georgian word the app shows: besides the course's words, "More words"
+  lists 528 others (the letters' example words like გული, heart; words from examples,
+  conversations, phrases and grammar tables), each with a sentence where it appears, its
+  meaning in English or Polish, audio in both voices, and practice. Search finds them too
+
 ## [0.2.0] - 2026-11-17
 
 The full app, now called Ara.
