@@ -145,7 +145,11 @@ struct SearchView: View {
     @ViewBuilder private func results(_ r: PhraseSearch.Results) -> some View {
         if r.isEmpty {
             ContentUnavailableView {
-                Label("Nothing found", systemImage: "magnifyingglass")
+                Label {
+                    Text("Nothing found")
+                } icon: {
+                    ParrotView(height: 110, mood: .think)
+                }
             } description: {
                 Text("Try one simple word, like \"taxi\", \"price\" or \"doctor\".")
             }

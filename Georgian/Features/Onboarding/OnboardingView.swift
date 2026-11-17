@@ -122,7 +122,7 @@ struct OnboardingView: View {
 
     private var readyPage: some View {
         VStack(spacing: 22) {
-            ParrotView(height: 150)
+            ParrotView(height: 150, mood: .cheer)
                 .padding(.top, 10)
             Text("You're all set!")
                 .font(.display)

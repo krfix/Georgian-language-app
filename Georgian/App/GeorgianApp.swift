@@ -96,7 +96,7 @@ struct StartupProblemView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Borjgali(size: 90, spinning: false)
+            ParrotView(height: 120, mood: .think, bobbing: false)
             Text("Something went wrong opening the app")
                 .font(.title2Bold)
                 .multilineTextAlignment(.center)

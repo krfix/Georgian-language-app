@@ -31,7 +31,11 @@ struct MyPhrasebookView: View {
                 let list = phrases
                 if store.savedPhrases.isEmpty {
                     ContentUnavailableView {
-                        Label("Nothing saved yet", systemImage: "star")
+                        Label {
+                            Text("Nothing saved yet")
+                        } icon: {
+                            ParrotView(height: 110, mood: .hello)
+                        }
                     } description: {
                         Text("Open any phrase and tap Save. It stays here, ready to show or practise.")
                     } actions: {

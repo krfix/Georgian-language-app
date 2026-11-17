@@ -283,7 +283,7 @@ jobs:
             # A page name; page@x for a phrasebook page about x (a category, phrase or
             # dialogue id; for search, the query); or exercise:<lesson>:<kind>.
             for page in onboarding home phrasebook category@transport emergency phrase@pb-ak-gamicheret-tu-sheidzleba \
-                show@pb-ak-gamicheret-tu-sheidzleba search search@water dialogue@pd-bazaar practice@pd-restaurant saved \
+                show@pb-ak-gamicheret-tu-sheidzleba search search@water search@qqzx dialogue@pd-bazaar practice@pd-restaurant saved \
                 learn alphabet lesson complete words word review progress profile \
                 exercise:a1:teachLetter exercise:a1:letterRecognition exercise:a3:missingLetter exercise:a3:reading \
                 exercise:v7:multipleChoice exercise:v7:matching exercise:v7:fillBlank exercise:v7:spelling \
@@ -306,6 +306,10 @@ jobs:
               limit 60 xcrun simctl io "$UDID" screenshot "shots/$look-$(printf %02d $n)-$page.png" > /dev/null 2>&1
               n=$((n + 1))
             done
+            # The iPhone's home screen, to see the app icon there.
+            limit 30 xcrun simctl terminate "$UDID" com.krfix.georgian 2>/dev/null || true
+            sleep 4
+            limit 60 xcrun simctl io "$UDID" screenshot "shots/$look-$(printf %02d $n)-homescreen.png" > /dev/null 2>&1
           done
           # The largest text size (before the accessibility sizes), to check Dynamic Type.
           xcrun simctl ui "$UDID" appearance light

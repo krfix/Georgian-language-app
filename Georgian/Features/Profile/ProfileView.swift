@@ -116,6 +116,8 @@ struct ProfileView: View {
                 } footer: {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Everything stays on this iPhone: no account, no tracking.")
+                        AraSymbol(size: 34)
+                            .padding(.top, 8)
                         Text("Ara \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") · course v\(store.curriculum.version)")
                     }
                 }

@@ -43,7 +43,11 @@ struct ReviewView: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 Spacer()
-                Borjgali(size: 70, colors: [.white.opacity(0.9), .white.opacity(0.4), .white.opacity(0.9)])
+                if due.isEmpty {
+                    ParrotView(height: 96, mood: .sleep)
+                } else {
+                    Borjgali(size: 70, colors: [.white.opacity(0.9), .white.opacity(0.4), .white.opacity(0.9)])
+                }
             }
             if !practice.isEmpty {
                 Button {

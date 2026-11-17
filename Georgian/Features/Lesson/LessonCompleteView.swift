@@ -19,7 +19,7 @@ struct LessonCompleteView: View {
                     ZStack {
                         Borjgali(size: 190)
                             .opacity(0.9)
-                        ParrotView(height: 150)
+                        ParrotView(height: 150, mood: .cheer)
                             .scaleEffect(appeared ? 1 : 0.3)
                             .rotationEffect(.degrees(appeared ? 0 : -25))
                         if reward.isPerfect {
