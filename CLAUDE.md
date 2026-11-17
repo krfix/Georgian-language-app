@@ -138,9 +138,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   springy motion that turns into fades with Reduce Motion (`Motion`, `withMotion`).
 
 ## Open
-- 0.2.0 in progress: the full app (KART #1) and the phrasebook (KART #2) are on `main`; the
-  brand identity (KART #3), then numbers, Polish and eight dialogues (KART #4) are on
-  `claude/charming-hopper-rw555g`. See DEVELOPMENT_LOG.md for their
+- 0.2.0 in progress, all on `main` (build #27's code): the full app (KART #1), the phrasebook
+  (KART #2), the brand identity (KART #3), and KART #4: numbers, Polish, eight dialogues,
+  learning-first (no XP on screen), tappable words, why cards, grammar g10–g13. Not released. See DEVELOPMENT_LOG.md for their
   state and TODO.md for what's left.
 
 ## Repos and branches
