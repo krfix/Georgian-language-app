@@ -142,8 +142,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 ## Open
 - 0.2.0 released from `main` (KART #5): the full app (KART #1), the phrasebook (KART #2), the
   brand identity (KART #3), KART #4 (numbers, Polish, eight dialogues, learning-first,
-  tappable words, why cards, grammar g10–g13) and the voice choice (KART #5). On `main`
-  since, not built or released: More words (every word on screen in Words, KART #5). See
+  tappable words, why cards, grammar g10–g13) and the voice choice (KART #5). 0.2.1 (KART #5):
+  More words, every word on screen in Words. See
   DEVELOPMENT_LOG.md for their state and TODO.md for what's left.
 
 ## Repos and branches

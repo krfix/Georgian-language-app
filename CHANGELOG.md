@@ -2,7 +2,7 @@
 
 What changed in each version, newest first. Before the App Store, versions are 0.x.y.
 
-## Not released yet
+## [0.2.1] - 2026-11-17
 
 - Words has every Georgian word the app shows: besides the course's words, "More words"
   lists 528 others (the letters' example words like გული, heart; words from examples,
