@@ -417,6 +417,201 @@ for k, targets in PB.SYNONYMS.items():
 if PB.PHRASEBOOK_STATUS not in ("claude", "native"):
     fail("PHRASEBOOK_STATUS must be claude or native")
 
+# ---- Polish (content_pl.py): the same content for Polish speakers. The Georgian, its Latin
+# spelling and every id stay the same; the meanings, explanations and the sound guide are
+# Polish. Grammar notes and pronunciation are written for Polish speakers (comparisons with
+# Polish), not translated word for word. Anything without a Polish text stops the build.
+import copy  # noqa: E402
+
+try:
+    import content_pl as PL  # noqa: E402
+except ImportError:
+    PL = None
+
+missing = {}
+DUMP = "--missing" in sys.argv
+
+POLISH_SOUND = {
+    "ა": "a", "ბ": "b", "გ": "g", "დ": "d", "ე": "e", "ვ": "w", "ზ": "z", "თ": "t", "ი": "i",
+    "კ": "k", "ლ": "l", "მ": "m", "ნ": "n", "ო": "o", "პ": "p", "ჟ": "ż", "რ": "r", "ს": "s",
+    "ტ": "t", "უ": "u", "ფ": "p", "ქ": "k", "ღ": "gh", "ყ": "k", "შ": "sz", "ჩ": "cz", "ც": "c",
+    "ძ": "dz", "წ": "c", "ჭ": "cz", "ხ": "ch", "ჯ": "dż", "ჰ": "h",
+}
+
+
+def sound_word_pl(word):
+    letters = [ch for ch in word if ch in LATIN]
+    if not letters:
+        return word
+    vowels = [i for i, ch in enumerate(letters) if ch in VOWELS]
+    if not vowels:
+        return "".join(POLISH_SOUND[ch] for ch in letters)
+    cuts = []
+    for a, b in zip(vowels, vowels[1:]):
+        gap = b - a - 1
+        cuts.append(a + 1 if gap <= 1 else a + 2)
+    parts, start = [], 0
+    for c in cuts + [len(letters)]:
+        parts.append(letters[start:c])
+        start = c
+    return "-".join("".join(POLISH_SOUND[ch] for ch in p) for p in parts)
+
+
+def sound_pl(ka):
+    out = []
+    for tok in ka.split():
+        core = tok.strip(".,?!—–:;\"«»…")
+        if not core:
+            continue
+        if any(ch in LATIN for ch in core):
+            out.append("-".join(sound_word_pl(piece) for piece in core.split("-") if piece))
+        else:
+            out.append(core)
+    return " ".join(out)
+
+
+def t(en, where):
+    """The Polish for an English text (content_pl.T)."""
+    if en is None or en == "" or not re.search(r"[A-Za-z]", en):
+        return en
+    if PL is not None and en in getattr(PL, "T", {}):
+        return PL.T[en]
+    missing.setdefault("T", {})[en] = where
+    return en
+
+
+def is_english(text):
+    return bool(re.search(r"[A-Za-z]", text)) or not letters_of(text)
+
+
+def polish_letters():
+    out = copy.deepcopy(letters)
+    for l in out:
+        pl = getattr(PL, "LETTERS", {}).get(l["char"]) if PL else None
+        if not pl:
+            missing.setdefault("LETTERS", {})[l["char"]] = (l["sound"], l["meaning"], l["tip"])
+            continue
+        l["sound"], l["meaning"], l["tip"] = pl
+    return out
+
+
+def polish_words():
+    out = copy.deepcopy(words)
+    for w in out:
+        pl = PL.WORDS.get(w["ka"]) if PL else None
+        if not pl:
+            missing.setdefault("WORDS", {})[w["ka"]] = (w["en"], w["alt"], w["example"]["en"], w.get("note"))
+            continue
+        en, alt, ex, note = pl
+        w["en"], w["alt"], w["example"]["en"] = en, alt, ex
+        if note:
+            w["note"] = note
+        elif "note" in w:
+            missing.setdefault("WORDS", {})[w["ka"]] = (w["en"], w["alt"], w["example"]["en"], w.get("note"))
+        w.pop("pron", None)
+    return out
+
+
+def polish_course():
+    out = copy.deepcopy(modules)
+    for m in out:
+        where = "module " + m["id"]
+        for k in ("title", "subtitle", "intro"):
+            m[k] = t(m[k], where)
+        for L in m["lessons"]:
+            where = "lesson " + L["id"]
+            L["title"] = t(L["title"], where)
+            if is_english(L["subtitle"]) and L["kind"] not in ("contrast",):
+                L["subtitle"] = t(L["subtitle"], where)
+            if L.get("note"):
+                L["note"] = t(L["note"], where)
+            for g in L.get("read", []):
+                g["en"] = t(g["en"], where)
+            for n in L.get("notes", []):
+                n["title"] = t(n["title"], where)
+                n["text"] = t(n["text"], where)
+                for row in n["table"]:
+                    row["en"] = t(row["en"], where)
+            for e in L.get("exercises", []):
+                for k in ("prompt", "explanation", "translation", "english"):
+                    if e.get(k):
+                        e[k] = t(e[k], where)
+                if e.get("options") and e["type"] == "choice":
+                    e["options"] = [t(o, where) if is_english(o) else o for o in e["options"]]
+            if L.get("dialogue"):
+                d = L["dialogue"]
+                d["partner"] = t(d["partner"], where)
+                for line in d["lines"]:
+                    line["en"] = t(line["en"], where)
+                    if line["speaker"] != "You":
+                        line["speaker"] = t(line["speaker"], where)
+    return out
+
+
+def polish_phrasebook():
+    cats = copy.deepcopy(list(pb_cats.values()))
+    for c in cats:
+        where = "phrasebook category " + c["id"]
+        c["title"] = t(c["title"], where)
+        c["blurb"] = t(c["blurb"], where)
+        for s in c["subs"]:
+            s["title"] = t(s["title"], where)
+    phrases = copy.deepcopy(pb_phrases)
+    for p in phrases:
+        where = "phrase " + p["ka"]
+        pl = getattr(PL, "PHRASES", {}).get(p["ka"]) if PL else None
+        if not pl:
+            missing.setdefault("PHRASES", {})[p["ka"]] = (p["en"], " ".join(p["keywords"]))
+        else:
+            p["en"], kw = pl
+            p["keywords"] = [k.lower() for k in kw.split()]
+        p["sound"] = sound_pl(p["ka"])
+        for k in ("lit", "note"):
+            if p.get(k):
+                p[k] = t(p[k], where)
+        for v in p.get("variants", []):
+            v["label"] = t(v["label"], where)
+            v["en"] = t(v["en"], where)
+        for r in p.get("replies", []):
+            r["en"] = t(r["en"], where)
+        for g in p.get("grammar", []):
+            g["why"] = t(g["why"], where)
+    dialogues = copy.deepcopy(pb_dialogues)
+    for d in dialogues:
+        where = "dialogue " + d["id"]
+        d["title"] = t(d["title"], where)
+        d["roles"] = [t(r, where) for r in d["roles"]]
+        for line in d["lines"]:
+            line["en"] = t(line["en"], where)
+        for n in d["notes"]:
+            n["en"] = t(n["en"], where)
+            n["why"] = t(n["why"], where)
+    synonyms = getattr(PL, "SYNONYMS", {})
+    suggestions = getattr(PL, "SUGGESTIONS", [])
+    for k, targets in synonyms.items():
+        if k != k.lower() or any(x != x.lower() for x in targets):
+            fail(f"Polish synonym {k}: use lower case")
+    return cats, phrases, dialogues, synonyms, suggestions
+
+
+pl_letters = polish_letters()
+pl_words = polish_words()
+pl_categories = [{**c, "title": t(c["title"], "category " + c["id"])} for c in categories]
+pl_modules = polish_course()
+pl_pb = polish_phrasebook()
+
+if DUMP:
+    import pprint
+    for section, items in missing.items():
+        print(f"# ---- {section} ({len(items)})")
+        pprint.pprint(items, width=160, sort_dicts=False)
+    sys.exit(0)
+for section, items in missing.items():
+    for k in list(items)[:15]:
+        fail(f"Polish: no {section} text for {k!r} ({items[k]!r:.80})")
+    if len(items) > 15:
+        fail(f"Polish: … and {len(items) - 15} more in {section} (run with --missing to list them)")
+
 if errors:
     print("\n".join("ERROR " + e for e in errors))
     sys.exit(1)
@@ -436,6 +631,14 @@ write("course.json", {"id": "georgian-a0", "version": VERSION, "title": "Georgia
 write("phrasebook.json", {"version": VERSION, "checkedBy": PB.PHRASEBOOK_STATUS,
                          "categories": list(pb_cats.values()), "phrases": pb_phrases, "dialogues": pb_dialogues,
                          "synonyms": PB.SYNONYMS, "suggestions": PB.SUGGESTIONS})
+# Polish: the same files with "-pl" (the field names stay: "en" holds the learner's language).
+write("letters-pl.json", {"version": VERSION, "letters": pl_letters, "lookalikes": C.LOOKALIKES})
+write("vocabulary-pl.json", {"version": VERSION, "categories": pl_categories, "words": pl_words})
+write("course-pl.json", {"id": "georgian-a0", "version": VERSION, "title": "Gruziński od zera", "modules": pl_modules})
+write("phrasebook-pl.json", {"version": VERSION, "checkedBy": PB.PHRASEBOOK_STATUS,
+                            "categories": pl_pb[0], "phrases": pl_pb[1], "dialogues": pl_pb[2],
+                            "synonyms": pl_pb[3], "suggestions": pl_pb[4]})
 lesson_count = sum(len(m["lessons"]) for m in modules)
 print(f"OK: {len(letters)} letters, {len(words)} words and phrases, {len(modules)} modules, {lesson_count} lessons")
 print(f"OK: phrasebook with {len(pb_cats)} categories, {len(pb_phrases)} phrases, {len(pb_dialogues)} dialogues")
+print("OK: Polish for all of it")

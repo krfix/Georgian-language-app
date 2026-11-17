@@ -1,0 +1,2962 @@
+{
+ "id": "georgian-a0",
+ "version": 1,
+ "title": "Gruziński od zera",
+ "modules": [
+  {
+   "id": "alphabet",
+   "title": "Alfabet gruziński",
+   "subtitle": "33 litery, każda to jeden dźwięk",
+   "symbol": "character.book.closed.fill",
+   "color": "pomegranate",
+   "intro": "Mchedruli ma 33 litery i nie ma wielkich liter. Każda litera to zawsze ten sam dźwięk, więc gdy je poznasz, przeczytasz na głos każde słowo. Dla Polaka to dobra wiadomość: większość dźwięków już znasz (ch, sz, cz, ż, c, dz, dż).",
+   "lessons": [
+    {
+     "id": "a1",
+     "kind": "letters",
+     "title": "Pierwsze litery",
+     "letters": [
+      "ა",
+      "ბ",
+      "გ",
+      "დ",
+      "ე"
+     ],
+     "subtitle": "ა ბ გ დ ე",
+     "read": [
+      {
+       "ka": "დედა",
+       "lat": "deda",
+       "en": "matka"
+      },
+      {
+       "ka": "ბადე",
+       "lat": "bade",
+       "en": "sieć"
+      },
+      {
+       "ka": "დაბა",
+       "lat": "daba",
+       "en": "miasteczko"
+      }
+     ]
+    },
+    {
+     "id": "a2",
+     "kind": "letters",
+     "title": "Winorośl i droga",
+     "letters": [
+      "ვ",
+      "ზ",
+      "თ",
+      "ი"
+     ],
+     "subtitle": "ვ ზ თ ი",
+     "read": [
+      {
+       "ka": "ვაზი",
+       "lat": "vazi",
+       "en": "winorośl"
+      },
+      {
+       "ka": "გზა",
+       "lat": "gza",
+       "en": "droga"
+      },
+      {
+       "ka": "დიდი",
+       "lat": "didi",
+       "en": "duży"
+      },
+      {
+       "ka": "თევზი",
+       "lat": "tevzi",
+       "en": "ryba"
+      },
+      {
+       "ka": "დათვი",
+       "lat": "datvi",
+       "en": "niedźwiedź"
+      }
+     ]
+    },
+    {
+     "id": "a3",
+     "kind": "letters",
+     "title": "Góry i lwy",
+     "letters": [
+      "კ",
+      "ლ",
+      "მ",
+      "ნ",
+      "ო"
+     ],
+     "subtitle": "კ ლ მ ნ ო",
+     "read": [
+      {
+       "ka": "მამა",
+       "lat": "mama",
+       "en": "ojciec"
+      },
+      {
+       "ka": "ნავი",
+       "lat": "navi",
+       "en": "łódka"
+      },
+      {
+       "ka": "ლომი",
+       "lat": "lomi",
+       "en": "lew"
+      },
+      {
+       "ka": "მზე",
+       "lat": "mze",
+       "en": "słońce"
+      },
+      {
+       "ka": "მთა",
+       "lat": "mta",
+       "en": "góra"
+      },
+      {
+       "ka": "კალამი",
+       "lat": "k'alami",
+       "en": "długopis"
+      }
+     ]
+    },
+    {
+     "id": "a4",
+     "kind": "letters",
+     "title": "Kot i księżyc",
+     "letters": [
+      "პ",
+      "ჟ",
+      "რ",
+      "ს",
+      "ტ"
+     ],
+     "subtitle": "პ ჟ რ ს ტ",
+     "read": [
+      {
+       "ka": "კატა",
+       "lat": "k'at'a",
+       "en": "kot"
+      },
+      {
+       "ka": "ტბა",
+       "lat": "t'ba",
+       "en": "jezioro"
+      },
+      {
+       "ka": "სკამი",
+       "lat": "sk'ami",
+       "en": "krzesło"
+      },
+      {
+       "ka": "მთვარე",
+       "lat": "mtvare",
+       "en": "księżyc"
+      },
+      {
+       "ka": "რვა",
+       "lat": "rva",
+       "en": "osiem"
+      },
+      {
+       "ka": "პომიდორი",
+       "lat": "p'omidori",
+       "en": "pomidor"
+      }
+     ]
+    },
+    {
+     "id": "a5",
+     "kind": "letters",
+     "title": "Życie w mieście",
+     "letters": [
+      "უ",
+      "ფ",
+      "ქ",
+      "ღ"
+     ],
+     "subtitle": "უ ფ ქ ღ",
+     "read": [
+      {
+       "ka": "ფული",
+       "lat": "puli",
+       "en": "pieniądze"
+      },
+      {
+       "ka": "ქალაქი",
+       "lat": "kalaki",
+       "en": "miasto"
+      },
+      {
+       "ka": "ღვინო",
+       "lat": "ghvino",
+       "en": "wino"
+      },
+      {
+       "ka": "ქუდი",
+       "lat": "kudi",
+       "en": "czapka"
+      },
+      {
+       "ka": "ღამე",
+       "lat": "ghame",
+       "en": "noc"
+      }
+     ]
+    },
+    {
+     "id": "a6",
+     "kind": "letters",
+     "title": "Herbata i ser",
+     "letters": [
+      "ყ",
+      "შ",
+      "ჩ",
+      "ც"
+     ],
+     "subtitle": "ყ შ ჩ ც",
+     "read": [
+      {
+       "ka": "ყველი",
+       "lat": "q'veli",
+       "en": "ser"
+      },
+      {
+       "ka": "ჩაი",
+       "lat": "chai",
+       "en": "herbata"
+      },
+      {
+       "ka": "ცა",
+       "lat": "tsa",
+       "en": "niebo"
+      },
+      {
+       "ka": "შვილი",
+       "lat": "shvili",
+       "en": "dziecko"
+      },
+      {
+       "ka": "ყავა",
+       "lat": "q'ava",
+       "en": "kawa"
+      },
+      {
+       "ka": "ცისარტყელა",
+       "lat": "tsisart'q'ela",
+       "en": "tęcza"
+      }
+     ]
+    },
+    {
+     "id": "a7",
+     "kind": "letters",
+     "title": "Woda i drzewa",
+     "letters": [
+      "ძ",
+      "წ",
+      "ჭ",
+      "ხ"
+     ],
+     "subtitle": "ძ წ ჭ ხ",
+     "read": [
+      {
+       "ka": "წყალი",
+       "lat": "ts'q'ali",
+       "en": "woda"
+      },
+      {
+       "ka": "ძმა",
+       "lat": "dzma",
+       "en": "brat"
+      },
+      {
+       "ka": "ხე",
+       "lat": "khe",
+       "en": "drzewo"
+      },
+      {
+       "ka": "ჭიქა",
+       "lat": "ch'ika",
+       "en": "szklanka"
+      },
+      {
+       "ka": "ძაღლი",
+       "lat": "dzaghli",
+       "en": "pies"
+      },
+      {
+       "ka": "ხაჭაპური",
+       "lat": "khach'ap'uri",
+       "en": "chaczapuri"
+      }
+     ]
+    },
+    {
+     "id": "a8",
+     "kind": "letters",
+     "title": "Ostatnie dwie",
+     "letters": [
+      "ჯ",
+      "ჰ"
+     ],
+     "subtitle": "ჯ ჰ",
+     "read": [
+      {
+       "ka": "ჯიბე",
+       "lat": "jibe",
+       "en": "kieszeń"
+      },
+      {
+       "ka": "ჰაერი",
+       "lat": "haeri",
+       "en": "powietrze"
+      },
+      {
+       "ka": "ოჯახი",
+       "lat": "ojakhi",
+       "en": "rodzina"
+      },
+      {
+       "ka": "ფანჯარა",
+       "lat": "panjara",
+       "en": "okno"
+      }
+     ]
+    },
+    {
+     "id": "a9",
+     "kind": "contrast",
+     "title": "Ściśnięte czy z wydechem?",
+     "pairs": [
+      [
+       "კ",
+       "ქ"
+      ],
+      [
+       "პ",
+       "ფ"
+      ],
+      [
+       "ტ",
+       "თ"
+      ],
+      [
+       "წ",
+       "ც"
+      ],
+      [
+       "ჭ",
+       "ჩ"
+      ],
+      [
+       "ყ",
+       "ქ"
+      ]
+     ],
+     "note": "Pięć dźwięków występuje w parach: jeden ściśnięty, bez wydechu (კ პ ტ წ ჭ), drugi z wyraźnym dmuchnięciem powietrza (ქ ფ თ ც ჩ). Polskie p, t, k są bez wydechu, więc bliżej im do ściśniętych; przy tych z wydechem dmuchnij, jakbyś zdmuchiwał świeczkę. To zmienia znaczenie: კარი to drzwi, a ქარი to wiatr. Przyłóż dłoń do ust: przy ქ poczujesz powietrze, przy კ prawie nic.",
+     "subtitle": "კ/ქ  პ/ფ  ტ/თ …",
+     "read": [
+      {
+       "ka": "კარი",
+       "lat": "k'ari",
+       "en": "drzwi"
+      },
+      {
+       "ka": "ქარი",
+       "lat": "kari",
+       "en": "wiatr"
+      },
+      {
+       "ka": "პური",
+       "lat": "p'uri",
+       "en": "chleb"
+      },
+      {
+       "ka": "ფური",
+       "lat": "puri",
+       "en": "krowa"
+      },
+      {
+       "ka": "წელი",
+       "lat": "ts'eli",
+       "en": "rok"
+      },
+      {
+       "ka": "ცელი",
+       "lat": "tseli",
+       "en": "kosa"
+      },
+      {
+       "ka": "ჭიქა",
+       "lat": "ch'ika",
+       "en": "szklanka"
+      },
+      {
+       "ka": "ჩაი",
+       "lat": "chai",
+       "en": "herbata"
+      }
+     ]
+    },
+    {
+     "id": "a10",
+     "kind": "letters",
+     "title": "Przeczytaj pierwsze słowa",
+     "letters": [],
+     "subtitle": "Wszystkie 33 litery",
+     "read": [
+      {
+       "ka": "თბილისი",
+       "lat": "tbilisi",
+       "en": "Tbilisi"
+      },
+      {
+       "ka": "საქართველო",
+       "lat": "sakartvelo",
+       "en": "Gruzja"
+      },
+      {
+       "ka": "გამარჯობა",
+       "lat": "gamarjoba",
+       "en": "cześć"
+      },
+      {
+       "ka": "მადლობა",
+       "lat": "madloba",
+       "en": "dziękuję"
+      },
+      {
+       "ka": "ხაჭაპური",
+       "lat": "khach'ap'uri",
+       "en": "chaczapuri"
+      },
+      {
+       "ka": "ქართული",
+       "lat": "kartuli",
+       "en": "gruziński"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vocabulary",
+   "title": "Podstawowe słownictwo",
+   "subtitle": "Słowa potrzebne na start",
+   "symbol": "text.book.closed.fill",
+   "color": "saperavi",
+   "intro": "Dziesięć tematów codziennych słów, każde z przykładowym zdaniem.",
+   "lessons": [
+    {
+     "id": "v1",
+     "kind": "vocabulary",
+     "title": "Cześć i do widzenia",
+     "words": [
+      "w-gamarjoba",
+      "w-gagimarjos",
+      "w-dila-mshvidobisa",
+      "w-saghamo-mshvidobisa",
+      "w-ghame-mshvidobisa",
+      "w-nakhvamdis",
+      "w-rogor-khar",
+      "w-kargad"
+     ],
+     "category": "greetings",
+     "subtitle": "გამარჯობა · გაგიმარჯოს · დილა მშვიდობისა"
+    },
+    {
+     "id": "v2",
+     "kind": "vocabulary",
+     "title": "Proszę i dziękuję",
+     "words": [
+      "w-madloba",
+      "w-gmadlobt",
+      "w-arapris",
+      "w-bodishi",
+      "w-ki",
+      "w-diakh",
+      "w-ara"
+     ],
+     "category": "greetings",
+     "subtitle": "მადლობა · გმადლობთ · არაფრის"
+    },
+    {
+     "id": "v3",
+     "kind": "vocabulary",
+     "title": "Kim jesteś?",
+     "words": [
+      "w-me",
+      "w-shen",
+      "w-sakheli",
+      "w-mkvia",
+      "w-ra-gkvia",
+      "w-sasiamovnoa",
+      "w-var"
+     ],
+     "category": "introductions",
+     "subtitle": "მე · შენ · სახელი"
+    },
+    {
+     "id": "v4",
+     "kind": "vocabulary",
+     "title": "Skąd jesteś?",
+     "words": [
+      "w-saidan-khar",
+      "w-kartveli",
+      "w-kartuli",
+      "w-ena",
+      "w-vstsavlob",
+      "w-tsota"
+     ],
+     "category": "introductions",
+     "subtitle": "საიდან ხარ · ქართველი · ქართული"
+    },
+    {
+     "id": "v5",
+     "kind": "vocabulary",
+     "title": "Od zera do dziesięciu",
+     "words": [
+      "w-nuli",
+      "w-erti",
+      "w-ori",
+      "w-sami",
+      "w-otkhi",
+      "w-khuti",
+      "w-ekvsi",
+      "w-shvidi",
+      "w-rva",
+      "w-tskhra",
+      "w-ati"
+     ],
+     "category": "numbers",
+     "subtitle": "ნული · ერთი · ორი"
+    },
+    {
+     "id": "v6",
+     "kind": "vocabulary",
+     "title": "Od jedenastu do dziewiętnastu",
+     "words": [
+      "w-tertmeti",
+      "w-tormeti",
+      "w-tsameti",
+      "w-totkhmeti",
+      "w-tkhutmeti",
+      "w-tekvsmeti",
+      "w-chvidmeti",
+      "w-tvrameti",
+      "w-tskhrameti"
+     ],
+     "category": "numbers",
+     "subtitle": "თერთმეტი · თორმეტი · ცამეტი"
+    },
+    {
+     "id": "v6b",
+     "kind": "vocabulary",
+     "title": "Od dwudziestu do stu",
+     "words": [
+      "w-otsi",
+      "w-otsdaerti",
+      "w-otsdaati",
+      "w-ormotsi",
+      "w-ormotsdaati",
+      "w-asi"
+     ],
+     "category": "numbers",
+     "subtitle": "ოცი · ოცდაერთი · ოცდაათი"
+    },
+    {
+     "id": "v6c",
+     "kind": "grammar",
+     "title": "Jak się buduje liczby",
+     "words": [],
+     "notes": [
+      {
+       "title": "Od 11 do 19: dziesięć i więcej",
+       "text": "Każda „nastka” to თ (skrót od ათი, dziesięć) + liczba + მეტი, „więcej”: თ-ოთხ-მეტი to „dziesięć, cztery więcej”, czyli czternaście. Polak zna ten pomysł: „jede-naście” to dawne „jeden na dziesięć”. Tylko kolejność jest odwrotna: Gruzin mówi najpierw dziesięć, a potem jeden. Trzy liczby trochę się zmieniają, żeby łatwiej się je wymawiało: ცამეტი (13), ჩვიდმეტი (17) i ცხრამეტი (19).",
+       "table": [
+        {
+         "ka": "თერთმეტი",
+         "lat": "tertmet'i",
+         "en": "11: თ + ერთ + მეტი"
+        },
+        {
+         "ka": "თორმეტი",
+         "lat": "tormet'i",
+         "en": "12: თ + ორ + მეტი"
+        },
+        {
+         "ka": "ცამეტი",
+         "lat": "tsamet'i",
+         "en": "13: od სამი, zmienione"
+        },
+        {
+         "ka": "თოთხმეტი",
+         "lat": "totkhmet'i",
+         "en": "14: თ + ოთხ + მეტი"
+        },
+        {
+         "ka": "თხუთმეტი",
+         "lat": "tkhutmet'i",
+         "en": "15: თ + ხუთ + მეტი"
+        },
+        {
+         "ka": "თექვსმეტი",
+         "lat": "tekvsmet'i",
+         "en": "16: თ + ექვს + მეტი"
+        },
+        {
+         "ka": "ჩვიდმეტი",
+         "lat": "chvidmet'i",
+         "en": "17: od შვიდი, zmienione"
+        },
+        {
+         "ka": "თვრამეტი",
+         "lat": "tvramet'i",
+         "en": "18: თ + რვა + მეტი, რვ zmienia się w ვრ"
+        },
+        {
+         "ka": "ცხრამეტი",
+         "lat": "tskhramet'i",
+         "en": "19: ცხრა + მეტი"
+        }
+       ]
+      },
+      {
+       "title": "Liczenie dwudziestkami",
+       "text": "Od dwudziestu w górę Gruzini liczą dwudziestkami, trochę jak Francuzi w quatre-vingts (cztery dwudziestki, 80). Wyobraź sobie, że po polsku 40 to „dwie dwudziestki”: ორმოცი to właśnie ორ (dwa) + მ + ოცი (dwadzieścia). Tak samo სამოცი, „trzy dwudziestki” (60), i ოთხმოცი, „cztery dwudziestki” (80).",
+       "table": [
+        {
+         "ka": "ოცი",
+         "lat": "otsi",
+         "en": "20"
+        },
+        {
+         "ka": "ორმოცი",
+         "lat": "ormotsi",
+         "en": "40: dwie dwudziestki"
+        },
+        {
+         "ka": "სამოცი",
+         "lat": "samotsi",
+         "en": "60: trzy dwudziestki"
+        },
+        {
+         "ka": "ოთხმოცი",
+         "lat": "otkhmotsi",
+         "en": "80: cztery dwudziestki"
+        },
+        {
+         "ka": "ასი",
+         "lat": "asi",
+         "en": "100"
+        }
+       ]
+      },
+      {
+       "title": "Dwadzieścia i…",
+       "text": "Żeby wyjść poza dwudziestkę, odetnij jej końcowe ი, dodaj და („i”) i liczbę od 1 do 19. Dlatego 21 to „dwadzieścia i jeden”, 30 to „dwadzieścia i dziesięć”, a 31 to „dwadzieścia i jedenaście”. Nie ma osobnego słowa na 30, 50, 70 ani 90: wszystkie są „dwudziestka i dziesięć”.",
+       "table": [
+        {
+         "ka": "ოცდაერთი",
+         "lat": "otsdaerti",
+         "en": "21: dwadzieścia i jeden"
+        },
+        {
+         "ka": "ოცდაორი",
+         "lat": "otsdaori",
+         "en": "22: dwadzieścia i dwa"
+        },
+        {
+         "ka": "ოცდახუთი",
+         "lat": "otsdakhuti",
+         "en": "25: dwadzieścia i pięć"
+        },
+        {
+         "ka": "ოცდაათი",
+         "lat": "otsdaati",
+         "en": "30: dwadzieścia i dziesięć"
+        },
+        {
+         "ka": "ოცდათერთმეტი",
+         "lat": "otsdatertmet'i",
+         "en": "31: dwadzieścia i jedenaście"
+        },
+        {
+         "ka": "ოცდაცხრამეტი",
+         "lat": "otsdatskhramet'i",
+         "en": "39: dwadzieścia i dziewiętnaście"
+        },
+        {
+         "ka": "ორმოცდაორი",
+         "lat": "ormotsdaori",
+         "en": "42: dwie dwudziestki i dwa"
+        },
+        {
+         "ka": "ორმოცდაათი",
+         "lat": "ormotsdaati",
+         "en": "50: dwie dwudziestki i dziesięć"
+        },
+        {
+         "ka": "ოთხმოცდაცხრამეტი",
+         "lat": "otkhmotsdatskhramet'i",
+         "en": "99: cztery dwudziestki i dziewiętnaście"
+        }
+       ]
+      },
+      {
+       "title": "Liczebnik i rzeczownik",
+       "text": "Tu gruziński jest łatwiejszy od polskiego. Po liczebniku rzeczownik zostaje w mianowniku liczby pojedynczej: ორი ყავა to dosłownie „dwie kawa”, ხუთი ლარი „pięć lari”, bez naszych „dwie kawy, pięć kaw”. Przed rzeczownikiem z końcówką liczebnik gubi ი: შვიდ საათზე, „o siódmej”.",
+       "table": [
+        {
+         "ka": "ორი ყავა",
+         "lat": "ori q'ava",
+         "en": "dwie kawy"
+        },
+        {
+         "ka": "სამი ბილეთი",
+         "lat": "sami bileti",
+         "en": "trzy bilety"
+        },
+        {
+         "ka": "ოცი ლარი",
+         "lat": "otsi lari",
+         "en": "dwadzieścia lari"
+        },
+        {
+         "ka": "შვიდ საათზე",
+         "lat": "shvid saatze",
+         "en": "o siódmej"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "choice",
+       "prompt": "Ile to jest თოთხმეტი?",
+       "options": [
+        "14",
+        "4",
+        "40",
+        "15"
+       ],
+       "answer": 0,
+       "explanation": "თ + ოთხ (cztery) + მეტი (więcej): czternaście."
+      },
+      {
+       "type": "choice",
+       "prompt": "ორმოცი składa się z…",
+       "options": [
+        "dwóch dwudziestek",
+        "czterech dziesiątek",
+        "dwudziestu i dwudziestu",
+        "dwóch i dziesięciu"
+       ],
+       "answer": 0,
+       "explanation": "ორ (dwa) + მ + ოცი (dwadzieścia)."
+      },
+      {
+       "type": "choice",
+       "prompt": "Która liczba to 21?",
+       "options": [
+        "ოცდაერთი",
+        "ერთოცი",
+        "თერთმეტი",
+        "ორმოცდაერთი"
+       ],
+       "answer": 0,
+       "explanation": "ოც-და-ერთი: dwadzieścia i jeden."
+      },
+      {
+       "type": "choice",
+       "prompt": "Która liczba to 31?",
+       "options": [
+        "ოცდათერთმეტი",
+        "ოცდაერთი",
+        "სამოცდაერთი",
+        "ოცდაათი"
+       ],
+       "answer": 0,
+       "explanation": "Dwadzieścia i jedenaście: ოცდა + თერთმეტი."
+      },
+      {
+       "type": "fill",
+       "sentence": "___ წუთი, თუ შეიძლება.",
+       "translation": "Piętnaście minut, proszę.",
+       "options": [
+        "თხუთმეტი",
+        "ხუთი",
+        "ორმოცდაათი",
+        "თორმეტი"
+       ],
+       "answer": 0,
+       "explanation": "თ + ხუთ + მეტი: piętnaście."
+      },
+      {
+       "type": "fill",
+       "sentence": "ოცდა___ ლარი.",
+       "translation": "Trzydzieści lari.",
+       "options": [
+        "ათი",
+        "ერთი",
+        "ორი",
+        "ცხრა"
+       ],
+       "answer": 0,
+       "explanation": "30 to dwadzieścia i dziesięć: ოცდაათი."
+      },
+      {
+       "type": "choice",
+       "prompt": "Jak powiedzieć 50?",
+       "options": [
+        "ორმოცდაათი",
+        "ხუთოცი",
+        "ორმოცი",
+        "ოცდაათი"
+       ],
+       "answer": 0,
+       "explanation": "Dwie dwudziestki i dziesięć."
+      },
+      {
+       "type": "build",
+       "english": "Dwadzieścia dwa lari.",
+       "tiles": [
+        "ოცდაორი",
+        "ლარი."
+       ],
+       "extra": [
+        "ორი",
+        "ლარს"
+       ],
+       "tilesLatin": [
+        "otsdaori",
+        "lari."
+       ]
+      }
+     ],
+     "subtitle": "Od 11 do 19: dziesięć i więcej"
+    },
+    {
+     "id": "v7",
+     "kind": "vocabulary",
+     "title": "Przy stole",
+     "words": [
+      "w-puri",
+      "w-qveli",
+      "w-tsqali",
+      "w-ghvino",
+      "w-chai",
+      "w-qava",
+      "w-rdze",
+      "w-ludi"
+     ],
+     "category": "food",
+     "subtitle": "პური · ყველი · წყალი"
+    },
+    {
+     "id": "v8",
+     "kind": "vocabulary",
+     "title": "Kuchnia gruzińska",
+     "words": [
+      "w-khortsi",
+      "w-khachapuri",
+      "w-khinkali",
+      "w-vashli",
+      "w-shakari",
+      "w-marili",
+      "w-khili",
+      "w-bostneuli"
+     ],
+     "category": "food",
+     "subtitle": "ხორცი · ხაჭაპური · ხინკალი"
+    },
+    {
+     "id": "v9",
+     "kind": "vocabulary",
+     "title": "Poruszanie się po mieście",
+     "words": [
+      "w-mankana",
+      "w-avtobusi",
+      "w-metro",
+      "w-taksi",
+      "w-velosipedi",
+      "w-gachereba"
+     ],
+     "category": "transport",
+     "subtitle": "მანქანა · ავტობუსი · მეტრო"
+    },
+    {
+     "id": "v10",
+     "kind": "vocabulary",
+     "title": "Dalekie podróże",
+     "words": [
+      "w-matarebeli",
+      "w-tvitmprinavi",
+      "w-aeroporti",
+      "w-sadguri",
+      "w-bileti"
+     ],
+     "category": "transport",
+     "subtitle": "მატარებელი · თვითმფრინავი · აეროპორტი"
+    },
+    {
+     "id": "v11",
+     "kind": "vocabulary",
+     "title": "W lewo i w prawo",
+     "words": [
+      "w-marjvniv",
+      "w-martskhniv",
+      "w-pirdapir",
+      "w-ak",
+      "w-ik",
+      "w-sad"
+     ],
+     "category": "directions",
+     "subtitle": "მარჯვნივ · მარცხნივ · პირდაპირ"
+    },
+    {
+     "id": "v12",
+     "kind": "vocabulary",
+     "title": "Blisko i daleko",
+     "words": [
+      "w-akhlos",
+      "w-shors",
+      "w-kucha",
+      "w-ruka",
+      "w-ukan",
+      "w-gverdit"
+     ],
+     "category": "directions",
+     "subtitle": "ახლოს · შორს · ქუჩა"
+    },
+    {
+     "id": "v13",
+     "kind": "vocabulary",
+     "title": "Sklepy i targi",
+     "words": [
+      "w-maghazia",
+      "w-bazari",
+      "w-ghia",
+      "w-daketili",
+      "w-chanta",
+      "w-ra-ghirs"
+     ],
+     "category": "shopping",
+     "subtitle": "მაღაზია · ბაზარი · ღია"
+    },
+    {
+     "id": "v14",
+     "kind": "vocabulary",
+     "title": "Płacenie",
+     "words": [
+      "w-puli",
+      "w-pasi",
+      "w-dzviri",
+      "w-iapi",
+      "w-lari",
+      "w-barati",
+      "w-naghdi-puli"
+     ],
+     "category": "shopping",
+     "subtitle": "ფული · ფასი · ძვირი"
+    },
+    {
+     "id": "v15",
+     "kind": "vocabulary",
+     "title": "Rodzice i dzieci",
+     "words": [
+      "w-ojakhi",
+      "w-deda",
+      "w-mama",
+      "w-shvili",
+      "w-bavshvi",
+      "w-megobari"
+     ],
+     "category": "family",
+     "subtitle": "ოჯახი · დედა · მამა"
+    },
+    {
+     "id": "v16",
+     "kind": "vocabulary",
+     "title": "Cała rodzina",
+     "words": [
+      "w-dzma",
+      "w-da",
+      "w-bebia",
+      "w-babua",
+      "w-tsoli",
+      "w-kmari"
+     ],
+     "category": "family",
+     "subtitle": "ძმა · და · ბებია"
+    },
+    {
+     "id": "v17",
+     "kind": "vocabulary",
+     "title": "W domu",
+     "words": [
+      "w-sakhli",
+      "w-otakhi",
+      "w-kari",
+      "w-panjara",
+      "w-magida",
+      "w-skami"
+     ],
+     "category": "objects",
+     "subtitle": "სახლი · ოთახი · კარი"
+    },
+    {
+     "id": "v18",
+     "kind": "vocabulary",
+     "title": "Rzeczy wokół ciebie",
+     "words": [
+      "w-tsigni",
+      "w-teleponi",
+      "w-gasaghebi",
+      "w-satsoli",
+      "w-chika",
+      "w-kalami"
+     ],
+     "category": "objects",
+     "subtitle": "წიგნი · ტელეფონი · გასაღები"
+    },
+    {
+     "id": "v19",
+     "kind": "vocabulary",
+     "title": "Dziś i jutro",
+     "words": [
+      "w-dghes",
+      "w-khval",
+      "w-gushin",
+      "w-akhla",
+      "w-dila",
+      "w-saghamo",
+      "w-saati"
+     ],
+     "category": "time",
+     "subtitle": "დღეს · ხვალ · გუშინ"
+    },
+    {
+     "id": "v20",
+     "kind": "vocabulary",
+     "title": "Dni i tygodnie",
+     "words": [
+      "w-dghe",
+      "w-kvira",
+      "w-tve",
+      "w-tseli",
+      "w-orshabati",
+      "w-paraskevi",
+      "w-shabati"
+     ],
+     "category": "time",
+     "subtitle": "დღე · კვირა · თვე"
+    }
+   ]
+  },
+  {
+   "id": "everyday",
+   "title": "Gruziński na co dzień",
+   "subtitle": "Zwroty do prawdziwych sytuacji",
+   "symbol": "cup.and.saucer.fill",
+   "color": "gold",
+   "intro": "Całe zwroty do użycia od razu: w kawiarni, sklepie, taksówce i u lekarza.",
+   "lessons": [
+    {
+     "id": "e1",
+     "kind": "phrases",
+     "title": "Zamawianie jedzenia",
+     "words": [
+      "p-meniu-tu-sheidzleba",
+      "p-ras-mirchevt",
+      "p-tsqali-minda",
+      "p-dzalian-gemrielia",
+      "p-angarishi-tu-sheidzleba",
+      "p-gaumarjos"
+     ],
+     "situation": "food",
+     "subtitle": "მენიუ, თუ შეიძლება."
+    },
+    {
+     "id": "e2",
+     "kind": "phrases",
+     "title": "Zakupy spożywcze",
+     "words": [
+      "p-ra-ghirs-es",
+      "p-erti-kilo-vashli-tu-sheidzleba",
+      "p-es-dzalian-dzviria",
+      "p-baratit-sheidzleba",
+      "p-parki-mchirdeba",
+      "p-sul-es-aris"
+     ],
+     "situation": "groceries",
+     "subtitle": "რა ღირს ეს?"
+    },
+    {
+     "id": "e3",
+     "kind": "phrases",
+     "title": "Jazda taksówką",
+     "words": [
+      "p-aeroportshi-tu-sheidzleba",
+      "p-tsentramde-ra-ghirs",
+      "p-ak-gamicheret",
+      "p-nela-tu-sheidzleba",
+      "p-shors-aris",
+      "p-ramdeni-khani"
+     ],
+     "situation": "taxi",
+     "subtitle": "აეროპორტში, თუ შეიძლება."
+    },
+    {
+     "id": "e4",
+     "kind": "phrases",
+     "title": "Pytanie o drogę",
+     "words": [
+      "p-sad-aris-metro",
+      "p-pirdapir-tsadit",
+      "p-marjvniv-moukhviet",
+      "p-martskhniv-moukhviet",
+      "p-ver-gavige",
+      "p-gaimeoret-tu-sheidzleba"
+     ],
+     "situation": "directions",
+     "subtitle": "სად არის მეტრო?"
+    },
+    {
+     "id": "e5",
+     "kind": "phrases",
+     "title": "Poznajemy sąsiadów",
+     "words": [
+      "p-rogor-khart",
+      "p-kargad-tkven",
+      "p-akhali-mezobeli-var",
+      "p-shemodit",
+      "p-karg-dghes-gisurvebt",
+      "p-dzalian-sasiamovnoa"
+     ],
+     "situation": "neighbours",
+     "subtitle": "როგორ ხართ?"
+    },
+    {
+     "id": "e6",
+     "kind": "phrases",
+     "title": "U lekarza",
+     "words": [
+      "p-tsudad-var",
+      "p-tavi-mtkiva",
+      "p-mutseli-mtkiva",
+      "p-sitskhe-makvs",
+      "p-ekimi-mchirdeba",
+      "p-aptiaki-sad-aris"
+     ],
+     "situation": "doctor",
+     "subtitle": "ცუდად ვარ."
+    },
+    {
+     "id": "e7",
+     "kind": "phrases",
+     "title": "W pracy",
+     "words": [
+      "p-sad-mushaob",
+      "p-opisshi-vmushaob",
+      "p-shekhvedra-makvs",
+      "p-dakavebuli-var",
+      "p-erti-tsutit",
+      "p-kargi-ideaa"
+     ],
+     "situation": "work",
+     "subtitle": "სად მუშაობ?"
+    },
+    {
+     "id": "e8",
+     "kind": "phrases",
+     "title": "Pogawędka",
+     "words": [
+      "p-ra-amindia",
+      "p-dghes-tskhela",
+      "p-dghes-tsiva",
+      "p-sakartvelo-dzalian-momtsons",
+      "p-tbilisi-lamazi-kalakia",
+      "p-ra-kargia"
+     ],
+     "situation": "smalltalk",
+     "subtitle": "რა ამინდია!"
+    }
+   ]
+  },
+  {
+   "id": "grammar",
+   "title": "Gramatyka",
+   "subtitle": "Jak składa się zdania",
+   "symbol": "puzzlepiece.fill",
+   "color": "blacksea",
+   "intro": "Małe, przyjazne kroki w gruzińską gramatykę: tylko tyle, ile trzeba, żeby budować własne zdania. Często porównujemy z polskim, bo masz tu przewagę: znasz już przypadki i końcówki.",
+   "lessons": [
+    {
+     "id": "g1",
+     "kind": "grammar",
+     "title": "Ja, ty, my",
+     "words": [
+      "w-me",
+      "w-shen",
+      "w-is",
+      "w-chven",
+      "w-tkven",
+      "w-isini"
+     ],
+     "notes": [
+      {
+       "title": "Zaimki osobowe",
+       "text": "Jest ich sześć, jak po polsku, ale gruziński nie ma rodzajów: ის to i „on”, i „ona”, i „ono”. Z tego samego powodu czasownik nie zmienia się jak nasze „był/była”. თქვენ to „wy” do kilku osób, a także grzecznościowe „pan/pani” do jednej: Gruzin mówi do obcego „wy”, a czasownik dostaje końcówkę -თ.",
+       "table": [
+        {
+         "ka": "მე",
+         "lat": "me",
+         "en": "ja"
+        },
+        {
+         "ka": "შენ",
+         "lat": "shen",
+         "en": "ty (do jednej osoby, na ty)"
+        },
+        {
+         "ka": "ის",
+         "lat": "is",
+         "en": "on, ona, ono"
+        },
+        {
+         "ka": "ჩვენ",
+         "lat": "chven",
+         "en": "my"
+        },
+        {
+         "ka": "თქვენ",
+         "lat": "tkven",
+         "en": "wy; pan, pani (grzecznie)"
+        },
+        {
+         "ka": "ისინი",
+         "lat": "isini",
+         "en": "oni, one"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "choice",
+       "prompt": "Które słowo znaczy „my”?",
+       "options": [
+        "ჩვენ",
+        "თქვენ",
+        "ისინი",
+        "მე"
+       ],
+       "answer": 0,
+       "explanation": "ჩვენ to my; თქვენ to wy (albo grzecznie pan/pani)."
+      },
+      {
+       "type": "choice",
+       "prompt": "ის może znaczyć…",
+       "options": [
+        "on, ona albo ono",
+        "tylko on",
+        "tylko ona",
+        "oni, one"
+       ],
+       "answer": 0,
+       "explanation": "Gruziński nie odróżnia „on” i „ona”."
+      },
+      {
+       "type": "choice",
+       "prompt": "Do starszej, obcej osoby grzecznie mówisz…",
+       "options": [
+        "თქვენ",
+        "შენ",
+        "ის",
+        "ჩვენ"
+       ],
+       "answer": 0,
+       "explanation": "თქვენ to forma grzecznościowa, także do jednej osoby, jak nasze „pan/pani”."
+      },
+      {
+       "type": "fill",
+       "sentence": "___ სტუდენტები ვართ.",
+       "translation": "Jesteśmy studentami.",
+       "options": [
+        "ჩვენ",
+        "ისინი",
+        "მე",
+        "შენ"
+       ],
+       "answer": 0,
+       "explanation": "ვართ to „jesteśmy”, więc zaimek to ჩვენ."
+      },
+      {
+       "type": "fill",
+       "sentence": "___ თბილისში ცხოვრობენ.",
+       "translation": "Oni mieszkają w Tbilisi.",
+       "options": [
+        "ისინი",
+        "ჩვენ",
+        "მე",
+        "ის"
+       ],
+       "answer": 0,
+       "explanation": "Końcówka -ენ oznacza „oni”."
+      }
+     ],
+     "subtitle": "Zaimki osobowe"
+    },
+    {
+     "id": "g2",
+     "kind": "grammar",
+     "title": "Być",
+     "words": [
+      "w-var",
+      "w-khar",
+      "w-aris"
+     ],
+     "notes": [
+      {
+       "title": "Jestem, jesteś",
+       "text": "Czasownik „być” odmienia się przez osoby, tak jak polskie jestem, jesteś, jest. Zwykle stoi na końcu zdania: მე სტუდენტი ვარ, dosłownie „ja student jestem”, trochę jak u Yody.",
+       "table": [
+        {
+         "ka": "მე ვარ",
+         "lat": "me var",
+         "en": "jestem"
+        },
+        {
+         "ka": "შენ ხარ",
+         "lat": "shen khar",
+         "en": "jesteś"
+        },
+        {
+         "ka": "ის არის",
+         "lat": "is aris",
+         "en": "on / ona jest"
+        },
+        {
+         "ka": "ჩვენ ვართ",
+         "lat": "chven vart",
+         "en": "jesteśmy"
+        },
+        {
+         "ka": "თქვენ ხართ",
+         "lat": "tkven khart",
+         "en": "jesteście"
+        },
+        {
+         "ka": "ისინი არიან",
+         "lat": "isini arian",
+         "en": "są"
+        }
+       ]
+      },
+      {
+       "title": "Krótkie -ა",
+       "text": "არის („jest”) często skraca się do samego -ა doklejonego do poprzedniego słowa. Podobnie jak w mowie potocznej mówimy „gdzieś” zamiast „gdzie jesteś”: ექიმი არის → ექიმია.",
+       "table": [
+        {
+         "ka": "ნინო ექიმი არის",
+         "lat": "nino ekimi aris",
+         "en": "Nino jest lekarką"
+        },
+        {
+         "ka": "ნინო ექიმია",
+         "lat": "nino ekimia",
+         "en": "Nino jest lekarką (krótko)"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "მე სტუდენტი ___.",
+       "translation": "Jestem studentem.",
+       "options": [
+        "ვარ",
+        "ხარ",
+        "არის",
+        "ვართ"
+       ],
+       "answer": 0,
+       "explanation": "მე idzie w parze z ვარ."
+      },
+      {
+       "type": "fill",
+       "sentence": "შენ საიდან ___?",
+       "translation": "Skąd jesteś?",
+       "options": [
+        "ხარ",
+        "ვარ",
+        "არიან",
+        "ვართ"
+       ],
+       "answer": 0,
+       "explanation": "შენ idzie w parze z ხარ."
+      },
+      {
+       "type": "fill",
+       "sentence": "ისინი ქართველები ___.",
+       "translation": "Oni są Gruzinami.",
+       "options": [
+        "არიან",
+        "ხართ",
+        "არის",
+        "ვარ"
+       ],
+       "answer": 0,
+       "explanation": "ისინი idzie w parze z არიან."
+      },
+      {
+       "type": "choice",
+       "prompt": "ნინო ექიმია znaczy…",
+       "options": [
+        "Nino jest lekarką",
+        "Nino ma lekarza",
+        "Nino chce lekarza",
+        "Nino jest u lekarza"
+       ],
+       "answer": 0,
+       "explanation": "-ა na końcu to skrót od არის."
+      },
+      {
+       "type": "build",
+       "english": "Jestem studentem.",
+       "tiles": [
+        "მე",
+        "სტუდენტი",
+        "ვარ"
+       ],
+       "extra": [
+        "ხარ",
+        "შენ"
+       ],
+       "tilesLatin": [
+        "me",
+        "st'udent'i",
+        "var"
+       ]
+      },
+      {
+       "type": "build",
+       "english": "Nino jest w domu.",
+       "tiles": [
+        "ნინო",
+        "სახლში",
+        "არის"
+       ],
+       "extra": [
+        "ვარ",
+        "ხარ"
+       ],
+       "tilesLatin": [
+        "nino",
+        "sakhlshi",
+        "aris"
+       ]
+      }
+     ],
+     "subtitle": "Jestem, jesteś"
+    },
+    {
+     "id": "g3",
+     "kind": "grammar",
+     "title": "Co robię teraz",
+     "words": [
+      "w-vtser",
+      "w-vstsavlob",
+      "w-vtskhovrob"
+     ],
+     "notes": [
+      {
+       "title": "Czas teraźniejszy",
+       "text": "Po polsku osobę pokazuje końcówka: piszę, piszesz, pisze. Gruziński używa i początku, i końca czasownika: ვ- z przodu to „ja” i „my”, -ს na końcu to „on/ona”, -თ to liczba mnoga, a -ენ to „oni”. ვ-წერ-თ to więc „my piszemy”: ვ- (ja/my) + -თ (mnoga). Zaimek często się pomija, jak u nas: ვწერ wystarczy za „piszę”.",
+       "table": [
+        {
+         "ka": "მე ვწერ",
+         "lat": "me vts'er",
+         "en": "piszę"
+        },
+        {
+         "ka": "შენ წერ",
+         "lat": "shen ts'er",
+         "en": "piszesz"
+        },
+        {
+         "ka": "ის წერს",
+         "lat": "is ts'ers",
+         "en": "on / ona pisze"
+        },
+        {
+         "ka": "ჩვენ ვწერთ",
+         "lat": "chven vts'ert",
+         "en": "piszemy"
+        },
+        {
+         "ka": "თქვენ წერთ",
+         "lat": "tkven ts'ert",
+         "en": "piszecie"
+        },
+        {
+         "ka": "ისინი წერენ",
+         "lat": "isini ts'eren",
+         "en": "piszą"
+        }
+       ]
+      },
+      {
+       "title": "Szyk zdania",
+       "text": "Czasownik zwykle stoi na końcu: მე ქართულს ვსწავლობ, „ja gruzińskiego się uczę”. Szyk jest jednak swobodny, jak po polsku, bo to końcówki mówią, kto co robi.",
+       "table": []
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "ის წერილს ___.",
+       "translation": "Ona pisze list.",
+       "options": [
+        "წერს",
+        "ვწერ",
+        "წერენ",
+        "ვწერთ"
+       ],
+       "answer": 0,
+       "explanation": "-ს oznacza „on” albo „ona”."
+      },
+      {
+       "type": "fill",
+       "sentence": "ჩვენ ქართულს ___.",
+       "translation": "Uczymy się gruzińskiego.",
+       "options": [
+        "ვსწავლობთ",
+        "სწავლობს",
+        "ვსწავლობ",
+        "სწავლობენ"
+       ],
+       "answer": 0,
+       "explanation": "ვ- … -თ: my."
+      },
+      {
+       "type": "fill",
+       "sentence": "ისინი თბილისში ___.",
+       "translation": "Oni mieszkają w Tbilisi.",
+       "options": [
+        "ცხოვრობენ",
+        "ვცხოვრობ",
+        "ცხოვრობს",
+        "ცხოვრობთ"
+       ],
+       "answer": 0,
+       "explanation": "-ენ: oni."
+      },
+      {
+       "type": "choice",
+       "prompt": "Która część ის წერს znaczy „on / ona”?",
+       "options": [
+        "-ს na końcu",
+        "ვ- na początku",
+        "-ენ",
+        "-თ"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "build",
+       "english": "Uczę się gruzińskiego.",
+       "tiles": [
+        "მე",
+        "ქართულს",
+        "ვსწავლობ"
+       ],
+       "extra": [
+        "სწავლობს",
+        "შენ"
+       ],
+       "tilesLatin": [
+        "me",
+        "kartuls",
+        "vsts'avlob"
+       ]
+      }
+     ],
+     "subtitle": "Czas teraźniejszy"
+    },
+    {
+     "id": "g4",
+     "kind": "grammar",
+     "title": "Chcieć, kochać, mieć",
+     "words": [
+      "w-minda",
+      "w-miqvars",
+      "w-makvs",
+      "w-vitsi",
+      "w-vlaparakob",
+      "w-vcham",
+      "w-vsvam"
+     ],
+     "notes": [
+      {
+       "title": "Czasowniki „na odwrót”",
+       "text": "Kilka codziennych czasowników działa jak polskie „podoba mi się” albo „chce mi się”: osoba siedzi w czasowniku jako „mi” albo „ci”. მ- to „mi/mnie”, გ- to „ci/tobie”. მინდა to dosłownie „mi się chce”, მიყვარს „mi jest miłe”, მაქვს „mi jest”. Rzecz, którą chcesz albo masz, zostaje w mianowniku: ყავა მინდა, „kawa mi się chce”.",
+       "table": [
+        {
+         "ka": "მინდა",
+         "lat": "minda",
+         "en": "chcę"
+        },
+        {
+         "ka": "გინდა",
+         "lat": "ginda",
+         "en": "chcesz"
+        },
+        {
+         "ka": "მიყვარს",
+         "lat": "miq'vars",
+         "en": "kocham"
+        },
+        {
+         "ka": "გიყვარს",
+         "lat": "giq'vars",
+         "en": "kochasz"
+        },
+        {
+         "ka": "მაქვს",
+         "lat": "makvs",
+         "en": "mam"
+        },
+        {
+         "ka": "გაქვს",
+         "lat": "gakvs",
+         "en": "masz"
+        }
+       ]
+      },
+      {
+       "title": "Zwykłe czasowniki",
+       "text": "Inne odmieniają się jak ვწერ, z ვ- dla „ja”.",
+       "table": [
+        {
+         "ka": "ვიცი",
+         "lat": "vitsi",
+         "en": "wiem"
+        },
+        {
+         "ka": "ვლაპარაკობ",
+         "lat": "vlap'arak'ob",
+         "en": "mówię"
+        },
+        {
+         "ka": "ვჭამ",
+         "lat": "vch'am",
+         "en": "jem"
+        },
+        {
+         "ka": "ვსვამ",
+         "lat": "vsvam",
+         "en": "piję"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "choice",
+       "prompt": "Jak powiedzieć „chcę kawy”?",
+       "options": [
+        "ყავა მინდა.",
+        "ყავა გინდა.",
+        "ყავა მაქვს.",
+        "ყავა მიყვარს."
+       ],
+       "answer": 0,
+       "explanation": "მ- to „mi”: მინდა."
+      },
+      {
+       "type": "fill",
+       "sentence": "ჩაი ___?",
+       "translation": "Chcesz herbaty?",
+       "options": [
+        "გინდა",
+        "მინდა",
+        "მაქვს",
+        "ვიცი"
+       ],
+       "answer": 0,
+       "explanation": "გ- to „ci”: გინდა."
+      },
+      {
+       "type": "fill",
+       "sentence": "საქართველო ___.",
+       "translation": "Kocham Gruzję.",
+       "options": [
+        "მიყვარს",
+        "გიყვარს",
+        "მინდა",
+        "ვჭამ"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "fill",
+       "sentence": "ფული არ ___.",
+       "translation": "Nie mam pieniędzy.",
+       "options": [
+        "მაქვს",
+        "გაქვს",
+        "მინდა",
+        "ვიცი"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "choice",
+       "prompt": "გაქვს znaczy…",
+       "options": [
+        "masz",
+        "mam",
+        "chcę",
+        "chcesz"
+       ],
+       "answer": 0,
+       "explanation": "გ- to „ty/tobie”, -ქვს to „mieć”."
+      },
+      {
+       "type": "build",
+       "english": "Mówię trochę po gruzińsku.",
+       "tiles": [
+        "ცოტა",
+        "ქართულად",
+        "ვლაპარაკობ"
+       ],
+       "extra": [
+        "ქართული",
+        "ვიცი"
+       ],
+       "tilesLatin": [
+        "tsot'a",
+        "kartulad",
+        "vlap'arak'ob"
+       ]
+      }
+     ],
+     "subtitle": "Czasowniki „na odwrót”"
+    },
+    {
+     "id": "g5",
+     "kind": "grammar",
+     "title": "Zadawanie pytań",
+     "words": [
+      "w-ra",
+      "w-vin",
+      "w-sad",
+      "w-rodis",
+      "w-ratom",
+      "w-rogor",
+      "w-ramdeni"
+     ],
+     "notes": [
+      {
+       "title": "Słowa pytające",
+       "text": "Słowo pytające stoi zwykle tuż przed czasownikiem: სად არის? „gdzie jest?”.",
+       "table": [
+        {
+         "ka": "რა?",
+         "lat": "ra?",
+         "en": "co?"
+        },
+        {
+         "ka": "ვინ?",
+         "lat": "vin?",
+         "en": "kto?"
+        },
+        {
+         "ka": "სად?",
+         "lat": "sad?",
+         "en": "gdzie?"
+        },
+        {
+         "ka": "როდის?",
+         "lat": "rodis?",
+         "en": "kiedy?"
+        },
+        {
+         "ka": "რატომ?",
+         "lat": "rat'om?",
+         "en": "dlaczego?"
+        },
+        {
+         "ka": "როგორ?",
+         "lat": "rogor?",
+         "en": "jak?"
+        },
+        {
+         "ka": "რამდენი?",
+         "lat": "ramdeni?",
+         "en": "ile?"
+        }
+       ]
+      },
+      {
+       "title": "Tak czy nie",
+       "text": "Zostaw zdanie tak, jak jest, i podnieś głos na końcu, tak samo jak po polsku: „Chcesz kawę?”. Nie ma tu słówka „czy”.",
+       "table": [
+        {
+         "ka": "ყავა გინდა.",
+         "lat": "q'ava ginda.",
+         "en": "Chcesz kawę."
+        },
+        {
+         "ka": "ყავა გინდა?",
+         "lat": "q'ava ginda?",
+         "en": "Chcesz kawę?"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "choice",
+       "prompt": "„Gdzie?” to…",
+       "options": [
+        "სად?",
+        "როდის?",
+        "ვინ?",
+        "რა?"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "fill",
+       "sentence": "___ არის მეტრო?",
+       "translation": "Gdzie jest metro?",
+       "options": [
+        "სად",
+        "ვინ",
+        "რა",
+        "როდის"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "fill",
+       "sentence": "___ ხარ?",
+       "translation": "Jak się masz?",
+       "options": [
+        "როგორ",
+        "რატომ",
+        "რამდენი",
+        "სად"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "fill",
+       "sentence": "ის ___ არის?",
+       "translation": "Kim on jest?",
+       "options": [
+        "ვინ",
+        "რა",
+        "როდის",
+        "სად"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "choice",
+       "prompt": "Jak zrobić pytanie z ყავა გინდა?",
+       "options": [
+        "Podnieść głos na końcu",
+        "Dodać ვინ na początku",
+        "Zmienić końcówkę czasownika",
+        "Postawić არ przed czasownikiem"
+       ],
+       "answer": 0,
+       "explanation": "Pytania „tak/nie” to te same słowa, wypowiedziane pytająco."
+      },
+      {
+       "type": "build",
+       "english": "Kiedy przyjdziesz?",
+       "tiles": [
+        "როდის",
+        "მოდიხარ?"
+       ],
+       "extra": [
+        "სად",
+        "მოდის"
+       ],
+       "tilesLatin": [
+        "rodis",
+        "modikhar?"
+       ]
+      }
+     ],
+     "subtitle": "Słowa pytające"
+    },
+    {
+     "id": "g6",
+     "kind": "grammar",
+     "title": "Przeczenie",
+     "words": [
+      "w-ar",
+      "w-ver",
+      "w-ara"
+     ],
+     "notes": [
+      {
+       "title": "Nie, nie mogę, nie rób",
+       "text": "Gruziński ma trzy „nie”, a każde stoi tuż przed czasownikiem, jak nasze „nie”. არ to zwykłe „nie”. ვერ to „nie mogę, nie dam rady” (ვერ გავიგე, „nie dałem rady zrozumieć”). ნუ to „nie rób tego” w prośbach (ნუ ღელავ, „nie martw się”). Samo არა to „nie” jako odpowiedź.",
+       "table": [
+        {
+         "ka": "არ ვიცი",
+         "lat": "ar vitsi",
+         "en": "nie wiem"
+        },
+        {
+         "ka": "ვერ გავიგე",
+         "lat": "ver gavige",
+         "en": "nie dałem rady zrozumieć"
+        },
+        {
+         "ka": "ნუ ღელავ",
+         "lat": "nu ghelav",
+         "en": "nie martw się"
+        },
+        {
+         "ka": "არა",
+         "lat": "ara",
+         "en": "nie (jako odpowiedź)"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "___ ვიცი.",
+       "translation": "Nie wiem.",
+       "options": [
+        "არ",
+        "ვერ",
+        "ნუ",
+        "არა"
+       ],
+       "answer": 0,
+       "explanation": "არ: nie."
+      },
+      {
+       "type": "fill",
+       "sentence": "ბოდიში, ___ გავიგე.",
+       "translation": "Przepraszam, nie zrozumiałem.",
+       "options": [
+        "ვერ",
+        "ნუ",
+        "არა",
+        "ვინ"
+       ],
+       "answer": 0,
+       "explanation": "ვერ: nie móc, nie dać rady."
+      },
+      {
+       "type": "fill",
+       "sentence": "___ ღელავ!",
+       "translation": "Nie martw się!",
+       "options": [
+        "ნუ",
+        "არ",
+        "ვერ",
+        "არა"
+       ],
+       "answer": 0,
+       "explanation": "ნუ prosi, żeby ktoś czegoś nie robił."
+      },
+      {
+       "type": "choice",
+       "prompt": "Gdzie stoi არ?",
+       "options": [
+        "Tuż przed czasownikiem",
+        "Na końcu zdania",
+        "Po czasowniku",
+        "Zawsze na początku"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "build",
+       "english": "Nie jem mięsa.",
+       "tiles": [
+        "ხორცს",
+        "არ",
+        "ვჭამ"
+       ],
+       "extra": [
+        "ვერ",
+        "ხორცი"
+       ],
+       "tilesLatin": [
+        "khortss",
+        "ar",
+        "vch'am"
+       ]
+      }
+     ],
+     "subtitle": "Nie, nie mogę, nie rób"
+    },
+    {
+     "id": "g7",
+     "kind": "grammar",
+     "title": "Końcówki",
+     "words": [],
+     "notes": [
+      {
+       "title": "Przypadki",
+       "text": "Dobra wiadomość: gruziński ma przypadki, tak jak polski, więc znasz już ten pomysł. Rzeczownik zmienia końcówkę zależnie od roli w zdaniu. Gruzińskich przypadków jest siedem, a końcówki są regularne, bez polskich wyjątków. Na początek pięć: mianownik (-ი), celownik-biernik (-ს), dopełniacz (-ის), narzędnik (-ით, dokładnie jak nasze „samochodem”) i okolicznik (-ად, „po gruzińsku”).",
+       "table": [
+        {
+         "ka": "სახლი",
+         "lat": "sakhli",
+         "en": "dom (mianownik)"
+        },
+        {
+         "ka": "სახლს",
+         "lat": "sakhls",
+         "en": "dom, domowi (dopełnienie: -ს)"
+        },
+        {
+         "ka": "სახლის",
+         "lat": "sakhlis",
+         "en": "domu (dopełniacz: -ის)"
+        },
+        {
+         "ka": "მანქანით",
+         "lat": "mankanit",
+         "en": "samochodem (narzędnik: -ით)"
+        },
+        {
+         "ka": "ქართულად",
+         "lat": "kartulad",
+         "en": "po gruzińsku (-ად)"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "choice",
+       "prompt": "მანქანით znaczy…",
+       "options": [
+        "samochodem",
+        "samochodu",
+        "do samochodu",
+        "samochody"
+       ],
+       "answer": 0,
+       "explanation": "-ით: narzędnik, jak „samochodem”, „łyżką”."
+      },
+      {
+       "type": "choice",
+       "prompt": "Które znaczy „domu” (czyj?)?",
+       "options": [
+        "სახლის",
+        "სახლს",
+        "სახლი",
+        "სახლით"
+       ],
+       "answer": 0,
+       "explanation": "-ის: dopełniacz, „czyj? czego?”."
+      },
+      {
+       "type": "fill",
+       "sentence": "მე ___ ვსწავლობ.",
+       "translation": "Uczę się gruzińskiego.",
+       "options": [
+        "ქართულს",
+        "ქართული",
+        "ქართულით",
+        "ქართულის"
+       ],
+       "answer": 0,
+       "explanation": "Przy takich czasownikach dopełnienie dostaje -ს, jak u nas „uczę się czego?”."
+      },
+      {
+       "type": "fill",
+       "sentence": "ცოტა ___ ვლაპარაკობ.",
+       "translation": "Mówię trochę po gruzińsku.",
+       "options": [
+        "ქართულად",
+        "ქართულს",
+        "ქართული",
+        "ქართულის"
+       ],
+       "answer": 0,
+       "explanation": "-ად: „po” (po gruzińsku), „w jakiś sposób”."
+      },
+      {
+       "type": "fill",
+       "sentence": "ჩაი ___, თუ შეიძლება.",
+       "translation": "Herbatę z cukrem, poproszę.",
+       "options": [
+        "შაქრით",
+        "შაქარი",
+        "შაქარს",
+        "შაქრის"
+       ],
+       "answer": 0,
+       "explanation": "-ით: narzędnik, „z cukrem”. შაქარი gubi drugie ა: შაქრით, jak nasze „cukier → cukrem”."
+      }
+     ],
+     "subtitle": "Przypadki"
+    },
+    {
+     "id": "g8",
+     "kind": "grammar",
+     "title": "W, na, z",
+     "words": [],
+     "notes": [
+      {
+       "title": "Końcówki miejsca",
+       "text": "Gdzie polski stawia przyimek przed słowem („w domu”, „na stole”), gruziński dokleja końcówkę na końcu: სახლ-ში, „dom-w”. To jak przyimki, tylko przyklejone z tyłu.",
+       "table": [
+        {
+         "ka": "სახლში",
+         "lat": "sakhlshi",
+         "en": "w domu (-ში)"
+        },
+        {
+         "ka": "მაგიდაზე",
+         "lat": "magidaze",
+         "en": "na stole (-ზე)"
+        },
+        {
+         "ka": "მეგობართან",
+         "lat": "megobartan",
+         "en": "u przyjaciela (-თან)"
+        },
+        {
+         "ka": "თბილისიდან",
+         "lat": "tbilisidan",
+         "en": "z Tbilisi (-დან)"
+        },
+        {
+         "ka": "ცენტრამდე",
+         "lat": "tsent'ramde",
+         "en": "do centrum (-მდე)"
+        },
+        {
+         "ka": "შენთვის",
+         "lat": "shentvis",
+         "en": "dla ciebie (-თვის)"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "დედა ___ არის.",
+       "translation": "Mama jest w domu.",
+       "options": [
+        "სახლში",
+        "სახლზე",
+        "სახლიდან",
+        "სახლამდე"
+       ],
+       "answer": 0,
+       "explanation": "-ში: w."
+      },
+      {
+       "type": "fill",
+       "sentence": "წიგნი ___ არის.",
+       "translation": "Książka jest na stole.",
+       "options": [
+        "მაგიდაზე",
+        "მაგიდაში",
+        "მაგიდიდან",
+        "მაგიდამდე"
+       ],
+       "answer": 0,
+       "explanation": "-ზე: na."
+      },
+      {
+       "type": "fill",
+       "sentence": "მე ___ ვარ.",
+       "translation": "Jestem z Tbilisi.",
+       "options": [
+        "თბილისიდან",
+        "თბილისში",
+        "თბილისზე",
+        "თბილისამდე"
+       ],
+       "answer": 0,
+       "explanation": "-დან: z, od."
+      },
+      {
+       "type": "choice",
+       "prompt": "ცენტრამდე znaczy…",
+       "options": [
+        "do centrum",
+        "w centrum",
+        "z centrum",
+        "dla centrum"
+       ],
+       "answer": 0,
+       "explanation": "-მდე: aż do."
+      },
+      {
+       "type": "choice",
+       "prompt": "-ში przy miejscu znaczy…",
+       "options": [
+        "w / do środka",
+        "na",
+        "z",
+        "dla"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "build",
+       "english": "Mieszkam w Tbilisi.",
+       "tiles": [
+        "თბილისში",
+        "ვცხოვრობ"
+       ],
+       "extra": [
+        "თბილისიდან",
+        "ცხოვრობს"
+       ],
+       "tilesLatin": [
+        "tbilisshi",
+        "vtskhovrob"
+       ]
+      }
+     ],
+     "subtitle": "Końcówki miejsca"
+    },
+    {
+     "id": "g9",
+     "kind": "grammar",
+     "title": "Przydatne schematy",
+     "words": [
+      "w-sheidzleba",
+      "w-mchirdeba",
+      "w-momtsons"
+     ],
+     "notes": [
+      {
+       "title": "Trzy schematy na co dzień",
+       "text": "Tak jak მინდა, mają „mi” w środku czasownika. მომწონს działa dokładnie jak polskie „podoba mi się”: to rzecz się podoba, a ty jesteś „mi”. Podobnie მჭირდება, „potrzebne mi jest”.",
+       "table": [
+        {
+         "ka": "თუ შეიძლება",
+         "lat": "tu sheidzleba",
+         "en": "proszę (jeśli można)"
+        },
+        {
+         "ka": "შეიძლება?",
+         "lat": "sheidzleba?",
+         "en": "można? czy mogę?"
+        },
+        {
+         "ka": "მჭირდება",
+         "lat": "mch'irdeba",
+         "en": "potrzebuję"
+        },
+        {
+         "ka": "მომწონს",
+         "lat": "momts'ons",
+         "en": "podoba mi się"
+        }
+       ]
+      }
+     ],
+     "exercises": [
+      {
+       "type": "fill",
+       "sentence": "ერთი ყავა, თუ ___.",
+       "translation": "Jedną kawę, poproszę.",
+       "options": [
+        "შეიძლება",
+        "მჭირდება",
+        "მომწონს",
+        "მინდა"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "fill",
+       "sentence": "ექიმი ___.",
+       "translation": "Potrzebuję lekarza.",
+       "options": [
+        "მჭირდება",
+        "მომწონს",
+        "შეიძლება",
+        "მიყვარს"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "fill",
+       "sentence": "ეს ქალაქი ძალიან ___.",
+       "translation": "To miasto bardzo mi się podoba.",
+       "options": [
+        "მომწონს",
+        "მჭირდება",
+        "შეიძლება",
+        "ვიცი"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "choice",
+       "prompt": "Samo შეიძლება? pyta…",
+       "options": [
+        "Można? Czy mogę?",
+        "Gdzie to jest?",
+        "Ile?",
+        "Kto to?"
+       ],
+       "answer": 0,
+       "explanation": ""
+      },
+      {
+       "type": "build",
+       "english": "Potrzebuję torby.",
+       "tiles": [
+        "ჩანთა",
+        "მჭირდება"
+       ],
+       "extra": [
+        "მომწონს",
+        "ჩანთის"
+       ],
+       "tilesLatin": [
+        "chanta",
+        "mch'irdeba"
+       ]
+      }
+     ],
+     "subtitle": "Trzy schematy na co dzień"
+    }
+   ]
+  },
+  {
+   "id": "conversation",
+   "title": "Rozmowy",
+   "subtitle": "Wszystko razem",
+   "symbol": "bubble.left.and.bubble.right.fill",
+   "color": "tkemali",
+   "intro": "Krótkie rozmowy: przeczytaj je, wybieraj odpowiedzi i sam buduj zdania.",
+   "lessons": [
+    {
+     "id": "c1",
+     "kind": "conversation",
+     "title": "W kawiarni",
+     "dialogue": {
+      "partner": "Kelner",
+      "lines": [
+       {
+        "speaker": "Kelner",
+        "ka": "გამარჯობა! რა გნებავთ?",
+        "lat": "gamarjoba! ra gnebavt?",
+        "en": "Dzień dobry! Co podać?",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "გამარჯობა! ერთი ყავა, თუ შეიძლება.",
+        "lat": "gamarjoba! erti q'ava, tu sheidzleba.",
+        "en": "Dzień dobry! Jedną kawę, poproszę.",
+        "isLearner": true,
+        "wrong": [
+         "ნახვამდის, ხვალამდე!",
+         "ჩემი სახელი ნინოა."
+        ]
+       },
+       {
+        "speaker": "Kelner",
+        "ka": "რძით თუ ურძოდ?",
+        "lat": "rdzit tu urdzod?",
+        "en": "Z mlekiem czy bez?",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "რძით, თუ შეიძლება.",
+        "lat": "rdzit, tu sheidzleba.",
+        "en": "Z mlekiem, poproszę.",
+        "isLearner": true,
+        "wrong": [
+         "მარცხნივ მოუხვიეთ.",
+         "ოცი წუთი."
+        ]
+       },
+       {
+        "speaker": "Kelner",
+        "ka": "კიდევ რამე?",
+        "lat": "k'idev rame?",
+        "en": "Coś jeszcze?",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "ხაჭაპურიც მინდა.",
+        "lat": "khach'ap'urits minda.",
+        "en": "Poproszę też chaczapuri.",
+        "isLearner": true,
+        "wrong": [
+         "ტაქსი გამოვიძახე.",
+         "დღეს ცივა."
+        ]
+       },
+       {
+        "speaker": "Kelner",
+        "ka": "კარგი, ახლავე.",
+        "lat": "k'argi, akhlave.",
+        "en": "Dobrze, już podaję.",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "ანგარიში, თუ შეიძლება.",
+        "lat": "angarishi, tu sheidzleba.",
+        "en": "Poproszę rachunek.",
+        "isLearner": true,
+        "wrong": [
+         "როგორ ხარ?",
+         "ძმა მყავს."
+        ]
+       },
+       {
+        "speaker": "Kelner",
+        "ka": "თორმეტი ლარი.",
+        "lat": "tormet'i lari.",
+        "en": "Dwanaście lari.",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "ბარათით შეიძლება?",
+        "lat": "baratit sheidzleba?",
+        "en": "Mogę zapłacić kartą?",
+        "isLearner": true,
+        "wrong": [
+         "სად არის მეტრო?",
+         "ღამე მშვიდობისა."
+        ]
+       }
+      ]
+     },
+     "exercises": [
+      {
+       "type": "build",
+       "english": "Jedną kawę, poproszę.",
+       "tiles": [
+        "ერთი",
+        "ყავა,",
+        "თუ",
+        "შეიძლება."
+       ],
+       "extra": [
+        "ორი",
+        "ჩაი"
+       ],
+       "tilesLatin": [
+        "erti",
+        "q'ava,",
+        "tu",
+        "sheidzleba."
+       ]
+      }
+     ],
+     "subtitle": "Z kelnerem"
+    },
+    {
+     "id": "c2",
+     "kind": "conversation",
+     "title": "Nowa znajomość",
+     "dialogue": {
+      "partner": "Giorgi",
+      "lines": [
+       {
+        "speaker": "Giorgi",
+        "ka": "გამარჯობა! მე გიორგი ვარ. რა გქვია?",
+        "lat": "gamarjoba! me giorgi var. ra gkvia?",
+        "en": "Cześć! Jestem Giorgi. Jak masz na imię?",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "გაგიმარჯოს! მე ანა მქვია.",
+        "lat": "gagimarjos! me ana mkvia.",
+        "en": "Cześć! Mam na imię Ana.",
+        "isLearner": true,
+        "wrong": [
+         "ანგარიში, თუ შეიძლება.",
+         "ხორცს არ ვჭამ."
+        ]
+       },
+       {
+        "speaker": "Giorgi",
+        "ka": "სასიამოვნოა, ანა! საიდან ხარ?",
+        "lat": "sasiamovnoa, ana! saidan khar?",
+        "en": "Miło mi, Ano! Skąd jesteś?",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "ინგლისიდან ვარ. შენ?",
+        "lat": "inglisidan var. shen?",
+        "en": "Jestem z Anglii. A ty?",
+        "isLearner": true,
+        "wrong": [
+         "ათ საათზე.",
+         "პირდაპირ წადით."
+        ]
+       },
+       {
+        "speaker": "Giorgi",
+        "ka": "მე თბილისელი ვარ. ქართული იცი?",
+        "lat": "me tbiliseli var. kartuli itsi?",
+        "en": "Jestem z Tbilisi. Znasz gruziński?",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "ცოტა ვიცი. ვსწავლობ.",
+        "lat": "tsot'a vitsi. vsts'avlob.",
+        "en": "Trochę znam. Uczę się.",
+        "isLearner": true,
+        "wrong": [
+         "რა ღირს ეს?",
+         "აქ გამიჩერეთ."
+        ]
+       },
+       {
+        "speaker": "Giorgi",
+        "ka": "ყოჩაღ!",
+        "lat": "q'ochagh!",
+        "en": "Brawo!",
+        "isLearner": false
+       }
+      ]
+     },
+     "exercises": [
+      {
+       "type": "build",
+       "english": "Jestem z Anglii.",
+       "tiles": [
+        "ინგლისიდან",
+        "ვარ."
+       ],
+       "extra": [
+        "ინგლისში",
+        "ხარ."
+       ],
+       "tilesLatin": [
+        "inglisidan",
+        "var."
+       ]
+      }
+     ],
+     "subtitle": "Z Giorgim"
+    },
+    {
+     "id": "c3",
+     "kind": "conversation",
+     "title": "Na targu",
+     "dialogue": {
+      "partner": "Sprzedawca",
+      "lines": [
+       {
+        "speaker": "You",
+        "ka": "გამარჯობა! რა ღირს ეს ყველი?",
+        "lat": "gamarjoba! ra ghirs es q'veli?",
+        "en": "Dzień dobry! Ile kosztuje ten ser?",
+        "isLearner": true,
+        "wrong": [
+         "ღამე მშვიდობისა.",
+         "მეტროთი მივდივარ."
+        ]
+       },
+       {
+        "speaker": "Sprzedawca",
+        "ka": "ერთი კილო თხუთმეტი ლარი.",
+        "lat": "erti k'ilo tkhutmet'i lari.",
+        "en": "Piętnaście lari za kilo.",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "ეს ძალიან ძვირია.",
+        "lat": "es dzalian dzviria.",
+        "en": "To bardzo drogo.",
+        "isLearner": true,
+        "wrong": [
+         "ძალიან სასიამოვნოა.",
+         "თავი მტკივა."
+        ]
+       },
+       {
+        "speaker": "Sprzedawca",
+        "ka": "კარგი, თოთხმეტი იყოს.",
+        "lat": "k'argi, totkhmet'i iq'os.",
+        "en": "Dobrze, niech będzie czternaście.",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "კარგი. ნახევარი კილო, თუ შეიძლება.",
+        "lat": "k'argi. nakhevari k'ilo, tu sheidzleba.",
+        "en": "Dobrze. Pół kilo, poproszę.",
+        "isLearner": true,
+        "wrong": [
+         "შემოდით!",
+         "ინგლისიდან ვარ."
+        ]
+       },
+       {
+        "speaker": "Sprzedawca",
+        "ka": "კიდევ რამე?",
+        "lat": "k'idev rame?",
+        "en": "Coś jeszcze?",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "არა, სულ ეს არის. მადლობა!",
+        "lat": "ara, sul es aris. madloba!",
+        "en": "Nie, to wszystko. Dziękuję!",
+        "isLearner": true,
+        "wrong": [
+         "სად მუშაობ?",
+         "ხვალ გნახავ."
+        ]
+       }
+      ]
+     },
+     "exercises": [
+      {
+       "type": "build",
+       "english": "To jest bardzo drogie.",
+       "tiles": [
+        "ეს",
+        "ძალიან",
+        "ძვირია."
+       ],
+       "extra": [
+        "იაფია.",
+        "ის"
+       ],
+       "tilesLatin": [
+        "es",
+        "dzalian",
+        "dzviria."
+       ]
+      }
+     ],
+     "subtitle": "Ze sprzedawcą"
+    },
+    {
+     "id": "c4",
+     "kind": "conversation",
+     "title": "W taksówce",
+     "dialogue": {
+      "partner": "Kierowca",
+      "lines": [
+       {
+        "speaker": "Kierowca",
+        "ka": "გამარჯობა! სად მიდიხართ?",
+        "lat": "gamarjoba! sad midikhart?",
+        "en": "Dzień dobry! Dokąd jedziemy?",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "აეროპორტში, თუ შეიძლება.",
+        "lat": "aerop'ort'shi, tu sheidzleba.",
+        "en": "Na lotnisko, poproszę.",
+        "isLearner": true,
+        "wrong": [
+         "ხინკალი მიყვარს.",
+         "ჩემი და სტუდენტია."
+        ]
+       },
+       {
+        "speaker": "Kierowca",
+        "ka": "კარგი.",
+        "lat": "k'argi.",
+        "en": "Dobrze.",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "რამდენი ხანი?",
+        "lat": "ramdeni khani?",
+        "en": "Ile to potrwa?",
+        "isLearner": true,
+        "wrong": [
+         "რა გქვია?",
+         "სიცხე მაქვს."
+        ]
+       },
+       {
+        "speaker": "Kierowca",
+        "ka": "დაახლოებით ოცდაათი წუთი.",
+        "lat": "daakhloebit otsdaati ts'uti.",
+        "en": "Mniej więcej trzydzieści minut.",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "რა ღირს?",
+        "lat": "ra ghirs?",
+        "en": "Ile to kosztuje?",
+        "isLearner": true,
+        "wrong": [
+         "როგორ ხართ?",
+         "კარი დახურეთ."
+        ]
+       },
+       {
+        "speaker": "Kierowca",
+        "ka": "ორმოცი ლარი.",
+        "lat": "ormotsi lari.",
+        "en": "Czterdzieści lari.",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "კარგი. ნელა, თუ შეიძლება!",
+        "lat": "k'argi. nela, tu sheidzleba!",
+        "en": "Dobrze. Tylko powoli, proszę!",
+        "isLearner": true,
+        "wrong": [
+         "შაბათს ბაზარში მივდივარ.",
+         "ეს ჩემი ქმარია."
+        ]
+       }
+      ]
+     },
+     "exercises": [
+      {
+       "type": "build",
+       "english": "Na lotnisko, poproszę.",
+       "tiles": [
+        "აეროპორტში,",
+        "თუ",
+        "შეიძლება."
+       ],
+       "extra": [
+        "აეროპორტიდან,",
+        "მინდა."
+       ],
+       "tilesLatin": [
+        "aerop'ort'shi,",
+        "tu",
+        "sheidzleba."
+       ]
+      }
+     ],
+     "subtitle": "Z kierowcą"
+    },
+    {
+     "id": "c5",
+     "kind": "conversation",
+     "title": "Pytanie o drogę",
+     "dialogue": {
+      "partner": "Przechodzień",
+      "lines": [
+       {
+        "speaker": "You",
+        "ka": "ბოდიში, სად არის მეტრო?",
+        "lat": "bodishi, sad aris met'ro?",
+        "en": "Przepraszam, gdzie jest metro?",
+        "isLearner": true,
+        "wrong": [
+         "ორი ჩაი, თუ შეიძლება.",
+         "კარგად, თქვენ?"
+        ]
+       },
+       {
+        "speaker": "Przechodzień",
+        "ka": "პირდაპირ წადით, მერე მარცხნივ მოუხვიეთ.",
+        "lat": "p'irdap'ir ts'adit, mere martskhniv moukhviet.",
+        "en": "Proszę iść prosto, potem skręcić w lewo.",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "ვერ გავიგე. გაიმეორეთ, თუ შეიძლება.",
+        "lat": "ver gavige. gaimeoret, tu sheidzleba.",
+        "en": "Nie zrozumiałem. Proszę powtórzyć.",
+        "isLearner": true,
+        "wrong": [
+         "ბარათით შეიძლება?",
+         "ცოტა ქართული ვიცი."
+        ]
+       },
+       {
+        "speaker": "Przechodzień",
+        "ka": "პირდაპირ, მერე მარცხნივ. შორს არ არის.",
+        "lat": "p'irdap'ir, mere martskhniv. shors ar aris.",
+        "en": "Prosto, potem w lewo. To niedaleko.",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "დიდი მადლობა!",
+        "lat": "didi madloba!",
+        "en": "Bardzo dziękuję!",
+        "isLearner": true,
+        "wrong": [
+         "ფული არ მაქვს.",
+         "დღეს ცხელა."
+        ]
+       },
+       {
+        "speaker": "Przechodzień",
+        "ka": "არაფრის!",
+        "lat": "arapris!",
+        "en": "Nie ma za co!",
+        "isLearner": false
+       }
+      ]
+     },
+     "exercises": [
+      {
+       "type": "build",
+       "english": "Gdzie jest metro?",
+       "tiles": [
+        "სად",
+        "არის",
+        "მეტრო?"
+       ],
+       "extra": [
+        "ვინ",
+        "ხარ"
+       ],
+       "tilesLatin": [
+        "sad",
+        "aris",
+        "met'ro?"
+       ]
+      }
+     ],
+     "subtitle": "Z przechodniem"
+    },
+    {
+     "id": "c6",
+     "kind": "conversation",
+     "title": "Plany na jutro",
+     "dialogue": {
+      "partner": "Nino",
+      "lines": [
+       {
+        "speaker": "Nino",
+        "ka": "ხვალ რას აკეთებ?",
+        "lat": "khval ras ak'eteb?",
+        "en": "Co robisz jutro?",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "დილით ვმუშაობ.",
+        "lat": "dilit vmushaob.",
+        "en": "Rano pracuję.",
+        "isLearner": true,
+        "wrong": [
+         "რძით, თუ შეიძლება.",
+         "ბარათით შეიძლება?"
+        ]
+       },
+       {
+        "speaker": "Nino",
+        "ka": "საღამოს ხინკალი ვჭამოთ?",
+        "lat": "saghamos khink'ali vch'amot?",
+        "en": "Zjemy wieczorem chinkali?",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "კარგი იდეაა! რომელ საათზე?",
+        "lat": "k'argi ideaa! romel saatze?",
+        "en": "Dobry pomysł! O której?",
+        "isLearner": true,
+        "wrong": [
+         "მუცელი მტკივა.",
+         "აქ გამიჩერეთ."
+        ]
+       },
+       {
+        "speaker": "Nino",
+        "ka": "შვიდ საათზე.",
+        "lat": "shvid saatze.",
+        "en": "O siódmej.",
+        "isLearner": false
+       },
+       {
+        "speaker": "You",
+        "ka": "კარგი, ხვალ გნახავ!",
+        "lat": "k'argi, khval gnakhav!",
+        "en": "Super, do zobaczenia jutro!",
+        "isLearner": true,
+        "wrong": [
+         "ბოდიში, ვერ გავიგე.",
+         "რა ღირს ეს?"
+        ]
+       },
+       {
+        "speaker": "Nino",
+        "ka": "ნახვამდის!",
+        "lat": "nakhvamdis!",
+        "en": "Pa!",
+        "isLearner": false
+       }
+      ]
+     },
+     "exercises": [
+      {
+       "type": "build",
+       "english": "Do zobaczenia jutro.",
+       "tiles": [
+        "ხვალ",
+        "გნახავ."
+       ],
+       "extra": [
+        "გუშინ",
+        "ვნახე."
+       ],
+       "tilesLatin": [
+        "khval",
+        "gnakhav."
+       ]
+      }
+     ],
+     "subtitle": "Z Nino"
+    }
+   ]
+  }
+ ]
+}

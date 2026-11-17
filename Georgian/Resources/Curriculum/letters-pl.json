@@ -1,0 +1,404 @@
+{
+ "version": 1,
+ "letters": [
+  {
+   "char": "ა",
+   "name": "ani",
+   "latin": "a",
+   "sound": "a jak w „mama”",
+   "word": "ანბანი",
+   "wordLatin": "anbani",
+   "meaning": "alfabet",
+   "tip": "ანი i ბანი, nazwy dwóch pierwszych liter, dały nazwę alfabetowi: ანბანი. Tak jak greckie alfa i beta."
+  },
+  {
+   "char": "ბ",
+   "name": "bani",
+   "latin": "b",
+   "sound": "b jak w „bok”",
+   "word": "ბავშვი",
+   "wordLatin": "bavshvi",
+   "meaning": "dziecko",
+   "tip": ""
+  },
+  {
+   "char": "გ",
+   "name": "gani",
+   "latin": "g",
+   "sound": "g jak w „góra”",
+   "word": "გული",
+   "wordLatin": "guli",
+   "meaning": "serce",
+   "tip": ""
+  },
+  {
+   "char": "დ",
+   "name": "doni",
+   "latin": "d",
+   "sound": "d jak w „dom”",
+   "word": "დედა",
+   "wordLatin": "deda",
+   "meaning": "matka",
+   "tip": ""
+  },
+  {
+   "char": "ე",
+   "name": "eni",
+   "latin": "e",
+   "sound": "e jak w „ten”",
+   "word": "ეზო",
+   "wordLatin": "ezo",
+   "meaning": "podwórko",
+   "tip": ""
+  },
+  {
+   "char": "ვ",
+   "name": "vini",
+   "latin": "v",
+   "sound": "w jak w „woda”",
+   "word": "ვაშლი",
+   "wordLatin": "vashli",
+   "meaning": "jabłko",
+   "tip": "Po łacinie pisze się v, ale czyta się jak polskie w."
+  },
+  {
+   "char": "ზ",
+   "name": "zeni",
+   "latin": "z",
+   "sound": "z jak w „zupa”",
+   "word": "ზღვა",
+   "wordLatin": "zghva",
+   "meaning": "morze",
+   "tip": ""
+  },
+  {
+   "char": "თ",
+   "name": "tani",
+   "latin": "t",
+   "sound": "t z wydechem: t-h",
+   "word": "თბილისი",
+   "wordLatin": "tbilisi",
+   "meaning": "Tbilisi",
+   "tip": "Polskie t jest bez wydechu, więc bliżej mu do ტ. Przy თ dmuchnij lekko powietrzem, jak Anglik w „top”."
+  },
+  {
+   "char": "ი",
+   "name": "ini",
+   "latin": "i",
+   "sound": "i jak w „igła”",
+   "word": "ია",
+   "wordLatin": "ia",
+   "meaning": "fiołek",
+   "tip": "Spółgłoska przed ი się nie zmiękcza: სი brzmi jak „si” w „taxi”, nie jak w „siano”."
+  },
+  {
+   "char": "კ",
+   "name": "k'ani",
+   "latin": "k'",
+   "sound": "k ściśnięte, bez wydechu",
+   "word": "კატა",
+   "wordLatin": "k'at'a",
+   "meaning": "kot",
+   "tip": "Polskie k jest już bez wydechu. კ to jeszcze ostrzej: zatrzymaj oddech w gardle i wypuść krótkie „pyknięcie”."
+  },
+  {
+   "char": "ლ",
+   "name": "lasi",
+   "latin": "l",
+   "sound": "l jak w „lato”",
+   "word": "ლომი",
+   "wordLatin": "lomi",
+   "meaning": "lew",
+   "tip": ""
+  },
+  {
+   "char": "მ",
+   "name": "mani",
+   "latin": "m",
+   "sound": "m jak w „mama”",
+   "word": "მამა",
+   "wordLatin": "mama",
+   "meaning": "ojciec",
+   "tip": "Uwaga, pułapka: მამა to ojciec, a დედა to matka!"
+  },
+  {
+   "char": "ნ",
+   "name": "nari",
+   "latin": "n",
+   "sound": "n jak w „noc”",
+   "word": "ნავი",
+   "wordLatin": "navi",
+   "meaning": "łódka",
+   "tip": ""
+  },
+  {
+   "char": "ო",
+   "name": "oni",
+   "latin": "o",
+   "sound": "o jak w „oko”",
+   "word": "ოთახი",
+   "wordLatin": "otakhi",
+   "meaning": "pokój",
+   "tip": ""
+  },
+  {
+   "char": "პ",
+   "name": "p'ari",
+   "latin": "p'",
+   "sound": "p ściśnięte, bez wydechu",
+   "word": "პური",
+   "wordLatin": "p'uri",
+   "meaning": "chleb",
+   "tip": "Jak polskie p, tylko ostrzej, z zatrzymanym oddechem."
+  },
+  {
+   "char": "ჟ",
+   "name": "zhani",
+   "latin": "zh",
+   "sound": "ż jak w „żaba”",
+   "word": "ჟურნალი",
+   "wordLatin": "zhurnali",
+   "meaning": "czasopismo",
+   "tip": "Po łacinie zapisuje się zh."
+  },
+  {
+   "char": "რ",
+   "name": "rae",
+   "latin": "r",
+   "sound": "r jak w „rak”",
+   "word": "რძე",
+   "wordLatin": "rdze",
+   "meaning": "mleko",
+   "tip": "Krótkie, drżące r, takie samo jak polskie."
+  },
+  {
+   "char": "ს",
+   "name": "sani",
+   "latin": "s",
+   "sound": "s jak w „sok”",
+   "word": "სახლი",
+   "wordLatin": "sakhli",
+   "meaning": "dom",
+   "tip": ""
+  },
+  {
+   "char": "ტ",
+   "name": "t'ari",
+   "latin": "t'",
+   "sound": "t ściśnięte, bez wydechu",
+   "word": "ტყე",
+   "wordLatin": "t'q'e",
+   "meaning": "las",
+   "tip": "Jak polskie t, wymówione twardo, z zatrzymanym oddechem."
+  },
+  {
+   "char": "უ",
+   "name": "uni",
+   "latin": "u",
+   "sound": "u jak w „ul”",
+   "word": "უბანი",
+   "wordLatin": "ubani",
+   "meaning": "dzielnica",
+   "tip": ""
+  },
+  {
+   "char": "ფ",
+   "name": "pari",
+   "latin": "p",
+   "sound": "p z wydechem: p-h",
+   "word": "ფული",
+   "wordLatin": "puli",
+   "meaning": "pieniądze",
+   "tip": "To nie f! Polskie p z mocnym dmuchnięciem powietrza."
+  },
+  {
+   "char": "ქ",
+   "name": "kani",
+   "latin": "k",
+   "sound": "k z wydechem: k-h",
+   "word": "ქალაქი",
+   "wordLatin": "kalaki",
+   "meaning": "miasto",
+   "tip": ""
+  },
+  {
+   "char": "ღ",
+   "name": "ghani",
+   "latin": "gh",
+   "sound": "dźwięczne, gardłowe „ch”, jak francuskie r",
+   "word": "ღვინო",
+   "wordLatin": "ghvino",
+   "meaning": "wino",
+   "tip": "Powiedz ხ (polskie ch) i dodaj głos, jak przy „r” w Paryżu."
+  },
+  {
+   "char": "ყ",
+   "name": "q'ari",
+   "latin": "q'",
+   "sound": "k z głębi gardła, ściśnięte",
+   "word": "ყველი",
+   "wordLatin": "q'veli",
+   "meaning": "ser",
+   "tip": "Jeszcze głębiej w gardle niż კ, z lekkim kliknięciem."
+  },
+  {
+   "char": "შ",
+   "name": "shini",
+   "latin": "sh",
+   "sound": "sz jak w „szafa”",
+   "word": "შაქარი",
+   "wordLatin": "shakari",
+   "meaning": "cukier",
+   "tip": ""
+  },
+  {
+   "char": "ჩ",
+   "name": "chini",
+   "latin": "ch",
+   "sound": "cz jak w „czas”, z wydechem",
+   "word": "ჩაი",
+   "wordLatin": "chai",
+   "meaning": "herbata",
+   "tip": ""
+  },
+  {
+   "char": "ც",
+   "name": "tsani",
+   "latin": "ts",
+   "sound": "c jak w „co”, z wydechem",
+   "word": "ცა",
+   "wordLatin": "tsa",
+   "meaning": "niebo",
+   "tip": ""
+  },
+  {
+   "char": "ძ",
+   "name": "dzili",
+   "latin": "dz",
+   "sound": "dz jak w „dzwon”",
+   "word": "ძაღლი",
+   "wordLatin": "dzaghli",
+   "meaning": "pies",
+   "tip": ""
+  },
+  {
+   "char": "წ",
+   "name": "ts'ili",
+   "latin": "ts'",
+   "sound": "c ściśnięte, bez wydechu",
+   "word": "წყალი",
+   "wordLatin": "ts'q'ali",
+   "meaning": "woda",
+   "tip": ""
+  },
+  {
+   "char": "ჭ",
+   "name": "ch'ari",
+   "latin": "ch'",
+   "sound": "cz ściśnięte, bez wydechu",
+   "word": "ჭიქა",
+   "wordLatin": "ch'ika",
+   "meaning": "szklanka",
+   "tip": ""
+  },
+  {
+   "char": "ხ",
+   "name": "khani",
+   "latin": "kh",
+   "sound": "ch jak w „chleb”",
+   "word": "ხე",
+   "wordLatin": "khe",
+   "meaning": "drzewo",
+   "tip": "Polak ma tu łatwo: to zwykłe polskie ch."
+  },
+  {
+   "char": "ჯ",
+   "name": "jani",
+   "latin": "j",
+   "sound": "dż jak w „dżem”",
+   "word": "ჯიბე",
+   "wordLatin": "jibe",
+   "meaning": "kieszeń",
+   "tip": ""
+  },
+  {
+   "char": "ჰ",
+   "name": "hae",
+   "latin": "h",
+   "sound": "h jak lekki wydech, w „haha”",
+   "word": "ჰაერი",
+   "wordLatin": "haeri",
+   "meaning": "powietrze",
+   "tip": ""
+  }
+ ],
+ "lookalikes": [
+  [
+   "კ",
+   "ქ",
+   "ყ"
+  ],
+  [
+   "პ",
+   "ფ"
+  ],
+  [
+   "ტ",
+   "თ"
+  ],
+  [
+   "ც",
+   "წ",
+   "ძ"
+  ],
+  [
+   "ჩ",
+   "ჭ",
+   "ჯ"
+  ],
+  [
+   "ღ",
+   "ხ"
+  ],
+  [
+   "ზ",
+   "ჟ"
+  ],
+  [
+   "შ",
+   "ჩ"
+  ],
+  [
+   "ა",
+   "ჰ"
+  ],
+  [
+   "ბ",
+   "ზ"
+  ],
+  [
+   "დ",
+   "ღ"
+  ],
+  [
+   "მ",
+   "შ"
+  ],
+  [
+   "ი",
+   "ო"
+  ],
+  [
+   "ს",
+   "ხ"
+  ],
+  [
+   "გ",
+   "ვ"
+  ],
+  [
+   "ე",
+   "ქ"
+  ]
+ ]
+}
