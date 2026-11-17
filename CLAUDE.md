@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #2 (16/11/26). The words come from the first request. Rename with `set_session_title`
+KART #3 (17/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
@@ -42,8 +42,10 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   button and no listening exercise for that text.
 - "What do you think?" means give an opinion and options. Don't build until asked.
 - Name: **Ara** (owner, KART #1): a macaw, and არა, "no" in Georgian. On the home screen
-  "Ara"; in the App Store "Ara: Learn Georgian" (check the name and trademark first). The
-  mascot is a parrot whose body curls into ა (`tools/art/parrot.py`, `ParrotView`). Inside the
+  "Ara"; in the App Store "Ara: Learn Georgian" (check the name and trademark first).
+  Identity (KART #3, `docs/brand.md`): the symbol is Ara's head, whose hooked beak is a
+  speech bubble's tail; the mascot is the same head on a macaw body (`ParrotView(mood:)`).
+  All artwork comes from `tools/brand/make_brand.py`: change it there, never by hand. Inside the
   code and repo it is still "Georgian" (target, bundle ID `com.krfix.georgian`): don't rename.
 - Developer switch: Profile › Developer › Open all lessons (UserDefaults
   `devUnlockAllLessons`). Hide it before an App Store release.
@@ -96,6 +98,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | Spaced repetition (SM-2), XP, streaks, levels, achievements, challenge, path states | `Engine/SpacedRepetition.swift`, `Engine/Gamification.swift` |
 | Saved data (SwiftData, CloudKit-ready) and everything worked out from it | `Data/Models.swift`, `Data/LearningStore.swift` |
 | Audio (bundled clips via `audio.json`, or the iPhone's Georgian voice), reminders | `Audio/`; clips made by `tools/audio/make_audio.py` |
+| Brand: symbol, app icons, logos, mascot poses (vector masters in `brand/`, assets in the catalog) | `tools/brand/ara.py` (geometry), `make_brand.py`; `docs/brand.md` |
 | Design system: colours (light and dark), type, motion, haptics, components | `DesignSystem/` (Borjgali emblem, ChunkyButton, cards, rings, confetti, FlowLayout, SpeakerButton) |
 | App start, launch options | `App/GeorgianApp.swift` (`AppModel`), `App/LaunchOptions.swift` |
 | Tabs, navigation, presenting lessons and phrases | `Features/Root/RootView.swift` (`Navigator`, `PhrasebookRoute`, `LearnRoute`) |
@@ -124,8 +127,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   springy motion that turns into fades with Reduce Motion (`Motion`, `withMotion`).
 
 ## Open
-- 0.2.0 in progress: the full app on `claude/full-app` (KART #1), and the phrasebook on
-  `claude/use-in-georgia` (KART #2, built on top of it). See DEVELOPMENT_LOG.md for their
+- 0.2.0 in progress: the full app (KART #1) and the phrasebook (KART #2) are on `main`; the
+  brand identity (KART #3) is on `claude/busy-franklin-eua7bv`. See DEVELOPMENT_LOG.md for their
   state and TODO.md for what's left.
 
 ## Repos and branches

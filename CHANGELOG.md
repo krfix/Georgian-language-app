@@ -15,7 +15,10 @@ What changed in each version, newest first. Before the App Store, versions are 0
 - Conversations to read, hear and practise from either side
 - New tabs: Home, Learn (with Words and Progress), Phrasebook, Search, Review; a calmer Home
   that shows both learning and using Georgian; "I just need phrases now" on the welcome screen
-- The name Ara and its parrot, curled into the letter ა: icon, welcome, lesson complete
+- The name Ara and its identity: a speaking-parrot symbol (a head whose hooked beak is a
+  speech bubble's tail), app icons for light, dark and tinted home screens, a new launch
+  mark, and Ara the macaw mascot with moods (hello and blinking, cheer, think, sleep) on the
+  welcome screen, lesson complete, Review and empty states
 - Georgian audio everywhere in Azure's Eka voice (synthetic, labelled), slower playback, listening exercises
 - Developer switch: open all lessons
 - A course from zero: 5 modules, 53 lessons, 209 words and phrases, all 33 letters

@@ -16,9 +16,15 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       or slow to find.
 - [ ] Name: "Ara" chosen (KART #1). Before the App Store: check "Ara: Learn Georgian" is free
       there and in a trademark search. Hide Profile › Developer.
+- [ ] Look at the new identity (docs/brand.md, brand/png) and the icon on the iPhone; say
+      what to change. A trademark search should cover the symbol too.
 - [ ] App Store: an Apple Developer account, signed builds, privacy policy and support URLs.
 
 ## Next
+- [ ] Icon Composer (on a Mac): a layered `.icon` for iOS 26's Liquid Glass from the
+      symbol's parts; the PNG icons work meanwhile.
+- [ ] More mascot poses from the same parts (pointing for tips, holding a phrase card for
+      Show mode) and perhaps a small animated version.
 - [ ] More phrasebook: banking and documents in more depth, the doctor's (body parts),
       renting (viewing a flat), and more dialogues (gym trainer, post office, hairdresser).
 - [ ] Phrases with a gap for your own word (a street, a number, a name), shown to someone

@@ -3,6 +3,40 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #3 · 17/11/26 · Brand identity, icon (branch `claude/busy-franklin-eua7bv`)
+
+The owner's brief: a sophisticated, minimal app icon plus an expressive macaw mascot, one
+identity; at least five concepts, critical selection, three or more refinements, vector
+production assets, integration without redesigning the app, Simulator check.
+
+### Audit
+SwiftUI app with a warm-paper/aubergine look, five brand colours (Palette), SF Rounded, the
+borjgali emblem, gradient cards. The old icon and mascot were one raster parrot (Pillow
+circles) on a turquoise-purple gradient; the beak read badly and it didn't hold up small.
+The welcome screen already explains the name ("you'll be saying კი: yes!").
+
+### Decisions
+- Six directions drawn and compared at 260, 120, 60 and 29 px on light and dark
+  (`brand/exploration`): parrot, ა lettermark (real Noto Sans Georgian glyph), two
+  bubbles, feather quill, speaking parrot, ა-bird. Chosen: the **speaking parrot** (head =
+  speech bubble, beak = its tail). Why, and the trade-offs: docs/brand.md.
+- Five refinement rounds: beak geometry (three tries), centring and tilt, backgrounds, the
+  gold-and-blue neck curl, the one-colour outline.
+- Mascot rebuilt in the same geometry; moods change only the eye, tilt and wing.
+- Artwork in code (`tools/brand/ara.py`, `make_brand.py`): SVG masters, PDF vectors in the
+  app, PNG icons. No AI images. Wordmark in Nunito Black outlines (OFL). The ა connection
+  stays in the story, not in a bent letter.
+
+### Built
+- AppIcon light, dark and tinted; LaunchMark (the symbol); AraSymbol; Parrot, ParrotBlink,
+  ParrotCheer, ParrotThink, ParrotSleep (vector PDFs). The old `tools/art` is gone.
+- `ParrotView(mood:)` with blinking; the mascot on the ready page and Lesson complete (cheer),
+  "Nothing saved yet" (hello), "Nothing found" and the start-up problem screen (think),
+  Review's "All caught up" (sleep); the symbol above the version line in Profile.
+- QA also photographs the home screen (light, dark) and a search with no results.
+
+### Runs and refinement cycles
+
 ## KART #2 · 16/11/26 · Use in Georgia (branch `claude/use-in-georgia`, from `claude/full-app`)
 
 The owner's brief: keep the design, but turn the app from a Duolingo-style game into a

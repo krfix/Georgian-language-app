@@ -207,6 +207,7 @@ def imageset(name, pdf_svg, note):
     for f in os.listdir(folder):
         os.remove(os.path.join(folder, f))
     fn = name[0].lower() + name[1:] + ".pdf"
+    # (The PDF library's output differs a little between runs even for the same drawing.)
     cairosvg.svg2pdf(bytestring=pdf_svg.encode(), write_to=os.path.join(folder, fn))
     write(os.path.join(folder, "Contents.json"), json.dumps({
         "images": [{"filename": fn, "idiom": "universal"}],
@@ -259,8 +260,8 @@ def icon_sizes_preview():
     """The three icons at App Store, home-screen and Settings sizes on light and dark."""
     kinds = ("light", "dark", "tinted")
     big = {k: png(icon(k), 1024) for k in kinds}
-    out = Image.new("RGB", (2440, 760), "#F2F2F7")
-    ImageDraw.Draw(out).rectangle((0, 380, 2440, 760), fill="#1C1C1E")
+    out = Image.new("RGB", (2620, 760), "#F2F2F7")
+    ImageDraw.Draw(out).rectangle((0, 380, 2620, 760), fill="#1C1C1E")
     for row, y in ((0, 40), (1, 420)):
         x = 40
         for k in kinds:
