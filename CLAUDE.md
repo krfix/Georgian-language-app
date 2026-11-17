@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #4 (17/11/26). The words come from the first request. Rename with `set_session_title`
+KART #5 (17/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
@@ -41,11 +41,12 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   spelling is generated (national system, 2002: k' p' t' q' ts' ch' for the tight sounds).
   Follow `docs/content-quality.md`. Never claim a native speaker's check that hasn't
   happened (`PHRASEBOOK_STATUS` in content_phrasebook.py; the app shows it).
-- Audio: never fabricate, always label. The owner chose Azure's **Eka** voice (KART #1):
-  every Georgian text with a speaker button has a clip made once by
-  `tools/audio/make_audio.py` (key saved in the environment for
+- Audio: never fabricate, always label. The owner chose Azure's **Eka** voice (KART #1);
+  learners can pick **Giorgi** (male) instead (KART #5: welcome steps, Profile › Voice;
+  `AudioService.Voice`). Every Georgian text with a speaker button has a clip in each
+  voice, made once by `tools/audio/make_audio.py` (key saved in the environment for
   northeurope.tts.speech.microsoft.com, added by the proxy; never in code or chat), indexed
-  in `Resources/Audio/audio.json` and labelled "Synthetic voice". A native recording can
+  in `Resources/Audio/audio.json` (Eka) and `audio-giorgi.json`, labelled "Synthetic voice". A native recording can
   replace a clip (same file, `"source": "native"`). New or changed Georgian text → run the
   script again (it only makes missing clips). No clip and no iPhone voice → no speaker
   button and no listening exercise for that text.
@@ -138,10 +139,10 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   springy motion that turns into fades with Reduce Motion (`Motion`, `withMotion`).
 
 ## Open
-- 0.2.0 in progress, all on `main` (build #27's code): the full app (KART #1), the phrasebook
-  (KART #2), the brand identity (KART #3), and KART #4: numbers, Polish, eight dialogues,
-  learning-first (no XP on screen), tappable words, why cards, grammar g10–g13. Not released. See DEVELOPMENT_LOG.md for their
-  state and TODO.md for what's left.
+- 0.2.0 released from `main` (KART #5): the full app (KART #1), the phrasebook (KART #2), the
+  brand identity (KART #3), KART #4 (numbers, Polish, eight dialogues, learning-first,
+  tappable words, why cards, grammar g10–g13) and the voice choice (KART #5). See
+  DEVELOPMENT_LOG.md for their state and TODO.md for what's left.
 
 ## Repos and branches
 - `krfix/Georgian-language-app` (private): this app; `main` is what's tested and accepted.

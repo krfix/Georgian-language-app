@@ -305,12 +305,13 @@ struct Toast: View {
 /// Who checked the Georgian, said plainly.
 struct ContentCheckNote: View {
     @Environment(LearningStore.self) private var store
+    @Environment(AudioService.self) private var audio
 
     var body: some View {
         Label {
             Text(store.phrasebook.isNativeChecked
-                 ? tr("Phrases checked by a native Georgian speaker. Audio: Eka, a synthetic voice.")
-                 : tr("Phrases written and checked by Claude, an AI, for natural everyday Georgian. A native speaker's check is still to come. Audio: Eka, a synthetic voice."))
+                 ? tr("Phrases checked by a native Georgian speaker. Audio: {0}, a synthetic voice.", audio.voice.name)
+                 : tr("Phrases written and checked by Claude, an AI, for natural everyday Georgian. A native speaker's check is still to come. Audio: {0}, a synthetic voice.", audio.voice.name))
         } icon: {
             Image(systemName: "checkmark.shield.fill")
         }

@@ -3,10 +3,11 @@ import SwiftUI
 /// First run: welcome, a little about Georgian, how the app teaches, the learner's level,
 /// a daily goal, a name (optional), then straight into the first lesson. No account.
 struct OnboardingView: View {
-    enum Step: Int, CaseIterable { case welcome, language, method, level, goal, name, ready }
+    enum Step: Int, CaseIterable { case welcome, language, method, voice, level, goal, name, ready }
 
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
+    @Environment(AudioService.self) private var audio
     @State private var step: Step = .welcome
     @State private var forward = true
     @State private var level: StartingLevel = .beginner
@@ -41,6 +42,7 @@ struct OnboardingView: View {
         case .welcome, .ready: return .pomegranate
         case .language: return .saperavi
         case .method: return .blacksea
+        case .voice: return .saperavi
         case .level: return .tkemali
         case .goal: return .gold
         case .name: return .saperavi
@@ -71,6 +73,7 @@ struct OnboardingView: View {
         case .welcome: WelcomePage()
         case .language: LanguagePage()
         case .method: MethodPage()
+        case .voice: voicePage
         case .level: ChoicePage(title: tr("How much Georgian do you know?"), subtitle: tr("We'll start you in the right place. You can change it later."),
                                 options: StartingLevel.allCases.map { ($0.rawValue, $0.title, $0.detail, $0.symbol) },
                                 selected: level.rawValue, color: .tkemali) { level = StartingLevel(rawValue: $0) ?? .beginner }
@@ -88,6 +91,15 @@ struct OnboardingView: View {
         case .regular: return "figure.walk"
         case .serious: return "figure.run"
         case .intense: return "flame.fill"
+        }
+    }
+
+    private var voicePage: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text(tr("Choose a voice")).font(.titleBold).foregroundStyle(Palette.ink)
+            Text(tr("Every Georgian word and sentence in the app is spoken in this voice. Tap Listen to hear each one. You can change it later in Profile."))
+                .font(.bodyRounded).foregroundStyle(Palette.inkSoft)
+            VoicePicker(color: .saperavi)
         }
     }
 
@@ -197,6 +209,7 @@ struct OnboardingView: View {
     private func go(_ delta: Int) {
         guard let next = Step(rawValue: step.rawValue + delta) else { return }
         Haptics.tap()
+        audio.stop()
         nameFocused = false
         forward = delta > 0
         withMotion(Motion.spring) { step = next }

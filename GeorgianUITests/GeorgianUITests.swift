@@ -22,6 +22,8 @@ final class GeorgianUITests: XCTestCase {
         XCTAssertTrue(app.buttons["onboarding-next"].waitForExistence(timeout: 10), "Welcome screen")
         app.buttons["onboarding-next"].tap()            // welcome → about Georgian
         app.buttons["onboarding-next"].tap()            // → method
+        app.buttons["onboarding-next"].tap()            // → voice
+        XCTAssertTrue(app.buttons["voice-giorgi"].waitForExistence(timeout: 3), "Voice choice")
         app.buttons["onboarding-next"].tap()            // → level
         app.buttons["choice-beginner"].tap()
         app.buttons["onboarding-next"].tap()            // → goal

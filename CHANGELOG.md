@@ -2,9 +2,12 @@
 
 What changed in each version, newest first. Before the App Store, versions are 0.x.y.
 
-## Not released yet
+## [0.2.0] - 2026-11-17
 
-### 0.2.0 (in progress): the full app, now called Ara
+The full app, now called Ara.
+
+- Choose the voice: Eka (female) or Giorgi (male), with a sample to listen to, on the
+  welcome steps and in Profile › Voice. Every Georgian text has a clip in both voices
 - Learning first: no XP or levels on screen. Home shows words known and a gentle streak;
   Progress shows what you can do now ("Order in a café", "Ask the way"); milestones replace
   the XP achievements; the daily goal is a share of the day
@@ -48,7 +51,7 @@ What changed in each version, newest first. Before the App Store, versions are 0
 - Progress saved with SwiftData; audio only from real recordings or a real Georgian voice
 - UI tests and Simulator screenshots in the workflow
 
-### 0.1.0
+## [0.1.0] - not released on its own
 - The project set-up: XcodeGen project, build workflow with tests, privacy manifest
 - Alphabet: the 33 letters in a grid, each with a page (name, Latin spelling, sound, a word)
 - Practice: the letter quiz, five new letters at a time, missed letters come back more often

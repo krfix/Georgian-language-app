@@ -3,6 +3,26 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #5 · 17/11/26 · Voice choice, release 0.2.0 (branch `claude/bold-mendel-napy3u`)
+
+Owner's request: a male voice to choose on the start screen, with examples to hear, and a
+way to change it in settings; then release straight away (one build, the release itself).
+
+### Built
+- **Giorgi**, Azure's male Georgian voice (`ka-GE-GiorgiNeural`), next to Eka: 964 new clips
+  (`kam-…mp3`, index `audio-giorgi.json`). `make_audio.py` now makes both voices
+  (`--voice eka|giorgi` for one).
+- `AudioService.Voice` (eka, giorgi), saved in UserDefaults `audioVoice`; a clip is looked
+  up in the chosen voice, then the other; a native recording in either wins.
+- `VoicePicker` (DesignSystem): two cards, each with Listen ("გამარჯობა, როგორ ხარ?").
+  On a new onboarding step after "How you'll learn", and in Profile › Audio › Voice in the app.
+- The phrasebook's note and Profile's footer name the chosen voice. Polish for every new text.
+- UI test: one more step in onboarding, and the voice cards are there.
+
+### Not checked yet
+- Compiled and tested only by the release run itself (owner asked for one build).
+- The app is about 17 MB bigger with the second voice.
+
 ## KART #4 · 17/11/26 · Numbers, Polish, more conversations (branch `claude/charming-hopper-rw555g`)
 
 Owner's requests: a richer numbers lesson (all teens with the rule, examples like 21, 22,

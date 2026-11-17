@@ -3,9 +3,11 @@ import Foundation
 import Observation
 
 /// Plays Georgian aloud. The sources are kept apart and labelled in the app:
-/// - **Clips in the app** (`Resources/Audio`, indexed by `audio.json`: text → file): today
-///   Azure's Eka voice, made once by tools/audio/make_audio.py and marked "synthetic"; a
-///   native speaker's recording can replace any clip and is marked "native".
+/// - **Clips in the app** (`Resources/Audio`, indexed by `audio.json` for Eka and
+///   `audio-giorgi.json` for Giorgi: text → file): Azure's voices, made once by
+///   tools/audio/make_audio.py and marked "synthetic". The learner picks the voice
+///   (`Voice`, onboarding and Profile). A native speaker's recording can replace any clip
+///   and is marked "native"; a native recording plays whichever voice is chosen.
 /// - **The iPhone's own Georgian voice**, only if this iPhone really has one, for any text
 ///   without a clip.
 /// When neither exists for a text, nothing pretends to speak: no speaker button, and no
@@ -24,12 +26,29 @@ final class AudioService: NSObject {
         }
     }
 
+    /// The two synthetic voices the learner can choose between.
+    enum Voice: String, CaseIterable, Identifiable {
+        case eka, giorgi
+        var id: String { rawValue }
+        var name: String { self == .eka ? "Eka" : "Giorgi" }
+        var indexFile: String { self == .eka ? "audio" : "audio-giorgi" }
+        /// What the voice says when the learner listens to a sample.
+        static let sample = "გამარჯობა, როგორ ხარ?"
+
+        static let storageKey = "audioVoice"
+        static var stored: Voice {
+            Voice(rawValue: UserDefaults.standard.string(forKey: storageKey) ?? "") ?? .eka
+        }
+    }
+
     enum PlaybackState: Equatable {
         case idle
         case playing(text: String, source: Source)
     }
 
     private(set) var state: PlaybackState = .idle
+    /// The voice of the clip playing now (the voice picker's samples say the same text).
+    private(set) var playingVoice: Voice?
     /// 0…1 through what is playing.
     private(set) var progress: Double = 0
     /// A Georgian voice installed on this iPhone, if any.
@@ -40,16 +59,27 @@ final class AudioService: NSObject {
     @ObservationIgnored private var player: AVAudioPlayer?
     @ObservationIgnored private var timer: Timer?
     private let bundle: Bundle
-    /// The clips in the app, by the Georgian text they say.
-    private let clips: [String: AudioIndex.Clip]
-    /// The voice the synthetic clips were made with ("Eka (Azure neural, ka-GE)").
-    let clipVoice: String?
+    /// The clips in the app for each voice, by the Georgian text they say.
+    private let clipsByVoice: [Voice: [String: AudioIndex.Clip]]
+    /// The voice the learner chose (saved on this iPhone).
+    var voice: Voice {
+        get { chosenVoice }
+        set {
+            chosenVoice = newValue
+            UserDefaults.standard.set(newValue.rawValue, forKey: Voice.storageKey)
+        }
+    }
+    private var chosenVoice: Voice = Voice.stored
+    /// The chosen voice's clips.
+    private var clips: [String: AudioIndex.Clip] { clipsByVoice[voice] ?? [:] }
 
     init(bundle: Bundle = .main) {
         self.bundle = bundle
-        let index = AudioIndex.load(from: bundle)
-        clips = index?.clips ?? [:]
-        clipVoice = index?.voice
+        var all: [Voice: [String: AudioIndex.Clip]] = [:]
+        for v in Voice.allCases {
+            if let index = AudioIndex.load(from: bundle, name: v.indexFile) { all[v] = index.clips }
+        }
+        clipsByVoice = all
         super.init()
         synthesizer.delegate = self
         findVoice()
@@ -71,10 +101,22 @@ final class AudioService: NSObject {
             ?? bundle.url(forResource: name, withExtension: ext, subdirectory: "Audio")
     }
 
-    func source(for text: String) -> Source? {
-        if let clip = clips[text], let url = clipURL(clip) { return .clip(url, native: clip.source == "native") }
+    /// Which clip says `text` in `voice`: a native recording first (in any voice's index),
+    /// then the chosen voice's clip, then the other voice's, then the iPhone's own voice.
+    func source(for text: String, voice: Voice? = nil) -> Source? {
+        let chosen = voice ?? self.voice
+        let order = [chosen] + Voice.allCases.filter { $0 != chosen }
+        for v in order {
+            if let clip = clipsByVoice[v]?[text], clip.source == "native", let url = clipURL(clip) { return .clip(url, native: true) }
+        }
+        for v in order {
+            if let clip = clipsByVoice[v]?[text], let url = clipURL(clip) { return .clip(url, native: clip.source == "native") }
+        }
         return georgianVoice == nil ? nil : .systemVoice
     }
+
+    /// Whether the app has clips in this voice.
+    func hasClips(_ voice: Voice) -> Bool { !(clipsByVoice[voice]?.isEmpty ?? true) }
 
     func canPlay(_ text: String) -> Bool { source(for: text) != nil }
 
@@ -87,9 +129,10 @@ final class AudioService: NSObject {
         return false
     }
 
-    func play(_ text: String, slow: Bool? = nil) {
+    /// Plays `text`; `voice` picks a voice just this once (the samples on the voice picker).
+    func play(_ text: String, slow: Bool? = nil, voice: Voice? = nil) {
         stop()
-        guard let source = source(for: text) else { return }
+        guard let source = source(for: text, voice: voice) else { return }
         let slower = slow ?? self.slow
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio)
         try? AVAudioSession.sharedInstance().setActive(true)
@@ -114,6 +157,7 @@ final class AudioService: NSObject {
             synthesizer.speak(u)
         }
         progress = 0
+        playingVoice = voice ?? self.voice
         state = .playing(text: text, source: source)
     }
 
@@ -124,6 +168,7 @@ final class AudioService: NSObject {
         timer?.invalidate()
         timer = nil
         state = .idle
+        playingVoice = nil
         progress = 0
     }
 
@@ -132,6 +177,7 @@ final class AudioService: NSObject {
         timer = nil
         progress = 1
         state = .idle
+        playingVoice = nil
     }
 }
 
@@ -163,9 +209,9 @@ struct AudioIndex: Decodable {
     let voice: String?
     let clips: [String: Clip]
 
-    static func load(from bundle: Bundle) -> AudioIndex? {
-        let url = bundle.url(forResource: "audio", withExtension: "json")
-            ?? bundle.url(forResource: "audio", withExtension: "json", subdirectory: "Audio")
+    static func load(from bundle: Bundle, name: String = "audio") -> AudioIndex? {
+        let url = bundle.url(forResource: name, withExtension: "json")
+            ?? bundle.url(forResource: name, withExtension: "json", subdirectory: "Audio")
         guard let url, let data = try? Data(contentsOf: url) else { return nil }
         return try? JSONDecoder().decode(AudioIndex.self, from: data)
     }

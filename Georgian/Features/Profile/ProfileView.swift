@@ -67,13 +67,33 @@ struct ProfileView: View {
 
                 Section {
                     Toggle(tr("Slower Georgian audio"), isOn: binding(\.slowAudio) { audio.slow = $0 })
-                    LabeledContent(tr("Voice in the app"), value: audio.syntheticClipCount > 0 ? tr("Eka · synthetic") : tr("None"))
+                    if audio.syntheticClipCount > 0 {
+                        NavigationLink {
+                            ScrollView {
+                                VStack(alignment: .leading, spacing: 16) {
+                                    Text(tr("Every Georgian word and sentence in the app is spoken in this voice. Tap Listen to hear each one."))
+                                        .font(.bodyRounded)
+                                        .foregroundStyle(Palette.inkSoft)
+                                    VoicePicker()
+                                }
+                                .padding(20)
+                            }
+                            .background(Palette.background.ignoresSafeArea())
+                            .navigationTitle(tr("Voice"))
+                            .onDisappear { audio.stop() }
+                        } label: {
+                            LabeledContent(tr("Voice in the app"), value: tr("{0} · synthetic", audio.voice.name))
+                        }
+                        .accessibilityIdentifier("profile-voice")
+                    } else {
+                        LabeledContent(tr("Voice in the app"), value: tr("None"))
+                    }
                     LabeledContent(tr("Native recordings"), value: audio.nativeClipCount > 0 ? tr("{0} clips", audio.nativeClipCount) : tr("Not included yet"))
                     LabeledContent(tr("iPhone's Georgian voice"), value: audio.georgianVoice == nil ? tr("Not on this iPhone") : (audio.georgianVoice?.name ?? tr("Installed")))
                 } header: {
                     Text(tr("Audio"))
                 } footer: {
-                    Text(tr("Georgian is spoken by Eka, a computer voice from Microsoft Azure, and labelled \"Synthetic voice\". A native speaker's recordings will replace her clips one by one and are labelled \"Native recording\"."))
+                    Text(tr("Georgian is spoken by Eka or Giorgi, computer voices from Microsoft Azure, and labelled \"Synthetic voice\". A native speaker's recordings will replace their clips one by one and are labelled \"Native recording\"."))
                 }
 
                 Section {
