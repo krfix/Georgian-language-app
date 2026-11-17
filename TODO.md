@@ -18,6 +18,8 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       there and in a trademark search. Hide Profile › Developer.
 - [ ] Look at the new identity (docs/brand.md, brand/png) and the icon on the iPhone; say
       what to change. A trademark search should cover the symbol too.
+- [ ] App Store screenshots are ready (`brand/app-store`); a short App Store preview video
+      and the description text are still to write.
 - [ ] App Store: an Apple Developer account, signed builds, privacy policy and support URLs.
 
 ## Next

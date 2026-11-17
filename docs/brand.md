@@ -121,6 +121,29 @@ quick, encouraging; a local friend, not a cheerleader.
   pointing for tips, a perch for streaks, holding a phrase card for Show mode). A small
   animated version (Rive or SwiftUI shapes) can reuse the same geometry.
 
+## App Store screenshots (brand/app-store)
+
+Nine screens at 1320 × 2868 (the 6.9-inch iPhone size App Store Connect asks for; it
+scales them for smaller iPhones), made by `tools/appstore/make_screens.py` from the QA run's
+Simulator screenshots (the invented demo learner, Ana). The order tells the story; the first
+three show in search results, so they carry the strongest features:
+
+| # | Headline | Screen | Colour |
+| --- | --- | --- | --- |
+| 1 | Learn Georgian. Live Georgian. | Home, with Ara | the icon's gradient |
+| 2 | Just show the driver | Show mode | Pomegranate |
+| 3 | Type what you want to say | Search "water" | Black Sea |
+| 4 | 302 phrases for real life | Use in Georgia | Gold |
+| 5 | Hear it. Say it. | Phrase card, sound guide | Tkemali → Black Sea |
+| 6 | Practise real conversations | At the bazaar | Saperavi → Black Sea |
+| 7 | Read Georgian from day one | Alphabet | Pomegranate → Saperavi |
+| 8 | Short lessons that stick | Exercise + Review | Saperavi → Pomegranate |
+| 9 | Your Georgia, in your pocket | My phrasebook (dark) | Night |
+
+Rules kept: real screens only; every number checked against the content; no claim of native
+audio or a native speaker's check; big headlines that read as thumbnails. When the app
+changes, run a QA build, then the script again.
+
 ## Still to do
 - iOS 26 Liquid Glass icon: the PNG icons work, but Icon Composer (Mac only) can turn the
   layers (background, head, beak, curl) into a `.icon` file with real glass depth.

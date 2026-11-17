@@ -44,6 +44,15 @@ The welcome screen already explains the name ("you'll be saying კი: yes!").
 - **Cycle 1** (from those pictures): the raised wing's red shoulder looked like a stubby arm
   on Lesson complete. → Removed in the cheer pose (checked in the rendered master).
 
+### App Store screenshots (same chat, after the merge)
+Nine 1320 × 2868 screens from the QA pictures (`tools/appstore/make_screens.py`, HTML
+rendered by Playwright, Nunito and Noto Sans Georgian). Three refinement rounds: (1) tiny
+Georgian corner words dropped (unreadable as thumbnails), the parrot moved off the captions,
+phones made bigger and bleeding off the bottom on purpose, bigger headlines, a shorter
+headline for Show mode; (2) the half-empty matching exercise swapped for "What does it
+mean?"; (3) the last slide changed from a second Home to My phrasebook in dark mode, and the
+files saved without an alpha channel (App Store Connect refuses one).
+
 ## KART #2 · 16/11/26 · Use in Georgia (branch `claude/use-in-georgia`, from `claude/full-app`)
 
 The owner's brief: keep the design, but turn the app from a Duolingo-style game into a

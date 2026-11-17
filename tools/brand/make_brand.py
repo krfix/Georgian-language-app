@@ -11,7 +11,7 @@ Writes
                   AppIcon (light, dark and tinted), AraSymbol (vector PDF), LaunchMark (PNG)
                   and the mascot poses Parrot, ParrotBlink, ParrotCheer, ParrotThink and
                   ParrotSleep (vector PDF).
-The wordmark is Nunito Black (SIL Open Font License, tools/brand/fonts/OFL.txt), turned into
+The wordmark is Nunito Black (SIL Open Font License, tools/brand/fonts/OFL-Nunito.txt), turned into
 outlines, so no font is needed to show it. docs/brand.md explains how to use it all.
 """
 import io
