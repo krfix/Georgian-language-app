@@ -40,6 +40,12 @@ and stops on any mechanical mistake.
 9. **Audio:** after a change, `python3 tools/audio/make_audio.py` makes the missing clips
    (labelled "Synthetic voice" in the app). Listen to a few new ones.
 
+## Polish (content_pl.py)
+- Every course and phrasebook text has a Polish version; the build stops otherwise.
+- Pronunciation by Polish words (ch, sz, cz, ż are Polish sounds); grammar compared with
+  Polish where it helps. Gender: give both forms where Polish needs one ("zrozumiałem(-am)").
+- Status: written by Claude; not yet read by a Polish speaker.
+
 ## Status
 - Course and phrasebook: written and checked by Claude (an AI). Not yet checked by a native
   speaker. The app says so (Phrasebook footer, Profile › Phrasebook), from

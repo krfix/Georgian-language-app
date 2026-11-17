@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #3 (17/11/26). The words come from the first request. Rename with `set_session_title`
+KART #4 (17/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
@@ -27,6 +27,12 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   phrasebook for real situations, usable at once, offline, with no unlocking) as two equal
   halves, connected (save a phrase, practise it in review, learn its words and grammar).
   Keep the colourful design; gamification stays, but quieter.
+- Two languages (KART #4): English and Polish, chosen on the welcome screen or in Profile.
+  Screens write English inside `tr("…")` (placeholders `{0}`, counts with `plural()`); the
+  Polish is in `tools/l10n/ui_pl.py` → `Resources/Localization/ui-pl.json`, checked by
+  `tools/l10n/check_strings.py`. Course and phrasebook Polish: `content_pl.py`, checked by
+  `build_curriculum.py`. New text needs both. Explanations for Polish speakers compare with
+  Polish (sounds, cases, verbs), not word-for-word English.
 - Georgian text must be right: every word and sentence goes into
   `tools/curriculum/content_*.py` and through `build_curriculum.py`, which checks it. Latin
   spelling is generated (national system, 2002: k' p' t' q' ts' ch' for the tight sounds).
@@ -93,6 +99,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | --- | --- |
 | Course and phrasebook content (source) and the checker | `tools/curriculum/content_words.py`, `content_course.py`, `content_phrasebook.py`, `build_curriculum.py` → `Georgian/Resources/Curriculum/*.json` |
 | Content types, loading, look-ups, Latin spelling, pronunciation help | `Curriculum/` |
+| Languages: `AppLanguage`, `tr()`, `plural()`, Polish table; checks | `Curriculum/Localization.swift`, `Resources/Localization/`, `tools/l10n/` |
 | Phrasebook types, lookups, phrases as review words, dialogue practice, search (tested) | `Curriculum/PhrasebookModels.swift`, `Phrasebook.swift`, `PhraseSearch.swift` |
 | Exercises: kinds and shapes, building them from lessons, checking answers, the session | `Engine/Exercise.swift`, `ExerciseBuilder.swift`, `AnswerEvaluator.swift`, `LessonSession.swift` |
 | Spaced repetition (SM-2), XP, streaks, levels, achievements, challenge, path states | `Engine/SpacedRepetition.swift`, `Engine/Gamification.swift` |
@@ -128,7 +135,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 
 ## Open
 - 0.2.0 in progress: the full app (KART #1) and the phrasebook (KART #2) are on `main`; the
-  brand identity (KART #3) is on `claude/busy-franklin-eua7bv`. See DEVELOPMENT_LOG.md for their
+  brand identity (KART #3), then numbers, Polish and eight dialogues (KART #4) are on
+  `claude/charming-hopper-rw555g`. See DEVELOPMENT_LOG.md for their
   state and TODO.md for what's left.
 
 ## Repos and branches

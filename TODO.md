@@ -23,12 +23,16 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 - [ ] App Store: an Apple Developer account, signed builds, privacy policy and support URLs.
 
 ## Next
+- [ ] Polish (KART #4): a Polish speaker reads the app and the course; Polish App Store text
+      and screenshots; the c2 conversation and some phrases still say "from England".
+- [ ] Owner's idea (KART #4), waiting for a decision: a more Busuu-like course (less XP, more
+      explanation), tappable words that explain their form, more grammar lessons.
 - [ ] Icon Composer (on a Mac): a layered `.icon` for iOS 26's Liquid Glass from the
       symbol's parts; the PNG icons work meanwhile.
 - [ ] More mascot poses from the same parts (pointing for tips, holding a phrase card for
       Show mode) and perhaps a small animated version.
 - [ ] More phrasebook: banking and documents in more depth, the doctor's (body parts),
-      renting (viewing a flat), and more dialogues (gym trainer, post office, hairdresser).
+      renting (viewing a flat). (Trainer, post office, hairdresser dialogues: done in KART #4.)
 - [ ] Phrases with a gap for your own word (a street, a number, a name), shown to someone
       with the word filled in.
 - [ ] A home-screen widget or a Siri/Shortcuts action for "Show: please stop here".

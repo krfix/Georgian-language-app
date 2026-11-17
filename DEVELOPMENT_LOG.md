@@ -3,6 +3,43 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #4 · 17/11/26 · Numbers, Polish, more conversations (branch `claude/charming-hopper-rw555g`)
+
+Owner's requests: a richer numbers lesson (all teens with the rule, examples like 21, 22,
+31; words 0–21, 30, 40, 50, 100); the whole app in Polish, chosen at welcome and in
+settings, with Polish explanations of pronunciation and grammar; more phrasebook
+conversations. Also asked for an opinion (not a build) on a Busuu-like direction: less XP,
+more explanation, tappable grammar bubbles.
+
+### Built
+- **Numbers:** 13–19, 21 and 50 added (9 new words, each teen with a note on how it's
+  built); lessons v6 "Eleven to nineteen", v6b "Twenty to a hundred" and the grammar lesson
+  v6c "How numbers are built" (teens, twenties, "twenty and…", numbers with nouns; 8 exercises).
+- **Polish (`AppLanguage`, `tr()`):** the app's own words go through `tr("English")`, looked up
+  in `Resources/Localization/ui-pl.json` (465 texts, written in `tools/l10n/ui_pl.py`); the
+  course and phrasebook load from `*-pl.json`, made by `build_curriculum.py` from
+  `content_pl.py`. Choosing: a switch on the welcome screen and Profile › Language; the app
+  reloads in place (`AppModel.setLanguage`), progress kept. A Polish iPhone starts in Polish.
+- **Written for Polish speakers, not translated:** letter sounds by Polish words (ხ = ch in
+  „chleb”, ჟ = ż, ჩ = cz…), the aspiration pairs explained against Polish p/t/k, the soft-i
+  trap (სი is „si” as in „taxi”), a Polish sound guide in the phrasebook (ga-mar-dżo-ba);
+  grammar compared with Polish (teens like „jede-naście”, cases and the narzędnik for -ით,
+  verbs like „podoba mi się”, no he/she, numbers with nouns simpler than Polish).
+- **Polish search and answers:** accents optional (zrozumialem = zrozumiałem), Polish
+  keywords and synonyms for all 302 phrases, Polish stop words and a rough stem.
+- **Phrasebook:** 8 new dialogues (21 in all), each in English and Polish with notes; 80 new
+  Eka clips (950 in all).
+- **Checks:** `build_curriculum.py` stops on any text without Polish;
+  `tools/l10n/check_strings.py` stops on any `tr()` without Polish or with wrong {0}
+  placeholders; `tools/l10n/untranslated.py` lists English left outside `tr()`. New logic
+  tests: the Polish course loads with the same ids and Georgian, Polish search, answers
+  without accents, plurals. The QA run also takes 20 Polish screenshots.
+
+### Not checked yet
+- Nothing compiled here (no Swift on Linux): the Mac run is the first compile.
+- The Polish was written by Claude: a Polish speaker's read-through is the real test.
+- The new dialogues' Georgian needs the same native check as the rest.
+
 ## KART #3 · 17/11/26 · Brand identity, icon (branch `claude/busy-franklin-eua7bv`)
 
 The owner's brief: a sophisticated, minimal app icon plus an expressive macaw mascot, one

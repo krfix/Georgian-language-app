@@ -5,7 +5,14 @@ What changed in each version, newest first. Before the App Store, versions are 0
 ## Not released yet
 
 ### 0.2.0 (in progress): the full app, now called Ara
-- Use in Georgia: a phrasebook of 302 phrases in 11 real-life situations and 13
+- Polski: the whole app in Polish or English, chosen on the welcome screen or in Profile;
+  pronunciation and grammar explained for Polish speakers, with comparisons to Polish;
+  Polish search and answers that forgive missing ą, ł, ż…
+- Numbers: every number from 0 to 21, then 30, 40, 50 and 100, and a new lesson on how
+  numbers are built (the teens, counting in twenties, 21, 22, 31…)
+- Eight more conversations in the phrasebook: post office, hairdresser, changing money,
+  marshrutka, dinner at a friend's, buying clothes, a mountain trail, a personal trainer
+- Use in Georgia: a phrasebook of 302 phrases in 11 real-life situations and 21
   conversations, all usable at once and offline, with Eka audio
 - Phrase cards with a sound guide, usage notes, polite and informal forms, replies you may
   hear, and links to the course's words and grammar
@@ -21,7 +28,7 @@ What changed in each version, newest first. Before the App Store, versions are 0
   welcome screen, lesson complete, Review and empty states
 - Georgian audio everywhere in Azure's Eka voice (synthetic, labelled), slower playback, listening exercises
 - Developer switch: open all lessons
-- A course from zero: 5 modules, 53 lessons, 209 words and phrases, all 33 letters
+- A course from zero: 5 modules, 55 lessons, 218 words and phrases, all 33 letters
 - 15 exercise kinds on one engine, with instant feedback and retries
 - Spaced repetition, difficult words and recent mistakes in Review
 - XP, levels, streaks, a daily goal, a daily challenge and 15 achievements
