@@ -19,8 +19,10 @@ way to change it in settings; then release straight away (one build, the release
 - The phrasebook's note and Profile's footer name the chosen voice. Polish for every new text.
 - UI test: one more step in onboarding, and the voice cards are there.
 
-### Not checked yet
-- Compiled and tested only by the release run itself (owner asked for one build).
+### Released
+- Run #29 on `main`: 174/174 logic checks passed, app built (Xcode 26.3), GitHub Release
+  v0.2.0 published with Georgian-0.2.0.ipa. The UI tests (new voice step) weren't run: they
+  run only in the Simulator (qa) job.
 - The app is about 17 MB bigger with the second voice.
 
 ## KART #4 · 17/11/26 · Numbers, Polish, more conversations (branch `claude/charming-hopper-rw555g`)
