@@ -4,10 +4,12 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 
 ## Needs the owner
 - [ ] Test the app on the iPhone (Feather install) and say what to change.
-- [ ] Native audio: every Georgian text has a synthetic Eka clip (870, KART #1 and #2). A
-      native speaker's recordings can replace them one by one: same file name in
-      `Georgian/Resources/Audio`, `"source": "native"` in audio.json; the app then labels
-      them "Native recording".
+- [ ] Native audio: every Georgian text has synthetic clips in Eka's and Giorgi's voices
+      (1,460 each, KART #1, #2, #5). A native speaker's recordings can replace them one by
+      one: same file name in `Georgian/Resources/Audio`, `"source": "native"` in audio.json
+      (a native clip plays whichever voice is chosen); the app labels them "Native recording".
+- [ ] Try 0.2.1 on the iPhone: the voice step on a fresh start, Profile › Voice, and Learn ›
+      Words › More words (გული, heart). The UI tests for these haven't run (no qa run yet).
 - [ ] A native speaker's check of the course and the phrasebook (`tools/curriculum/content_*.py`).
       Every word and sentence was checked by Claude and by the build script, but a native
       read-through is the real test. docs/content-quality.md lists what to look at first.
@@ -44,5 +46,7 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 - [ ] More content: Module 2 has ~10 words per theme; Modules 3–5 could each take a second
       round (A1 level).
 - [ ] Words in the vocabulary that belong to no lesson (none now; the build script checks).
+      Words seen in the app but outside the lessons are listed as More words (528, KART #5);
+      the most useful could become lesson words later.
 - [ ] Widgets and a lock-screen streak.
 - [ ] iCloud sync (the models are ready for CloudKit: defaults everywhere, nothing unique).

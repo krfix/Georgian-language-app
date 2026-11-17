@@ -37,8 +37,10 @@ and stops on any mechanical mistake.
    `emergency` situation (shown in red, with 112).
 8. **Facts in notes** (prices, customs, how things work in Georgia) are stated carefully
    ("usually", "many") and kept few; anything that changes quickly is left out.
-9. **Audio:** after a change, `python3 tools/audio/make_audio.py` makes the missing clips
-   (labelled "Synthetic voice" in the app). Listen to a few new ones.
+9. **Audio:** after a change, `python3 tools/audio/make_audio.py` makes the missing clips in
+   both voices, Eka and Giorgi (labelled "Synthetic voice" in the app). Listen to a few new ones.
+10. **Every word on screen is in Words:** the build lists words outside the lessons as More
+   words and stops if one has no explanation (`build_curriculum.py --more` lists them).
 
 ## Polish (content_pl.py)
 - Every course and phrasebook text has a Polish version; the build stops otherwise.

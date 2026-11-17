@@ -110,7 +110,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | Exercises: kinds and shapes, building them from lessons, checking answers, the session | `Engine/Exercise.swift`, `ExerciseBuilder.swift`, `AnswerEvaluator.swift`, `LessonSession.swift` |
 | Spaced repetition (SM-2), XP, streaks, levels, achievements, challenge, path states | `Engine/SpacedRepetition.swift`, `Engine/Gamification.swift` |
 | Saved data (SwiftData, CloudKit-ready) and everything worked out from it | `Data/Models.swift`, `Data/LearningStore.swift` |
-| Audio (bundled clips via `audio.json`, or the iPhone's Georgian voice), reminders | `Audio/`; clips made by `tools/audio/make_audio.py` |
+| Audio (bundled clips in two voices via `audio.json` / `audio-giorgi.json`, or the iPhone's Georgian voice), the voice picker, reminders | `Audio/`, `DesignSystem/Components/VoicePicker.swift`; clips made by `tools/audio/make_audio.py` |
 | Brand: symbol, app icons, logos, mascot poses (vector masters in `brand/`, assets in the catalog) | `tools/brand/ara.py` (geometry), `make_brand.py`; `docs/brand.md` |
 | Design system: colours (light and dark), type, motion, haptics, components | `DesignSystem/` (Borjgali emblem, ChunkyButton, cards, rings, confetti, FlowLayout, SpeakerButton) |
 | App start, launch options | `App/GeorgianApp.swift` (`AppModel`), `App/LaunchOptions.swift` |
@@ -140,11 +140,11 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   springy motion that turns into fades with Reduce Motion (`Motion`, `withMotion`).
 
 ## Open
-- 0.2.0 released from `main` (KART #5): the full app (KART #1), the phrasebook (KART #2), the
-  brand identity (KART #3), KART #4 (numbers, Polish, eight dialogues, learning-first,
-  tappable words, why cards, grammar g10–g13) and the voice choice (KART #5). 0.2.1 (KART #5):
-  More words, every word on screen in Words. See
-  DEVELOPMENT_LOG.md for their state and TODO.md for what's left.
+- Released from `main` (KART #5): 0.2.0 (build #29) with the full app (KART #1), the
+  phrasebook (KART #2), the brand identity (KART #3), KART #4 (numbers, Polish, eight
+  dialogues, learning-first, tappable words, why cards, grammar g10–g13) and the voice choice;
+  0.2.1 (build #30): More words, every word on screen in Words. The UI tests haven't run on
+  the voice step or More words yet (next qa run). See DEVELOPMENT_LOG.md and TODO.md.
 
 ## Repos and branches
 - `krfix/Georgian-language-app` (private): this app; `main` is what's tested and accepted.
