@@ -32,6 +32,8 @@ way to change it in settings; then release straight away (one build, the release
   work; Words lists them after the course's themes; Search finds them ("heart" → გული).
   Logic tests: every letter's word is in Words, გული in English and Polish, ids, Latin.
 - Audio for them in both voices (make_audio.py now includes `more`).
+- Released as 0.2.1 (run #30): 184/184 logic checks passed, app built, GitHub Release
+  v0.2.1 with Georgian-0.2.1.ipa. UI tests not run (Simulator job only).
 
 ### Released
 - Run #29 on `main`: 174/174 logic checks passed, app built (Xcode 26.3), GitHub Release
