@@ -7,6 +7,8 @@ name: Build unsigned IPA
 #   than text (notes, changelog, docs); a commit message with [skip ci] doesn't build either;
 # - "qa" ticked: the app runs in the iPhone Simulator instead: UI tests, then screenshots of
 #   every main screen in light and dark (attached to the run as "screenshots");
+# - "testflight" ticked: the app is signed by Apple's servers and uploaded to App Store Connect
+#   for TestFlight (needs the ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8, APPLE_TEAM_ID secrets);
 # - "Run workflow" on the Actions page builds any branch by hand.
 # The release build publishes a GitHub Release, tagged v<version>, with the IPA and that
 # version's notes from CHANGELOG.md.
@@ -36,6 +38,11 @@ on:
         required: false
         type: boolean
         default: true
+      testflight:
+        description: Sign the app and upload it to TestFlight (App Store Connect) instead of the unsigned IPA
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -43,7 +50,7 @@ permissions:
 # A newer push cancels the run still waiting or working on the same branch,
 # so outdated builds don't hold a place in the Mac queue.
 concurrency:
-  group: build-${{ github.ref }}${{ inputs.qa && '-qa' || '' }}
+  group: build-${{ github.ref }}${{ inputs.qa && '-qa' || '' }}${{ inputs.testflight && '-tf' || '' }}
   cancel-in-progress: true
 
 jobs:
@@ -76,7 +83,7 @@ jobs:
   # upload (so it can be looked at), but no release is published and the run ends red.
   build:
     needs: decide
-    if: needs.decide.outputs.build == 'true' && !inputs.qa
+    if: needs.decide.outputs.build == 'true' && !inputs.qa && !inputs.testflight
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v5
@@ -194,6 +201,124 @@ jobs:
   # The app in the iPhone Simulator: the UI tests (onboarding, a whole lesson, the tabs, a
   # restart that keeps progress), then pictures of every main screen in light and dark over
   # an invented learner (LaunchOptions: -uiTesting -seedDemo -screen <name>).
+  # Signed by Apple's servers and uploaded to App Store Connect, from where TestFlight sends it
+  # to testers. No Mac or certificate of our own: the App Store Connect API key (Admin role,
+  # in the repo's Actions secrets) lets Xcode use a cloud-managed distribution certificate and
+  # make the App Store profile for com.aralearn.ge. The build number is the run number.
+  testflight:
+    if: inputs.testflight && !inputs.qa
+    runs-on: macos-15
+    timeout-minutes: 60
+    env:
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check the secrets
+        run: |
+          missing=""
+          for n in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8 APPLE_TEAM_ID; do
+            [ -n "${!n}" ] || missing="$missing $n"
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::Missing Actions secrets:$missing (Settings > Secrets and variables > Actions)"; exit 1
+          fi
+          # The key file, where Xcode's tools look for it; deleted when the job's machine goes.
+          mkdir -p ~/.appstoreconnect/private_keys
+          key=~/.appstoreconnect/private_keys/AuthKey_$ASC_KEY_ID.p8
+          printf '%s\n' "$ASC_KEY_P8" > "$key"
+          grep -q "BEGIN PRIVATE KEY" "$key" || { echo "::error::ASC_KEY_P8 doesn't look like the .p8 file's text"; exit 1; }
+          echo "KEY_PATH=$key" >> "$GITHUB_ENV"
+
+      - name: Select Xcode 26
+        run: |
+          xcode=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | grep -vi beta | sort -V | tail -1)
+          if [ -z "$xcode" ]; then
+            echo "::error::No Xcode 26 on this runner: $(ls -d /Applications/Xcode*.app | tr '\n' ' ')"; exit 1
+          fi
+          sudo xcode-select -s "$xcode/Contents/Developer"
+          echo "::notice title=Xcode::$(xcodebuild -version | tr '\n' ' ')"
+
+      # Nothing broken goes to testers: the logic tests must pass first.
+      - name: Run tests
+        run: |
+          report() { echo "::$1 title=$2::$(sed -e 's/%/%25/g' "$3" | awk 'BEGIN{ORS="%0A"} {print}')"; }
+          if ! xcrun swiftc -O -o app-tests \
+              Georgian/Curriculum/*.swift Georgian/Engine/*.swift \
+              tools/Tests/main.swift > compile.log 2>&1; then
+            grep -E "error" compile.log | sort -u | head -40 > errors.log; report error "Test compile" errors.log; exit 1
+          fi
+          status=0
+          ./app-tests "$PWD" > results.log 2>&1 || status=$?
+          { grep FAIL results.log || true; tail -1 results.log; } > summary.log
+          if [ $status -eq 0 ]; then report notice "Tests" summary.log; else report error "Tests" summary.log; fi
+          exit $status
+
+      - name: Generate Xcode project
+        run: brew install xcodegen && xcodegen generate
+
+      # Archived unsigned; the export below signs it for the App Store.
+      - name: Archive
+        run: |
+          set -o pipefail
+          xcodebuild archive \
+            -project Georgian.xcodeproj -scheme Georgian -configuration Release \
+            -destination 'generic/platform=iOS' -archivePath build/Ara.xcarchive \
+            DEVELOPMENT_TEAM="$APPLE_TEAM_ID" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            CURRENT_PROJECT_VERSION=${{ github.run_number }} \
+            | tee archive.log | grep -E "error:|ARCHIVE (SUCCEEDED|FAILED)" || true
+          if ! grep -q "ARCHIVE SUCCEEDED" archive.log; then
+            grep -E "error:" archive.log | sort -u | head -30 | while IFS= read -r l; do echo "::error::$l"; done
+            exit 1
+          fi
+          app=build/Ara.xcarchive/Products/Applications/Georgian.app
+          [ -f "$app/PrivacyInfo.xcprivacy" ] || { echo "::error::PrivacyInfo.xcprivacy is missing"; exit 1; }
+          version=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$app/Info.plist")
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+
+      - name: Sign and upload to App Store Connect
+        run: |
+          cat > ExportOptions.plist <<PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>upload</string>
+            <key>signingStyle</key><string>automatic</string>
+            <key>teamID</key><string>$APPLE_TEAM_ID</string>
+            <key>uploadSymbols</key><true/>
+            <key>manageAppVersionAndBuildNumber</key><false/>
+            <key>testFlightInternalTestingOnly</key><false/>
+          </dict>
+          </plist>
+          PLIST
+          set -o pipefail
+          xcodebuild -exportArchive -archivePath build/Ara.xcarchive \
+            -exportOptionsPlist ExportOptions.plist -exportPath build/export \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$KEY_PATH" -authenticationKeyID "$ASC_KEY_ID" \
+            -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
+            2>&1 | tee export.log | grep -E "error|Upload|EXPORT (SUCCEEDED|FAILED)" || true
+          if ! grep -q "EXPORT SUCCEEDED" export.log; then
+            grep -iE "error" export.log | sort -u | head -30 | while IFS= read -r l; do echo "::error::$l"; done
+            exit 1
+          fi
+          echo "::notice title=Uploaded::Ara $VERSION (${{ github.run_number }}) is on its way to App Store Connect. It appears in TestFlight after Apple's processing (usually 5–30 minutes)."
+
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: testflight-logs
+          path: |
+            archive.log
+            export.log
+          if-no-files-found: ignore
+
   qa:
     if: inputs.qa
     runs-on: macos-15

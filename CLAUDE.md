@@ -69,7 +69,10 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
    `gh workflow run build-ipa.yml --repo krfix/Georgian-language-app --ref <branch> -f title="<subject>"`
    for the IPA, or add `-f qa=true` for the Simulator run (logic tests, UI tests, then 22
    screenshots of every main screen in light and dark, in the run's "screenshots" artifact:
-   `gh run download <id> -n screenshots`). Watch with `gh run view <id>`.
+   `gh run download <id> -n screenshots`). Watch with `gh run view <id>`. `-f testflight=true`
+   signs and uploads to App Store Connect for TestFlight (KART #7; only on the owner's say-so,
+   since it sends the app to Apple; secrets `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_P8`,
+   `APPLE_TEAM_ID`; API key with the Admin role, for Apple's cloud signing).
 3. The owner installs the IPA with Feather and tests on the iPhone.
 4. "Merge": the branch into `main` (fast-forward when possible; no pull request unless asked).
 5. "Release": raise `MARKETING_VERSION` in `project.yml` and add a `## [x.y.z] - yyyy-MM-dd`
