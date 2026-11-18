@@ -33,7 +33,7 @@ words there are beyond the course (226 in the course, 528 more).
 
 ### Then (owner: the welcome screen's last line is two lines in English, one in Polish, so the buttons shift)
 - Shorter English ("No account needed. Stays on your iPhone, works offline."), held to one
-  line (shrinks slightly if a language needs it).
+  line (shrinks slightly if a language needs it). Run #33 (IPA): built, logic tests passed.
 
 ### Tested
 - `check_strings.py`: 471 texts, none missing. Run #31 (IPA): logic tests passed, app built. UI tests not run.
