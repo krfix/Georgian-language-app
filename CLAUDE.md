@@ -77,6 +77,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 - Mac minutes cost money (shared with the Logbook app). Build when the owner asks, or when the
   owner's brief asks for build-and-inspect cycles (as in KART #1). Let several changes ride on
   one run; cancel a run whose code is already out of date.
+- Rhythm (owner, KART #6): on a branch, quick IPA builds only (no `qa`); the owner tests on
+  the iPhone between them. One `qa=true` run (tests and screenshots) before merging to `main`.
 - The build number is the GitHub run number. Never set it by hand.
 - Commits: a short `Area: what changed` subject, an optional body, and end with the
   Co-Authored-By line (plus a Claude-Session line when the session gives one).
