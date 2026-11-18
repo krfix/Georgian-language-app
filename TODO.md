@@ -27,6 +27,9 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       Before the App Store: hide Profile › Developer, age rating, App Privacy ("no data").
 
 ## Next
+- [ ] Before April 2027: build with Xcode 27 (iOS 27 SDK), Apple's warning ITMS-90725 on build #39.
+      The workflow picks the newest Xcode 26 on `macos-15`; Xcode 27 likely needs the `macos-26`
+      runner. Try it on a branch with one IPA build, then the TestFlight build.
 - [ ] Polish (KART #4): a Polish speaker reads the app and the course; Polish App Store text
       and screenshots; the c2 conversation and some phrases still say "from England".
 - [ ] Busuu-like direction, next (KART #4 did quieter XP, tappable words, why cards and
