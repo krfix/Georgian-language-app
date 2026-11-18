@@ -58,7 +58,7 @@ struct ProfileView: View {
                 Section {
                     LabeledContent(tr("Phrases"), value: tr("{0} in {1} situations", store.phrasebook.phrases.count, store.phrasebook.categories.count))
                     LabeledContent(tr("Saved"), value: "\(store.savedPhrases.count)")
-                    LabeledContent(tr("Checked by"), value: store.phrasebook.isNativeChecked ? tr("A native speaker") : tr("Claude (AI)"))
+                    LabeledContent(tr("Checked by"), value: store.phrasebook.isNativeChecked ? tr("A native speaker") : tr("With the help of AI"))
                 } header: {
                     Text(tr("Phrasebook"))
                 } footer: {

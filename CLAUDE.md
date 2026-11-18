@@ -41,6 +41,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   spelling is generated (national system, 2002: k' p' t' q' ts' ch' for the tight sounds).
   Follow `docs/content-quality.md`. Never claim a native speaker's check that hasn't
   happened (`PHRASEBOOK_STATUS` in content_phrasebook.py; the app shows it).
+  On screen and on the website say "with the help of AI", never Claude by name (owner, KART #7).
 - Audio: never fabricate, always label. The owner chose Azure's **Eka** voice (KART #1);
   learners can pick **Giorgi** (male) instead (KART #5: welcome steps, Profile › Voice;
   `AudioService.Voice`). Every Georgian text with a speaker button has a clip in each
