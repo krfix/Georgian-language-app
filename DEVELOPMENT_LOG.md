@@ -60,6 +60,12 @@ words there are beyond the course (226 in the course, 528 more).
   card, back), Right now I need…, review (when due), phrases. The Learn tile opens the Learn
   tab ("Your course, step by step"). Run #35 (IPA): built, logic checks passed.
 
+### Released
+- Run #36 (qa, the branch): 192/192 logic checks, 5/5 UI tests (welcome steps with the voice
+  step, a first lesson, the tabs, review, Words search, phrasebook scenarios), screenshots
+  looked at (Home in Polish, Progress, Words). Merged to `main` (fast-forward); run #37
+  published GitHub Release v0.3.0 with Georgian-0.3.0.ipa.
+
 ### Tested
 - `check_strings.py`: 471 texts, none missing. Run #31 (IPA): logic tests passed, app built. UI tests not run.
 
