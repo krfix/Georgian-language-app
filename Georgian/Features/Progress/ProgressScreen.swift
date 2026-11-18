@@ -2,8 +2,9 @@ import Charts
 import SwiftData
 import SwiftUI
 
-/// What you know and can do: words, letters, phrases, the course level, the streak, the week
-/// in a chart, modules, milestones and the history of lessons. No XP or levels on screen.
+/// What you know and can do: your stage on the journey (a playful name, not an exam level),
+/// words, letters, phrases, the streak, the week in a chart, modules, milestones and the
+/// history of lessons. No XP on screen.
 struct ProgressScreen: View {
     @Environment(LearningStore.self) private var store
     @State private var range = 7
@@ -12,6 +13,7 @@ struct ProgressScreen: View {
         Group {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
+                    stageCard
                     knowCard
                     tiles
                     activityChart
@@ -40,7 +42,8 @@ struct ProgressScreen: View {
                 .frame(width: 84, height: 84)
                 VStack(alignment: .leading, spacing: 6) {
                     Text(tr("What you can do")).font(.title2Bold).foregroundStyle(.white)
-                    Text(cefr).font(.captionBold).foregroundStyle(.white.opacity(0.85)).textCase(.uppercase)
+                    Text(tr("{0} of the course", "\(Int((Double(done.count) / Double(total) * 100).rounded()))%"))
+                        .font(.captionBold).foregroundStyle(.white.opacity(0.85)).textCase(.uppercase)
                 }
                 Spacer(minLength: 0)
             }
@@ -70,12 +73,52 @@ struct ProgressScreen: View {
         return out
     }
 
-    /// A rough course level: A0 until the alphabet is done, then towards A1.
-    private var cefr: String {
-        let done = store.snapshot.modulesCompleted
-        if done.contains("conversation") { return tr("Course level: A1") }
-        if done.contains("alphabet") { return tr("Course level: A0+ (heading for A1)") }
-        return tr("Course level: A0")
+    /// Your stage on the journey, what it means, all six stages, and what's next.
+    private var stageCard: some View {
+        let stage = store.courseStage
+        let next = stage.next
+        let nextModule = next?.moduleID.flatMap { id in store.curriculum.modules.first { $0.id == id } }
+        let left = nextModule.map { $0.lessons.count - store.completedCount(in: $0) } ?? 0
+        return VStack(alignment: .leading, spacing: 14) {
+            HStack(spacing: 14) {
+                Text(stage.emoji)
+                    .font(.system(size: 40))
+                    .frame(width: 72, height: 72)
+                    .background(Circle().fill(Palette.gold.opacity(0.2)))
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(tr("Your level")).font(.captionBold).textCase(.uppercase).foregroundStyle(Palette.inkFaint)
+                    Text(stage.name).font(.titleBold).foregroundStyle(Palette.ink)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(stage.canDo).font(.calloutRounded.weight(.semibold)).foregroundStyle(Palette.saperavi)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            Text(stage.story)
+                .font(.bodyRounded)
+                .foregroundStyle(Palette.ink)
+                .fixedSize(horizontal: false, vertical: true)
+            StageJourney(current: stage.id)
+            if let next, let nextModule {
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack(spacing: 6) {
+                        Text(tr("Next:")).font(.calloutRounded).foregroundStyle(Palette.inkSoft)
+                        Text("\(next.emoji) \(next.name)").font(.calloutRounded.weight(.bold)).foregroundStyle(Palette.ink)
+                        Spacer(minLength: 0)
+                        Text(plural(left, "lesson to go", "lessons to go", pl: ("lekcja do celu", "lekcje do celu", "lekcji do celu")))
+                            .font(.captionBold).foregroundStyle(Palette.inkSoft)
+                    }
+                    ProgressBar(progress: Double(store.completedCount(in: nextModule)) / Double(max(1, nextModule.lessons.count)),
+                                color: Palette.gold, height: 8)
+                    Text(tr("Finish \"{0}\" to get there.", nextModule.title))
+                        .font(.caption).foregroundStyle(Palette.inkSoft)
+                }
+            }
+            Text(tr("Not an official exam level: it shows how far you are in Ara's course."))
+                .font(.caption2).foregroundStyle(Palette.inkFaint)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .card()
+        .accessibilityElement(children: .combine)
     }
 
     private var tiles: some View {
@@ -246,5 +289,49 @@ struct AchievementRow: View {
         }
         .card()
         .accessibilityElement(children: .combine)
+    }
+}
+
+/// The six stages in a row, joined by a line: passed ones lit, yours raised, the rest faint.
+private struct StageJourney: View {
+    let current: Int
+
+    var body: some View {
+        let stages = CourseStage.all
+        ZStack {
+            // The road under the stops.
+            GeometryReader { geo in
+                let step = geo.size.width / CGFloat(stages.count)
+                Capsule().fill(Palette.line)
+                    .frame(width: step * CGFloat(stages.count - 1), height: 4)
+                    .offset(x: step / 2, y: 18)
+                Capsule().fill(Gradients.gold)
+                    .frame(width: step * CGFloat(current), height: 4)
+                    .offset(x: step / 2, y: 18)
+            }
+            HStack(spacing: 0) {
+                ForEach(stages) { s in
+                    VStack(spacing: 4) {
+                        Text(s.emoji)
+                            .font(.system(size: s.id == current ? 22 : 16))
+                            .frame(width: 40, height: 40)
+                            .background(Circle().fill(s.id <= current ? AnyShapeStyle(Gradients.gold) : AnyShapeStyle(Palette.surfaceRaised))
+                                .opacity(s.id < current ? 0.45 : 1))
+                            .overlay(Circle().strokeBorder(s.id == current ? Palette.gold : Palette.line, lineWidth: s.id == current ? 2.5 : 1))
+                            .opacity(s.id <= current ? 1 : 0.55)
+                            .scaleEffect(s.id == current ? 1.1 : 1)
+                        Text(s.name)
+                            .font(.system(size: 9, weight: .semibold, design: .rounded))
+                            .foregroundStyle(s.id == current ? Palette.ink : Palette.inkFaint)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.8)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+            }
+        }
+        .frame(height: 70)
+        .accessibilityHidden(true)
     }
 }

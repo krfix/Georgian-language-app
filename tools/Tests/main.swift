@@ -419,5 +419,16 @@ check("knows some letters: open ahead", CourseProgress.states(lessonIDs: ids, co
 check("next lesson", CourseProgress.next(lessonIDs: ids, completed: ["a", "b"]), "c")
 check("all done", CourseProgress.next(lessonIDs: ids, completed: Set(ids)), nil)
 
+// MARK: Course stages (playful names instead of exam levels)
+
+check("six stages", CourseStage.all.count, 6)
+check("every stage but the first ends a module", CourseStage.all.dropFirst().compactMap(\.moduleID), course.modules.map(\.id))
+check("start: just landed", CourseStage.current(modulesCompleted: []).id, 0)
+check("alphabet done: sign reader", CourseStage.current(modulesCompleted: ["alphabet"]).id, 1)
+check("three parts done", CourseStage.current(modulesCompleted: ["alphabet", "vocabulary", "everyday"]).id, 3)
+check("all done: tamada", CourseStage.current(modulesCompleted: Set(course.modules.map(\.id))).id, 5)
+check("after the last, nothing", CourseStage.all[5].next, nil)
+check("next after the start", CourseStage.all[0].next?.id, 1)
+
 print("\(checks - failures)/\(checks) checks passed")
 exit(failures == 0 ? 0 : 1)

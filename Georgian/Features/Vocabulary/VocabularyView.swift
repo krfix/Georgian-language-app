@@ -1,71 +1,36 @@
 import SwiftUI
 
-/// Every word and phrase in the course, then every other word the app shows (letters'
-/// example words, examples, conversations, phrases: "More words"): search, filter, tap.
-struct VocabularyView: View {
+/// The Words tab's list, when nothing is typed in its search: every word and phrase in the
+/// course, then every other word the app shows (letters' example words, examples,
+/// conversations, phrases: "More words"), by theme. Sits inside the tab's lazy stack, so only
+/// the rows on screen are built.
+struct WordBrowser: View {
+    @Binding var open: Word?
     @Environment(LearningStore.self) private var store
-    @State private var query = ""
     @State private var category: String?
-    @State private var open: Word?
-
-    private var results: [Word] {
-        let q = AnswerEvaluator.plain(query)
-        let raw = query.trimmingCharacters(in: .whitespaces)
-        let qLat = q.replacingOccurrences(of: "'", with: "")
-        let pool = category == "more" ? store.curriculum.moreWords
-            : category == nil ? store.curriculum.words + store.curriculum.moreWords
-            : store.curriculum.words
-        return pool.filter { w in
-            (category == nil || w.category == category) &&
-            (q.isEmpty || w.ka.contains(raw) || AnswerEvaluator.plain(w.en).contains(q)
-             || w.lat.replacingOccurrences(of: "'", with: "").contains(qLat))
-        }
-    }
 
     var body: some View {
-        // Worked out once per change, not once per use. The list is lazy: only the rows on
-        // screen are built, so the screen opens at once even with 750 words.
-        let found = results
-        let groups = Dictionary(grouping: found, by: \.category)
+        let pool = category == "more" ? store.curriculum.moreWords
+            : category == nil ? store.curriculum.words + store.curriculum.moreWords
+            : store.curriculum.words.filter { $0.category == category }
+        let groups = Dictionary(grouping: pool, by: \.category)
         let sections = store.curriculum.categories.filter { groups[$0.id] != nil }
-        Group {
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 10) {
-                    summary
-                    categoryChips
-                        .padding(.top, 6)
-                    ForEach(sections) { cat in
-                        Label(cat.title, systemImage: cat.symbol)
-                            .font(.headlineRounded)
-                            .foregroundStyle(BrandColor(named: cat.color).color)
-                            .padding(.top, 12)
-                            .accessibilityAddTraits(.isHeader)
-                        ForEach(groups[cat.id] ?? []) { w in
-                            Button {
-                                Haptics.tap()
-                                open = w
-                            } label: { WordRow(word: w, status: store.status(of: w.id)) }
-                            .buttonStyle(.pressable)
-                            .accessibilityIdentifier("word-\(w.id)")
-                        }
-                    }
-                    if found.isEmpty {
-                        ContentUnavailableView.search(text: query)
-                    }
-                }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 30)
-            }
-            .background(AmbientBackground(tint: .tkemali))
-            .navigationTitle(tr("Words"))
-            .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: tr("Georgian, English or Latin"))
-            .sheet(item: $open) { w in
-                WordDetailView(word: w)
-                    .presentationDetents([.large])
-                    .presentationDragIndicator(.visible)
-            }
-            .onAppear {
-                if LaunchOptions.current.screen == "word", open == nil { open = store.curriculum.word("w-khachapuri") }
+        summary
+        categoryChips
+            .padding(.top, 6)
+        ForEach(sections) { cat in
+            Label(cat.title, systemImage: cat.symbol)
+                .font(.headlineRounded)
+                .foregroundStyle(BrandColor(named: cat.color).color)
+                .padding(.top, 12)
+                .accessibilityAddTraits(.isHeader)
+            ForEach(groups[cat.id] ?? []) { w in
+                Button {
+                    Haptics.tap()
+                    open = w
+                } label: { WordRow(word: w, status: store.status(of: w.id)) }
+                .buttonStyle(.pressable)
+                .accessibilityIdentifier("word-\(w.id)")
             }
         }
     }

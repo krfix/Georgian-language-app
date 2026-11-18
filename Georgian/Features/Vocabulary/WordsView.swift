@@ -1,23 +1,25 @@
 import SwiftUI
 
-/// Search everything: phrases first, then situations, conversations and course words.
-/// Empty, it offers suggestions, recent searches and recently used phrases. Works offline:
-/// it searches the phrasebook and course bundled in the app.
-struct SearchView: View {
+/// The Words tab (KART #6: it took over from Search). One field searches everything:
+/// phrases first, then situations, conversations and words. With nothing typed it lists
+/// every word, by theme, with how many the learner knows. Works offline: it searches the
+/// phrasebook and course bundled in the app.
+struct WordsView: View {
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
     @State private var query = ""
     @State private var openWord: Word?
-    @State private var recent: [String] = RecentSearches.load()
+    @State private var allWords = false
     @FocusState private var focused: Bool
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
+                // Lazy: only the rows on screen are built (750 words).
+                LazyVStack(alignment: .leading, spacing: 10) {
                     field
                     if query.trimmingCharacters(in: .whitespaces).isEmpty {
-                        idle
+                        WordBrowser(open: $openWord)
                     } else {
                         results(store.phrasebook.search.search(query))
                     }
@@ -26,8 +28,8 @@ struct SearchView: View {
                 .padding(.bottom, 30)
             }
             .scrollDismissesKeyboard(.interactively)
-            .background(AmbientBackground(tint: .pomegranate))
-            .navigationTitle(tr("Search"))
+            .background(AmbientBackground(tint: .tkemali))
+            .navigationTitle(tr("Words"))
             .sheet(item: $openWord) { w in
                 WordDetailView(word: w)
                     .presentationDetents([.large])
@@ -45,7 +47,11 @@ struct SearchView: View {
             }
         }
         .onChange(of: navigator.searchRequest) { _, request in apply(request) }
-        .onAppear { apply(navigator.searchRequest) }
+        .onChange(of: query) { _, _ in allWords = false }
+        .onAppear {
+            apply(navigator.searchRequest)
+            if LaunchOptions.current.screen == "word", openWord == nil { openWord = store.curriculum.word("w-khachapuri") }
+        }
     }
 
     private func apply(_ request: Navigator.SearchRequest?) {
@@ -62,13 +68,12 @@ struct SearchView: View {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 17, weight: .bold))
                 .foregroundStyle(Palette.pomegranate)
-            TextField(tr("English, ქართული or Latin"), text: $query)
+            TextField(tr("Words and phrases: English, ქართული, Latin"), text: $query)
                 .font(.bodyRounded)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
                 .submitLabel(.search)
                 .focused($focused)
-                .onSubmit { remember(query) }
                 .accessibilityIdentifier("search-field")
             if !query.isEmpty {
                 Button {
@@ -85,59 +90,7 @@ struct SearchView: View {
         .background(Capsule().fill(Palette.surface))
         .overlay(Capsule().strokeBorder(focused ? Palette.pomegranate : Palette.pomegranate.opacity(0.25), lineWidth: focused ? 2 : 1.5))
         .padding(.top, 4)
-    }
-
-    // MARK: Nothing typed yet
-
-    @ViewBuilder private var idle: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(tr("Try")).font(.headlineRounded).foregroundStyle(Palette.ink)
-            FlowLayout(spacing: 8, alignment: .leading) {
-                ForEach(store.phrasebook.suggestions, id: \.self) { s in
-                    Button {
-                        Haptics.tap()
-                        query = s
-                        remember(s)
-                    } label: {
-                        Text(s)
-                            .font(.calloutRounded.weight(.semibold))
-                            .foregroundStyle(Palette.pomegranate)
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 8)
-                            .background(Capsule().fill(Palette.pomegranate.opacity(0.12)))
-                    }
-                    .buttonStyle(.pressable)
-                    .accessibilityIdentifier("suggestion-\(s)")
-                }
-            }
-        }
-        if !recent.isEmpty {
-            HStack {
-                Text(tr("Recent searches")).font(.headlineRounded).foregroundStyle(Palette.ink)
-                Spacer()
-                Button(tr("Clear")) { RecentSearches.clear(); recent = [] }
-                    .font(.calloutRounded.weight(.semibold))
-                    .foregroundStyle(Palette.pomegranate)
-            }
-            .padding(.top, 6)
-            ForEach(recent, id: \.self) { r in
-                Button {
-                    query = r
-                } label: {
-                    Label(r, systemImage: "clock.arrow.circlepath")
-                        .font(.bodyRounded)
-                        .foregroundStyle(Palette.ink)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.vertical, 4)
-                }
-            }
-        }
-        let used = store.recentPhrases
-        if !used.isEmpty {
-            Text(tr("Recently used")).font(.headlineRounded).foregroundStyle(Palette.ink).padding(.top, 6)
-            ForEach(used.prefix(6)) { p in PhraseRow(phrase: p, showsCategory: true) }
-        }
-        ContentCheckNote()
+        .padding(.bottom, 6)
     }
 
     // MARK: Results
@@ -154,6 +107,31 @@ struct SearchView: View {
                 Text(tr("Try one simple word, like \"taxi\", \"price\" or \"doctor\"."))
             }
             .padding(.top, 20)
+        }
+        // Words first (this is the Words tab), a few at a time so the phrases stay in view.
+        if !r.words.isEmpty {
+            let shown = allWords ? r.words : Array(r.words.prefix(4))
+            Text(tr("Words")).font(.captionBold).textCase(.uppercase).foregroundStyle(Palette.inkSoft)
+            ForEach(shown) { w in
+                Button {
+                    Haptics.tap()
+                    focused = false
+                    openWord = w
+                } label: { WordRow(word: w, status: store.status(of: w.id)) }
+                .buttonStyle(.pressable)
+                .accessibilityIdentifier("word-\(w.id)")
+            }
+            if shown.count < r.words.count {
+                Button {
+                    Haptics.tap()
+                    withMotion { allWords = true }
+                } label: {
+                    Label(tr("Show all {0} words", r.words.count), systemImage: "chevron.down")
+                        .font(.calloutRounded.weight(.semibold))
+                        .foregroundStyle(Palette.tkemali)
+                        .frame(minHeight: 44)
+                }
+            }
         }
         if !r.categories.isEmpty {
             FlowLayout(spacing: 8, alignment: .leading) {
@@ -178,7 +156,6 @@ struct SearchView: View {
                     .simultaneousGesture(TapGesture().onEnded {
                         // Opening a result puts the keyboard away: back from the card, the
                         // results (and the tab bar) are in view.
-                        remember(query)
                         focused = false
                     })
             }
@@ -195,40 +172,6 @@ struct SearchView: View {
                 .padding(.vertical, 6)
             }
         }
-        if !r.words.isEmpty {
-            Text(tr("Words in the course")).font(.headlineRounded).foregroundStyle(Palette.ink).padding(.top, 6)
-            ForEach(r.words) { w in
-                Button {
-                    Haptics.tap()
-                    remember(query)
-                    focused = false
-                    openWord = w
-                } label: { WordRow(word: w, status: store.status(of: w.id)) }
-                .buttonStyle(.pressable)
-                .accessibilityIdentifier("word-\(w.id)")
-            }
-        }
     }
 
-    private func remember(_ q: String) {
-        RecentSearches.add(q)
-        recent = RecentSearches.load()
-    }
-}
-
-/// The last few searches, kept on this iPhone only (a convenience, not progress).
-enum RecentSearches {
-    private static let key = "recentSearches"
-
-    static func load() -> [String] { UserDefaults.standard.stringArray(forKey: key) ?? [] }
-
-    static func add(_ query: String) {
-        let q = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard q.count >= 2 else { return }
-        var list = load().filter { $0.caseInsensitiveCompare(q) != .orderedSame }
-        list.insert(q, at: 0)
-        UserDefaults.standard.set(Array(list.prefix(8)), forKey: key)
-    }
-
-    static func clear() { UserDefaults.standard.removeObject(forKey: key) }
 }

@@ -93,6 +93,14 @@ final class LearningStore {
     var lessonIDs: [String] { curriculum.lessons.map(\.id) }
     private var alphabetCount: Int { curriculum.modules.first?.lessons.count ?? 0 }
     var startIndex: Int { profile.level == .canRead ? alphabetCount : 0 }
+
+    /// The learner's stage (playful names, not exam levels). Someone who said "I can read"
+    /// skipped the alphabet, so they start as a sign reader.
+    var courseStage: CourseStage {
+        var done = snapshot.modulesCompleted
+        if profile.level == .canRead { done.insert("alphabet") }
+        return CourseStage.current(modulesCompleted: done)
+    }
     var openBefore: Int { profile.level == .beginner ? 0 : alphabetCount }
 
     var lessonStates: [String: LessonState] {

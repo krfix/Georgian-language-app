@@ -1,32 +1,37 @@
 import SwiftUI
 
-/// Home: the two sides of the app at a glance. A search bar and the situations for using
-/// Georgian right now; recent and saved phrases; then the course to continue, the daily
-/// review and today's goal. Streak and XP stay small: learning is the point, not the score.
+/// Home (KART #6 order): the greeting; how far you are (a small card, always in view); the
+/// two halves of the app, Learn (your next lesson, one tap) and Use in Georgia; review, only
+/// when something is waiting; search; the situations; recent and saved phrases. Each thing
+/// once, the most frequent first.
 struct HomeView: View {
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
 
     var body: some View {
-        NavigationStack {
+        @Bindable var nav = navigator
+        NavigationStack(path: $nav.homePath) {
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 16) {
                     header
-                    SearchBarButton { navigator.search() }
+                    HomeProgressCard()
                     PurposeRow()
+                    if !store.dueItems.isEmpty { ReviewNudgeCard() }
+                    SearchBarButton { navigator.search() }
                     QuickSituations()
                     PhraseShelf()
-                    SectionTitle(title: tr("Continue learning"), trailing: tr("Course")) { navigator.tab = .learn }
-                    if let lesson = store.nextLesson { ContinueCard(lesson: lesson) }
-                    else { CourseDoneCard() }
-                    ReviewNudgeCard()
-                    DailyGoalCard()
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 30)
             }
             .background(AmbientBackground(tint: .pomegranate))
             .toolbar(.hidden, for: .navigationBar)
+            .navigationDestination(for: HomeRoute.self) { route in
+                switch route {
+                case .progress:
+                    ProgressScreen().toolbar(.visible, for: .navigationBar)
+                }
+            }
         }
     }
 
@@ -57,20 +62,8 @@ struct HomeView: View {
                 Text(store.profile.name.isEmpty ? greetingLatin + "!" : greetingLatin + ", " + store.profile.name + "!")
                     .font(.display)
                     .foregroundStyle(Palette.ink)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.7)
-                let known = store.snapshot.wordsLearned
-                if store.streak > 0 || known > 0 {
-                    HStack(spacing: 10) {
-                        if store.streak > 0 {
-                            Label(tr("{0}-day streak", store.streak), systemImage: "flame.fill").foregroundStyle(Palette.flame)
-                        }
-                        Label(plural(known, "word known", "words known", pl: ("znane słowo", "znane słowa", "znanych słów")),
-                              systemImage: "character.book.closed.fill").foregroundStyle(Palette.tkemali)
-                    }
-                    .font(.captionBold)
-                    .padding(.top, 2)
-                }
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
             }
             .accessibilityElement(children: .combine)
             Spacer()
@@ -91,60 +84,6 @@ struct HomeView: View {
             .accessibilityIdentifier("profile-button")
         }
         .padding(.top, 12)
-    }
-}
-
-/// The big card for the next lesson.
-struct ContinueCard: View {
-    let lesson: Lesson
-    @Environment(LearningStore.self) private var store
-    @Environment(Navigator.self) private var navigator
-    @State private var glow = false
-
-    var body: some View {
-        let module = store.curriculum.module(of: lesson.id)
-        let color = BrandColor(named: module?.color ?? "pomegranate")
-        let done = module.map { store.completedCount(in: $0) } ?? 0
-        let total = module?.lessons.count ?? 1
-        return VStack(alignment: .leading, spacing: 14) {
-            HStack {
-                Label(module?.title ?? "", systemImage: module?.symbol ?? "book")
-                    .font(.captionBold)
-                    .textCase(.uppercase)
-                    .foregroundStyle(color.onColor.opacity(0.85))
-                Spacer()
-                Text("\(done)/\(total)").font(.captionBold).foregroundStyle(color.onColor.opacity(0.85))
-            }
-            HStack(alignment: .center, spacing: 16) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(store.completedLessons.isEmpty ? tr("Start learning") : tr("Continue"))
-                        .font(.calloutRounded.weight(.semibold))
-                        .foregroundStyle(color.onColor.opacity(0.85))
-                    Text(lesson.title)
-                        .font(.titleBold)
-                        .foregroundStyle(color.onColor)
-                        .fixedSize(horizontal: false, vertical: true)
-                    Text(lesson.subtitle)
-                        .font(.calloutRounded)
-                        .foregroundStyle(color.onColor.opacity(0.85))
-                        .lineLimit(1)
-                }
-                Spacer(minLength: 0)
-                LessonGlyph(lesson: lesson, size: 74, onColor: color.onColor)
-            }
-            ProgressBar(progress: Double(done) / Double(max(1, total)), color: color.onColor.opacity(0.9), height: 10)
-            Button {
-                Haptics.tap()
-                navigator.start(lesson)
-            } label: {
-                Label(tr("Start lesson"), systemImage: "play.fill")
-            }
-            .buttonStyle(ChunkyButtonStyle(color: color == .gold ? .pomegranate : .gold))
-            .accessibilityIdentifier("continue-lesson")
-        }
-        .gradientCard(color)
-        .scaleEffect(glow ? 1.0 : 0.985)
-        .onAppear { withMotion(.easeInOut(duration: 1.6).repeatForever(autoreverses: true)) { glow = true } }
     }
 }
 
@@ -176,47 +115,6 @@ struct LessonGlyph: View {
         case .grammar: return "puzzlepiece.fill"
         case .conversation: return "bubble.left.and.bubble.right.fill"
         }
-    }
-}
-
-struct CourseDoneCard: View {
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(tr("You've finished the course!")).font(.titleBold).foregroundStyle(.white)
-            Text(tr("Keep your Georgian fresh with daily reviews.")).font(.calloutRounded).foregroundStyle(.white.opacity(0.9))
-        }
-        .gradientCard(.tkemali)
-    }
-}
-
-struct DailyGoalCard: View {
-    @Environment(LearningStore.self) private var store
-
-    var body: some View {
-        let progress = store.goalProgressToday
-        return HStack(spacing: 18) {
-            ProgressRing(progress: progress, lineWidth: 12) {
-                if progress >= 1 {
-                    Image(systemName: "checkmark").font(.system(size: 26, weight: .heavy)).foregroundStyle(Palette.success)
-                } else {
-                    Text("\(Int((min(progress, 1) * 100).rounded()))%").font(.title3.weight(.bold)).foregroundStyle(Palette.ink)
-                        .contentTransition(.numericText())
-                }
-            }
-            .frame(width: 84, height: 84)
-            VStack(alignment: .leading, spacing: 5) {
-                Text(tr("Daily goal")).font(.headlineRounded).foregroundStyle(Palette.ink)
-                Text(progress >= 1 ? tr("Done for today. ყოჩაღ!") : (progress > 0 ? tr("A little more today: one lesson or a review.") : tr("One lesson or a review a day keeps Georgian growing.")))
-                    .font(.calloutRounded)
-                    .foregroundStyle(Palette.inkSoft)
-                    .fixedSize(horizontal: false, vertical: true)
-                WeekDots()
-            }
-            Spacer(minLength: 0)
-        }
-        .card()
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel(tr("Daily goal: {0} percent", Int((min(progress, 1) * 100).rounded())))
     }
 }
 
@@ -378,7 +276,58 @@ struct ReviewNudgeCard: View {
 
 // MARK: Use in Georgia, on Home
 
-/// The two halves of the app, side by side: learn Georgian, or use it now.
+/// How far the learner is, small enough to sit at the top of Home: the stage's name (no
+/// exam levels), the share of the course, the week. Opens the Progress screen.
+struct HomeProgressCard: View {
+    @Environment(LearningStore.self) private var store
+    @Environment(Navigator.self) private var navigator
+
+    var body: some View {
+        let s = store.snapshot
+        let stage = store.courseStage
+        let total = max(1, store.curriculum.lessons.count)
+        let pct = Int((Double(s.lessonsCompleted.count) / Double(total) * 100).rounded())
+        Button {
+            Haptics.tap()
+            navigator.homePath.append(HomeRoute.progress)
+        } label: {
+            VStack(alignment: .leading, spacing: 10) {
+                HStack(spacing: 12) {
+                    Text(stage.emoji)
+                        .font(.system(size: 26))
+                        .frame(width: 46, height: 46)
+                        .background(Circle().fill(Palette.gold.opacity(0.18)))
+                    VStack(alignment: .leading, spacing: 1) {
+                        Text(tr("Your level")).font(.captionBold).textCase(.uppercase).foregroundStyle(Palette.inkFaint)
+                        Text(stage.name).font(.headlineRounded).foregroundStyle(Palette.ink)
+                            .lineLimit(1).minimumScaleFactor(0.8)
+                    }
+                    Spacer(minLength: 4)
+                    Text("\(pct)%").font(.title3.weight(.bold)).foregroundStyle(Palette.saperavi)
+                        .contentTransition(.numericText())
+                    Image(systemName: "chevron.right").font(.system(size: 14, weight: .bold)).foregroundStyle(Palette.inkFaint)
+                }
+                HStack(alignment: .center, spacing: 10) {
+                    WeekDots()
+                    Spacer(minLength: 4)
+                    if store.streak > 0 {
+                        Label(tr("{0}-day streak", store.streak), systemImage: "flame.fill")
+                            .font(.captionBold).foregroundStyle(Palette.flame)
+                            .lineLimit(1).minimumScaleFactor(0.8)
+                    }
+                }
+            }
+            .card(padding: 14, cornerRadius: 22)
+        }
+        .buttonStyle(.pressable)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(tr("Your level: {0}. {1} percent of the course. Opens your progress.", stage.name, pct))
+        .accessibilityIdentifier("home-progress")
+    }
+}
+
+/// The two halves of the app, side by side and low: Learn opens the next lesson in one tap,
+/// Use in Georgia the phrasebook. Each with a thin bar of how far you are.
 struct PurposeRow: View {
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
@@ -386,44 +335,61 @@ struct PurposeRow: View {
     var body: some View {
         let lessonsDone = store.completedLessons.count
         let total = store.curriculum.lessons.count
+        let phrases = store.phrasebook.phrases
+        let phrasesLearned = phrases.filter { store.isLearned($0.id) }.count
+        let next = store.nextLesson
         HStack(spacing: 12) {
             tile(color: .saperavi, symbol: "map.fill", title: tr("Learn"),
-                 text: tr("Continue your Georgian course"),
-                 detail: tr("{0} of {1} lessons", lessonsDone, total), id: "purpose-learn") { navigator.tab = .learn }
+                 text: next.map { tr("Next: {0}", $0.title) } ?? tr("Course finished!"),
+                 progress: Double(lessonsDone) / Double(max(1, total)),
+                 detail: tr("{0} of {1} lessons", lessonsDone, total), id: "continue-lesson") {
+                if let next { navigator.preview(next) } else { navigator.tab = .learn }
+            }
             tile(color: .pomegranate, symbol: "bubble.left.and.text.bubble.right.fill", title: tr("Use in Georgia"),
-                 text: tr("Find the right words for everyday situations"),
-                 detail: tr("{0} phrases", store.phrasebook.phrases.count), id: "purpose-use") { navigator.tab = .phrasebook }
+                 text: tr("Phrases for real situations"),
+                 progress: Double(phrasesLearned) / Double(max(1, phrases.count)),
+                 detail: tr("{0} of {1} phrases learned", phrasesLearned, phrases.count), id: "purpose-use") {
+                navigator.tab = .phrasebook
+            }
         }
+        .fixedSize(horizontal: false, vertical: true)
     }
 
-    private func tile(color: BrandColor, symbol: String, title: String, text: String, detail: String, id: String,
-                      action: @escaping () -> Void) -> some View {
+    private func tile(color: BrandColor, symbol: String, title: String, text: String, progress: Double, detail: String,
+                      id: String, action: @escaping () -> Void) -> some View {
         Button {
             Haptics.tap()
             action()
         } label: {
             VStack(alignment: .leading, spacing: 6) {
-                Image(systemName: symbol)
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundStyle(color.onColor)
-                    .frame(width: 42, height: 42)
-                    .background(Circle().fill(color.onColor.opacity(0.18)))
-                Text(title)
-                    .font(.headlineRounded)
-                    .foregroundStyle(color.onColor)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.8)
+                HStack(alignment: .center, spacing: 6) {
+                    Text(title)
+                        .font(.headlineRounded)
+                        .foregroundStyle(color.onColor)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
+                    Spacer(minLength: 0)
+                    Image(systemName: symbol)
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundStyle(color.onColor)
+                        .frame(width: 32, height: 32)
+                        .background(Circle().fill(color.onColor.opacity(0.18)))
+                }
                 Text(text)
-                    .font(.caption)
-                    .foregroundStyle(color.onColor.opacity(0.9))
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(color.onColor.opacity(0.92))
+                    .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
                 Spacer(minLength: 0)
+                ProgressBar(progress: progress, color: color.onColor.opacity(0.9), height: 6)
                 Text(detail)
                     .font(.caption2.weight(.bold))
                     .foregroundStyle(color.onColor.opacity(0.85))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
             }
-            .frame(maxWidth: .infinity, minHeight: 150, alignment: .topLeading)
-            .gradientCard(color, padding: 14, cornerRadius: 24)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .gradientCard(color, padding: 14, cornerRadius: 22)
         }
         .buttonStyle(.pressable)
         .accessibilityIdentifier(id)

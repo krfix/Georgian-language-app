@@ -18,14 +18,14 @@ struct SessionRequest: Identifiable, Equatable {
 }
 
 enum AppTab: String, Hashable, CaseIterable {
-    case home, learn, phrasebook, search, review
+    case home, learn, phrasebook, words, review
 
     var title: String {
         switch self {
         case .home: return tr("Home")
         case .learn: return tr("Learn")
         case .phrasebook: return tr("Phrasebook")
-        case .search: return tr("Search")
+        case .words: return tr("Words")
         case .review: return tr("Review")
         }
     }
@@ -35,7 +35,7 @@ enum AppTab: String, Hashable, CaseIterable {
         case .home: return "house.fill"
         case .learn: return "map.fill"
         case .phrasebook: return "bubble.left.and.text.bubble.right.fill"
-        case .search: return "magnifyingglass"
+        case .words: return "character.book.closed.fill"
         case .review: return "arrow.triangle.2.circlepath"
         }
     }
@@ -48,9 +48,8 @@ enum PhrasebookRoute: Hashable {
     case saved
 }
 
-/// Screens pushed inside the Learn tab.
-enum LearnRoute: Hashable {
-    case words
+/// Screens pushed inside the Home tab.
+enum HomeRoute: Hashable {
     case progress
 }
 
@@ -67,8 +66,9 @@ final class Navigator {
     /// A phrase shown full screen to someone else (a driver, a shopkeeper).
     var showPhrase: Phrase?
     var phrasebookPath = NavigationPath()
-    var learnPath = NavigationPath()
-    /// Set to open the Search tab with the keyboard up (Home's search bar), or with a query.
+    var homePath = NavigationPath()
+    /// Set to open the Words tab's search with the keyboard up (the search bars on Home and
+    /// in the Phrasebook), or with a query.
     var searchRequest: SearchRequest?
 
     struct SearchRequest: Equatable {
@@ -108,7 +108,7 @@ final class Navigator {
 
     func search(_ query: String = "") {
         closeSheets()
-        tab = .search
+        tab = .words
         searchRequest = SearchRequest(query: query)
     }
 
@@ -182,9 +182,9 @@ struct MainTabView: View {
             PhrasebookView()
                 .tabItem { Label(AppTab.phrasebook.title, systemImage: AppTab.phrasebook.symbol) }
                 .tag(AppTab.phrasebook)
-            SearchView()
-                .tabItem { Label(AppTab.search.title, systemImage: AppTab.search.symbol) }
-                .tag(AppTab.search)
+            WordsView()
+                .tabItem { Label(AppTab.words.title, systemImage: AppTab.words.symbol) }
+                .tag(AppTab.words)
             ReviewView()
                 .tabItem { Label(AppTab.review.title, systemImage: AppTab.review.symbol) }
                 .tag(AppTab.review)
@@ -219,12 +219,8 @@ struct MainTabView: View {
         let pb = store.phrasebook
         switch screen {
         case "learn", "alphabet": navigator.tab = .learn
-        case "words", "word":
-            navigator.tab = .learn
-            navigator.learnPath.append(LearnRoute.words)
-        case "progress":
-            navigator.tab = .learn
-            navigator.learnPath.append(LearnRoute.progress)
+        case "words", "word": navigator.tab = .words
+        case "progress": navigator.homePath.append(HomeRoute.progress)
         case "review": navigator.tab = .review
         case "profile": navigator.showProfile = true
         case "lesson", "complete":

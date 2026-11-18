@@ -35,6 +35,24 @@ words there are beyond the course (226 in the course, 528 more).
 - Shorter English ("No account needed. Stays on your iPhone, works offline."), held to one
   line (shrinks slightly if a language needs it). Run #33 (IPA): built, logic tests passed.
 
+### Then (owner: Words and Progress were hidden in Learn; simpler Home; no A0/A1 levels)
+- Tabs: Home · Learn · Phrasebook · **Words** · Review. Words (`WordsView`) replaces Search:
+  one field searches everything (words first, four at a time with "Show all", then phrases,
+  situations, conversations); empty, it lists every word (`WordBrowser`: the two counts, the
+  themes, lazy rows). Recent searches and suggestions dropped (Home has the situations and
+  recent phrases). Learn has only the path. The search bars on Home and in the Phrasebook
+  open Words with the keyboard up.
+- Home, in order: greeting (no stats line), `HomeProgressCard` (stage emoji and name, % of
+  the course, week dots, streak; opens Progress), Learn | Use in Georgia as low tiles (title
+  left, icon right, one line, thin bar; Learn shows the next lesson and opens its preview),
+  review only when due, search, situations, phrases. Continue card and Daily goal removed.
+- Levels: `CourseStage` (Engine, logic-tested): ✈️ Just landed, 🪧 Sign reader, 🍇 Bazaar
+  regular, 🍷 Supra guest, 🥂 Tamada's apprentice, 🏆 Tamada, one per finished module ("I can
+  read" starts as Sign reader). Progress opens with the stage card: name, what you can do, a
+  short story of what it means, the six stages as a road, the next one with lessons to go,
+  and "Not an official exam level". English and Polish.
+- UI tests: tab names, Progress from Home's card, the Words tab's search.
+
 ### Tested
 - `check_strings.py`: 471 texts, none missing. Run #31 (IPA): logic tests passed, app built. UI tests not run.
 

@@ -153,7 +153,7 @@ struct CategoryTile: View {
 
 /// A search field that isn't one yet: Home and the Phrasebook open the Search tab with it.
 struct SearchBarButton: View {
-    var prompt = tr("Search phrases: taxi, how much, pharmacy…")
+    var prompt = tr("Search: taxi, water, pharmacy…")
     let action: () -> Void
 
     var body: some View {
@@ -179,7 +179,7 @@ struct SearchBarButton: View {
             .shadow(color: Palette.pomegranate.opacity(0.10), radius: 10, y: 4)
         }
         .buttonStyle(.pressable)
-        .accessibilityLabel(tr("Search phrases"))
+        .accessibilityLabel(tr("Search words and phrases"))
         .accessibilityIdentifier("search-bar")
     }
 }

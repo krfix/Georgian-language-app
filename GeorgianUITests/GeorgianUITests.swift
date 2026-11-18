@@ -46,7 +46,7 @@ final class GeorgianUITests: XCTestCase {
         XCTAssertTrue(app.buttons["continue-lesson"].waitForExistence(timeout: 10), "Home after the lesson")
 
         // Every tab opens.
-        for tab in ["Learn", "Phrasebook", "Search", "Review", "Home"] {
+        for tab in ["Learn", "Phrasebook", "Words", "Review", "Home"] {
             app.tabBars.buttons[tab].tap()
             XCTAssertTrue(app.tabBars.buttons[tab].isSelected, "\(tab) tab")
         }
@@ -71,11 +71,15 @@ final class GeorgianUITests: XCTestCase {
         finishLesson(app)
         XCTAssertTrue(app.buttons["complete-continue"].waitForExistence(timeout: 10), "Review completion")
         app.buttons["complete-continue"].tap()
-        // Course words are in Learn › Words now.
-        app.tabBars.buttons["Learn"].tap()
-        XCTAssertTrue(app.buttons["learn-words"].waitForExistence(timeout: 5))
-        app.buttons["learn-words"].tap()
-        let search = app.searchFields.firstMatch
+        // Progress opens from Home's card.
+        app.tabBars.buttons["Home"].tap()
+        XCTAssertTrue(app.buttons["home-progress"].waitForExistence(timeout: 5))
+        app.buttons["home-progress"].tap()
+        XCTAssertTrue(app.navigationBars["Progress"].waitForExistence(timeout: 5), "Progress screen")
+        // Words: the list, and its search finds a word.
+        app.tabBars.buttons["Words"].tap()
+        XCTAssertTrue(app.buttons["words-more"].waitForExistence(timeout: 5), "Words list")
+        let search = app.textFields["search-field"]
         XCTAssertTrue(search.waitForExistence(timeout: 5))
         search.tap()
         search.typeText("water")
@@ -116,7 +120,7 @@ final class GeorgianUITests: XCTestCase {
         XCTAssertTrue(app.buttons["action-practise"].label.contains("review"), "In review")
         app.buttons["phrase-done"].tap()
         // Wait for the card to close before using the tab bar (a tap while it slides away is lost).
-        XCTAssertTrue(app.textFields["search-field"].waitForExistence(timeout: 5), "Back on Search")
+        XCTAssertTrue(app.textFields["search-field"].waitForExistence(timeout: 5), "Back on Words")
         XCTAssertTrue(waitUntilGone(app.buttons["phrase-done"]), "Phrase card closed")
 
         // A situation from the Phrasebook tab.

@@ -10,8 +10,7 @@ struct LearnView: View {
     @State private var scrolledTo: String?
 
     var body: some View {
-        @Bindable var nav = navigator
-        NavigationStack(path: $nav.learnPath) {
+        NavigationStack {
             ScrollViewReader { proxy in
                 ScrollView {
                     VStack(spacing: 26) {
@@ -32,8 +31,8 @@ struct LearnView: View {
                     .padding(.vertical, 12)
                 }
                 // Bring the next lesson into view the first time the path opens, and again
-                // when it changes (a lesson finished), never on coming back from Words or
-                // Progress: scrolling then made the big "Learn" title jump mid-transition.
+                // when it changes (a lesson finished), not every time the tab shows: scrolling
+                // on return made the big "Learn" title jump (KART #6).
                 .onAppear {
                     guard scrolledTo != store.nextLesson?.id else { return }
                     scrolledTo = store.nextLesson?.id
@@ -44,31 +43,13 @@ struct LearnView: View {
                     }
                 }
                 .onChange(of: store.nextLesson?.id) { _, id in
-                    guard let id, id != scrolledTo, navigator.learnPath.isEmpty else { return }
+                    guard let id, id != scrolledTo else { return }
                     scrolledTo = id
                     withMotion(Motion.slow) { proxy.scrollTo(id, anchor: .center) }
                 }
             }
             .background(AmbientBackground(tint: .saperavi))
             .navigationTitle(tr("Learn"))
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    NavigationLink(value: LearnRoute.words) {
-                        Text(tr("Words")).font(.calloutRounded.weight(.semibold))
-                    }
-                    .accessibilityIdentifier("learn-words")
-                    NavigationLink(value: LearnRoute.progress) {
-                        Text(tr("Progress")).font(.calloutRounded.weight(.semibold))
-                    }
-                    .accessibilityIdentifier("learn-progress")
-                }
-            }
-            .navigationDestination(for: LearnRoute.self) { route in
-                switch route {
-                case .words: VocabularyView()
-                case .progress: ProgressScreen()
-                }
-            }
             .overlay(alignment: .bottom) {
                 if let lockedNotice {
                     Label(lockedNotice, systemImage: "lock.fill")

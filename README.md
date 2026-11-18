@@ -26,8 +26,9 @@ Georgian with Polish). Latest release: 0.2.1 (see CHANGELOG.md).
   it in review, mark it learned, copy it, or **show it** full screen to a driver or a
   shopkeeper (white on black, the English optional, turned upside down for the person
   opposite, screen kept on).
-- **Search:** English, Georgian or Latin letters, without exact wording: synonyms ("cab",
-  "chemist"), plurals, typos, situations; suggestions, recent searches and recent phrases.
+- **Search** (at the top of Words, and from the search bars on Home and in the Phrasebook):
+  English, Polish, Georgian or Latin letters, without exact wording: synonyms ("cab",
+  "chemist"), plurals, typos; words first, then phrases, situations and conversations.
 - **Conversations:** read and hear both sides, the useful expressions explained, then play
   either side in the lesson player.
 - **My phrasebook:** saved phrases by situation, your own lists, what's in review or learned,
@@ -43,14 +44,18 @@ Georgian with Polish). Latest release: 0.2.1 (see CHANGELOG.md).
   tiles, flashcards, conversations, and listening (only where real audio exists). Instant
   feedback with the right answer and why; mistakes come back at the end; a completion
   screen with words learned, accuracy, streak, goal and milestones (no XP or levels on screen).
-- **Words** (in Learn): all 226 course words and phrases by theme, then **More words**: the
+- **Home:** your level (a playful stage name), the week and streak; Learn (next lesson in
+  one tap) and Use in Georgia side by side; review when something is due; search; the
+  situations; recent and saved phrases.
+- **Words** (a tab): all 226 course words and phrases by theme, then **More words**: the
   528 other words the app shows anywhere (the letters' example words, words in examples,
   conversations, phrases and grammar tables), each with the sentence it appears in. All
   searchable in Georgian, English, Polish or Latin letters, with Latin spelling,
   pronunciation help, audio, your status and practice.
 - **Review:** spaced repetition (each word and letter on its own schedule), difficult words,
   recent mistakes with what you answered, and a letter workout.
-- **Progress** (in Learn): what you can do now ("Order in a café", "Ask the way"), today's
+- **Progress** (from Home's card): your stage on the journey from "Just landed" to "Tamada",
+  what it means and what's next (no exam levels: the app gives none); what you can do now ("Order in a café", "Ask the way"), today's
   challenge, streak, lessons, words and letters learned, accuracy, a week or month chart of
   answers, modules, milestones and the lesson history.
 - **Profile:** name, daily goal, starting point, voice (Eka or Giorgi), slower audio,

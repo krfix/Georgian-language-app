@@ -117,7 +117,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | Design system: colours (light and dark), type, motion, haptics, components | `DesignSystem/` (Borjgali emblem, ChunkyButton, cards, rings, confetti, FlowLayout, SpeakerButton) |
 | App start, launch options | `App/GeorgianApp.swift` (`AppModel`), `App/LaunchOptions.swift` |
 | Tabs, navigation, presenting lessons and phrases | `Features/Root/RootView.swift` (`Navigator`, `PhrasebookRoute`, `LearnRoute`) |
-| Screens | `Features/Onboarding`, `Home`, `Learn` (path, preview, alphabet chart; Words and Progress pushed from it), `Lesson` (player, one view per content shape, completion), `Phrasebook` (tab, situation, phrase card, Show mode, dialogue, my phrasebook, search), `Vocabulary`, `Review`, `Progress`, `Profile` |
+| Screens | `Features/Onboarding`, `Home`, `Learn` (path, preview, alphabet chart), `Lesson` (player, one view per content shape, completion), `Phrasebook` (tab, situation, phrase card, Show mode, dialogue, my phrasebook), `Vocabulary` (the Words tab: list, search over everything, word card), `Review`, `Progress` (pushed from Home's card), `Profile` |
 
 ## How the app works (and patterns to keep)
 - SwiftUI + SwiftData, iOS 17+ (for SwiftData, Observation and the newer animation APIs;
@@ -132,7 +132,12 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   days), a miss brings it back in 10 minutes. Same-day repeats don't push it further.
 - Path: lessons open in order (`CourseProgress`); "I know a few letters" opens the alphabet,
   "I can read" starts at Module 2.
-- Tabs: Home · Learn · Phrasebook · Search · Review. The phrasebook never locks anything.
+- Tabs (KART #6): Home · Learn · Phrasebook · Words · Review. Words is the word list with
+  search over everything (words, phrases, situations, conversations); Learn is only the path;
+  Progress opens from Home's card. Home's order: greeting, progress card, Learn | Use in
+  Georgia, review (when due), search, situations, phrases. The phrasebook never locks anything.
+- Levels: no A0/A1 (official exam levels). `CourseStage` (Engine) names six stages by finished
+  module: Just landed, Sign reader, Bazaar regular, Supra guest, Tamada's apprentice, Tamada.
   A phrase (`pb-…` id) becomes a `Word` for review (`Phrasebook.word(for:)`), so saving it
   for practice uses the same `MasteryRecord` schedule; a dialogue becomes a conversation
   `Lesson` for the player (`practiceLesson`). The learner's saved phrases, lists, "learned"
