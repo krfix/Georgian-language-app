@@ -22,7 +22,9 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       what to change. A trademark search should cover the symbol too.
 - [ ] App Store screenshots are ready (`brand/app-store`); a short App Store preview video
       and the description text are still to write.
-- [ ] App Store: an Apple Developer account, signed builds, privacy policy and support URLs.
+- [ ] TestFlight (KART #7): build #39 uploaded. Internal test by the owner, then an external
+      group with a public link (Beta App Review). Privacy/support: aralearn.github.io.
+      Before the App Store: hide Profile › Developer, age rating, App Privacy ("no data").
 
 ## Next
 - [ ] Polish (KART #4): a Polish speaker reads the app and the course; Polish App Store text

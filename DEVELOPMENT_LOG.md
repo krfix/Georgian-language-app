@@ -3,6 +3,26 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #7 · 18/11/26 · TestFlight (branch `claude/dazzling-cray-izaxbp`)
+
+Owner's developer account is active; goal: Ara on TestFlight for friends and family.
+
+### Built
+- Bundle ID `com.aralearn.ge` (was `com.krfix.georgian`; the owner didn't want the GitHub
+  name in it). Registered at developer.apple.com; app record "Ara: Learn Georgian" in App
+  Store Connect (English (U.K.), SKU ara-001).
+- Workflow option `testflight`: logic tests, an unsigned archive, then `xcodebuild
+  -exportArchive` with the App Store Connect API key (Admin), which signs with Apple's
+  cloud-managed distribution certificate and uploads. Secrets: `ASC_KEY_ID`,
+  `ASC_ISSUER_ID`, `ASC_KEY_P8`, `APPLE_TEAM_ID`.
+- Website `aralearn/aralearn.github.io` (GitHub organisation `aralearn`): home, privacy,
+  support, English and Polish, Ara's colours, light and dark. Contact ara.learn.app@gmail.com.
+- On screen, "with the help of AI" instead of naming Claude (phrase note, Profile › Checked by).
+
+### Tested
+- Build #39 (0.3.0): 192/192 logic tests, archive and upload succeeded on the first try
+  (about 2 minutes on the Mac). Pages checked at iPhone width in light and dark (Playwright).
+
 ## KART #6 · 18/11/26 · Words lag, Learn title (branch `claude/vigilant-franklin-583csk`)
 
 Owner's report: Learn › Words opens with a short lag; coming back from Words or Progress the
