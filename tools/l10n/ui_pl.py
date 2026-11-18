@@ -267,7 +267,7 @@ PL = {
     "Search words and phrases": "Szukaj słów i zwrotów",
     "{0} lines": "Kwestie: {0}",
     "Phrases checked by a native Georgian speaker. Audio: {0}, a synthetic voice.": "Zwroty sprawdzone przez rodzimego użytkownika gruzińskiego. Nagrania: {0}, głos syntetyczny.",
-    "Phrases prepared with the help of AI, for natural everyday Georgian. A native speaker's check is still to come. Audio: {0}, a synthetic voice.": "Zwroty przygotowane z pomocą sztucznej inteligencji, z myślą o naturalnym, codziennym gruzińskim. Sprawdzenie przez rodzimego użytkownika jeszcze przed nami. Nagrania: {0}, głos syntetyczny.",
+    "Phrases in natural everyday Georgian, prepared with the help of AI. A native speaker's check is still to come. Audio: {0}, a synthetic voice.": "Zwroty w naturalnym, codziennym gruzińskim, przygotowane z pomocą sztucznej inteligencji. Sprawdzenie przez rodzimego użytkownika jeszcze przed nami. Nagrania: {0}, głos syntetyczny.",
     "{0} and {1}. Tap a line to hear it.": "{0} i {1}. Stuknij kwestię, żeby ją usłyszeć.",
     "English": "Tłumaczenie",
     "Latin letters": "Łacinka",

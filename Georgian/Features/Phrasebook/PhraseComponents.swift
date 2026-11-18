@@ -311,7 +311,7 @@ struct ContentCheckNote: View {
         Label {
             Text(store.phrasebook.isNativeChecked
                  ? tr("Phrases checked by a native Georgian speaker. Audio: {0}, a synthetic voice.", audio.voice.name)
-                 : tr("Phrases prepared with the help of AI, for natural everyday Georgian. A native speaker's check is still to come. Audio: {0}, a synthetic voice.", audio.voice.name))
+                 : tr("Phrases in natural everyday Georgian, prepared with the help of AI. A native speaker's check is still to come. Audio: {0}, a synthetic voice.", audio.voice.name))
         } icon: {
             Image(systemName: "checkmark.shield.fill")
         }
