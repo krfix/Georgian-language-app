@@ -91,7 +91,7 @@ button.
 tests, then an unsigned `Georgian-<version>-<build>.ipa`. Run it by hand (**Actions → Build
 unsigned IPA → Run workflow**, choose the branch); tick **qa** for the Simulator run with UI
 tests and screenshots instead. Download the IPA from the run's **Artifacts** and sign it with
-Feather, always as `com.krfix.georgian` so your progress is kept. Releases (a new version in
+Feather, always as `com.aralearn.ge` so your progress is kept. Releases (a new version in
 `project.yml` with its CHANGELOG.md section, merged to `main`) are built automatically and
 published on the repository's Releases page with the IPA.
 

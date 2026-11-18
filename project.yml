@@ -1,6 +1,6 @@
 name: Georgian
 options:
-  bundleIdPrefix: com.krfix
+  bundleIdPrefix: com.aralearn
   deploymentTarget:
     iOS: "17.0"
 targets:
@@ -24,7 +24,7 @@ targets:
           - UIInterfaceOrientationPortrait
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.krfix.georgian
+        PRODUCT_BUNDLE_IDENTIFIER: com.aralearn.ge
         PRODUCT_NAME: Georgian
         MARKETING_VERSION: "0.3.0"
         CURRENT_PROJECT_VERSION: "1"   # set to the GitHub run number by the build
@@ -44,7 +44,7 @@ targets:
       - target: Georgian
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.krfix.georgian.uitests
+        PRODUCT_BUNDLE_IDENTIFIER: com.aralearn.ge.uitests
         GENERATE_INFOPLIST_FILE: YES
         TEST_TARGET_NAME: Georgian
         SWIFT_VERSION: "5.0"

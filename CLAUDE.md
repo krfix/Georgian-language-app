@@ -56,7 +56,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   Identity (KART #3, `docs/brand.md`): the symbol is Ara's head, whose hooked beak is a
   speech bubble's tail; the mascot is the same head on a macaw body (`ParrotView(mood:)`).
   All artwork comes from `tools/brand/make_brand.py`: change it there, never by hand. Inside the
-  code and repo it is still "Georgian" (target, bundle ID `com.krfix.georgian`): don't rename.
+  code and repo it is still "Georgian" (the target). Bundle ID `com.aralearn.ge` (owner, KART #7,
+  so the GitHub name isn't in it; GitHub organisation `aralearn`): fixed once uploaded to Apple.
 - Developer switch: Profile › Developer › Open all lessons (UserDefaults
   `devUnlockAllLessons`). Hide it before an App Store release.
 - Test data is always invented (Ana, the demo learner, `LearningStore.seedDemo`).
@@ -99,7 +100,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   `-seedDemo`, `-screen <home|learn|alphabet|lesson|complete|words|word|review|progress|profile|onboarding|
   phrasebook|category|emergency|saved|dialogue|practice|phrase|show|search>` with `-item <id>` or
   `-query <text>` for the phrasebook screens.
-- Installed with Feather; always the same identifier, `com.krfix.georgian`.
+- Installed with Feather, or TestFlight; always the same identifier, `com.aralearn.ge` (until
+  KART #7 it was `com.krfix.georgian`, which the iPhone treats as a different app).
 
 ## Code map
 | What | Where |
