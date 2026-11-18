@@ -124,7 +124,7 @@ PL = {
     "First lesson": "Pierwsza lekcja",
     "Get started": "Zaczynamy",
     "I just need phrases now": "Potrzebuję teraz tylko zwrotów",
-    "No account needed. Everything stays on your iPhone and works offline.": "Bez konta. Wszystko zostaje na twoim iPhonie i działa offline.",
+    "No account needed. Stays on your iPhone, works offline.": "Bez konta. Wszystko zostaje na twoim iPhonie i działa offline.",
     "Start my first lesson": "Zacznij pierwszą lekcję",
     "Explore first": "Najpierw się rozejrzę",
     "Skip": "Pomiń",

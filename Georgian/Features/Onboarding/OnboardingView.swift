@@ -178,9 +178,12 @@ struct OnboardingView: View {
                 }
                 .buttonStyle(SoftButtonStyle())
                 .accessibilityIdentifier("onboarding-phrasebook")
-                Text(tr("No account needed. Everything stays on your iPhone and works offline."))
+                // One line in every language, so the buttons above don't shift.
+                Text(tr("No account needed. Stays on your iPhone, works offline."))
                     .font(.caption)
                     .foregroundStyle(Palette.inkSoft)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
             }
         case .ready:
             VStack(spacing: 8) {
