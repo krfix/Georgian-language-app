@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #5 (17/11/26). The words come from the first request. Rename with `set_session_title`
+KART #6 (18/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
@@ -116,7 +116,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | Brand: symbol, app icons, logos, mascot poses (vector masters in `brand/`, assets in the catalog) | `tools/brand/ara.py` (geometry), `make_brand.py`; `docs/brand.md` |
 | Design system: colours (light and dark), type, motion, haptics, components | `DesignSystem/` (Borjgali emblem, ChunkyButton, cards, rings, confetti, FlowLayout, SpeakerButton) |
 | App start, launch options | `App/GeorgianApp.swift` (`AppModel`), `App/LaunchOptions.swift` |
-| Tabs, navigation, presenting lessons and phrases | `Features/Root/RootView.swift` (`Navigator`, `PhrasebookRoute`, `LearnRoute`) |
+| Tabs, navigation, presenting lessons and phrases | `Features/Root/RootView.swift` (`Navigator`, `PhrasebookRoute`, `HomeRoute`) |
 | Screens | `Features/Onboarding`, `Home`, `Learn` (path, preview, alphabet chart), `Lesson` (player, one view per content shape, completion), `Phrasebook` (tab, situation, phrase card, Show mode, dialogue, my phrasebook), `Vocabulary` (the Words tab: list, search over everything, word card), `Review`, `Progress` (pushed from Home's card), `Profile` |
 
 ## How the app works (and patterns to keep)
@@ -150,8 +150,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 - Released from `main` (KART #5): 0.2.0 (build #29) with the full app (KART #1), the
   phrasebook (KART #2), the brand identity (KART #3), KART #4 (numbers, Polish, eight
   dialogues, learning-first, tappable words, why cards, grammar g10–g13) and the voice choice;
-  0.2.1 (build #30): More words, every word on screen in Words. The UI tests haven't run on
-  the voice step or More words yet (next qa run). See DEVELOPMENT_LOG.md and TODO.md.
+  0.2.1 (build #30): More words, every word on screen in Words; 0.3.0 (KART #6): the Words
+  tab, Home's new order, stage names instead of levels, tappable notes, smoother Learn and
+  Words. See DEVELOPMENT_LOG.md and TODO.md.
 
 ## Repos and branches
 - `krfix/Georgian-language-app` (private): this app; `main` is what's tested and accepted.

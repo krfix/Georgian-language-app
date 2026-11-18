@@ -2,6 +2,25 @@
 
 What changed in each version, newest first. Before the App Store, versions are 0.x.y.
 
+## [0.3.0] - 2026-11-18
+
+Simpler to find your way: five clear tabs, a calmer Home, and levels with a story.
+
+- New tab layout: Home · Learn · Phrasebook · Words · Review. Words is a tab of its own:
+  every word by theme, with one search over words, phrases, situations and conversations.
+  Learn is only the lesson path. Progress opens from Home
+- Home, in a new order: search, your progress, Learn and Use in Georgia, Continue learning,
+  Right now I need…, review (only when something is waiting), your phrases
+- Levels with a story instead of exam levels (A0, A1 are official levels the app can't
+  give): ✈️ Just landed, 🪧 Sign reader, 🍇 Bazaar regular, 🍷 Supra guest, 🥂 Tamada's
+  apprentice, 🏆 Tamada. Progress shows what yours means, the whole road, and what's next
+- Words opens at once (it used to pause), and shows how many words the course teaches
+  (226) and how many more you'll meet (528, one tap to see them)
+- Tap any Georgian word in "Before you start" cards and grammar notes for its meaning
+- A lesson's Start button is always on screen in its preview
+- Smoother: the Learn title no longer jumps when you come back; the welcome screen's last
+  line fits on one line in English and Polish
+
 ## [0.2.1] - 2026-11-17
 
 - Words has every Georgian word the app shows: besides the course's words, "More words"
