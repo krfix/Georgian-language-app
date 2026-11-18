@@ -291,19 +291,25 @@ struct LessonPreviewSheet: View {
                             .background(Capsule().fill(color.color.opacity(0.13)))
                     }
                 }
-                HStack(spacing: 12) {
-                    if state == .completed { Pill(text: tr("Done: practise again"), color: Palette.success, symbol: "checkmark") }
-                }
-                Button {
-                    Haptics.tap()
-                    navigator.start(lesson)
-                } label: {
-                    Label(state == .completed ? tr("Practise again") : tr("Start"), systemImage: "play.fill")
-                }
-                .buttonStyle(ChunkyButtonStyle(color: color))
-                .accessibilityIdentifier("start-lesson")
+                if state == .completed { Pill(text: tr("Done: practise again"), color: Palette.success, symbol: "checkmark") }
             }
             .padding(24)
+        }
+        // Start stays on screen at the bottom of the sheet, however long the list of words
+        // is and whether the sheet is half or fully open.
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            Button {
+                Haptics.tap()
+                navigator.start(lesson)
+            } label: {
+                Label(state == .completed ? tr("Practise again") : tr("Start"), systemImage: "play.fill")
+            }
+            .buttonStyle(ChunkyButtonStyle(color: color))
+            .accessibilityIdentifier("start-lesson")
+            .padding(.horizontal, 24)
+            .padding(.top, 12)
+            .padding(.bottom, 8)
+            .background(Palette.background.opacity(0.96).ignoresSafeArea())
         }
         .background(Palette.background.ignoresSafeArea())
     }

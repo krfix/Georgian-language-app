@@ -467,6 +467,7 @@ PL = {
     "Milestone reached": "Kamień milowy osiągnięty",
     # Tappable words
     "Explains this word": "Wyjaśnia to słowo",
+    "Tap a Georgian word to see what it means.": "Dotknij gruzińskiego słowa, żeby zobaczyć, co znaczy.",
     "Dictionary form": "Forma słownikowa",
     "Word by word": "Słowo po słowie",
     "From {0}": "Od: {0}",

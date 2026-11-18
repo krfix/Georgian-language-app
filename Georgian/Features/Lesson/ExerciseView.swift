@@ -202,10 +202,7 @@ struct NoteView: View {
             Text(note.title)
                 .font(.titleBold)
                 .foregroundStyle(Palette.saperavi)
-            Text(note.text)
-                .font(.bodyRounded)
-                .foregroundStyle(Palette.ink)
-                .fixedSize(horizontal: false, vertical: true)
+            TappableProse(text: note.text)
             if !note.table.isEmpty {
                 VStack(spacing: 0) {
                     ForEach(Array(note.table.enumerated()), id: \.offset) { i, row in

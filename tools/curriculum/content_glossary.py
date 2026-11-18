@@ -52,6 +52,8 @@ BASES = {
     "ამ": ("this (before a noun with an ending)", "ten (przed rzeczownikiem z końcówką)"),
     "აი": ("here (it is)", "o, proszę (tu jest)"),
     "ძალიან": ("very", "bardzo"),
+    "მეტი": ("more", "więcej"),
+    "გამარჯვება": ("victory", "zwycięstwo"),
     "უფრო": ("more, -er", "bardziej, -ej (wolniej, taniej)"),
     "კარგი": ("good; OK", "dobry; dobrze, OK"),
     "კარგ": ("good (before a noun with an ending)", "dobry (przed rzeczownikiem z końcówką)"),

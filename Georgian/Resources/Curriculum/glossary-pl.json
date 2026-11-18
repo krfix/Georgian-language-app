@@ -4169,6 +4169,92 @@
    "lat": "gavagrdzelot",
    "meaning": "kontynuujmy",
    "note": "ვ- … -თ: „my”."
+  },
+  "გამარჯვება": {
+   "lat": "gamarjveba",
+   "meaning": "zwycięstwo"
+  },
+  "თბილისიდან": {
+   "lat": "tbilisidan",
+   "base": "თბილისი",
+   "baseLat": "tbilisi",
+   "baseMeaning": "Tbilisi",
+   "note": "-დან: z, od (z łącznikiem -ი-)"
+  },
+  "ოთხ": {
+   "lat": "otkh",
+   "base": "ოთხი",
+   "baseLat": "otkhi",
+   "baseMeaning": "cztery",
+   "note": "Przed rzeczownikiem z końcówką słowo gubi -ი: შვიდ საათზე, „o siódmej”."
+  },
+  "მეტი": {
+   "lat": "met'i",
+   "meaning": "więcej"
+  },
+  "სამოცი": {
+   "lat": "samotsi",
+   "meaning": "sześćdziesiąt"
+  },
+  "ოთხმოცი": {
+   "lat": "otkhmotsi",
+   "meaning": "osiemdziesiąt"
+  },
+  "მანქანით": {
+   "lat": "mankanit",
+   "base": "მანქანა",
+   "baseLat": "mankana",
+   "baseMeaning": "samochód",
+   "note": "-ით: narzędnik: czym? z czym? (samochodem, z mlekiem)"
+  },
+  "თეთრი": {
+   "lat": "tetri",
+   "meaning": "biały"
+  },
+  "მაგიდაზე": {
+   "lat": "magidaze",
+   "base": "მაგიდა",
+   "baseLat": "magida",
+   "baseMeaning": "stół",
+   "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "სახლები": {
+   "lat": "sakhlebi",
+   "base": "სახლი",
+   "baseLat": "sakhli",
+   "baseMeaning": "dom",
+   "note": "-ები: liczba mnoga"
+  },
+  "დედები": {
+   "lat": "dedebi",
+   "base": "დედა",
+   "baseLat": "deda",
+   "baseMeaning": "matka",
+   "note": "-ები: liczba mnoga"
+  },
+  "მეგობრები": {
+   "lat": "megobrebi",
+   "meaning": "przyjaciele",
+   "base": "მეგობარი",
+   "baseLat": "megobari",
+   "baseMeaning": "przyjaciel",
+   "note": "Liczba mnoga -ები; drugie ა z მეგობარი wypada."
+  },
+  "ორ": {
+   "lat": "or",
+   "base": "ორი",
+   "baseLat": "ori",
+   "baseMeaning": "dwa",
+   "note": "Przed rzeczownikiem z końcówką słowo gubi -ი: შვიდ საათზე, „o siódmej”."
+  },
+  "ნუ": {
+   "lat": "nu",
+   "meaning": "nie (zakaz przed czasownikiem: ნუ ღელავ)"
+  },
+  "ღელავ": {
+   "lat": "ghelav",
+   "meaning": "martwisz się",
+   "note": "ნუ ღელავ: „nie martw się”."
   }
  }
 }

@@ -675,42 +675,52 @@ def analyse(t):
 
 
 glossary_en, glossary_pl, unexplained = {}, {}, []
-for s_ in gloss_sentences:
-    for tok in tokens(s_):
-        if tok in glossary_en or not any(ch in LATIN for ch in tok):
-            continue
-        if tok in G.FORMS:
-            base, en, pl, note_en, note_pl = G.FORMS[tok]
-            check_georgian(re.sub(r"[0-9]", "", tok), "glossary form")
-            e_en = {"lat": latin(tok), "meaning": en}
-            e_pl = {"lat": latin(tok), "meaning": pl}
-            if base:
-                e_en["base"] = e_pl["base"] = base
-                e_en["baseLat"] = e_pl["baseLat"] = latin(base)
-                if base in dictionary:
-                    e_en["baseMeaning"], e_pl["baseMeaning"] = dictionary[base]
-            if note_en:
-                e_en["note"], e_pl["note"] = note_en, note_pl
-            glossary_en[tok], glossary_pl[tok] = e_en, e_pl
-            continue
-        r = analyse(tok)
-        if not r:
-            unexplained.append(tok)
-            continue
-        base, notes = r
-        en, pl = dictionary[base]
-        e_en = {"lat": latin(tok)}
-        e_pl = {"lat": latin(tok)}
-        if base != tok:
+
+
+def explain(tok):
+    """Adds the word to the glossary; False if it can't be explained."""
+    if tok in glossary_en:
+        return True
+    if tok in G.FORMS:
+        base, en, pl, note_en, note_pl = G.FORMS[tok]
+        check_georgian(re.sub(r"[0-9]", "", tok), "glossary form")
+        e_en = {"lat": latin(tok), "meaning": en}
+        e_pl = {"lat": latin(tok), "meaning": pl}
+        if base:
             e_en["base"] = e_pl["base"] = base
             e_en["baseLat"] = e_pl["baseLat"] = latin(base)
-            e_en["baseMeaning"], e_pl["baseMeaning"] = en, pl
-        else:
-            e_en["meaning"], e_pl["meaning"] = en, pl
-        if notes:
-            e_en["note"] = "\n".join(n[0] for n in notes)
-            e_pl["note"] = "\n".join(n[1] for n in notes)
+            if base in dictionary:
+                e_en["baseMeaning"], e_pl["baseMeaning"] = dictionary[base]
+        if note_en:
+            e_en["note"], e_pl["note"] = note_en, note_pl
         glossary_en[tok], glossary_pl[tok] = e_en, e_pl
+        return True
+    r = analyse(tok)
+    if not r:
+        return False
+    base, notes = r
+    en, pl = dictionary[base]
+    e_en = {"lat": latin(tok)}
+    e_pl = {"lat": latin(tok)}
+    if base != tok:
+        e_en["base"] = e_pl["base"] = base
+        e_en["baseLat"] = e_pl["baseLat"] = latin(base)
+        e_en["baseMeaning"], e_pl["baseMeaning"] = en, pl
+    else:
+        e_en["meaning"], e_pl["meaning"] = en, pl
+    if notes:
+        e_en["note"] = "\n".join(n[0] for n in notes)
+        e_pl["note"] = "\n".join(n[1] for n in notes)
+    glossary_en[tok], glossary_pl[tok] = e_en, e_pl
+    return True
+
+
+for s_ in gloss_sentences:
+    for tok in tokens(s_):
+        if not any(ch in LATIN for ch in tok):
+            continue
+        if not explain(tok):
+            unexplained.append(tok)
 unexplained = sorted(set(unexplained), key=lambda x: (-sum(s_.count(x) for s_ in gloss_sentences), x))
 if "--glossary" in sys.argv:
     print(f"# {len(glossary_en)} explained, {len(unexplained)} not")
@@ -726,6 +736,37 @@ pl_words = polish_words()
 pl_categories = [{**c, "title": t(c["title"], "category " + c["id"])} for c in categories]
 pl_modules = polish_course()
 pl_pb = polish_phrasebook()
+
+# Words in "Before you start" cards and grammar notes (KART #6) can be tapped too. Pieces
+# written with a hyphen (-ში, წა-ვ-ედი) and single letters are about spelling, not words:
+# the app doesn't make them tappable, and they need no explanation.
+NOTE_SPLIT = re.compile(r"[\s,.?!—–:;\"«»…()„”“]+")
+
+
+def note_tokens(text):
+    for x in NOTE_SPLIT.split(text):
+        if x and "-" not in x and len(x) > 1 and all(ch in LATIN for ch in x):
+            yield x
+
+
+note_unexplained = []
+for mods in (modules, pl_modules):
+    for m in mods:
+        for L in m["lessons"]:
+            texts = [n["text"] for n in L.get("notes", [])]
+            if L.get("intro"):
+                texts.append(L["intro"]["text"])
+            for x in texts:
+                for tok in note_tokens(x):
+                    if not explain(tok):
+                        note_unexplained.append(tok)
+note_unexplained = sorted(set(note_unexplained))
+if "--notes" in sys.argv:
+    print(f"# words in notes not explained: {len(note_unexplained)}")
+    print(" ".join(note_unexplained))
+    sys.exit(0)
+for t_ in note_unexplained[:20]:
+    fail(f"note words: no explanation for {t_!r} (add it to content_glossary.py)")
 
 # ---- More words (KART #5): every Georgian word the app shows anywhere (letters, examples,
 # conversations, phrases, grammar tables, exercises) is in the Words tab. Words outside the

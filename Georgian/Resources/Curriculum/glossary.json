@@ -4169,6 +4169,92 @@
    "lat": "gavagrdzelot",
    "meaning": "let's carry on",
    "note": "ვ- … -თ: \"we\"."
+  },
+  "გამარჯვება": {
+   "lat": "gamarjveba",
+   "meaning": "victory"
+  },
+  "თბილისიდან": {
+   "lat": "tbilisidan",
+   "base": "თბილისი",
+   "baseLat": "tbilisi",
+   "baseMeaning": "Tbilisi",
+   "note": "-დან: from (with -ი- between)"
+  },
+  "ოთხ": {
+   "lat": "otkh",
+   "base": "ოთხი",
+   "baseLat": "otkhi",
+   "baseMeaning": "four",
+   "note": "Before a noun with an ending, the word drops its -ი: შვიდ საათზე, \"at seven\"."
+  },
+  "მეტი": {
+   "lat": "met'i",
+   "meaning": "more"
+  },
+  "სამოცი": {
+   "lat": "samotsi",
+   "meaning": "sixty"
+  },
+  "ოთხმოცი": {
+   "lat": "otkhmotsi",
+   "meaning": "eighty"
+  },
+  "მანქანით": {
+   "lat": "mankanit",
+   "base": "მანქანა",
+   "baseLat": "mankana",
+   "baseMeaning": "car",
+   "note": "-ით: with, by: the instrumental case"
+  },
+  "თეთრი": {
+   "lat": "tetri",
+   "meaning": "white"
+  },
+  "მაგიდაზე": {
+   "lat": "magidaze",
+   "base": "მაგიდა",
+   "baseLat": "magida",
+   "baseMeaning": "table",
+   "note": "-ზე: on; at (a time); about"
+  },
+  "სახლები": {
+   "lat": "sakhlebi",
+   "base": "სახლი",
+   "baseLat": "sakhli",
+   "baseMeaning": "house",
+   "note": "-ები: the plural"
+  },
+  "დედები": {
+   "lat": "dedebi",
+   "base": "დედა",
+   "baseLat": "deda",
+   "baseMeaning": "mother",
+   "note": "-ები: the plural"
+  },
+  "მეგობრები": {
+   "lat": "megobrebi",
+   "meaning": "friends",
+   "base": "მეგობარი",
+   "baseLat": "megobari",
+   "baseMeaning": "friend",
+   "note": "The plural -ები; the second ა of მეგობარი drops."
+  },
+  "ორ": {
+   "lat": "or",
+   "base": "ორი",
+   "baseLat": "ori",
+   "baseMeaning": "two",
+   "note": "Before a noun with an ending, the word drops its -ი: შვიდ საათზე, \"at seven\"."
+  },
+  "ნუ": {
+   "lat": "nu",
+   "meaning": "don't (before a verb: ნუ ღელავ)"
+  },
+  "ღელავ": {
+   "lat": "ghelav",
+   "meaning": "you worry",
+   "note": "ნუ ღელავ: \"don't worry\"."
   }
  }
 }
