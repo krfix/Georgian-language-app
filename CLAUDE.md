@@ -70,7 +70,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
    for the IPA, or add `-f qa=true` for the Simulator run (logic tests, UI tests, then 22
    screenshots of every main screen in light and dark, in the run's "screenshots" artifact:
    `gh run download <id> -n screenshots`). Watch with `gh run view <id>`. `-f testflight=true`
-   signs and uploads to App Store Connect for TestFlight (KART #7; only on the owner's say-so,
+   signs and uploads to App Store Connect for TestFlight (KART #7; the privacy and support
+   pages live in the public repo `aralearn/aralearn.github.io`; only on the owner's say-so,
    since it sends the app to Apple; secrets `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_P8`,
    `APPLE_TEAM_ID`; API key with the Admin role, for Apple's cloud signing).
 3. The owner installs the IPA with Feather and tests on the iPhone.
@@ -78,8 +79,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 5. "Release": raise `MARKETING_VERSION` in `project.yml` and add a `## [x.y.z] - yyyy-MM-dd`
    section to `CHANGELOG.md`; on `main` the workflow then publishes the GitHub Release with
    the IPA. A version without its CHANGELOG section never builds on `main`.
-- Mac minutes: GitHub's standard runners are free for a public repo, but keep runs lean
-  (the Mac queue is slow, and the Logbook app may be private and paid). Build when the owner asks, or when the
+- Mac minutes cost money (private repo, shared with the Logbook app). Build when the owner asks, or when the
   owner's brief asks for build-and-inspect cycles (as in KART #1). Let several changes ride on
   one run; cancel a run whose code is already out of date.
 - Rhythm (owner, KART #6): on a branch, quick IPA builds only (no `qa`); the owner tests on
@@ -161,7 +161,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   Words. See DEVELOPMENT_LOG.md and TODO.md.
 
 ## Repos and branches
-- `krfix/Georgian-language-app` (public, KART #7: anyone can read the code and docs, so
-  never commit keys or personal details; secrets live in GitHub's Actions secrets): this app; `main` is what's tested and accepted.
+- `krfix/Georgian-language-app` (private again, KART #7; never commit keys or personal
+  details, secrets live in GitHub's Actions secrets): this app; `main` is what's tested and accepted.
 - `krfix/Logbook-app-store`: the owner's Logbook app, the model for the set-up. Don't change
   it from a Georgian chat.
