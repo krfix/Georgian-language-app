@@ -123,26 +123,36 @@ quick, encouraging; a local friend, not a cheerleader.
 
 ## App Store screenshots (brand/app-store)
 
-Nine screens at 1320 × 2868 (the 6.9-inch iPhone size App Store Connect asks for; it
-scales them for smaller iPhones), made by `tools/appstore/make_screens.py` from the QA run's
-Simulator screenshots (the invented demo learner, Ana). The order tells the story; the first
+Redesigned in KART #6. Made by `tools/appstore/make_screens.py` from the QA run's Simulator
+screenshots (Ana, the invented demo learner), at 1320 × 2868 (the 6.9-inch iPhone size App
+Store Connect asks for; it scales them for smaller iPhones): ten in English
+(`brand/app-store/en`), seven in Polish (`brand/app-store/pl`, for the Polish listing; the
+screens whose app text is English only are left out). The order tells the story; the first
 three show in search results, so they carry the strongest features:
 
-| # | Headline | Screen | Colour |
-| --- | --- | --- | --- |
-| 1 | Learn Georgian. Live Georgian. | Home, with Ara | the icon's gradient |
-| 2 | Just show the driver | Show mode | Pomegranate |
-| 3 | Type what you want to say | Search "water" | Black Sea |
-| 4 | 302 phrases for real life | Use in Georgia | Gold |
-| 5 | Hear it. Say it. | Phrase card, sound guide | Tkemali → Black Sea |
-| 6 | Practise real conversations | At the bazaar | Saperavi → Black Sea |
-| 7 | Read Georgian from day one | Alphabet | Pomegranate → Saperavi |
-| 8 | Short lessons that stick | Exercise + Review | Saperavi → Pomegranate |
-| 9 | Your Georgia, in your pocket | My phrasebook (dark) | Night |
+| # | Headline | Screen | Callout | Colour |
+| --- | --- | --- | --- | --- |
+| 1 | Learn Georgian. Live Georgian. | Home (dark), with Ara | your level | the icon's gradient |
+| 2 | Just show the driver | Show mode, tilted | Taxi · Café · Pharmacy chips | Pomegranate |
+| 3 | Type what you want to say | Words, search "water" | the first result | Black Sea |
+| 4 | 302 phrases for real life | Use in Georgia | emergency phrases, 112 | Gold |
+| 5 | Hear it. Say it. | Phrase card | the sound guide | Tkemali → Black Sea |
+| 6 | Practise real conversations | At the bazaar | "How much are the tomatoes?" | Saperavi → Black Sea |
+| 7 | From Just landed to Tamada | Progress | the road of six stages | Saperavi → Gold |
+| 8 | Read Georgian from day one | Alphabet, tilted | | Pomegranate → Saperavi |
+| 9 | Short lessons that stick | Exercise + Review | | Saperavi → Pomegranate |
+| 10 | Your Georgia, in your pocket | My phrasebook (dark) | | Night |
 
-Rules kept: real screens only; every number checked against the content; no claim of native
-audio or a native speaker's check; big headlines that read as thumbnails. When the app
-changes, run a QA build, then the script again.
+The design: one headline (one phrase highlighted in gold), a short line, the real screen in
+a phone that runs off the bottom, and a **callout**: a piece of that screen lifted out where
+it sits, enlarged 1.2× and tilted, so it reads at thumbnail size. One wave and the borjgali
+run across the seams, so the set reads as one strip when swiped. Chips never cover the app's
+text.
+
+Rules kept: real screens only; every number read from the content when the script runs;
+no claim of native audio ("spoken aloud", "do odsłuchania", not "recorded") or of a native
+speaker's check; big headlines that read as thumbnails. When the app changes, run a QA
+build, then the script again (callout positions are in screenshot pixels: check them).
 
 ## Still to do
 - iOS 26 Liquid Glass icon: the PNG icons work, but Icon Composer (Mac only) can turn the

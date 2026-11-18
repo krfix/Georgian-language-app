@@ -60,6 +60,16 @@ words there are beyond the course (226 in the course, 528 more).
   card, back), Right now I need…, review (when due), phrases. The Learn tile opens the Learn
   tab ("Your course, step by step"). Run #35 (IPA): built, logic checks passed.
 
+### Then (owner: App Store screenshots, designed properly)
+- `tools/appstore/make_screens.py` redesigned: callouts (a piece of the screen lifted where it
+  sits, 1.2×, tilted), one wave and borjgali across the seams, gold highlight in each
+  headline, tilted and paired phones, chips beside (never on) the text. Ten English slides
+  (new: "From Just landed to Tamada"; the new Home; Words search) in `brand/app-store/en`,
+  seven Polish ones in `brand/app-store/pl`. Numbers read from the content (302 phrases, 11
+  situations, 21 conversations, 59 lessons, 33 letters). From the QA run #36 screenshots;
+  its light English Home came out as the iPhone's home screen (a launch that didn't open in
+  time), so slide 1 uses the dark Home.
+
 ### Released
 - Run #36 (qa, the branch): 192/192 logic checks, 5/5 UI tests (welcome steps with the voice
   step, a first lesson, the tabs, review, Words search, phrasebook scenarios), screenshots
