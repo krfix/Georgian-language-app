@@ -58,7 +58,7 @@ words there are beyond the course (226 in the course, 528 more).
 ### Then (owner, on build #34: search first, the Continue card back, Learn tile just opens Learn)
 - Home: greeting, search, progress card, Learn | Use in Georgia, Continue learning (the big
   card, back), Right now I need…, review (when due), phrases. The Learn tile opens the Learn
-  tab ("Your course, step by step").
+  tab ("Your course, step by step"). Run #35 (IPA): built, logic checks passed.
 
 ### Tested
 - `check_strings.py`: 471 texts, none missing. Run #31 (IPA): logic tests passed, app built. UI tests not run.
