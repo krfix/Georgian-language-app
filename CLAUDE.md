@@ -74,7 +74,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 5. "Release": raise `MARKETING_VERSION` in `project.yml` and add a `## [x.y.z] - yyyy-MM-dd`
    section to `CHANGELOG.md`; on `main` the workflow then publishes the GitHub Release with
    the IPA. A version without its CHANGELOG section never builds on `main`.
-- Mac minutes cost money (shared with the Logbook app). Build when the owner asks, or when the
+- Mac minutes: GitHub's standard runners are free for a public repo, but keep runs lean
+  (the Mac queue is slow, and the Logbook app may be private and paid). Build when the owner asks, or when the
   owner's brief asks for build-and-inspect cycles (as in KART #1). Let several changes ride on
   one run; cancel a run whose code is already out of date.
 - Rhythm (owner, KART #6): on a branch, quick IPA builds only (no `qa`); the owner tests on
@@ -155,6 +156,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   Words. See DEVELOPMENT_LOG.md and TODO.md.
 
 ## Repos and branches
-- `krfix/Georgian-language-app` (private): this app; `main` is what's tested and accepted.
+- `krfix/Georgian-language-app` (public, KART #7: anyone can read the code and docs, so
+  never commit keys or personal details; secrets live in GitHub's Actions secrets): this app; `main` is what's tested and accepted.
 - `krfix/Logbook-app-store`: the owner's Logbook app, the model for the set-up. Don't change
   it from a Georgian chat.
