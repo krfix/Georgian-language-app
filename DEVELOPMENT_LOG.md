@@ -20,7 +20,7 @@ words there are beyond the course (226 in the course, 528 more).
   lesson changes, not on every return (`scrolledTo`), so the title no longer jumps.
 
 ### Tested
-- `check_strings.py`: 471 texts, none missing. Swift not compiled here; the build checks it.
+- `check_strings.py`: 471 texts, none missing. Run #31 (IPA): logic tests passed, app built. UI tests not run.
 
 ## KART #5 · 17/11/26 · Voice choice, release 0.2.0 (branch `claude/bold-mendel-napy3u`)
 
