@@ -10,38 +10,46 @@ struct VocabularyView: View {
 
     private var results: [Word] {
         let q = AnswerEvaluator.plain(query)
-        return (store.curriculum.words + store.curriculum.moreWords).filter { w in
+        let raw = query.trimmingCharacters(in: .whitespaces)
+        let qLat = q.replacingOccurrences(of: "'", with: "")
+        let pool = category == "more" ? store.curriculum.moreWords
+            : category == nil ? store.curriculum.words + store.curriculum.moreWords
+            : store.curriculum.words
+        return pool.filter { w in
             (category == nil || w.category == category) &&
-            (q.isEmpty || w.ka.contains(query.trimmingCharacters(in: .whitespaces)) || AnswerEvaluator.plain(w.en).contains(q)
-             || w.lat.replacingOccurrences(of: "'", with: "").contains(q.replacingOccurrences(of: "'", with: "")))
+            (q.isEmpty || w.ka.contains(raw) || AnswerEvaluator.plain(w.en).contains(q)
+             || w.lat.replacingOccurrences(of: "'", with: "").contains(qLat))
         }
     }
 
     var body: some View {
+        // Worked out once per change, not once per use. The list is lazy: only the rows on
+        // screen are built, so the screen opens at once even with 750 words.
+        let found = results
+        let groups = Dictionary(grouping: found, by: \.category)
+        let sections = store.curriculum.categories.filter { groups[$0.id] != nil }
         Group {
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
+                LazyVStack(alignment: .leading, spacing: 10) {
                     summary
                     categoryChips
-                    let groups = Dictionary(grouping: results, by: \.category)
-                    ForEach(store.curriculum.categories.filter { groups[$0.id] != nil }) { cat in
-                        VStack(alignment: .leading, spacing: 10) {
-                            Label(cat.title, systemImage: cat.symbol)
-                                .font(.headlineRounded)
-                                .foregroundStyle(BrandColor(named: cat.color).color)
-                                .padding(.top, 6)
-                                .accessibilityAddTraits(.isHeader)
-                            ForEach(groups[cat.id] ?? []) { w in
-                                Button {
-                                    Haptics.tap()
-                                    open = w
-                                } label: { WordRow(word: w, status: store.status(of: w.id)) }
-                                .buttonStyle(.pressable)
-                                .accessibilityIdentifier("word-\(w.id)")
-                            }
+                        .padding(.top, 6)
+                    ForEach(sections) { cat in
+                        Label(cat.title, systemImage: cat.symbol)
+                            .font(.headlineRounded)
+                            .foregroundStyle(BrandColor(named: cat.color).color)
+                            .padding(.top, 12)
+                            .accessibilityAddTraits(.isHeader)
+                        ForEach(groups[cat.id] ?? []) { w in
+                            Button {
+                                Haptics.tap()
+                                open = w
+                            } label: { WordRow(word: w, status: store.status(of: w.id)) }
+                            .buttonStyle(.pressable)
+                            .accessibilityIdentifier("word-\(w.id)")
                         }
                     }
-                    if results.isEmpty {
+                    if found.isEmpty {
                         ContentUnavailableView.search(text: query)
                     }
                 }
@@ -62,14 +70,66 @@ struct VocabularyView: View {
         }
     }
 
+    /// Two numbers that answer "how much is there?": the course's words (and how many of
+    /// them the learner knows), and the other words the app shows, one tap away.
     private var summary: some View {
         let words = store.curriculum.words
+        let more = store.curriculum.moreWords.count
         let learned = words.filter { store.status(of: $0.id) == .learned }.count
         let learning = words.filter { [.learning, .difficult].contains(store.status(of: $0.id)) }.count
-        return HStack(spacing: 12) {
-            StatTile(symbol: "checkmark.seal.fill", value: "\(learned)", label: tr("learned"), color: Palette.success)
-            StatTile(symbol: "brain.head.profile", value: "\(learning)", label: tr("learning"), color: Palette.gold)
-            StatTile(symbol: "books.vertical.fill", value: "\(words.count)", label: tr("in the course"), color: Palette.saperavi)
+        let moreOn = category == "more"
+        return HStack(alignment: .top, spacing: 12) {
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(alignment: .firstTextBaseline, spacing: 6) {
+                    Text("\(words.count)").font(.title2Bold).foregroundStyle(Palette.ink)
+                    Text(countLabel(words.count, "word in the course", "words in the course",
+                                    pl: ("słowo w kursie", "słowa w kursie", "słów w kursie")))
+                        .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
+                        .lineLimit(1).minimumScaleFactor(0.7)
+                }
+                ProgressBar(progress: Double(learned) / Double(max(1, words.count)), color: Palette.success, height: 8)
+                Text(tr("{0} learned · {1} learning", learned, learning))
+                    .font(.caption).foregroundStyle(Palette.inkSoft)
+                    .contentTransition(.numericText())
+            }
+            .frame(maxHeight: .infinity, alignment: .top)
+            .card(padding: 14, cornerRadius: 20)
+            .layoutPriority(1)
+            .accessibilityElement(children: .combine)
+
+            Button {
+                Haptics.select()
+                withMotion { category = moreOn ? nil : "more" }
+            } label: {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("+\(more)").font(.title2Bold).foregroundStyle(Palette.saperavi)
+                    Text(countLabel(more, "more from examples and phrases", "more from examples and phrases",
+                                    pl: ("słowo z przykładów i zwrotów", "słowa z przykładów i zwrotów", "słów z przykładów i zwrotów")))
+                        .font(.caption).foregroundStyle(Palette.inkSoft)
+                        .lineLimit(3)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .frame(maxHeight: .infinity, alignment: .top)
+                .card(padding: 14, cornerRadius: 20)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .strokeBorder(Palette.saperavi, lineWidth: moreOn ? 2 : 0)
+                )
+            }
+            .buttonStyle(.pressable)
+            .frame(width: 128)
+            .accessibilityAddTraits(moreOn ? .isSelected : [])
+            .accessibilityIdentifier("words-more")
+        }
+        .fixedSize(horizontal: false, vertical: true)
+    }
+
+    /// A count's label without the number (the number is drawn bigger beside it), in the
+    /// right Polish form for that number.
+    private func countLabel(_ n: Int, _ one: String, _ other: String, pl: (String, String, String)) -> String {
+        switch AppLanguage.current {
+        case .pl: return PolishPlural.form(n, pl.0, pl.1, pl.2)
+        case .en: return n == 1 ? one : other
         }
     }
 

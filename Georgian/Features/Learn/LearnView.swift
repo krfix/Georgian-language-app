@@ -6,6 +6,8 @@ struct LearnView: View {
     @Environment(Navigator.self) private var navigator
     @State private var showAlphabet = LaunchOptions.current.screen == "alphabet"
     @State private var lockedNotice: String?
+    /// The lesson the path last scrolled to, so coming back to it doesn't scroll again.
+    @State private var scrolledTo: String?
 
     var body: some View {
         @Bindable var nav = navigator
@@ -29,12 +31,22 @@ struct LearnView: View {
                     .padding(.horizontal, 20)
                     .padding(.vertical, 12)
                 }
+                // Bring the next lesson into view the first time the path opens, and again
+                // when it changes (a lesson finished), never on coming back from Words or
+                // Progress: scrolling then made the big "Learn" title jump mid-transition.
                 .onAppear {
+                    guard scrolledTo != store.nextLesson?.id else { return }
+                    scrolledTo = store.nextLesson?.id
                     if let next = store.nextLesson {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             withMotion(Motion.slow) { proxy.scrollTo(next.id, anchor: .center) }
                         }
                     }
+                }
+                .onChange(of: store.nextLesson?.id) { _, id in
+                    guard let id, id != scrolledTo, navigator.learnPath.isEmpty else { return }
+                    scrolledTo = id
+                    withMotion(Motion.slow) { proxy.scrollTo(id, anchor: .center) }
                 }
             }
             .background(AmbientBackground(tint: .saperavi))

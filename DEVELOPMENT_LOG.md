@@ -3,6 +3,25 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #6 · 18/11/26 · Words lag, Learn title (branch `claude/vigilant-franklin-583csk`)
+
+Owner's report: Learn › Words opens with a short lag; coming back from Words or Progress the
+path scrolls to the next lesson and the big "Learn" title stutters; Words should say how many
+words there are beyond the course (226 in the course, 528 more).
+
+### Built
+- Words: the list is a `LazyVStack` (only rows on screen are built; before, all 754 cards,
+  each with a shadow, were laid out on opening), and the search/filter runs once per change
+  instead of twice. With the "More words" theme picked, only those 528 are searched.
+- Words summary: two cards instead of three tiles. Left: "226 words in the course" with a
+  bar and "12 learned · 5 learning". Right: "+528 more from examples and phrases", a button
+  that shows just those (same as the "More words" chip; tap again for all). Polish plural forms.
+- Learn: the path scrolls to the next lesson only the first time it opens and when the next
+  lesson changes, not on every return (`scrolledTo`), so the title no longer jumps.
+
+### Tested
+- `check_strings.py`: 471 texts, none missing. Swift not compiled here; the build checks it.
+
 ## KART #5 · 17/11/26 · Voice choice, release 0.2.0 (branch `claude/bold-mendel-napy3u`)
 
 Owner's request: a male voice to choose on the start screen, with examples to hear, and a
