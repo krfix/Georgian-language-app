@@ -28,7 +28,8 @@ words there are beyond the course (226 in the course, 528 more).
   (-ში, წა-ვ-ედი) and single letters stay plain. A small "Tap a Georgian word…" hint.
 - Build: the words of intros and notes (English and Polish texts) go into the glossary; the
   build stops if one has no explanation (`--notes` lists them). Added მეტი and გამარჯვება;
-  15 new tappable words, no existing explanation changed.
+  15 new tappable words, no existing explanation changed. Run #32 (IPA): logic tests passed,
+  app built; UI tests not run.
 
 ### Tested
 - `check_strings.py`: 471 texts, none missing. Run #31 (IPA): logic tests passed, app built. UI tests not run.
