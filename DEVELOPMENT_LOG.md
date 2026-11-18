@@ -52,6 +52,8 @@ words there are beyond the course (226 in the course, 528 more).
   short story of what it means, the six stages as a road, the next one with lessons to go,
   and "Not an official exam level". English and Polish.
 - UI tests: tab names, Progress from Home's card, the Words tab's search.
+- Run #34 (IPA): 192/192 logic checks passed (8 new for the stages), app built. UI tests
+  not run yet (the qa run before merging).
 
 ### Tested
 - `check_strings.py`: 471 texts, none missing. Run #31 (IPA): logic tests passed, app built. UI tests not run.
