@@ -163,5 +163,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 ## Repos and branches
 - `krfix/Georgian-language-app` (private again, KART #7; never commit keys or personal
   details, secrets live in GitHub's Actions secrets): this app; `main` is what's tested and accepted.
+- `aralearn/aralearn.github.io` (public, KART #7): the website, https://aralearn.github.io:
+  home, `/privacy`, `/support`, English and Polish, plain HTML in Ara's colours. Contact
+  email for Apple and the pages: ara.learn.app@gmail.com. Keep the privacy page true to the
+  app (no data collected, no network); change it before the app changes.
 - `krfix/Logbook-app-store`: the owner's Logbook app, the model for the set-up. Don't change
   it from a Georgian chat.
