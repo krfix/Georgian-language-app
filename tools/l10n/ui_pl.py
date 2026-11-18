@@ -6,6 +6,13 @@ import json
 import os
 
 PL = {
+    "Continue learning": "Ucz się dalej",
+    "Course": "Kurs",
+    "Start learning": "Zacznij naukę",
+    "Start lesson": "Zacznij lekcję",
+    "You've finished the course!": "Kurs ukończony!",
+    "Keep your Georgian fresh with daily reviews.": "Odświeżaj gruziński codziennymi powtórkami.",
+    "Your course, step by step": "Twój kurs, krok po kroku",
     "Search: taxi, water, pharmacy…": "Szukaj: taksówka, woda, apteka…",
     "Search words and phrases": "Szukaj słów i zwrotów",
     "Just landed": "Świeżo po lądowaniu",
@@ -30,8 +37,6 @@ PL = {
     "Show all {0} words": "Pokaż wszystkie ({0})",
     "Your level": "Twój poziom",
     "Your level: {0}. {1} percent of the course. Opens your progress.": "Twój poziom: {0}. {1} procent kursu. Otwiera postępy.",
-    "Next: {0}": "Dalej: {0}",
-    "Course finished!": "Kurs ukończony!",
     "Phrases for real situations": "Zwroty na prawdziwe sytuacje",
     "{0} of {1} phrases learned": "Opanowane zwroty: {0} z {1}",
     "{0} of the course": "{0} kursu",

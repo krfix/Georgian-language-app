@@ -1,9 +1,9 @@
 import SwiftUI
 
-/// Home (KART #6 order): the greeting; how far you are (a small card, always in view); the
-/// two halves of the app, Learn (your next lesson, one tap) and Use in Georgia; review, only
-/// when something is waiting; search; the situations; recent and saved phrases. Each thing
-/// once, the most frequent first.
+/// Home (KART #6, the owner's order): the greeting; search; how far you are (a small card);
+/// the two halves of the app, Learn and Use in Georgia; the next lesson to continue; the
+/// situations ("Right now I need…"); review, only when something is waiting; recent and
+/// saved phrases.
 struct HomeView: View {
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
@@ -14,11 +14,14 @@ struct HomeView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     header
+                    SearchBarButton { navigator.search() }
                     HomeProgressCard()
                     PurposeRow()
-                    if !store.dueItems.isEmpty { ReviewNudgeCard() }
-                    SearchBarButton { navigator.search() }
+                    SectionTitle(title: tr("Continue learning"), trailing: tr("Course")) { navigator.tab = .learn }
+                    if let lesson = store.nextLesson { ContinueCard(lesson: lesson) }
+                    else { CourseDoneCard() }
                     QuickSituations()
+                    if !store.dueItems.isEmpty { ReviewNudgeCard() }
                     PhraseShelf()
                 }
                 .padding(.horizontal, 20)
@@ -87,6 +90,60 @@ struct HomeView: View {
     }
 }
 
+/// The big card for the next lesson.
+struct ContinueCard: View {
+    let lesson: Lesson
+    @Environment(LearningStore.self) private var store
+    @Environment(Navigator.self) private var navigator
+    @State private var glow = false
+
+    var body: some View {
+        let module = store.curriculum.module(of: lesson.id)
+        let color = BrandColor(named: module?.color ?? "pomegranate")
+        let done = module.map { store.completedCount(in: $0) } ?? 0
+        let total = module?.lessons.count ?? 1
+        return VStack(alignment: .leading, spacing: 14) {
+            HStack {
+                Label(module?.title ?? "", systemImage: module?.symbol ?? "book")
+                    .font(.captionBold)
+                    .textCase(.uppercase)
+                    .foregroundStyle(color.onColor.opacity(0.85))
+                Spacer()
+                Text("\(done)/\(total)").font(.captionBold).foregroundStyle(color.onColor.opacity(0.85))
+            }
+            HStack(alignment: .center, spacing: 16) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(store.completedLessons.isEmpty ? tr("Start learning") : tr("Continue"))
+                        .font(.calloutRounded.weight(.semibold))
+                        .foregroundStyle(color.onColor.opacity(0.85))
+                    Text(lesson.title)
+                        .font(.titleBold)
+                        .foregroundStyle(color.onColor)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(lesson.subtitle)
+                        .font(.calloutRounded)
+                        .foregroundStyle(color.onColor.opacity(0.85))
+                        .lineLimit(1)
+                }
+                Spacer(minLength: 0)
+                LessonGlyph(lesson: lesson, size: 74, onColor: color.onColor)
+            }
+            ProgressBar(progress: Double(done) / Double(max(1, total)), color: color.onColor.opacity(0.9), height: 10)
+            Button {
+                Haptics.tap()
+                navigator.start(lesson)
+            } label: {
+                Label(tr("Start lesson"), systemImage: "play.fill")
+            }
+            .buttonStyle(ChunkyButtonStyle(color: color == .gold ? .pomegranate : .gold))
+            .accessibilityIdentifier("continue-lesson")
+        }
+        .gradientCard(color)
+        .scaleEffect(glow ? 1.0 : 0.985)
+        .onAppear { withMotion(.easeInOut(duration: 1.6).repeatForever(autoreverses: true)) { glow = true } }
+    }
+}
+
 /// A big symbol for a lesson: its first letter, or an icon for its kind.
 struct LessonGlyph: View {
     let lesson: Lesson
@@ -115,6 +172,16 @@ struct LessonGlyph: View {
         case .grammar: return "puzzlepiece.fill"
         case .conversation: return "bubble.left.and.bubble.right.fill"
         }
+    }
+}
+
+struct CourseDoneCard: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(tr("You've finished the course!")).font(.titleBold).foregroundStyle(.white)
+            Text(tr("Keep your Georgian fresh with daily reviews.")).font(.calloutRounded).foregroundStyle(.white.opacity(0.9))
+        }
+        .gradientCard(.tkemali)
     }
 }
 
@@ -326,8 +393,8 @@ struct HomeProgressCard: View {
     }
 }
 
-/// The two halves of the app, side by side and low: Learn opens the next lesson in one tap,
-/// Use in Georgia the phrasebook. Each with a thin bar of how far you are.
+/// The two halves of the app, side by side and low: Learn opens the course, Use in Georgia
+/// the phrasebook. Each with a thin bar of how far you are.
 struct PurposeRow: View {
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
@@ -337,13 +404,12 @@ struct PurposeRow: View {
         let total = store.curriculum.lessons.count
         let phrases = store.phrasebook.phrases
         let phrasesLearned = phrases.filter { store.isLearned($0.id) }.count
-        let next = store.nextLesson
         HStack(spacing: 12) {
             tile(color: .saperavi, symbol: "map.fill", title: tr("Learn"),
-                 text: next.map { tr("Next: {0}", $0.title) } ?? tr("Course finished!"),
+                 text: tr("Your course, step by step"),
                  progress: Double(lessonsDone) / Double(max(1, total)),
-                 detail: tr("{0} of {1} lessons", lessonsDone, total), id: "continue-lesson") {
-                if let next { navigator.preview(next) } else { navigator.tab = .learn }
+                 detail: tr("{0} of {1} lessons", lessonsDone, total), id: "purpose-learn") {
+                navigator.tab = .learn
             }
             tile(color: .pomegranate, symbol: "bubble.left.and.text.bubble.right.fill", title: tr("Use in Georgia"),
                  text: tr("Phrases for real situations"),

@@ -44,9 +44,9 @@ Georgian with Polish). Latest release: 0.2.1 (see CHANGELOG.md).
   tiles, flashcards, conversations, and listening (only where real audio exists). Instant
   feedback with the right answer and why; mistakes come back at the end; a completion
   screen with words learned, accuracy, streak, goal and milestones (no XP or levels on screen).
-- **Home:** your level (a playful stage name), the week and streak; Learn (next lesson in
-  one tap) and Use in Georgia side by side; review when something is due; search; the
-  situations; recent and saved phrases.
+- **Home:** search; your level (a playful stage name), the week and streak; Learn and Use
+  in Georgia side by side; the next lesson to continue; the situations; review when
+  something is due; recent and saved phrases.
 - **Words** (a tab): all 226 course words and phrases by theme, then **More words**: the
   528 other words the app shows anywhere (the letters' example words, words in examples,
   conversations, phrases and grammar tables), each with the sentence it appears in. All

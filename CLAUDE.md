@@ -134,8 +134,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   "I can read" starts at Module 2.
 - Tabs (KART #6): Home · Learn · Phrasebook · Words · Review. Words is the word list with
   search over everything (words, phrases, situations, conversations); Learn is only the path;
-  Progress opens from Home's card. Home's order: greeting, progress card, Learn | Use in
-  Georgia, review (when due), search, situations, phrases. The phrasebook never locks anything.
+  Progress opens from Home's card. Home's order (owner): greeting, search, progress card, Learn |
+  Use in Georgia, Continue learning, situations, review (when due), phrases. The phrasebook never locks anything.
 - Levels: no A0/A1 (official exam levels). `CourseStage` (Engine) names six stages by finished
   module: Just landed, Sign reader, Bazaar regular, Supra guest, Tamada's apprentice, Tamada.
   A phrase (`pb-…` id) becomes a `Word` for review (`Phrasebook.word(for:)`), so saving it
