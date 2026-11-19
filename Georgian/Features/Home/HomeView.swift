@@ -360,8 +360,7 @@ struct HomeProgressCard: View {
         } label: {
             VStack(alignment: .leading, spacing: 10) {
                 HStack(spacing: 12) {
-                    Text(stage.emoji)
-                        .font(.system(size: 26))
+                    StageEmoji(stage: stage, size: 26)
                         .frame(width: 46, height: 46)
                         .background(Circle().fill(Palette.gold.opacity(0.18)))
                     VStack(alignment: .leading, spacing: 1) {

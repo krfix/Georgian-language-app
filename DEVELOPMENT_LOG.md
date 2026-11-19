@@ -24,6 +24,18 @@ word notes).
 ### Tested
 - build_curriculum.py and check_strings.py pass; no new audio needed (0 clips to make).
 
+### Built (second batch, owner's iPhone 13 test)
+- Learn: the dotted trail is now one ribbon (`LessonRibbon`, stones report their centres with
+  `StoneCentres`): a soft 40 pt band and a thin line weaving across it, each piece bowing to
+  alternate sides like the App Store wave, in the module's colour up to the next lesson, and
+  running on under the module cards.
+- Progress: the six-stage row hangs from the top (a two-line Polish name pushed its stop out of
+  line), the line runs through the stops' centres, and the stops are solid so it can't show
+  through. "Just landed" gets a drawn twin-engine airliner (`TwinJet`, `StageEmoji`) instead of
+  the ✈️ emoji (Home, Progress).
+- Welcome: no scrolling; `ViewThatFits` shows the largest of three sizes (1, 0.8, 0.62) that fits,
+  and scrolls only with very large text. Slogan kept (owner).
+
 ## KART #7 · 18/11/26 · TestFlight (branch `claude/dazzling-cray-izaxbp`)
 
 Owner's developer account is active; goal: Ara on TestFlight for friends and family.

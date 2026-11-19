@@ -21,20 +21,41 @@ struct OnboardingView: View {
                 .motion(Motion.slow, value: step)
             VStack(spacing: 0) {
                 if step != .welcome { topBar }
-                ScrollView {
-                    page
-                        .padding(.horizontal, 24)
-                        .padding(.top, step == .welcome ? 40 : 12)
-                        .id(step)
-                        .transition(.asymmetric(insertion: .move(edge: forward ? .trailing : .leading).combined(with: .opacity),
-                                                removal: .move(edge: forward ? .leading : .trailing).combined(with: .opacity)))
+                if step == .welcome {
+                    // The welcome page fits the screen without scrolling: the largest of three
+                    // sizes that fits is shown (an iPhone 13 cut off the bottom, KART #8), and
+                    // it scrolls only with very large text.
+                    ViewThatFits(in: .vertical) {
+                        welcome(scale: 1)
+                        welcome(scale: 0.8)
+                        welcome(scale: 0.62)
+                        ScrollView { welcome(scale: 0.62) }.scrollBounceBehavior(.basedOnSize)
+                    }
+                    .frame(maxHeight: .infinity, alignment: .top)
+                    .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .leading).combined(with: .opacity)))
+                } else {
+                    ScrollView {
+                        page
+                            .padding(.horizontal, 24)
+                            .padding(.top, 12)
+                            .id(step)
+                            .transition(.asymmetric(insertion: .move(edge: forward ? .trailing : .leading).combined(with: .opacity),
+                                                    removal: .move(edge: forward ? .leading : .trailing).combined(with: .opacity)))
+                    }
+                    .scrollBounceBehavior(.basedOnSize)
                 }
-                .scrollBounceBehavior(.basedOnSize)
                 bottomButton
                     .padding(.horizontal, 24)
                     .padding(.bottom, 12)
             }
         }
+    }
+
+    private func welcome(scale: CGFloat) -> some View {
+        WelcomePage(scale: scale)
+            .padding(.horizontal, 24)
+            .padding(.top, 40 * scale)
+            .padding(.bottom, 8)
     }
 
     private var tint: BrandColor {
@@ -70,7 +91,7 @@ struct OnboardingView: View {
 
     @ViewBuilder private var page: some View {
         switch step {
-        case .welcome: WelcomePage()
+        case .welcome: WelcomePage(scale: 1)
         case .language: LanguagePage()
         case .method: MethodPage()
         case .voice: voicePage
@@ -237,39 +258,43 @@ private extension String {
 // MARK: Pages
 
 private struct WelcomePage: View {
+    /// 1 on tall screens; smaller so the page fits without scrolling on shorter ones.
+    let scale: CGFloat
     @State private var appeared = false
     private let letters = ["ა", "ბ", "გ", "დ", "ე", "ვ", "ზ", "თ", "ი", "კ", "ლ", "მ"]
 
     var body: some View {
-        VStack(spacing: 26) {
+        VStack(spacing: 26 * scale) {
             LanguageSwitcher()
                 .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.top, -24)
+                .padding(.top, -24 * scale)
             ZStack {
                 ForEach(Array(letters.enumerated()), id: \.offset) { i, l in
                     let angle = Double(i) / Double(letters.count) * 2 * .pi
                     Text(l)
-                        .font(.system(size: 26, weight: .bold))
+                        .font(.system(size: 26 * max(scale, 0.8), weight: .bold))
                         .foregroundStyle([Palette.pomegranate, Palette.saperavi, Palette.gold, Palette.tkemali, Palette.blacksea][i % 5])
-                        .offset(x: cos(angle) * (appeared ? 130 : 20), y: sin(angle) * (appeared ? 130 : 20))
+                        .offset(x: cos(angle) * (appeared ? 130 * scale : 20), y: sin(angle) * (appeared ? 130 * scale : 20))
                         .opacity(appeared ? 1 : 0)
                 }
-                Borjgali(size: 230, colors: [Palette.gold.opacity(0.35), Palette.pomegranate.opacity(0.2), Palette.saperavi.opacity(0.3)])
-                ParrotView(height: 190)
+                Borjgali(size: 230 * scale, colors: [Palette.gold.opacity(0.35), Palette.pomegranate.opacity(0.2), Palette.saperavi.opacity(0.3)])
+                ParrotView(height: 190 * scale)
             }
-            .frame(height: 300)
-            VStack(spacing: 10) {
+            .frame(height: 300 * scale)
+            VStack(spacing: 10 * scale) {
                 Text(tr("Ara"))
-                    .font(.system(size: 64, weight: .black, design: .rounded))
+                    .font(.system(size: 64 * max(scale, 0.8), weight: .black, design: .rounded))
                     .foregroundStyle(Gradients.hero)
                 Text(tr("Learn Georgian, and use it every day"))
                     .font(.titleBold)
                     .foregroundStyle(Palette.ink)
                     .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text(LocalizedStringKey(tr("Ara (**არა**) means \u{201C}no\u{201D} in Georgian. By the end, you\u{2019}ll be saying **კი**: yes!")))
                     .font(.bodyRounded)
                     .foregroundStyle(Palette.inkSoft)
                     .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier("welcome-joke")
             }
             .opacity(appeared ? 1 : 0)

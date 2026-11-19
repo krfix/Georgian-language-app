@@ -1,6 +1,8 @@
 import SwiftUI
 
-/// The learning path: five modules, each a winding trail of lesson stones.
+/// The learning path: five modules, each a winding trail of lesson stones, joined by one ribbon
+/// that flows from stone to stone and under the module cards, like the wave on the App Store
+/// pictures (KART #8).
 struct LearnView: View {
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
@@ -25,6 +27,11 @@ struct LearnView: View {
                                     navigator.previewLesson = lesson
                                 }
                             }
+                        }
+                    }
+                    .backgroundPreferenceValue(StoneCentres.self) { anchors in
+                        GeometryReader { geo in
+                            LessonRibbon(stops: ribbonStops(anchors, in: geo))
                         }
                     }
                     .padding(.horizontal, 20)
@@ -64,6 +71,68 @@ struct LearnView: View {
             }
             .sheet(isPresented: $showAlphabet) { AlphabetChartView() }
         }
+    }
+
+    /// Every stone in course order, where it sits, its module's colour and whether the way to
+    /// it is open (done or up next), as the old dotted trail lit it.
+    private func ribbonStops(_ anchors: [String: Anchor<CGPoint>], in geo: GeometryProxy) -> [LessonRibbon.Stop] {
+        let states = store.lessonStates
+        return store.curriculum.modules.flatMap { module in
+            module.lessons.compactMap { lesson -> LessonRibbon.Stop? in
+                guard let anchor = anchors[lesson.id] else { return nil }
+                let state = states[lesson.id] ?? .locked
+                return LessonRibbon.Stop(point: geo[anchor], color: BrandColor(named: module.color),
+                                         lit: state == .completed || state == .current)
+            }
+        }
+    }
+}
+
+/// Where each lesson's stone sits, for the ribbon.
+private struct StoneCentres: PreferenceKey {
+    static var defaultValue: [String: Anchor<CGPoint>] = [:]
+    static func reduce(value: inout [String: Anchor<CGPoint>], nextValue: () -> [String: Anchor<CGPoint>]) {
+        value.merge(nextValue()) { $1 }
+    }
+}
+
+/// The ribbon: a soft wide band through the stones' centres and a thin line weaving across
+/// it, in the module's colour up to the next lesson and faint after. Each piece bows out to
+/// one side, the next to the other, so the whole path meanders like a wave; the stones and
+/// cards sit on top of it.
+struct LessonRibbon: View {
+    struct Stop {
+        let point: CGPoint
+        let color: BrandColor
+        let lit: Bool
+    }
+
+    let stops: [Stop]
+
+    var body: some View {
+        Canvas { ctx, _ in
+            guard stops.count > 1 else { return }
+            for i in 1..<stops.count {
+                let a = stops[i - 1].point, b = stops[i].point
+                let bow: CGFloat = i % 2 == 1 ? 34 : -34
+                let stop = stops[i]
+                let band: Color = stop.lit ? stop.color.color.opacity(0.2) : Palette.line.opacity(0.7)
+                let line: Color = stop.lit ? stop.color.color.opacity(0.65) : Palette.line
+                ctx.stroke(piece(from: a, to: b, bow: bow), with: .color(band), style: StrokeStyle(lineWidth: 40, lineCap: .round))
+                ctx.stroke(piece(from: a, to: b, bow: -bow * 1.6), with: .color(line), style: StrokeStyle(lineWidth: 2.5, lineCap: .round))
+            }
+        }
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
+    }
+
+    /// From one stone to the next, bowing sideways by `bow` points halfway down.
+    private func piece(from a: CGPoint, to b: CGPoint, bow: CGFloat) -> Path {
+        let midY = (a.y + b.y) / 2
+        var path = Path()
+        path.move(to: a)
+        path.addCurve(to: b, control1: CGPoint(x: a.x + bow, y: midY), control2: CGPoint(x: b.x + bow, y: midY))
+        return path
     }
 }
 
@@ -120,13 +189,11 @@ private struct ModuleSection: View {
             VStack(spacing: 0) {
                 ForEach(Array(module.lessons.enumerated()), id: \.element.id) { i, lesson in
                     let state = states[lesson.id] ?? .locked
-                    if i > 0 {
-                        Trail(from: swing(i - 1) - nodeOffset, to: swing(i) - nodeOffset,
-                              lit: state == .completed || state == .current, color: color)
-                    }
+                    if i > 0 { Color.clear.frame(height: 34) }   // room for the ribbon between stones
                     Button { onTap(lesson, state) } label: {
                         HStack(spacing: 14) {
                             PathNode(lesson: lesson, state: state, color: color, size: 72)
+                                .anchorPreference(key: StoneCentres.self, value: .center) { [lesson.id: $0] }
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(lesson.title)
                                     .font(.headlineRounded)
@@ -150,35 +217,9 @@ private struct ModuleSection: View {
         }
     }
 
-    /// How far the stone's centre sits left of its row's centre (stone 88 + gap 14 + text 150).
-    private let nodeOffset: CGFloat = (88 + 14 + 150) / 2 - 44
-
     private func swing(_ i: Int) -> CGFloat {
         let pattern: [CGFloat] = [0, 40, 60, 40, 0, -40, -60, -40]
         return pattern[i % pattern.count]
-    }
-}
-
-/// Three dots between two stones, lit once the way is open.
-private struct Trail: View {
-    let from: CGFloat
-    let to: CGFloat
-    let lit: Bool
-    let color: BrandColor
-
-    var body: some View {
-        ZStack {
-            ForEach(1..<4) { k in
-                let t = CGFloat(k) / 4
-                Circle()
-                    .fill(lit ? AnyShapeStyle(color.fill) : AnyShapeStyle(Palette.line))
-                    .frame(width: 9, height: 9)
-                    .offset(x: from + (to - from) * t, y: (t - 0.5) * 30)
-            }
-        }
-        .frame(height: 34)
-        .frame(maxWidth: .infinity)
-        .accessibilityHidden(true)
     }
 }
 

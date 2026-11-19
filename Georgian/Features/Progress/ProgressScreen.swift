@@ -81,8 +81,7 @@ struct ProgressScreen: View {
         let left = nextModule.map { $0.lessons.count - store.completedCount(in: $0) } ?? 0
         return VStack(alignment: .leading, spacing: 14) {
             HStack(spacing: 14) {
-                Text(stage.emoji)
-                    .font(.system(size: 40))
+                StageEmoji(stage: stage, size: 40)
                     .frame(width: 72, height: 72)
                     .background(Circle().fill(Palette.gold.opacity(0.2)))
                 VStack(alignment: .leading, spacing: 2) {
@@ -293,33 +292,42 @@ struct AchievementRow: View {
 }
 
 /// The six stages in a row, joined by a line: passed ones lit, yours raised, the rest faint.
+/// Everything hangs from the top, so a name on two lines (often in Polish) can't push its stop
+/// out of the row, and the stops are solid, so the line never shows through them (KART #8).
 private struct StageJourney: View {
     let current: Int
+    private let stop: CGFloat = 40
 
     var body: some View {
         let stages = CourseStage.all
-        ZStack {
-            // The road under the stops.
+        ZStack(alignment: .topLeading) {
+            // The road under the stops, through their centres.
             GeometryReader { geo in
                 let step = geo.size.width / CGFloat(stages.count)
                 Capsule().fill(Palette.line)
                     .frame(width: step * CGFloat(stages.count - 1), height: 4)
-                    .offset(x: step / 2, y: 18)
+                    .offset(x: step / 2, y: stop / 2 - 2)
                 Capsule().fill(Gradients.gold)
                     .frame(width: step * CGFloat(current), height: 4)
-                    .offset(x: step / 2, y: 18)
+                    .offset(x: step / 2, y: stop / 2 - 2)
             }
-            HStack(spacing: 0) {
+            HStack(alignment: .top, spacing: 0) {
                 ForEach(stages) { s in
-                    VStack(spacing: 4) {
-                        Text(s.emoji)
-                            .font(.system(size: s.id == current ? 22 : 16))
-                            .frame(width: 40, height: 40)
-                            .background(Circle().fill(s.id <= current ? AnyShapeStyle(Gradients.gold) : AnyShapeStyle(Palette.surfaceRaised))
-                                .opacity(s.id < current ? 0.45 : 1))
+                    VStack(spacing: 5) {
+                        StageEmoji(stage: s, size: s.id == current ? 22 : 16)
+                            .opacity(s.id > current ? 0.5 : 1)
+                            .grayscale(s.id > current ? 1 : 0)
+                            .frame(width: stop, height: stop)
+                            .background(
+                                ZStack {
+                                    Circle().fill(Palette.surfaceRaised)
+                                    if s.id <= current {
+                                        Circle().fill(Gradients.gold).opacity(s.id < current ? 0.45 : 1)
+                                    }
+                                }
+                            )
                             .overlay(Circle().strokeBorder(s.id == current ? Palette.gold : Palette.line, lineWidth: s.id == current ? 2.5 : 1))
-                            .opacity(s.id <= current ? 1 : 0.55)
-                            .scaleEffect(s.id == current ? 1.1 : 1)
+                            .scaleEffect(s.id == current ? 1.12 : 1)
                         Text(s.name)
                             .font(.system(size: 9, weight: .semibold, design: .rounded))
                             .foregroundStyle(s.id == current ? Palette.ink : Palette.inkFaint)
@@ -331,7 +339,7 @@ private struct StageJourney: View {
                 }
             }
         }
-        .frame(height: 70)
+        .frame(height: 72, alignment: .top)
         .accessibilityHidden(true)
     }
 }
