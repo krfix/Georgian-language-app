@@ -135,14 +135,31 @@ struct ProfileView: View {
                     }
                 }
 
+                // Developer (KART #8): one switch; its two testing tools show only while it's on.
                 Section {
-                    Toggle(tr("Open all lessons"), isOn: Binding(get: { store.unlockAllLessons },
-                                                             set: { store.unlockAllLessons = $0 }))
+                    Toggle(isOn: Binding(get: { store.developerMode }, set: { on in withMotion { store.developerMode = on } })) {
+                        DevRow(symbol: "hammer.fill", color: .saperavi, title: tr("Developer mode"),
+                               detail: tr("Tools for testing the app."))
+                    }
+                    .accessibilityIdentifier("dev-mode")
+                    if store.developerMode {
+                        Toggle(isOn: Binding(get: { store.devOpenAllLessons }, set: { store.devOpenAllLessons = $0 })) {
+                            DevRow(symbol: "lock.open.fill", color: .tkemali, title: tr("Open all lessons"),
+                                   detail: tr("Every lesson can be opened, whatever you've finished."))
+                        }
                         .accessibilityIdentifier("dev-unlock-all")
+                        Toggle(isOn: Binding(get: { store.devQuickPass }, set: { store.devQuickPass = $0 })) {
+                            DevRow(symbol: "forward.fill", color: .gold, title: tr("Quick pass in lessons"),
+                                   detail: tr("A Pass button at the top of a lesson: tap it to count the exercise as right, hold it to finish the lesson."))
+                        }
+                        .accessibilityIdentifier("dev-quick-pass-toggle")
+                    }
                 } header: {
                     Text(tr("Developer"))
                 } footer: {
-                    Text(tr("For testing: every lesson can be opened, whatever you've finished. Your progress isn't changed."))
+                    Text(store.developerMode
+                         ? tr("Quick pass counts as right answers, so it changes your progress. Open all lessons doesn't.")
+                         : tr("Off: the app works as it does for everyone."))
                 }
 
                 Section {
@@ -176,6 +193,29 @@ struct ProfileView: View {
                 Text(tr("Your lessons, words and streak will be gone. This can't be undone."))
             }
             .onAppear { name = store.profile.name }
+        }
+    }
+
+    private struct DevRow: View {
+        let symbol: String
+        let color: BrandColor
+        let title: String
+        let detail: String
+
+        var body: some View {
+            HStack(spacing: 12) {
+                Image(systemName: symbol)
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundStyle(.white)
+                    .frame(width: 30, height: 30)
+                    .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(color.gradient))
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                    Text(detail).font(.caption).foregroundStyle(Palette.inkSoft)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            .padding(.vertical, 2)
         }
     }
 

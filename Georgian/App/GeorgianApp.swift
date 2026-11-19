@@ -103,7 +103,9 @@ final class AppModel {
             let curriculum = try Curriculum.load(language: new)
             AppLanguage.use(new)
             let store = LearningStore(curriculum: curriculum, context: container.mainContext)
-            store.unlockAllLessons = old.unlockAllLessons
+            store.developerMode = old.developerMode
+            store.devOpenAllLessons = old.devOpenAllLessons
+            store.devQuickPass = old.devQuickPass
             language = new
             state = .ready(store, audio)
             let p = store.profile

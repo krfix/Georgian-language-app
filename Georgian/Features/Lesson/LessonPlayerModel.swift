@@ -90,6 +90,30 @@ final class LessonPlayerModel {
         phase = .finished(reward)
     }
 
+    /// Developer quick pass (Profile › Developer): the exercise on screen counts as answered
+    /// right, first time, and the lesson moves straight on; after feedback it just moves on.
+    func passCorrect() {
+        if case .feedback = phase { next(); return }
+        guard case .answering = phase, let ex = current else { return }
+        if ex.isGraded {
+            let right = Evaluation(verdict: .correct, correctAnswer: "", explanation: nil)
+            session.record(right, given: "")
+            store.record(ex, right, given: tr("quick pass"), inReview: isReview || isDialogue)
+            combo += 1
+        }
+        next()
+    }
+
+    /// Developer quick pass, held: every exercise left counts as right, and the lesson ends.
+    func passAll() {
+        var guardCount = 0
+        while current != nil, guardCount < 500 {
+            if case .finished = phase { break }
+            passCorrect()
+            guardCount += 1
+        }
+    }
+
     /// Jumps to the first exercise of a kind, without answering (screenshots only).
     func skip(toKind kind: String) {
         while let ex = session.current, ex.kind.rawValue != kind { session.advance() }

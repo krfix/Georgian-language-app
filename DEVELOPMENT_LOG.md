@@ -34,6 +34,9 @@ word notes).
   through. (A drawn twin-engine plane replaced ✈️ in build #41; the owner preferred the emoji back.)
 - Welcome: no scrolling; `ViewThatFits` shows the largest of three sizes (1, 0.8, 0.62) that fits,
   and scrolls only with very large text. Slogan kept (owner).
+- Developer mode: one switch in Profile › Developer reveals Open all lessons and Quick pass. Quick
+  pass puts a dashed gold Pass button in the lesson's top bar: tap counts the exercise as right
+  and moves on (`passCorrect`), hold finishes the lesson (`passAll`), VoiceOver actions for both.
 - v1 card: the time-of-day greetings named (morning, evening, night), and Polish „pokoju” made
   clear as peace, not a room.
 

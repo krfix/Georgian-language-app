@@ -59,8 +59,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   All artwork comes from `tools/brand/make_brand.py`: change it there, never by hand. Inside the
   code and repo it is still "Georgian" (the target). Bundle ID `com.aralearn.ge` (owner, KART #7,
   so the GitHub name isn't in it; GitHub organisation `aralearn`): fixed once uploaded to Apple.
-- Developer switch: Profile › Developer › Open all lessons (UserDefaults
-  `devUnlockAllLessons`). Hide it before an App Store release.
+- Developer mode (KART #8): Profile › Developer, one switch (`devMode`) that shows two tools:
+  Open all lessons (`devUnlockAllLessons`) and Quick pass (`devQuickPass`: a Pass button in
+  lessons, tap = right answer, hold = finish the lesson). Hide it before an App Store release.
 - Test data is always invented (Ana, the demo learner, `LearningStore.seedDemo`).
 
 ## Workflow

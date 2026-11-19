@@ -86,11 +86,58 @@ struct LessonPlayerView: View {
                 .transition(.scale.combined(with: .opacity))
                 .accessibilityLabel(tr("{0} right in a row", model.combo))
             }
+            if store.quickPass {
+                QuickPassButton(tint: tint) {
+                    withMotion { model.passCorrect() }
+                } finish: {
+                    withMotion { model.passAll() }
+                }
+            }
         }
         .padding(.horizontal, 16)
         .padding(.top, 8)
         .padding(.bottom, 12)
         .motion(Motion.bouncy, value: model.combo >= 3)
+    }
+}
+
+/// The developer's quick pass (Profile › Developer): tap to count the exercise as right and
+/// move on, hold to finish the whole lesson. Gold and dashed, so it never looks like part of
+/// the lesson.
+private struct QuickPassButton: View {
+    let tint: BrandColor
+    let pass: () -> Void
+    let finish: () -> Void
+    @State private var holding = false
+
+    var body: some View {
+        HStack(spacing: 4) {
+            Image(systemName: "forward.fill")
+            Text(tr("Pass"))
+        }
+        .font(.captionBold)
+        .foregroundStyle(Palette.gold)
+        .padding(.horizontal, 12)
+        .frame(height: 36)
+        .background(Capsule().fill(Palette.gold.opacity(holding ? 0.3 : 0.14)))
+        .overlay(Capsule().strokeBorder(Palette.gold, style: StrokeStyle(lineWidth: 1.5, dash: [4, 3])))
+        .scaleEffect(holding ? 0.92 : 1)
+        .frame(minWidth: 44, minHeight: 44)
+        .contentShape(Rectangle())
+        .onTapGesture { Haptics.tap(); pass() }
+        .onLongPressGesture(minimumDuration: 0.6) {
+            Haptics.success()
+            finish()
+        } onPressingChanged: { pressing in
+            withMotion(Motion.spring) { holding = pressing }
+        }
+        .accessibilityElement()
+        .accessibilityLabel(tr("Quick pass"))
+        .accessibilityHint(tr("Counts this exercise as right. Hold to finish the lesson."))
+        .accessibilityAddTraits(.isButton)
+        .accessibilityAction { pass() }
+        .accessibilityAction(named: tr("Finish the lesson")) { finish() }
+        .accessibilityIdentifier("dev-quick-pass")
     }
 }
 

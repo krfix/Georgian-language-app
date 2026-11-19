@@ -46,11 +46,24 @@ final class LearningStore {
     /// Phrasebook phrases the learner saved, marked or opened, by phrase id.
     private(set) var phraseRecords: [String: PhraseRecord] = [:]
 
-    /// Developer switch (Profile › Developer): every lesson open, for testing. Kept in
-    /// UserDefaults, not with the progress.
-    var unlockAllLessons: Bool = UserDefaults.standard.bool(forKey: "devUnlockAllLessons") {
-        didSet { UserDefaults.standard.set(unlockAllLessons, forKey: "devUnlockAllLessons") }
+    /// Developer mode (Profile › Developer, KART #8): one switch that shows two testing tools.
+    /// Kept in UserDefaults, not with the progress. Hide it before an App Store release.
+    /// Someone who had "Open all lessons" on before it existed finds it on.
+    var developerMode: Bool = UserDefaults.standard.object(forKey: "devMode") as? Bool
+        ?? UserDefaults.standard.bool(forKey: "devUnlockAllLessons") {
+        didSet { UserDefaults.standard.set(developerMode, forKey: "devMode") }
     }
+    /// Tool 1: every lesson can be opened, whatever is finished.
+    var devOpenAllLessons: Bool = UserDefaults.standard.bool(forKey: "devUnlockAllLessons") {
+        didSet { UserDefaults.standard.set(devOpenAllLessons, forKey: "devUnlockAllLessons") }
+    }
+    /// Tool 2: a quick-pass button in lessons that counts the exercise as answered right.
+    var devQuickPass: Bool = UserDefaults.standard.bool(forKey: "devQuickPass") {
+        didSet { UserDefaults.standard.set(devQuickPass, forKey: "devQuickPass") }
+    }
+    /// The tools work only while developer mode is on.
+    var unlockAllLessons: Bool { developerMode && devOpenAllLessons }
+    var quickPass: Bool { developerMode && devQuickPass }
 
     init(curriculum: Curriculum, context: ModelContext) {
         self.curriculum = curriculum
