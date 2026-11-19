@@ -81,7 +81,8 @@ struct ProgressScreen: View {
         let left = nextModule.map { $0.lessons.count - store.completedCount(in: $0) } ?? 0
         return VStack(alignment: .leading, spacing: 14) {
             HStack(spacing: 14) {
-                StageEmoji(stage: stage, size: 40)
+                Text(stage.emoji)
+                    .font(.system(size: 40))
                     .frame(width: 72, height: 72)
                     .background(Circle().fill(Palette.gold.opacity(0.2)))
                 VStack(alignment: .leading, spacing: 2) {
@@ -314,7 +315,8 @@ private struct StageJourney: View {
             HStack(alignment: .top, spacing: 0) {
                 ForEach(stages) { s in
                     VStack(spacing: 5) {
-                        StageEmoji(stage: s, size: s.id == current ? 22 : 16)
+                        Text(s.emoji)
+                            .font(.system(size: s.id == current ? 22 : 16))
                             .opacity(s.id > current ? 0.5 : 1)
                             .grayscale(s.id > current ? 1 : 0)
                             .frame(width: stop, height: stop)

@@ -467,7 +467,7 @@ MODULES = [MODULE_1, MODULE_2, MODULE_3, MODULE_4, MODULE_5]
 # "Why" cards (KART #4): a short explanation shown before a lesson's exercises.
 # lesson id: (title, text). Polish in content_pl.py (written for Polish speakers).
 INTROS = {
-    "v1": ("Hello means victory", "გამარჯობა comes from გამარჯვება, victory: you wish someone victory. The reply, გაგიმარჯოს, wishes it back. Greetings for the time of day end in მშვიდობისა, \"of peace\"."),
+    "v1": ("Hello means victory", "გამარჯობა comes from გამარჯვება, victory: you wish someone victory. The reply, გაგიმარჯოს, wishes it back. Morning, evening and night greetings end in მშვიდობისა, \"of peace\": დილა მშვიდობისა is \"morning of peace\"."),
     "v2": ("Two kinds of thanks", "მადლობა is everyday thanks. გმადლობთ is polite: the გ- means \"you\" and the -თ makes it polite. You'll meet this -თ everywhere."),
     "v3": ("Called, not named", "Georgian says \"to me it is called\": მე ნინო მქვია. The მ- inside the verb is \"me\". To ask: რა გქვია? with გ- for \"you\"."),
     "v4": ("From where", "საიდან means \"from where\": სად (where) + -იდან (from). -იდან replaces a final -ი or -ა: თბილისიდან, from Tbilisi. Words in -ო add just -დან: კინოდან, from the cinema."),

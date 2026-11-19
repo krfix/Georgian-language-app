@@ -31,10 +31,11 @@ word notes).
   running on under the module cards.
 - Progress: the six-stage row hangs from the top (a two-line Polish name pushed its stop out of
   line), the line runs through the stops' centres, and the stops are solid so it can't show
-  through. "Just landed" gets a drawn twin-engine airliner (`TwinJet`, `StageEmoji`) instead of
-  the ✈️ emoji (Home, Progress).
+  through. (A drawn twin-engine plane replaced ✈️ in build #41; the owner preferred the emoji back.)
 - Welcome: no scrolling; `ViewThatFits` shows the largest of three sizes (1, 0.8, 0.62) that fits,
   and scrolls only with very large text. Slogan kept (owner).
+- v1 card: the time-of-day greetings named (morning, evening, night), and Polish „pokoju” made
+  clear as peace, not a room.
 
 ## KART #7 · 18/11/26 · TestFlight (branch `claude/dazzling-cray-izaxbp`)
 
