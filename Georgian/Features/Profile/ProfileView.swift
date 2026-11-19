@@ -170,7 +170,8 @@ struct ProfileView: View {
                         Text(tr("Everything stays on this iPhone: no account, no tracking."))
                         AraSymbol(size: 34)
                             .padding(.top, 8)
-                        Text(tr("Ara {0} · course v{1}", Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "", store.curriculum.version))
+                        Text(tr("Ara {0} · build {1} · course v{2}", Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "",
+                                Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "", store.curriculum.version))
                     }
                 }
             }

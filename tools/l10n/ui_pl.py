@@ -328,7 +328,7 @@ PL = {
     "quick pass": "szybkie przejście",
     "Start over": "Zacznij od nowa",
     "Everything stays on this iPhone: no account, no tracking.": "Wszystko zostaje na tym iPhonie: bez konta i bez śledzenia.",
-    "Ara {0} · course v{1}": "Ara {0} · kurs v{1}",
+    "Ara {0} · build {1} · course v{2}": "Ara {0} · wersja {1} · kurs v{2}",
     "Profile": "Profil",
     "Delete all progress?": "Usunąć wszystkie postępy?",
     "Delete everything": "Usuń wszystko",

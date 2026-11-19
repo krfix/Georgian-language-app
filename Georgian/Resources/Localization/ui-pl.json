@@ -29,7 +29,7 @@
  "Ara the parrot, asleep": "Papuga Ara, śpi",
  "Ara the parrot, cheering": "Papuga Ara, wiwatuje",
  "Ara the parrot, thinking": "Papuga Ara, myśli",
- "Ara {0} · course v{1}": "Ara {0} · kurs v{1}",
+ "Ara {0} · build {1} · course v{2}": "Ara {0} · wersja {1} · kurs v{2}",
  "Ask the way": "Zapytasz o drogę",
  "At home": "Dom",
  "Audio": "Dźwięk",
