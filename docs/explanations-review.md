@@ -5,7 +5,7 @@ shown before a lesson, the letter sounds and tips, the grammar notes, the feedba
 and the notes on word cards. The full list, English next to Polish, is in the appendix at the end.
 The phrasebook's notes are not included here; they can be reviewed the same way next.
 
-**Update, same day:** all findings were fixed except the Polish male forms, which the owner chose to keep. Each finding gives the current text and a suggested
+**Update, same day:** all findings were fixed except the Polish male forms (the owner chose to keep them) and idea D5, დედაჩემი, which needs new glossary words first. Each finding gives the current text and a suggested
 replacement. Findings marked **(check)** are ones where I am fairly sure but a native speaker should
 confirm before we rely on them.
 
