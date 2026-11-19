@@ -4181,6 +4181,13 @@
    "baseMeaning": "Tbilisi",
    "note": "-დან: z, od (z łącznikiem -ი-)"
   },
+  "კინოდან": {
+   "lat": "k'inodan",
+   "base": "კინო",
+   "baseLat": "k'ino",
+   "baseMeaning": "kino",
+   "note": "-დან: z, od"
+  },
   "ოთხ": {
    "lat": "otkh",
    "base": "ოთხი",
@@ -4200,6 +4207,13 @@
    "lat": "otkhmotsi",
    "meaning": "osiemdziesiąt"
   },
+  "ყველს": {
+   "lat": "q'vels",
+   "base": "ყველი",
+   "baseLat": "q'veli",
+   "baseMeaning": "ser",
+   "note": "-ს: celownik i biernik naraz: komu? co?"
+  },
   "მანქანით": {
    "lat": "mankanit",
    "base": "მანქანა",
@@ -4217,6 +4231,15 @@
    "baseLat": "magida",
    "baseMeaning": "stół",
    "note": "-ზე: na; o (godzinie); o (czymś)"
+  },
+  "ნუ": {
+   "lat": "nu",
+   "meaning": "nie (zakaz przed czasownikiem: ნუ ღელავ)"
+  },
+  "ღელავ": {
+   "lat": "ghelav",
+   "meaning": "martwisz się",
+   "note": "ნუ ღელავ: „nie martw się”."
   },
   "სახლები": {
    "lat": "sakhlebi",
@@ -4246,15 +4269,6 @@
    "baseLat": "ori",
    "baseMeaning": "dwa",
    "note": "Przed rzeczownikiem z końcówką słowo gubi -ი: შვიდ საათზე, „o siódmej”."
-  },
-  "ნუ": {
-   "lat": "nu",
-   "meaning": "nie (zakaz przed czasownikiem: ნუ ღელავ)"
-  },
-  "ღელავ": {
-   "lat": "ghelav",
-   "meaning": "martwisz się",
-   "note": "ნუ ღელავ: „nie martw się”."
   }
  }
 }

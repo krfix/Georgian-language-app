@@ -3,6 +3,27 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #8 · 19/11/26 · Explanations review (branch `claude/eager-johnson-9ccb2m`)
+
+Friends and family are testing on TestFlight. Owner asked for a linguistic check of every English
+and Polish explanation (module intros, "why" cards, letter tips, grammar notes, answer feedback,
+word notes).
+
+### Built
+- `docs/explanations-review.md`: the findings, then every explanation in English and Polish side by side.
+- Fixed: the instrumental -ით/-თი rule (v9), the teens (თ melts into ს/შ/ც: 13, 17, 19; 18 swaps
+  -რვ-), the food-words card (ჩაი and ყავას were wrong examples), შეიძლება has no "me" (g9),
+  Polish "w mianowniku" after numbers, 50 = two twenties and ten, tapped r, ჩემი (v16), "you'll
+  say მოუხვიეთ in a taxi", tetri, amount before thing (e2), -იდან/-დან (v4), the რა exclamation.
+- Clearer: tight-sound tips (p in spin "plus a pop"), ყ without "click", "dz as in adds", the
+  contrast note, g3 (no mark for "you", pronoun dropped), g6 (what არ, ვერ, ნუ mean), ის = "that",
+  Mtavruli on signs, ჰ for Poles, a g11 note on plural things with a singular verb.
+- Polish: dropped the "gdzieś" and "polska wieś" comparisons and "მაქვს = mi jest"; "kawy" throughout;
+  Russian czaj and неделя phrased correctly. Male forms stay (owner).
+
+### Tested
+- build_curriculum.py and check_strings.py pass; no new audio needed (0 clips to make).
+
 ## KART #7 · 18/11/26 · TestFlight (branch `claude/dazzling-cray-izaxbp`)
 
 Owner's developer account is active; goal: Ara on TestFlight for friends and family.

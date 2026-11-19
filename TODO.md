@@ -14,6 +14,8 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       Every word and sentence was checked by Claude and by the build script, but a native
       read-through is the real test. docs/content-quality.md lists what to look at first.
       Then set `PHRASEBOOK_STATUS = "native"` in content_phrasebook.py.
+      Ask in particular (KART #8, docs/explanations-review.md): plural things with a singular
+      verb (სახლები დიდია, g11); the melody of yes/no questions (g5); the "tight pop" letter tips.
 - [ ] Try the phrasebook in real life (a taxi, the bazaar, a café) and say what was missing
       or slow to find.
 - [ ] Name: "Ara" chosen (KART #1). Before the App Store: check "Ara: Learn Georgian" is free

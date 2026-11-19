@@ -9,7 +9,7 @@
    "subtitle": "33 letters, one sound each",
    "symbol": "character.book.closed.fill",
    "color": "pomegranate",
-   "intro": "Mkhedruli has 33 letters and no capitals. Each letter has one sound, so once you know them you can read any word aloud.",
+   "intro": "Mkhedruli has 33 letters and no capitals, though signs often use a taller style of the same letters. Each letter has one sound, so once you know them you can read any word aloud.",
    "lessons": [
     {
      "id": "a1",
@@ -359,7 +359,7 @@
        "ქ"
       ]
      ],
-     "note": "Five sounds come in pairs: one tight, with no air (კ პ ტ წ ჭ), and one with a puff of air, like English (ქ ფ თ ც ჩ). They make different words: კარი is a door, ქარი is the wind.",
+     "note": "Five sounds have two versions: tight, with no air (კ პ ტ წ ჭ), and with a puff of air, like English (ქ ფ თ ც ჩ). They make different words: კარი is a door, ქარი the wind.",
      "subtitle": "კ/ქ  პ/ფ  ტ/თ …",
      "read": [
       {
@@ -533,7 +533,7 @@
      "subtitle": "საიდან ხარ · ქართველი · ქართული",
      "intro": {
       "title": "From where",
-      "text": "საიდან means \"from where\": სად (where) + -იდან (from). The same -დან turns any place into \"from\": თბილისიდან, from Tbilisi.",
+      "text": "საიდან means \"from where\": სად (where) + -იდან (from). -იდან replaces a final -ი or -ა: თბილისიდან, from Tbilisi. Words in -ო add just -დან: კინოდან, from the cinema.",
       "table": []
      }
     },
@@ -558,7 +558,7 @@
      "subtitle": "ნული · ერთი · ორი",
      "intro": {
       "title": "Counting to ten",
-      "text": "Georgian numbers are short and regular. After a number the noun stays singular: ორი ჩაი, \"two tea\". No changing endings to learn.",
+      "text": "Georgian numbers are short and regular. After a number the noun stays singular: ორი ჩაი, \"two tea\". No plural to worry about.",
       "table": []
      }
     },
@@ -613,7 +613,7 @@
      "notes": [
       {
        "title": "Eleven to nineteen: ten and more",
-       "text": "Every teen is თ + the number + მეტი, \"more\": თ-ოთხ-მეტი is \"ten, four more\", fourteen. Three of them change a little to be easier to say: ცამეტი (13), ჩვიდმეტი (17) and ცხრამეტი (19).",
+       "text": "Every teen is თ + the number + მეტი, \"more\": თ-ოთხ-მეტი is \"ten, four more\", fourteen. Before ს, შ and ც the თ melts into the sound: ცამეტი (13), ჩვიდმეტი (17), ცხრამეტი (19). In 18, -რვ- turns to -ვრ-: თვრამეტი.",
        "table": [
         {
          "ka": "თერთმეტი",
@@ -628,7 +628,7 @@
         {
          "ka": "ცამეტი",
          "lat": "tsamet'i",
-         "en": "13: from სამი, changed"
+         "en": "13: თ + სამ + მეტი, თს melts into ც"
         },
         {
          "ka": "თოთხმეტი",
@@ -648,7 +648,7 @@
         {
          "ka": "ჩვიდმეტი",
          "lat": "chvidmet'i",
-         "en": "17: from შვიდი, changed"
+         "en": "17: თ + შვიდ + მეტი, თშ melts into ჩ"
         },
         {
          "ka": "თვრამეტი",
@@ -658,7 +658,7 @@
         {
          "ka": "ცხრამეტი",
          "lat": "tskhramet'i",
-         "en": "19: ცხრა + მეტი"
+         "en": "19: თ + ცხრა + მეტი, თც melts into ც"
         }
        ]
       },
@@ -746,7 +746,7 @@
       },
       {
        "title": "A number and a noun",
-       "text": "After a number the noun stays singular: ორი ყავა is \"two coffee\". Before a noun with an ending, the number drops its ი: შვიდ საათზე, \"at seven o'clock\".",
+       "text": "After a number the noun stays singular: ორი ყავა is \"two coffee\". When the noun takes an ending, the number drops its ი: შვიდ საათზე, \"at seven o'clock\".",
        "table": [
         {
          "ka": "ორი ყავა",
@@ -895,7 +895,7 @@
      "subtitle": "პური · ყველი · წყალი",
      "intro": {
       "title": "Food words",
-      "text": "Many Georgian food words end in -ი: პური, ყველი, ჩაი. That -ი is the plain form; it changes when the word does a job in the sentence: ყავას ვსვამ, I drink coffee.",
+      "text": "Most nouns end in -ი in their plain form: პური, ყველი. When the word does a job in the sentence, the -ი gives way to another ending: ყველს ვჭამ, I eat cheese.",
       "table": []
      }
     },
@@ -937,7 +937,7 @@
      "subtitle": "მანქანა · ავტობუსი · მეტრო",
      "intro": {
       "title": "Getting around",
-      "text": "Most transport words are international: ავტობუსი, მეტრო, ტაქსი. Add -ით for \"by\": მანქანით, by car; after a vowel just -თი: მეტროთი.",
+      "text": "Most transport words are international: ავტობუსი, მეტრო, ტაქსი. -ით means \"by\": მანქანით, by car. Words ending in -ო add -თი: მეტროთი, by metro.",
       "table": []
      }
     },
@@ -976,7 +976,7 @@
      "subtitle": "მარჯვნივ · მარცხნივ · პირდაპირ",
      "intro": {
       "title": "Directions",
-      "text": "მარჯვნივ and მარცხნივ end in -ივ, which means \"towards\". The polite command is მოუხვიეთ, turn: you'll hear it in every taxi.",
+      "text": "მარჯვნივ (to the right) and მარცხნივ (to the left) differ in the middle: -ჯვ- for right, -ცხ- for left. The polite \"turn\" is მოუხვიეთ: you'll say it in every taxi.",
       "table": []
      }
     },
@@ -1037,7 +1037,7 @@
      "subtitle": "ფული · ფასი · ძვირი",
      "intro": {
       "title": "Paying",
-      "text": "ლარი is the money, თეთრი the coins (100 tetri in a lari). By card is ბარათით: ბარათი + -ით, \"with the card\".",
+      "text": "ლარი is the money; თეთრი is the small change, 100 tetri to a lari. თეთრი also means \"white\". By card is ბარათით: ბარათი + -ით, \"with the card\".",
       "table": []
      }
     },
@@ -1077,7 +1077,7 @@
      "subtitle": "ძმა · და · ბებია",
      "intro": {
       "title": "The whole family",
-      "text": "და means both \"sister\" and \"and\": the sentence makes it clear. Family words don't change for my and your: ჩემი ძმა, my brother.",
+      "text": "და means both \"sister\" and \"and\": the sentence makes it clear. ჩემი, my, never changes: ჩემი ძმა, my brother; ჩემი და, my sister.",
       "table": []
      }
     },
@@ -1209,7 +1209,7 @@
      "subtitle": "რა ღირს ეს?",
      "intro": {
       "title": "At the shop",
-      "text": "To buy, name the thing and the amount: ერთი კილო ვაშლი. To check the price: რა ღირს ეს? Bargaining is normal at a bazaar.",
+      "text": "To buy, say the amount, then the thing: ერთი კილო ვაშლი. To check the price: რა ღირს ეს? Bargaining is normal at a bazaar.",
       "table": []
      }
     },
@@ -1329,7 +1329,7 @@
      "subtitle": "რა ამინდია!",
      "intro": {
       "title": "Small talk",
-      "text": "Weather is said with one word: ცხელა, it's hot; ცივა, it's cold. რა + a word in -ა makes an exclamation: რა ამინდია! What weather!",
+      "text": "Weather is said with one word: ცხელა, it's hot; ცივა, it's cold. რა + the short -ა (is) makes an exclamation: რა ამინდია! What weather!",
       "table": []
      }
     }
@@ -1358,7 +1358,7 @@
      "notes": [
       {
        "title": "Personal pronouns",
-       "text": "Georgian has six. There is no he or she: ის means he, she and it.",
+       "text": "Georgian has six. There is no he or she: ის means he, she and it. It also means \"that\"; \"this\" is ეს.",
        "table": [
         {
          "ka": "მე",
@@ -1625,7 +1625,7 @@
      "notes": [
       {
        "title": "The present tense",
-       "text": "The start and end of a verb show who is doing it: ვ- for I and we, -ს for he or she, -თ for plural, -ენ for they.",
+       "text": "The start and end of a verb show who is doing it: ვ- for I and we, -ს for he or she, -თ for plural, -ენ for they, nothing for you. The pronoun is often left out: ვწერ alone is \"I write\".",
        "table": [
         {
          "ka": "მე ვწერ",
@@ -1957,7 +1957,7 @@
       },
       {
        "title": "Yes or no",
-       "text": "Keep the sentence as it is and raise your voice at the end.",
+       "text": "Keep the sentence as it is and change only the melody: the voice goes up near the end. Copy it from the audio.",
        "table": [
         {
          "ka": "ყავა გინდა.",
@@ -2067,7 +2067,7 @@
      "notes": [
       {
        "title": "Not, can't, don't",
-       "text": "Put the little word right before the verb.",
+       "text": "Georgian has three \"nots\", all right before the verb: არ, not; ვერ, can't (ვერ გავიგე, I couldn't catch it); ნუ, don't, when asking someone (ნუ ღელავ, don't worry). არა on its own is \"no\".",
        "table": [
         {
          "ka": "არ ვიცი",
@@ -2408,7 +2408,7 @@
      "notes": [
       {
        "title": "Three patterns for every day",
-       "text": "Like მინდა, these have \"me\" inside the verb.",
+       "text": "მჭირდება and მომწონს work like მინდა, with მ- for \"me\". შეიძლება is \"it is possible\": on its own it asks \"may I?\".",
        "table": [
         {
          "ka": "თუ შეიძლება",
@@ -2688,6 +2688,11 @@
          "en": "books"
         }
        ]
+      },
+      {
+       "title": "Plural things, singular verb",
+       "text": "Things in the plural often take \"is\", not \"are\": სახლები დიდია, the houses are big. For people the verb is plural: მეგობრები ცხოვრობენ.",
+       "table": []
       }
      ],
      "exercises": [

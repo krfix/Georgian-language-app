@@ -4181,6 +4181,13 @@
    "baseMeaning": "Tbilisi",
    "note": "-დან: from (with -ი- between)"
   },
+  "კინოდან": {
+   "lat": "k'inodan",
+   "base": "კინო",
+   "baseLat": "k'ino",
+   "baseMeaning": "cinema",
+   "note": "-დან: from"
+  },
   "ოთხ": {
    "lat": "otkh",
    "base": "ოთხი",
@@ -4200,6 +4207,13 @@
    "lat": "otkhmotsi",
    "meaning": "eighty"
   },
+  "ყველს": {
+   "lat": "q'vels",
+   "base": "ყველი",
+   "baseLat": "q'veli",
+   "baseMeaning": "cheese",
+   "note": "-ს: the object of the verb, or \"to\": the dative case"
+  },
   "მანქანით": {
    "lat": "mankanit",
    "base": "მანქანა",
@@ -4217,6 +4231,15 @@
    "baseLat": "magida",
    "baseMeaning": "table",
    "note": "-ზე: on; at (a time); about"
+  },
+  "ნუ": {
+   "lat": "nu",
+   "meaning": "don't (before a verb: ნუ ღელავ)"
+  },
+  "ღელავ": {
+   "lat": "ghelav",
+   "meaning": "you worry",
+   "note": "ნუ ღელავ: \"don't worry\"."
   },
   "სახლები": {
    "lat": "sakhlebi",
@@ -4246,15 +4269,6 @@
    "baseLat": "ori",
    "baseMeaning": "two",
    "note": "Before a noun with an ending, the word drops its -ი: შვიდ საათზე, \"at seven\"."
-  },
-  "ნუ": {
-   "lat": "nu",
-   "meaning": "don't (before a verb: ნუ ღელავ)"
-  },
-  "ღელავ": {
-   "lat": "ghelav",
-   "meaning": "you worry",
-   "note": "ნუ ღელავ: \"don't worry\"."
   }
  }
 }

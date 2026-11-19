@@ -149,7 +149,7 @@
    "word": "პური",
    "wordLatin": "p'uri",
    "meaning": "bread",
-   "tip": "Like p in spin: no air comes out."
+   "tip": "Like the p in spin, plus a little pop from the throat."
   },
   {
    "char": "ჟ",
@@ -165,11 +165,11 @@
    "char": "რ",
    "name": "rae",
    "latin": "r",
-   "sound": "rolled r",
+   "sound": "tapped r, as in Spanish pero",
    "word": "რძე",
    "wordLatin": "rdze",
    "meaning": "milk",
-   "tip": "A short tap of the tongue, as in Spanish or Italian."
+   "tip": "One quick tap of the tongue, never the English r."
   },
   {
    "char": "ს",
@@ -189,7 +189,7 @@
    "word": "ტყე",
    "wordLatin": "t'q'e",
    "meaning": "forest",
-   "tip": "Like t in stop: no air comes out."
+   "tip": "Like the t in stop, plus a little pop from the throat."
   },
   {
    "char": "უ",
@@ -239,7 +239,7 @@
    "word": "ყველი",
    "wordLatin": "q'veli",
    "meaning": "cheese",
-   "tip": "Further back than კ, with a little click."
+   "tip": "Further back than კ, with the same tight pop."
   },
   {
    "char": "შ",
@@ -275,7 +275,7 @@
    "char": "ძ",
    "name": "dzili",
    "latin": "dz",
-   "sound": "dz as in adze",
+   "sound": "dz as in adds",
    "word": "ძაღლი",
    "wordLatin": "dzaghli",
    "meaning": "dog",

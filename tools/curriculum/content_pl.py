@@ -31,14 +31,14 @@ LETTERS = {
     "ო": ("o jak w „oko”", "pokój", ""),
     "პ": ("p ściśnięte, bez wydechu", "chleb", "Jak polskie p, tylko ostrzej, z zatrzymanym oddechem."),
     "ჟ": ("ż jak w „żaba”", "czasopismo", "Po łacinie zapisuje się zh."),
-    "რ": ("r jak w „rak”", "mleko", "Krótkie, drżące r, takie samo jak polskie."),
+    "რ": ("r jak w „rak”", "mleko", "Krótkie r, jak polskie, z jednym uderzeniem języka."),
     "ს": ("s jak w „sok”", "dom", ""),
     "ტ": ("t ściśnięte, bez wydechu", "las", "Jak polskie t, wymówione twardo, z zatrzymanym oddechem."),
     "უ": ("u jak w „ul”", "dzielnica", ""),
     "ფ": ("p z wydechem: p-h", "pieniądze", "To nie f! Polskie p z mocnym dmuchnięciem powietrza."),
     "ქ": ("k z wydechem: k-h", "miasto", ""),
     "ღ": ("dźwięczne, gardłowe „ch”, jak francuskie r", "wino", "Powiedz ხ (polskie ch) i dodaj głos, jak przy „r” w Paryżu."),
-    "ყ": ("k z głębi gardła, ściśnięte", "ser", "Jeszcze głębiej w gardle niż კ, z lekkim kliknięciem."),
+    "ყ": ("k z głębi gardła, ściśnięte", "ser", "Jeszcze głębiej w gardle niż კ, z tym samym ściśniętym „pyknięciem”."),
     "შ": ("sz jak w „szafa”", "cukier", ""),
     "ჩ": ("cz jak w „czas”, z wydechem", "herbata", ""),
     "ც": ("c jak w „co”, z wydechem", "niebo", ""),
@@ -47,7 +47,7 @@ LETTERS = {
     "ჭ": ("cz ściśnięte, bez wydechu", "szklanka", ""),
     "ხ": ("ch jak w „chleb”", "drzewo", "Polak ma tu łatwo: to zwykłe polskie ch."),
     "ჯ": ("dż jak w „dżem”", "kieszeń", ""),
-    "ჰ": ("h jak lekki wydech, w „haha”", "powietrze", ""),
+    "ჰ": ("h jak lekki wydech, w „haha”", "powietrze", "Sam lekki wydech, bez tarcia: lżej niż polskie ch."),
 }
 
 WORDS = {
@@ -101,13 +101,13 @@ WORDS = {
                  "თ + ერთ + მეტი: „dziesięć, jeden więcej”. Jak nasze „jede-naście”, czyli „jeden na dziesięć”."),
     "თორმეტი": ("dwanaście", ["12"], "Rok ma dwanaście miesięcy.", "თ + ორ + მეტი: dziesięć, dwa więcej."),
     "ცამეტი": ("trzynaście", ["13"], "Moje dziecko ma trzynaście lat.",
-               "Od სამი, trzy: ცა + მეტი. Jedna z trzech „nastek”, które trochę się zmieniają."),
+               "თ + სამ + მეტი: თ i ს zlewają się w ც."),
     "თოთხმეტი": ("czternaście", ["14"], "Autobus przyjedzie za czternaście minut.", "თ + ოთხ + მეტი: dziesięć, cztery więcej."),
     "თხუთმეტი": ("piętnaście", ["15"], "Kosztuje piętnaście lari.", "თ + ხუთ + მეტი: dziesięć, pięć więcej."),
     "თექვსმეტი": ("szesnaście", ["16"], "Budynek ma szesnaście pięter.", "თ + ექვს + მეტი: dziesięć, sześć więcej."),
-    "ჩვიდმეტი": ("siedemnaście", ["17"], "W pokoju jest siedemnaście krzeseł.", "Od შვიდი, siedem: შ zmienia się w ჩ, ჩვიდ + მეტი."),
+    "ჩვიდმეტი": ("siedemnaście", ["17"], "W pokoju jest siedemnaście krzeseł.", "თ + შვიდ + მეტი: თ i შ zlewają się w ჩ."),
     "თვრამეტი": ("osiemnaście", ["18"], "Mam osiemnaście lat.", "თ + რვა + მეტი, a რ i ვ zamieniają się miejscami: თვრამეტი."),
-    "ცხრამეტი": ("dziewiętnaście", ["19"], "Bilet kosztuje dziewiętnaście lari.", "ცხრა + მეტი, bez თ na początku."),
+    "ცხრამეტი": ("dziewiętnaście", ["19"], "Bilet kosztuje dziewiętnaście lari.", "თ + ცხრა + მეტი: თ zlewa się z ც."),
     "ოცი": ("dwadzieścia", ["20"], "Kosztuje dwadzieścia lari.",
             "Gruziński liczy dwudziestkami: 30 to „dwadzieścia i dziesięć”, 40 to „dwie dwudziestki”."),
     "ოცდაერთი": ("dwadzieścia jeden", ["21"], "Mam dwadzieścia jeden lat.",
@@ -121,7 +121,7 @@ WORDS = {
     "ყველი": ("ser", [], "Chcę ser i chleb.", None),
     "წყალი": ("woda", [], "Szklankę wody, poproszę.", None),
     "ღვინო": ("wino", [], "Gruzińskie wino jest bardzo dobre.", None),
-    "ჩაი": ("herbata", [], "Herbatę z cukrem, poproszę.", "Prawie jak polskie „czaj”, które też przyszło ze Wschodu."),
+    "ჩაი": ("herbata", [], "Herbatę z cukrem, poproszę.", "Prawie jak rosyjskie „czaj”: to samo słowo przyszło ze Wschodu."),
     "ყავა": ("kawa", [], "Uwielbiam kawę z mlekiem.", None),
     "რძე": ("mleko", [], "Mleko jest w lodówce.", None),
     "ხორცი": ("mięso", [], "Nie jem mięsa.", None),
@@ -207,7 +207,7 @@ WORDS = {
     "გუშინ": ("wczoraj", [], "Wczoraj byłem na targu.", None),
     "დღე": ("dzień", [], "Jest dobry dzień.", None),
     "კვირა": ("tydzień; niedziela", ["tydzień", "niedziela"], "Wrócę za tydzień.",
-              "კვირა to i „tydzień”, i „niedziela”. Podobnie u Słowian: rosyjska „niedziela” (неделя) to tydzień."),
+              "კვირა to i „tydzień”, i „niedziela”. Po rosyjsku неделя, czyli nasza „niedziela”, to właśnie tydzień."),
     "თვე": ("miesiąc", [], "Będę w Tbilisi przez miesiąc.", None),
     "წელი": ("rok", [], "Nadchodzi Nowy Rok.", None),
     "საათი": ("godzina; zegar", ["godzina", "zegar", "zegarek"], "Która jest godzina?", None),
@@ -320,8 +320,8 @@ T = {
     # ---- Module 1: the alphabet
     "The Georgian Alphabet": "Alfabet gruziński",
     "33 letters, one sound each": "33 litery, każda to jeden dźwięk",
-    "Mkhedruli has 33 letters and no capitals. Each letter has one sound, so once you know them you can read any word aloud.":
-        "Mchedruli ma 33 litery i nie ma wielkich liter. Każda litera to zawsze ten sam dźwięk, więc gdy je poznasz, przeczytasz na głos każde słowo. Dla Polaka to dobra wiadomość: większość dźwięków już znasz (ch, sz, cz, ż, c, dz, dż).",
+    "Mkhedruli has 33 letters and no capitals, though signs often use a taller style of the same letters. Each letter has one sound, so once you know them you can read any word aloud.":
+        "Mchedruli ma 33 litery i nie ma wielkich liter, choć szyldy często używają wyższej odmiany tych samych liter. Każda litera to zawsze ten sam dźwięk, więc gdy je poznasz, przeczytasz na głos każde słowo. Dla Polaka to dobra wiadomość: większość dźwięków już znasz (ch, sz, cz, ż, c, dz, dż).",
     "First letters": "Pierwsze litery",
     "mother": "matka",
     "net": "sieć",
@@ -372,8 +372,8 @@ T = {
     "family": "rodzina",
     "window": "okno",
     "Tight or with air?": "Ściśnięte czy z wydechem?",
-    "Five sounds come in pairs: one tight, with no air (კ პ ტ წ ჭ), and one with a puff of air, like English (ქ ფ თ ც ჩ). They make different words: კარი is a door, ქარი is the wind.":
-        "Pięć dźwięków występuje w parach: jeden ściśnięty, bez wydechu (კ პ ტ წ ჭ), drugi z wyraźnym dmuchnięciem powietrza (ქ ფ თ ც ჩ). Polskie p, t, k są bez wydechu, więc bliżej im do ściśniętych; przy tych z wydechem dmuchnij, jakbyś zdmuchiwał świeczkę. To zmienia znaczenie: კარი to drzwi, a ქარი to wiatr. Przyłóż dłoń do ust: przy ქ poczujesz powietrze, przy კ prawie nic.",
+    "Five sounds have two versions: tight, with no air (კ პ ტ წ ჭ), and with a puff of air, like English (ქ ფ თ ც ჩ). They make different words: კარი is a door, ქარი the wind.":
+        "Pięć dźwięków ma dwie wersje: ściśniętą, bez wydechu (კ პ ტ წ ჭ), i z wyraźnym dmuchnięciem (ქ ფ თ ც ჩ). Polskie p, t, k są bez wydechu, więc bliżej im do ściśniętych. To zmienia znaczenie: კარი to drzwi, a ქარი to wiatr. Przyłóż dłoń do ust: przy ქ poczujesz powietrze, przy კ prawie nic.",
     "door": "drzwi",
     "wind": "wiatr",
     "bread": "chleb",
@@ -401,17 +401,17 @@ T = {
     "Twenty to a hundred": "Od dwudziestu do stu",
     "How numbers are built": "Jak się buduje liczby",
     "Eleven to nineteen: ten and more": "Od 11 do 19: dziesięć i więcej",
-    "Every teen is თ + the number + მეტი, \"more\": თ-ოთხ-მეტი is \"ten, four more\", fourteen. Three of them change a little to be easier to say: ცამეტი (13), ჩვიდმეტი (17) and ცხრამეტი (19).":
-        "Każda „nastka” to თ (skrót od ათი, dziesięć) + liczba + მეტი, „więcej”: თ-ოთხ-მეტი to „dziesięć, cztery więcej”, czyli czternaście. Polak zna ten pomysł: „jede-naście” to dawne „jeden na dziesięć”. Tylko kolejność jest odwrotna: Gruzin mówi najpierw dziesięć, a potem jeden. Trzy liczby trochę się zmieniają, żeby łatwiej się je wymawiało: ცამეტი (13), ჩვიდმეტი (17) i ცხრამეტი (19).",
+    "Every teen is თ + the number + მეტი, \"more\": თ-ოთხ-მეტი is \"ten, four more\", fourteen. Before ს, შ and ც the თ melts into the sound: ცამეტი (13), ჩვიდმეტი (17), ცხრამეტი (19). In 18, -რვ- turns to -ვრ-: თვრამეტი.":
+        "Każda „nastka” to თ (skrót od ათი, dziesięć) + liczba + მეტი, „więcej”: თ-ოთხ-მეტი to „dziesięć, cztery więcej”, czyli czternaście. Polak zna ten pomysł: „jede-naście” to dawne „jeden na dziesięć”. Tylko kolejność jest odwrotna: Gruzin mówi najpierw dziesięć, a potem jeden. Przed ს, შ i ც თ zlewa się z tym dźwiękiem: ცამეტი (13), ჩვიდმეტი (17), ცხრამეტი (19). W 18 -რვ- zmienia się w -ვრ-: თვრამეტი.",
     "11: თ + ერთ + მეტი": "11: თ + ერთ + მეტი",
     "12: თ + ორ + მეტი": "12: თ + ორ + მეტი",
-    "13: from სამი, changed": "13: od სამი, zmienione",
+    "13: თ + სამ + მეტი, თს melts into ც": "13: თ + სამ + მეტი, თს zlewa się w ც",
     "14: თ + ოთხ + მეტი": "14: თ + ოთხ + მეტი",
     "15: თ + ხუთ + მეტი": "15: თ + ხუთ + მეტი",
     "16: თ + ექვს + მეტი": "16: თ + ექვს + მეტი",
-    "17: from შვიდი, changed": "17: od შვიდი, zmienione",
+    "17: თ + შვიდ + მეტი, თშ melts into ჩ": "17: თ + შვიდ + მეტი, თშ zlewa się w ჩ",
     "18: თ + რვა + მეტი, რვ turns to ვრ": "18: თ + რვა + მეტი, რვ zmienia się w ვრ",
-    "19: ცხრა + მეტი": "19: ცხრა + მეტი",
+    "19: თ + ცხრა + მეტი, თც melts into ც": "19: თ + ცხრა + მეტი, თც zlewa się w ც",
     "Counting in twenties": "Liczenie dwudziestkami",
     "From twenty up, Georgian counts in twenties, a little like French quatre-vingts (four twenties, 80). ორმოცი is \"two twenties\", სამოცი \"three twenties\", ოთხმოცი \"four twenties\".":
         "Od dwudziestu w górę Gruzini liczą dwudziestkami, trochę jak Francuzi w quatre-vingts (cztery dwudziestki, 80). Wyobraź sobie, że po polsku 40 to „dwie dwudziestki”: ორმოცი to właśnie ორ (dwa) + მ + ოცი (dwadzieścia). Tak samo სამოცი, „trzy dwudziestki” (60), i ოთხმოცი, „cztery dwudziestki” (80).",
@@ -420,7 +420,7 @@ T = {
     "80: four twenties": "80: cztery dwudziestki",
     "Twenty and…": "Dwadzieścia i…",
     "To go past a twenty, drop its last ი, add და (\"and\"), then a number from 1 to 19. So 21 is \"twenty and one\", 30 is \"twenty and ten\" and 31 is \"twenty and eleven\".":
-        "Żeby wyjść poza dwudziestkę, odetnij jej końcowe ი, dodaj და („i”) i liczbę od 1 do 19. Dlatego 21 to „dwadzieścia i jeden”, 30 to „dwadzieścia i dziesięć”, a 31 to „dwadzieścia i jedenaście”. Nie ma osobnego słowa na 30, 50, 70 ani 90: wszystkie są „dwudziestka i dziesięć”.",
+        "Żeby wyjść poza dwudziestkę, odetnij jej końcowe ი, dodaj და („i”) i liczbę od 1 do 19. Dlatego 21 to „dwadzieścia i jeden”, 30 to „dwadzieścia i dziesięć”, a 31 to „dwadzieścia i jedenaście”. Nie ma osobnego słowa na 30, 50, 70 ani 90: wszystkie to „dwudziestki i dziesięć”, np. 50 to dwie dwudziestki i dziesięć.",
     "21: twenty and one": "21: dwadzieścia i jeden",
     "22: twenty and two": "22: dwadzieścia i dwa",
     "25: twenty and five": "25: dwadzieścia i pięć",
@@ -431,8 +431,8 @@ T = {
     "50: two twenties and ten": "50: dwie dwudziestki i dziesięć",
     "99: four twenties and nineteen": "99: cztery dwudziestki i dziewiętnaście",
     "A number and a noun": "Liczebnik i rzeczownik",
-    "After a number the noun stays singular: ორი ყავა is \"two coffee\". Before a noun with an ending, the number drops its ი: შვიდ საათზე, \"at seven o'clock\".":
-        "Tu gruziński jest łatwiejszy od polskiego. Po liczebniku rzeczownik zostaje w mianowniku liczby pojedynczej: ორი ყავა to dosłownie „dwie kawa”, ხუთი ლარი „pięć lari”, bez naszych „dwie kawy, pięć kaw”. Przed rzeczownikiem z końcówką liczebnik gubi ი: შვიდ საათზე, „o siódmej”.",
+    "After a number the noun stays singular: ორი ყავა is \"two coffee\". When the noun takes an ending, the number drops its ი: შვიდ საათზე, \"at seven o'clock\".":
+        "Tu gruziński jest łatwiejszy od polskiego. Po liczebniku rzeczownik zostaje w liczbie pojedynczej: ორი ყავა to dosłownie „dwie kawa”, ხუთი ლარი „pięć lari”, bez naszych „dwie kawy, pięć kaw”. Gdy rzeczownik dostaje końcówkę, liczebnik gubi ი: შვიდ საათზე, „o siódmej”.",
     "two coffees": "dwie kawy",
     "three tickets": "trzy bilety",
     "twenty lari": "dwadzieścia lari",
@@ -492,8 +492,8 @@ T = {
         "Małe, przyjazne kroki w gruzińską gramatykę: tylko tyle, ile trzeba, żeby budować własne zdania. Często porównujemy z polskim, bo masz tu przewagę: znasz już przypadki i końcówki.",
     "I, you, we": "Ja, ty, my",
     "Personal pronouns": "Zaimki osobowe",
-    "Georgian has six. There is no he or she: ის means he, she and it.":
-        "Jest ich sześć, jak po polsku, ale gruziński nie ma rodzajów: ის to i „on”, i „ona”, i „ono”. Z tego samego powodu czasownik nie zmienia się jak nasze „był/była”. თქვენ to „wy” do kilku osób, a także grzecznościowe „pan/pani” do jednej: Gruzin mówi do obcego „wy”, a czasownik dostaje końcówkę -თ.",
+    "Georgian has six. There is no he or she: ის means he, she and it. It also means \"that\"; \"this\" is ეს.":
+        "Jest ich sześć, jak po polsku, ale gruziński nie ma rodzajów: ის to i „on”, i „ona”, i „ono”. Z tego samego powodu czasownik nie zmienia się jak nasze „był/była”. თქვენ to „wy” do kilku osób, a także grzecznościowe „pan/pani” do jednej: Gruzin mówi do obcego „wy”, a czasownik dostaje końcówkę -თ. ის znaczy też „tamto”, a ეს to „to, ten”.",
     "I": "ja",
     "you (one person, friendly)": "ty (do jednej osoby, na ty)",
     "he, she, it": "on, ona, ono",
@@ -525,7 +525,7 @@ T = {
     "they are": "są",
     "The short -ა": "Krótkie -ა",
     "არის is often shortened to -ა at the end of the word before it.":
-        "არის („jest”) często skraca się do samego -ა doklejonego do poprzedniego słowa. Podobnie jak w mowie potocznej mówimy „gdzieś” zamiast „gdzie jesteś”: ექიმი არის → ექიმია.",
+        "არის („jest”) często skraca się do samego -ა doklejonego do poprzedniego słowa, jak angielskie it is → it's: ექიმი არის → ექიმია.",
     "Nino is a doctor": "Nino jest lekarką",
     "Nino is a doctor (short)": "Nino jest lekarką (krótko)",
     "მე goes with ვარ.": "მე idzie w parze z ვარ.",
@@ -541,8 +541,8 @@ T = {
     "Nino is at home.": "Nino jest w domu.",
     "Doing things now": "Co robię teraz",
     "The present tense": "Czas teraźniejszy",
-    "The start and end of a verb show who is doing it: ვ- for I and we, -ს for he or she, -თ for plural, -ენ for they.":
-        "Po polsku osobę pokazuje końcówka: piszę, piszesz, pisze. Gruziński używa i początku, i końca czasownika: ვ- z przodu to „ja” i „my”, -ს na końcu to „on/ona”, -თ to liczba mnoga, a -ენ to „oni”. ვ-წერ-თ to więc „my piszemy”: ვ- (ja/my) + -თ (mnoga). Zaimek często się pomija, jak u nas: ვწერ wystarczy za „piszę”.",
+    "The start and end of a verb show who is doing it: ვ- for I and we, -ს for he or she, -თ for plural, -ენ for they, nothing for you. The pronoun is often left out: ვწერ alone is \"I write\".":
+        "Po polsku osobę pokazuje końcówka: piszę, piszesz, pisze. Gruziński używa i początku, i końca czasownika: ვ- z przodu to „ja” i „my”, -ს na końcu to „on/ona”, -თ to liczba mnoga, -ენ to „oni”, a „ty” nie ma żadnego znaku. ვ-წერ-თ to więc „my piszemy”: ვ- (ja/my) + -თ (mnoga). Zaimek często się pomija, jak u nas: ვწერ wystarczy za „piszę”.",
     "I write": "piszę",
     "you write": "piszesz",
     "he / she writes": "on / ona pisze",
@@ -564,7 +564,7 @@ T = {
     "Want, love, have": "Chcieć, kochać, mieć",
     "Verbs that work the other way": "Czasowniki „na odwrót”",
     "Some everyday verbs put \"me\" inside the verb with მ-, and \"you\" with გ-. The thing you want or have stays in its plain form.":
-        "Kilka codziennych czasowników działa jak polskie „podoba mi się” albo „chce mi się”: osoba siedzi w czasowniku jako „mi” albo „ci”. მ- to „mi/mnie”, გ- to „ci/tobie”. მინდა to dosłownie „mi się chce”, მიყვარს „mi jest miłe”, მაქვს „mi jest”. Rzecz, którą chcesz albo masz, zostaje w mianowniku: ყავა მინდა, „kawa mi się chce”.",
+        "Kilka codziennych czasowników działa jak polskie „podoba mi się” albo „chce mi się”: osoba siedzi w czasowniku jako „mi” albo „ci”. მ- to „mi/mnie”, გ- to „ci/tobie”. მინდა to dosłownie „mi się chce”, a მიყვარს „mi jest miłe”. Rzecz, którą chcesz albo masz, zostaje w mianowniku: ყავა მინდა, „kawa mi się chce”.",
     "I want": "chcę",
     "you want": "chcesz",
     "I love": "kocham",
@@ -597,10 +597,10 @@ T = {
     "how?": "jak?",
     "how many?": "ile?",
     "Yes or no": "Tak czy nie",
-    "Keep the sentence as it is and raise your voice at the end.":
-        "Zostaw zdanie tak, jak jest, i podnieś głos na końcu, tak samo jak po polsku: „Chcesz kawę?”. Nie ma tu słówka „czy”.",
-    "You want coffee.": "Chcesz kawę.",
-    "Do you want coffee?": "Chcesz kawę?",
+    "Keep the sentence as it is and change only the melody: the voice goes up near the end. Copy it from the audio.":
+        "Zostaw zdanie tak, jak jest, i zmień tylko melodię: głos idzie w górę pod koniec, jak po polsku „Chcesz kawy?”. Naśladuj nagranie. Nie ma tu słówka „czy”.",
+    "You want coffee.": "Chcesz kawy.",
+    "Do you want coffee?": "Chcesz kawy?",
     "\"Where?\" is…": "„Gdzie?” to…",
     "Where is the metro?": "Gdzie jest metro?",
     "How are you?": "Jak się masz?",
@@ -614,7 +614,7 @@ T = {
     "When are you coming?": "Kiedy przyjdziesz?",
     "Saying no": "Przeczenie",
     "Not, can't, don't": "Nie, nie mogę, nie rób",
-    "Put the little word right before the verb.":
+    "Georgian has three \"nots\", all right before the verb: არ, not; ვერ, can't (ვერ გავიგე, I couldn't catch it); ნუ, don't, when asking someone (ნუ ღელავ, don't worry). არა on its own is \"no\".":
         "Gruziński ma trzy „nie”, a każde stoi tuż przed czasownikiem, jak nasze „nie”. არ to zwykłe „nie”. ვერ to „nie mogę, nie dam rady” (ვერ გავიგე, „nie dałem rady zrozumieć”). ნუ to „nie rób tego” w prośbach (ნუ ღელავ, „nie martw się”). Samo არა to „nie” jako odpowiedź.",
     "I don't know": "nie wiem",
     "I couldn't understand": "nie dałem rady zrozumieć",
@@ -684,8 +684,8 @@ T = {
     "I live in Tbilisi.": "Mieszkam w Tbilisi.",
     "Handy patterns": "Przydatne schematy",
     "Three patterns for every day": "Trzy schematy na co dzień",
-    "Like მინდა, these have \"me\" inside the verb.":
-        "Tak jak მინდა, mają „mi” w środku czasownika. მომწონს działa dokładnie jak polskie „podoba mi się”: to rzecz się podoba, a ty jesteś „mi”. Podobnie მჭირდება, „potrzebne mi jest”.",
+    "მჭირდება and მომწონს work like მინდა, with მ- for \"me\". შეიძლება is \"it is possible\": on its own it asks \"may I?\".":
+        "მჭირდება i მომწონს działają jak მინდა, z მ- jako „mi”. მომწონს to dokładnie „podoba mi się”: to rzecz się podoba, a ty jesteś „mi”. შეიძლება znaczy „można”: samo w sobie pyta „czy mogę?”.",
     "please (if it's possible)": "proszę (jeśli można)",
     "may I? is it OK?": "można? czy mogę?",
     "I need": "potrzebuję",
@@ -1601,6 +1601,9 @@ T.update({
     "After a number the noun stays singular: სამი წიგნი, \"three book\". The plural is only for \"books\" with no number.":
         "Po liczebniku rzeczownik zostaje w liczbie pojedynczej: სამი წიგნი, „trzy książka”. Liczba mnoga jest tylko bez liczebnika.",
     "three books": "trzy książki",
+    "Plural things, singular verb": "Rzeczy w liczbie mnogiej, czasownik w pojedynczej",
+    "Things in the plural often take \"is\", not \"are\": სახლები დიდია, the houses are big. For people the verb is plural: მეგობრები ცხოვრობენ.":
+        "Rzeczy w liczbie mnogiej często łączą się z „jest”, nie z „są”: სახლები დიდია, dosłownie „domy duże jest”. Przy ludziach czasownik jest w liczbie mnogiej: მეგობრები ცხოვრობენ.",
     "The plural of წიგნი is…": "Liczba mnoga od წიგნი to…",
     "-ი becomes -ები.": "-ი zmienia się w -ები.",
     "ცხოვრობენ is \"they live\", so the plural: მეგობრები.": "ცხოვრობენ to „mieszkają”, więc liczba mnoga: მეგობრები.",
@@ -1614,7 +1617,7 @@ T.update({
     "Polite you": "Forma grzecznościowa",
     "The polite -თ": "Grzecznościowe -თ",
     "Georgian has a polite \"you\": თქვენ, which is also \"you\" for several people. The verb gets -თ at the end: გაქვს becomes გაქვთ, იცი becomes იცით. Use it with strangers, in shops, with older people and officials.":
-        "Polak mówi do obcego „pan/pani” w trzeciej osobie. Gruzin mówi „wy”: თქვენ, jak dawniej na polskiej wsi. Czasownik dostaje -თ na końcu: გაქვს → გაქვთ, იცი → იცით. Używaj tego z obcymi, w sklepach, ze starszymi i w urzędach.",
+        "Polak mówi do obcego „pan/pani” w trzeciej osobie. Gruzin mówi „wy”: თქვენ, jak francuskie vous. Czasownik dostaje -თ na końcu: გაქვს → გაქვთ, იცი → იცით. Używaj tego z obcymi, w sklepach, ze starszymi i w urzędach.",
     "do you have? (to a friend)": "masz? (do znajomego)",
     "do you have? (polite)": "ma pan/pani? (grzecznie)",
     "do you know? (to a friend)": "wiesz? (do znajomego)",
@@ -1675,10 +1678,10 @@ T.update({
     "Georgian says \"to me it is called\": მე ნინო მქვია. The მ- inside the verb is \"me\". To ask: რა გქვია? with გ- for \"you\".":
         "Gruzin mówi „nazywa mi się”: მე ნინო მქვია. მ- w środku czasownika to nasze „mi”. Pytanie: რა გქვია?, z გ- jako „ci”: „jak ci na imię?”, prawie jak po polsku!",
     "From where": "Skąd",
-    "საიდან means \"from where\": სად (where) + -იდან (from). The same -დან turns any place into \"from\": თბილისიდან, from Tbilisi.":
-        "საიდან to „skąd”: სად (gdzie) + -იდან (z, od). Ta sama końcówka -დან robi z każdego miejsca „z”: თბილისიდან, z Tbilisi. Gdzie my mamy przyimek z przodu, Gruzin dokleja końcówkę.",
+    "საიდან means \"from where\": სად (where) + -იდან (from). -იდან replaces a final -ი or -ა: თბილისიდან, from Tbilisi. Words in -ო add just -დან: კინოდან, from the cinema.":
+        "საიდან to „skąd”: სად (gdzie) + -იდან (z, od). -იდან zastępuje końcowe -ი albo -ა: თბილისიდან, z Tbilisi. Słowa na -ო dostają samo -დან: კინოდან, z kina. Gdzie my mamy przyimek z przodu, Gruzin dokleja końcówkę.",
     "Counting to ten": "Liczymy do dziesięciu",
-    "Georgian numbers are short and regular. After a number the noun stays singular: ორი ჩაი, \"two tea\". No changing endings to learn.":
+    "Georgian numbers are short and regular. After a number the noun stays singular: ორი ჩაი, \"two tea\". No plural to worry about.":
         "Gruzińskie liczebniki są krótkie i regularne. Po liczebniku rzeczownik zostaje w liczbie pojedynczej: ორი ჩაი, „dwie herbata”. Żadnych polskich „dwie herbaty, pięć herbat”.",
     "Ten and more": "Dziesięć i więcej",
     "The teens are built from ten and the number: თ (from ათი, ten) + ოთხ (four) + მეტი (more) makes თოთხმეტი, fourteen. Look for the pattern in each one.":
@@ -1686,27 +1689,27 @@ T.update({
     "Above twenty Georgian counts in twenties: ორმოცი is \"two twenties\". The next lesson shows how to build every number from these.":
         "Powyżej dwudziestu Gruzini liczą dwudziestkami: ორმოცი to „dwie dwudziestki”. Następna lekcja pokazuje, jak z tego zbudować każdą liczbę.",
     "Food words": "Słowa o jedzeniu",
-    "Many Georgian food words end in -ი: პური, ყველი, ჩაი. That -ი is the plain form; it changes when the word does a job in the sentence: ყავას ვსვამ, I drink coffee.":
-        "Wiele gruzińskich słów kończy się na -ი: პური, ყველი, ჩაი. To -ი to mianownik; zmienia się, gdy słowo pełni inną rolę w zdaniu, jak u nas „kawa → piję kawę”: ყავას ვსვამ.",
+    "Most nouns end in -ი in their plain form: პური, ყველი. When the word does a job in the sentence, the -ი gives way to another ending: ყველს ვჭამ, I eat cheese.":
+        "Większość rzeczowników kończy się w mianowniku na -ი: პური, ყველი. Gdy słowo pełni inną rolę w zdaniu, -ი ustępuje innej końcówce, jak u nas „ser → jem ser”: ყველს ვჭამ.",
     "ხაჭაპური and ხინკალი are names you'll see on every menu. Words for things you eat often come in the singular: ხილი is fruit, ბოსტნეული vegetables.":
         "ხაჭაპური i ხინკალი zobaczysz w każdym menu. Jedzenie często występuje w liczbie pojedynczej: ხილი to owoce, ბოსტნეული warzywa, jak nasze „owoc, warzywo” w zbiorczym znaczeniu.",
-    "Most transport words are international: ავტობუსი, მეტრო, ტაქსი. Add -ით for \"by\": მანქანით, by car; after a vowel just -თი: მეტროთი.":
-        "Większość słów o transporcie jest międzynarodowa: ავტობუსი, მეტრო, ტაქსი. Końcówka -ით to nasz narzędnik: მანქანით, samochodem; po samogłosce -თი: მეტროთი, metrem.",
+    "Most transport words are international: ავტობუსი, მეტრო, ტაქსი. -ით means \"by\": მანქანით, by car. Words ending in -ო add -თი: მეტროთი, by metro.":
+        "Większość słów o transporcie jest międzynarodowa: ავტობუსი, მეტრო, ტაქსი. Końcówka -ით to nasz narzędnik: მანქანით, samochodem. Słowa na -ო dostają -თი: მეტროთი, metrem.",
     "Long words are often built from parts: თვითმფრინავი is \"self-flying\". აეროპორტი and სადგური take -ში for \"to\": აეროპორტში, to the airport.":
         "Długie słowa składa się z części: თვითმფრინავი to „sam-latający”, zupełnie jak polski samolot. აეროპორტი i სადგური dostają -ში dla „do”: აეროპორტში, na lotnisko.",
-    "მარჯვნივ and მარცხნივ end in -ივ, which means \"towards\". The polite command is მოუხვიეთ, turn: you'll hear it in every taxi.":
-        "მარჯვნივ i მარცხნივ kończą się na -ივ, „w stronę”, jak nasze „w prawo”. Grzeczny rozkaz to მოუხვიეთ, „proszę skręcić”: usłyszysz go w każdej taksówce.",
+    "მარჯვნივ (to the right) and მარცხნივ (to the left) differ in the middle: -ჯვ- for right, -ცხ- for left. The polite \"turn\" is მოუხვიეთ: you'll say it in every taxi.":
+        "მარჯვნივ (w prawo) i მარცხნივ (w lewo) różnią się środkiem: -ჯვ- to prawo, -ცხ- to lewo. Grzeczny rozkaz to მოუხვიეთ, „proszę skręcić”: powiesz go w każdej taksówce.",
     "ახლოს and შორს are said with არის, is: ახლოს არის, it's near. Put the place first: ბაზარი ახლოს არის?":
         "ახლოს i შორს mówi się z არის, „jest”: ახლოს არის, jest blisko. Miejsce stoi na początku: ბაზარი ახლოს არის?, „targ blisko jest?”.",
     "Shops and prices": "Sklepy i ceny",
     "რა ღირს? literally \"what is it worth?\": the everyday \"how much?\". ღია and დაკეტილი, open and closed, are on every shop door.":
         "რა ღირს? to dosłownie „ile to warte?”, codzienne „ile kosztuje?”. ღია i დაკეტილი, otwarte i zamknięte, są na drzwiach każdego sklepu.",
-    "ლარი is the money, თეთრი the coins (100 tetri in a lari). By card is ბარათით: ბარათი + -ით, \"with the card\".":
-        "ლარი to waluta, თეთრი to grosze (100 tetri w jednym lari). Kartą to ბარათით: ბარათი + -ით, nasz narzędnik.",
+    "ლარი is the money; თეთრი is the small change, 100 tetri to a lari. თეთრი also means \"white\". By card is ბარათით: ბარათი + -ით, \"with the card\".":
+        "ლარი to waluta, a თეთრი to drobne, jak nasze grosze: 100 tetri w jednym lari. თეთრი znaczy też „biały”. Kartą to ბარათით: ბარათი + -ით, nasz narzędnik.",
     "Mother and father": "Matka i ojciec",
     "Careful: დედა is mother and მამა is father, the opposite of what you might expect. შვილი is someone's child, ბავშვი a child in general.":
         "Uwaga: დედა to matka, a მამა to ojciec, odwrotnie niż podpowiada polskie ucho! შვილი to czyjeś dziecko (syn, córka), ბავშვი to dziecko w ogóle.",
-    "და means both \"sister\" and \"and\": the sentence makes it clear. Family words don't change for my and your: ჩემი ძმა, my brother.":
+    "და means both \"sister\" and \"and\": the sentence makes it clear. ჩემი, my, never changes: ჩემი ძმა, my brother; ჩემი და, my sister.":
         "და to i „siostra”, i „i”: zdanie wyjaśnia, o co chodzi. ჩემი (mój) nie zmienia się dla rodzaju: ჩემი ძმა, mój brat; ჩემი და, moja siostra.",
     "Places take -ში for \"in\": სახლში, at home; ოთახში, in the room. Things on top take -ზე: მაგიდაზე, on the table.":
         "Miejsca dostają -ში dla „w”: სახლში, w domu; ოთახში, w pokoju. Na wierzchu: -ზე, მაგიდაზე, na stole. Przyimek, tylko na końcu.",
@@ -1721,7 +1724,7 @@ T.update({
     "In cafés Georgians add თუ შეიძლება, \"if it's possible\", after what they ask for: მენიუ, თუ შეიძლება. It's the everyday please.":
         "W kawiarni Gruzini dodają თუ შეიძლება, „jeśli można”, po tym, o co proszą: მენიუ, თუ შეიძლება. To codzienne „poproszę”.",
     "At the shop": "W sklepie",
-    "To buy, name the thing and the amount: ერთი კილო ვაშლი. To check the price: რა ღირს ეს? Bargaining is normal at a bazaar.":
+    "To buy, say the amount, then the thing: ერთი კილო ვაშლი. To check the price: რა ღირს ეს? Bargaining is normal at a bazaar.":
         "Kupując, podaj ilość i rzecz: ერთი კილო ვაშლი, „kilo jabłko”, bez dopełniacza. Cena: რა ღირს ეს? Na bazarze targowanie się jest normalne.",
     "Drivers say თქვენ to you, the polite you, with -თ on the verb: სად მიდიხართ? Answer with the place and -ში: აეროპორტში.":
         "Kierowcy mówią do ciebie თქვენ, grzecznie, z -თ na czasowniku: სად მიდიხართ?, „dokąd pan jedzie?”. Odpowiadasz miejscem z -ში: აეროპორტში, na lotnisko.",
@@ -1735,8 +1738,8 @@ T.update({
         "Gruzin mówi dokładnie jak Polak: თავი მტკივა, „boli mnie głowa”. Część ciała jest podmiotem, a მ- to „mnie”.",
     "ვმუშაობ is \"I work\": ვ- for I. Where you work takes -ში: ოფისში ვმუშაობ.":
         "ვმუშაობ to „pracuję”: ვ- oznacza „ja”. Miejsce pracy dostaje -ში: ოფისში ვმუშაობ, pracuję w biurze.",
-    "Weather is said with one word: ცხელა, it's hot; ცივა, it's cold. რა + a word in -ა makes an exclamation: რა ამინდია! What weather!":
-        "Pogodę mówi się jednym słowem: ცხელა, gorąco; ცივა, zimno, jak nasze „zimno!”. რა + słowo na -ა to wykrzyknik: რა ამინდია! Co za pogoda!",
+    "Weather is said with one word: ცხელა, it's hot; ცივა, it's cold. რა + the short -ა (is) makes an exclamation: რა ამინდია! What weather!":
+        "Pogodę mówi się jednym słowem: ცხელა, gorąco; ცივა, zimno, jak nasze „zimno!”. რა + krótkie -ა („jest”) to wykrzyknik: რა ამინდია! Co za pogoda!",
     "Your first conversation": "Twoja pierwsza rozmowa",
     "Choose what you would say. The waiter is polite (რა გნებავთ? what would you like?); you answer with თუ შეიძლება. Tap any word to see why it looks that way.":
         "Wybierz, co byś powiedział. Kelner mówi grzecznie (რა გნებავთ?, czego pan sobie życzy?), ty odpowiadasz z თუ შეიძლება. Stuknij dowolne słowo, żeby zobaczyć, dlaczego tak wygląda.",

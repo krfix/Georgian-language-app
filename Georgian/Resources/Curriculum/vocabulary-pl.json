@@ -719,7 +719,7 @@
     "lat": "chemi shvili tsamet'i ts'lisaa.",
     "en": "Moje dziecko ma trzynaście lat."
    },
-   "note": "Od სამი, trzy: ცა + მეტი. Jedna z trzech „nastek”, które trochę się zmieniają."
+   "note": "თ + სამ + მეტი: თ i ს zlewają się w ც."
   },
   {
    "id": "w-totkhmeti",
@@ -783,7 +783,7 @@
     "lat": "otakhshi chvidmet'i sk'amia.",
     "en": "W pokoju jest siedemnaście krzeseł."
    },
-   "note": "Od შვიდი, siedem: შ zmienia się w ჩ, ჩვიდ + მეტი."
+   "note": "თ + შვიდ + მეტი: თ i შ zlewają się w ჩ."
   },
   {
    "id": "w-tvrameti",
@@ -815,7 +815,7 @@
     "lat": "bileti tskhramet'i lari ghirs.",
     "en": "Bilet kosztuje dziewiętnaście lari."
    },
-   "note": "ცხრა + მეტი, bez თ na początku."
+   "note": "თ + ცხრა + მეტი: თ zlewa się z ც."
   },
   {
    "id": "w-otsi",
@@ -976,7 +976,7 @@
     "lat": "chai shakrit, tu sheidzleba.",
     "en": "Herbatę z cukrem, poproszę."
    },
-   "note": "Prawie jak polskie „czaj”, które też przyszło ze Wschodu."
+   "note": "Prawie jak rosyjskie „czaj”: to samo słowo przyszło ze Wschodu."
   },
   {
    "id": "w-qava",
@@ -2051,7 +2051,7 @@
     "lat": "ert k'virashi davbrundebi.",
     "en": "Wrócę za tydzień."
    },
-   "note": "კვირა to i „tydzień”, i „niedziela”. Podobnie u Słowian: rosyjska „niedziela” (неделя) to tydzień."
+   "note": "კვირა to i „tydzień”, i „niedziela”. Po rosyjsku неделя, czyli nasza „niedziela”, to właśnie tydzień."
   },
   {
    "id": "w-tve",
