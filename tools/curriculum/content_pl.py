@@ -1670,7 +1670,7 @@ T.update({
     # "Why" cards
     "Hello means victory": "„Cześć” znaczy „zwycięstwo”",
     "გამარჯობა comes from გამარჯვება, victory: you wish someone victory. The reply, გაგიმარჯოს, wishes it back. Morning, evening and night greetings end in მშვიდობისა, \"of peace\": დილა მშვიდობისა is \"morning of peace\".":
-        "გამარჯობა pochodzi od გამარჯვება, zwycięstwo: życzysz komuś zwycięstwa. Odpowiedź, გაგიმარჯოს, życzy go z powrotem. Powitania na rano, wieczór i noc kończą się na მშვიდობისა, „pokoju”, czyli spokoju (nie pomieszczenia): დილა მშვიდობისა to dosłownie „poranek pokoju”, nasze „dzień dobry”.",
+        "გამარჯობა pochodzi od გამარჯვება, zwycięstwo: życzysz komuś zwycięstwa. Odpowiedź, გაგიმარჯოს, życzy go z powrotem. Powitania na rano, wieczór i noc kończą się na მშვიდობისა, „pokoju” w sensie spokoju, jak staropolskie „pokój z tobą”: დილა მშვიდობისა to dosłownie „poranek pokoju”.",
     "Two kinds of thanks": "Dwa rodzaje „dziękuję”",
     "მადლობა is everyday thanks. გმადლობთ is polite: the გ- means \"you\" and the -თ makes it polite. You'll meet this -თ everywhere.":
         "მადლობა to zwykłe „dzięki”. გმადლობთ jest grzeczne: გ- to „ci/panu”, a -თ dodaje grzeczności, jak nasze „dziękuję panu”. To -თ spotkasz wszędzie.",
