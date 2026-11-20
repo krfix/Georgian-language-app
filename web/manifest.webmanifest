@@ -1,7 +1,7 @@
 {
-  "name": "Ara: Georgian phrasebook",
+  "name": "Ara: Learn Georgian",
   "short_name": "Ara",
-  "description": "Georgian for everyday life in Georgia: phrases with audio, offline.",
+  "description": "Learn Georgian from the first letter, and use it in Georgia: a course and a phrasebook, with audio, offline.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
