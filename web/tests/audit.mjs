@@ -94,22 +94,21 @@ function inspect() {
     const dx = (pr.left + pr.right) / 2 - (sr.left + sr.right) / 2, dy = (pr.top + pr.bottom) / 2 - (sr.top + sr.bottom) / 2;
     if (Math.abs(dx) > 1.5 || Math.abs(dy) > 1.5) found.push(["off-centre", label(p), `dx ${dx.toFixed(1)} dy ${dy.toFixed(1)}`]);
   }
-  // Text on top of other text.
-  const boxes = texts.map((e) => {
+  // Text on top of other text: every line box, sorted top to bottom, against the ones near it.
+  const lines = [];
+  texts.forEach((e, i) => {
     const range = document.createRange(); range.selectNodeContents(e);
-    return [e, [...range.getClientRects()].filter((r) => r.width > 2 && r.height > 2)];
+    const layer = e.closest(".tabbar, .sheet, .toast, .gloss");
+    for (const r of range.getClientRects()) if (r.width > 2 && r.height > 2) lines.push({ i, e, r, layer });
   });
-  for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
-    const [a, ra] = boxes[i], [b, rb] = boxes[j];
-    if (a.contains(b) || b.contains(a)) continue;
-    const fixedA = a.closest(".tabbar, .sheet, .toast, .gloss"), fixedB = b.closest(".tabbar, .sheet, .toast, .gloss");
-    if (fixedA !== fixedB) continue;
-    let hit = false;
-    for (const x of ra) for (const y of rb) {
-      const w = Math.min(x.right, y.right) - Math.max(x.left, y.left), h = Math.min(x.bottom, y.bottom) - Math.max(x.top, y.top);
-      if (w > 3 && h > 0.3 * Math.min(x.height, y.height)) hit = true; // more than glyph boxes touching
-    }
-    if (hit) found.push(["overlap", label(a), "with", label(b)]);
+  lines.sort((a, b) => a.r.top - b.r.top);
+  const pairs = new Set();
+  for (let a = 0; a < lines.length; a++) for (let b = a + 1; b < lines.length && lines[b].r.top < lines[a].r.bottom; b++) {
+    const x = lines[a], y = lines[b];
+    if (x.i === y.i || x.layer !== y.layer || x.e.contains(y.e) || y.e.contains(x.e)) continue;
+    const w = Math.min(x.r.right, y.r.right) - Math.max(x.r.left, y.r.left), h = Math.min(x.r.bottom, y.r.bottom) - Math.max(x.r.top, y.r.top);
+    const key = `${Math.min(x.i, y.i)}-${Math.max(x.i, y.i)}`;
+    if (w > 3 && h > 0.3 * Math.min(x.r.height, y.r.height) && !pairs.has(key)) { pairs.add(key); found.push(["overlap", label(x.e), "with", label(y.e)]); }
   }
   return found;
 }
@@ -235,7 +234,9 @@ for (const language of ["pl", "en"]) for (const text of ["normal", "large"]) {
   if (!quick) for (const width of [360, 440]) runs.push({ language, text, width, scheme: "dark", shots: false });
 }
 if (!quick) runs.push({ language: "pl", text: "large", width: 320, scheme: "dark", shots: true });
-for (const r of runs) { await run(r); console.log("done", r.language, r.text, r.width); }
+for (let k = 0; k < runs.length; k += 4) {
+  await Promise.all(runs.slice(k, k + 4).map(async (r) => { await run(r); console.log("done", r.language, r.text, r.width); }));
+}
 await browser.close();
 server.close();
 
