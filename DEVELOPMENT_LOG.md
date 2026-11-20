@@ -35,6 +35,11 @@ lesson-complete screen were clearly behind. Owner: do those two.
   bottom button, the feedback panel, the title bar), as before. `screens.mjs` all fine;
   `engine_test.mjs` (21) and `search_test.mjs` (38) pass; `check_strings.py` 0 missing.
 
+### Published (owner: "publish")
+- `web.yml` with publish from the branch: run #3 failed twice before any step (no machine
+  started: Actions minutes or spending limit). The owner accepted new billing; run #4 built,
+  tested, photographed and published to aralearn.github.io/app. Not merged to `main` yet.
+
 ## KART #10 · 20/11/26 · Web app polish, text size (branch `claude/epic-galileo-1bdun4`)
 
 Owner, from iPhone screenshots of the live web app: an old icon on a lesson, "Opanow…" cut on
