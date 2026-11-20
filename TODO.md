@@ -7,8 +7,9 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       Share › Add to Home Screen; audio; offline after "Keep all audio") and on the PC. The website's
       home page links to it (KART #9). Republish after content changes (web.yml publish, or
       from a chat: web/build.py, copy web/dist to the website repo's app/).
-- [ ] Add the `WEBSITE_TOKEN` secret (a fine-grained token, Contents read and write on
-      aralearn/aralearn.github.io only) so `web.yml` can publish by itself (KART #10: it failed).
+- [x] `WEBSITE_TOKEN` secret added (KART #10, 20/11/26): a fine-grained token, Contents read and
+      write on aralearn/aralearn.github.io only; `web.yml` publishes by itself. It expires after a
+      year at most: renew it there and replace the secret.
 - [ ] Test the app on the iPhone (Feather install) and say what to change.
 - [ ] Native audio: every Georgian text has synthetic clips in Eka's and Giorgi's voices
       (1,460 each, KART #1, #2, #5). A native speaker's recordings can replace them one by

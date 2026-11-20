@@ -37,6 +37,8 @@ good than exactly the same but buggy".
   `WEBSITE_TOKEN` secret isn't set. Published from the chat instead (owner: "yes, add the
   website repo"): web/dist (version 90fe36da19) copied to the website repo's `app/`. The privacy
   page needed no change (the text size stays in the browser like the other settings).
+- The owner then added the `WEBSITE_TOKEN` secret; a `web.yml` publish run succeeded ("Nothing
+  new to publish"), so publishing works from GitHub too.
 
 ## KART #9 · 20/11/26 · Web app, phrasebook (branch `claude/happy-carson-cc03jn`)
 
