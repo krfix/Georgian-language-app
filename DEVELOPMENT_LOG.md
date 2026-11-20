@@ -50,6 +50,8 @@ lesson-complete screen were clearly behind. Owner: do those two.
   of Ara is ready · Update" appears (EN/PL).
 - Tested in Chromium with a server that allows 10-minute caching: published while open → bar →
   Update → new files; published while closed → new files on the first open.
+- Published (owner: "publish, merge"): `web.yml` run #5 (second attempt; the first lost its
+  connection while saving the app); `main` fast-forwarded.
 
 ## KART #10 · 20/11/26 · Web app polish, text size (branch `claude/epic-galileo-1bdun4`)
 
