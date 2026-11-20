@@ -11,6 +11,9 @@ name: Web app
 # "publish" ticked (only on the owner's say-so): copies the finished app into the website repo
 # aralearn/aralearn.github.io as /app, so it opens at https://aralearn.github.io/app. Needs the
 # WEBSITE_TOKEN secret: a fine-grained token with Contents read and write on that repo only.
+# "quick" ticked (owner, KART #11): build and checks only, no screen walk-through and nothing
+# attached, so a publish takes a minute or two. For when the screens were already walked
+# through in the chat (web/tests/screens.mjs).
 run-name: ${{ inputs.title || format('Web app ({0})', github.ref_name) }}
 
 on:
@@ -22,6 +25,11 @@ on:
         type: string
       publish:
         description: Publish to aralearn.github.io/app (only on the owner's say-so)
+        required: false
+        type: boolean
+        default: false
+      quick:
+        description: Quick (skip the screenshots; only when they were checked in the chat)
         required: false
         type: boolean
         default: false
@@ -49,13 +57,14 @@ jobs:
           node web/tests/engine_test.mjs
 
       - name: Screens
+        if: ${{ !inputs.quick }}
         run: |
           npm install --prefix "$RUNNER_TEMP/pw" playwright@1.49.1
           "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps chromium
           NODE_PATH="$RUNNER_TEMP/pw/node_modules" node web/tests/screens.mjs web/dist-screens
 
       - name: Attach the screenshots
-        if: always()
+        if: ${{ always() && !inputs.quick }}
         uses: actions/upload-artifact@v4
         with:
           name: web-screens
@@ -63,6 +72,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Attach the app
+        if: ${{ !inputs.quick }}
         uses: actions/upload-artifact@v4
         with:
           name: web-app
