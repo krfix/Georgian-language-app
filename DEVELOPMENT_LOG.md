@@ -38,7 +38,18 @@ lesson-complete screen were clearly behind. Owner: do those two.
 ### Published (owner: "publish")
 - `web.yml` with publish from the branch: run #3 failed twice before any step (no machine
   started: Actions minutes or spending limit). The owner accepted new billing; run #4 built,
-  tested, photographed and published to aralearn.github.io/app. Not merged to `main` yet.
+  tested, photographed and published to aralearn.github.io/app; then merged to `main`.
+
+### Updates didn't reach the phone (owner: "it doesn't seem to update the app")
+- Two causes: a new version's files were fetched through the browser's HTTP cache (GitHub Pages
+  allows 10 minutes), so the new version could be stored with the old files; and a Home Screen
+  app is mostly resumed, not restarted, so it rarely looked for a new version.
+- `sw.js` now fetches every file fresh on install (`cache: "reload"`). `app.js`
+  (`watchForUpdates`) checks at start, on coming back to the screen and every half hour; a new
+  version in the first 5 seconds reloads at once (outside a lesson), later a bar "A new version
+  of Ara is ready · Update" appears (EN/PL).
+- Tested in Chromium with a server that allows 10-minute caching: published while open → bar →
+  Update → new files; published while closed → new files on the first open.
 
 ## KART #10 · 20/11/26 · Web app polish, text size (branch `claude/epic-galileo-1bdun4`)
 

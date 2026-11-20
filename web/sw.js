@@ -2,7 +2,8 @@
 // - The app and its content are kept when a version installs, and served from this device.
 // - Audio clips are kept the first time they play (or all at once from Settings), in their own
 //   store that survives new versions (a clip's file name changes when its sound does).
-// - A new version replaces the old one the next time Ara opens.
+// - A new version replaces the old one as soon as it has installed; its files come from the
+//   network, never from the browser's own short-term copies (which could be the old ones).
 
 const VERSION = "__VERSION__";
 const SHELL = __SHELL__;
@@ -10,7 +11,7 @@ const SHELL_CACHE = `ara-shell-${VERSION}`;
 const AUDIO_CACHE = "ara-audio";
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(SHELL_CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(SHELL_CACHE).then((c) => c.addAll(SHELL.map((u) => new Request(u, { cache: "reload" })))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (event) => {

@@ -441,6 +441,15 @@ body.showing .tabbar { display: none; }
 .toast.on { opacity: 1; transform: translate(-50%, 0); }
 body.showing .toast { bottom: calc(110px + env(safe-area-inset-bottom)); }
 
+/* A new version is ready */
+.update-bar {
+  position: fixed; z-index: 200; left: 0; right: 0; margin: 0 auto; top: calc(env(safe-area-inset-top) + 10px);
+  width: min(560px, calc(100% - 2 * var(--gutter))); display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 14px;
+  border-radius: 20px; background: var(--surface); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22); border: 1px solid var(--line); animation: rise 0.3s;
+}
+.update-bar span { flex: 1; font-weight: 700; font-size: 0.95rem; line-height: 1.25; }
+.update-now { flex: none; padding: 9px 14px; border-radius: 14px; background: #E23B4E; color: #fff; font-weight: 800; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .letter-sun, .reward-sun, .speaker.playing, .listen-big.playing { animation: none !important; }

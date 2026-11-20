@@ -550,6 +550,8 @@ PL = {
     "No account needed. Stays on this device, works offline.": "Bez konta. Zostaje na tym urządzeniu, działa bez internetu.",
     "More words": "Więcej słów",
     "Show all {0}": "Pokaż wszystkie ({0})",
+    "A new version of Ara is ready": "Nowa wersja Ary jest gotowa",
+    "Update": "Odśwież",
 }
 
 if __name__ == "__main__":

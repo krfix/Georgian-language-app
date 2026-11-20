@@ -111,7 +111,7 @@ Plain HTML, CSS and JavaScript modules: no framework and no build tools beyond `
 | `js/store.js` | what the learner keeps, in this browser |
 | `js/i18n.js` | `tr()` and `plural()`, like the iPhone app's |
 | `js/icons.js` | line icons standing in for SF Symbols |
-| `sw.js` | offline: keeps the app and content on install, audio as it plays |
+| `sw.js` | offline: keeps the app and content on install (fetched fresh, never the browser's short-term copies), audio as it plays; a new version takes over at once. `app.js` looks for one at start, on coming back to the screen and every half hour: in the first seconds it just reloads, later a bar offers "Update" |
 | `manifest.webmanifest` | name, icons and colours for the Home Screen |
 | `fonts/` | Nunito and Noto Sans Georgian (SIL Open Font License) |
 | `icons/` | made by `tools/brand/make_brand.py --web`; never by hand |

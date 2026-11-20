@@ -1135,9 +1135,32 @@ async function start() {
   labelTabs();
   render();
   document.body.classList.add("ready");
-  if ("serviceWorker" in navigator && location.protocol !== "file:") {
-    navigator.serviceWorker.register("sw.js").catch(() => {});
-  }
+  watchForUpdates();
+}
+
+// New versions: looked for at start, whenever Ara comes back to the screen (a Home Screen app
+// is mostly resumed, not restarted) and every half hour. A new version that arrives in the first
+// seconds simply reloads; later, a bar offers it, so a lesson in progress is never cut short.
+function watchForUpdates() {
+  if (!("serviceWorker" in navigator) || location.protocol === "file:") return;
+  const hadOne = !!navigator.serviceWorker.controller;
+  const opened = Date.now();
+  navigator.serviceWorker.register("sw.js").then((reg) => {
+    const check = () => reg.update().catch(() => {});
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") check(); });
+    setInterval(check, 30 * 60e3);
+  }).catch(() => {});
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (!hadOne) return; // the very first install: this page is already the newest
+    if (Date.now() - opened < 5000 && !course.hasSession()) { location.reload(); return; }
+    if ($("#update-bar")) return;
+    const bar = document.createElement("div");
+    bar.id = "update-bar";
+    bar.className = "update-bar";
+    bar.innerHTML = `<img src="icons/favicon.svg" alt="" width="28" height="28"><span>${esc(tr("A new version of Ara is ready"))}</span><button class="update-now">${esc(tr("Update"))}</button>`;
+    bar.querySelector("button").addEventListener("click", () => location.reload());
+    document.body.appendChild(bar);
+  });
 }
 
 export { C, esc, $, speaker, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack };
