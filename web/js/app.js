@@ -654,6 +654,7 @@ let offline = { running: false, done: 0, total: 0, cached: null };
 function settingsScreen() {
   const v = audio.currentVoice();
   const appearance = store.setting("appearance") || "system";
+  const textSize = store.setting("textSize") === "large" ? "large" : "normal";
   const seg = (name, value, current, title) => `<button class="seg${value === current ? " on" : ""}" data-set="${name}" data-value="${value}">${title}</button>`;
   return `<div class="screen" data-screen="settings">
     ${topBar(tr("Profile and settings"))}
@@ -674,6 +675,9 @@ function settingsScreen() {
     <section class="card">
       <h3 class="card-title c-saperavi">${icon("moon", { size: 18 })}${esc(tr("Appearance"))}</h3>
       <div class="segmented">${seg("appearance", "system", appearance, esc(tr("System")))}${seg("appearance", "light", appearance, esc(tr("Light")))}${seg("appearance", "dark", appearance, esc(tr("Dark")))}</div>
+      <h4 class="setting-label">${esc(tr("Text size"))}</h4>
+      <div class="segmented text-size">${seg("textSize", "normal", textSize, `<span class="aa">Aa</span>${esc(tr("Normal"))}`)}${seg("textSize", "large", textSize, `<span class="aa big">Aa</span>${esc(tr("Larger"))}`)}</div>
+      <p class="soft small">${esc(tr("Larger makes every screen's text easier to read."))}</p>
     </section>
     <section class="card" id="offline-card">${offlineCard()}</section>
     ${isStandalone() ? "" : `<section class="card install-hint flat">
@@ -882,6 +886,7 @@ window.addEventListener("hashchange", (e) => {
   pushed = false;
   audio.stop();
   course.closeGloss();
+  closeSheet();
   if (old.startsWith("/d/") && old.includes("/as/") && !route().hash.includes("/as/")) practice = null;
   if (/^\/(lesson|session)\//.test(old) || /^\/(lesson|session)\//.test(route().hash)) course.endSession();
   render();
@@ -1068,6 +1073,11 @@ function applyAppearance() {
   $('meta[name="theme-color"]').setAttribute("content", dark ? "#120E18" : "#FFF7EF");
 }
 
+function applyTextSize() {
+  if (store.setting("textSize") === "large") document.documentElement.dataset.text = "large";
+  else delete document.documentElement.dataset.text;
+}
+
 async function applySetting(name, value) {
   if (name === "language" && value !== lang) {
     store.setSetting("language", value);
@@ -1082,6 +1092,10 @@ async function applySetting(name, value) {
   } else if (name === "appearance") {
     store.setSetting("appearance", value);
     applyAppearance();
+    render({ keepScroll: true });
+  } else if (name === "textSize") {
+    store.setSetting("textSize", value);
+    applyTextSize();
     render({ keepScroll: true });
   }
 }
@@ -1103,6 +1117,7 @@ function labelTabs() {
 async function start() {
   store.load();
   applyAppearance();
+  applyTextSize();
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyAppearance);
   const code = store.setting("language") || preferredLanguage();
   try {
