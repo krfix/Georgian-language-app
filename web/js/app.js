@@ -13,6 +13,8 @@ import { PhraseSearch } from "./search.js";
 import * as audio from "./audio.js";
 import * as store from "./store.js";
 import { icon } from "./icons.js";
+import { Course } from "./engine.js";
+import * as course from "./course.js";
 
 const PRIVACY_URL = "https://aralearn.github.io/privacy";
 const HOME_URL = "https://aralearn.github.io";
@@ -34,10 +36,13 @@ async function json(path) {
 async function loadContent(code) {
   const sfx = code === "pl" ? "-pl" : "";
   if (code === "pl" && !C.uiPl) C.uiPl = await json("data/ui-pl.json");
-  const [pb, glossary, letters, words, lessons] = await Promise.all([
+  const [pb, glossary, letters, vocab, courseFile] = await Promise.all([
     json(`data/phrasebook${sfx}.json`), json(`data/glossary${sfx}.json`), json(`data/letters${sfx}.json`),
-    json(`data/words${sfx}.json`), json(`data/lessons${sfx}.json`),
+    json(`data/vocabulary${sfx}.json`), json(`data/course${sfx}.json`),
   ]);
+  const words = { words: [...vocab.words, ...(vocab.more || [])], categories: vocab.categories };
+  const lessons = Object.fromEntries(courseFile.modules.flatMap((m) => m.lessons).map((l) => [l.id, l.title]));
+  C.course = new Course({ course: courseFile, letters, vocabulary: vocab, phrasebook: pb });
   setLanguage(code, C.uiPl);
   C.pb = pb;
   C.glossary = glossary.words || {};
@@ -195,51 +200,6 @@ function homeScreen() {
 }
 
 
-// Home (for now): the greeting and the profile button, as on the iPhone; search; the two halves.
-// Lessons, review and progress join it with the course.
-function greeting() {
-  const h = new Date().getHours();
-  if (h >= 5 && h < 12) return ["დილა მშვიდობისა", tr("Good morning")];
-  if (h >= 18) return ["საღამო მშვიდობისა", tr("Good evening")];
-  return ["გამარჯობა", tr("Hello")];
-}
-
-function homeTab() {
-  const [ka, hello] = greeting();
-  const saved = store.savedIDs().filter((id) => C.phraseByID.has(id)).map((id) => C.phraseByID.get(id));
-  const recent = store.recent().map((id) => C.phraseByID.get(id)).filter(Boolean);
-  const shown = recent.length ? recent : saved;
-  return `<div class="screen" data-screen="home">
-    <header class="home-head">
-      <div><div class="ka head-ka">${esc(ka)}</div><h1 class="display">${esc(hello)}!</h1></div>
-      <a class="profile-button" href="#/settings" aria-label="${esc(tr("Profile and settings"))}" data-id="profile-button">ა</a>
-    </header>
-    <a class="search-bar" href="#/search" data-id="search-bar">${icon("search", { size: 20 })}<span>${esc(tr("Search: taxi, water, pharmacy…"))}</span></a>
-    <div class="halves">
-      <a class="grad half b-saperavi" href="#/learn">${icon("map", { size: 26 })}<strong>${esc(tr("Learn"))}</strong><small>${esc(tr("The course, step by step"))}</small></a>
-      <a class="grad half b-pomegranate" href="#/phrasebook">${icon("bubbles", { size: 26 })}<strong>${esc(tr("Use in Georgia"))}</strong><small>${esc(tr("{0} phrases", C.pb.phrases.length))}</small></a>
-    </div>
-    ${sectionTitle(tr("Situations"))}
-    <div class="carousel">${C.pb.categories.filter((c) => c.id !== "emergency").map(categoryTile).join("")}</div>
-    ${shown.length ? `${sectionTitle(recent.length ? tr("Recently used") : tr("Your saved phrases"))}<div class="carousel">${shown.map(miniCard).join("")}</div>` : ""}
-    ${comingSoon()}
-  </div>`;
-}
-
-function comingSoon() {
-  return `<section class="card coming"><img src="icons/mascot-hello.svg" alt="" class="mascot small">
-    <div><strong>${esc(tr("The course is coming to the web"))}</strong>
-    <p class="soft small">${esc(tr("Lessons, review and your progress are next. The phrasebook is all here already."))}</p></div></section>`;
-}
-
-function placeholderTab(name, title) {
-  return `<div class="screen" data-screen="${name}">
-    <header class="page-head compact"><h1 class="display">${esc(title)}</h1></header>
-    ${comingSoon()}
-    <a class="chunky b-pomegranate" href="#/phrasebook">${icon("bubbles", { size: 20 })}${esc(tr("Use in Georgia"))}</a>
-  </div>`;
-}
-
 // Words: every word, with search over everything (words, phrases, situations, conversations).
 let wordsQuery = "";
 let wordsMore = false;
@@ -371,9 +331,9 @@ function phraseScreen(id) {
     <div class="actions">
       ${action("show", "show", tr("Show"), b === "gold" ? "pomegranate" : b)}
       ${action("save", "star", saved ? tr("Saved") : tr("Save"), "gold", saved, saved)}
+      ${action("practise", store.isPractising(p.id) ? "learned" : "review", store.isPractising(p.id) ? tr("In review") : tr("Practise"), "blacksea", store.isPractising(p.id))}
       ${action("learned", "learned", tr("Learned"), "tkemali", learned)}
       ${action("copy", "copy", tr("Copy"), "saperavi")}
-      ${navigator.share ? action("share", "share", tr("Share"), "blacksea") : ""}
     </div>
     <button class="list-button" data-act="list" data-pid="${esc(p.id)}" data-id="action-list">${icon("folder", { size: 18 })}${esc(list ? tr("In your list: {0}", list) : tr("Add to a list"))}</button>
     <section class="card">
@@ -645,7 +605,7 @@ function resultsFor(q) {
 }
 
 function wordRow(w) {
-  return `<div class="word-row"><div><span class="ka row-ka">${esc(w.ka)}</span><span class="lat">${esc(w.lat)}</span><span class="row-en">${esc(w.en)}</span></div>${speaker(w.ka, { size: 36 })}</div>`;
+  return `<div class="word-row"><a class="word-main" href="#/w/${esc(w.id)}"><span class="ka row-ka">${esc(w.ka)}</span><span class="lat">${esc(w.lat)}</span><span class="row-en">${esc(w.en)}</span></a>${speaker(w.ka, { size: 36 })}</div>`;
 }
 
 // My phrasebook: what the learner saved, by situation, filtered by their lists.
@@ -696,6 +656,7 @@ function settingsScreen() {
   const seg = (name, value, current, title) => `<button class="seg${value === current ? " on" : ""}" data-set="${name}" data-value="${value}">${title}</button>`;
   return `<div class="screen" data-screen="settings">
     ${topBar(tr("Profile and settings"))}
+    ${course.profileCards()}
     <section class="card">
       <h3 class="card-title c-blacksea">${icon("globe", { size: 18 })}${esc(tr("Language"))}</h3>
       <div class="segmented">${seg("language", "en", lang, "🇬🇧 English")}${seg("language", "pl", lang, "🇵🇱 Polski")}</div>
@@ -720,12 +681,13 @@ function settingsScreen() {
     </section>`}
     <section class="card">
       <h3 class="card-title c-tkemali">${icon("shield", { size: 18 })}${esc(tr("About"))}</h3>
-      <p>${esc(tr("Ara is a Georgian companion for people living in or visiting Georgia. This is the phrasebook; the course comes next."))}</p>
+      <p>${esc(tr("Ara is a Georgian companion for people living in or visiting Georgia: a course from the first letter, and a phrasebook for real situations."))}</p>
       ${checkNote()}
       <p class="soft small">${esc(tr("Nothing you do here leaves this device: no account, no tracking. Saved phrases and settings stay in this browser."))}</p>
       <p class="links"><a href="${PRIVACY_URL}" target="_blank" rel="noopener">${esc(tr("Privacy"))}</a> · <a href="${HOME_URL}" target="_blank" rel="noopener">aralearn.github.io</a></p>
       <p class="faint small" id="version"></p>
     </section>
+    ${course.dangerCards()}
   </div>`;
 }
 
@@ -844,8 +806,12 @@ function route() {
   return { hash, parts };
 }
 
+const FULLSCREEN = ["show", "lesson", "session", "welcome"];
+
 function tabFor(parts) {
-  if (!parts.length || parts[0] === "settings") return "home";
+  if (!parts.length || ["settings", "progress", "search"].includes(parts[0])) return "home";
+  if (parts[0] === "alphabet") return "learn";
+  if (parts[0] === "w") return "words";
   return { learn: "learn", words: "words", review: "review" }[parts[0]] || "phrasebook";
 }
 
@@ -853,11 +819,25 @@ function render({ keepScroll = false } = {}) {
   const { parts } = route();
   const [a, b, , d] = parts;
   let html;
-  const showing = a === "show";
-  if (!a) html = homeTab();
+  const showing = FULLSCREEN.includes(a);
+  if (a !== "welcome" && course.needsWelcome() && a !== "show") { location.replace("#/welcome/0"); return; }
+  if ((a === "lesson" || a === "session") && !course.hasSession()) {
+    if (!course.startSession(a === "lesson" ? "lesson" : "review", a === "lesson" ? b : parts.slice(1).join("/"))) {
+      toast(tr("Nothing due"));
+      location.replace(a === "lesson" ? "#/learn" : "#/review");
+      return;
+    }
+    course.autoplay();
+  }
+  if (a === "welcome") html = course.welcomeScreen(+b || 0);
+  else if (a === "lesson" || a === "session") html = course.playerScreen();
+  else if (!a) html = course.homeScreen();
   else if (a === "phrasebook") html = homeScreen();
-  else if (a === "learn") html = placeholderTab("learn", tr("Learn"));
-  else if (a === "review") html = placeholderTab("review", tr("Review"));
+  else if (a === "learn") html = course.learnScreen();
+  else if (a === "alphabet") html = course.alphabetScreen();
+  else if (a === "review") html = course.reviewScreen();
+  else if (a === "progress") html = course.progressScreen();
+  else if (a === "w") html = course.wordScreen(b) || notFound();
   else if (a === "words") html = wordsTab();
   else if (a === "c") html = categoryScreen(b);
   else if (a === "p") html = phraseScreen(b);
@@ -873,7 +853,9 @@ function render({ keepScroll = false } = {}) {
   document.body.classList.toggle("showing", showing);
   const tab = tabFor(parts);
   document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === tab));
-  if (showing) { fitShowText(); keepAwake(true); } else keepAwake(false);
+  if (a === "show") { fitShowText(); keepAwake(true); } else keepAwake(false);
+  const answer = $("#answer");
+  if (answer && !keepScroll) answer.focus({ preventScroll: true });
   if (keepScroll) window.scrollTo(0, y);
   if (a === "search") {
     const q = $("#q");
@@ -896,6 +878,7 @@ window.addEventListener("hashchange", (e) => {
   pushed = false;
   audio.stop();
   if (old.startsWith("/d/") && old.includes("/as/") && !route().hash.includes("/as/")) practice = null;
+  if (/^\/(lesson|session)\//.test(old) || /^\/(lesson|session)\//.test(route().hash)) course.endSession();
   render();
   const key = route().hash;
   window.scrollTo(0, back && scrolls.has(key) ? scrolls.get(key) : 0);
@@ -909,6 +892,10 @@ function goBack() {
     const p = C.phraseByID.get(parts[1]);
     parent = parts[0] === "show" ? `/p/${parts[1]}` : p ? `/c/${p.category}` : "/phrasebook";
   } else if (parts[0] === "d" && parts[2] === "as") parent = `/d/${parts[1]}`;
+  else if (parts[0] === "lesson") parent = "/learn";
+  else if (["session", "progress", "settings", "search"].includes(parts[0])) parent = parts[1] === "letters" ? "/alphabet" : "/";
+  else if (parts[0] === "alphabet") parent = "/learn";
+  else if (parts[0] === "w") parent = "/words";
   location.replace(`#${parent}`);
 }
 
@@ -919,6 +906,11 @@ document.addEventListener("click", async (e) => {
   const el = e.target.closest("a, button, [data-act]");
   if (!el) return;
   const ds = el.dataset;
+  const where = route().parts[0];
+  if ((where === "lesson" || where === "session") && course.playerTap(el)) { e.preventDefault(); return; }
+  const handled = course.courseTap(el);
+  if (handled === "lesson") { course.lessonSheet(ds.lesson, openSheet); return; }
+  if (handled) { e.preventDefault(); return; }
 
   if (el.tagName === "A") {
     const href = el.getAttribute("href") || "";
@@ -979,6 +971,11 @@ document.addEventListener("click", async (e) => {
       break;
     }
     case "list": listSheet(pid); break;
+    case "practise":
+      if (store.isPractising(pid)) { store.stopPractising(pid); toast(tr("Taken out of your review")); }
+      else { store.practise(pid); toast(tr("Added to your review")); }
+      render({ keepScroll: true });
+      break;
     case "close-sheet": closeSheet(); break;
     case "show-english": showState.english = !showState.english; render(); break;
     case "show-flip": showState.flipped = !showState.flipped; render(); break;
@@ -1004,7 +1001,11 @@ document.addEventListener("submit", (e) => {
 });
 
 let searchTimer = null;
+document.addEventListener("change", (e) => { course.courseChange(e); });
+
 document.addEventListener("input", (e) => {
+  if (course.playerInput(e)) return;
+  if (e.target.id === "ob-name") { course.courseChange(e); return; }
   if (e.target.id === "wq") {
     wordsQuery = e.target.value;
     clearTimeout(searchTimer);
@@ -1023,6 +1024,7 @@ document.addEventListener("input", (e) => {
 });
 
 document.addEventListener("keydown", (e) => {
+  if (course.playerKey(e)) { e.preventDefault(); return; }
   if (e.key === "Escape") {
     if ($("#sheet").classList.contains("on")) closeSheet();
     else if (route().parts[0] === "show") goBack();
@@ -1103,5 +1105,7 @@ async function start() {
     navigator.serviceWorker.register("sw.js").catch(() => {});
   }
 }
+
+export { C, esc, $, speaker, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack };
 
 start();

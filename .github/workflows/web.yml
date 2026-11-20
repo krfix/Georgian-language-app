@@ -43,8 +43,10 @@ jobs:
       - name: Build
         run: python3 web/build.py
 
-      - name: Search checks
-        run: node web/tests/search_test.mjs
+      - name: Search and engine checks
+        run: |
+          node web/tests/search_test.mjs
+          node web/tests/engine_test.mjs
 
       - name: Screens
         run: |

@@ -33,8 +33,9 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       Before the App Store: hide Profile › Developer, age rating, App Privacy ("no data").
 
 ## Next
-- [ ] Web app, step 2: the course (path, lessons with the exercise engine ported from
-      `Engine/`, review with SM-2, Words, Progress). Then practising saved phrases in review.
+- [ ] Web app, what the iPhone has and the web doesn't yet: tappable words in lessons, the
+      ribbon on the Learn path, achievements, the daily challenge, reminders, "Practise these"
+      in My phrasebook, conversation lessons from the phrasebook's dialogues in the lesson player.
 - [ ] Before April 2027: build with Xcode 27 (iOS 27 SDK), Apple's warning ITMS-90725 on build #39.
       The workflow picks the newest Xcode 26 on `macos-15`; Xcode 27 likely needs the `macos-26`
       runner. Try it on a branch with one IPA build, then the TestFlight build.

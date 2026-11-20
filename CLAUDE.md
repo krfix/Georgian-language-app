@@ -63,9 +63,10 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   Open all lessons (`devUnlockAllLessons`) and Quick pass (`devQuickPass`: a Pass button in
   lessons, tap = right answer, hold = finish the lesson). Hide it before an App Store release.
 - Test data is always invented (Ana, the demo learner, `LearningStore.seedDemo`).
-- Web app (KART #8–#9, `web/README.md`): the phrasebook for any browser, in `web/`, plain
-  HTML/CSS/JS reading the iPhone app's content and audio (never copied by hand); tr() keys
-  share the Polish table. Next: the course. Live at https://aralearn.github.io/app (the
+- Web app (KART #8–#9, `web/README.md`): the whole app for any browser, in `web/`, plain
+  HTML/CSS/JS reading the iPhone app's content and audio (never copied by hand), drawn like
+  the iPhone screens; `engine.js` ports `Engine/` (change both together); tr() keys share the
+  Polish table. Live at https://aralearn.github.io/app (the
   website repo's `/app`, KART #9); republish only on the owner's say-so, privacy page first.
 
 ## Workflow
@@ -85,7 +86,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 5. "Release": raise `MARKETING_VERSION` in `project.yml` and add a `## [x.y.z] - yyyy-MM-dd`
    section to `CHANGELOG.md`; on `main` the workflow then publishes the GitHub Release with
    the IPA. A version without its CHANGELOG section never builds on `main`.
-- Web app: `python3 web/build.py` (+ `--serve`), `node web/tests/search_test.mjs`,
+- Web app: `python3 web/build.py` (+ `--serve`), `node web/tests/search_test.mjs` and `engine_test.mjs`,
   `NODE_PATH="$(npm root -g)" node web/tests/screens.mjs` (screenshots), all here on Linux;
   on GitHub `web.yml` (Linux, by hand; `-f publish=true` puts it live, needs `WEBSITE_TOKEN`).
 - Mac minutes cost money (private repo, shared with the Logbook app). Build when the owner asks, or when the
@@ -132,7 +133,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | Design system: colours (light and dark), type, motion, haptics, components | `DesignSystem/` (Borjgali emblem, ChunkyButton, cards, rings, confetti, FlowLayout, SpeakerButton) |
 | App start, launch options | `App/GeorgianApp.swift` (`AppModel`), `App/LaunchOptions.swift` |
 | Tabs, navigation, presenting lessons and phrases | `Features/Root/RootView.swift` (`Navigator`, `PhrasebookRoute`, `HomeRoute`) |
-| Web app: screens, search port, audio, saved data, offline worker, build | `web/js/app.js`, `search.js`, `audio.js`, `store.js`, `web/sw.js`, `web/build.py` |
+| Web app: phrasebook screens, course screens, engine port, search port, audio, saved data, offline worker, build | `web/js/app.js`, `course.js`, `engine.js`, `search.js`, `audio.js`, `store.js`, `web/sw.js`, `web/build.py` |
 | Screens | `Features/Onboarding`, `Home`, `Learn` (path, preview, alphabet chart), `Lesson` (player, one view per content shape, completion), `Phrasebook` (tab, situation, phrase card, Show mode, dialogue, my phrasebook), `Vocabulary` (the Words tab: list, search over everything, word card), `Review`, `Progress` (pushed from Home's card), `Profile` |
 
 ## How the app works (and patterns to keep)

@@ -46,8 +46,23 @@ Owner (after KART #8's recommendation): "start the web app, phrasebook first". T
   profile button (top right) to Settings, search, Learn | Use in Georgia, situations, recent
   phrases. Words: the word list with search over everything. Learn and Review: "coming next".
   My phrasebook, Search and Settings open with a back button. SF Rounded on Apple devices.
-- Next (after the usage reset): welcome screen, Home, Learn and lessons, Review, Words, Settings
-  as on the iPhone.
+
+### The whole app on the web (owner: "the web app is the reflection of the iPhone app")
+- `web/js/engine.js`: ExerciseBuilder, AnswerEvaluator, LessonSession, SpacedRepetition,
+  CourseProgress and CourseStage ported; `store.js` keeps the profile, finished lessons, review
+  schedules and daily activity (XP inside only, for the daily goal, as on the iPhone).
+- `web/js/course.js`: the welcome steps, Home in the owner's order, Learn (module cards, stones,
+  preview sheet, alphabet chart), the lesson player (every shape, feedback panel, retries, combo,
+  quick pass in developer mode) and completion, Review, a word's card, Progress, profile settings.
+  The phrase card gained Practise (into review), as on the iPhone. Build ships the course,
+  vocabulary and all 2,920 clips (41.6 MB; one voice offline ≈ 21 MB).
+- Fixed on the way: leaving a lesson opened from the welcome steps left the site (Back now
+  never leaves Ara); bigger single letters as questions; red wrong picks; progress bars on Progress.
+- Tested: `engine_test.mjs` (every lesson in English and Polish builds and its right answers
+  check; retries; typos; review timing 1/3/8 days and 10 minutes; the path; stages), 21 checks;
+  the browser test now walks every welcome step and a whole first lesson in light/dark, EN/PL,
+  and checks progress survives a reload; words (v1), grammar (g1) and conversation (c1) lessons
+  played to the end by hand. Not yet on a real iPhone.
 
 ## KART #8 · 19/11/26 · Explanations review (branch `claude/eager-johnson-9ccb2m`)
 

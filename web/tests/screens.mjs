@@ -41,6 +41,12 @@ async function session(scheme, language) {
   };
   const go = async (hash) => { await page.evaluate((h) => { location.hash = h; }, hash); await page.waitForTimeout(150); };
   await page.goto(base);
+  // First visit: the welcome steps. "I just need phrases now" goes straight to the phrasebook.
+  await page.waitForSelector('[data-screen="welcome"]');
+  await shot("w0-welcome");
+  await page.click('[data-act="ob-phrases"]');
+  await page.waitForSelector('[data-screen="phrasebook"]');
+  await page.click('.tab[data-tab="home"]');
   await page.waitForSelector('[data-screen="home"]');
   await shot("00-home");
   await page.click('.tab[data-tab="phrasebook"]');
@@ -160,14 +166,89 @@ async function session(scheme, language) {
   await ctx.close();
 }
 
+// The course: every welcome step, a whole first lesson (some answers wrong on purpose, so
+// retries and feedback show), the completion screen, then Learn, Review, Progress and a word.
+async function courseFlow(scheme, language) {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: scheme,
+    locale: language === "pl" ? "pl-PL" : "en-GB", hasTouch: true, isMobile: true });
+  const page = await ctx.newPage();
+  page.on("pageerror", (e) => fail(`${scheme}/${language} course page error: ${e.message}`));
+  page.on("console", (m) => { if (m.type() === "error") fail(`${scheme}/${language} course console: ${m.text()}`); });
+  const shot = async (name) => { await page.waitForTimeout(400); await page.screenshot({ path: join(out, `${language}-${scheme}-c${name}.png`) }); };
+  const go = async (hash) => { await page.evaluate((h) => { location.hash = h; }, hash); await page.waitForTimeout(250); };
+  await page.goto(base);
+  await page.waitForSelector('[data-screen="welcome"]');
+  for (let i = 0; i < 7; i++) {
+    await shot(`0${i}-welcome`);
+    if (i === 6) await page.fill("#ob-name", "Ana");
+    await page.click('[data-id="onboarding-next"]');
+  }
+  await shot("07-ready");
+  await page.click('[data-id="onboarding-start-lesson"]');
+  await page.waitForSelector('[data-screen="lesson"]');
+  const seen = new Set();
+  for (let n = 0; n < 120 && !(await page.$('[data-screen="complete"]')); n++) {
+    const shape = await page.evaluate(() => [["teach", ".teach, .note-card"], ["matching", ".match-grid"], ["tiles", ".tile-bank"], ["typing", "#answer"], ["flash", ".flashcard"], ["choice", ".options"]].find(([, sel]) => document.querySelector(sel))?.[0] || "?");
+    if (await page.$(".feedback")) {
+      if (!seen.has("feedback")) { seen.add("feedback"); await shot("11-feedback"); }
+      await page.click('[data-act="next"]'); continue;
+    }
+    if (!seen.has(shape)) { seen.add(shape); await shot(`10-${shape}`); }
+    if (shape === "teach") await page.click('[data-act="next"]');
+    else if (shape === "choice") { await page.click(`[data-id="option-${n % 2}"]`); await page.click('[data-act="check"]'); }
+    else if (shape === "matching") {
+      for (const id of await page.$$eval('.match[data-match="ka"]:not(.done)', (e) => e.map((x) => x.dataset.pid))) {
+        await page.click(`.match[data-match="ka"][data-pid="${id}"]`); await page.click(`.match[data-match="other"][data-pid="${id}"]`);
+      }
+    } else if (shape === "tiles") { await page.click('[data-id="tile-0"]'); await page.click('[data-act="check"]'); }
+    else if (shape === "typing") { await page.fill("#answer", "hello"); await page.click('[data-act="check"]'); }
+    else if (shape === "flash") { await page.click('[data-act="flip"]'); await page.click('[data-act="recall"]'); }
+    else { fail(`${language}: stuck on an exercise`); break; }
+    await page.waitForTimeout(60);
+  }
+  if (!(await page.$('[data-screen="complete"]'))) fail(`${language}: the first lesson didn't finish`);
+  await shot("12-complete");
+  await page.click('[data-id="complete-continue"]');
+  await page.waitForTimeout(400);
+  if (!(await page.evaluate(() => document.querySelector(".screen")))) fail(`${language}: leaving the lesson left the app`);
+  await go("/");
+  await page.waitForSelector('[data-screen="home"]');
+  if (!(await page.textContent(".home-head")).includes("Ana")) fail("the name isn't on Home");
+  await shot("20-home");
+  await go("/learn");
+  const done = await page.$$eval(".stone.completed", (e) => e.length);
+  if (done !== 1) fail(`${done} lessons shown as done`);
+  await shot("21-learn");
+  await page.click('[data-lesson="a1"]');
+  await shot("22-preview");
+  await page.click('[data-act="close-sheet"]');
+  await go("/review");
+  await shot("23-review");
+  await go("/progress");
+  await shot("24-progress");
+  await go("/w/w-gamarjoba");
+  await shot("25-word");
+  await go("/alphabet");
+  await shot("26-alphabet");
+  await go("/settings");
+  await shot("27-settings");
+  await page.reload();
+  await page.waitForSelector('[data-screen="settings"]');
+  await go("/learn");
+  if ((await page.$$eval(".stone.completed", (e) => e.length)) !== 1) fail("the finished lesson was lost on reload");
+  await ctx.close();
+}
+
 for (const [scheme, language] of [["light", "en"], ["dark", "en"], ["light", "pl"], ["dark", "pl"]]) {
   await session(scheme, language);
+  await courseFlow(scheme, language);
 }
 // A wide screen (a computer) and a small phone.
 for (const [w, h, name] of [[1280, 860, "desktop"], [320, 640, "small"]]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: "light" });
   const page = await ctx.newPage();
   page.on("pageerror", (e) => fail(`${name} page error: ${e.message}`));
+  await page.addInitScript(() => localStorage.setItem("ara.web.v1", JSON.stringify({ profile: { onboarded: true } })));
   await page.goto(base + "#/p/pb-gamarjoba");
   await page.waitForSelector('[data-id="phrase-georgian"]');
   await page.waitForTimeout(400);

@@ -1,8 +1,22 @@
 # Ara on the web
 
-The phrasebook half of Ara (**Use in Georgia**) as a web app: it opens in any browser, on an
+The whole of Ara as a web app, drawn like the iPhone app: it opens in any browser, on an
 iPhone, an Android phone or a computer, and can be added to the Home Screen, where it opens
-like an app and works offline. The course (lessons, review, Words) comes next.
+like an app and works offline. Tabs as on the iPhone: Home · Learn · Phrasebook · Words · Review
+(a floating glass bar: iOS gives web apps no tab bar of its own); Settings from Home's top-right
+button.
+
+- **Welcome steps**: English or Polish, meet Georgian, how you'll learn, the voice, how much you
+  know, a daily goal, your name, then the first lesson (or straight to the phrasebook).
+- **Home**: greeting, search, your stage and week, Learn | Use in Georgia, continue learning,
+  "Right now I need…", review when due, recent and saved phrases.
+- **Learn**: the five parts of the course, lessons as stones that open in order, a preview of
+  each, the alphabet chart. **Lessons**: every exercise of the iPhone app (teaching cards, choice,
+  listening, reading, matching, letter tiles, sentence building, typing, flashcards, conversation
+  replies); a wrong answer comes back at the end; the completion screen.
+- **Review**: what's due (1, 3, 8… days; a miss in 10 minutes), letter workout, difficult words.
+  Phrases join it with Practise on the phrase card. **Words**: every word, search, a word's card.
+  **Progress** from Home's card. **Settings**: profile, language, voice, look, offline, developer.
 
 It reads the iPhone app's own content (`Georgian/Resources`): the same phrases, conversations,
 word explanations, Polish and audio, checked by the same tools. Nothing is copied by hand, so a
@@ -30,8 +44,9 @@ fix to a phrase reaches both apps.
 - **Settings**: English or Polish, Eka's or Giorgi's voice, light, dark or the system's look,
   keeping all the audio offline, how to add Ara to the Home Screen, privacy.
 
-Everything the learner keeps (saved phrases, lists, learned, recents, settings) stays in that
-browser (`localStorage`); nothing is sent anywhere. Progress doesn't move between devices.
+Everything the learner keeps (profile, finished lessons, review schedules, daily activity, saved
+phrases, lists, learned, recents, settings) stays in that browser (`localStorage`); nothing is
+sent anywhere. Progress doesn't move between devices.
 
 ## Build and try
 
@@ -44,6 +59,10 @@ has no Polish (`tools/l10n/check_strings.py` reads `web/js/*.js` too). Then:
 
 ```bash
 node web/tests/search_test.mjs
+```
+
+```bash
+node web/tests/engine_test.mjs
 ```
 
 ```bash
@@ -68,6 +87,8 @@ Plain HTML, CSS and JavaScript modules: no framework and no build tools beyond `
 | `index.html` | the page: the screen area, the tab bar, the sheet and the toast |
 | `app.css` | the look: the iPhone app's colours (light and dark), cards, chunky buttons, motion |
 | `js/app.js` | the screens and navigation (the address after `#` names the screen) |
+| `js/course.js` | the learning screens: welcome, Home, Learn, the lesson player, Review, word card, Progress, profile |
+| `js/engine.js` | the course rules, a port of `Georgian/Engine` (exercises, answers, review timing, path, stages) |
 | `js/search.js` | search, a port of `Georgian/Curriculum/PhraseSearch.swift` |
 | `js/audio.js` | the clips in two voices; no clip, no speaker button |
 | `js/store.js` | what the learner keeps, in this browser |
@@ -78,5 +99,7 @@ Plain HTML, CSS and JavaScript modules: no framework and no build tools beyond `
 | `fonts/` | Nunito and Noto Sans Georgian (SIL Open Font License) |
 | `icons/` | made by `tools/brand/make_brand.py --web`; never by hand |
 
-Screens: `#/` phrasebook, `#/c/<situation>`, `#/p/<phrase>`, `#/show/<phrase>`,
+Screens: `#/` Home, `#/welcome/<step>`, `#/learn`, `#/alphabet`, `#/lesson/<id>`,
+`#/session/<review|letters|difficult|word:<id>>`, `#/review`, `#/words`, `#/w/<word>`, `#/progress`,
+`#/phrasebook`, `#/c/<situation>`, `#/p/<phrase>`, `#/show/<phrase>`,
 `#/d/<conversation>`, `#/d/<conversation>/as/<0|1>`, `#/search`, `#/saved`, `#/settings`.
