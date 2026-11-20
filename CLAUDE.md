@@ -67,7 +67,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   HTML/CSS/JS reading the iPhone app's content and audio (never copied by hand), drawn like
   the iPhone screens; `engine.js` ports `Engine/` (change both together); tr() keys share the
   Polish table. Live at https://aralearn.github.io/app (the
-  website repo's `/app`, KART #9); republish only on the owner's say-so, privacy page first.
+  website repo's `/app`, KART #9; the site's home has a "Try Ara in your browser" button);
+  republish only on the owner's say-so, privacy page first.
 
 ## Workflow
 1. Work on a branch, never straight on `main`. Tell the owner the branch name and the build

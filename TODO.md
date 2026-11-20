@@ -4,8 +4,8 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 
 ## Needs the owner
 - [ ] Web app (KART #9): live at https://aralearn.github.io/app. Try it on the iPhone (Safari ›
-      Share › Add to Home Screen; audio; offline after "Keep all audio") and on the PC. Should
-      the website's home page link to it? Republish after content changes (web.yml publish, or
+      Share › Add to Home Screen; audio; offline after "Keep all audio") and on the PC. The website's
+      home page links to it (KART #9). Republish after content changes (web.yml publish, or
       from a chat: web/build.py, copy web/dist to the website repo's app/).
 - [ ] Test the app on the iPhone (Feather install) and say what to change.
 - [ ] Native audio: every Georgian text has synthetic clips in Eka's and Giorgi's voices
