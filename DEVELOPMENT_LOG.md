@@ -69,6 +69,9 @@ Owner (after KART #8's recommendation): "start the web app, phrasebook first". T
 - Then: tappable words (dotted underline, a bubble with Latin, meaning, dictionary form and why)
   in lesson examples, notes, tips, conversation lines and word cards; the ribbon on the Learn
   path; the 16 milestones on Progress; "Practise these" in My phrasebook.
+- Published that (owner: "publish and continue"). Then the lesson-complete screen as on the
+  iPhone: "ყოჩაღ! (well done!)", Accuracy / Words you know / Day streak, a milestone just
+  reached, and today's goal. The daily challenge isn't shown on the iPhone any more, so not here.
 
 ## KART #8 · 19/11/26 · Explanations review (branch `claude/eager-johnson-9ccb2m`)
 
