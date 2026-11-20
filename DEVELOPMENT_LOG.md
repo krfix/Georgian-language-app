@@ -52,6 +52,10 @@ lesson-complete screen were clearly behind. Owner: do those two.
   Update → new files; published while closed → new files on the first open.
 - Published (owner: "publish, merge"): `web.yml` run #5 (second attempt; the first lost its
   connection while saving the app); `main` fast-forwarded.
+- Shared links said "Ara: Georgian phrasebook" (the KART #9 title): now "Ara: Learn Georgian"
+  with a description of both halves and link-preview tags (`index.html`, the manifest).
+- `web.yml` "quick" (owner: "add quick publish"): build and checks only, no screens, nothing
+  attached; the screens step took 6–11 minutes of a publish.
 
 ## KART #10 · 20/11/26 · Web app polish, text size (branch `claude/epic-galileo-1bdun4`)
 

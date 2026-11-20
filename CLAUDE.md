@@ -90,7 +90,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 - Web app: `python3 web/build.py` (+ `--serve`), `node web/tests/search_test.mjs` and `engine_test.mjs`,
   `NODE_PATH="$(npm root -g)" node web/tests/screens.mjs` (screenshots), `audit.mjs` (layout: cut,
   off-screen, off-centre, overlapping; normal and larger text), all here on Linux;
-  on GitHub `web.yml` (Linux, by hand; `-f publish=true` puts it live, needs `WEBSITE_TOKEN`).
+  on GitHub `web.yml` (Linux, by hand; `-f publish=true` puts it live, needs `WEBSITE_TOKEN`;
+  `-f quick=true` skips its screen walk-through, ~1–2 min instead of ~10: use it after `screens.mjs` ran here).
 - Mac minutes cost money (private repo, shared with the Logbook app). Build when the owner asks, or when the
   owner's brief asks for build-and-inspect cycles (as in KART #1). Let several changes ride on
   one run; cancel a run whose code is already out of date.
