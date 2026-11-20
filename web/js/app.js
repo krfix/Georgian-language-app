@@ -69,10 +69,14 @@ const $ = (sel, root = document) => root.querySelector(sel);
 const view = () => $("#view");
 
 /** A speaker button for Georgian text; nothing without a clip. */
-function speaker(text, { size = 40, cls = "" } = {}) {
+/** A speaker button; with `slow`, the iPhone's SpeakerButton: speaker and a slow-turtle beside it. */
+function speaker(text, { size = 40, cls = "", slow = false } = {}) {
   if (!audio.canPlay(text)) return "";
   const on = audio.isPlaying(text) ? " playing" : "";
-  return `<button class="speaker ${cls}${on}" style="--s:${size}px" data-say="${esc(text)}" aria-label="${esc(tr("Play"))}">${icon("speaker", { size: Math.round(size * 0.48) })}</button>`;
+  const play = `<button class="speaker ${cls}${on}" style="--s:${size}px" data-say="${esc(text)}" aria-label="${esc(tr("Play"))}">${icon("speaker", { size: Math.round(size * 0.48) })}</button>`;
+  if (!slow) return play;
+  const s = Math.round(size * 0.8);
+  return `<span class="say-pair">${play}<button class="speaker turtle ${cls}" style="--s:${s}px" data-say-slow="${esc(text)}" aria-label="${esc(tr("Play slowly"))}">${icon("slow", { size: Math.round(size * 0.44) })}</button></span>`;
 }
 
 function sourceLabel(text) {
@@ -1136,6 +1140,6 @@ async function start() {
   }
 }
 
-export { C, esc, $, speaker, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack };
+export { C, esc, $, speaker, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack };
 
 start();

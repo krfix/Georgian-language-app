@@ -198,8 +198,8 @@ async function run({ language, text, width, scheme, shots }) {
     await page.waitForSelector('[data-screen="lesson"]');
     const seen = new Set();
     for (let n = 0; n < 80 && !(await page.$('[data-screen="complete"]')); n++) {
-      const shape = await page.evaluate(() => [["teach", ".teach, .note-card"], ["matching", ".match-grid"], ["tiles", ".tile-bank"], ["typing", "#answer"],
-        ["flash", ".flashcard"], ["dialogue", ".bubbles"], ["listen", ".listen-prompt"], ["choice", ".options"]].find(([, s]) => document.querySelector(s))?.[0] || "other");
+      const shape = await page.evaluate(() => [["teach", ".teach-letter, .teach-word-ex, .note-card"], ["matching", ".match-grid"], ["tiles", ".tile-bank"], ["typing", "#answer"],
+        ["flash", ".flashcard"], ["dialogue", ".chat"], ["listen", ".prompt-card.listen"], ["choice", ".options"]].find(([, s]) => document.querySelector(s))?.[0] || "other");
       if (await page.$(".feedback")) {
         const v = await page.evaluate(() => document.querySelector(".feedback").className);
         const k = /wrong/.test(v) ? "wrong" : /almost/.test(v) ? "almost" : "right";

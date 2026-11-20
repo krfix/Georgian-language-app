@@ -11,7 +11,7 @@ Writes
                   AppIcon (light, dark and tinted), AraSymbol (vector PDF), LaunchMark (PNG)
                   and the mascot poses Parrot, ParrotBlink, ParrotCheer, ParrotThink and
                   ParrotSleep (vector PDF);
-- web/icons/      the web app's home-screen and browser-tab icons and two mascot poses
+- web/icons/      the web app's home-screen and browser-tab icons and three mascot poses
                   (alone: python3 tools/brand/make_brand.py --web).
 The wordmark is Nunito Black (SIL Open Font License, tools/brand/fonts/OFL-Nunito.txt), turned into
 outlines, so no font is needed to show it. docs/brand.md explains how to use it all.
@@ -260,6 +260,7 @@ def web_icons():
     write(os.path.join(folder, "favicon.svg"), symbol_doc(size=64))
     write(os.path.join(folder, "mascot-hello.svg"), mascot_doc("hello"))
     write(os.path.join(folder, "mascot-think.svg"), mascot_doc("think"))
+    write(os.path.join(folder, "mascot-cheer.svg"), mascot_doc("cheer"))
 
 
 # ---------------------------------------------------------------------------------------

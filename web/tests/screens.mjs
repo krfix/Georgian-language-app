@@ -188,7 +188,7 @@ async function courseFlow(scheme, language) {
   await page.waitForSelector('[data-screen="lesson"]');
   const seen = new Set();
   for (let n = 0; n < 120 && !(await page.$('[data-screen="complete"]')); n++) {
-    const shape = await page.evaluate(() => [["teach", ".teach, .note-card"], ["matching", ".match-grid"], ["tiles", ".tile-bank"], ["typing", "#answer"], ["flash", ".flashcard"], ["choice", ".options"]].find(([, sel]) => document.querySelector(sel))?.[0] || "?");
+    const shape = await page.evaluate(() => [["teach", ".teach-letter, .teach-word-ex, .note-card"], ["matching", ".match-grid"], ["tiles", ".tile-bank"], ["typing", "#answer"], ["flash", ".flashcard"], ["choice", ".options"]].find(([, sel]) => document.querySelector(sel))?.[0] || "?");
     if (await page.$(".feedback")) {
       if (!seen.has("feedback")) { seen.add("feedback"); await shot("11-feedback"); }
       await page.click('[data-act="next"]'); continue;

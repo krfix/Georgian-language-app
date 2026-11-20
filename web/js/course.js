@@ -8,7 +8,7 @@ import * as audio from "./audio.js";
 import * as store from "./store.js";
 import { icon } from "./icons.js";
 import { Builder, Session, evaluate, isGraded, lessonStates, currentStage, stages, streak, dayKey, isLearnedState, isDifficultState, rng } from "./engine.js";
-import { C, esc, $, speaker, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack } from "./app.js";
+import { C, esc, $, speaker, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack } from "./app.js";
 
 // ---------------------------------------------------------------------------------------
 // Progress, worked out from what's kept (LearningStore.swift)
@@ -452,23 +452,29 @@ function difficult() {
 export function hasSession() { return !!P; }
 export function endSession() { P = null; }
 
+// The badge beside each instruction (ExerciseKind.symbol on the iPhone).
+const KIND_BADGE = { teachLetter: "sparkles", teachWord: "charBubble", note: "bulb", letterRecognition: "eye", multipleChoice: "checklist",
+  reading: "book", missingLetter: "missing", fillBlank: "gap", listening: "ear", translation: "keyboard", matching: "grid",
+  sentenceBuilder: "words", spelling: "spell", flashcard: "cards", dialogue: "bubbles" };
+const chars = (s) => [...s].length;
+
 export function playerScreen() {
   if (!P) return "";
   if (P.phase === "finished") return completeScreen();
   const ex = P.session.current;
   const tint = P.tint;
-  return `<div class="player tint-${tint}" data-screen="lesson">
+  return `<div class="player tint-${tint} b-${tint}" data-screen="lesson">
     <div class="player-top">
       <button class="back" data-act="quit" aria-label="${esc(tr("Close"))}">${icon("close", { size: 20 })}</button>
-      <div class="bar thick b-${tint}"><span style="width:${Math.round(P.session.progress * 100)}%"></span></div>
-      ${P.combo >= 2 ? `<span class="combo">${icon("flame", { size: 16 })}${P.combo}</span>` : ""}
-      ${store.setting("devMode") && store.setting("devQuickPass") ? `<button class="pass" data-act="pass">${esc(tr("Pass"))}</button>` : ""}
+      <div class="bar thick"><span style="width:${Math.round(P.session.progress * 100)}%"></span></div>
+      ${P.combo >= 3 ? `<span class="combo" aria-label="${esc(tr("{0} right in a row", P.combo))}">${icon("flame", { size: 16 })}${P.combo}</span>` : ""}
+      ${store.setting("devMode") && store.setting("devQuickPass") ? `<button class="pass" data-act="pass">${icon("play", { size: 12 })}${esc(tr("Pass"))}</button>` : ""}
     </div>
-    <div class="player-body">
-      <p class="instruction">${esc(ex.instruction)}</p>
+    <div class="player-body" data-shape="${ex.shape}" data-kind="${ex.kind}">
+      <div class="instruction-row"><span class="ex-badge" aria-hidden="true">${icon(KIND_BADGE[ex.kind] || "bubble", { size: 19 })}</span><h2 class="instruction" data-id="instruction">${esc(ex.instruction)}</h2></div>
       ${exerciseView(ex)}
     </div>
-    <div class="player-bottom${P.phase === "feedback" ? ` fb-${P.ev.verdict}` : ""}">${bottomBar(ex)}</div>
+    <div class="player-bottom${P.phase === "feedback" ? ` fb fb-${P.ev.verdict}` : ""}">${bottomBar(ex)}</div>
   </div>`;
 }
 
@@ -476,20 +482,18 @@ function bottomBar(ex) {
   if (P.phase === "feedback") {
     const v = P.ev.verdict;
     const title = v === "correct" ? P.praise : v === "almost" ? tr("Almost!") : tr("Not quite");
-    return `<div class="feedback">
-      <div class="fb-title">${icon(v === "wrong" ? "close" : "check", { size: 22 })}<strong>${esc(title)}</strong></div>
-      ${v !== "correct" && P.ev.correct ? `<p><small>${esc(v === "almost" ? tr("Watch the spelling:") : tr("Right answer:"))}</small> <b class="${/[ა-ჿ]/.test(P.ev.correct) ? "ka" : ""}">${esc(P.ev.correct)}</b></p>` : ""}
-      ${P.ev.explanation ? `<p class="fb-why">${esc(P.ev.explanation)}</p>` : ""}
+    const why = P.ev.explanation && (v !== "correct" || chars(P.ev.explanation) < 90) ? P.ev.explanation : "";
+    return `<div class="feedback" data-id="feedback">
+      <div class="fb-title"><span class="fb-icon">${icon(v === "wrong" ? "close" : "check", { size: 18 })}</span><strong>${esc(title)}</strong></div>
+      ${v !== "correct" && P.ev.correct ? `<div class="fb-answer"><small>${esc(v === "almost" ? tr("Watch the spelling:") : tr("Right answer:"))}</small><b class="${/[ა-ჿ]/.test(P.ev.correct) ? "ka" : ""}">${esc(P.ev.correct)}</b></div>` : ""}
+      ${why ? `<p class="fb-why">${esc(why)}</p>` : ""}
       <button class="chunky ${v === "wrong" ? "b-pomegranate" : v === "almost" ? "b-gold" : "b-tkemali"}" data-act="next" data-id="lesson-continue">${esc(tr("Continue"))}</button></div>`;
   }
-  if (!isGraded(ex)) return `<button class="chunky b-${P.tint === "gold" ? "pomegranate" : P.tint}" data-act="next" data-id="lesson-continue">${esc(tr("Continue"))}</button>`;
-  if (ex.shape === "matching") return "";
-  if (ex.shape === "flashcard") {
-    return P.flipped ? `<div class="two"><button class="soft-button" data-act="recall" data-value="0">${esc(tr("Still learning"))}</button><button class="chunky b-tkemali" data-act="recall" data-value="1">${esc(tr("I knew it"))}</button></div>`
-      : `<button class="chunky b-blacksea" data-act="flip">${esc(tr("Show the meaning"))}</button>`;
-  }
+  if (!isGraded(ex)) return `<button class="chunky b-${P.tint}" data-act="next" data-id="lesson-continue">${esc(tr("Continue"))}</button>`;
+  // Matching and flashcards answer themselves.
+  if (ex.shape === "matching" || ex.shape === "flashcard") return "";
   const ready = canCheck();
-  return `<button class="chunky b-tkemali" data-act="check" data-id="lesson-check"${ready ? "" : " disabled"}>${esc(tr("Check"))}</button>`;
+  return `<button class="chunky b-${P.tint}" data-act="check" data-id="lesson-check"${ready ? "" : " disabled"}>${esc(tr("Check"))}</button>`;
 }
 
 function canCheck() {
@@ -500,15 +504,39 @@ function canCheck() {
   return true;
 }
 
+// Georgian prompt sizes, as on the iPhone: a letter is huge, a sentence smaller.
+function kaSize(text) {
+  const n = chars(text);
+  return n <= 2 ? "k96" : n <= 8 ? "k48" : n <= 16 ? "k34" : "k26";
+}
+
 function promptBlock(ex) {
-  if (ex.audioText) {
-    return `<div class="listen-prompt"><button class="speaker big" style="--s:96px" data-say="${esc(ex.audioText)}" aria-label="${esc(tr("Play again"))}">${icon("speaker", { size: 44 })}</button>
-      <button class="speaker soft-sp" style="--s:52px" data-say-slow="${esc(ex.audioText)}" aria-label="${esc(tr("Slower"))}">${icon("slow", { size: 24 })}</button></div>`;
+  const fb = P.phase === "feedback";
+  if (ex.kind === "listening" && ex.audioText) {
+    return `<div class="prompt-card listen">
+      <button class="listen-big${audio.isPlaying(ex.audioText) ? " playing" : ""}" data-say="${esc(ex.audioText)}" aria-label="${esc(tr("Play again"))}">${icon("speaker", { size: 44 })}</button>
+      <button class="slower" data-say-slow="${esc(ex.audioText)}">${esc(tr("Slower"))}</button>
+      ${fb ? `<div class="ka k26">${esc(ex.audioText)}</div>` : ""}</div>`;
   }
-  const ka = ex.promptIsGeorgian;
-  return `<div class="prompt"><div class="${ka ? `ka prompt-ka${[...ex.prompt].length <= 2 ? " solo" : ""}` : "prompt-en"}">${esc(ex.prompt)}</div>
-    ${ka && audio.canPlay(ex.prompt) ? speaker(ex.prompt, { size: 44 }) : ""}
-    ${ex.promptDetail ? `<div class="soft prompt-detail">${esc(ex.promptDetail)}</div>` : ""}</div>`;
+  let main;
+  if (ex.promptIsGeorgian) {
+    // Hearing a letter or a word to read would give the answer away: only afterwards.
+    const hear = !ex.prompt.includes("_") && (fb || !["letterRecognition", "reading"].includes(ex.kind));
+    main = `<div class="ka prompt-ka ${kaSize(ex.prompt)}" data-id="prompt">${esc(ex.prompt)}</div>${hear ? speaker(ex.prompt, { size: 38, slow: true }) : ""}`;
+  } else {
+    main = `<div class="prompt-en${chars(ex.prompt) <= 6 ? " huge" : ""}" data-id="prompt">${esc(ex.prompt)}</div>`;
+  }
+  return `<div class="prompt-card">${main}${ex.promptDetail ? `<div class="prompt-detail">${esc(ex.promptDetail)}</div>` : ""}</div>`;
+}
+
+/** One answer to tap (OptionTile): big tiles in a 2×2 grid, or full-width rows. */
+function optionTile(text, detail, i, { georgian, large, chosen, answer }) {
+  const fb = P.phase === "feedback";
+  let state = i === chosen ? "picked" : "";
+  if (fb) state = i === answer ? "right" : i === chosen ? "wrong" : "dim";
+  const showDetail = detail && (!large || (state && state !== "picked"));
+  return `<button class="option${large ? " large" : ""}${georgian ? " ka-opt" : ""} ${state}" data-opt="${i}" data-id="option-${i}"${fb ? " disabled" : ""}${state === "picked" ? ' aria-pressed="true"' : ""}>
+    <span class="${georgian ? "ka" : ""}">${esc(text)}</span>${showDetail ? `<small>${esc(detail)}</small>` : ""}</button>`;
 }
 
 function exerciseView(ex) {
@@ -516,53 +544,63 @@ function exerciseView(ex) {
   switch (ex.shape) {
     case "teachLetter": {
       const l = ex.letter;
-      return `<div class="teach card"><div class="teach-big ka">${esc(l.char)}</div>${speaker(l.char, { size: 48 })}
-        <div class="teach-name">${esc(l.name)} · <b>${esc(l.latin)}</b></div><p>${esc(l.sound)}</p>
-        <div class="teach-example">${speaker(l.word, { size: 36 })}<div><span class="ka">${esc(l.word)}</span> <span class="lat">${esc(l.wordLatin)}</span><div class="soft">${esc(l.meaning)}</div></div></div>
-        ${l.tip ? `<p class="tip">${icon("bulb", { size: 16 })}<span>${esc(l.tip)}</span></p>` : ""}</div>`;
+      return `<div class="teach-letter">
+        <div class="letter-tile" role="img" aria-label="${esc(tr("The letter {0}, written {1}", l.name, l.latin))}">${sun("letter-sun")}<span class="ka">${esc(l.char)}</span></div>
+        <div class="pill-row"><span class="pill c-saperavi">${esc(tr("Name: {0}", l.name))}</span><span class="pill c-blacksea">${esc(tr("Written {0}", l.latin))}</span>${speaker(l.char, { size: 36, slow: true })}</div>
+        <div class="card sound-card"><h3>${icon("lips", { size: 26 })}<span>${esc(tr("Sounds like {0}", l.sound))}</span></h3>${l.tip ? `<p>${tapProse(l.tip)}</p>` : ""}</div>
+        <div class="card example-row"><span class="ka">${esc(l.word)}</span><div><strong>${esc(l.wordLatin)}</strong><span class="soft">${esc(l.meaning)}</span></div>${speaker(l.word, { size: 36, slow: true })}</div>
+      </div>`;
     }
     case "teachWord": {
       const w = ex.word;
-      return `<div class="teach card"><div class="teach-word ka">${esc(w.ka)}</div>${speaker(w.ka, { size: 48 })}<div class="lat big-lat">${esc(w.lat)}</div>
-        <div class="teach-en">${esc(w.en)}</div>
-        ${w.example ? `<div class="teach-example">${speaker(w.example.ka, { size: 36 })}<div><span class="ka">${tapGeorgian(w.example.ka)}</span><div class="lat">${esc(w.example.lat)}</div><div class="soft">${esc(w.example.en)}</div></div></div>` : ""}
-        ${w.note ? `<p class="tip">${icon("bulb", { size: 16 })}<span>${tapProse(w.note)}</span></p>` : ""}</div>`;
+      const color = ((C.course.categories || []).find((c) => c.id === w.category) || {}).color || "saperavi";
+      const hints = pronunciationHints(w.ka);
+      const src = sourceLabel(w.ka);
+      return `<div class="teach-word-ex">
+        <div class="grad b-${color} word-hero"><div class="ka hero-word">${esc(w.ka)}</div><div class="hero-lat">${esc(w.lat)}</div><div class="hero-en">${esc(w.en)}</div>
+          ${audio.canPlay(w.ka) ? `<div class="hero-play">${speaker(w.ka, { size: 40, slow: true, cls: "on-color" })}${src ? `<span class="pill on-pill">${icon("wave", { size: 14 })}${esc(src)}</span>` : ""}</div>` : ""}</div>
+        ${hints.length || w.pron ? `<div class="card"><h3 class="card-title c-blacksea">${icon("wave", { size: 18 })}${esc(tr("Say it"))}</h3>${w.pron ? `<p>${esc(w.pron)}</p>` : ""}${hints.map((h) => `<p class="soft small-text">${esc(h)}</p>`).join("")}</div>` : ""}
+        ${w.example ? exampleCard(w.example) : ""}
+        ${w.note ? `<div class="card tip-card">${icon("bulb", { size: 18 })}<p>${tapProse(w.note)}</p></div>` : ""}
+      </div>`;
     }
     case "note": {
       const n = ex.note;
-      const tappable = /[\u10D0-\u10FF]{2,}/.test(n.text);
+      const tappable = /[ა-ჿ]{2,}/.test(n.text);
       return `<div class="card note-card"><h3>${esc(n.title)}</h3><p>${tapProse(n.text)}</p>
         ${tappable ? `<p class="hint">${icon("hand", { size: 14 })}${esc(tr("Tap a Georgian word to see what it means."))}</p>` : ""}
-        ${(n.table || []).length ? `<div class="note-table">${n.table.map((g) => `<div class="nt-row">${speaker(g.ka, { size: 32 })}<span class="ka">${esc(g.ka)}</span><span class="lat">${esc(g.lat)}</span><span class="nt-en">${esc(g.en)}</span></div>`).join("")}</div>` : ""}</div>`;
+        ${(n.table || []).length ? `<div class="note-table">${n.table.map((g) => `<div class="nt-row"><div class="nt-ka"><span class="ka">${esc(g.ka)}</span><span class="lat">${esc(g.lat)}</span></div><span class="nt-en">${esc(g.en)}</span>${speaker(g.ka, { size: 30 })}</div>`).join("")}</div>` : ""}</div>`;
     }
     case "choice": {
       const chosen = P.pending ? P.pending.choice : null;
-      return `${promptBlock(ex)}<div class="options${ex.optionsAreGeorgian ? " ka-options" : ""}">${ex.options.map((o, i) => {
-        let cls = i === chosen ? " picked" : "";
-        if (fb) cls += i === ex.answer ? " right" : i === chosen ? " wrong" : " dim";
-        return `<button class="option${cls}" data-opt="${i}" data-id="option-${i}"${fb ? " disabled" : ""}><span class="${ex.optionsAreGeorgian ? "ka" : ""}">${esc(o.text)}</span>${o.detail ? `<small class="lat">${esc(o.detail)}</small>` : ""}</button>`;
-      }).join("")}</div>`;
+      const limit = ex.optionsAreGeorgian ? 6 : 10;
+      const large = ex.options.length === 4 && ex.options.every((o) => chars(o.text) <= limit);
+      return `<div class="choice-ex">${promptBlock(ex)}<div class="options${large ? " grid" : ""}">${ex.options.map((o, i) =>
+        optionTile(o.text, o.detail, i, { georgian: ex.optionsAreGeorgian, large, chosen, answer: ex.answer })).join("")}</div></div>`;
     }
     case "dialogue": {
       const chosen = P.pending ? P.pending.choice : null;
-      return `<div class="bubbles small">${ex.history.slice(-4).map((l) => `<div class="bubble-row${l.isLearner ? " mine" : ""}"><div class="bubble b-${P.tint}${l.isLearner ? " mine" : ""}"${audio.canPlay(l.ka) ? ` data-say="${esc(l.ka)}"` : ""}><span class="bubble-name">${esc(l.isLearner ? tr("You") : l.speaker)}</span><span class="ka bubble-ka">${tapGeorgian(l.ka)}</span><span class="bubble-en">${esc(l.en)}</span></div></div>`).join("")}</div>
-        <p class="say-this">${esc(tr("Say: {0}", ex.line.en))}</p>
-        <div class="options ka-options">${ex.options.map((o, i) => {
-          let cls = i === chosen ? " picked" : "";
-          if (fb) cls += i === ex.answer ? " right" : i === chosen ? " wrong" : " dim";
-          return `<button class="option${cls}" data-opt="${i}" data-id="option-${i}"${fb ? " disabled" : ""}><span class="ka">${esc(o)}</span></button>`;
-        }).join("")}</div>`;
+      const lines = [...ex.history.slice(-4), ...(fb ? [ex.line] : [])];
+      return `<div class="dialogue-ex"><div class="chat">${lines.map((l) => chatLine(l)).join("")}</div><hr>
+        <div class="options">${ex.options.map((o, i) => optionTile(o, null, i, { georgian: true, large: false, chosen, answer: ex.answer })).join("")}</div></div>`;
     }
-    case "typing":
-      return `<div class="prompt"><div class="ka prompt-ka">${esc(ex.prompt)}</div>${speaker(ex.prompt, { size: 44 })}<div class="soft prompt-detail">${esc(ex.promptLatin)}</div></div>
-        <input id="answer" class="text-input big" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(tr("Type in English"))}" value="${esc(P.pending ? P.pending.text : "")}"${fb ? " disabled" : ""}>`;
+    case "typing": {
+      const state = fb ? (P.ev.verdict === "wrong" ? " wrong" : " right") : "";
+      return `<div class="prompt-card"><div class="ka prompt-ka ${chars(ex.prompt) <= 10 ? "k48" : "k34"}">${esc(ex.prompt)}</div><div class="prompt-lat">${esc(ex.promptLatin)}</div>${speaker(ex.prompt, { size: 38, slow: true })}</div>
+        <input id="answer" class="answer-field${state}" data-id="answer-field" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="${esc(tr("Type in English"))}" value="${esc(P.pending ? P.pending.text : "")}"${fb ? " disabled" : ""}>`;
+    }
     case "tiles": {
       const used = P.pending ? P.pending.tiles : [];
       const left = [...ex.bank];
       for (const t of used) { const k = left.indexOf(t); if (k >= 0) left[k] = null; }
-      return `<div class="prompt"><div class="prompt-en">${esc(ex.prompt)}</div>${ex.promptDetail ? `<div class="soft prompt-detail">${esc(ex.promptDetail)}</div>` : ""}</div>
-        <div class="tile-answer${ex.isSpelling ? " spelling" : ""}">${used.map((t, i) => `<button class="tile ka" data-untile="${i}"${fb ? " disabled" : ""}>${esc(t)}</button>`).join("") || `<span class="faint">${esc(ex.isSpelling ? tr("Spell it in Georgian") : tr("Build the sentence"))}</span>`}</div>
-        <div class="tile-bank">${ex.bank.map((t, i) => `<button class="tile ka${left[i] === null ? " used" : ""}" data-tile="${i}" data-id="tile-${i}"${left[i] === null || fb ? " disabled" : ""}>${esc(t)}</button>`).join("")}</div>`;
+      const sp = ex.isSpelling;
+      const label = (t) => `<span class="${sp ? "ka" : "ka"}">${esc(t)}</span>${sp ? `<small>${esc(C.course.latin(t))}</small>` : ""}`;
+      const state = fb ? (P.ev.verdict === "wrong" ? " wrong" : " right") : used.length ? " filled" : "";
+      return `<div class="prompt-card"><div class="prompt-en">${esc(ex.prompt)}</div>${ex.promptDetail ? `<div class="prompt-detail strong">${esc(ex.promptDetail)}</div>` : ""}</div>
+        <div class="tile-answer${sp ? " spelling" : ""}${state}" aria-label="${esc(tr("Your answer"))}">${used.map((t, i) => `<button class="tile${sp ? " spelling" : ""}" data-untile="${i}" data-id="answer-tile-${i}"${fb ? " disabled" : ""}>${label(t)}</button>`).join("")}</div>
+        <div class="tile-bank${sp ? " spelling" : ""}">${ex.bank.map((t, i) => left[i] === null
+          ? `<span class="tile${sp ? " spelling" : ""} used" aria-hidden="true">${label(t)}</span>`
+          : `<button class="tile${sp ? " spelling" : ""}" data-tile="${i}" data-id="tile-${i}"${fb ? " disabled" : ""}>${label(t)}</button>`).join("")}</div>`;
     }
     case "matching": {
       if (!P.match) {
@@ -573,15 +611,50 @@ function exerciseView(ex) {
         const done = m.done.includes(p.id);
         const sel = side === "ka" ? m.sel === p.id : m.selOther === p.id;
         const flash = m.flash && m.flash.includes(`${side}:${p.id}`) ? " wrong" : "";
-        return `<button class="match ${side === "ka" ? "ka" : ""}${done ? " done" : ""}${sel ? " picked" : ""}${flash}" data-match="${side}" data-pid="${esc(p.id)}" data-id="match-${side === "ka" ? "ka" : "other"}-${esc(p.id)}"${done ? " disabled" : ""}>${esc(side === "ka" ? p.georgian : p.other)}</button>`;
+        const text = side === "ka" ? p.georgian : p.other;
+        return `<button class="match ${side === "ka" ? `ka${chars(text) <= 2 ? " solo" : ""}` : ""}${done ? " done" : ""}${sel ? " picked" : ""}${flash}" data-match="${side}" data-pid="${esc(p.id)}" data-id="match-${side === "ka" ? "ka" : "other"}-${esc(p.id)}"${done ? " disabled" : ""}>${esc(text)}</button>`;
       };
       return `<div class="match-grid"><div>${m.left.map((p) => cell(p, "ka")).join("")}</div><div>${m.right.map((p) => cell(p, "other")).join("")}</div></div>`;
     }
-    case "flashcard":
-      return `<div class="card flashcard${P.flipped ? " flipped" : ""}"><div class="ka teach-word">${esc(ex.front)}</div>${speaker(ex.front, { size: 44 })}<div class="lat big-lat">${esc(ex.frontLatin)}</div>
-        ${P.flipped ? `<div class="teach-en">${esc(ex.back)}</div>${ex.note ? `<p class="tip">${icon("bulb", { size: 16 })}<span>${esc(ex.note)}</span></p>` : ""}` : ""}</div>`;
+    case "flashcard": {
+      const face = P.flipped
+        ? `<div class="flash-face flash-back b-tkemali"><div class="flash-en">${esc(ex.back)}</div><div class="ka flash-small">${esc(ex.front)}</div>${ex.note ? `<p>${esc(ex.note)}</p>` : ""}</div>`
+        : `<div class="flash-face b-saperavi"><div class="ka flash-ka">${esc(ex.front)}</div><div class="flash-lat">${esc(ex.frontLatin)}</div>${speaker(ex.front, { size: 38, slow: true })}</div>`;
+      const buttons = P.flipped
+        ? (fb ? "" : `<div class="two"><button class="soft-button" data-act="recall" data-value="0" data-id="recall-no">${esc(tr("Still learning"))}</button><button class="chunky b-tkemali" data-act="recall" data-value="1" data-id="recall-yes">${esc(tr("I knew it"))}</button></div>`)
+        : `<button class="soft-button" data-act="flip" data-id="flip">${esc(tr("Show the meaning"))}</button>`;
+      return `<div class="flashcard-ex"><div class="flashcard${P.flipped ? " flipped" : ""}"${P.flipped ? "" : ` data-act="flip" role="button" tabindex="0" aria-label="${esc(tr("Shows the meaning"))}"`} data-id="flashcard">${face}</div>${buttons}</div>`;
+    }
     default: return "";
   }
+}
+
+/** One line of a conversation (Bubble): the partner's initial, the line, its speakers. */
+function chatLine(l) {
+  return `<div class="chat-row${l.isLearner ? " mine" : ""}">
+    ${l.isLearner ? "" : `<span class="chat-avatar" aria-hidden="true">${esc([...(l.speaker || "?")][0])}</span>`}
+    <div class="chat-bubble"><span class="ka">${tapGeorgian(l.ka)}</span><small>${esc(l.en)}</small></div>
+    ${speaker(l.ka, { size: 30, slow: true })}</div>`;
+}
+
+/** A word's example (ExampleCard). */
+function exampleCard(e) {
+  return `<div class="card example-card"><div class="ex-head"><small class="upper c-gold">${esc(tr("Example"))}</small>${speaker(e.ka, { size: 32, slow: true })}</div>
+    <div class="ka ex-ka">${tapGeorgian(e.ka)}</div><div class="lat">${esc(e.lat)}</div><div>${esc(e.en)}</div></div>`;
+}
+
+/** The borjgali, Georgia's sun symbol (Borjgali.swift): seven curling arms round a centre. */
+function sun(cls, colors = null) {
+  const r = 50, arms = [];
+  const pt = (rad, a) => `${(50 + Math.cos(a) * rad).toFixed(2)} ${(50 + Math.sin(a) * rad).toFixed(2)}`;
+  for (let i = 0; i < 7; i++) {
+    const a = (i / 7) * 2 * Math.PI;
+    arms.push(`M${pt(r * 0.14, a)}Q${pt(r, a + 0.25)} ${pt(r * 0.92, a + 1.25)}Q${pt(r * 0.62, a + 1)} ${pt(r * 0.14, a + 0.62)}Z`);
+  }
+  const fill = colors
+    ? `<defs><linearGradient id="sun-${cls}" x1="0" y1="0" x2="1" y2="1">${colors.map((c, i) => `<stop offset="${i / (colors.length - 1)}" stop-color="${c}"/>`).join("")}</linearGradient></defs>`
+    : "";
+  return `<svg class="sun-svg ${cls}" viewBox="0 0 100 100" aria-hidden="true">${fill}<path fill="${colors ? `url(#sun-${cls})` : "currentColor"}" d="${arms.join("")}M59 50a9 9 0 1 1-18 0a9 9 0 1 1 18 0Z"/></svg>`;
 }
 
 function itemIDsFor(ex, ev) {
@@ -637,21 +710,21 @@ export function autoplay() {
 function completeScreen() {
   const s = P.summary;
   const lesson = P.mode === "lesson" ? P.lesson : null;
-  const title = lesson ? (s.perfect ? tr("Flawless!") : tr("Lesson complete!")) : tr("Review complete!");
+  const title = s.perfect ? tr("Flawless!") : lesson ? tr("Lesson complete!") : tr("Review complete!");
   const next = lesson ? nextLesson() : null;
+  const tile = (ic, value, label, color) => `<div class="stat-tile c-${color}">${icon(ic, { size: 22 })}<b>${value}</b><small>${esc(label)}</small></div>`;
   return `<div class="player complete tint-tkemali" data-screen="complete">
     <div class="complete-body">
       <div class="confetti">${Array.from({ length: 18 }, (_, i) => `<i style="--i:${i}"></i>`).join("")}</div>
-      <img src="icons/mascot-hello.svg" alt="" class="mascot big">
-      <h1 class="display center">${esc(title)}</h1>
-      <p class="soft center">${esc(lesson ? lesson.title : P.title)} · <span class="ka-in">${esc(tr("ყოჩაღ! (well done!)"))}</span></p>
-      <div class="stats">
-        <div class="stat c-tkemali">${icon("target", { size: 20 })}<b>${Math.round(s.accuracy * 100)}%</b><small>${esc(tr("Accuracy"))}</small></div>
-        <div class="stat c-saperavi">${icon("book", { size: 20 })}<b>${learnedCount(false)}</b><small>${esc(tr("Words you know"))}</small></div>
-        <div class="stat c-flame">${icon("flame", { size: 20 })}<b>${streak(activeDays())}</b><small>${esc(tr("Day streak"))}</small></div>
+      <div class="reward-hero" aria-hidden="true">${sun("reward-sun", ["#F5A623", "#E23B4E", "#7A3BC2", "#F5A623"])}<img src="icons/mascot-cheer.svg" alt="" class="reward-parrot">${s.perfect ? `<span class="crown">${icon("crown", { size: 40 })}</span>` : ""}</div>
+      <div class="reward-title" data-id="lesson-complete"><h1 class="display">${esc(title)}</h1><p class="soft strong">${esc(lesson ? lesson.title : P.title)}</p><p class="faint">${esc(tr("ყოჩაღ! (well done!)"))}</p></div>
+      <div class="stat-tiles">
+        ${tile("target", `${Math.round(s.accuracy * 100)}%`, tr("Accuracy"), "tkemali")}
+        ${tile("book", learnedCount(false), tr("Words you know"), "saperavi")}
+        ${tile("flame", streak(activeDays()), tr("Day streak"), "flame")}
       </div>
-      ${P.newMilestones.map(([t, d, ic, color]) => `<div class="card milestone-new"><span class="badge-core grad b-${color}">${icon(ic, { size: 22 })}</span><div><small class="upper c-gold">${esc(tr("Milestone reached"))}</small><strong>${esc(tr(t))}</strong><small class="soft">${esc(tr(d))}</small></div></div>`).join("")}
       ${goalCard()}
+      ${P.newMilestones.map(([t, d, ic, color]) => `<div class="card milestone-new"><span class="badge-core grad b-${color}">${icon(ic, { size: 22 })}</span><div><small class="upper c-tkemali">${esc(tr("Milestone reached"))}</small><strong>${esc(tr(t))}</strong><small class="soft">${esc(tr(d))}</small></div></div>`).join("")}
       ${next && lesson ? `<div class="card next-up"><small class="soft">${esc(tr("Next:"))}</small><strong>${esc(next.title)}</strong></div>` : ""}
     </div>
     <div class="player-bottom">
@@ -661,11 +734,15 @@ function completeScreen() {
   </div>`;
 }
 
+/** The daily goal as a ring (ProgressRing), as on the iPhone. */
 function goalCard() {
   const xp = (store.days()[dayKey()] || {}).xp || 0;
   const p = Math.min(1, xp / goal());
-  return `<div class="card goal-card"><div class="pc-row"><strong>${esc(p >= 1 ? (P.goalReachedNow ? tr("Daily goal reached!") : tr("Daily goal done")) : tr("Daily goal"))}</strong>${icon("target", { size: 18, cls: "c-gold" })}</div>
-    ${bar(p, "b-gold")}<small class="soft">${esc(p >= 1 ? tr("Done for today. ყოჩაღ!") : tr("{0}% of today's goal", Math.round(p * 100)))}</small></div>`;
+  const c = 2 * Math.PI * 27;
+  return `<div class="card goal-card">
+    <span class="ring" aria-hidden="true"><svg class="ring-svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="27" class="ring-track"/><circle cx="32" cy="32" r="27" class="ring-fill" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c * (1 - p)).toFixed(1)}"/></svg>${icon(p >= 1 ? "check" : "target", { size: 20, cls: p >= 1 ? "c-tkemali" : "c-gold" })}</span>
+    <div><strong>${esc(p >= 1 ? (P.goalReachedNow ? tr("Daily goal reached!") : tr("Daily goal done")) : tr("Daily goal"))}</strong>
+    <span class="soft">${esc(p >= 1 ? tr("Done for today. ყოჩაღ!") : tr("{0}% of today's goal", Math.round(p * 100)))}</span></div></div>`;
 }
 
 /** Taps inside the player. Returns true when handled. */

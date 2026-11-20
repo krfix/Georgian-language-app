@@ -13,7 +13,10 @@ button.
 - **Learn**: the five parts of the course, lessons as stones that open in order, a preview of
   each, the alphabet chart. **Lessons**: every exercise of the iPhone app (teaching cards, choice,
   listening, reading, matching, letter tiles, sentence building, typing, flashcards, conversation
-  replies); a wrong answer comes back at the end; the completion screen.
+  replies), drawn like the iPhone's (KART #11: a badge per exercise kind, the question on a
+  tinted card, short answers as a 2×2 grid, speaker and slow-turtle, the letter tile on the
+  borjgali sun); a wrong answer comes back at the end; the completion screen (cheering parrot
+  on the sun, framed stat tiles, the daily-goal ring).
 - **Review**: what's due (1, 3, 8… days; a miss in 10 minutes), letter workout, difficult words.
   Phrases join it with Practise on the phrase card. **Words**: every word, search, a word's card.
   **Progress** from Home's card. **Settings**: profile, language, voice, look, text size, offline,

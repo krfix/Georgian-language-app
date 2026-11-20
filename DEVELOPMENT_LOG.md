@@ -3,6 +3,30 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #11 · 20/11/26 · Web lessons like the iPhone (branch `claude/compassionate-brahmagupta-q2dvau`)
+
+Owner, from a "Nowa litera" screenshot of the web next to the iPhone: "possible to make it more
+alike?" Compared 23 screens side by side with the iPhone screenshots of QA run #44 (the
+TestFlight code): phrasebook, Home, Words and Learn were already close; lessons and the
+lesson-complete screen were clearly behind. Owner: do those two.
+
+### Built
+- Every exercise drawn from its iPhone view (`Features/Lesson/*.swift`): a coloured badge per
+  exercise kind beside the instruction (new icons in `icons.js`), the question on a card tinted
+  with the lesson's colour, Georgian sized by length (a letter huge), short answers as a 2×2
+  grid of big tiles pushed to the bottom (rows otherwise), speaker plus slow-turtle everywhere
+  (`speaker(…, { slow: true })`), the listening circle with "Slower".
+- New letter: the gradient tile on the turning borjgali sun (`sun()` ports `BorjgaliShape`),
+  name and Latin pills, the "Sounds like" card with lips, the example word as a row. New word:
+  a gradient card in its theme's colour, "Say it", the Example card, the note.
+- Typing, tiles (dashed answer box, Latin under spelling letters, places kept in the bank),
+  matching, flashcards (gradient faces, buttons under the card), conversation turns (avatar,
+  bubbles, divider), grammar tables (striped, framed), the feedback panel (rounded, tinted).
+- Lesson complete: the cheering parrot (`mascot-cheer.svg`, made by `make_brand.py --web`) on
+  the sun, a crown when flawless, framed stat tiles, the daily goal as a ring, milestones.
+- Fixed on the way: the speaker on a letter-recognition or reading question gave the answer
+  away (now only after answering, as on the iPhone); the combo flame shows from 3 in a row.
+
 ## KART #10 · 20/11/26 · Web app polish, text size (branch `claude/epic-galileo-1bdun4`)
 
 Owner, from iPhone screenshots of the live web app: an old icon on a lesson, "Opanow…" cut on
