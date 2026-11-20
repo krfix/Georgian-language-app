@@ -65,8 +65,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 - Test data is always invented (Ana, the demo learner, `LearningStore.seedDemo`).
 - Web app (KART #8–#9, `web/README.md`): the phrasebook for any browser, in `web/`, plain
   HTML/CSS/JS reading the iPhone app's content and audio (never copied by hand); tr() keys
-  share the Polish table. Next: the course. Published to https://aralearn.github.io/app (the
-  website repo's `/app`) only on the owner's say-so; update the privacy page first.
+  share the Polish table. Next: the course. Live at https://aralearn.github.io/app (the
+  website repo's `/app`, KART #9); republish only on the owner's say-so, privacy page first.
 
 ## Workflow
 1. Work on a branch, never straight on `main`. Tell the owner the branch name and the build

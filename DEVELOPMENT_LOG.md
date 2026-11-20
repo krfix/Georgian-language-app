@@ -33,6 +33,11 @@ Owner (after KART #8's recommendation): "start the web app, phrasebook first". T
   looked at: a turtle icon that read as a car redrawn; the offline button's text shortened.
 - Not yet on a real iPhone (Add to Home Screen, audio in Safari, offline).
 
+### Published (owner: "publish")
+- aralearn.github.io: `app/` = web/dist (version 9bc7d58123); privacy page gained "The web
+  version" / "Wersja w przeglądarce" (browser-only storage, GitHub Pages hosting), dated 20/11/26.
+  Pages deployment succeeded. The home page doesn't link to /app yet.
+
 ## KART #8 · 19/11/26 · Explanations review (branch `claude/eager-johnson-9ccb2m`)
 
 Friends and family are testing on TestFlight. Owner asked for a linguistic check of every English

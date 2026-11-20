@@ -3,11 +3,10 @@
 Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_LOG.md.
 
 ## Needs the owner
-- [ ] Web app (KART #9, `web/`): look at the screenshots, then say "publish" to put it live at
-      aralearn.github.io/app. First the privacy page gets a web paragraph (saved phrases stay in
-      the browser; GitHub hosts the page). Either Claude pushes it to the website repo from a chat,
-      or a `WEBSITE_TOKEN` secret (fine-grained, Contents read/write on aralearn.github.io) lets
-      the Web app workflow do it.
+- [ ] Web app (KART #9): live at https://aralearn.github.io/app. Try it on the iPhone (Safari ›
+      Share › Add to Home Screen; audio; offline after "Keep all audio") and on the PC. Should
+      the website's home page link to it? Republish after content changes (web.yml publish, or
+      from a chat: web/build.py, copy web/dist to the website repo's app/).
 - [ ] Test the app on the iPhone (Feather install) and say what to change.
 - [ ] Native audio: every Georgian text has synthetic clips in Eka's and Giorgi's voices
       (1,460 each, KART #1, #2, #5). A native speaker's recordings can replace them one by
