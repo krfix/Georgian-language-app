@@ -533,7 +533,13 @@ body.showing .toast { bottom: calc(110px + env(safe-area-inset-bottom)); }
 .mc-bar { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 0.8rem; }
 .pill-white { align-self: flex-start; display: flex; gap: 6px; align-items: center; padding: 8px 14px; border-radius: 999px; background: #fff; font-weight: 800; font-size: 0.92rem; }
 .path { display: flex; flex-direction: column; align-items: center; gap: 30px; position: relative; padding: 6px 0 10px; }
-.stone-row { display: flex; align-items: center; gap: 14px; transform: translateX(var(--x)); text-align: left; }
+.stone-row { display: flex; align-items: center; gap: 14px; text-align: left;
+  /* The path's swing (--x, up to 60px) shrinks on narrow screens and with larger text, so the
+     lesson names never reach the screen's edge. */
+  transform: translateX(calc(var(--x) * var(--swing, 1))); }
+@media (max-width: 380px) { .stone-row { --swing: 0.55; } }
+html[data-text="large"] .stone-row { --swing: 0.6; }
+@media (max-width: 380px) { html[data-text="large"] .stone-row { --swing: 0.3; } }
 .stone { width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center; flex: none; color: var(--on);
   background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.25), transparent 60%), linear-gradient(135deg, var(--fill), var(--partner));
   box-shadow: 0 5px 0 var(--deep), inset 0 0 0 4px rgba(255,255,255,0.3); }
