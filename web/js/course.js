@@ -47,7 +47,7 @@ const learnedCount = (letters) => Object.entries(store.mastery()).filter(([id, m
 const pct = () => Math.round((store.completed().size / C.course.lessons.length) * 100);
 
 const MODULE_ICON = { "character.book.closed.fill": "book", "text.book.closed.fill": "book", "cup.and.saucer.fill": "cup", "puzzlepiece.fill": "puzzle", "bubble.left.and.bubble.right.fill": "bubbles" };
-const KIND_ICON = { vocabulary: "book", phrases: "bubble", grammar: "puzzle", conversation: "bubbles", contrast: "wave", letters: "letters" };
+const KIND_ICON = { vocabulary: "book", phrases: "bubble", grammar: "puzzle", conversation: "bubbles", contrast: "wave", letters: "book" };
 const brandOfLesson = (l) => (C.course.module(l.id) || {}).color || "pomegranate";
 
 function glyph(lesson, size = 60) {

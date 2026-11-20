@@ -70,7 +70,7 @@
 .c-blacksea { --c: var(--blacksea); color: var(--blacksea); }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; touch-action: manipulation; }
 body {
   margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
   font-family: ui-rounded, "Ara", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -275,12 +275,12 @@ a:active, button:active:not(:disabled) { transform: scale(0.96); }
 .hero-play { display: flex; gap: 12px; align-items: center; margin-top: 4px; }
 .source { font-size: 0.72rem; opacity: 0.7; }
 .pill-on { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 800; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.22); }
-.actions { display: flex; gap: 8px; }
+.actions { display: flex; gap: 6px; }
 .action { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .action-icon { width: 100%; min-height: 50px; border-radius: 16px; display: grid; place-items: center; color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); }
 .action.on .action-icon { background: var(--c); color: #fff; }
 .c-gold.action.on .action-icon { color: #2A1A06; }
-.action-title { font-size: 0.78rem; font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.action-title { font-size: min(0.78rem, 3vw); letter-spacing: -0.01em; font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 .list-button { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px; border-radius: 999px; color: var(--saperavi); background: color-mix(in srgb, var(--saperavi) 10%, transparent); font-weight: 700; font-size: 0.92rem; }
 .sound { font-size: 1.3rem; font-weight: 800; }
 .wbw { display: flex; flex-direction: column; gap: 2px; padding: 4px 0; }
@@ -448,7 +448,7 @@ body.showing .toast { bottom: calc(110px + env(safe-area-inset-bottom)); }
 }
 .halves { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .half { display: flex; flex-direction: column; gap: 4px; padding: 16px; border-radius: 24px; min-height: 130px; }
-.half .icon { margin-bottom: auto; }
+.half > .icon { margin-bottom: auto; }
 .half strong { font-size: 1.1rem; font-weight: 900; }
 .half small { opacity: 0.9; font-size: 0.8rem; }
 .carousel .cat-tile { width: 150px; min-height: 140px; }
@@ -492,7 +492,7 @@ body.showing .toast { bottom: calc(110px + env(safe-area-inset-bottom)); }
 .half-top strong { font-size: clamp(0.88rem, 4.2vw, 1.02rem); line-height: 1.15; }
 .half-icon { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--on) 18%, transparent); flex: none; }
 .half small { font-weight: 650; opacity: 0.92; font-size: 0.78rem; margin-bottom: 4px; }
-.half em { font-style: normal; font-weight: 800; font-size: 0.68rem; opacity: 0.85; }
+.half em { font-style: normal; font-weight: 800; font-size: min(0.68rem, 2.75vw); opacity: 0.85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .half .bar { flex: none; height: 6px; }
 .continue { padding: 20px; display: flex; flex-direction: column; gap: 14px; animation: breathe 3.2s ease-in-out infinite; }
 @keyframes breathe { 50% { transform: scale(0.985); } }
