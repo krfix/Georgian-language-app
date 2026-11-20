@@ -88,7 +88,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
    section to `CHANGELOG.md`; on `main` the workflow then publishes the GitHub Release with
    the IPA. A version without its CHANGELOG section never builds on `main`.
 - Web app: `python3 web/build.py` (+ `--serve`), `node web/tests/search_test.mjs` and `engine_test.mjs`,
-  `NODE_PATH="$(npm root -g)" node web/tests/screens.mjs` (screenshots), all here on Linux;
+  `NODE_PATH="$(npm root -g)" node web/tests/screens.mjs` (screenshots), `audit.mjs` (layout: cut,
+  off-screen, off-centre, overlapping; normal and larger text), all here on Linux;
   on GitHub `web.yml` (Linux, by hand; `-f publish=true` puts it live, needs `WEBSITE_TOKEN`).
 - Mac minutes cost money (private repo, shared with the Logbook app). Build when the owner asks, or when the
   owner's brief asks for build-and-inspect cycles (as in KART #1). Let several changes ride on

@@ -704,7 +704,7 @@ function offlineCard() {
   let status;
   if (offline.running) status = `<div class="progress"><span style="width:${Math.round((offline.done / Math.max(1, offline.total)) * 100)}%"></span></div><p class="soft small">${esc(tr("Keeping the audio: {0} of {1}", offline.done, offline.total))}</p>`;
   else if (all) status = `<p class="ok">${icon("check", { size: 16 })}${esc(tr("Every clip in {0}'s voice is on this device.", audio.voiceName()))}</p>`;
-  else status = `<button class="chunky b-blacksea" data-act="offline"${"caches" in window ? "" : " disabled"}>${icon("download", { size: 18 })}${esc(tr("Keep all audio ({0} MB)", mb))}</button>`;
+  else status = `<button class="chunky b-blacksea" data-act="offline"${"caches" in window ? "" : " disabled"}>${icon("download", { size: 18 })}<span>${esc(tr("Keep all audio"))} <small class="chunky-note">${esc(tr("{0} MB", mb))}</small></span></button>`;
   return `<h3 class="card-title c-blacksea">${icon("download", { size: 18 })}${esc(tr("Offline"))}</h3>
     <p class="soft small">${esc(tr("Phrases and Show mode always work offline once Ara has opened. Audio plays offline once it has played here, or keep it all now."))}</p>
     ${status}`;

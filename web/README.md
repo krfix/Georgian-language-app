@@ -16,7 +16,8 @@ button.
   replies); a wrong answer comes back at the end; the completion screen.
 - **Review**: what's due (1, 3, 8… days; a miss in 10 minutes), letter workout, difficult words.
   Phrases join it with Practise on the phrase card. **Words**: every word, search, a word's card.
-  **Progress** from Home's card. **Settings**: profile, language, voice, look, offline, developer.
+  **Progress** from Home's card. **Settings**: profile, language, voice, look, text size, offline,
+  developer.
 
 It reads the iPhone app's own content (`Georgian/Resources`): the same phrases, conversations,
 word explanations, Polish and audio, checked by the same tools. Nothing is copied by hand, so a
@@ -42,7 +43,7 @@ fix to a phrase reaches both apps.
 - **My phrasebook**: saved phrases by situation, filtered by your lists or what's learned;
   ⋯ moves a phrase to a list, marks it learned or removes it.
 - **Settings**: English or Polish, Eka's or Giorgi's voice, light, dark or the system's look,
-  keeping all the audio offline, how to add Ara to the Home Screen, privacy.
+  normal or larger text (every screen's text about 15% bigger, for easier reading), keeping all the audio offline, how to add Ara to the Home Screen, privacy.
 
 Everything the learner keeps (profile, finished lessons, review schedules, daily activity, saved
 phrases, lists, learned, recents, settings) stays in that browser (`localStorage`); nothing is
@@ -69,10 +70,23 @@ node web/tests/engine_test.mjs
 NODE_PATH="$(npm root -g)" node web/tests/screens.mjs
 ```
 
-The first runs the iPhone app's search checks against the web search; the second walks through
+The first runs the iPhone app's search checks against the web search, the second the lesson
+engine's; the third walks through
 every screen in Chromium at iPhone size (light and dark, English and Polish, a computer and a
 small phone), checks saving, lists, Show mode, a whole conversation and search work, and saves
 screenshots in `web/dist-screens/`.
+
+```bash
+NODE_PATH="$(npm root -g)" node web/tests/audit.mjs [folder] [--quick]
+```
+
+is the layout audit (about 7 minutes; `--quick` about 1): every screen and every kind of
+exercise for a learner part-way through the course, in English and Polish, with normal and
+larger text, at 320, 360, 390 and 440 points wide. It lists any text cut off or clipped,
+anything past the screen's edge, an icon off the middle of its circle or tile, and text on top
+of other text, and saves full-page screenshots at 390 in `web/dist-audit/`. Overlaps with the
+bars that stay put (the title bar, a lesson's Check button) are text scrolling under them,
+which is expected.
 
 On GitHub: **Actions › Web app › Run workflow** (`.github/workflows/web.yml`, a Linux machine,
 no Mac minutes) does all three and attaches the screenshots and the finished app. Ticking

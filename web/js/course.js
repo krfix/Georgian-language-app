@@ -877,7 +877,8 @@ export function profileCards() {
       <h3 class="card-title c-pomegranate">${icon("people", { size: 18 })}${esc(tr("Profile"))}</h3>
       <label class="field"><span>${esc(tr("Your name"))}</span><input id="profile-name" class="text-input" maxlength="30" value="${esc(p.name || "")}" placeholder="${esc(tr("Your name"))}"></label>
       <label class="field"><span>${esc(tr("Starting point"))}</span><select id="profile-level" class="text-input">${LEVELS().map(([v, t]) => `<option value="${v}"${v === level() ? " selected" : ""}>${esc(t)}</option>`).join("")}</select></label>
-      <label class="field"><span>${esc(tr("Daily goal"))}</span><select id="profile-goal" class="text-input">${GOALS().map(([v, t, d]) => `<option value="${v}"${v === goal() ? " selected" : ""}>${esc(`${t} · ${d}`)}</option>`).join("")}</select></label>
+      <label class="field"><span>${esc(tr("Daily goal"))}</span><select id="profile-goal" class="text-input">${GOALS().map(([v, t]) => `<option value="${v}"${v === goal() ? " selected" : ""}>${esc(t)}</option>`).join("")}</select>
+        <small class="field-note">${esc((GOALS().find(([v]) => v === goal()) || [])[2] || "")}</small></label>
     </section>`;
 }
 
@@ -921,7 +922,7 @@ export function courseChange(e) {
   const t = e.target;
   if (t.id === "profile-name") { store.setProfile({ name: t.value.trim() }); return true; }
   if (t.id === "profile-level") { store.setProfile({ level: t.value }); toast(tr("Saved")); return true; }
-  if (t.id === "profile-goal") { store.setProfile({ goal: +t.value }); toast(tr("Saved")); return true; }
+  if (t.id === "profile-goal") { store.setProfile({ goal: +t.value }); const n = t.parentElement.querySelector(".field-note"); if (n) n.textContent = (GOALS().find(([v]) => v === +t.value) || [])[2] || ""; toast(tr("Saved")); return true; }
   if (t.dataset && t.dataset.dev) { store.setSetting(t.dataset.dev, t.checked); render({ keepScroll: true }); return true; }
   if (t.id === "ob-name") { draft.name = t.value; const b = $('[data-id="onboarding-next"]'); if (b) b.textContent = t.value.trim() ? tr("Continue") : tr("Skip"); return true; }
   return false;
