@@ -7,11 +7,10 @@
 The web app's own files (web/index.html, app.css, js/, fonts/, icons/) are copied as they
 are. The content comes straight from the iPhone app's checked files, so both apps always say
 the same thing:
-- Georgian/Resources/Curriculum: the phrasebook, the word glossary, the letters (English and
-  Polish), plus a slim list of the course words for search and the lesson titles;
+- Georgian/Resources/Curriculum: the phrasebook, the course, the words, the letters and the
+  word glossary (English and Polish);
 - Georgian/Resources/Localization/ui-pl.json: the Polish for the app's own words;
-- Georgian/Resources/Audio: the clips for every phrase, form, reply, conversation line and
-  course word, in both voices, with a small index per voice.
+- Georgian/Resources/Audio: every clip, in both voices, with a small index per voice.
 The service worker (sw.js) gets a version made from everything it serves, so a new build
 replaces the old one on people's phones, and the list of files to keep for offline use.
 Fails if a text on screen has no Polish (tools/l10n/check_strings.py).
@@ -59,33 +58,14 @@ def main():
         else:
             shutil.copy2(src, os.path.join(DIST, name))
 
-    # Content, in both languages.
-    texts = set()
+    # Content, in both languages: the phrasebook, the course, the words (with "More words"),
+    # the letters and the word glossary, exactly as the iPhone app has them.
     for suffix in ("", "-pl"):
-        pb = load("Curriculum", f"phrasebook{suffix}.json")
-        dump(pb, "data", f"phrasebook{suffix}.json")
-        dump(load("Curriculum", f"glossary{suffix}.json"), "data", f"glossary{suffix}.json")
-        dump(load("Curriculum", f"letters{suffix}.json"), "data", f"letters{suffix}.json")
-        vocab = load("Curriculum", f"vocabulary{suffix}.json")
-        words = [{k: w[k] for k in ("id", "ka", "lat", "en", "alt", "category") if k in w}
-                 for w in vocab["words"] + vocab.get("more", [])]
-        cats = [{"id": c["id"], "title": c["title"]} for c in vocab["categories"]]
-        dump({"categories": cats, "words": words}, "data", f"words{suffix}.json")
-        course = load("Curriculum", f"course{suffix}.json")
-        lessons = {l["id"]: l["title"] for m in course["modules"] for l in m["lessons"]}
-        dump(lessons, "data", f"lessons{suffix}.json")
-        for p in pb["phrases"]:
-            texts.add(p["ka"])
-            for f in (p.get("variants") or []) + (p.get("replies") or []):
-                texts.add(f["ka"])
-        for d in pb["dialogues"]:
-            texts.update(l["ka"] for l in d["lines"])
-        texts.update(w["ka"] for w in words)
-    # The voice sample in Settings (AudioService.Voice.sample in the iPhone app).
-    texts.add("გამარჯობა, როგორ ხარ?")
+        for name in ("phrasebook", "course", "vocabulary", "letters", "glossary"):
+            dump(load("Curriculum", f"{name}{suffix}.json"), "data", f"{name}{suffix}.json")
     dump(load("Localization", "ui-pl.json"), "data", "ui-pl.json")
 
-    # Audio: only the clips the web app can play.
+    # Audio: every clip, in both voices (letters, words, examples, phrases, conversations).
     os.makedirs(os.path.join(DIST, "audio"))
     copied = set()
     sizes = {}
@@ -93,10 +73,7 @@ def main():
         clips = load("Audio", index)["clips"]
         out = {}
         total = 0
-        for t in sorted(texts):
-            c = clips.get(t)
-            if not c:
-                continue
+        for t, c in sorted(clips.items()):
             out[t] = [c["file"], c.get("source", "synthetic")]
             src = os.path.join(RES, "Audio", c["file"])
             total += os.path.getsize(src)

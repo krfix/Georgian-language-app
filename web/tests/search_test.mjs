@@ -12,7 +12,7 @@ function check(label, got, want) {
   if (ok) passed++; else { failed++; console.log(`FAIL ${label}: got ${JSON.stringify(got)}, want ${JSON.stringify(want)}`); }
 }
 
-const pb = read("phrasebook.json"), words = read("words.json");
+const pb = read("phrasebook.json"), vocab = read("vocabulary.json"); const words = { words: [...vocab.words, ...(vocab.more || [])], categories: vocab.categories };
 const s = new PhraseSearch(pb, words.words, words.categories, "en");
 const topIDs = (q, n = 3) => s.top(q, n).map((p) => p.id);
 const finds = (q, id, n = 3) => check(`search "${q}" finds ${id}`, topIDs(q, n).includes(id), true);
@@ -50,7 +50,7 @@ check("stem of pharmacies", stem("pharmacies"), "pharmacy");
 check("plain removes apostrophes", plain("Ts'q'ali, don't!"), "tsqali dont");
 
 // Polish
-const ppb = read("phrasebook-pl.json"), pwords = read("words-pl.json");
+const ppb = read("phrasebook-pl.json"), pv = read("vocabulary-pl.json"); const pwords = { words: [...pv.words, ...(pv.more || [])], categories: pv.categories };
 const p = new PhraseSearch(ppb, pwords.words, pwords.categories, "pl");
 const plTop = (q) => p.top(q, 3).map((x) => x.id);
 check("Polish search: apteka", plTop("apteka").includes("pb-aptiaki-sad-aris"), true);
