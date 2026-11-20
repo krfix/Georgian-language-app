@@ -864,6 +864,8 @@ function render({ keepScroll = false } = {}) {
   }
   if (a === "d" && parts[2] === "as") answerBack();
   if (a === "learn") requestAnimationFrame(course.drawRibbons);
+  // Every speaker on screen gets its clip ready, so a tap plays at once.
+  audio.prepare([...document.querySelectorAll("[data-say], [data-say-slow]")].map((b) => b.dataset.say ?? b.dataset.saySlow));
   if (a === "settings") { countCached(); const v = $("#version"); if (v) v.textContent = tr("Version {0}", window.ARA_VERSION || "dev"); }
 }
 
@@ -904,6 +906,13 @@ function goBack() {
 
 // ---------------------------------------------------------------------------------------
 // Taps
+
+// Wake the audio on the first touch (iPhone), and prepare the clip under the finger.
+document.addEventListener("pointerdown", (e) => {
+  audio.unlock();
+  const b = e.target.closest("[data-say]");
+  if (b) audio.prepare([b.dataset.say]);
+}, { passive: true });
 
 document.addEventListener("click", async (e) => {
   // Tappable words come first: a word inside a playable bubble explains, it doesn't play.
@@ -1070,7 +1079,6 @@ async function applySetting(name, value) {
     await audio.loadVoice(value);
     offline.cached = null;
     render({ keepScroll: true });
-    audio.play(audio.SAMPLE);
   } else if (name === "appearance") {
     store.setSetting("appearance", value);
     applyAppearance();

@@ -72,6 +72,12 @@ Owner (after KART #8's recommendation): "start the web app, phrasebook first". T
 - Published that (owner: "publish and continue"). Then the lesson-complete screen as on the
   iPhone: "ყოჩაღ! (well done!)", Accuracy / Words you know / Day streak, a milestone just
   reached, and today's goal. The daily challenge isn't shown on the iPhone any more, so not here.
+- Website: "Try Ara in your browser" on the home page (English, Polish). Published.
+- Owner's iPhone test: the alphabet card's icon is now the book (as on the iPhone and the Words
+  tab); nothing plays by itself any more (teaching cards, listening, answers, matching, the
+  voice choice): sound only from a tap; taps play at once: every clip on screen is decoded
+  ahead and started through Web Audio (an <audio> element only for slow play or a clip not
+  ready), and Safari's audio session is set to "playback" so the silent switch doesn't mute it.
 
 ## KART #8 · 19/11/26 · Explanations review (branch `claude/eager-johnson-9ccb2m`)
 

@@ -46,7 +46,7 @@ export function dueItems() {
 const learnedCount = (letters) => Object.entries(store.mastery()).filter(([id, m]) => id.startsWith("letter-") === letters && !id.startsWith("pb-") && isLearnedState(m)).length;
 const pct = () => Math.round((store.completed().size / C.course.lessons.length) * 100);
 
-const MODULE_ICON = { "character.book.closed.fill": "letters", "text.book.closed.fill": "book", "cup.and.saucer.fill": "cup", "puzzlepiece.fill": "puzzle", "bubble.left.and.bubble.right.fill": "bubbles" };
+const MODULE_ICON = { "character.book.closed.fill": "book", "text.book.closed.fill": "book", "cup.and.saucer.fill": "cup", "puzzlepiece.fill": "puzzle", "bubble.left.and.bubble.right.fill": "bubbles" };
 const KIND_ICON = { vocabulary: "book", phrases: "bubble", grammar: "puzzle", conversation: "bubbles", contrast: "wave", letters: "letters" };
 const brandOfLesson = (l) => (C.course.module(l.id) || {}).color || "pomegranate";
 
@@ -171,7 +171,7 @@ function welcomePage(step) {
     }
     case "language":
       return `<h1 class="ob-title">${esc(tr("Meet Georgian"))}</h1><div class="facts">
-        ${fact("letters", tr("33 letters, no capitals"), tr("Mkhedruli, today's alphabet, has one form for every letter."), "pomegranate")}
+        ${fact("book", tr("33 letters, no capitals"), tr("Mkhedruli, today's alphabet, has one form for every letter."), "pomegranate")}
         ${fact("speaker", tr("One letter, one sound"), tr("Words are spelled exactly as they're said. Learn the letters and you can read anything aloud."), "saperavi")}
         ${fact("scroll", tr("Over 1,500 years of writing"), tr("Georgian has its own script. UNESCO lists the living culture of its three alphabets."), "gold")}
         ${fact("globe", tr("A language family of its own"), tr("Georgian is Kartvelian: not related to Russian, Turkish or any language outside the Caucasus. About four million people speak it."), "blacksea")}</div>`;
@@ -603,9 +603,6 @@ function check(answer) {
   P.combo = ev.verdict === "wrong" ? 0 : P.combo + 1;
   P.praise = PRAISE()[Math.floor(Math.random() * 6)];
   if (navigator.vibrate) navigator.vibrate(ev.verdict === "wrong" ? [20, 40, 20] : 15);
-  // Hear the right Georgian after answering.
-  const say = ex.shape === "dialogue" ? ex.line.ka : ex.shape === "choice" && ex.optionsAreGeorgian ? ex.options[ex.answer].text : null;
-  if (say && audio.canPlay(say)) audio.play(say);
 }
 
 function next() {
@@ -633,7 +630,8 @@ export function autoplay() {
   const ex = P.session.current;
   if (!ex) return;
   const t = ex.audioText || (ex.shape === "teachLetter" ? ex.letter.char : ex.shape === "teachWord" ? ex.word.ka : null);
-  if (t && audio.canPlay(t)) setTimeout(() => audio.play(t), 250);
+  // Sound plays only when the learner taps a speaker (owner, KART #9).
+  void t;
 }
 
 function completeScreen() {
@@ -713,7 +711,6 @@ export function playerTap(el) {
 function matchTap(side, id) {
   const m = P.match;
   if (side === "ka") m.sel = m.sel === id ? null : id; else m.selOther = m.selOther === id ? null : id;
-  if (side === "ka" && audio.canPlay((P.session.current.pairs.find((p) => p.id === id) || {}).georgian)) audio.play(P.session.current.pairs.find((p) => p.id === id).georgian);
   if (m.sel && m.selOther) {
     if (m.sel === m.selOther) { m.done.push(m.sel); m.flash = null; }
     else { m.mistakes += 1; m.flash = [`ka:${m.sel}`, `other:${m.selOther}`]; if (navigator.vibrate) navigator.vibrate(30); }
