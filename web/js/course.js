@@ -613,8 +613,14 @@ function next() {
   P.pending = null; P.ev = null; P.match = null; P.flipped = false;
   if (P.session.finished) {
     const summary = P.session.summary;
+    const before = new Set(milestones().filter((m) => m[4] >= 1).map((m) => m[0]));
+    const xpBefore = (store.days()[dayKey()] || {}).xp || 0;
+    P.goalReachedNow = false;
+    P.newMilestones = [];
     if (P.mode === "lesson") store.finishLesson(P.lesson.id, summary); else store.finishReview(summary);
     P.summary = summary;
+    P.newMilestones = milestones().filter((m) => m[4] >= 1 && !before.has(m[0]));
+    P.goalReachedNow = xpBefore < goal() && ((store.days()[dayKey()] || {}).xp || 0) >= goal();
     P.phase = "finished";
   } else {
     P.phase = "answering";
@@ -640,12 +646,14 @@ function completeScreen() {
       <div class="confetti">${Array.from({ length: 18 }, (_, i) => `<i style="--i:${i}"></i>`).join("")}</div>
       <img src="icons/mascot-hello.svg" alt="" class="mascot big">
       <h1 class="display center">${esc(title)}</h1>
-      ${lesson ? `<p class="soft center">${esc(lesson.title)}</p>` : ""}
+      <p class="soft center">${esc(lesson ? lesson.title : P.title)} · <span class="ka-in">${esc(tr("ყოჩაღ! (well done!)"))}</span></p>
       <div class="stats">
-        <div class="stat c-tkemali">${icon("target", { size: 20 })}<b>${Math.round(s.accuracy * 100)}%</b><small>${esc(tr("accuracy"))}</small></div>
-        <div class="stat c-saperavi">${icon("book", { size: 20 })}<b>${learnedCount(false)}</b><small>${esc(tr("words learned"))}</small></div>
+        <div class="stat c-tkemali">${icon("target", { size: 20 })}<b>${Math.round(s.accuracy * 100)}%</b><small>${esc(tr("Accuracy"))}</small></div>
+        <div class="stat c-saperavi">${icon("book", { size: 20 })}<b>${learnedCount(false)}</b><small>${esc(tr("Words you know"))}</small></div>
         <div class="stat c-flame">${icon("flame", { size: 20 })}<b>${streak(activeDays())}</b><small>${esc(tr("Day streak"))}</small></div>
       </div>
+      ${P.newMilestones.map(([t, d, ic, color]) => `<div class="card milestone-new"><span class="badge-core grad b-${color}">${icon(ic, { size: 22 })}</span><div><small class="upper c-gold">${esc(tr("Milestone reached"))}</small><strong>${esc(tr(t))}</strong><small class="soft">${esc(tr(d))}</small></div></div>`).join("")}
+      ${goalCard()}
       ${next && lesson ? `<div class="card next-up"><small class="soft">${esc(tr("Next:"))}</small><strong>${esc(next.title)}</strong></div>` : ""}
     </div>
     <div class="player-bottom">
@@ -653,6 +661,13 @@ function completeScreen() {
       <button class="${next && lesson ? "soft-button" : "chunky b-tkemali"}" data-act="done" data-id="complete-continue">${esc(tr("Continue"))}</button>
     </div>
   </div>`;
+}
+
+function goalCard() {
+  const xp = (store.days()[dayKey()] || {}).xp || 0;
+  const p = Math.min(1, xp / goal());
+  return `<div class="card goal-card"><div class="pc-row"><strong>${esc(p >= 1 ? (P.goalReachedNow ? tr("Daily goal reached!") : tr("Daily goal done")) : tr("Daily goal"))}</strong>${icon("target", { size: 18, cls: "c-gold" })}</div>
+    ${bar(p, "b-gold")}<small class="soft">${esc(p >= 1 ? tr("Done for today. ყოჩაღ!") : tr("{0}% of today's goal", Math.round(p * 100)))}</small></div>`;
 }
 
 /** Taps inside the player. Returns true when handled. */
