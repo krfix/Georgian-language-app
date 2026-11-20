@@ -3,6 +3,41 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #10 · 20/11/26 · Web app polish, text size (branch `claude/epic-galileo-1bdun4`)
+
+Owner, from iPhone screenshots of the live web app: an old icon on a lesson, "Opanow…" cut on
+the phrase card, Home's icons off-centre and a line wrapping. Then: "go through the whole web
+app… centred icons, no cutting items… add a toggle for bigger text", "rather similar but very
+good than exactly the same but buggy".
+
+### Built
+- Profile › Appearance › Text size: Normal or Larger (`textSize`, `html[data-text="large"]`,
+  every rem about 15% bigger; body text in rem now). Polish in `ui_pl.py`.
+- `web/tests/audit.mjs`: every screen and exercise kind for a seeded learner, EN/PL, normal and
+  larger text, 320/360/390/440 wide; lists cut, clamped, off-screen, off-centre and overlapping
+  items and saves full-page screenshots (about 7 minutes, `--quick` about 1).
+- Fixes it and the screenshots found: fixed-pixel cards (conversations, recent phrases, situation
+  tiles, lesson subtitles) now grow in rem and wrap instead of "…"; topbar titles wrap; the
+  matching grid splits the width evenly; Home's section links wrap under long titles; shortcut
+  labels wrap in their tile; tab labels always fit; Home's Learn / Use in Georgia icons centred
+  (a stray margin); the Learn path swings less on narrow screens and with larger text; the
+  daily-goal menu shows the plan's name with its description below; the save-all-audio button's
+  size is a quieter second part; chunky buttons have room for two lines; letters icon "Aa", the
+  reading lesson's stone the book, a real puzzle piece for grammar; no double-tap zoom.
+- Bug: a sheet stayed open over the next screen after Safari's swipe back; it now closes.
+
+### Tested
+- The audit went from 284 findings to 18, all text scrolling under the bars that stay put (the
+  title bar, a lesson's bottom button), which is expected. Looked at every screen normal and
+  larger side by side; bottoms of pages clear the tab bar; sheets checked at screen size.
+- `search_test.mjs` (38) and `engine_test.mjs` (21) pass; `screens.mjs` all fine.
+
+### Published (owner: "publish and merge")
+- Merged to `main` (fast-forward, 0e02156). `web.yml` with publish failed at the last step: the
+  `WEBSITE_TOKEN` secret isn't set. Published from the chat instead (owner: "yes, add the
+  website repo"): web/dist (version 90fe36da19) copied to the website repo's `app/`. The privacy
+  page needed no change (the text size stays in the browser like the other settings).
+
 ## KART #9 · 20/11/26 · Web app, phrasebook (branch `claude/happy-carson-cc03jn`)
 
 Owner (after KART #8's recommendation): "start the web app, phrasebook first". The code lives in
