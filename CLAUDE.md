@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #10 (20/11/26). The words come from the first request. Rename with `set_session_title`
+KART #11 (20/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
