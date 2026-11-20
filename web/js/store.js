@@ -102,10 +102,13 @@ export function finishLesson(lessonID, summary) {
   const d = day();
   d.xp += 10 + summary.right + (summary.perfect ? 5 : 0);
   d.lessons += 1;
+  if (summary.perfect) d.perfect = (d.perfect || 0) + 1;
   persist();
 }
 export function finishReview(summary) {
-  day().xp += 5 + summary.right;
+  const d = day();
+  d.xp += 5 + summary.right;
+  d.reviews = (d.reviews || 0) + 1;
   persist();
 }
 

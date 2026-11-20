@@ -630,7 +630,8 @@ function savedScreen() {
   } else if (!shown.length) {
     body = `<p class="soft">${esc(tr("No phrases here yet."))}</p>`;
   } else {
-    body = C.pb.categories.filter((c) => shown.some((p) => p.category === c.id)).map((c) =>
+    body = `<a class="chunky b-blacksea" href="#/session/saved" data-id="practise-saved">${icon("play", { size: 18 })}${esc(tr("Practise these {0}", shown.length))}</a>` +
+      C.pb.categories.filter((c) => shown.some((p) => p.category === c.id)).map((c) =>
       `<h2 class="sub-title b-${c.color}">${icon(c.symbol, { size: 18 })}${esc(c.title)}</h2>
        <div class="rows">${shown.filter((p) => p.category === c.id).map((p) => phraseRow(p, { menu: true })).join("")}</div>`).join("") +
       `<p class="faint small">${esc(tr("Tap ⋯ on a phrase to move it to a list or remove it."))}</p>`;
@@ -862,6 +863,7 @@ function render({ keepScroll = false } = {}) {
     if (q && !keepScroll && !("ontouchstart" in window && searchQuery)) q.focus({ preventScroll: true });
   }
   if (a === "d" && parts[2] === "as") answerBack();
+  if (a === "learn") requestAnimationFrame(course.drawRibbons);
   if (a === "settings") { countCached(); const v = $("#version"); if (v) v.textContent = tr("Version {0}", window.ARA_VERSION || "dev"); }
 }
 
@@ -877,6 +879,7 @@ window.addEventListener("hashchange", (e) => {
   if (pushed) depth += 1; else depth = Math.max(0, depth - 1);
   pushed = false;
   audio.stop();
+  course.closeGloss();
   if (old.startsWith("/d/") && old.includes("/as/") && !route().hash.includes("/as/")) practice = null;
   if (/^\/(lesson|session)\//.test(old) || /^\/(lesson|session)\//.test(route().hash)) course.endSession();
   render();
@@ -903,6 +906,10 @@ function goBack() {
 // Taps
 
 document.addEventListener("click", async (e) => {
+  // Tappable words come first: a word inside a playable bubble explains, it doesn't play.
+  const word = e.target.closest(".tw");
+  if (word) { e.preventDefault(); e.stopPropagation(); if (word.classList.contains("on")) course.closeGloss(); else course.showGloss(word); return; }
+  if (e.target.closest('[data-act="close-gloss"]') || !e.target.closest(".gloss")) course.closeGloss();
   const el = e.target.closest("a, button, [data-act]");
   if (!el) return;
   const ds = el.dataset;
@@ -1031,7 +1038,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-window.addEventListener("resize", () => { if (route().parts[0] === "show") fitShowText(); });
+window.addEventListener("resize", () => { if (route().parts[0] === "show") fitShowText(); if (route().parts[0] === "learn") course.drawRibbons(); });
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible" && route().parts[0] === "show") keepAwake(true);
 });

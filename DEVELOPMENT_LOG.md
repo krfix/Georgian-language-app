@@ -63,6 +63,12 @@ Owner (after KART #8's recommendation): "start the web app, phrasebook first". T
   the browser test now walks every welcome step and a whole first lesson in light/dark, EN/PL,
   and checks progress survives a reload; words (v1), grammar (g1) and conversation (c1) lessons
   played to the end by hand. Not yet on a real iPhone.
+- Published to aralearn.github.io/app (owner: "publish"), privacy page first (lessons, review
+  and a name stay in the browser too). Merged to `main` (owner: "merge"); web build 43's code
+  checked: the web started from `main` after TestFlight build 43 (commit 186d123).
+- Then: tappable words (dotted underline, a bubble with Latin, meaning, dictionary form and why)
+  in lesson examples, notes, tips, conversation lines and word cards; the ribbon on the Learn
+  path; the 16 milestones on Progress; "Practise these" in My phrasebook.
 
 ## KART #8 · 19/11/26 · Explanations review (branch `claude/eager-johnson-9ccb2m`)
 

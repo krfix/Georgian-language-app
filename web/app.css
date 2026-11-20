@@ -691,3 +691,30 @@ body:has(.player) #view, body:has(.welcome) #view { padding-bottom: 0; }
 .switch-row input { width: 22px; height: 22px; accent-color: var(--tkemali); flex: none; }
 .soft-button.danger { color: var(--error); }
 .prompt-ka.solo { font-size: 5.5rem; line-height: 1.1; }
+
+/* Tappable words */
+.tw { text-decoration: underline dotted color-mix(in srgb, currentColor 55%, transparent); text-underline-offset: 4px; text-decoration-thickness: 2px; cursor: pointer; border-radius: 6px; }
+.tw.on { background: color-mix(in srgb, var(--saperavi) 18%, transparent); }
+.ka-in { font-family: "Ara", sans-serif; font-weight: 700; }
+.hint { display: flex; gap: 6px; align-items: center; font-size: 0.78rem; color: var(--ink-faint); }
+.gloss { position: fixed; z-index: 50; background: var(--surface); border-radius: 18px; padding: 14px; box-shadow: 0 12px 34px rgba(0,0,0,0.22); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; animation: rise 0.2s; color: var(--ink); }
+.gloss-head { display: flex; align-items: center; gap: 10px; }
+.gloss-head .ka { font-size: 1.4rem; flex: 1; }
+.close-x.static { position: static; }
+.gloss-meaning { color: var(--saperavi); font-weight: 800; font-size: 1.05rem; }
+.gloss-base { padding: 8px 10px; border-radius: 12px; background: var(--raised); font-size: 0.92rem; }
+.gloss-base small { font-size: 0.66rem; font-weight: 800; text-transform: uppercase; color: var(--ink-faint); letter-spacing: 0.04em; }
+.gloss-note { font-size: 0.9rem; color: var(--ink-soft); }
+
+.path .ribbon { position: absolute; left: 0; top: 0; pointer-events: none; color: var(--ink); z-index: 0; }
+.stone-row { position: relative; z-index: 1; }
+.badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 14px; }
+.badge { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
+.badge strong { font-size: 0.8rem; line-height: 1.15; }
+.badge small { font-size: 0.68rem; color: var(--ink-soft); line-height: 1.2; }
+.badge:not(.on) strong { color: var(--ink-soft); }
+.badge-ring { width: 68px; height: 68px; border-radius: 50%; display: grid; place-items: center;
+  background: conic-gradient(var(--c) calc(var(--p) * 1%), color-mix(in srgb, var(--line) 80%, transparent) 0); }
+.badge-core { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); color: var(--ink-faint); }
+.badge.on .badge-core { color: #fff; }
+.badge.on .badge-core { background: linear-gradient(135deg, var(--fill), var(--partner)); }

@@ -33,9 +33,9 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       Before the App Store: hide Profile › Developer, age rating, App Privacy ("no data").
 
 ## Next
-- [ ] Web app, what the iPhone has and the web doesn't yet: tappable words in lessons, the
-      ribbon on the Learn path, achievements, the daily challenge, reminders, "Practise these"
-      in My phrasebook, conversation lessons from the phrasebook's dialogues in the lesson player.
+- [ ] Web app, what the iPhone has and the web doesn't yet: the daily challenge, reminders
+      (a web page can't remind reliably on iPhone), the phrasebook's conversation practice in
+      the lesson player (the web has its own Practise screen for them).
 - [ ] Before April 2027: build with Xcode 27 (iOS 27 SDK), Apple's warning ITMS-90725 on build #39.
       The workflow picks the newest Xcode 26 on `macos-15`; Xcode 27 likely needs the `macos-26`
       runner. Try it on a branch with one IPA build, then the TestFlight build.

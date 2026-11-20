@@ -55,6 +55,60 @@ function glyph(lesson, size = 60) {
   return `<span class="glyph" style="--g:${size}px">${first ? `<span class="ka">${esc(first)}</span>` : icon(KIND_ICON[lesson.kind] || "book", { size: Math.round(size * 0.45) })}</span>`;
 }
 
+// ---------------------------------------------------------------------------------------
+// Tappable words (TappableGeorgian.swift): a dotted underline; a tap opens a small bubble with
+// the Latin spelling, the meaning, the dictionary form and why the word looks as it does.
+
+const glossKey = (w) => w.replace(/^[.,?!—–:;"«»…()-]+|[.,?!—–:;"«»…()-]+$/g, "");
+
+/** Georgian text whose words can be tapped. */
+export function tapGeorgian(text) {
+  return String(text).split(/(\s+)/).map((tok) => {
+    const key = glossKey(tok);
+    return key && C.glossary[key] ? `<span class="tw" data-gloss="${esc(key)}">${esc(tok)}</span>` : esc(tok);
+  }).join("");
+}
+
+/** A paragraph in the learner's language with Georgian words in it: those words can be tapped.
+ *  Hyphenated pieces (-ში) and single letters are about spelling, so they stay plain. */
+export function tapProse(text) {
+  return String(text).split(/([\u10D0-\u10FF]+(?:-[\u10D0-\u10FF]+)*-?)/).map((part, i, all) => {
+    if (i % 2 === 0) return esc(part);
+    const hyphen = part.includes("-") || /-$/.test(all[i - 1] || "") || /^-/.test(all[i + 1] || "");
+    if (hyphen || [...part].length < 2 || !C.glossary[part]) return `<span class="ka-in">${esc(part)}</span>`;
+    return `<span class="tw ka-in" data-gloss="${esc(part)}">${esc(part)}</span>`;
+  }).join("");
+}
+
+export function showGloss(el) {
+  closeGloss();
+  const key = el.dataset.gloss;
+  const g = C.glossary[key];
+  if (!g) return;
+  el.classList.add("on");
+  const b = document.createElement("div");
+  b.className = "gloss";
+  b.setAttribute("role", "dialog");
+  b.innerHTML = `<div class="gloss-head"><span class="ka">${esc(key)}</span>${audio.canPlay(key) ? speaker(key, { size: 32 }) : ""}
+      <button class="close-x static" data-act="close-gloss" aria-label="${esc(tr("Close"))}">${icon("close", { size: 14 })}</button></div>
+    <div class="lat">${esc(g.lat)}</div>
+    ${g.meaning ? `<div class="gloss-meaning">${esc(g.meaning)}</div>` : ""}
+    ${g.base ? `<div class="gloss-base"><small>${esc(tr("Dictionary form"))}</small><div><span class="ka">${esc(g.base)}</span> ${g.baseLat ? `<span class="lat">${esc(g.baseLat)}</span>` : ""}</div>${g.baseMeaning ? `<div>${esc(g.baseMeaning)}</div>` : ""}</div>` : ""}
+    ${g.note ? `<p class="gloss-note">${esc(g.note)}</p>` : ""}`;
+  document.body.appendChild(b);
+  const r = el.getBoundingClientRect();
+  const w = Math.min(320, window.innerWidth - 24);
+  b.style.width = `${w}px`;
+  b.style.left = `${Math.max(12, Math.min(window.innerWidth - w - 12, r.left + r.width / 2 - w / 2))}px`;
+  const below = r.bottom + 8 + b.offsetHeight < window.innerHeight - 90;
+  b.style.top = `${below ? r.bottom + 8 : Math.max(12, r.top - b.offsetHeight - 8)}px`;
+}
+
+export function closeGloss() {
+  document.querySelectorAll(".gloss").forEach((g) => g.remove());
+  document.querySelectorAll(".tw.on").forEach((t) => t.classList.remove("on"));
+}
+
 function bar(progress, cls = "") { return `<div class="bar ${cls}"><span style="width:${Math.round(Math.min(1, Math.max(0, progress)) * 100)}%"></span></div>`; }
 
 // ---------------------------------------------------------------------------------------
@@ -286,6 +340,30 @@ export function learnScreen() {
   </div>`;
 }
 
+/** The ribbon (LessonRibbon in LearnView.swift): a soft band and a line weaving through each
+ *  part's stones, in the part's colour up to the next lesson. */
+export function drawRibbons() {
+  document.querySelectorAll(".path").forEach((path) => {
+    path.querySelector("svg.ribbon")?.remove();
+    const box = path.getBoundingClientRect();
+    const stones = [...path.querySelectorAll(".stone")];
+    if (stones.length < 2) return;
+    const pts = stones.map((s) => { const r = s.getBoundingClientRect(); return [r.left + r.width / 2 - box.left, r.top + r.height / 2 - box.top]; });
+    const lastDone = stones.reduce((k, s, i) => (s.classList.contains("completed") ? i : k), -1);
+    const reach = Math.min(stones.length - 1, lastDone + 1);
+    const seg = (a, b, i) => { const bow = (i % 2 ? 1 : -1) * 26; const mx = (a[0] + b[0]) / 2 + bow, my = (a[1] + b[1]) / 2; return `Q ${mx} ${my} ${b[0]} ${b[1]}`; };
+    const d = (from, to) => { let out = `M ${pts[from][0]} ${pts[from][1]}`; for (let i = from + 1; i <= to; i++) out += ` ${seg(pts[i - 1], pts[i], i)}`; return out; };
+    const color = getComputedStyle(stones[0]).getPropertyValue("--fill").trim() || "#E23B4E";
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "ribbon");
+    svg.setAttribute("width", box.width); svg.setAttribute("height", box.height);
+    svg.innerHTML = `<path d="${d(0, pts.length - 1)}" fill="none" stroke="${color}" stroke-opacity="0.12" stroke-width="40" stroke-linecap="round"/>
+      <path d="${d(0, pts.length - 1)}" fill="none" stroke="currentColor" stroke-opacity="0.18" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"/>
+      ${reach > 0 ? `<path d="${d(0, reach)}" fill="none" stroke="${color}" stroke-width="5" stroke-linecap="round"/>` : ""}`;
+    path.prepend(svg);
+  });
+}
+
 function kindLabel(l) {
   switch (l.kind) {
     case "letters": return (l.letters || []).length ? tr("New letters and your first reading") : tr("Reading practice");
@@ -447,12 +525,14 @@ function exerciseView(ex) {
       const w = ex.word;
       return `<div class="teach card"><div class="teach-word ka">${esc(w.ka)}</div>${speaker(w.ka, { size: 48 })}<div class="lat big-lat">${esc(w.lat)}</div>
         <div class="teach-en">${esc(w.en)}</div>
-        ${w.example ? `<div class="teach-example">${speaker(w.example.ka, { size: 36 })}<div><span class="ka">${esc(w.example.ka)}</span><div class="lat">${esc(w.example.lat)}</div><div class="soft">${esc(w.example.en)}</div></div></div>` : ""}
-        ${w.note ? `<p class="tip">${icon("bulb", { size: 16 })}<span>${esc(w.note)}</span></p>` : ""}</div>`;
+        ${w.example ? `<div class="teach-example">${speaker(w.example.ka, { size: 36 })}<div><span class="ka">${tapGeorgian(w.example.ka)}</span><div class="lat">${esc(w.example.lat)}</div><div class="soft">${esc(w.example.en)}</div></div></div>` : ""}
+        ${w.note ? `<p class="tip">${icon("bulb", { size: 16 })}<span>${tapProse(w.note)}</span></p>` : ""}</div>`;
     }
     case "note": {
       const n = ex.note;
-      return `<div class="card note-card"><h3>${esc(n.title)}</h3><p>${esc(n.text)}</p>
+      const tappable = /[\u10D0-\u10FF]{2,}/.test(n.text);
+      return `<div class="card note-card"><h3>${esc(n.title)}</h3><p>${tapProse(n.text)}</p>
+        ${tappable ? `<p class="hint">${icon("hand", { size: 14 })}${esc(tr("Tap a Georgian word to see what it means."))}</p>` : ""}
         ${(n.table || []).length ? `<div class="note-table">${n.table.map((g) => `<div class="nt-row">${speaker(g.ka, { size: 32 })}<span class="ka">${esc(g.ka)}</span><span class="lat">${esc(g.lat)}</span><span class="nt-en">${esc(g.en)}</span></div>`).join("")}</div>` : ""}</div>`;
     }
     case "choice": {
@@ -465,7 +545,7 @@ function exerciseView(ex) {
     }
     case "dialogue": {
       const chosen = P.pending ? P.pending.choice : null;
-      return `<div class="bubbles small">${ex.history.slice(-4).map((l) => `<div class="bubble-row${l.isLearner ? " mine" : ""}"><div class="bubble b-${P.tint}${l.isLearner ? " mine" : ""}"${audio.canPlay(l.ka) ? ` data-say="${esc(l.ka)}"` : ""}><span class="bubble-name">${esc(l.isLearner ? tr("You") : l.speaker)}</span><span class="ka bubble-ka">${esc(l.ka)}</span><span class="bubble-en">${esc(l.en)}</span></div></div>`).join("")}</div>
+      return `<div class="bubbles small">${ex.history.slice(-4).map((l) => `<div class="bubble-row${l.isLearner ? " mine" : ""}"><div class="bubble b-${P.tint}${l.isLearner ? " mine" : ""}"${audio.canPlay(l.ka) ? ` data-say="${esc(l.ka)}"` : ""}><span class="bubble-name">${esc(l.isLearner ? tr("You") : l.speaker)}</span><span class="ka bubble-ka">${tapGeorgian(l.ka)}</span><span class="bubble-en">${esc(l.en)}</span></div></div>`).join("")}</div>
         <p class="say-this">${esc(tr("Say: {0}", ex.line.en))}</p>
         <div class="options ka-options">${ex.options.map((o, i) => {
           let cls = i === chosen ? " picked" : "";
@@ -682,8 +762,8 @@ export function wordScreen(id) {
     <section class="grad phrase-hero b-${color}"><div class="ka hero-phrase">${esc(w.ka)}</div><div class="hero-lat">${esc(w.lat)}</div><div class="hero-en">${esc(w.en)}</div>
       ${audio.canPlay(w.ka) ? `<div class="hero-play">${speaker(w.ka, { size: 52, cls: "on-color" })}<button class="speaker on-color soft" style="--s:40px" data-say-slow="${esc(w.ka)}" aria-label="${esc(tr("Play slowly"))}">${icon("slow", { size: 20 })}</button></div>` : ""}</section>
     ${w.example ? `<section class="card"><h3 class="card-title c-saperavi">${icon("bubble", { size: 18 })}${esc(tr("Example"))}</h3>
-      <div class="form-row"><div><div class="ka form-ka">${esc(w.example.ka)}</div><div class="lat">${esc(w.example.lat)}</div><div>${esc(w.example.en)}</div></div>${speaker(w.example.ka, { size: 36 })}</div></section>` : ""}
-    ${w.note ? `<section class="card"><h3 class="card-title c-gold">${icon("bulb", { size: 18 })}${esc(tr("When to use it"))}</h3><p>${esc(w.note)}</p></section>` : ""}
+      <div class="form-row"><div><div class="ka form-ka">${tapGeorgian(w.example.ka)}</div><div class="lat">${esc(w.example.lat)}</div><div>${esc(w.example.en)}</div></div>${speaker(w.example.ka, { size: 36 })}</div></section>` : ""}
+    ${w.note ? `<section class="card"><h3 class="card-title c-gold">${icon("bulb", { size: 18 })}${esc(tr("When to use it"))}</h3><p>${tapProse(w.note)}</p></section>` : ""}
     <section class="card"><h3 class="card-title c-blacksea">${icon("review", { size: 18 })}${esc(tr("Review"))}</h3>
       <p class="soft">${esc(m ? tr("Right {0} times, missed {1}. Next review {2}.", m.right, m.wrong, rel(m.due)) : tr("Not practised yet."))}</p>
       <a class="chunky b-blacksea" href="#/session/word:${esc(id)}">${icon("play", { size: 18 })}${esc(tr("Practise this word"))}</a></section>
@@ -717,10 +797,63 @@ export function progressScreen() {
     ${sectionTitle(tr("Modules"))}
     <div class="rows">${C.course.modules.map((m) => `<div class="card module-row"><span class="mr-icon grad b-${m.color}">${icon(MODULE_ICON[m.symbol] || "book", { size: 20 })}</span>
       <div><strong>${esc(m.title)}</strong>${bar(doneIn(m) / m.lessons.length, `b-${m.color}`)}<small class="soft">${doneIn(m)}/${m.lessons.length}</small></div></div>`).join("")}</div>
+    ${milestonesCard()}
     ${sectionTitle(tr("Activity"))}
     <section class="card"><div class="chart">${week.map(([d, n]) => `<div class="col"><span style="height:${Math.round((n / max) * 100)}%"></span><small>${esc(d)}</small></div>`).join("")}</div>
       <p class="soft small">${esc(tr("{0} answers · {1} active days", total, activeDays().size))}</p></section>
   </div>`;
+}
+
+// Milestones (Achievement in Gamification.swift): what's reached, and how far towards the rest.
+function longestStreak(days) {
+  const keys = [...days].sort();
+  let best = 0, run = 0, prev = null;
+  for (const k of keys) {
+    const d = new Date(`${k}T12:00:00`);
+    run = prev && Math.round((d - prev) / 86400000) === 1 ? run + 1 : 1;
+    best = Math.max(best, run);
+    prev = d;
+  }
+  return best;
+}
+
+export function milestones() {
+  const days = Object.values(store.days());
+  const done = store.completed();
+  const mods = modulesDone();
+  const longest = longestStreak(activeDays());
+  const perfect = days.reduce((a, d) => a + (d.perfect || 0), 0);
+  const reviews = days.reduce((a, d) => a + (d.reviews || 0), 0);
+  const goalDays = days.filter((d) => (d.xp || 0) >= goal()).length;
+  const words = learnedCount(false), letters = learnedCount(true);
+  const r = (v, t) => Math.min(1, v / t);
+  return [
+    ["First steps", "Finish your first lesson", "walk", "tkemali", r(done.size, 1)],
+    ["Ten letters", "Learn 10 letters", "letters", "blacksea", r(letters, 10)],
+    ["ანბანი", "Finish the whole alphabet module", "book", "pomegranate", mods.has("alphabet") ? 1 : 0],
+    ["Flawless", "Finish a lesson without a mistake", "star", "gold", r(perfect, 1)],
+    ["On a roll", "Learn 3 days in a row", "flame", "pomegranate", r(longest, 3)],
+    ["One week", "Learn 7 days in a row", "flame", "gold", r(longest, 7)],
+    ["A month of Georgian", "Learn 30 days in a row", "flame", "saperavi", r(longest, 30)],
+    ["Word collector", "Learn 25 words", "book", "tkemali", r(words, 25)],
+    ["Wordsmith", "Learn 100 words", "book", "saperavi", r(words, 100)],
+    ["Count to a hundred", "Finish How numbers are built", "grid", "gold", done.has("v6c") ? 1 : 0],
+    ["Order in a café", "Finish the café conversation", "cup", "pomegranate", done.has("c1") ? 1 : 0],
+    ["Your own sentences", "Finish the Grammar module", "puzzle", "blacksea", mods.has("grammar") ? 1 : 0],
+    ["Goal getter", "Reach your daily goal on 7 days", "target", "blacksea", r(goalDays, 7)],
+    ["Never forget", "Finish 10 review sessions", "review", "saperavi", r(reviews, 10)],
+    ["Ready for Tbilisi", "Finish Everyday Georgian", "map", "gold", mods.has("everyday") ? 1 : 0],
+    ["Chatterbox", "Finish every conversation", "bubbles", "tkemali", mods.has("conversation") ? 1 : 0],
+  ];
+}
+
+function milestonesCard() {
+  const all = milestones();
+  const got = all.filter((m) => m[4] >= 1).length;
+  return `<section class="card"><div class="section-row"><h2 class="section-title">${esc(tr("Milestones"))}</h2><small class="soft">${got}/${all.length}</small></div>
+    <div class="badges">${all.map(([t, d, ic, color, p]) => `<div class="badge${p >= 1 ? " on" : ""}" title="${esc(tr(d))}">
+      <span class="badge-ring b-${color}" style="--p:${Math.round(p * 100)}"><span class="badge-core${p >= 1 ? ` grad b-${color}` : ""}">${icon(ic, { size: 24 })}</span></span>
+      <strong>${esc(tr(t))}</strong><small>${esc(tr(d))}</small></div>`).join("")}</div></section>`;
 }
 
 // ---------------------------------------------------------------------------------------
