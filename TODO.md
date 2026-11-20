@@ -3,6 +3,11 @@
 Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_LOG.md.
 
 ## Needs the owner
+- [ ] Web app (KART #9, `web/`): look at the screenshots, then say "publish" to put it live at
+      aralearn.github.io/app. First the privacy page gets a web paragraph (saved phrases stay in
+      the browser; GitHub hosts the page). Either Claude pushes it to the website repo from a chat,
+      or a `WEBSITE_TOKEN` secret (fine-grained, Contents read/write on aralearn.github.io) lets
+      the Web app workflow do it.
 - [ ] Test the app on the iPhone (Feather install) and say what to change.
 - [ ] Native audio: every Georgian text has synthetic clips in Eka's and Giorgi's voices
       (1,460 each, KART #1, #2, #5). A native speaker's recordings can replace them one by
@@ -29,6 +34,8 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       Before the App Store: hide Profile › Developer, age rating, App Privacy ("no data").
 
 ## Next
+- [ ] Web app, step 2: the course (path, lessons with the exercise engine ported from
+      `Engine/`, review with SM-2, Words, Progress). Then practising saved phrases in review.
 - [ ] Before April 2027: build with Xcode 27 (iOS 27 SDK), Apple's warning ITMS-90725 on build #39.
       The workflow picks the newest Xcode 26 on `macos-15`; Xcode 27 likely needs the `macos-26`
       runner. Try it on a branch with one IPA build, then the TestFlight build.

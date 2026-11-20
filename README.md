@@ -95,6 +95,12 @@ Feather, always as `com.aralearn.ge` so your progress is kept. Releases (a new v
 `project.yml` with its CHANGELOG.md section, merged to `main`) are built automatically and
 published on the repository's Releases page with the IPA.
 
+## On the web
+
+[`web/`](web/README.md) holds the phrasebook as a web app for any phone or computer, built
+from the same content and audio (`python3 web/build.py --serve`). It works offline once added
+to the Home Screen. It will open at https://aralearn.github.io/app once it's published.
+
 ## Layout
 
 ```
@@ -109,5 +115,6 @@ Georgian/
   Resources/      the course as JSON, audio clips, Polish texts, brand artwork
 GeorgianUITests/  UI tests
 tools/            course builder, audio maker, Polish checks, brand artwork, logic tests
+web/              the phrasebook as a web app (web/README.md)
 project.yml       XcodeGen project
 ```

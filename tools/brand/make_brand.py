@@ -10,7 +10,9 @@ Writes
 - Georgian/Assets.xcassets
                   AppIcon (light, dark and tinted), AraSymbol (vector PDF), LaunchMark (PNG)
                   and the mascot poses Parrot, ParrotBlink, ParrotCheer, ParrotThink and
-                  ParrotSleep (vector PDF).
+                  ParrotSleep (vector PDF);
+- web/icons/      the web app's home-screen and browser-tab icons and two mascot poses
+                  (alone: python3 tools/brand/make_brand.py --web).
 The wordmark is Nunito Black (SIL Open Font License, tools/brand/fonts/OFL-Nunito.txt), turned into
 outlines, so no font is needed to show it. docs/brand.md explains how to use it all.
 """
@@ -244,6 +246,22 @@ def launch_mark():
     write(os.path.join(folder, "Contents.json"), json.dumps({"images": files, "info": {"author": "xcode", "version": 1}}, indent=2) + "\n")
 
 
+def web_icons():
+    """The web app's icons (web/icons/): home-screen icons in the app icon's look, a
+    full-bleed one for Android's masks, and the symbol as the browser-tab icon."""
+    folder = os.path.join(ROOT, "web", "icons")
+    os.makedirs(folder, exist_ok=True)
+    big = png(icon("light"), 1024)
+    big.convert("RGB").resize((180, 180), Image.LANCZOS).save(os.path.join(folder, "apple-touch-icon.png"))
+    for w in (192, 512):
+        rounded(big.resize((w, w), Image.LANCZOS)).save(os.path.join(folder, f"icon-{w}.png"))
+    big.convert("RGB").resize((512, 512), Image.LANCZOS).save(os.path.join(folder, "maskable-512.png"))
+    png(symbol_doc(size=64), 64).save(os.path.join(folder, "favicon-64.png"))
+    write(os.path.join(folder, "favicon.svg"), symbol_doc(size=64))
+    write(os.path.join(folder, "mascot-hello.svg"), mascot_doc("hello"))
+    write(os.path.join(folder, "mascot-think.svg"), mascot_doc("think"))
+
+
 # ---------------------------------------------------------------------------------------
 # Previews
 
@@ -274,6 +292,10 @@ def icon_sizes_preview():
 
 
 def main():
+    if "--web" in sys.argv:
+        web_icons()
+        print("web icons in web/icons/")
+        return
     os.makedirs(os.path.join(BRAND, "svg"), exist_ok=True)
     os.makedirs(os.path.join(BRAND, "png"), exist_ok=True)
     masters = {
@@ -310,6 +332,7 @@ def main():
     names = {"hello": "Parrot", "blink": "ParrotBlink", "cheer": "ParrotCheer", "think": "ParrotThink", "sleep": "ParrotSleep"}
     for pose, name in names.items():
         imageset(name, mascot_doc(pose), pose)
+    web_icons()
     print(f"{len(masters)} masters in brand/, app icon, launch mark, symbol and {len(names)} mascot poses in the asset catalog")
 
 

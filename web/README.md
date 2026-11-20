@@ -1,0 +1,82 @@
+# Ara on the web
+
+The phrasebook half of Ara (**Use in Georgia**) as a web app: it opens in any browser, on an
+iPhone, an Android phone or a computer, and can be added to the Home Screen, where it opens
+like an app and works offline. The course (lessons, review, Words) comes next.
+
+It reads the iPhone app's own content (`Georgian/Resources`): the same phrases, conversations,
+word explanations, Polish and audio, checked by the same tools. Nothing is copied by hand, so a
+fix to a phrase reaches both apps.
+
+## What's in it
+
+- **Phrasebook**: search, emergencies (with 112 to call), My phrasebook, recently used phrases,
+  every situation as a colourful tile, the conversations. Nothing to unlock.
+- **A situation**: its phrases by subcategory (chips filter them), its conversations.
+- **The phrase card**: the Georgian large with the Latin spelling and meaning, normal and slow
+  audio; Show, Save, Learned, Copy, Share; lists of your own; how to say it (the sound guide and
+  the tricky letters), word by word, when to use it, other ways to say it, replies you may hear,
+  the course words and the grammar behind it.
+- **Show mode**: the Georgian huge, white on black, to hold up to a driver or a shopkeeper:
+  English on or off, turned upside down for the person opposite, play and play slowly; the
+  screen stays on.
+- **Conversations**: read and hear them line by line (English and Latin letters on or off),
+  useful expressions explained, then play either side: choose each of your lines among three,
+  the other side answers aloud.
+- **Search**: English, Polish, Georgian or Latin letters, typos and synonyms, over phrases,
+  situations, conversations and the course words (the iPhone app's search, ported line by line).
+- **My phrasebook**: saved phrases by situation, filtered by your lists or what's learned;
+  ⋯ moves a phrase to a list, marks it learned or removes it.
+- **Settings**: English or Polish, Eka's or Giorgi's voice, light, dark or the system's look,
+  keeping all the audio offline, how to add Ara to the Home Screen, privacy.
+
+Everything the learner keeps (saved phrases, lists, learned, recents, settings) stays in that
+browser (`localStorage`); nothing is sent anywhere. Progress doesn't move between devices.
+
+## Build and try
+
+```bash
+python3 web/build.py --serve
+```
+
+builds `web/dist/` and serves it at http://localhost:8000. The build fails if a text on screen
+has no Polish (`tools/l10n/check_strings.py` reads `web/js/*.js` too). Then:
+
+```bash
+node web/tests/search_test.mjs
+```
+
+```bash
+NODE_PATH="$(npm root -g)" node web/tests/screens.mjs
+```
+
+The first runs the iPhone app's search checks against the web search; the second walks through
+every screen in Chromium at iPhone size (light and dark, English and Polish, a computer and a
+small phone), checks saving, lists, Show mode, a whole conversation and search work, and saves
+screenshots in `web/dist-screens/`.
+
+On GitHub: **Actions › Web app › Run workflow** (`.github/workflows/web.yml`, a Linux machine,
+no Mac minutes) does all three and attaches the screenshots and the finished app. Ticking
+**publish** puts it live at https://aralearn.github.io/app (only on the owner's say-so).
+
+## How it's made
+
+Plain HTML, CSS and JavaScript modules: no framework and no build tools beyond `build.py`.
+
+| File | What |
+| --- | --- |
+| `index.html` | the page: the screen area, the tab bar, the sheet and the toast |
+| `app.css` | the look: the iPhone app's colours (light and dark), cards, chunky buttons, motion |
+| `js/app.js` | the screens and navigation (the address after `#` names the screen) |
+| `js/search.js` | search, a port of `Georgian/Curriculum/PhraseSearch.swift` |
+| `js/audio.js` | the clips in two voices; no clip, no speaker button |
+| `js/store.js` | what the learner keeps, in this browser |
+| `js/i18n.js` | `tr()` and `plural()`, like the iPhone app's |
+| `js/icons.js` | line icons standing in for SF Symbols |
+| `sw.js` | offline: keeps the app and content on install, audio as it plays |
+| `manifest.webmanifest` | name, icons and colours for the Home Screen |
+| `fonts/` | Nunito and Noto Sans Georgian (SIL Open Font License) |
+| `icons/` | made by `tools/brand/make_brand.py --web`; never by hand |
+
+Screens: `#/` phrasebook, `#/c/<situation>`, `#/p/<phrase>`, `#/show/<phrase>`,
+`#/d/<conversation>`, `#/d/<conversation>/as/<0|1>`, `#/search`, `#/saved`, `#/settings`.

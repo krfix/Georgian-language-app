@@ -3,6 +3,36 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #9 · 20/11/26 · Web app, phrasebook (branch `claude/happy-carson-cc03jn`)
+
+Owner (after KART #8's recommendation): "start the web app, phrasebook first". The code lives in
+`web/`, reads the iPhone app's content, and is published to aralearn.github.io/app only on say-so.
+
+### Built
+- `web/`: the phrasebook as a web app (plain HTML/CSS/JS modules, no framework). Phrasebook home,
+  situations, the phrase card (word by word, sound guide, forms, replies, course words, grammar),
+  Show mode (fitted text, flip, English on/off, slow play, screen kept on), conversations and
+  playing either side, search, My phrasebook with lists, Settings (English/Polish, Eka/Giorgi,
+  light/dark/system, all audio offline). Tab bar: Phrasebook · Search · My phrasebook · Settings.
+- `js/search.js`: PhraseSearch.swift ported line by line (stems, typos, synonyms, Polish).
+- Offline: `sw.js` keeps the app and content on install, each clip as it plays (Safari's byte
+  ranges cut from the whole file), or all of one voice from Settings (~16 MB).
+- `web/build.py`: content, slim word list, lesson titles and the clips for every phrase, line
+  and course word (both voices) into `web/dist/`, with the offline version; fails without Polish.
+- `tools/brand/make_brand.py --web`: home-screen icons, favicon and two mascot poses.
+- `tools/l10n/check_strings.py` reads `web/js/*.js`; 31 new Polish texts in `ui_pl.py`.
+- `.github/workflows/web.yml` (Linux, by hand): build, checks, screenshots, the app as an
+  artifact, optional publish. `build-ipa.yml` ignores `web/` on main.
+
+### Tested
+- `web/tests/search_test.mjs`: the iPhone app's 38 search checks (English and Polish) pass, and
+  every phrase and conversation line has a clip in both voices.
+- `web/tests/screens.mjs` (Chromium, 390×844, light/dark, EN/PL, plus 1280 and 320 wide): every
+  screen loads with a clean console, saving and lists survive a reload, Show mode text ≥ 40 px,
+  a whole conversation can be played, search finds pharmacies, no sideways scrolling. Screenshots
+  looked at: a turtle icon that read as a car redrawn; the offline button's text shortened.
+- Not yet on a real iPhone (Add to Home Screen, audio in Safari, offline).
+
 ## KART #8 · 19/11/26 · Explanations review (branch `claude/eager-johnson-9ccb2m`)
 
 Friends and family are testing on TestFlight. Owner asked for a linguistic check of every English

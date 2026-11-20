@@ -22,6 +22,8 @@ on:
     paths-ignore:
       - '**.md'
       - 'docs/**'
+      - 'web/**'
+      - '.github/workflows/web.yml'
   workflow_dispatch:
     inputs:
       title:

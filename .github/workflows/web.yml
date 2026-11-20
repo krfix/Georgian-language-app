@@ -1,0 +1,85 @@
+name: Web app
+
+# The web app (web/): built, tested and photographed on a cheap Linux machine, never the Mac.
+# Started by hand only (Actions › Web app › Run workflow, or
+#   gh workflow run web.yml --repo krfix/Georgian-language-app --ref <branch> -f title="<subject>").
+# Every run: builds web/dist from the iPhone app's content (web/build.py), runs the search
+# checks (the same as the iPhone app's), then walks through every screen in Chromium at iPhone
+# size in light and dark, English and Polish, and attaches
+#   - "web-screens": the screenshots,
+#   - "web-app": the finished app, ready for any web server.
+# "publish" ticked (only on the owner's say-so): copies the finished app into the website repo
+# aralearn/aralearn.github.io as /app, so it opens at https://aralearn.github.io/app. Needs the
+# WEBSITE_TOKEN secret: a fine-grained token with Contents read and write on that repo only.
+run-name: ${{ inputs.title || format('Web app ({0})', github.ref_name) }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: Name shown in the run list (optional)
+        required: false
+        type: string
+      publish:
+        description: Publish to aralearn.github.io/app (only on the owner's say-so)
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: web-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Build
+        run: python3 web/build.py
+
+      - name: Search checks
+        run: node web/tests/search_test.mjs
+
+      - name: Screens
+        run: |
+          npm install --prefix "$RUNNER_TEMP/pw" playwright@1.49.1
+          "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps chromium
+          NODE_PATH="$RUNNER_TEMP/pw/node_modules" node web/tests/screens.mjs web/dist-screens
+
+      - name: Attach the screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-screens
+          path: web/dist-screens
+          if-no-files-found: ignore
+
+      - name: Attach the app
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-app
+          path: web/dist
+
+      - name: Publish to aralearn.github.io/app
+        if: inputs.publish
+        env:
+          TOKEN: ${{ secrets.WEBSITE_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then echo "::error::The WEBSITE_TOKEN secret is missing"; exit 1; fi
+          git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/aralearn/aralearn.github.io.git" site
+          rm -rf site/app
+          cp -R web/dist site/app
+          cd site
+          git config user.name "Ara web build"
+          git config user.email "ara-web-build@users.noreply.github.com"
+          git add -A app
+          if git diff --cached --quiet; then echo "Nothing new to publish"; exit 0; fi
+          VERSION=$(python3 -c "import json;print(json.load(open('app/version.json'))['version'])")
+          git commit -m "App: web app ${VERSION} (from ${GITHUB_REF_NAME} ${GITHUB_SHA::7})"
+          git push

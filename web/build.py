@@ -1,0 +1,139 @@
+#!/usr/bin/env python3
+"""Builds the web app into web/dist/, ready to put on any web server:
+
+    python3 web/build.py            # build
+    python3 web/build.py --serve    # build, then serve it at http://localhost:8000
+
+The web app's own files (web/index.html, app.css, js/, fonts/, icons/) are copied as they
+are. The content comes straight from the iPhone app's checked files, so both apps always say
+the same thing:
+- Georgian/Resources/Curriculum: the phrasebook, the word glossary, the letters (English and
+  Polish), plus a slim list of the course words for search and the lesson titles;
+- Georgian/Resources/Localization/ui-pl.json: the Polish for the app's own words;
+- Georgian/Resources/Audio: the clips for every phrase, form, reply, conversation line and
+  course word, in both voices, with a small index per voice.
+The service worker (sw.js) gets a version made from everything it serves, so a new build
+replaces the old one on people's phones, and the list of files to keep for offline use.
+Fails if a text on screen has no Polish (tools/l10n/check_strings.py).
+"""
+import hashlib
+import http.server
+import json
+import os
+import shutil
+import subprocess
+import sys
+
+WEB = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(WEB)
+RES = os.path.join(ROOT, "Georgian", "Resources")
+DIST = os.path.join(WEB, "dist")
+OWN = ["index.html", "app.css", "manifest.webmanifest", "js", "fonts", "icons"]
+
+
+def load(*parts):
+    with open(os.path.join(RES, *parts), encoding="utf-8") as f:
+        return json.load(f)
+
+
+def dump(obj, *parts):
+    path = os.path.join(DIST, *parts)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, separators=(",", ":"))
+
+
+def main():
+    check = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "l10n", "check_strings.py")],
+                           capture_output=True, text=True)
+    if check.returncode != 0:
+        print(check.stdout)
+        sys.exit("Some texts have no Polish: add them to tools/l10n/ui_pl.py, run it, then build again.")
+
+    shutil.rmtree(DIST, ignore_errors=True)
+    os.makedirs(DIST)
+    for name in OWN:
+        src = os.path.join(WEB, name)
+        if os.path.isdir(src):
+            shutil.copytree(src, os.path.join(DIST, name))
+        else:
+            shutil.copy2(src, os.path.join(DIST, name))
+
+    # Content, in both languages.
+    texts = set()
+    for suffix in ("", "-pl"):
+        pb = load("Curriculum", f"phrasebook{suffix}.json")
+        dump(pb, "data", f"phrasebook{suffix}.json")
+        dump(load("Curriculum", f"glossary{suffix}.json"), "data", f"glossary{suffix}.json")
+        dump(load("Curriculum", f"letters{suffix}.json"), "data", f"letters{suffix}.json")
+        vocab = load("Curriculum", f"vocabulary{suffix}.json")
+        words = [{k: w[k] for k in ("id", "ka", "lat", "en", "alt", "category") if k in w}
+                 for w in vocab["words"] + vocab.get("more", [])]
+        cats = [{"id": c["id"], "title": c["title"]} for c in vocab["categories"]]
+        dump({"categories": cats, "words": words}, "data", f"words{suffix}.json")
+        course = load("Curriculum", f"course{suffix}.json")
+        lessons = {l["id"]: l["title"] for m in course["modules"] for l in m["lessons"]}
+        dump(lessons, "data", f"lessons{suffix}.json")
+        for p in pb["phrases"]:
+            texts.add(p["ka"])
+            for f in (p.get("variants") or []) + (p.get("replies") or []):
+                texts.add(f["ka"])
+        for d in pb["dialogues"]:
+            texts.update(l["ka"] for l in d["lines"])
+        texts.update(w["ka"] for w in words)
+    dump(load("Localization", "ui-pl.json"), "data", "ui-pl.json")
+
+    # Audio: only the clips the web app can play.
+    os.makedirs(os.path.join(DIST, "audio"))
+    copied = set()
+    sizes = {}
+    for voice, index in (("eka", "audio.json"), ("giorgi", "audio-giorgi.json")):
+        clips = load("Audio", index)["clips"]
+        out = {}
+        total = 0
+        for t in sorted(texts):
+            c = clips.get(t)
+            if not c:
+                continue
+            out[t] = [c["file"], c.get("source", "synthetic")]
+            src = os.path.join(RES, "Audio", c["file"])
+            total += os.path.getsize(src)
+            if c["file"] not in copied:
+                shutil.copy2(src, os.path.join(DIST, "audio", c["file"]))
+                copied.add(c["file"])
+        dump(out, "audio", f"{voice}.json")
+        sizes[voice] = total
+    dump(sizes, "audio", "sizes.json")
+
+    # The service worker: a version from every file it serves, and the files to keep offline
+    # (everything but the clips, which are kept as they're played or all at once from Settings).
+    digest = hashlib.sha256()
+    shell = []
+    for folder, _, files in sorted(os.walk(DIST)):
+        for fn in sorted(files):
+            path = os.path.join(folder, fn)
+            rel = os.path.relpath(path, DIST).replace(os.sep, "/")
+            with open(path, "rb") as f:
+                digest.update(rel.encode() + f.read())
+            if not rel.endswith(".mp3") and not rel.startswith("fonts/OFL") and not rel.endswith("-64.png"):
+                shell.append(rel)
+    version = digest.hexdigest()[:10]
+    shell = ["./"] + [r for r in shell if r != "index.html"]
+    with open(os.path.join(WEB, "sw.js"), encoding="utf-8") as f:
+        sw = f.read().replace("__VERSION__", version).replace("__SHELL__", json.dumps(shell))
+    with open(os.path.join(DIST, "sw.js"), "w", encoding="utf-8") as f:
+        f.write(sw)
+    with open(os.path.join(DIST, "version.json"), "w") as f:
+        json.dump({"version": version}, f)
+
+    mb = sum(os.path.getsize(os.path.join(DIST, "audio", f)) for f in copied) / 1e6
+    print(f"web/dist: version {version}, {len(shell)} files kept offline, {len(copied)} clips ({mb:.1f} MB)")
+
+    if "--serve" in sys.argv:
+        os.chdir(DIST)
+        print("Serving at http://localhost:8000 (Ctrl+C to stop)")
+        http.server.ThreadingHTTPServer(("", 8000), http.server.SimpleHTTPRequestHandler).serve_forever()
+
+
+if __name__ == "__main__":
+    main()

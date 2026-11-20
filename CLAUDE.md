@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #8 (19/11/26). The words come from the first request. Rename with `set_session_title`
+KART #9 (20/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
@@ -63,6 +63,10 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   Open all lessons (`devUnlockAllLessons`) and Quick pass (`devQuickPass`: a Pass button in
   lessons, tap = right answer, hold = finish the lesson). Hide it before an App Store release.
 - Test data is always invented (Ana, the demo learner, `LearningStore.seedDemo`).
+- Web app (KART #8–#9, `web/README.md`): the phrasebook for any browser, in `web/`, plain
+  HTML/CSS/JS reading the iPhone app's content and audio (never copied by hand); tr() keys
+  share the Polish table. Next: the course. Published to https://aralearn.github.io/app (the
+  website repo's `/app`) only on the owner's say-so; update the privacy page first.
 
 ## Workflow
 1. Work on a branch, never straight on `main`. Tell the owner the branch name and the build
@@ -81,6 +85,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 5. "Release": raise `MARKETING_VERSION` in `project.yml` and add a `## [x.y.z] - yyyy-MM-dd`
    section to `CHANGELOG.md`; on `main` the workflow then publishes the GitHub Release with
    the IPA. A version without its CHANGELOG section never builds on `main`.
+- Web app: `python3 web/build.py` (+ `--serve`), `node web/tests/search_test.mjs`,
+  `NODE_PATH="$(npm root -g)" node web/tests/screens.mjs` (screenshots), all here on Linux;
+  on GitHub `web.yml` (Linux, by hand; `-f publish=true` puts it live, needs `WEBSITE_TOKEN`).
 - Mac minutes cost money (private repo, shared with the Logbook app). Build when the owner asks, or when the
   owner's brief asks for build-and-inspect cycles (as in KART #1). Let several changes ride on
   one run; cancel a run whose code is already out of date.
@@ -125,6 +132,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | Design system: colours (light and dark), type, motion, haptics, components | `DesignSystem/` (Borjgali emblem, ChunkyButton, cards, rings, confetti, FlowLayout, SpeakerButton) |
 | App start, launch options | `App/GeorgianApp.swift` (`AppModel`), `App/LaunchOptions.swift` |
 | Tabs, navigation, presenting lessons and phrases | `Features/Root/RootView.swift` (`Navigator`, `PhrasebookRoute`, `HomeRoute`) |
+| Web app: screens, search port, audio, saved data, offline worker, build | `web/js/app.js`, `search.js`, `audio.js`, `store.js`, `web/sw.js`, `web/build.py` |
 | Screens | `Features/Onboarding`, `Home`, `Learn` (path, preview, alphabet chart), `Lesson` (player, one view per content shape, completion), `Phrasebook` (tab, situation, phrase card, Show mode, dialogue, my phrasebook), `Vocabulary` (the Words tab: list, search over everything, word card), `Review`, `Progress` (pushed from Home's card), `Profile` |
 
 ## How the app works (and patterns to keep)

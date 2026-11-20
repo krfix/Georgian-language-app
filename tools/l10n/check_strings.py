@@ -4,7 +4,7 @@
     python3 tools/l10n/check_strings.py            # check (exit 1 if anything is missing)
     python3 tools/l10n/check_strings.py --missing  # print the missing keys as JSON to fill in
 
-Every tr("English…") in Georgian/**/*.swift must have an entry in
+Every tr("English…") in Georgian/**/*.swift and web/js/*.js must have an entry in
 Georgian/Resources/Localization/ui-pl.json with the same {0}, {1}… placeholders.
 Entries no screen uses any more are listed too (not an error).
 """
@@ -26,7 +26,9 @@ def unescape(s):
 
 def keys():
     out = {}
-    for f in glob.glob(os.path.join(ROOT, "Georgian", "**", "*.swift"), recursive=True):
+    files = glob.glob(os.path.join(ROOT, "Georgian", "**", "*.swift"), recursive=True)
+    files += glob.glob(os.path.join(ROOT, "web", "js", "*.js"))
+    for f in files:
         for ln, line in enumerate(open(f, encoding="utf-8"), 1):
             for m in CALL.finditer(line):
                 out.setdefault(unescape(m.group(1)), f"{os.path.relpath(f, ROOT)}:{ln}")

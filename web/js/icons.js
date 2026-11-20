@@ -1,0 +1,65 @@
+// Line icons for the web app, drawn on a 24-point grid in one style (round ends, 2.2 lines),
+// standing in for the iPhone's SF Symbols. The phrasebook data names SF Symbols; SYMBOLS maps
+// those names to these icons.
+
+const P = {
+  search: '<circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/>',
+  star: '<path d="M12 2.8l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4-4.7-4.6 6.5-.9z"/>',
+  speaker: '<path d="M4 9h3l5-4v14l-5-4H4z"/><path d="M16 9.2a4 4 0 0 1 0 5.6"/><path d="M18.8 6.5a8 8 0 0 1 0 11"/>',
+  show: '<path d="M2.5 19 8 5l5.5 14"/><path d="M4.6 14h6.8"/><circle cx="17.6" cy="15.6" r="3.2"/><path d="M20.8 12v7"/>',
+  learned: '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16.2 9.8"/>',
+  copy: '<rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>',
+  folder: '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  chevronRight: '<path d="M9 5.5 15.5 12 9 18.5"/>',
+  chevronLeft: '<path d="M15 5.5 8.5 12 15 18.5"/>',
+  close: '<path d="M6 6l12 12M18 6 6 18"/>',
+  eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  eyeOff: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><path d="M3.5 3.5l17 17"/>',
+  flip: '<path d="M7 4v16M3 8l4-4 4 4"/><path d="M17 20V4M13 16l4 4 4-4"/>',
+  phone: '<path d="M5.2 3.5h3.3l1.9 4.6-2.4 1.6a11.5 11.5 0 0 0 6.3 6.3l1.6-2.4 4.6 1.9v3.3a1.8 1.8 0 0 1-2 1.8C10.4 20 4 13.6 3.4 5.5a1.8 1.8 0 0 1 1.8-2z"/>',
+  bulb: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2v.2h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/>',
+  ear: '<path d="M6.5 9.5a5.5 5.5 0 0 1 11 0c0 3.5-3.5 4.3-3.5 7.5a3 3 0 0 1-5.7 1.3"/><path d="M9.5 10a2.5 2.5 0 0 1 5 0c0 1.2-1 1.7-1.6 2.2"/>',
+  wave: '<path d="M3 12h1M7 8.5v7M11 5v14M15 8.5v7M19 10.5v3M21 12h0"/>',
+  branch: '<circle cx="6" cy="18" r="2.5"/><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M6 8.5v7M18 8.5c0 5-4 6.5-9.5 8"/>',
+  book: '<path d="M4.5 5.5A2.5 2.5 0 0 1 7 3h12.5v15H7a2.5 2.5 0 0 0-2.5 2.5z"/><path d="M4.5 20.5V5.5M19.5 18v3H7"/><path d="M9 7.5h6.5"/>',
+  puzzle: '<path d="M5 9h3.2a2.3 2.3 0 1 1 4.6 0H16v3.2a2.3 2.3 0 1 1 0 4.6V20H5z"/>',
+  sliders: '<path d="M4 6h9M19 6h1M4 12h3M13 12h7M4 18h11M21 18h-1"/><circle cx="16" cy="6" r="2.4"/><circle cx="10" cy="12" r="2.4"/><circle cx="17.6" cy="18" r="2.4"/>',
+  bubble: '<path d="M4.5 4.5h15a1.5 1.5 0 0 1 1.5 1.5v9.5a1.5 1.5 0 0 1-1.5 1.5H10l-5 4v-4h-.5A1.5 1.5 0 0 1 3 15.5V6a1.5 1.5 0 0 1 1.5-1.5z"/>',
+  slow: '<path d="M3 16.5c0-4.4 3.4-8 7.8-8s7.8 3.6 7.8 8z"/><circle cx="20.4" cy="12.6" r="1.9"/><path d="M6 16.5v2.6M15.6 16.5v2.6M7.3 12.4h7M10.8 8.5v8"/>',
+  play: '<path d="M7 4.8v14.4L19 12z" fill="currentColor"/>',
+  swap: '<path d="M4 8h15l-4-4M20 16H5l4 4"/>',
+  alert: '<path d="M10.3 4 2.6 17.5A2 2 0 0 0 4.3 20.5h15.4a2 2 0 0 0 1.7-3L13.7 4a2 2 0 0 0-3.4 0z"/><path d="M12 9.5v4.5M12 17.2v.1"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  trash: '<path d="M4 7h16M9.5 7V4.5h5V7M6.5 7l1 13h9l1-13"/>',
+  download: '<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>',
+  share: '<path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>',
+  shield: '<path d="M12 3l8 3v6c0 4.6-3.4 8-8 9-4.6-1-8-4.4-8-9V6z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.6"/>',
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.8v.1"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/>',
+  moon: '<path d="M20 14.5A8.2 8.2 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
+  check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  review: '<path d="M20 11a8 8 0 0 0-14.3-4.9L4 8"/><path d="M4 3.5V8h4.5"/><path d="M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M20 20.5V16h-4.5"/>',
+  // Situations
+  starBubble: '<path d="M4.5 4.5h15a1.5 1.5 0 0 1 1.5 1.5v9.5a1.5 1.5 0 0 1-1.5 1.5H10l-5 4v-4h-.5A1.5 1.5 0 0 1 3 15.5V6a1.5 1.5 0 0 1 1.5-1.5z"/><path d="M12 7.2l1.2 2.4 2.6.4-1.9 1.8.5 2.6-2.4-1.2-2.4 1.2.5-2.6-1.9-1.8 2.6-.4z"/>',
+  car: '<path d="M3.5 13.5 5.6 8a2 2 0 0 1 1.9-1.3h9a2 2 0 0 1 1.9 1.3l2.1 5.5v4H3.5z"/><path d="M3.5 13.5h17"/><circle cx="7.5" cy="17.5" r="1.4"/><circle cx="16.5" cy="17.5" r="1.4"/>',
+  basket: '<path d="M3 9.5h18l-2 10.5H5z"/><path d="M7.5 9.5 11 3.5M16.5 9.5 13 3.5M9.5 13v4M14.5 13v4"/>',
+  fork: '<path d="M5.5 3v6a2.5 2.5 0 0 0 5 0V3M8 11.5V21M8 3v5"/><path d="M18 21V3c-2.6 1.6-3.8 4.2-3.8 7.5V14H18"/>',
+  house: '<path d="M3 11 12 3.8 21 11"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/>',
+  dumbbell: '<path d="M6.5 7v10M3.5 9.5v5M17.5 7v10M20.5 9.5v5M6.5 12h11"/>',
+  health: '<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V4.5h6V7M12 10.5v6M9 13.5h6"/>',
+  people: '<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.4 2.7-6 6-6s6 2.6 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16.2 14.2c2.8 0 4.8 2.2 4.8 5"/>',
+  briefcase: '<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>',
+  mountain: '<path d="M2 20 9 7.5l4 6.5 3-4 6 10z"/><path d="M7.2 10.7 9 12l1.6-1.3"/>',
+};
+
+export const SYMBOLS = {
+  "star.bubble.fill": "starBubble", "car.fill": "car", "basket.fill": "basket", "fork.knife": "fork",
+  "house.fill": "house", "dumbbell.fill": "dumbbell", "cross.case.fill": "health", "person.2.fill": "people",
+  "briefcase.fill": "briefcase", "mountain.2.fill": "mountain", "exclamationmark.triangle.fill": "alert",
+};
+
+/** An icon as inline SVG markup; `filled` fills the shape too (a saved star). */
+export function icon(name, { size = 22, filled = false, cls = "" } = {}) {
+  const body = P[SYMBOLS[name] || name] || P.bubble;
+  return `<svg class="icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="${filled ? "currentColor" : "none"}" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
+}
