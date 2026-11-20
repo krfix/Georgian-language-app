@@ -171,7 +171,6 @@ function homeScreen() {
   const learned = saved.filter((id) => store.isLearned(id)).length;
   return `<div class="screen" data-screen="phrasebook">
     <header class="page-head">
-      <div class="brand-row"><img src="icons/favicon.svg" alt="" width="34" height="34"><span class="brand-name">Ara</span></div>
       <div class="ka head-ka">საქართველოში</div>
       <h1 class="display">${esc(tr("Use in Georgia"))}</h1>
       <p class="lead">${esc(tr("The right words for everyday situations, ready when you need them."))}</p>
@@ -192,6 +191,76 @@ function homeScreen() {
     <div class="carousel">${C.pb.dialogues.map(dialogueCard).join("")}</div>
     ${installHint()}
     ${checkNote()}
+  </div>`;
+}
+
+
+// Home (for now): the greeting and the profile button, as on the iPhone; search; the two halves.
+// Lessons, review and progress join it with the course.
+function greeting() {
+  const h = new Date().getHours();
+  if (h >= 5 && h < 12) return ["დილა მშვიდობისა", tr("Good morning")];
+  if (h >= 18) return ["საღამო მშვიდობისა", tr("Good evening")];
+  return ["გამარჯობა", tr("Hello")];
+}
+
+function homeTab() {
+  const [ka, hello] = greeting();
+  const saved = store.savedIDs().filter((id) => C.phraseByID.has(id)).map((id) => C.phraseByID.get(id));
+  const recent = store.recent().map((id) => C.phraseByID.get(id)).filter(Boolean);
+  const shown = recent.length ? recent : saved;
+  return `<div class="screen" data-screen="home">
+    <header class="home-head">
+      <div><div class="ka head-ka">${esc(ka)}</div><h1 class="display">${esc(hello)}!</h1></div>
+      <a class="profile-button" href="#/settings" aria-label="${esc(tr("Profile and settings"))}" data-id="profile-button">ა</a>
+    </header>
+    <a class="search-bar" href="#/search" data-id="search-bar">${icon("search", { size: 20 })}<span>${esc(tr("Search: taxi, water, pharmacy…"))}</span></a>
+    <div class="halves">
+      <a class="grad half b-saperavi" href="#/learn">${icon("map", { size: 26 })}<strong>${esc(tr("Learn"))}</strong><small>${esc(tr("The course, step by step"))}</small></a>
+      <a class="grad half b-pomegranate" href="#/phrasebook">${icon("bubbles", { size: 26 })}<strong>${esc(tr("Use in Georgia"))}</strong><small>${esc(tr("{0} phrases", C.pb.phrases.length))}</small></a>
+    </div>
+    ${sectionTitle(tr("Situations"))}
+    <div class="carousel">${C.pb.categories.filter((c) => c.id !== "emergency").map(categoryTile).join("")}</div>
+    ${shown.length ? `${sectionTitle(recent.length ? tr("Recently used") : tr("Your saved phrases"))}<div class="carousel">${shown.map(miniCard).join("")}</div>` : ""}
+    ${comingSoon()}
+  </div>`;
+}
+
+function comingSoon() {
+  return `<section class="card coming"><img src="icons/mascot-hello.svg" alt="" class="mascot small">
+    <div><strong>${esc(tr("The course is coming to the web"))}</strong>
+    <p class="soft small">${esc(tr("Lessons, review and your progress are next. The phrasebook is all here already."))}</p></div></section>`;
+}
+
+function placeholderTab(name, title) {
+  return `<div class="screen" data-screen="${name}">
+    <header class="page-head compact"><h1 class="display">${esc(title)}</h1></header>
+    ${comingSoon()}
+    <a class="chunky b-pomegranate" href="#/phrasebook">${icon("bubbles", { size: 20 })}${esc(tr("Use in Georgia"))}</a>
+  </div>`;
+}
+
+// Words: every word, with search over everything (words, phrases, situations, conversations).
+let wordsQuery = "";
+let wordsMore = false;
+
+function wordsTab() {
+  const cats = C.wordCats.filter((c) => c.id !== "more");
+  const more = C.words.filter((w) => w.category === "more");
+  return `<div class="screen" data-screen="words">
+    <header class="page-head compact"><h1 class="display">${esc(tr("Words"))}</h1></header>
+    <div class="search-field">${icon("search", { size: 20 })}
+      <input id="wq" type="search" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false"
+        placeholder="${esc(tr("Search words and phrases"))}" value="${esc(wordsQuery)}" aria-label="${esc(tr("Search words and phrases"))}">
+    </div>
+    <div id="wresults">${wordsQuery.trim() ? resultsFor(wordsQuery) : `
+      ${cats.map((c) => {
+        const list = C.words.filter((w) => w.category === c.id);
+        return list.length ? `<h2 class="sub-title c-saperavi">${esc(c.title)} <small class="count">${list.length}</small></h2><div class="rows">${list.map(wordRow).join("")}</div>` : "";
+      }).join("")}
+      <h2 class="sub-title c-tkemali">${esc(tr("More words"))} <small class="count">${more.length}</small></h2>
+      ${wordsMore ? `<div class="rows">${more.map(wordRow).join("")}</div>` : `<button class="soft-button" data-act="more-words">${esc(tr("Show all {0}", more.length))}</button>`}`}
+    </div>
   </div>`;
 }
 
@@ -541,7 +610,7 @@ let searchQuery = "";
 
 function searchScreen() {
   return `<div class="screen" data-screen="search">
-    <header class="page-head compact"><h1 class="display">${esc(tr("Search"))}</h1></header>
+    ${topBar(tr("Search"))}
     <div class="search-field">${icon("search", { size: 20 })}
       <input id="q" type="search" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false"
         placeholder="${esc(tr("Search: taxi, water, pharmacy…"))}" value="${esc(searchQuery)}" aria-label="${esc(tr("Search words and phrases"))}">
@@ -559,10 +628,14 @@ function searchResults() {
       <div class="suggestions">${C.pb.suggestions.map((s) => `<button class="chip b-pomegranate" data-suggest="${esc(s)}">${esc(s)}</button>`).join("")}</div>
       ${recent.length ? `${sectionTitle(tr("Recently used"))}<div class="rows">${recent.map((p) => phraseRow(p, { showsCategory: true })).join("")}</div>` : ""}`;
   }
+  return resultsFor(q);
+}
+
+function resultsFor(q) {
   const r = C.search.search(q);
   if (r.isEmpty) {
     return `<div class="empty"><img src="icons/mascot-think.svg" alt="" class="mascot"><h3>${esc(tr("Nothing found"))}</h3>
-      <p class="soft">${esc(tr("Try another word, or browse the situations."))}</p><a class="soft-button" href="#/">${esc(tr("Browse situations"))}</a></div>`;
+      <p class="soft">${esc(tr("Try another word, or browse the situations."))}</p><a class="soft-button" href="#/phrasebook">${esc(tr("Browse situations"))}</a></div>`;
   }
   return `
     ${r.categories.length ? `${sectionTitle(tr("Situations"))}<div class="rows">${r.categories.map((c) => `<a class="cat-row grad b-${c.color}" href="#/c/${esc(c.id)}">${icon(c.symbol, { size: 22 })}<span><strong>${esc(c.title)}</strong><small class="ka">${esc(c.ka)}</small></span>${icon("chevronRight", { size: 18 })}</a>`).join("")}</div>` : ""}
@@ -593,7 +666,7 @@ function savedScreen() {
   if (!all.length) {
     body = `<div class="empty"><img src="icons/mascot-hello.svg" alt="" class="mascot"><h3>${esc(tr("Nothing saved yet"))}</h3>
       <p class="soft">${esc(tr("Open any phrase and tap Save. It stays here, ready to show or practise."))}</p>
-      <a class="chunky b-gold" href="#/">${esc(tr("Browse situations"))}</a></div>`;
+      <a class="chunky b-gold" href="#/phrasebook">${esc(tr("Browse situations"))}</a></div>`;
   } else if (!shown.length) {
     body = `<p class="soft">${esc(tr("No phrases here yet."))}</p>`;
   } else {
@@ -603,7 +676,7 @@ function savedScreen() {
       `<p class="faint small">${esc(tr("Tap ⋯ on a phrase to move it to a list or remove it."))}</p>`;
   }
   return `<div class="screen tint-gold" data-screen="saved">
-    <header class="page-head compact"><h1 class="display">${esc(tr("My phrasebook"))}</h1></header>
+    ${topBar(tr("My phrasebook"))}
     <div class="stats">
       <div class="stat c-gold">${icon("star", { size: 20, filled: true })}<b>${all.length}</b><small>${esc(tr("saved"))}</small></div>
       <div class="stat c-tkemali">${icon("learned", { size: 20 })}<b>${learnedCount}</b><small>${esc(tr("learned"))}</small></div>
@@ -622,7 +695,7 @@ function settingsScreen() {
   const appearance = store.setting("appearance") || "system";
   const seg = (name, value, current, title) => `<button class="seg${value === current ? " on" : ""}" data-set="${name}" data-value="${value}">${title}</button>`;
   return `<div class="screen" data-screen="settings">
-    <header class="page-head compact"><h1 class="display">${esc(tr("Settings"))}</h1></header>
+    ${topBar(tr("Profile and settings"))}
     <section class="card">
       <h3 class="card-title c-blacksea">${icon("globe", { size: 18 })}${esc(tr("Language"))}</h3>
       <div class="segmented">${seg("language", "en", lang, "🇬🇧 English")}${seg("language", "pl", lang, "🇵🇱 Polski")}</div>
@@ -716,7 +789,7 @@ async function keepAudioOffline() {
 }
 
 function notFound() {
-  return `<div class="screen">${topBar("")}<div class="empty"><img src="icons/mascot-think.svg" alt="" class="mascot"><h3>${esc(tr("Nothing here"))}</h3><a class="soft-button" href="#/">${esc(tr("Phrasebook"))}</a></div></div>`;
+  return `<div class="screen">${topBar("")}<div class="empty"><img src="icons/mascot-think.svg" alt="" class="mascot"><h3>${esc(tr("Nothing here"))}</h3><a class="soft-button" href="#/phrasebook">${esc(tr("Phrasebook"))}</a></div></div>`;
 }
 
 // ---------------------------------------------------------------------------------------
@@ -772,8 +845,8 @@ function route() {
 }
 
 function tabFor(parts) {
-  if (!parts.length || ["c", "p", "d"].includes(parts[0])) return "phrasebook";
-  return { search: "search", saved: "saved", settings: "settings" }[parts[0]] || "phrasebook";
+  if (!parts.length || parts[0] === "settings") return "home";
+  return { learn: "learn", words: "words", review: "review" }[parts[0]] || "phrasebook";
 }
 
 function render({ keepScroll = false } = {}) {
@@ -781,7 +854,11 @@ function render({ keepScroll = false } = {}) {
   const [a, b, , d] = parts;
   let html;
   const showing = a === "show";
-  if (!a) html = homeScreen();
+  if (!a) html = homeTab();
+  else if (a === "phrasebook") html = homeScreen();
+  else if (a === "learn") html = placeholderTab("learn", tr("Learn"));
+  else if (a === "review") html = placeholderTab("review", tr("Review"));
+  else if (a === "words") html = wordsTab();
   else if (a === "c") html = categoryScreen(b);
   else if (a === "p") html = phraseScreen(b);
   else if (a === "show") html = showScreen(b);
@@ -827,10 +904,10 @@ window.addEventListener("hashchange", (e) => {
 function goBack() {
   if (depth > 0) { history.back(); return; }
   const { parts } = route();
-  let parent = "/";
+  let parent = ["c", "d", "saved"].includes(parts[0]) ? "/phrasebook" : "/";
   if (parts[0] === "p" || parts[0] === "show") {
     const p = C.phraseByID.get(parts[1]);
-    parent = parts[0] === "show" ? `/p/${parts[1]}` : p ? `/c/${p.category}` : "/";
+    parent = parts[0] === "show" ? `/p/${parts[1]}` : p ? `/c/${p.category}` : "/phrasebook";
   } else if (parts[0] === "d" && parts[2] === "as") parent = `/d/${parts[1]}`;
   location.replace(`#${parent}`);
 }
@@ -909,6 +986,7 @@ document.addEventListener("click", async (e) => {
     case "clear-search": searchQuery = ""; render(); break;
     case "hide-install": store.setSetting("hideInstall", true); render({ keepScroll: true }); break;
     case "offline": keepAudioOffline(); break;
+    case "more-words": wordsMore = true; render({ keepScroll: true }); break;
     default: break;
   }
 });
@@ -927,6 +1005,12 @@ document.addEventListener("submit", (e) => {
 
 let searchTimer = null;
 document.addEventListener("input", (e) => {
+  if (e.target.id === "wq") {
+    wordsQuery = e.target.value;
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => { const r = $("#wresults"); if (r) r.innerHTML = wordsQuery.trim() ? resultsFor(wordsQuery) : ""; if (!wordsQuery.trim()) render({ keepScroll: true }); }, 120);
+    return;
+  }
   if (e.target.id !== "q") return;
   searchQuery = e.target.value;
   clearTimeout(searchTimer);
@@ -985,9 +1069,15 @@ async function applySetting(name, value) {
   }
 }
 
+// The tab bar, as on the iPhone: Home · Learn · Phrasebook · Words · Review.
+const TABS = [["home", "#/", "house"], ["learn", "#/learn", "map"], ["phrasebook", "#/phrasebook", "bubbles"],
+  ["words", "#/words", "book"], ["review", "#/review", "review"]];
+
 function labelTabs() {
-  const names = { phrasebook: tr("Phrasebook"), search: tr("Search"), saved: tr("My phrasebook"), settings: tr("Settings") };
-  document.querySelectorAll(".tab").forEach((t) => { t.querySelector("span").textContent = names[t.dataset.tab]; });
+  const names = { home: tr("Home"), learn: tr("Learn"), phrasebook: tr("Phrasebook"), words: tr("Words"), review: tr("Review") };
+  const tab = tabFor(route().parts);
+  $(".tabbar").innerHTML = `<div class="tabbar-inner">${TABS.map(([id, href, ic]) =>
+    `<a class="tab${id === tab ? " on" : ""}" data-tab="${id}" href="${href}">${icon(ic, { size: 24 })}<span>${esc(names[id])}</span></a>`).join("")}</div>`;
 }
 
 // ---------------------------------------------------------------------------------------

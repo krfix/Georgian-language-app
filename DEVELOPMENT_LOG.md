@@ -38,6 +38,17 @@ Owner (after KART #8's recommendation): "start the web app, phrasebook first". T
   version" / "Wersja w przeglądarce" (browser-only storage, GitHub Pages hosting), dated 20/11/26.
   Pages deployment succeeded. The home page doesn't link to /app yet.
 
+### Owner's first test, and the iPhone's tab bar
+- Settings › Listen was silent: the voice sample had no clip in the web build (now included).
+- No Ara logo on the Phrasebook (the iPhone app has none there).
+- Tab bar as on the iPhone: Home · Learn · Phrasebook · Words · Review, drawn as a floating
+  frosted-glass bar (iOS gives web apps no tab bar of its own). Home for now: greeting, the
+  profile button (top right) to Settings, search, Learn | Use in Georgia, situations, recent
+  phrases. Words: the word list with search over everything. Learn and Review: "coming next".
+  My phrasebook, Search and Settings open with a back button. SF Rounded on Apple devices.
+- Next (after the usage reset): welcome screen, Home, Learn and lessons, Review, Words, Settings
+  as on the iPhone.
+
 ## KART #8 · 19/11/26 · Explanations review (branch `claude/eager-johnson-9ccb2m`)
 
 Friends and family are testing on TestFlight. Owner asked for a linguistic check of every English

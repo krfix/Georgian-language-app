@@ -81,6 +81,8 @@ def main():
         for d in pb["dialogues"]:
             texts.update(l["ka"] for l in d["lines"])
         texts.update(w["ka"] for w in words)
+    # The voice sample in Settings (AudioService.Voice.sample in the iPhone app).
+    texts.add("გამარჯობა, როგორ ხარ?")
     dump(load("Localization", "ui-pl.json"), "data", "ui-pl.json")
 
     # Audio: only the clips the web app can play.

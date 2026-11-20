@@ -41,6 +41,9 @@ async function session(scheme, language) {
   };
   const go = async (hash) => { await page.evaluate((h) => { location.hash = h; }, hash); await page.waitForTimeout(150); };
   await page.goto(base);
+  await page.waitForSelector('[data-screen="home"]');
+  await shot("00-home");
+  await page.click('.tab[data-tab="phrasebook"]');
   await page.waitForSelector('[data-screen="phrasebook"]');
   await shot("01-phrasebook");
   // Scroll to the situations.
@@ -108,7 +111,7 @@ async function session(scheme, language) {
   }
   if (!(await page.$(".done-card"))) fail("conversation practice didn't finish");
   await shot("13-practice-done");
-  await page.click('.tab[data-tab="search"]');
+  await go("/search");
   await page.waitForSelector("#q");
   await shot("14-search-empty");
   await page.fill("#q", language === "pl" ? "apteka" : "pharmacy");
@@ -119,7 +122,7 @@ async function session(scheme, language) {
   await page.fill("#q", "zzqxw");
   await page.waitForTimeout(300);
   await shot("16-search-nothing");
-  await page.click('.tab[data-tab="saved"]');
+  await go("/saved");
   await page.waitForSelector('[data-screen="saved"]');
   const saved = await page.$$eval('[data-screen="saved"] .phrase-row', (r) => r.length);
   if (saved !== 1) fail(`my phrasebook shows ${saved} phrases`);
@@ -129,17 +132,25 @@ async function session(scheme, language) {
   await page.click('[data-menu="pb-ak-gamicheret-tu-sheidzleba"]');
   await shot("18-saved-menu");
   await page.click('[data-act="close-sheet"].soft-button');
-  await page.click('.tab[data-tab="settings"]');
+  await page.click('.tab[data-tab="words"]');
+  await page.waitForSelector('[data-screen="words"]');
+  await shot("20-words");
+  await page.click('.tab[data-tab="home"]');
+  await page.click('[data-id="profile-button"]');
   await page.waitForSelector('[data-screen="settings"]');
+  if (!(await page.$('[data-sample]'))) fail("no voice samples");
+  const sample = await page.evaluate(async () => (await (await fetch("audio/eka.json")).json())["გამარჯობა, როგორ ხარ?"]);
+  if (!sample) fail("the voice sample has no clip");
   await shot("19-settings");
   await page.reload();
   await page.waitForSelector('[data-screen="settings"]');
-  await page.click('.tab[data-tab="saved"]');
+  await go("/saved");
   await page.waitForSelector('[data-screen="saved"]');
   const kept = await page.$$eval('[data-screen="saved"] .phrase-row', (r) => r.length);
   if (kept !== 1) fail("saved phrase lost on reload");
   // Back from a phrase opened from Search returns to Search.
-  await page.click('.tab[data-tab="search"]');
+  await go("/search");
+  await page.waitForSelector("#q");
   await page.fill("#q", "taxi");
   await page.waitForTimeout(300);
   await page.click("#results .phrase-main");
@@ -163,7 +174,7 @@ for (const [w, h, name] of [[1280, 860, "desktop"], [320, 640, "small"]]) {
   await page.screenshot({ path: join(out, `en-light-${name}.png`) });
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
   if (overflow) fail(`${name}: page scrolls sideways`);
-  await page.goto(base);
+  await page.goto(base + "#/phrasebook");
   await page.waitForSelector('[data-screen="phrasebook"]');
   await page.waitForTimeout(400);
   if (await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)) fail(`${name}: home scrolls sideways`);

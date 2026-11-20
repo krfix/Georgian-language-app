@@ -543,6 +543,11 @@ PL = {
     "Nothing here": "Nic tu nie ma",
     "Version {0}": "Wersja {0}",
     "Couldn't copy": "Nie udało się skopiować",
+    "The course, step by step": "Kurs, krok po kroku",
+    "The course is coming to the web": "Kurs wkrótce w przeglądarce",
+    "Lessons, review and your progress are next. The phrasebook is all here already.": "Lekcje, powtórki i postępy będą następne. Rozmówki są już tu w całości.",
+    "More words": "Więcej słów",
+    "Show all {0}": "Pokaż wszystkie ({0})",
 }
 
 if __name__ == "__main__":
