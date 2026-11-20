@@ -27,6 +27,14 @@ lesson-complete screen were clearly behind. Owner: do those two.
 - Fixed on the way: the speaker on a letter-recognition or reading question gave the answer
   away (now only after answering, as on the iPhone); the combo flame shows from 3 in a row.
 
+### Tested
+- Every exercise kind screenshotted (dark English, light Polish) and compared with the iPhone's.
+  Found and fixed: the flashcard's back side collapsed (its class `back` was the round back
+  button's), the goal ring's class `ring` moved the welcome screen's flying letters.
+- `audit.mjs` full run: what's left is text scrolling under the bars that stay put (a lesson's
+  bottom button, the feedback panel, the title bar), as before. `screens.mjs` all fine;
+  `engine_test.mjs` (21) and `search_test.mjs` (38) pass; `check_strings.py` 0 missing.
+
 ## KART #10 · 20/11/26 · Web app polish, text size (branch `claude/epic-galileo-1bdun4`)
 
 Owner, from iPhone screenshots of the live web app: an old icon on a lesson, "Opanow…" cut on

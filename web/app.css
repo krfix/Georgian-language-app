@@ -795,9 +795,9 @@ html[data-text="large"] .stone-row { --swing: 0.6; }
 .stat-tile small { font-size: 0.75rem; color: var(--ink-soft); line-height: 1.2; }
 .goal-card { flex-direction: row; align-items: center; gap: 16px; }
 .goal-card > div { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.ring { position: relative; width: 64px; height: 64px; flex: none; display: grid; place-items: center; }
-.ring .ring-svg { position: absolute; inset: 0; transform: rotate(-90deg); }
-.ring .icon { position: relative; }
+.goal-ring { position: relative; width: 64px; height: 64px; flex: none; display: grid; place-items: center; }
+.goal-ring .ring-svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.goal-ring .icon { position: relative; }
 .ring-track, .ring-fill { fill: none; stroke-width: 10; stroke-linecap: round; }
 .ring-track { stroke: color-mix(in srgb, var(--ink) 10%, transparent); }
 .ring-fill { stroke: #FF8A1F; transition: stroke-dashoffset 1s cubic-bezier(.3, .7, .4, 1); }

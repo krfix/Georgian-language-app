@@ -740,7 +740,7 @@ function goalCard() {
   const p = Math.min(1, xp / goal());
   const c = 2 * Math.PI * 27;
   return `<div class="card goal-card">
-    <span class="ring" aria-hidden="true"><svg class="ring-svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="27" class="ring-track"/><circle cx="32" cy="32" r="27" class="ring-fill" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c * (1 - p)).toFixed(1)}"/></svg>${icon(p >= 1 ? "check" : "target", { size: 20, cls: p >= 1 ? "c-tkemali" : "c-gold" })}</span>
+    <span class="goal-ring" aria-hidden="true"><svg class="ring-svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="27" class="ring-track"/><circle cx="32" cy="32" r="27" class="ring-fill" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c * (1 - p)).toFixed(1)}"/></svg>${icon(p >= 1 ? "check" : "target", { size: 20, cls: p >= 1 ? "c-tkemali" : "c-gold" })}</span>
     <div><strong>${esc(p >= 1 ? (P.goalReachedNow ? tr("Daily goal reached!") : tr("Daily goal done")) : tr("Daily goal"))}</strong>
     <span class="soft">${esc(p >= 1 ? tr("Done for today. ყოჩაღ!") : tr("{0}% of today's goal", Math.round(p * 100)))}</span></div></div>`;
 }
