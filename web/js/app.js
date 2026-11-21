@@ -858,7 +858,12 @@ function render({ keepScroll = false } = {}) {
   else if (a === "settings") html = settingsScreen();
   else html = notFound();
   const y = window.scrollY;
+  // A tap that only updates the screen (an answer picked, a card flipped) keeps every
+  // animation where it was, so entrances don't replay and the screen doesn't flicker.
+  const carry = keepScroll && location.hash === renderedHash ? animationsIn(view()) : null;
   view().innerHTML = html;
+  if (carry) carryAnimations(view(), carry);
+  renderedHash = location.hash;
   document.body.classList.toggle("showing", showing);
   const tab = tabFor(parts);
   document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("on", t.dataset.tab === tab));
@@ -875,6 +880,41 @@ function render({ keepScroll = false } = {}) {
   // Every speaker on screen gets its clip ready, so a tap plays at once.
   audio.prepare([...document.querySelectorAll("[data-say], [data-say-slow]")].map((b) => b.dataset.say ?? b.dataset.saySlow));
   if (a === "settings") { countCached(); const v = $("#version"); if (v) v.textContent = tr("Version {0}", window.ARA_VERSION || "dev"); }
+}
+
+let renderedHash = null;
+
+/** Where an element sits under `root`, with its classes: the same spot after a re-render is "the same" element. */
+function spotOf(el, root) {
+  let key = "";
+  for (let n = el; n && n !== root; n = n.parentElement) {
+    key = `${n.parentElement ? [...n.parentElement.children].indexOf(n) : 0}.${n.tagName}.${n.getAttribute("class") || ""}/${key}`;
+  }
+  return key;
+}
+
+/** The screen's elements and where each running animation has got to. */
+function animationsIn(root) {
+  const spots = new Set([...root.querySelectorAll("*")].map((el) => spotOf(el, root)));
+  const running = new Map();
+  for (const a of document.getAnimations()) {
+    const t = a.effect && a.effect.target;
+    if (t && root.contains(t) && a.animationName) running.set(`${spotOf(t, root)}|${a.effect.pseudoElement || ""}|${a.animationName}`, a.currentTime);
+  }
+  return { spots, running };
+}
+
+/** After a re-render: an element that was already there carries on its animation (or stays
+    finished); a new element, or one whose look changed (a wrong answer's shake), animates as new. */
+function carryAnimations(root, { spots, running }) {
+  for (const a of document.getAnimations()) {
+    const t = a.effect && a.effect.target;
+    if (!t || !root.contains(t) || !a.animationName) continue;
+    const spot = spotOf(t, root);
+    if (!spots.has(spot)) continue;
+    const was = running.get(`${spot}|${a.effect.pseudoElement || ""}|${a.animationName}`);
+    try { if (was != null) a.currentTime = was; else a.finish(); } catch { /* an endless animation that wasn't running: let it start */ }
+  }
 }
 
 function navigate(href) {

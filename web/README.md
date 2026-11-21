@@ -80,6 +80,13 @@ small phone), checks saving, lists, Show mode, a whole conversation and search w
 screenshots in `web/dist-screens/`.
 
 ```bash
+NODE_PATH="$(npm root -g)" node web/tests/flicker_test.mjs
+```
+
+taps answers in a lesson and checks the exercise stays fully visible (no fade or flicker) while
+the screen updates; the feedback panel is the only thing that animates in.
+
+```bash
 NODE_PATH="$(npm root -g)" node web/tests/audit.mjs [folder] [--quick]
 ```
 

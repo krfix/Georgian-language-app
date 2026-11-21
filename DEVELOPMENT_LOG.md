@@ -3,6 +3,24 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #12 · 21/11/26 · Web answer flicker (branch `claude/quirky-galileo-23j5le`)
+
+Owner: tapping an answer in the web app makes the page flicker for a split second; the iPhone
+app is smooth. Cause: every tap redraws the screen, and the redrawn exercise replayed its
+entrance animation (fade in from invisible and slide up, 0.25 s). Measured in Chromium: the
+exercise dropped to opacity 0 and faded back on every tap.
+
+### Built
+- `render()` in `web/js/app.js`: when a tap only updates the screen (same address, kept scroll),
+  each element that was already there carries on its animation from where it was (or stays
+  finished); only new elements or changed ones (feedback panel, a wrong answer's shake, a
+  flipped card) animate. Covers every in-place update: answers, tiles, matching, flashcards,
+  welcome choices, settings switches.
+
+### Tested
+- New `web/tests/flicker_test.mjs`: before, opacity 0 → 1 over ~15 frames on each tap; after,
+  1.000 throughout (tap, change answer, Check). Engine 21/21, search 38/38, `screens.mjs` all fine.
+
 ## KART #11 · 20/11/26 · Web lessons like the iPhone (branch `claude/compassionate-brahmagupta-q2dvau`)
 
 Owner, from a "Nowa litera" screenshot of the web next to the iPhone: "possible to make it more
