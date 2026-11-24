@@ -31,6 +31,9 @@ version replaces the TestFlight one on the same phone.
   mainland. Version page texts and screenshots sent to the owner (zips of brand/app-store).
 - Version **0.4.0** (owner: not 1.0 yet; App Store Connect's version to change to match).
   No TestFlight build yet (owner: wait).
+- Owner: the Learn path looks a bit like Duolingo's. Not a copyright problem, but against
+  the brief; idea agreed: a grapevine Ara climbs from the bottom up (docs/vine-path.md), for the
+  next chat and 0.5.0.
 
 ## KART #13 · 24/11/26 · Website: Polish pages, iPhone frames (website repo, branch `claude/happy-noether-efyucr`)
 

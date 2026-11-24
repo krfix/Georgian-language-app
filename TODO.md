@@ -40,6 +40,9 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       group with a public link (Beta App Review). Privacy/support: aralearn.github.io.
 
 ## Next
+- [ ] **Learn path as a grapevine** (KART #14, owner loved it; next chat, for 0.5.0): Ara climbs a
+      vine from the bottom up, lessons as leaves, grapes and buds. Plan in docs/vine-path.md:
+      pictures from the brand tool first, for the owner to see, then the app and the web app.
 - [ ] Accessibility (KART #14): App Store Connect claims only Dark Interface and Reduced Motion
       for iPhone. Check a whole lesson, a review and the phrasebook with Larger Text (about 60
       fixed font sizes), VoiceOver and Voice Control (tiles, matching), and colour alone

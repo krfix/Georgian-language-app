@@ -179,6 +179,10 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   0.2.1 (build #30): More words, every word on screen in Words; 0.3.0 (KART #6): the Words
   tab, Home's new order, stage names instead of levels, tappable notes, smoother Learn and
   Words. See DEVELOPMENT_LOG.md and TODO.md.
+- KART #14 (branch `claude/festive-turing-v18y0y`, not merged yet: merging releases 0.4.0 on
+  `main`): App Store preparation, version 0.4.0, App Store Connect mostly filled in
+  (`docs/app-store.md`); no TestFlight build yet (owner: wait). Next: the grapevine Learn path
+  (`docs/vine-path.md`).
 
 ## Repos and branches
 - `krfix/Georgian-language-app` (private again, KART #7; never commit keys or personal
