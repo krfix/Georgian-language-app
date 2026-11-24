@@ -16,8 +16,13 @@ scroll by, the screenshot under a frame picture with a see-through screen).
   a closing invitation. Screens in `shots/` from the QA run, light or dark to match the device.
 - Frame: the owner's picture, `frame.webp` (978 × 2000); the screenshot fills its opening, and
   the simulator's own Dynamic Island (wider than the frame's) is painted out of the screenshots.
-- The Polish page shows English app screens: the Polish QA screens had expired. Swap in Polish
-  ones after the next `qa` run.
+- Polish screens (owner): the qa run's Polish pictures now cover the website's screens in light
+  and dark (`polish-<page>`, `polish-dark-<page>`); run #51 (screenshots only) made them;
+  `tools/make_shots.py <qa folder>` turns them into `shots/pl/`, the Polish page uses them.
+- Theme switch in every page's header: Light, Automatic (the device), Dark; kept in the
+  browser (localStorage), said on the privacy page. All dark colours in one place in style.css.
+- Hero: phones at the top (centred, the longer Polish text pushed them down); the second line
+  red instead of underlined. The alphabet keeps a faint mark where the island was (owner: fine).
 - Checked in Chromium at 1440 and 390 wide, light and dark: no overflow. Published (main
   fast-forwarded) on the owner's say-so.
 
