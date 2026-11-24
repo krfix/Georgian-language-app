@@ -25,6 +25,9 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       verb (სახლები დიდია, g11); the melody of yes/no questions (g5); the "tight pop" letter tips.
 - [ ] Try the phrasebook in real life (a taxi, the bazaar, a café) and say what was missing
       or slow to find.
+- [ ] After Ara is live on the App Store: App Store Connect › App Accessibility › Publish (saved
+      as a draft in KART #14; Apple only publishes it for a released version). Then think about
+      Nominations (asking Apple to feature Ara).
 - [ ] App Store (KART #14: free, no in-app purchases, repo private): follow the checklist in
       docs/app-store.md (texts in English and Polish, App Privacy "Data Not Collected", age
       rating, price, the EU trader question, review notes). Name reserved, Developer hidden in
