@@ -1,6 +1,22 @@
 # Changelog
 
-What changed in each version, newest first. Before the App Store, versions are 0.x.y.
+What changed in each version, newest first. Before the App Store, versions were 0.x.y; from
+the App Store on, the version matches App Store Connect (1.0, then 1.1…).
+
+## [1.0] - 2026-11-24
+
+Ara on the App Store: free, with no ads, no account and no tracking.
+
+- Profile › About: the privacy policy and help and support pages, in English or Polish
+- Every English and Polish explanation in the course read again and tightened
+- Learn: the next lesson has a ribbon; the stages line up on Progress; the welcome screen
+  fits on one screen in both languages
+- Phrases now say they were prepared "with the help of AI", and that a native speaker's
+  check is still to come
+- Profile shows the build number under the version
+- The testing tools (Profile › Developer) are only in test builds, never on the App Store
+- New app identifier for the App Store (com.aralearn.ge): an older test install is a
+  separate app
 
 ## [0.3.0] - 2026-11-18
 

@@ -87,8 +87,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
    `APPLE_TEAM_ID`; API key with the Admin role, for Apple's cloud signing).
 3. The owner installs the IPA with Feather and tests on the iPhone.
 4. "Merge": the branch into `main` (fast-forward when possible; no pull request unless asked).
-5. "Release": raise `MARKETING_VERSION` in `project.yml` and add a `## [x.y.z] - yyyy-MM-dd`
-   section to `CHANGELOG.md`; on `main` the workflow then publishes the GitHub Release with
+5. "Release": raise `MARKETING_VERSION` in `project.yml` (from 1.0 on, the same as the version
+   in App Store Connect, e.g. 1.0, 1.1) and add a `## [x.y] - yyyy-MM-dd` section to `CHANGELOG.md`; on `main` the workflow then publishes the GitHub Release with
    the IPA. A version without its CHANGELOG section never builds on `main`.
 - Web app: `python3 web/build.py` (+ `--serve`), `node web/tests/search_test.mjs` and `engine_test.mjs`,
   `NODE_PATH="$(npm root -g)" node web/tests/screens.mjs` (screenshots), `audit.mjs` (layout: cut,
