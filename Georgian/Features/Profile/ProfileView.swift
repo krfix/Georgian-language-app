@@ -136,30 +136,45 @@ struct ProfileView: View {
                 }
 
                 // Developer (KART #8): one switch; its two testing tools show only while it's on.
-                Section {
-                    Toggle(isOn: Binding(get: { store.developerMode }, set: { on in withMotion { store.developerMode = on } })) {
-                        DevRow(symbol: "hammer.fill", color: .saperavi, title: tr("Developer mode"),
-                               detail: tr("Tools for testing the app."))
-                    }
-                    .accessibilityIdentifier("dev-mode")
-                    if store.developerMode {
-                        Toggle(isOn: Binding(get: { store.devOpenAllLessons }, set: { store.devOpenAllLessons = $0 })) {
-                            DevRow(symbol: "lock.open.fill", color: .tkemali, title: tr("Open all lessons"),
-                                   detail: tr("Every lesson can be opened, whatever you've finished."))
+                // Only in builds that have the tools (Feather IPA, Simulator), never on the App Store.
+                if LearningStore.devToolsAvailable {
+                    Section {
+                        Toggle(isOn: Binding(get: { store.developerMode }, set: { on in withMotion { store.developerMode = on } })) {
+                            DevRow(symbol: "hammer.fill", color: .saperavi, title: tr("Developer mode"),
+                                   detail: tr("Tools for testing the app."))
                         }
-                        .accessibilityIdentifier("dev-unlock-all")
-                        Toggle(isOn: Binding(get: { store.devQuickPass }, set: { store.devQuickPass = $0 })) {
-                            DevRow(symbol: "forward.fill", color: .gold, title: tr("Quick pass in lessons"),
-                                   detail: tr("A Pass button at the top of a lesson: tap it to count the exercise as right, hold it to finish the lesson."))
+                        .accessibilityIdentifier("dev-mode")
+                        if store.developerMode {
+                            Toggle(isOn: Binding(get: { store.devOpenAllLessons }, set: { store.devOpenAllLessons = $0 })) {
+                                DevRow(symbol: "lock.open.fill", color: .tkemali, title: tr("Open all lessons"),
+                                       detail: tr("Every lesson can be opened, whatever you've finished."))
+                            }
+                            .accessibilityIdentifier("dev-unlock-all")
+                            Toggle(isOn: Binding(get: { store.devQuickPass }, set: { store.devQuickPass = $0 })) {
+                                DevRow(symbol: "forward.fill", color: .gold, title: tr("Quick pass in lessons"),
+                                       detail: tr("A Pass button at the top of a lesson: tap it to count the exercise as right, hold it to finish the lesson."))
+                            }
+                            .accessibilityIdentifier("dev-quick-pass-toggle")
                         }
-                        .accessibilityIdentifier("dev-quick-pass-toggle")
+                    } header: {
+                        Text(tr("Developer"))
+                    } footer: {
+                        Text(store.developerMode
+                             ? tr("Quick pass counts as right answers, so it changes your progress. Open all lessons doesn't.")
+                             : tr("Off: the app works as it does for everyone."))
                     }
-                } header: {
-                    Text(tr("Developer"))
-                } footer: {
-                    Text(store.developerMode
-                         ? tr("Quick pass counts as right answers, so it changes your progress. Open all lessons doesn't.")
-                         : tr("Off: the app works as it does for everyone."))
+                }
+
+                // About (KART #14): Apple asks for the privacy policy inside the app too.
+                Section(tr("About")) {
+                    Link(destination: Self.siteLink("privacy")) {
+                        Label(tr("Privacy policy"), systemImage: "hand.raised.fill")
+                    }
+                    .accessibilityIdentifier("about-privacy")
+                    Link(destination: Self.siteLink("support")) {
+                        Label(tr("Help and support"), systemImage: "questionmark.circle.fill")
+                    }
+                    .accessibilityIdentifier("about-support")
                 }
 
                 Section {
@@ -195,6 +210,12 @@ struct ProfileView: View {
             }
             .onAppear { name = store.profile.name }
         }
+    }
+
+    /// A page of the website (aralearn.github.io) in the app's language.
+    private static func siteLink(_ page: String) -> URL {
+        let prefix = AppLanguage.current == .pl ? "/pl" : ""
+        return URL(string: "https://aralearn.github.io\(prefix)/\(page)")!
     }
 
     private struct DevRow: View {

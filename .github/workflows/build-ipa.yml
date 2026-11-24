@@ -125,6 +125,8 @@ jobs:
       - name: Generate Xcode project
         run: xcodegen generate
 
+      # DEV_TOOLS keeps Profile › Developer in this IPA (for Feather testing). The TestFlight
+      # build below leaves it out, so the App Store version never shows it.
       - name: Build (no code signing)
         run: |
           set -o pipefail
@@ -137,6 +139,7 @@ jobs:
             -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
             CURRENT_PROJECT_VERSION=${{ github.run_number }} \
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS='$(inherited) DEV_TOOLS' \
             build | tee build.log | grep -E "error:|warning: .*Georgian/|BUILD (SUCCEEDED|FAILED)" || true
           if ! grep -q "BUILD SUCCEEDED" build.log; then
             # Surface compiler errors as annotations (readable without logging in).

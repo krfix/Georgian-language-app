@@ -3,6 +3,28 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #14 · 24/11/26 · Public, free release (branch `claude/festive-turing-v18y0y`)
+
+Owner asked: publish free on the App Store, and make the repo public? Analysis: no keys or
+personal email anywhere in the repo or its history (all commits by Claude's no-reply address;
+the Azure key is added by the proxy). Public would mean a licence (MIT code, CC BY-NC-SA
+content, name and parrot kept), moving the repo to `aralearn`, trimming personal notes, and
+would bring free Mac minutes and native speakers' corrections. **Owner's decision: free app,
+private repo.** Then iCloud sync: plan written (TODO.md, Next); owner chose to launch 1.0
+first and add sync in 1.1. TestFlight testers keep their progress either way: the App Store
+version replaces the TestFlight one on the same phone.
+
+### App Store checklist
+- Profile › Developer exists only with `DEBUG` (Simulator) or `DEV_TOOLS` (the Feather IPA,
+  set in build-ipa.yml); in TestFlight and App Store builds the section is gone and switches
+  saved by older builds do nothing (`LearningStore.devToolsAvailable`).
+- Profile › About: Privacy policy and Help and support, opening aralearn.github.io (the `/pl/`
+  pages in Polish). Polish strings added; check_strings: 541 texts, 0 missing.
+- `docs/app-store.md`: name, subtitle, keywords, promotional text and description in English
+  and Polish (lengths checked), App Privacy (Data Not Collected), age rating answers (wine:
+  infrequent), price, EU trader status, review notes.
+- Not compiled here (no Swift on Linux); an IPA build checks it.
+
 ## KART #13 · 24/11/26 · Website: Polish pages, iPhone frames (website repo, branch `claude/happy-noether-efyucr`)
 
 Owner: EN / PL should open its own page, not scroll; show Ara with iPhone pictures like

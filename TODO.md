@@ -25,17 +25,25 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       verb (სახლები დიდია, g11); the melody of yes/no questions (g5); the "tight pop" letter tips.
 - [ ] Try the phrasebook in real life (a taxi, the bazaar, a café) and say what was missing
       or slow to find.
-- [ ] Name: "Ara" chosen (KART #1). Before the App Store: check "Ara: Learn Georgian" is free
-      there and in a trademark search. Hide Profile › Developer.
+- [ ] App Store (KART #14: free, no in-app purchases, repo private): follow the checklist in
+      docs/app-store.md (texts in English and Polish, App Privacy "Data Not Collected", age
+      rating, price, the EU trader question, review notes). Name reserved, Developer hidden in
+      TestFlight/App Store builds, privacy link in the app: done.
 - [ ] Look at the new identity (docs/brand.md, brand/png) and the icon on the iPhone; say
       what to change. A trademark search should cover the symbol too.
 - [ ] App Store screenshots are ready (`brand/app-store`); a short App Store preview video
       and the description text are still to write.
 - [ ] TestFlight (KART #7): build #39 uploaded. Internal test by the owner, then an external
       group with a public link (Beta App Review). Privacy/support: aralearn.github.io.
-      Before the App Store: hide Profile › Developer, age rating, App Privacy ("no data").
 
 ## Next
+- [ ] iCloud sync (KART #14, owner chose: launch 1.0 first, sync in 1.1): SwiftData with
+      CloudKit (the models already fit), a merge step for records iCloud doubles (same letter,
+      word, day, profile), "Found your progress in iCloud" on a second iPhone, language and
+      voice through iCloud's key-value store, an on/off switch in Profile. Owner: tick iCloud
+      for com.aralearn.ge and make the container on developer.apple.com. Testable only via
+      TestFlight (Feather drops iCloud). Privacy page sentence first. Web: a "Move my
+      progress" code later.
 - [ ] Web app, what the iPhone has and the web doesn't yet: reminders
       (a web page can't remind reliably on iPhone), the phrasebook's conversation practice in
       the lesson player (the web has its own Practise screen for them).

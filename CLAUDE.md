@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #13 (24/11/26). The words come from the first request. Rename with `set_session_title`
+KART #14 (24/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
@@ -61,7 +61,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   so the GitHub name isn't in it; GitHub organisation `aralearn`): fixed once uploaded to Apple.
 - Developer mode (KART #8): Profile › Developer, one switch (`devMode`) that shows two tools:
   Open all lessons (`devUnlockAllLessons`) and Quick pass (`devQuickPass`: a Pass button in
-  lessons, tap = right answer, hold = finish the lesson). Hide it before an App Store release.
+  lessons, tap = right answer, hold = finish the lesson). Only in the Feather IPA (`DEV_TOOLS`)
+  and Simulator runs (`DEBUG`); TestFlight and the App Store never show it (KART #14).
 - Test data is always invented (Ana, the demo learner, `LearningStore.seedDemo`).
 - Web app (KART #8–#9, `web/README.md`): the whole app for any browser, in `web/`, plain
   HTML/CSS/JS reading the iPhone app's content and audio (never copied by hand), drawn like
@@ -69,6 +70,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   Polish table. Live at https://aralearn.github.io/app (the
   website repo's `/app`, KART #9; the site's home has a "Try Ara in your browser" button);
   republish only on the owner's say-so, privacy page first.
+- App Store (KART #14): free, no in-app purchases or ads; repo stays private. Listing texts
+  and Apple's forms in `docs/app-store.md`; keep it true to the app.
 
 ## Workflow
 1. Work on a branch, never straight on `main`. Tell the owner the branch name and the build

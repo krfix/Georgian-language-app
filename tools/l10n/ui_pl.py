@@ -532,6 +532,8 @@ PL = {
     "Tap ⋯ on a phrase to move it to a list or remove it.": "Stuknij ⋯ przy zwrocie, żeby przenieść go na listę albo usunąć.",
     "lists": "listy",
     "About": "O aplikacji",
+    "Privacy policy": "Polityka prywatności",
+    "Help and support": "Pomoc i wsparcie",
     "Nothing you do here leaves this device: no account, no tracking. Saved phrases and settings stay in this browser.": "Nic, co tu robisz, nie opuszcza tego urządzenia: bez konta, bez śledzenia. Zapisane zwroty i ustawienia zostają w tej przeglądarce.",
     "Privacy": "Prywatność",
     "Keeping the audio: {0} of {1}": "Zapisywanie nagrań: {0} z {1}",
