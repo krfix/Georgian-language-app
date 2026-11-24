@@ -180,7 +180,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   tab, Home's new order, stage names instead of levels, tappable notes, smoother Learn and
   Words. See DEVELOPMENT_LOG.md and TODO.md.
 - KART #14 (merged to `main` with [skip ci], so nothing was built): App Store preparation, version 0.4.0, App Store Connect mostly filled in
-  (`docs/app-store.md`); no TestFlight build yet (owner: wait). Watch out: 0.4.0 has its
+  (`docs/app-store.md`); TestFlight build #54 (0.4.0) uploaded. Watch out: 0.4.0 has its
   CHANGELOG section but no GitHub Release, so the next push to `main` that changes code builds and
   publishes 0.4.0 with whatever is in it. Before merging other work, ask the owner (release 0.4.0
   first, or move that work to 0.5.0 with its own section). Next: the grapevine Learn path

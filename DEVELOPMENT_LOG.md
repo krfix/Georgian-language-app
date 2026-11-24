@@ -30,7 +30,9 @@ version replaces the TestFlight one on the same phone.
   App Accessibility draft (Dark Interface, Reduced Motion), free, every country but China
   mainland. Version page texts and screenshots sent to the owner (zips of brand/app-store).
 - Version **0.4.0** (owner: not 1.0 yet; App Store Connect's version to change to match).
-  No TestFlight build yet (owner: wait).
+- Owner: "build 0.4.0 and push it to TestFlight". Build #54 from `main`: logic tests passed,
+  archived, signed and uploaded to App Store Connect (21:02 UTC). Owner to check in TestFlight:
+  no Profile › Developer, Profile › About opens both pages.
 - Owner: the Learn path looks a bit like Duolingo's. Not a copyright problem, but against
   the brief; idea agreed: a grapevine Ara climbs from the bottom up (docs/vine-path.md), for the
   next chat and 0.5.0.
