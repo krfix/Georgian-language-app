@@ -175,8 +175,8 @@ def background(c, theme):
 # The vine itself
 
 ROW = 92           # points between lessons
-STEM_X = 98        # the stem's middle; it sways STEM_SWAY either side
-STEM_SWAY = 20
+STEM_X = 100       # the stem's middle; it sways STEM_SWAY either side
+STEM_SWAY = 18
 ITEM_DX = 46       # from the stem to a lesson's picture
 TEXT_X = 210       # titles start here
 BAR_H = 14
@@ -186,109 +186,174 @@ def stem_x(k):
     return STEM_X + STEM_SWAY * math.sin(k * 1.3 + 0.4)
 
 
-def lesson_row(lesson, state, sx, y, c, k):
-    """One lesson on the vine at height y: its stalk, picture and title. state: done, next,
-    open, locked."""
-    ix = sx + ITEM_DX
-    out = ""
-    if state == "locked":
-        bx, by = sx + 16, y + 2
-        out += (f'<path d="M{sx:.1f},{y + 12:.1f} Q{sx + 10:.1f},{y + 10:.1f} {bx:.1f},{by + 8:.1f}" stroke="{c["shoot"]}" '
-                f'stroke-width="2.4" fill="none" stroke-linecap="round"/>')
-        out += vine.bud_svg(bx + 2, by - 2, 22, c)
-    else:
-        top = y - (34 if state == "done" else 30)
-        out += (f'<path d="M{sx:.1f},{y - 10:.1f} C{sx + 18:.1f},{y - 30:.1f} {ix - 4:.1f},{top - 14:.1f} {ix:.1f},{top + 4:.1f}" '
-                f'stroke="{c["wood"] if state == "done" else c["leaf_deep"]}" stroke-width="3.2" fill="none" stroke-linecap="round"/>')
-        if state == "done":
-            out += vine.bunch_svg(ix, y + 4, 66, c, uid=f"g{lesson['id']}", tilt=4 if k % 2 else -4)
-        else:
-            out += vine.leaf_svg(ix, y + 2, 66 if state == "next" else 56, c, state, rot=6 if k % 2 else -6,
-                                 uid=f"l{lesson['id']}")
+class Vine:
+    """How thick and how woody the vine is at any height (world y, growing upward from the
+    first lesson), for a learner whose next lesson is at world y `nxt`. Woodiness: brown old
+    bark well below the next lesson, cane and yellow straw over the last lessons done, green
+    from the next lesson up (cane ripening runs from the base to the tip)."""
+
+    def __init__(self, nxt, total):
+        self.nxt, self.total = nxt, total
+
+    def wood(self, wy):
+        dn = self.nxt - wy
+        return max(0.0, min(1.0, 0.22 + dn / 300)) if dn >= 0 else max(0.0, 0.22 + dn / 160)
+
+    def width(self, wy):
+        age = 1 - max(0.0, min(1.0, wy / self.total))
+        return (6 + 16 * age ** 1.3) * (0.7 + 0.3 * vine.smoothstep(0, 0.6, self.wood(wy)))
+
+
+def lesson_text(lesson, state, y, c):
     title_col = c["faint"] if state == "locked" else c["ink"]
-    out += text(fit(lesson["title"], 17, W - TEXT_X - 16), TEXT_X, y - 1, 17, title_col, "black")
+    out = text(fit(lesson["title"], 17, W - TEXT_X - 16), TEXT_X, y - 1, 17, title_col, "black")
     out += text(fit(lesson["subtitle"], 12.5, W - TEXT_X - 16, "regular"), TEXT_X, y + 17, 12.5,
                 c["faint"] if state == "locked" else c["soft"], "regular")
     return out
 
 
-def tendril(sx, y, c, side=-1, colour=None):
-    return (f'<path d="{vine.tendril_d(sx, y, 30, side)}" stroke="{colour or c["shoot"]}" stroke-width="2" '
-            f'fill="none" stroke-linecap="round"/>')
+def vine_scene(rows, sy, vn, c, top_cut=None, above=()):
+    """The vine through the rows on screen: the stem (zig-zagging a little at each node, as a
+    real shoot does), then at every lesson a node with its picture on the right and, opposite
+    it, a leaf (or Ara's perch); between lessons a node with a leaf and a forked tendril.
+    rows: (kind, module, lesson, state, world y, ripeness), bottom to top; sy: world y to
+    screen y. Returns (under, over): the stem and its growths, and the lesson pictures."""
+    pts, nodes = [], []
+    for k, r in enumerate(rows):
+        x, y = stem_x(r[6]), sy(r[4])
+        if r[0] == "card":
+            pts.append((x, y + 30))
+            continue
+        kink = 3 if r[6] % 2 else -3
+        pts.append((x + kink, y - 16))                            # the node
+        nodes.append(("lesson", r, x + kink, y - 16))
+        if k + 1 < len(rows) and rows[k + 1][0] == "lesson":
+            nx = stem_x(r[6] + 1)
+            mx, my = (x + nx) / 2 - kink, y - 16 - ROW / 2
+            pts.append((mx, my))
+            nodes.append(("between", r, mx, my))
+    if top_cut is not None:
+        pts.append((pts[-1][0] + 4, top_cut))
+    pts += list(above)              # where the stem goes on above the last lesson
+    # Down off the bottom of the screen, in even steps (uneven ones make the curve overshoot).
+    below, yb = [], pts[0][1] + ROW / 2
+    while yb < H + 260:
+        below.insert(0, (pts[0][0] - 3 * math.sin(yb / 70), yb))
+        yb += ROW / 2
+    pts = below + pts
+    wy = lambda p: sy(0) - p[1]   # noqa: E731  (screen y back to world y)
+    under = vine.stem_svg(pts, lambda p: vn.width(wy(p)), lambda p: vn.wood(wy(p)), c, seed=7)
+    over = ""
+    growths = ""
+    for kind, r, x, y in nodes:
+        m = vn.wood(wy((x, y)))
+        w = vn.width(wy((x, y)))
+        k = r[6]
+        seed = k * 13 + (1 if kind == "between" else 0)
+        if kind == "lesson":
+            state = r[3]
+            ix, iy = x + ITEM_DX - (5 if k % 2 else -5), sy(r[4])
+            if state == "locked":
+                growths += vine.stalk_svg(x + 2, y + 2, x + 16, y - 4, c, m, bend=-0.2, w=2.2)
+                over += vine.bud_svg(x + 20, y - 9, 20, c)
+                # A young bronze leaf unfolding opposite.
+                growths += vine.stalk_svg(x - 2, y, x - 18, y - 10, c, m, bend=0.25, w=2)
+                growths += vine.leaf_svg(x - 24, y - 4, 20 + (k % 3) * 3, c, "young", rot=50, uid=f"y{k}", sh=vine.leaf_shape(seed))
+            else:
+                growths += vine.stalk_svg(x + 2, y, ix - 2, iy - 32, c, m, bend=-0.25, w=3)
+                if state == "done":
+                    over += vine.bunch_svg(ix, iy + 4, 62, c, uid=f"g{k}", ripe=r[5], seed=seed, tilt=4 if k % 2 else -4)
+                else:
+                    over += vine.leaf_svg(ix, iy + 2, 66 if state == "next" else 56, c, state, rot=6 if k % 2 else -6, uid=f"l{k}")
+                if state == "next":
+                    over += vine.perch_svg(x - 3, iy + 22, c, R=14, reach=54, m=m)
+                else:
+                    # The leaf opposite the bunch, on its own stalk, out to the left.
+                    lx, ly = x - 30 - (k % 3) * 4, y - 4 + (k % 2) * 6
+                    growths += vine.stalk_svg(x - 2, y, lx + 6, ly - 12, c, m * 0.6, bend=0.3, w=2.4)
+                    growths += vine.leaf_svg(lx, ly, 38 + (k % 4) * 4, c, "deco", rot=30 + (k % 3) * 12, uid=f"o{k}",
+                                             sh=vine.leaf_shape(seed), colour=c["deco"][k % 4])
+            growths += vine.node_svg(x, y, w, -8 if k % 2 else 8, c, m)
+        else:
+            # Between lessons: two nodes in three carry a tendril (here on the right, reaching
+            # into the gap), and every node a leaf (here on the left).
+            col = vine.mix(c["shoot"], c["cane"], vine.smoothstep(0.4, 0.9, m))
+            if k % 3 != 2:
+                growths += vine.tendril_svg(x + 2, y, 44 + (k % 2) * 8, -30 + (k % 3) * 22, c, seed=seed, colour=col,
+                                            spring=(k % 4 == 1), w=2.2)
+            if k % 3 == 2:
+                # The node without a tendril on the right: one reaches out to the left instead.
+                growths += vine.tendril_svg(x - 4, y - 6, 50, 200 + (k % 2) * 25, c, seed=seed + 50, colour=col, w=2.2)
+            lx, ly = x - 34 - (k % 2) * 6, y + 8
+            young = vn.wood(wy((x, y))) == 0 and wy((x, y)) > vn.nxt + ROW * 1.5
+            growths += vine.stalk_svg(x - 2, y, lx + 5, ly - 12, c, m * 0.6, bend=0.35, w=2.2)
+            growths += vine.leaf_svg(lx, ly, (24 if young else 30) + (k % 3) * 5, c, "young" if young else "deco",
+                                     rot=40 + (k % 2) * 15, uid=f"b{k}", sh=vine.leaf_shape(seed),
+                                     colour=c["deco"][(k + 2) % 4])
+            growths += vine.node_svg(x, y, w, 6, c, m)
+    return under + growths, over
 
 
-def learn_screen(theme, upto=("vocabulary", 2)):
+def ripeness(order_from_next):
+    """For the mock-ups: the lesson just finished is green, the one before blushing, older
+    ones ripe. (In the app it could follow how well their words are remembered instead.)"""
+    return {1: "green", 2: "blush"}.get(order_from_next, "purple")
+
+
+def learn_screen(theme, upto=("vocabulary", 3)):
     """The Learn screen with the vine: all of the first module and `upto` lessons of the
-    named module done; the next lesson in the middle of the screen with Ara beside it."""
+    named module done; the next lesson a little above the middle, with Ara beside it."""
     c = vine.VINE_COLOURS[theme]
     mods = course()
-    # Course order, bottom to top: (kind, module, lesson, state, world y). World y grows upward.
-    rows, y, finished = [], 0.0, True
+    rows, y, finished, k = [], 0.0, True, 0
     for m in mods:
-        # The row's y is the trellis bar; the card hangs below it, the lessons grow above.
         y += card_height(m) + 40
-        rows.append(("card", m, None, None, y))
+        rows.append(["card", m, None, None, y, None, k])
         y += 76
         for i, l in enumerate(m["lessons"]):
             if m["id"] == upto[0]:
                 state = "done" if i < upto[1] else ("next" if i == upto[1] else "locked")
-                finished = False if i >= upto[1] else finished
             else:
                 state = "done" if finished else "locked"
-            rows.append(("lesson", m, l, state, y))
+            rows.append(["lesson", m, l, state, y, None, k])
             y += ROW
+            k += 1
         y += 10
         if m["id"] == upto[0]:
             finished = False
-    nxt = next(r for r in rows if r[3] == "next")
-    shift = 372 + nxt[4]            # the next lesson sits at screen y 372
-    sy = lambda wy: shift - wy      # noqa: E731
+    total = y
+    lessons = [r for r in rows if r[0] == "lesson"]
+    ni = next(i for i, r in enumerate(lessons) if r[3] == "next")
+    for i, r in enumerate(lessons[:ni]):
+        r[5] = ripeness(ni - i)
+    nxt = lessons[ni][4]
+    shift = 340 + nxt                # the next lesson sits at screen y 340
+    sy = lambda wy: shift - wy       # noqa: E731
+    vn = Vine(nxt, total)
+    vis = [r for r in rows if -160 < sy(r[4]) < H + 200]
 
     body = background(c, theme)
-    # Which rows are on screen (with a margin for the stem to run off the edges).
-    vis = [r for r in rows if -200 < sy(r[4]) < H + 260]
-    # The stem: old wood up to the next lesson, a young green shoot above it.
-    pts_old, pts_young, k_of = [], [], {}
-    for k, r in enumerate(rows):
-        k_of[id(r)] = k
-    for r in vis:
-        k = k_of[id(r)]
-        p = (stem_x(k), sy(r[4]))
-        if r[4] <= nxt[4]:
-            pts_old.append(p)
-        if r[4] >= nxt[4]:
-            pts_young.append(p)
-    # (Both run bottom to top, as the rows do.)
-    if len(pts_young) > 1:
-        body += vine.stem_svg(pts_young, 5, 3, c["shoot"], c["shoot"])
-    if pts_old:
-        body += vine.stem_svg([(pts_old[0][0], H + 200)] + pts_old, 15, 8, c["wood"], c["wood_deep"], c["wood_light"])
-    # Trellis bars and module cards (in front of the stem), then lessons.
+    under, over = vine_scene(vis, sy, vn, c)
+    body += under
     for r in vis:
         if r[0] != "card":
             continue
         m = r[1]
-        y0 = sy(r[4])               # the bar's level
+        y0 = sy(r[4])
         done = sum(1 for q in rows if q[0] == "lesson" and q[1] is m and q[3] == "done")
         card, ch = module_card(m, 20, y0 + 30, W - 40, done, c, theme)
         ropes = "".join(f'<path d="M{x},{y0 + 8} L{x},{y0 + 32}" stroke="{c["rope"]}" stroke-width="2.4" stroke-linecap="round"/>'
                         f'<circle cx="{x}" cy="{y0 + 8}" r="3.6" fill="{c["rope"]}"/>' for x in (56, W - 56))
-        body += ropes + vine.trellis_svg(-12, W + 12, y0, c, BAR_H) + card
-        # The vine winds once round the bar on its way up.
-        k = k_of[id(r)]
-        sx = stem_x(k)
-        body += (f'<path d="M{sx - 9:.1f},{y0 + BAR_H + 3:.1f} C{sx - 2:.1f},{y0 - 8:.1f} {sx + 14:.1f},{y0 - 2:.1f} {sx + 9:.1f},{y0 + BAR_H - 2:.1f}" '
-                 f'stroke="{c["wood_deep"] if r[4] <= nxt[4] else c["shoot"]}" stroke-width="4" fill="none" stroke-linecap="round"/>')
+        body += ropes + vine.trellis_svg(-12, W + 12, y0, c, BAR_H)
+        sx = stem_x(r[6])
+        mm = vn.wood(r[4])
+        body += vine.coil_round_bar(sx + 14, y0, BAR_H, vine.mix(c["shoot"], c["cane"], mm), turns=3)
+        body += vine.coil_round_bar(sx - 36, y0, BAR_H, vine.mix(c["shoot"], c["cane"], mm), turns=2)
+        body += card
+    body += over
     for r in vis:
-        if r[0] != "lesson":
-            continue
-        k = k_of[id(r)]
-        sx, yy = stem_x(k), sy(r[4])
-        if k % 2 == 0 and r[3] != "next":
-            body += tendril(sx - 3, yy + 32, c, -1, c["shoot"] if r[3] != "locked" else c["shoot_faint"])
-        body += lesson_row(r[2], r[3], sx, yy, c, k)
-        if r[3] == "next":
-            body += vine.perch_svg(sx - 2, yy + 22, c, R=14, reach=54)
+        if r[0] == "lesson":
+            body += lesson_text(r[2], r[3], sy(r[4]), c)
     body += nav(c, theme) + tab_bar(c, theme)
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">{body}</svg>\n'
 
@@ -337,17 +402,27 @@ def supra_table(cx, top, c, theme):
     return out
 
 
+
 def canopy(y, c):
-    """The full vine overhead: a pergola beam hidden in leaves, bunches hanging under it."""
+    """The full vine overhead: a pergola beam hidden in leaves of every shade and shape,
+    ripe bunches (and one still green) hanging under it, tendrils and a growing tip."""
     out = vine.trellis_svg(-12, W + 12, y, c, BAR_H)
-    leaves = [(-6, 0), (30, -14), (64, 4), (104, -10), (140, 6), (176, -12), (214, 2), (252, -14), (288, 4),
-              (326, -10), (362, 4), (398, -8)]
-    for i, (x, dy) in enumerate(leaves):
-        out += vine.leaf_svg(x, y + dy - 6, 52, c, "open", rot=(i % 3 - 1) * 25, uid=f"cb{i}")
-    for i, (x, dy) in enumerate(leaves[::2]):
-        out += vine.leaf_svg(x + 18, y + dy + 22, 46, c, "open", rot=(i % 2) * 30 - 15, uid=f"cf{i}")
-    for i, x in enumerate((48, 132, 222, 300, 372)):
-        out += vine.bunch_svg(x, y + 62 + (i % 2) * 12, 52, c, uid=f"cg{i}", tilt=(i % 3 - 1) * 6)
+    back = [(-8, -4), (26, -18), (60, 2), (96, -14), (132, 4), (168, -16), (206, 0), (242, -16), (280, 4),
+            (316, -12), (352, 2), (390, -14)]
+    for i, (x, dy) in enumerate(back):
+        out += vine.leaf_svg(x, y + dy - 6, 50 + (i % 3) * 6, c, "deco", rot=(i % 5 - 2) * 18, uid=f"cb{i}",
+                             sh=vine.leaf_shape(100 + i), colour=c["deco"][i % 4])
+    for i, x in enumerate((20, 96, 186, 262, 336)):
+        out += vine.tendril_svg(x + 10, y + 18, 34, 70 + (i % 3) * 20, c, seed=200 + i, spring=i % 2 == 0)
+    for i, (x, ripe) in enumerate(((46, "purple"), (132, "purple"), (222, "blush"), (300, "purple"), (374, "green"))):
+        out += vine.stalk_svg(x - 4, y + 10, x, y + 36, c, 0.6, bend=0.2, w=2.6)
+        out += vine.bunch_svg(x, y + 62 + (i % 2) * 12, 52 + (i % 3) * 4, c, uid=f"cg{i}", ripe=ripe, seed=300 + i,
+                              tilt=(i % 3 - 1) * 6)
+    front = back[1::2]
+    for i, (x, dy) in enumerate(front):
+        out += vine.leaf_svg(x + 16, y + dy + 22, 40 + (i % 2) * 8, c, "deco", rot=(i % 2) * 34 - 17, uid=f"cf{i}",
+                             sh=vine.leaf_shape(400 + i), colour=c["deco"][(i + 1) % 4])
+    out += vine.tip_svg(W - 50, y - 18, c, size=30, side=-1, uid="ctip")
     return out
 
 
@@ -357,68 +432,56 @@ def top_screen(theme):
     c = vine.VINE_COLOURS[theme]
     m = course()[-1]
     body = background(c, theme)
-    lessons = m["lessons"][::-1][:3]                 # the last three, top first
-    ys = [574 + i * ROW for i in range(len(lessons))]
-    ks = [len(m["lessons"]) - 1 - i for i in range(len(lessons))]
-    pts = [(stem_x(k), y) for k, y in zip(ks, ys)][::-1]
-    pts = [(pts[0][0], H + 200)] + pts + [(48, 500), (30, 380), (34, 200)]   # up the left, past the words
-    body += vine.stem_svg(pts, 15, 9, c["wood"], c["wood_deep"], c["wood_light"])
+    rows = []
+    for j, l in enumerate(m["lessons"][-3:]):
+        rows.append(["lesson", m, l, "done", -(574 + (2 - j) * ROW), "purple", 60 + j])
+    # A finished vine: all ripe and woody, the stem climbing on up the left to the pergola.
+    vn = Vine(10000, 1)
+    vn.width = lambda wy: 8 + max(0, min(8, (-wy - 186) / 70))      # noqa: E731
+    sy = lambda wy: -wy                                              # noqa: E731
+    under, over = vine_scene(rows, sy, vn, c, above=[(58, 480), (34, 380), (30, 186)])
+    body += under
     body += canopy(176, c)
     body += supra_table(W / 2, 352, c, theme)
     body += ara.mascot_svg(W / 2 + 132, 352 - 3.05 * 15, 15, "cheer")
-    # The stage, in the gold of rewards.
     body += text("Tamada", W / 2, 478, 30, c["ink"], "black", anchor="middle")
     body += text("Every lesson done: the table is yours.", W / 2, 502, 14.5, c["soft"], anchor="middle")
-    for k, y, l in zip(ks, ys, lessons):
-        if k % 2 == 0:
-            body += tendril(stem_x(k) - 3, y + 32, c)
-        body += lesson_row(l, "done", stem_x(k), y, c, k)
+    body += over
+    for r in rows:
+        body += lesson_text(r[2], r[3], sy(r[4]), c)
     body += nav(c, theme) + tab_bar(c, theme)
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">{body}</svg>\n'
 
 
 # ---------------------------------------------------------------------------------------
-# After a lesson: Ara hops up to the next leaf and it unfolds
+# After a lesson: the leaf turns into green grapes, Ara hops up, the bud above opens
 
 def hop_strip(theme):
-    """Three moments side by side: before (Ara by the leaf up next), the hop (the leaf has
-    ripened into grapes, Ara in the air, the bud above opening), after (Ara on the new leaf)."""
     c = vine.VINE_COLOURS[theme]
-    PW, PH = 230, 330
+    PW, PH = 240, 360
     out = f'<rect width="{PW * 3}" height="{PH + 40}" fill="{c["bg_top"]}"/>'
-    for i, label in enumerate(("1  Lesson finished", "2  Ripe, and a hop", "3  The new leaf opens")):
+    labels = ("1  Lesson finished", "2  Green grapes, a hop", "3  The new leaf opens")
+    for i, label in enumerate(labels):
         ox = i * PW
-        sx = lambda y: ox + 112 + 10 * math.sin(y / 60)   # noqa: E731
-        lower, upper = 250, 140
-        grown = upper - 30 if i == 2 else upper + 20       # the old wood reaches the new leaf
-        out += vine.stem_svg([(sx(grown), grown), (sx(60), 60), (sx(10), 10)], 5, 3, c["shoot"], c["shoot"])
-        out += vine.stem_svg([(sx(PH - 8), PH - 8), (sx(lower), lower), (sx(grown), grown)], 12, 9,
-                             c["wood"], c["wood_deep"], c["wood_light"])
-        bx = sx(lower) + ITEM_DX
-        out += (f'<path d="M{sx(lower):.1f},{lower - 10} C{sx(lower) + 18:.1f},{lower - 30} {bx - 4:.1f},{lower - 44} {bx:.1f},{lower - 26}" '
-                f'stroke="{c["wood"] if i else c["leaf_deep"]}" stroke-width="3.2" fill="none" stroke-linecap="round"/>')
-        if i == 0:
-            out += vine.leaf_svg(bx, lower + 2, 66, c, "next", uid=f"h{i}a")
-            out += vine.perch_svg(sx(lower) - 2, lower + 22, c, R=14, reach=54)
-        else:
-            out += vine.bunch_svg(bx, lower + 4, 66, c, uid=f"h{i}g")
-        ux = sx(upper) + ITEM_DX
-        if i < 2:
-            k = 22 if i == 0 else 30
-            out += vine.bud_svg(sx(upper) + 18, upper, k, c)
+        lower, upper = 260, 260 - ROW
+        nxt = upper if i == 2 else lower
+        rows = [["lesson", None, {"id": "a"}, "done" if i else "next", -lower, "green", 5],
+                ["lesson", None, {"id": "b"}, "next" if i == 2 else "locked", -upper, None, 6],
+                ["lesson", None, {"id": "c"}, "locked", -(upper - ROW), None, 7]]
+        vn = Vine(-nxt, 1)
+        vn.width = lambda wy: 6 + max(0.0, -wy) / 50                 # noqa: E731
+        sy = lambda wy: -wy                                            # noqa: E731
+        under, over = vine_scene(rows, sy, vn, c, top_cut=-10)
+        # Each panel's vine, shifted left a little and cut off above its label.
+        out += (f'<defs><clipPath id="hp{i}"><rect x="30" y="0" width="{PW}" height="{PH - 14}"/></clipPath></defs>'
+                f'<g clip-path="url(#hp{i})" transform="translate({ox - 30},0)">{under}{over}</g>')
         if i == 1:
-            # Ara mid-hop, cheering, with its path drawn as dots.
             for t in range(1, 9):
                 tt = t / 9
                 px = ox + 30 + tt * 40
                 py = lower + 10 - tt * 110 - math.sin(tt * math.pi) * 40
                 out += f'<circle cx="{px:.1f}" cy="{py:.1f}" r="2.2" fill="{c["faint"]}"/>'
-            out += ara.mascot_svg(ox + 58, upper - 30, 13, "cheer")
-        if i == 2:
-            out += (f'<path d="M{sx(upper):.1f},{upper - 10} C{sx(upper) + 18:.1f},{upper - 30} {ux - 4:.1f},{upper - 44} {ux:.1f},{upper - 26}" '
-                    f'stroke="{c["leaf_deep"]}" stroke-width="3.2" fill="none" stroke-linecap="round"/>')
-            out += vine.leaf_svg(ux, upper + 2, 66, c, "next", uid=f"h{i}b")
-            out += vine.perch_svg(sx(upper) - 2, upper + 22, c, R=14, reach=54)
+            out += ara.mascot_svg(ox + 56, upper - 34, 13, "cheer")
         out += text(label, ox + PW / 2, PH + 24, 15, c["ink"], anchor="middle")
         if i:
             out += f'<rect x="{ox}" y="20" width="1.2" height="{PH - 20}" fill="{c["faint"]}" opacity="0.5"/>'
@@ -426,29 +489,59 @@ def hop_strip(theme):
 
 
 def parts_sheet(theme):
-    """Every part of the vine with its name: what each lesson state looks like."""
+    """Every part of the vine with its name: the lesson states, how grapes ripen, how the
+    stem grows from green shoot to old bark, and the growths around it."""
     c = vine.VINE_COLOURS[theme]
-    Wd, Hd = 980, 330
+    Wd, Hd = 1000, 690
     out = f'<rect width="{Wd}" height="{Hd}" fill="{c["bg_top"]}"/>'
-    out += vine.leaf_svg(80, 140, 72, c, "next", uid="pn")
-    out += vine.leaf_svg(205, 140, 60, c, "open", uid="po")
-    out += vine.bunch_svg(325, 146, 72, c, uid="pg")
-    out += vine.bud_svg(430, 140, 26, c)
-    out += vine.stem_svg([(560, 232), (550, 190), (566, 130), (556, 60)], 15, 9, c["wood"], c["wood_deep"], c["wood_light"])
-    out += vine.stem_svg([(556, 60), (552, 20)], 5, 4, c["shoot"], c["shoot"])
-    out += f'<path d="{vine.tendril_d(552, 214, 26, -1)}" stroke="{c["shoot"]}" stroke-width="2" fill="none" stroke-linecap="round"/>'
-    out += vine.perch_svg(560, 170, c, R=15, reach=54)
-    out += vine.trellis_svg(650, 960, 120, c, BAR_H)
-    for x in (690, 920):
-        out += (f'<path d="M{x},{128} L{x},{152}" stroke="{c["rope"]}" stroke-width="2.4" stroke-linecap="round"/>'
-                f'<circle cx="{x}" cy="128" r="3.6" fill="{c["rope"]}"/>')
-    out += '<rect x="660" y="150" width="290" height="60" rx="18" fill="#7A3BC2"/>'
-    out += text("Module card", 805, 187, 17, "#FFFFFF", "black", anchor="middle")
-    for x, a, b in ((80, "Up next", "a fresh leaf, alive"), (205, "Open", "a calmer leaf"), (325, "Done", "a ripe bunch"),
-                    (430, "Locked", "a closed bud"), (540, "Ara perches", "beside the next leaf"),
-                    (805, "Trellis bar", "one level per module")):
-        out += text(a, x, 262, 16, c["ink"], "black", anchor="middle")
-        out += text(b, x, 282, 12.5, c["soft"], anchor="middle")
+
+    def label(x, y, a, b):
+        return text(a, x, y, 16, c["ink"], "black", anchor="middle") + text(b, x, y + 20, 12.5, c["soft"], anchor="middle")
+
+    # Row 1: the lesson states.
+    out += vine.leaf_svg(80, 120, 72, c, "next", uid="pn") + label(80, 222, "Up next", "a fresh leaf, alive")
+    out += vine.leaf_svg(205, 120, 60, c, "open", uid="po") + label(205, 222, "Open", "a calmer leaf")
+    out += vine.bud_svg(310, 120, 26, c) + label(310, 222, "Locked", "a closed bud")
+    for x, ripe, a, b in ((430, "green", "Done", "just finished"), (540, "blush", "Ripening", "words coming back"),
+                          (650, "purple", "Ripe", "remembered")):
+        out += vine.bunch_svg(x, 126, 74, c, uid=f"p{ripe}", ripe=ripe, seed=11) + label(x, 222, a, b)
+    out += vine.trellis_svg(740, 990, 96, c, BAR_H)
+    for x in (770, 960):
+        out += (f'<path d="M{x},104 L{x},128" stroke="{c["rope"]}" stroke-width="2.4" stroke-linecap="round"/>'
+                f'<circle cx="{x}" cy="104" r="3.6" fill="{c["rope"]}"/>')
+    out += vine.coil_round_bar(800, 96, BAR_H, c["cane"])
+    out += '<rect x="750" y="126" width="230" height="54" rx="18" fill="#7A3BC2"/>'
+    out += text("Module card", 865, 160, 17, "#FFFFFF", "black", anchor="middle") + label(865, 222, "Trellis bar", "one level per module")
+
+    # Row 2: the stem from old bark (left) to the green tip (right), lying down.
+    y0 = 380
+    pts = [(30 + i * 60, y0 + 10 * math.sin(i * 1.1)) for i in range(12)]
+    out += vine.stem_svg(pts, lambda p: 24 - (p[0] - 30) / 690 * 17, lambda p: 1 - max(0, min(1, (p[0] - 120) / 470)), c, seed=4)
+    for i in range(1, 11):
+        p = pts[i]
+        m = 1 - max(0, min(1, (p[0] - 120) / 470))
+        w = 24 - (p[0] - 30) / 690 * 17
+        out += vine.node_svg(p[0], p[1], w, 90, c, m)
+    tx, ty = pts[-1][0] + 2, pts[-1][1]
+    out += f'<g transform="rotate(90 {tx:.1f} {ty:.1f})">' + vine.tip_svg(tx, ty, c, size=46, side=-1, uid="ptip") + "</g>"
+    for x, a, b in ((90, "Old bark", "shaggy strips"), (270, "Cane", "turning brown"), (430, "Changing", "brown patches"),
+                    (590, "Green shoot", "nodes, a light streak"), (735, "Growing tip", "bronze leaves")):
+        out += label(x, y0 + 64, a, b)
+    out += label(500, y0 - 70, "One stem", "it browns from the bottom up, as a real vine does")
+
+    # Row 3: growths.
+    y1 = 610
+    out += vine.tendril_svg(60, y1 - 20, 60, -20, c, seed=3) + label(90, y1 + 40, "Tendril", "forked, curling")
+    out += vine.tendril_svg(210, y1 - 20, 60, -10, c, seed=8, spring=True) + label(245, y1 + 40, "Spring tendril", "coiled")
+    for i, x in enumerate((360, 420, 480, 540)):
+        out += vine.leaf_svg(x, y1 - 14, 44 + (i % 2) * 8, c, "deco", rot=(i - 1.5) * 20, uid=f"pd{i}",
+                             sh=vine.leaf_shape(20 + i), colour=c["deco"][i])
+    out += label(450, y1 + 40, "Leaves", "every one a little different")
+    out += vine.stem_svg([(720, y1 + 14), (722, y1 - 40), (716, y1 - 80)], lambda p: 8, lambda p: 0.3, c, seed=2)
+    out += vine.perch_svg(720, y1 - 20, c, R=15, reach=54) + label(650, y1 + 40, "Ara perches", "beside the next leaf")
+    out += vine.leaf_svg(860, y1 - 20, 30, c, "young", rot=20, uid="py1", sh=vine.leaf_shape(5))
+    out += vine.leaf_svg(900, y1 - 30, 22, c, "young", rot=-30, uid="py2", sh=vine.leaf_shape(6))
+    out += label(880, y1 + 40, "Young leaves", "higher up, still unfolding")
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="{Wd}" height="{Hd}" viewBox="0 0 {Wd} {Hd}">{out}</svg>\n'
 
 

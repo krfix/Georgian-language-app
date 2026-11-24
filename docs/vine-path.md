@@ -24,22 +24,34 @@ grapevine version below; to start in the next chat. Nothing is built yet.
 - At the top, after the last module: a full vine over a supra table (the Tamada stage).
 - Grapes on a vine aren't drinking: the age rating (13+, from the wine phrases) is unchanged.
 
-## Pictures (KART #15, 25/11/26): drawn, waiting for the owner's verdict
+## Pictures (KART #15, 25/11/26): drawn twice, waiting for the owner's verdict
 `python3 tools/brand/make_brand.py --vine` draws them from `tools/brand/vine.py` (the parts:
 leaf, grape bunch, bud, tendril, tapering stem, trellis bar, Ara perched on a branch; light
 and dark colours in `VINE_COLOURS`) and `vine_screens.py` (still mock-ups with the real course
 text) into `brand/vine/`:
 - `vine-parts-light/-dark`: every part with its name.
-- `vine-learn-light/-dark`: Learn with the Alphabet and two Vocabulary lessons done; "Who are
-  you?" up next (a glowing leaf, Ara on a branch beside it), the locked lessons as buds on a
+- `vine-learn-light/-dark`: Learn with the Alphabet and three Vocabulary lessons done; "Where
+  are you from?" up next (a glowing leaf, Ara on a branch beside it), the locked lessons as buds on a
   young green shoot (the vine is old wood only as far as the learner has grown), the
   Vocabulary card hanging from its trellis bar on two ropes, the stem winding once round the bar.
 - `vine-top-light/-dark`: the top once everything is done: a leafy pergola with grapes over a
   supra table (clay jug, pomegranates, shoti bread, khachapuri), Ara cheering on it, "Tamada".
-- `vine-hop`: after a lesson, the leaf ripens into grapes, Ara hops up, the bud above opens
-  into the new leaf.
-Choices made in drawing: grapes are always Saperavi purple (not the module colour, which
-stays on the card); titles sit in one straight column (easier to read, also with larger text);
+- `vine-hop`: after a lesson, the leaf turns into a green bunch, Ara hops up, the bud above
+  opens into the new leaf.
+Second round (owner: "beautiful", but the brown stem just turned into a green one; study real
+vines; more cartoon, more variety, more anatomy, green grapes, more leaves). Drawn from how a
+grapevine grows (extension and viticulture sources): one stem tapering from trunk to tip that
+turns woody from the bottom up, green to yellow straw to cane to shaggy bark, with brown
+patches where the bark is forming; nodes (slight swellings) with a leaf each, and opposite the
+leaf a bunch (lower down) or a forked tendril (two nodes with one, the third without), curling
+or coiled like a spring, some wound round the trellis bar; young bronze-edged leaves higher
+up; a growing tip bent like a shepherd's crook; the stem zig-zags a little at each node.
+Every leaf is a little different (lobes, teeth, shade). **Grapes ripen**: a lesson just done
+is a green bunch (like Rkatsiteli), then it blushes, then turns Saperavi purple. In the
+mock-ups that follows how recently the lesson was done; in the app it could follow how well
+its words are remembered (their review), so a learner sees the vine ripen as they review. To
+decide when building.
+Choices made in drawing: the module colour stays on the card, not the grapes; titles sit in one straight column (easier to read, also with larger text);
 the stem sways gently instead of the stones swinging. The tab bar in the mock-ups is
 simplified (no icons). "Every lesson done: the table is yours." is placeholder text.
 
@@ -55,4 +67,4 @@ simplified (no icons). "Every lesson done: the table is yours." is placeholder t
    `09-lessons` (and `07-lessons` in Polish) to redo afterwards.
 - A cheaper middle step if wanted: keep today's ribbon, but stones become leaves and grapes,
   with Ara perched on the next one.
-- Planned for **0.5.0**, after the 0.4.0 App Store launch.
+- Planned for **0.4.1** (owner, KART #15), after the 0.4.0 App Store launch.

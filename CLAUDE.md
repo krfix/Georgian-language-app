@@ -184,7 +184,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   CHANGELOG section but no GitHub Release, so the next push to `main` that changes code builds and
   publishes 0.4.0 with whatever is in it. Before merging other work, ask the owner (release 0.4.0
   first, or move that work to 0.5.0 with its own section). Next: the grapevine Learn path
-  (`docs/vine-path.md`); KART #15 drew its pictures (`make_brand.py --vine` → `brand/vine/`).
+  (`docs/vine-path.md`, for 0.4.1); KART #15 drew its pictures (`make_brand.py --vine` →
+  `brand/vine/`), app code not started.
 
 ## Repos and branches
 - `krfix/Georgian-language-app` (private again, KART #7; never commit keys or personal

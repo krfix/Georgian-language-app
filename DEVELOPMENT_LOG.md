@@ -16,6 +16,16 @@ leaf; a stem with visible joints (now one filled tapering shape); the module car
 the lessons below it; the stem crossing the "Tamada" text and the labels. Waiting for the
 owner's verdict before step 2 (LearnView).
 
+Round 2 (owner: beautiful; the brown stem must turn green gradually, more anatomy and
+variety, green grapes, more leaves; version **0.4.1**, no build). Read up on grapevine growth
+(nodes, leaf opposite bunch or tendril in a 2-on-1-off pattern, cane ripening from the base,
+green grapes colouring at veraison, the crook-shaped tip) and redrew `vine.py`: the stem is
+now one shape drawn in short pieces whose width and colour follow height (bark strips,
+brown patches, a light streak on young stem, node swellings), seeded variation for leaves and
+bunches, green / blushing / ripe bunches, forked and spring tendrils, young bronze leaves, the
+growing tip. Fixed on the way: a dashed-looking streak, ring-like nodes, dead-looking young
+leaves, a stem width jump (uneven curve points made the curve overshoot), the stem under labels.
+
 ## KART #14 · 24/11/26 · Public, free release (branch `claude/festive-turing-v18y0y`)
 
 Owner asked: publish free on the App Store, and make the repo public? Analysis: no keys or
