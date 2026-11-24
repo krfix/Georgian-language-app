@@ -21,6 +21,12 @@ exercise dropped to opacity 0 and faded back on every tap.
 - New `web/tests/flicker_test.mjs`: before, opacity 0 → 1 over ~15 frames on each tap; after,
   1.000 throughout (tap, change answer, Check). Engine 21/21, search 38/38, `screens.mjs` all fine.
 
+### Actions storage
+- Owner: GitHub warned Actions storage was at 100% with no new runs. Cause: 46 attached files
+  (2.2 GB: screenshots, test results, every IPA, web copies) kept 90 days by default; storage
+  counts every day a file is kept. Deleted all but the newest IPA (build #42); every upload now
+  has `retention-days` (7, IPAs 30). Screenshots stay on the `qa-screenshots` branch.
+
 ## KART #11 · 20/11/26 · Web lessons like the iPhone (branch `claude/compassionate-brahmagupta-q2dvau`)
 
 Owner, from a "Nowa litera" screenshot of the web next to the iPhone: "possible to make it more

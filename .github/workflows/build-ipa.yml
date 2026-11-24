@@ -166,11 +166,13 @@ jobs:
         with:
           path: ${{ env.IPA }}
           archive: false
+          retention-days: 30
 
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: build-log
+          retention-days: 7
           path: build.log
 
       - name: Publish GitHub Release
@@ -316,6 +318,7 @@ jobs:
         if: failure()
         with:
           name: testflight-logs
+          retention-days: 7
           path: |
             archive.log
             export.log
@@ -498,6 +501,7 @@ jobs:
         if: always()
         with:
           name: screenshots
+          retention-days: 7
           path: shots
           if-no-files-found: ignore
 
@@ -525,12 +529,14 @@ jobs:
         if: steps.uitests.outcome == 'failure'
         with:
           name: ui-test-results
+          retention-days: 7
           path: ui-results.zip
 
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: build-log
+          retention-days: 7
           path: build.log
 
       - name: Fail the run if a test failed

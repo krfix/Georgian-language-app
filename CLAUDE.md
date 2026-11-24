@@ -97,6 +97,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   one run; cancel a run whose code is already out of date.
 - Rhythm (owner, KART #6): on a branch, quick IPA builds only (no `qa`); the owner tests on
   the iPhone between them. One `qa=true` run (tests and screenshots) before merging to `main`.
+- Actions storage is limited (owner, KART #12): a run's attached files are kept 7 days, IPAs 30
+  (`retention-days`); releases keep their IPA. The newest QA screenshots also stay on the branch
+  `qa-screenshots` (`git fetch origin qa-screenshots`). Delete old attached files when storage fills.
 - The build number is the GitHub run number. Never set it by hand.
 - Commits: a short `Area: what changed` subject, an optional body, and end with the
   Co-Authored-By line (plus a Claude-Session line when the session gives one).
