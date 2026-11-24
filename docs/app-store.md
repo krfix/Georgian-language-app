@@ -151,6 +151,12 @@ App Store Connect › App Information › Age Rating › Edit. Honest answers:
 Result (KART #14, 24/11/26): **13+**, from the alcohol answer. Override: Not Applicable; Age
 Suitability URL empty. (Social media, location, dating, contests, loot boxes: all No/None.)
 
+## App Accessibility
+
+iPhone only. Claimed (KART #14): **Dark Interface**, **Reduced Motion**. Not yet: Larger Text,
+VoiceOver, Voice Control, Differentiate Without Colour Alone, Sufficient Contrast (untested
+across whole tasks; TODO.md). Captions and Audio Descriptions: no video.
+
 ## Pricing and availability
 
 - Price: **Free** (price tier 0). No in-app purchases.

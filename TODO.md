@@ -37,6 +37,10 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       group with a public link (Beta App Review). Privacy/support: aralearn.github.io.
 
 ## Next
+- [ ] Accessibility (KART #14): App Store Connect claims only Dark Interface and Reduced Motion
+      for iPhone. Check a whole lesson, a review and the phrasebook with Larger Text (about 60
+      fixed font sizes), VoiceOver and Voice Control (tiles, matching), and colour alone
+      (right/wrong, the path, the alphabet chart) and contrast; fix, then tick them there.
 - [ ] iCloud sync (KART #14, owner chose: launch 1.0 first, sync in 1.1): SwiftData with
       CloudKit (the models already fit), a merge step for records iCloud doubles (same letter,
       word, day, profile), "Found your progress in iCloud" on a second iPhone, language and
