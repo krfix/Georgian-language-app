@@ -24,7 +24,7 @@ changes (iCloud sync, for example), change the answers here and on the website f
 
 **Name** (30): `Ara: Learn Georgian`
 
-**Subtitle** (30): `Georgian for life in Georgia`
+**Subtitle** (30): `Phrasebook for life in Georgia` (no word repeated from the name: both count for search)
 
 **Category:** Education (secondary: Travel)
 
@@ -33,7 +33,7 @@ changes (iCloud sync, for example), change the answers here and on the website f
 > supra. Free, offline, no account.
 
 **Keywords** (100, commas, no spaces; the name and category already count):
-`georgian,kartuli,tbilisi,batumi,phrasebook,alphabet,mkhedruli,vocabulary,language,travel,speak`
+`kartuli,tbilisi,batumi,alphabet,mkhedruli,vocabulary,words,letters,language,travel,speak,expat`
 
 **Description** (4000):
 > Ara is a Georgian companion for people living in or visiting Georgia. Two halves, one app:
@@ -78,15 +78,15 @@ changes (iCloud sync, for example), change the answers here and on the website f
 
 ## Listing, Polish (App Store Connect › add language › Polish)
 
-**Name:** `Ara: Learn Georgian` (or `Ara: gruziński`, if the owner prefers a Polish name there)
+**Name** (30): `Ara: Nauka gruzińskiego` (Polish searches find "gruziński")
 
-**Subtitle** (30): `Gruziński na co dzień w Gruzji`
+**Subtitle** (30): `Rozmówki na co dzień w Gruzji`
 
 **Promotional text:**
 > Czytaj gruzińskie litery już w pierwszym tygodniu, a potem używaj prawdziwych zwrotów w
 > taksówce, na bazarze i przy suprze. Za darmo, offline, bez konta.
 
-**Keywords:** `gruziński,kartuli,tbilisi,batumi,rozmówki,alfabet,słówka,język,podróż,gruzja,mówić`
+**Keywords:** `kartuli,tbilisi,batumi,alfabet,słówka,słowa,litery,język,podróż,gruzja,mówić,rozmówki`
 
 **Description:**
 > Ara to gruziński towarzysz dla tych, którzy mieszkają w Gruzji albo do niej jadą. Dwie
