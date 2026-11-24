@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #11 (20/11/26). The words come from the first request. Rename with `set_session_title`
+KART #13 (24/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
@@ -181,7 +181,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 - `krfix/Georgian-language-app` (private again, KART #7; never commit keys or personal
   details, secrets live in GitHub's Actions secrets): this app; `main` is what's tested and accepted.
 - `aralearn/aralearn.github.io` (public, KART #7): the website, https://aralearn.github.io:
-  home, `/privacy`, `/support`, English and Polish, plain HTML in Ara's colours. Contact
+  home, `/privacy`, `/support` in English and the same under `/pl/` in Polish (KART #13), plain
+  HTML in Ara's colours; the home pages come from its `tools/make_home.py` (phones in the owner's
+  `frame.webp`, screens in `shots/`). Contact
   email for Apple and the pages: ara.learn.app@gmail.com. Keep the privacy page true to the
   app (no data collected, no network); change it before the app changes.
 - `krfix/Logbook-app-store`: the owner's Logbook app, the model for the set-up. Don't change

@@ -3,6 +3,24 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #13 · 24/11/26 · Website: Polish pages, iPhone frames (website repo, branch `claude/happy-noether-efyucr`)
+
+Owner: EN / PL should open its own page, not scroll; show Ara with iPhone pictures like
+abeamflight.com's "What's in Pilot" (read with Playwright: one phone pinned while features
+scroll by, the screenshot under a frame picture with a see-through screen).
+- Website: `/` and `/pl/`, `/privacy` and `/pl/privacy`, `/support` and `/pl/support`; the
+  current language is filled in the switch; old `#pl` links forward (`site.js`). App Store
+  Connect's privacy and support links (`/privacy`, `/support`) unchanged.
+- Home page made by `tools/make_home.py` (both languages from one template): three phones fanned
+  out, "What's in Ara" (eight features; on phones each feature has its own phone), six tiles,
+  a closing invitation. Screens in `shots/` from the QA run, light or dark to match the device.
+- Frame: the owner's picture, `frame.webp` (978 × 2000); the screenshot fills its opening, and
+  the simulator's own Dynamic Island (wider than the frame's) is painted out of the screenshots.
+- The Polish page shows English app screens: the Polish QA screens had expired. Swap in Polish
+  ones after the next `qa` run.
+- Checked in Chromium at 1440 and 390 wide, light and dark: no overflow. Published (main
+  fast-forwarded) on the owner's say-so.
+
 ## KART #12 · 21/11/26 · Web answer flicker (branch `claude/quirky-galileo-23j5le`)
 
 Owner: tapping an answer in the web app makes the page flicker for a split second; the iPhone
