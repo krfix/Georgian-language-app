@@ -154,7 +154,7 @@ Suitability URL empty. (Social media, location, dating, contests, loot boxes: al
 ## Pricing and availability
 
 - Price: **Free** (price tier 0). No in-app purchases.
-- Availability: all countries and regions. (Georgia's App Store included, of course.)
+- Availability: all countries and regions **except China mainland** (needs an ICP licence).
 
 ## EU trader status (Digital Services Act)
 
@@ -164,6 +164,12 @@ purchases, ads or other income can usually say **not a trader**, so those detail
 It's the owner's own declaration, and it has to be redone if Ara ever earns money (a tip jar
 or paid extras would make you a trader). If unsure, Apple's help page "Manage European Union
 Digital Services Act trader requirements" explains it.
+
+Done (KART #14, 24/11/26): **not a trader**, Digital Services Act status Active (27 EU
+countries). Account-wide, so it covers Logbook too: switch to trader before either app earns
+money. Free Apps Agreement active to 18 Nov 2027; the Paid Apps Agreement is left unsigned.
+App Compliance's China rows (security assessment, AI content): not filled; China mainland is
+left out in Pricing and Availability instead (it needs a Chinese licence).
 
 ## App Review notes (App Store Connect › version › App Review Information)
 
