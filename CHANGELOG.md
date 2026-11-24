@@ -1,11 +1,11 @@
 # Changelog
 
-What changed in each version, newest first. Before the App Store, versions were 0.x.y; from
-the App Store on, the version matches App Store Connect (1.0, then 1.1…).
+What changed in each version, newest first. Versions are 0.x.y (owner, KART #14: the first App
+Store version too); the version in App Store Connect must match the one here.
 
-## [1.0] - 2026-11-24
+## [0.4.0] - 2026-11-24
 
-Ara on the App Store: free, with no ads, no account and no tracking.
+Ready for the App Store: free, with no ads, no account and no tracking.
 
 - Profile › About: the privacy policy and help and support pages, in English or Polish
 - Every English and Polish explanation in the course read again and tightened

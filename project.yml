@@ -26,7 +26,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.aralearn.ge
         PRODUCT_NAME: Georgian
-        MARKETING_VERSION: "1.0"
+        MARKETING_VERSION: "0.4.0"
         CURRENT_PROJECT_VERSION: "1"   # set to the GitHub run number by the build
         TARGETED_DEVICE_FAMILY: "1"   # iPhone only
         SWIFT_VERSION: "5.0"

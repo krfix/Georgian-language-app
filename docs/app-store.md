@@ -17,8 +17,9 @@ changes (iCloud sync, for example), change the answers here and on the website f
 - [x] Screenshots: `brand/app-store/en` (10) and `brand/app-store/pl` (7), 6.9" iPhone.
 - [ ] Owner: paste the texts below (English, then add Polish as a second language).
 - [ ] Owner: App Privacy, Age Rating, Pricing, the EU trader question (below).
-- [ ] Version 1.0.0 in project.yml and CHANGELOG.md ("release"), then a TestFlight build,
-      then "Add for Review" with that build.
+- [ ] Version **0.4.0** in project.yml and CHANGELOG.md (owner, KART #14: not 1.0 yet). Owner:
+      change the version on App Store Connect's version page from 1.0 to 0.4.0 to match. Then a
+      TestFlight build (owner's say-so), then "Add for Review" with that build.
 
 ## Listing, English (primary language)
 
