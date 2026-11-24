@@ -148,7 +148,8 @@ App Store Connect › App Information › Age Rating › Edit. Honest answers:
 - Gambling, contests, loot boxes: **No**. Parental controls / age assurance: **No**.
 - Made for Kids: **No**.
 
-Apple works out the rating from the answers (likely 9+ or 13+ because of the wine). Accept it.
+Result (KART #14, 24/11/26): **13+**, from the alcohol answer. Override: Not Applicable; Age
+Suitability URL empty. (Social media, location, dating, contests, loot boxes: all No/None.)
 
 ## Pricing and availability
 
