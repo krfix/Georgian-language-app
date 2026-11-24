@@ -461,26 +461,34 @@ jobs:
             limit 60 xcrun simctl io "$UDID" screenshot "shots/bigtext-$page.png" > /dev/null 2>&1
           done
           xcrun simctl ui "$UDID" content_size large
-          # The app in Polish (-appLanguage pl), light: the main screens and the explanations.
-          for page in onboarding home phrasebook phrase@pb-ak-gamicheret-tu-sheidzleba search@apteka dialogue@pd-bazaar \
-              learn lesson words word review progress profile exercise:a1:teachLetter exercise:a9:note \
-              exercise:v6c:note exercise:g7:note exercise:v7:multipleChoice exercise:v7:translation complete; do
-            limit 30 xcrun simctl terminate "$UDID" com.aralearn.ge 2>/dev/null || true
-            if [ "${page%%:*}" = exercise ]; then
-              rest=${page#exercise:}; lesson=${rest%%:*}; kind=${rest#*:}
-              limit 60 xcrun simctl launch "$UDID" com.aralearn.ge -uiTesting -seedDemo -appLanguage pl -screen exercise -lesson "$lesson" -kind "$kind" > /dev/null
-              page="ex-$lesson-$kind"
-            elif [ "${page#*@}" != "$page" ]; then
-              name=${page%%@*}; arg=${page#*@}
-              if [ "$name" = search ]; then flag=-query; else flag=-item; fi
-              limit 60 xcrun simctl launch "$UDID" com.aralearn.ge -uiTesting -seedDemo -appLanguage pl -screen "$name" "$flag" "$arg" > /dev/null
-              page="$name-$arg"
-            else
-              limit 60 xcrun simctl launch "$UDID" com.aralearn.ge -uiTesting -seedDemo -appLanguage pl -screen "$page" > /dev/null
-            fi
-            sleep 6
-            limit 60 xcrun simctl io "$UDID" screenshot "shots/polish-$page.png" > /dev/null 2>&1
+          # The app in Polish (-appLanguage pl): the main screens and the explanations, light
+          # (polish-<page>.png, used by the App Store slides) and dark (polish-dark-<page>.png);
+          # includes every screen the website shows (alphabet, show, search@woda).
+          for look in light dark; do
+            xcrun simctl ui "$UDID" appearance $look
+            if [ $look = light ]; then prefix=polish; else prefix=polish-dark; fi
+            for page in onboarding home phrasebook phrase@pb-ak-gamicheret-tu-sheidzleba show@pb-ak-gamicheret-tu-sheidzleba \
+                search@apteka search@woda dialogue@pd-bazaar learn alphabet lesson words word review progress profile \
+                exercise:a1:teachLetter exercise:a9:note exercise:v6c:note exercise:g7:note exercise:v7:multipleChoice \
+                exercise:v7:translation complete; do
+              limit 30 xcrun simctl terminate "$UDID" com.aralearn.ge 2>/dev/null || true
+              if [ "${page%%:*}" = exercise ]; then
+                rest=${page#exercise:}; lesson=${rest%%:*}; kind=${rest#*:}
+                limit 60 xcrun simctl launch "$UDID" com.aralearn.ge -uiTesting -seedDemo -appLanguage pl -screen exercise -lesson "$lesson" -kind "$kind" > /dev/null
+                page="ex-$lesson-$kind"
+              elif [ "${page#*@}" != "$page" ]; then
+                name=${page%%@*}; arg=${page#*@}
+                if [ "$name" = search ]; then flag=-query; else flag=-item; fi
+                limit 60 xcrun simctl launch "$UDID" com.aralearn.ge -uiTesting -seedDemo -appLanguage pl -screen "$name" "$flag" "$arg" > /dev/null
+                page="$name-$arg"
+              else
+                limit 60 xcrun simctl launch "$UDID" com.aralearn.ge -uiTesting -seedDemo -appLanguage pl -screen "$page" > /dev/null
+              fi
+              sleep 6
+              limit 60 xcrun simctl io "$UDID" screenshot "shots/$prefix-$page.png" > /dev/null 2>&1
+            done
           done
+          xcrun simctl ui "$UDID" appearance light
           echo "::notice title=Screenshots::$(ls shots | wc -l | tr -d ' ') pictures"
 
       - name: UI tests
