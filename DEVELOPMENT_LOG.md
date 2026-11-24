@@ -23,7 +23,14 @@ version replaces the TestFlight one on the same phone.
 - `docs/app-store.md`: name, subtitle, keywords, promotional text and description in English
   and Polish (lengths checked), App Privacy (Data Not Collected), age rating answers (wine:
   infrequent), price, EU trader status, review notes.
-- Not compiled here (no Swift on Linux); an IPA build checks it.
+- Build #53 (Feather IPA): logic tests passed, compiled.
+- App Store Connect, filled in with the owner step by step: App Information (subtitle, Education
+  + Travel, Polish name "Ara: Nauka gruzińskiego"), age rating 13+ (wine), Apple's standard
+  licence, not a trader (DSA active), App Privacy "No data collected" with both privacy links,
+  App Accessibility draft (Dark Interface, Reduced Motion), free, every country but China
+  mainland. Version page texts and screenshots sent to the owner (zips of brand/app-store).
+- Version **0.4.0** (owner: not 1.0 yet; App Store Connect's version to change to match).
+  No TestFlight build yet (owner: wait).
 
 ## KART #13 · 24/11/26 · Website: Polish pages, iPhone frames (website repo, branch `claude/happy-noether-efyucr`)
 
