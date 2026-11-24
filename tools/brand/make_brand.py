@@ -12,7 +12,10 @@ Writes
                   and the mascot poses Parrot, ParrotBlink, ParrotCheer, ParrotThink and
                   ParrotSleep (vector PDF);
 - web/icons/      the web app's home-screen and browser-tab icons and three mascot poses
-                  (alone: python3 tools/brand/make_brand.py --web).
+                  (alone: python3 tools/brand/make_brand.py --web);
+- brand/vine/     with --vine only: the grapevine Learn path's parts and still mock-ups of
+                  the screen (tools/brand/vine.py, vine_screens.py; docs/vine-path.md).
+                  Also needs brotli (pip install brotli) to read the Nunito Bold font.
 The wordmark is Nunito Black (SIL Open Font License, tools/brand/fonts/OFL-Nunito.txt), turned into
 outlines, so no font is needed to show it. docs/brand.md explains how to use it all.
 """
@@ -292,7 +295,24 @@ def icon_sizes_preview():
     return out
 
 
+def vine_pictures():
+    """The grapevine Learn path (KART #15): parts sheet (SVG and PNG), and PNGs of the Learn
+    screen, the top of the vine and Ara's hop (the screens at 3x, an iPhone's pixels)."""
+    import vine_screens
+    folder = os.path.join(BRAND, "vine")
+    os.makedirs(folder, exist_ok=True)
+    for name, svg in vine_screens.all_mockups().items():
+        if "parts" in name:          # the screens' SVGs are mostly text outlines: PNG only
+            write(os.path.join(folder, f"{name}.svg"), svg)
+        w = float(svg.split('width="', 1)[1].split('"', 1)[0])
+        png(svg, int(w * (3 if "learn" in name or "top" in name else 2))).convert("RGB").save(os.path.join(folder, f"{name}.png"))
+
+
 def main():
+    if "--vine" in sys.argv:
+        vine_pictures()
+        print("grapevine pictures in brand/vine/")
+        return
     if "--web" in sys.argv:
         web_icons()
         print("web icons in web/icons/")

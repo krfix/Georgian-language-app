@@ -24,6 +24,25 @@ grapevine version below; to start in the next chat. Nothing is built yet.
 - At the top, after the last module: a full vine over a supra table (the Tamada stage).
 - Grapes on a vine aren't drinking: the age rating (13+, from the wine phrases) is unchanged.
 
+## Pictures (KART #15, 25/11/26): drawn, waiting for the owner's verdict
+`python3 tools/brand/make_brand.py --vine` draws them from `tools/brand/vine.py` (the parts:
+leaf, grape bunch, bud, tendril, tapering stem, trellis bar, Ara perched on a branch; light
+and dark colours in `VINE_COLOURS`) and `vine_screens.py` (still mock-ups with the real course
+text) into `brand/vine/`:
+- `vine-parts-light/-dark`: every part with its name.
+- `vine-learn-light/-dark`: Learn with the Alphabet and two Vocabulary lessons done; "Who are
+  you?" up next (a glowing leaf, Ara on a branch beside it), the locked lessons as buds on a
+  young green shoot (the vine is old wood only as far as the learner has grown), the
+  Vocabulary card hanging from its trellis bar on two ropes, the stem winding once round the bar.
+- `vine-top-light/-dark`: the top once everything is done: a leafy pergola with grapes over a
+  supra table (clay jug, pomegranates, shoti bread, khachapuri), Ara cheering on it, "Tamada".
+- `vine-hop`: after a lesson, the leaf ripens into grapes, Ara hops up, the bud above opens
+  into the new leaf.
+Choices made in drawing: grapes are always Saperavi purple (not the module colour, which
+stays on the card); titles sit in one straight column (easier to read, also with larger text);
+the stem sways gently instead of the stones swinging. The tab bar in the mock-ups is
+simplified (no icons). "Every lesson done: the table is yours." is placeholder text.
+
 ## How to build it
 1. **Pictures first:** draw the vine, leaf, grape bunch, bud, trellis bar and Ara perching
    in `tools/brand/make_brand.py` (all artwork comes from there), light and dark; show the

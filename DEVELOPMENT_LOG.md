@@ -3,6 +3,19 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #15 · 25/11/26 · Grapevine pictures (branch `claude/focused-edison-ci3czr`)
+
+Step 1 of docs/vine-path.md: the pictures, no app code. New `tools/brand/vine.py` (the parts as
+geometry: a five-lobed toothed grape leaf, a ten-grape bunch, a bud, tendrils, a tapering stem,
+a trellis bar, Ara perched with his toes over a branch) and `vine_screens.py` (mock-ups of the
+Learn screen at 402 x 874 points with the real course text, the top of the vine with a supra
+table, Ara's hop), run by `make_brand.py --vine` into `brand/vine/`. Noto Sans Georgian Regular
+and Bold added to `tools/brand/fonts` (OFL, licence already there) for the Georgian text.
+Looked at every picture in light and dark and fixed what showed: a blocky, then star-shaped
+leaf; a stem with visible joints (now one filled tapering shape); the module card drawn over
+the lessons below it; the stem crossing the "Tamada" text and the labels. Waiting for the
+owner's verdict before step 2 (LearnView).
+
 ## KART #14 · 24/11/26 · Public, free release (branch `claude/festive-turing-v18y0y`)
 
 Owner asked: publish free on the App Store, and make the repo public? Analysis: no keys or
