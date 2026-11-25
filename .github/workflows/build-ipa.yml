@@ -335,7 +335,7 @@ jobs:
   qa:
     if: inputs.qa
     runs-on: macos-15
-    timeout-minutes: 60
+    timeout-minutes: 110
     steps:
       - uses: actions/checkout@v5
 
@@ -505,6 +505,79 @@ jobs:
       # largest text sizes. vine-<size>-<look>-<where>.png.
       - name: Take the vine pictures
         if: inputs.vine
+        timeout-minutes: 75
+        run: |
+          app=build/Build/Products/Debug-iphonesimulator/Georgian.app
+          limit() { secs=$1; shift; perl -e 'alarm shift; exec @ARGV' "$secs" "$@"; }
+          find_udid() {
+            for name in "$@"; do
+              u=$(xcrun simctl list devices available | grep -E "^ +$name \(" | head -1 | sed -E 's/.*\(([0-9A-F-]{36})\).*/\1/')
+              if [ -n "$u" ]; then echo "$u $name"; return; fi
+            done
+          }
+          small=$(find_udid "iPhone SE \\(3rd generation\\)" "iPhone 16e" "iPhone 13 mini" "iPhone 17")
+          large=$(find_udid "iPhone 17 Pro Max" "iPhone 16 Pro Max" "iPhone 16 Plus" "iPhone Air")
+          mkdir -p shots
+          set +e
+          log() { echo "$(date +%H:%M:%S) $*"; }
+          fresh() {  # udid: a clean boot, used first and after a hung screenshot
+            limit 60 xcrun simctl shutdown "$1" 2>/dev/null
+            limit 60 xcrun simctl boot "$1" 2>/dev/null
+            limit 300 xcrun simctl bootstatus "$1" -b > /dev/null
+            limit 30 xcrun simctl status_bar "$1" override --time "9:41" --batteryState charged --batteryLevel 100
+            sleep 5
+          }
+          snap() {  # udid file launch-args...: one picture, retried once on a fresh boot
+            udid=$1; file=$2; shift 2
+            for try in 1 2; do
+              limit 30 xcrun simctl terminate "$udid" com.aralearn.ge 2>/dev/null
+              limit 60 xcrun simctl launch "$udid" com.aralearn.ge -uiTesting -seedDemo -screen learn "$@" > /dev/null
+              sleep 7
+              rm -f "$file"
+              limit 40 xcrun simctl io "$udid" screenshot "$file" > /dev/null 2>&1
+              if [ -s "$file" ]; then log "ok $file"; return 0; fi
+              rm -f "$file"; log "no picture: $file (try $try)"
+              [ $try = 1 ] && { fresh "$udid"; limit 30 xcrun simctl ui "$udid" appearance "$look"; }
+            done
+            return 1
+          }
+          shoot() {  # udid size
+            udid=$1; size=$2; misses=0
+            log "start $size"
+            fresh "$udid"
+            limit 120 xcrun simctl install "$udid" "$app"
+            for look in light dark; do
+              limit 30 xcrun simctl ui "$udid" appearance $look
+              for spot in next top bottom v1 g1 finished; do
+                if [ $spot = next ]; then set --; elif [ $spot = finished ]; then set -- -seedAll -item top; else set -- -item $spot; fi
+                if snap "$udid" "shots/vine-$size-$look-$spot.png" "$@"; then misses=0; else misses=$((misses+1)); fi
+                # A Simulator that keeps failing is given up on, so the others still get their turn.
+                if [ $misses -ge 2 ]; then log "giving up on $size"; break 2; fi
+              done
+            done
+            limit 30 xcrun simctl ui "$udid" appearance light
+            # One simulator at a time: a third one running made the run hang.
+            limit 60 xcrun simctl shutdown "$udid"
+          }
+          shoot "$UDID" middle
+          if [ -n "$large" ]; then echo "::notice title=Large iPhone::${large#* }"; shoot "${large%% *}" large; fi
+          if [ -n "$small" ]; then echo "::notice title=Small iPhone::${small#* }"; shoot "${small%% *}" small; fi
+          fresh "$UDID"; look=light
+          for content in extra-extra-extra-large accessibility-large; do
+            limit 30 xcrun simctl ui "$UDID" content_size $content
+            snap "$UDID" "shots/vine-bigtext-$content-next.png"
+            snap "$UDID" "shots/vine-bigtext-$content-v1.png" -item v1
+          done
+          limit 30 xcrun simctl ui "$UDID" content_size large
+          limit 60 xcrun simctl shutdown "$UDID"
+          echo "::notice title=Screenshots::$(ls shots | wc -l | tr -d ' ') pictures"
+
+      # The Learn path (the grapevine, KART #15) on three screen widths, light and dark, at its
+      # bottom, a module's start, the lesson up next and the top; the finished vine; and the
+      # largest text sizes. vine-<size>-<look>-<where>.png.
+      - name: Take the vine pictures
+        if: inputs.vine
+        timeout-minutes: 75
         run: |
           app=build/Build/Products/Debug-iphonesimulator/Georgian.app
           limit() { secs=$1; shift; perl -e 'alarm shift; exec @ARGV' "$secs" "$@"; }
