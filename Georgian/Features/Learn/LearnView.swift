@@ -52,10 +52,11 @@ struct LearnView: View {
                 ScrollView {
                     path(layout)
                 }
-                .defaultScrollAnchor(.bottom)
                 // Bring the next lesson into view the first time the path opens, and again
                 // when it changes (a lesson finished), not every time the tab shows: scrolling
-                // on return made the big "Learn" title jump (KART #6).
+                // on return made the big "Learn" title jump (KART #6). No default anchor at
+                // the bottom: with the lazy rows above still being measured it kept
+                // re-pinning the bottom and fought the scroll to the next lesson (build #56).
                 .onAppear { appeared(proxy) }
                 .onChange(of: store.nextLesson?.id) { _, id in nextChanged(id, proxy) }
             }
@@ -135,10 +136,19 @@ struct LearnView: View {
             }
         }
         guard scrolledTo != next else { return }
+        let first = scrolledTo == nil
         scrolledTo = next
+        // The first time, go straight to the next lesson, without animation (scrolling
+        // through a lazy list whose rows are still being measured made it jump about); later,
+        // after a lesson, glide there.
         if let next {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                withMotion(Motion.slow) { proxy.scrollTo(next, anchor: .center) }
+            if first {
+                proxy.scrollTo(next, anchor: .center)
+                DispatchQueue.main.async { proxy.scrollTo(next, anchor: .center) }
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    withMotion(Motion.slow) { proxy.scrollTo(next, anchor: .center) }
+                }
             }
         }
     }

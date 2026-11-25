@@ -79,7 +79,10 @@ Chromium) a strip `TILE_H` = 8 lessons tall that repeats seamlessly (the overflo
 into its top), in two versions with the same shape: old twisted cane and green shoot, for
 the app to fade between at the next lesson. Parts painted the same way: bunches (green,
 blushing, ripe), the leaf up next, a bud; Ara painted with the same filter in the mock-up.
-`make_brand.py --paint` → `brand/paint/` (`vine-learn-mock.jpg`). Waiting for the owner.
+`make_brand.py --paint` → `brand/paint/` (pictures removed again, in git history). **Owner: no,
+back to the vector vine.** Fixed the jumping instead: no bottom anchor, the first scroll to the
+next lesson without animation, and the leaf's breathing scoped to its scale (an endless
+`withAnimation` started in `onAppear` also animated the row settling in the lazy list).
 
 ## How to build it
 1. **Pictures first:** draw the vine, leaf, grape bunch, bud, trellis bar and Ara perching

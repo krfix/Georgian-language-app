@@ -385,12 +385,13 @@ struct VineLessonRow: View {
         case .current:
             Image("VineLeafNext").resizable().frame(width: 100, height: 100)
                 .scaleEffect(pulse ? 1.04 : 0.97)
+                // The breathing is scoped to the scale alone. Started with withAnimation in
+                // onAppear, the endless animation also caught the row settling into place as
+                // the list scrolled, and the path bobbed up and down by itself (build #56).
+                .animation(reduceMotion ? nil : .easeInOut(duration: 1.3).repeatForever(autoreverses: true), value: pulse)
                 .offset(x: itemX - 50, y: h / 2 + 2 - 50)
                 .accessibilityHidden(true)
-                .onAppear {
-                    guard !reduceMotion else { return }
-                    withAnimation(.easeInOut(duration: 1.3).repeatForever(autoreverses: true)) { pulse = true }
-                }
+                .onAppear { if !reduceMotion { pulse = true } }
         case .available:
             Image("VineLeafOpen").resizable().frame(width: 80, height: 80)
                 .rotationEffect(.degrees(k % 2 == 1 ? 6 : -6))
