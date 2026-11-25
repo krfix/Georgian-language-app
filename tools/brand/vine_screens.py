@@ -566,16 +566,13 @@ def _canvas(w, h, body):
 
 
 def app_assets():
-    """{asset name: {theme: svg}}. Leaves hang down from the top centre of their canvas;
-    tendrils start at (8, 40) heading right; the perch's stem end is at (88, 80)."""
+    """{asset name: {theme: svg}}. Leaves and bunches are centred on their canvas; tendrils
+    start at (8, 40) heading right (VinePath.swift places them)."""
     out = {}
 
     def add(name, make):
         out[name] = {th: make(vine.VINE_COLOURS[th], th) for th in ("light", "dark")}
 
-    add("VineLeafNext", lambda c, th: _canvas(100, 100, vine.leaf_svg(50, 50, 66, c, "next", uid="n")))
-    add("VineLeafOpen", lambda c, th: _canvas(80, 80, vine.leaf_svg(40, 40, 56, c, "open", uid="o")))
-    add("VineBud", lambda c, th: _canvas(30, 30, vine.bud_svg(15, 15, 20, c)))
     for ripe in ("green", "blush", "purple"):
         for i in range(3):
             add(f"VineBunch{ripe.title()}{i + 1}",
@@ -589,7 +586,6 @@ def app_assets():
     for i in range(4):
         add(f"VineTendril{i + 1}", lambda c, th, i=i: _canvas(80, 80, vine.tendril_svg(
             8, 40, 56, 0, c, seed=70 + i, spring=(i == 3), w=2.2)))
-    add("VinePerch", lambda c, th: _canvas(90, 110, vine.perch_svg(88, 80, c, R=14, reach=54, m=0.22)))
 
     def top(c, th):
         body = (f'<g transform="translate(0,-116)">{canopy(176, c)}{supra_table(W / 2, 352, c, th)}'

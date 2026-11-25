@@ -1,33 +1,11 @@
 import SwiftUI
 
-// The Learn path as a grapevine (docs/vine-path.md, KART #15). The vine grows from the bottom
-// up: the first module at the bottom, each module a level whose card hangs from a trellis bar,
-// its lessons above it. The stem is drawn here, live, so it can taper and turn from green
-// shoot to brown bark where the learner has got to; the leaves, grape bunches, buds,
-// tendrils, Ara on his branch and the supra table at the top are pictures made by
-// tools/brand/make_brand.py --vine (Assets.xcassets/Vine). The canvas sizes and anchor points
-// below must match vine_screens.app_assets().
-//
-// Each row draws its own piece of the stem (clipped to the row) from the same list of points,
-// so the rows can be lazy and the stem still runs on unbroken from one row to the next.
-
-enum VineMetrics {
-    /// The stem's middle and how far it sways either side.
-    static let stemMid: CGFloat = 92
-    static let sway: CGFloat = 18
-    /// From the stem to a lesson's picture, and where the titles start.
-    static let itemDX: CGFloat = 46
-    static let textX: CGFloat = 196
-    /// Above a module's trellis bar, room for the stem; the bar's height.
-    static let barGap: CGFloat = 34
-    static let barHeight: CGFloat = 14
-    /// How far a row's drawing may reach above and below the row (leaves, tendrils).
-    static let overhang: CGFloat = 80
-
-    static func stemX(_ k: Double) -> CGFloat { stemMid + sway * CGFloat(sin(k * 1.3 + 0.4)) }
-    /// The stem zig-zags a little at each node, as a real shoot does.
-    static func kink(_ k: Int) -> CGFloat { k % 2 == 1 ? 3 : -3 }
-}
+// The Learn path's vine (owner, KART #15): the path keeps its stones, icons, titles and swing,
+// runs from the bottom up, and the ribbon behind the stones is a grapevine. Below the lesson
+// up next the vine is old brown wood, turning into a green shoot above it; lessons done hang
+// purple grape bunches, the lesson up next a green bunch, the lessons ahead leaves, twigs and
+// curling tendrils. The stem is drawn here; leaves, bunches and tendrils are pictures from
+// tools/brand/make_brand.py --vine (Assets.xcassets/Vine).
 
 /// A point on the stem: where it is, and its place in the course (lesson index, fractional
 /// between lessons), which decides how thick and how woody the stem is there.
@@ -126,7 +104,7 @@ enum VineStem {
                 if !run.isEmpty { runs.append(run); run = [] }
                 continue
             }
-            let per = max(4, Int(hypot(p2.x - p1.x, p2.y - p1.y) / 4))
+            let per = max(4, Int(hypot(p2.x - p1.x, p2.y - p1.y) / 6))
             for j in 0..<per {
                 let t = CGFloat(j) / CGFloat(per)
                 let t2 = t * t, t3 = t2 * t
@@ -261,322 +239,128 @@ enum VineGrowth {
     }
 }
 
-// MARK: - Where the stem runs
+// MARK: - The vine behind the path
 
-extension VineMetrics {
-    /// The stem's points for one module, top to bottom, in the module's own coordinates: y = 0
-    /// at the top of its top lesson row, rows `h` tall, then the trellis bar and the card.
-    /// Above the module: on into the card above (hidden), or, for the last module, on up the
-    /// left to the supra table (`topHeight`: the top picture's height, for its own drawing).
-    static func points(firstIndex k0: Int, count n: Int, rowHeight h: CGFloat, isTop: Bool, topHeight: CGFloat? = nil) -> [VinePoint] {
-        let kLast = k0 + n - 1
-        func node(_ i: Int) -> VinePoint {
-            let k = k0 + i
-            return VinePoint(x: stemX(Double(k)) + kink(k), y: CGFloat(n - 1 - i) * h + h / 2 - 16, u: Double(k), isNode: true)
-        }
-        var pts: [VinePoint] = []
-        if isTop {
-            if let topHeight { pts.append(VinePoint(x: 30, y: -(topHeight - 70), u: Double(kLast) + 3)) }
-            pts.append(VinePoint(x: 34, y: -260, u: Double(kLast) + 2.2))
-            pts.append(VinePoint(x: 50, y: -140, u: Double(kLast) + 1.4))
-            pts.append(VinePoint(x: stemX(Double(kLast) + 0.5) - 2, y: -50, u: Double(kLast) + 0.6))
-        } else {
-            pts.append(VinePoint(x: stemX(Double(kLast) + 0.5), y: -70, u: Double(kLast) + 0.6))
-        }
-        for i in (0..<n).reversed() {
-            let p = node(i)
-            pts.append(p)
-            if i > 0 {
-                let k = k0 + i - 1
-                pts.append(VinePoint(x: (stemX(Double(k)) + stemX(Double(k + 1))) / 2 - kink(k), y: p.y + h / 2,
-                                     u: Double(k) + 0.5, isNode: true))
-            }
-        }
-        let barTop = CGFloat(n) * h + barGap
-        pts.append(VinePoint(x: stemX(Double(k0) - 0.5), y: barTop + barHeight / 2 + 30, u: Double(k0) - 0.6))
-        pts.append(VinePoint(x: stemX(Double(k0) - 1), y: barTop + 300, u: Double(k0) - 1.2))
-        return pts
-    }
-}
-
-extension Array where Element == VinePoint {
-    func shifted(by dy: CGFloat) -> [VinePoint] { map { var p = $0; p.y += dy; return p } }
-}
-
-// MARK: - One lesson on the vine
-
-/// Where a lesson is on the vine and what it looks like.
-struct VineSpot {
-    let lesson: Lesson
-    let index: Int            // in the whole course
-    let indexInModule: Int
-    let moduleFirst: Int
-    let moduleCount: Int
-    let isTopModule: Bool
+/// One stone on the path, for the vine: where it is, its place in the course and its state.
+struct VineStop {
+    let point: CGPoint
+    let index: Int
     let state: LessonState
-    let vine: VineState
-
-    /// Grapes ripen: the lesson just done is green, the one before blushing, older ones ripe.
-    var bunch: String {
-        let age = vine.next.map { Int($0) - index } ?? 99
-        let ripe = age == 1 ? "Green" : (age == 2 ? "Blush" : "Purple")
-        return "VineBunch\(ripe)\(index % 3 + 1)"
-    }
+    /// The first lesson of its module (the module's card hangs below it).
+    let firstInModule: Bool
 }
 
-struct VineLessonRow: View {
-    let spot: VineSpot
-    let rowHeight: CGFloat
-    let showsPerch: Bool
-    let perchSpace: Namespace.ID
-    let onTap: () -> Void
-    @Environment(\.colorScheme) private var scheme
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var pulse = false
-
-    private var h: CGFloat { rowHeight }
-    private var k: Int { spot.index }
-    private var node: CGPoint { CGPoint(x: VineMetrics.stemX(Double(k)) + VineMetrics.kink(k), y: h / 2 - 16) }
-    private var itemX: CGFloat { VineMetrics.stemX(Double(k)) + VineMetrics.itemDX }
-
-    var body: some View {
-        Button(action: onTap) {
-            ZStack(alignment: .topLeading) {
-                HStack(spacing: 0) {
-                    Color.clear.frame(width: VineMetrics.textX)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(spot.lesson.title)
-                            .font(.headlineRounded)
-                            .foregroundStyle(spot.state == .locked ? Palette.inkFaint : Palette.ink)
-                            .lineLimit(2)
-                            .minimumScaleFactor(0.85)
-                        Text(spot.lesson.subtitle)
-                            .font(.caption)
-                            .foregroundStyle(Palette.inkSoft)
-                            .lineLimit(1)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.trailing, 16)
-                }
-                .frame(height: h)
-                picture
-            }
-            .contentShape(Rectangle())
-        }
-        .buttonStyle(.pressable)
-        .frame(height: h)
-        .background(alignment: .topLeading) { growth }
-        .overlay(alignment: .topLeading) {
-            if showsPerch {
-                Image("VinePerch")
-                    .resizable()
-                    .frame(width: 90, height: 110)
-                    .matchedGeometryEffect(id: "ara-perch", in: perchSpace)
-                    .offset(x: node.x - 3 - 88, y: h / 2 + 22 - 80)
-                    .allowsHitTesting(false)
-                    .accessibilityHidden(true)
-            }
-        }
-    }
-
-    /// The lesson's own picture: a leaf (up next or open), a bunch (done) or a bud (locked).
-    @ViewBuilder private var picture: some View {
-        switch spot.state {
-        case .current:
-            Image("VineLeafNext").resizable().frame(width: 100, height: 100)
-                .scaleEffect(pulse ? 1.04 : 0.97)
-                // The breathing is scoped to the scale alone. Started with withAnimation in
-                // onAppear, the endless animation also caught the row settling into place as
-                // the list scrolled, and the path bobbed up and down by itself (build #56).
-                .animation(reduceMotion ? nil : .easeInOut(duration: 1.3).repeatForever(autoreverses: true), value: pulse)
-                .offset(x: itemX - 50, y: h / 2 + 2 - 50)
-                .accessibilityHidden(true)
-                .onAppear { if !reduceMotion { pulse = true } }
-        case .available:
-            Image("VineLeafOpen").resizable().frame(width: 80, height: 80)
-                .rotationEffect(.degrees(k % 2 == 1 ? 6 : -6))
-                .offset(x: itemX - 40, y: h / 2 + 2 - 40)
-                .accessibilityHidden(true)
-        case .completed:
-            Image(spot.bunch).resizable().frame(width: 90, height: 90)
-                .rotationEffect(.degrees(k % 2 == 1 ? 4 : -4))
-                .offset(x: itemX - 45, y: h / 2 + 4 - 45)
-                .accessibilityHidden(true)
-        case .locked:
-            Image("VineBud").resizable().frame(width: 30, height: 30)
-                .offset(x: node.x + 20 - 15, y: node.y - 9 - 15)
-                .accessibilityHidden(true)
-        }
-    }
-
-    /// The stem through this row, its node, the leaf or tendril opposite, and the node between
-    /// this lesson and the one below.
-    private var growth: some View {
-        let ink = VineInk.of(scheme)
-        let spot = self.spot
-        let h = self.h
-        let pad = VineMetrics.overhang
-        let rowTop = CGFloat(spot.moduleCount - 1 - spot.indexInModule) * h
-        let points = VineMetrics.points(firstIndex: spot.moduleFirst, count: spot.moduleCount, rowHeight: h, isTop: spot.isTopModule)
-            .shifted(by: -rowTop + pad)
-        let node = CGPoint(x: self.node.x, y: self.node.y + pad)
-        let itemX = self.itemX
-        return Canvas { ctx, size in
-            // Stalks, leaves and tendrils first, so the stem sits over where they join it.
-            let k = spot.index
-            let m = spot.vine.wood(Double(k))
-            if spot.indexInModule > 0 {
-                let kk = k - 1
-                let b = CGPoint(x: (VineMetrics.stemX(Double(kk)) + VineMetrics.stemX(Double(k))) / 2 - VineMetrics.kink(kk), y: node.y + h / 2)
-                let mb = spot.vine.wood(Double(kk) + 0.5)
-                if kk % 3 != 2 {
-                    VineGrowth.tendril(&ctx, kk % 4 == 1 ? 4 : kk % 3 + 1, at: CGPoint(x: b.x + 2, y: b.y),
-                                       length: CGFloat(44 + (kk % 2) * 8), degrees: Double(-30 + (kk % 3) * 22))
-                } else {
-                    VineGrowth.tendril(&ctx, kk % 3 + 1, at: CGPoint(x: b.x - 4, y: b.y - 6), length: 50,
-                                       degrees: Double(200 + (kk % 2) * 25))
-                }
-                let young = spot.vine.next.map { Double(kk) + 0.5 > $0 + 1.5 } ?? false
-                let leaf = CGPoint(x: b.x - 34 - CGFloat(kk % 2) * 6, y: b.y + 8)
-                VineGrowth.stalk(&ctx, from: CGPoint(x: b.x - 2, y: b.y), to: CGPoint(x: leaf.x + 5, y: leaf.y - 12), wood: mb * 0.6, ink: ink, bend: 0.35, width: 2.2)
-                if young {
-                    VineGrowth.picture(&ctx, "VineLeafYoung\(kk % 3 + 1)", at: leaf, size: CGFloat(24 + (kk % 3) * 5) * 40 / 28,
-                                       degrees: Double(40 + (kk % 2) * 15))
-                } else {
-                    VineGrowth.picture(&ctx, "VineLeaf\((kk + 2) % 6 + 1)", at: leaf, size: CGFloat(30 + (kk % 3) * 5) * 60 / 44,
-                                       degrees: Double(40 + (kk % 2) * 15))
-                }
-            }
-            switch spot.state {
-            case .locked:
-                VineGrowth.stalk(&ctx, from: CGPoint(x: node.x + 2, y: node.y + 2), to: CGPoint(x: node.x + 16, y: node.y - 4), wood: m, ink: ink, bend: -0.2, width: 2.2)
-                VineGrowth.stalk(&ctx, from: CGPoint(x: node.x - 2, y: node.y), to: CGPoint(x: node.x - 18, y: node.y - 10), wood: m, ink: ink, bend: 0.25, width: 2)
-                VineGrowth.picture(&ctx, "VineLeafYoung\(k % 3 + 1)", at: CGPoint(x: node.x - 24, y: node.y - 4),
-                                   size: CGFloat(20 + (k % 3) * 3) * 40 / 28, degrees: 50)
-            default:
-                VineGrowth.stalk(&ctx, from: CGPoint(x: node.x + 2, y: node.y), to: CGPoint(x: itemX - 2, y: pad + h / 2 - 32), wood: m, ink: ink, bend: -0.25, width: 3)
-                if spot.state != .current {
-                    let leaf = CGPoint(x: node.x - 30 - CGFloat(k % 3) * 4, y: node.y - 4 + CGFloat(k % 2) * 6)
-                    VineGrowth.stalk(&ctx, from: CGPoint(x: node.x - 2, y: node.y), to: CGPoint(x: leaf.x + 6, y: leaf.y - 12), wood: m * 0.6, ink: ink, bend: 0.3, width: 2.4)
-                    VineGrowth.picture(&ctx, "VineLeaf\(k % 6 + 1)", at: leaf, size: CGFloat(38 + (k % 4) * 4) * 60 / 44,
-                                       degrees: Double(30 + (k % 3) * 12))
-                }
-            }
-            // The stem, only within this row (the rows above and below draw their own parts).
-            var stem = ctx
-            stem.clip(to: Path(CGRect(x: 0, y: pad, width: size.width, height: h)))
-            VineStem.draw(&stem, points: points, band: pad...(pad + h), state: spot.vine, ink: ink)
-        }
-        .frame(height: h + 2 * pad)
-        .offset(y: -pad)
-        .allowsHitTesting(false)
-        .accessibilityHidden(true)
-    }
-}
-
-// MARK: - A module's base: the trellis bar and the card hanging from it
-
-struct VineModuleBase<Card: View>: View {
-    let firstIndex: Int
-    let count: Int
-    let isTopModule: Bool
-    let rowHeight: CGFloat
+/// The vine through every stone, bottom to top, and on up into the supra table; with the
+/// grapes, leaves and tendrils in the gap below each stone.
+struct VineRibbon: View {
+    let stops: [VineStop]
+    /// The supra table picture's frame, where the vine ends.
+    let top: CGRect?
     let vine: VineState
-    @ViewBuilder let card: () -> Card
     @Environment(\.colorScheme) private var scheme
 
     var body: some View {
         let ink = VineInk.of(scheme)
-        VStack(spacing: 0) {
-            Color.clear.frame(height: VineMetrics.barGap)
-            TrellisBar(coilX: VineMetrics.stemX(Double(firstIndex) - 0.5), wood: vine.wood(Double(firstIndex) - 0.6), ink: ink)
-                .frame(height: VineMetrics.barHeight)
-            card()
-                .padding(.top, 18)
-                .overlay(alignment: .top) {
-                    // Two ropes from the bar to the card.
-                    GeometryReader { geo in
-                        ForEach([CGFloat(56), geo.size.width - 56], id: \.self) { x in
-                            Capsule().fill(ink.rope.color).frame(width: 2.4, height: 24).position(x: x, y: 8)
-                            Circle().fill(ink.rope.color).frame(width: 7, height: 7).position(x: x, y: -3)
-                        }
-                    }
-                    .allowsHitTesting(false)
-                }
-                .padding(.horizontal, 20)
-        }
-        .padding(.bottom, 12)
-        .background(alignment: .top) {
-            GeometryReader { geo in
-                let pts = VineMetrics.points(firstIndex: firstIndex, count: count, rowHeight: rowHeight, isTop: isTopModule)
-                    .shifted(by: -CGFloat(count) * rowHeight)
-                Canvas { ctx, size in
-                    VineStem.draw(&ctx, points: pts, band: 0...size.height, state: vine, ink: ink)
-                }
-                .frame(width: geo.size.width, height: geo.size.height)
-            }
-            .allowsHitTesting(false)
-            .accessibilityHidden(true)
-        }
-    }
-}
-
-/// A wooden trellis bar across the screen, with grain, pegs and tendrils wound round it.
-struct TrellisBar: View {
-    let coilX: CGFloat
-    let wood: Double
-    let ink: VineInk
-
-    var body: some View {
+        let stops = self.stops
+        let top = self.top
         Canvas { ctx, size in
-            let y: CGFloat = 6, h = VineMetrics.barHeight
-            let bar = CGRect(x: -12, y: y, width: size.width + 24, height: h)
-            ctx.fill(Path(roundedRect: bar.offsetBy(dx: 0, dy: 2), cornerRadius: h / 2.6), with: .color(ink.woodDeep.color))
-            ctx.fill(Path(roundedRect: bar, cornerRadius: h / 2.6), with: .color(ink.wood.color))
-            ctx.fill(Path(roundedRect: CGRect(x: 4, y: y + 2.5, width: size.width - 8, height: h * 0.22), cornerRadius: 1.5),
-                     with: .color(ink.woodLight.color.opacity(0.6)))
-            var gx: CGFloat = 30
-            while gx < size.width - 20 {
-                var p = Path()
-                p.move(to: CGPoint(x: gx, y: y + h * 0.62))
-                p.addQuadCurve(to: CGPoint(x: gx + 24, y: y + h * 0.62), control: CGPoint(x: gx + 12, y: y + h * 0.62 - 2))
-                ctx.stroke(p, with: .color(ink.woodDeep.color.opacity(0.7)), style: StrokeStyle(lineWidth: 1.2, lineCap: .round))
-                gx += 47
-            }
-            for px in [CGFloat(9), size.width - 9] {
-                ctx.fill(Path(ellipseIn: CGRect(x: px - 2.6, y: y + h / 2 - 2.6, width: 5.2, height: 5.2)), with: .color(ink.woodDeep.color))
-            }
-            // Tendrils wound round the bar beside the stem.
-            let coil = ink.shoot.mix(ink.cane, smoothstep(0.4, 0.9, wood)).color
-            for (x0, turns) in [(coilX + 14, 3), (coilX - 36, 2)] {
-                for i in 0..<turns {
-                    let xx = x0 + CGFloat(i) * 5.5
-                    var p = Path()
-                    p.move(to: CGPoint(x: xx - 2, y: y + h + 1.5))
-                    p.addCurve(to: CGPoint(x: xx + 4, y: y + h * 0.15), control1: CGPoint(x: xx - 5, y: y + h * 0.3), control2: CGPoint(x: xx + 1, y: y - 3.5))
-                    ctx.stroke(p, with: .color(coil), style: StrokeStyle(lineWidth: 1.8, lineCap: .round))
+            guard let first = stops.first else { return }
+            var points: [VinePoint] = [VinePoint(x: first.point.x, y: first.point.y + 220, u: -1)]
+            var gaps: [(stop: VineStop, at: CGPoint, side: CGFloat)] = []
+            for (i, s) in stops.enumerated() {
+                points.append(VinePoint(x: s.point.x, y: s.point.y, u: Double(s.index)))
+                // The gap below this stone: halfway to the stone below, the stem bowing out to
+                // one side as the ribbon did; for a module's first lesson, above its card.
+                let bow: CGFloat = s.index % 2 == 0 ? 30 : -30
+                if i > 0 && !s.firstInModule {
+                    let b = stops[i - 1].point
+                    let mid = CGPoint(x: (s.point.x + b.x) / 2 + bow, y: (s.point.y + b.y) / 2)
+                    points.insert(VinePoint(x: mid.x, y: mid.y, u: Double(s.index) - 0.5, isNode: true), at: points.count - 1)
+                    gaps.append((stop: s, at: mid, side: bow > 0 ? CGFloat(1) : CGFloat(-1)))
+                } else {
+                    gaps.append((stop: s, at: CGPoint(x: s.point.x + bow * 0.6, y: s.point.y + 78), side: bow > 0 ? CGFloat(1) : CGFloat(-1)))
+                    if i > 0 {
+                        // Under the card: on down to the stone below.
+                        let b = stops[i - 1].point
+                        points.insert(VinePoint(x: (s.point.x + b.x) / 2, y: (s.point.y + b.y) / 2, u: Double(s.index) - 0.5),
+                                      at: points.count - 1)
+                    }
                 }
             }
+            if let top, let last = stops.last {
+                let u = Double(last.index)
+                // Up the left edge, past the words and the table, into the leaves overhead.
+                points.append(VinePoint(x: top.minX + top.width * 0.08, y: top.maxY - 10, u: u + 0.8, isNode: true))
+                points.append(VinePoint(x: top.minX + top.width * 0.06, y: top.maxY - 150, u: u + 1.6))
+                points.append(VinePoint(x: top.minX + top.width * 0.075, y: top.minY + top.width * 0.2, u: u + 2.4))
+            }
+            // Leaves and tendrils go under the stem, so it covers where they join; the bunches
+            // hang over it.
+            for g in gaps { growth(&ctx, g.stop, at: g.at, side: g.side, width: size.width, ink: ink, bunches: false) }
+            VineStem.draw(&ctx, points: points, band: -400...(size.height + 400), state: self.vine, ink: ink)
+            for g in gaps { growth(&ctx, g.stop, at: g.at, side: g.side, width: size.width, ink: ink, bunches: true) }
         }
-        .frame(height: VineMetrics.barHeight + 12)
-        .padding(.vertical, -6)
         .allowsHitTesting(false)
         .accessibilityHidden(true)
+    }
+
+    /// What grows in the gap below a stone: a bunch (purple when done, green for the lesson up
+    /// next) with a leaf opposite it, or for lessons ahead leaves and curling tendrils.
+    private func growth(_ ctx: inout GraphicsContext, _ s: VineStop, at g: CGPoint, side: CGFloat, width: CGFloat,
+                        ink: VineInk, bunches: Bool) {
+        let k = s.index
+        let m = vine.wood(Double(k) - 0.5)
+        // Keep things on screen: if the outer side has no room, use the other one.
+        var side = side
+        if g.x + side * 70 > width - 10 || g.x + side * 70 < 10 { side = -side }
+        let fruit = s.state == .completed || s.state == .current
+        if bunches {
+            guard fruit else { return }
+            let colour = s.state == .completed ? "Purple" : "Green"
+            let c = CGPoint(x: g.x + side * 40, y: g.y + 8)
+            VineGrowth.stalk(&ctx, from: g, to: CGPoint(x: c.x, y: c.y - 28), wood: m, ink: ink, bend: side * -0.25, width: 2.6)
+            var flip = ctx
+            if side < 0 {
+                flip.translateBy(x: c.x, y: 0); flip.scaleBy(x: -1, y: 1); flip.translateBy(x: -c.x, y: 0)
+            }
+            VineGrowth.picture(&flip, "VineBunch\(colour)\(k % 3 + 1)", at: c, size: 80, degrees: Double(side) * 4)
+            return
+        }
+        // A leaf on the side away from the bunch (or the outer side, ahead).
+        let leafSide = fruit ? -side : side
+        let young = vine.next.map { Double(k) > $0 + 1.5 } ?? false
+        let leaf = CGPoint(x: g.x + leafSide * (fruit ? 30 : 38), y: g.y + 4)
+        VineGrowth.stalk(&ctx, from: g, to: CGPoint(x: leaf.x - leafSide * 4, y: leaf.y - 14), wood: m * 0.6, ink: ink,
+                         bend: leafSide * 0.3, width: 2.2)
+        if young {
+            VineGrowth.picture(&ctx, "VineLeafYoung\(k % 3 + 1)", at: leaf, size: CGFloat(30 + (k % 3) * 5) * 40 / 28,
+                               degrees: Double(leafSide) * Double(30 + (k % 3) * 12))
+        } else {
+            VineGrowth.picture(&ctx, "VineLeaf\(k % 6 + 1)", at: leaf, size: CGFloat(fruit ? 34 : 40 + (k % 3) * 4) * 60 / 44,
+                               degrees: Double(leafSide) * Double(30 + (k % 3) * 12))
+        }
+        // Ahead: tendrils curling out the other way, and a second, smaller leaf now and then.
+        if !fruit {
+            VineGrowth.tendril(&ctx, k % 4 + 1, at: CGPoint(x: g.x - leafSide * 2, y: g.y - 2), length: CGFloat(46 + (k % 3) * 8),
+                               degrees: leafSide > 0 ? Double(160 + (k % 3) * 20) : Double(-20 + (k % 3) * 20))
+            if k % 2 == 0 {
+                let small = CGPoint(x: g.x - leafSide * 26, y: g.y + 20)
+                VineGrowth.picture(&ctx, young ? "VineLeafYoung\((k + 1) % 3 + 1)" : "VineLeaf\((k + 3) % 6 + 1)", at: small,
+                                   size: 34, degrees: Double(-leafSide) * 40)
+            }
+        } else if k % 3 == 0 {
+            VineGrowth.tendril(&ctx, (k % 3) + 1, at: CGPoint(x: g.x, y: g.y + 2), length: 40,
+                               degrees: side > 0 ? 200 : -20)
+        }
     }
 }
 
 // MARK: - The top of the vine: the supra table
 
 struct VineTop: View {
-    let lastModuleFirst: Int
-    let lastModuleCount: Int
-    let rowHeight: CGFloat
-    let vine: VineState
     let finished: Bool
-    @Environment(\.colorScheme) private var scheme
 
     var body: some View {
-        let ink = VineInk.of(scheme)
         VStack(spacing: 6) {
             Image("VineTop")
                 .resizable()
@@ -592,21 +376,7 @@ struct VineTop: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40)
         }
-        .padding(.top, 12)
-        .padding(.bottom, 40)
+        .padding(.bottom, 10)
         .accessibilityElement(children: .combine)
-        .background(alignment: .top) {
-            GeometryReader { geo in
-                let pts = VineMetrics.points(firstIndex: lastModuleFirst, count: lastModuleCount, rowHeight: rowHeight,
-                                             isTop: true, topHeight: geo.size.height)
-                    .shifted(by: geo.size.height)
-                Canvas { ctx, size in
-                    VineStem.draw(&ctx, points: pts, band: 0...size.height, state: vine, ink: ink)
-                }
-                .frame(width: geo.size.width, height: geo.size.height)
-            }
-            .allowsHitTesting(false)
-            .accessibilityHidden(true)
-        }
     }
 }

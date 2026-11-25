@@ -84,6 +84,17 @@ back to the vector vine.** Fixed the jumping instead: no bottom anchor, the firs
 next lesson without animation, and the leaf's breathing scoped to its scale (an endless
 `withAnimation` started in `onAppear` also animated the row settling in the lazy list).
 
+## Round 4: the original path, reversed, with a vine (owner, KART #15) — built
+Owner: keep the original design (stones, icons, titles, swing, cards), reverse it to grow
+from the bottom up, and replace the ribbon with a beautiful vine: purple grapes for lessons
+done, green grapes for the current one, leaves, twigs and spirals ahead. Completed stones stay
+gold; the supra table stays at the top, faded until the end. LearnView is the KART #8 view
+again, reversed (cards below their lessons, 76 points of room for the first lesson's grapes),
+with `VineRibbon` (VinePath.swift) in place of LessonRibbon: the stem through the stone
+centres, bowing between them like the ribbon, woody below the next lesson and green above;
+in the gap below each stone a bunch (purple done, green up next) with a leaf opposite, or
+leaves and tendrils ahead. A plain VStack again (no lazy rows, so nothing to jump).
+
 ## How to build it
 1. **Pictures first:** draw the vine, leaf, grape bunch, bud, trellis bar and Ara perching
    in `tools/brand/make_brand.py` (all artwork comes from there), light and dark; show the

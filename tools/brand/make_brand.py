@@ -24,6 +24,7 @@ outlines, so no font is needed to show it. docs/brand.md explains how to use it 
 import io
 import json
 import os
+import shutil
 import sys
 
 import cairosvg
@@ -315,6 +316,7 @@ def vine_assets():
     version the iPhone picks in dark mode."""
     import vine_screens
     group = os.path.join(ASSETS, "Vine")
+    shutil.rmtree(group, ignore_errors=True)
     os.makedirs(group, exist_ok=True)
     write(os.path.join(group, "Contents.json"), json.dumps({"info": {"author": "xcode", "version": 1}}, indent=2) + "\n")
     for name, svgs in vine_screens.app_assets().items():
