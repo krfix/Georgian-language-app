@@ -131,7 +131,11 @@ enum VineStem {
                 let t = CGFloat(j) / CGFloat(per)
                 let t2 = t * t, t3 = t2 * t
                 func cr(_ a: CGFloat, _ b: CGFloat, _ c: CGFloat, _ d: CGFloat) -> CGFloat {
-                    0.5 * (2 * b + (-a + c) * t + (2 * a - 5 * b + 4 * c - d) * t2 + (-a + 3 * b - 3 * c + d) * t3)
+                    let k1: CGFloat = c - a
+                    let k2: CGFloat = 2 * a - 5 * b + 4 * c - d
+                    let k3: CGFloat = 3 * (b - c) + d - a
+                    let sum: CGFloat = 2 * b + k1 * t + k2 * t2 + k3 * t3
+                    return sum / 2
                 }
                 run.append(VinePoint(x: cr(p0.x, p1.x, p2.x, p3.x), y: cr(p0.y, p1.y, p2.y, p3.y),
                                      u: p1.u + (p2.u - p1.u) * Double(t)))

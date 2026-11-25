@@ -19,92 +19,137 @@ struct LearnView: View {
     /// Rows grow with larger text.
     @ScaledMetric(relativeTo: .headline) private var rowHeight: CGFloat = 92
 
-    var body: some View {
+    /// Everything the path needs, worked out once per update.
+    private struct Layout {
+        let modules: [CourseModule]
+        let states: [String: LessonState]
+        let firsts: [Int]
+        let total: Int
+        let vine: VineState
+        let finished: Bool
+        var last: Int { modules.count - 1 }
+    }
+
+    private var layout: Layout {
         let modules = store.curriculum.modules
-        let states = store.lessonStates
-        let firsts = moduleFirstIndices(modules)
-        let total = modules.reduce(0) { $0 + $1.lessons.count }
-        let next = store.nextLesson
-        let nextIndex = next.flatMap { lesson in courseIndex(of: lesson.id, modules, firsts) }
-        let vine = VineState(next: nextIndex.map(Double.init), lessonCount: Double(total))
-        let last = modules.count - 1
+        var firsts: [Int] = [], k = 0
+        for m in modules { firsts.append(k); k += m.lessons.count }
+        var nextIndex: Int?
+        if let id = store.nextLesson?.id {
+            for (mi, m) in modules.enumerated() {
+                if let i = m.lessons.firstIndex(where: { $0.id == id }) { nextIndex = firsts[mi] + i }
+            }
+        }
+        let vine = VineState(next: nextIndex.map { Double($0) }, lessonCount: Double(k))
+        return Layout(modules: modules, states: store.lessonStates, firsts: firsts, total: k, vine: vine,
+                      finished: store.nextLesson == nil)
+    }
+
+    var body: some View {
+        let layout = layout
         NavigationStack {
             ScrollViewReader { proxy in
                 ScrollView {
-                    LazyVStack(spacing: 0) {
-                        if let top = modules.last {
-                            VineTop(lastModuleFirst: firsts[last], lastModuleCount: top.lessons.count, rowHeight: rowHeight,
-                                    vine: vine, finished: next == nil)
-                                .accessibilitySortPriority(0)
-                        }
-                        ForEach(Array(modules.enumerated().reversed()), id: \.element.id) { mi, module in
-                            ForEach(Array(module.lessons.enumerated().reversed()), id: \.element.id) { i, lesson in
-                                let state = states[lesson.id] ?? .locked
-                                let spot = VineSpot(lesson: lesson, index: firsts[mi] + i, indexInModule: i, moduleFirst: firsts[mi],
-                                                    moduleCount: module.lessons.count, isTopModule: mi == last, state: state, vine: vine)
-                                VineLessonRow(spot: spot, rowHeight: rowHeight, showsPerch: perchID == lesson.id,
-                                              perchSpace: perchSpace) { tap(lesson, state) }
-                                    .id(lesson.id)
-                                    .accessibilityLabel("\(lesson.title). \(lesson.subtitle). \(stateLabel(state))")
-                                    .accessibilityIdentifier("lesson-\(lesson.id)")
-                                    .accessibilitySortPriority(Double(total - spot.index))
-                            }
-                            VineModuleBase(firstIndex: firsts[mi], count: module.lessons.count, isTopModule: mi == last,
-                                           rowHeight: rowHeight, vine: vine) {
-                                ModuleCard(module: module, showAlphabet: $showAlphabet)
-                            }
-                            .accessibilitySortPriority(Double(total - firsts[mi]) + 0.5)
-                        }
-                    }
-                    .accessibilityElement(children: .contain)
-                    .padding(.bottom, 12)
+                    path(layout)
                 }
                 .defaultScrollAnchor(.bottom)
                 // Bring the next lesson into view the first time the path opens, and again
                 // when it changes (a lesson finished), not every time the tab shows: scrolling
                 // on return made the big "Learn" title jump (KART #6).
-                .onAppear {
-                    if perchID == nil { perchID = next?.id }
-                    if perchID != next?.id {
-                        // Back from a lesson: Ara hops up to the new leaf.
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                            withMotion(Motion.bouncy) { perchID = store.nextLesson?.id }
-                        }
-                    }
-                    guard scrolledTo != next?.id else { return }
-                    scrolledTo = next?.id
-                    if let next {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            withMotion(Motion.slow) { proxy.scrollTo(next.id, anchor: .center) }
-                        }
-                    }
-                }
-                .onChange(of: store.nextLesson?.id) { _, id in
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                        withMotion(Motion.bouncy) { perchID = id }
-                    }
-                    guard let id, id != scrolledTo else { return }
-                    scrolledTo = id
-                    withMotion(Motion.slow) { proxy.scrollTo(id, anchor: .center) }
-                }
+                .onAppear { appeared(proxy) }
+                .onChange(of: store.nextLesson?.id) { _, id in nextChanged(id, proxy) }
             }
             .background(AmbientBackground(tint: .saperavi))
             .navigationTitle(tr("Learn"))
             .navigationBarTitleDisplayMode(.inline)
-            .overlay(alignment: .bottom) {
-                if let lockedNotice {
-                    Label(lockedNotice, systemImage: "lock.fill")
-                        .font(.calloutRounded.weight(.semibold))
-                        .foregroundStyle(.white)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 12)
-                        .background(Capsule().fill(Palette.ink.opacity(0.9)))
-                        .padding(.bottom, 16)
-                        .transition(.move(edge: .bottom).combined(with: .opacity))
-                }
-            }
+            .overlay(alignment: .bottom) { notice }
             .sheet(isPresented: $showAlphabet) { AlphabetChartView() }
         }
+    }
+
+    /// The supra table at the top, then each module from the last down to the first.
+    private func path(_ layout: Layout) -> some View {
+        LazyVStack(spacing: 0) {
+            if let top = layout.modules.last {
+                VineTop(lastModuleFirst: layout.firsts[layout.last], lastModuleCount: top.lessons.count,
+                        rowHeight: rowHeight, vine: layout.vine, finished: layout.finished)
+                    .accessibilitySortPriority(0)
+            }
+            ForEach(Array(layout.modules.indices.reversed()), id: \.self) { mi in
+                level(layout, mi)
+            }
+        }
+        .accessibilityElement(children: .contain)
+        .padding(.bottom, 12)
+    }
+
+    /// One module: its lessons from the last down to the first, then its bar and card.
+    @ViewBuilder private func level(_ layout: Layout, _ mi: Int) -> some View {
+        let module = layout.modules[mi]
+        ForEach(Array(module.lessons.indices.reversed()), id: \.self) { i in
+            row(layout, mi, i)
+        }
+        VineModuleBase(firstIndex: layout.firsts[mi], count: module.lessons.count, isTopModule: mi == layout.last,
+                       rowHeight: rowHeight, vine: layout.vine) {
+            ModuleCard(module: module, showAlphabet: $showAlphabet)
+        }
+        .accessibilitySortPriority(Double(layout.total - layout.firsts[mi]) + 0.5)
+    }
+
+    private func row(_ layout: Layout, _ mi: Int, _ i: Int) -> some View {
+        let module = layout.modules[mi]
+        let lesson = module.lessons[i]
+        let state = layout.states[lesson.id] ?? .locked
+        let spot = VineSpot(lesson: lesson, index: layout.firsts[mi] + i, indexInModule: i, moduleFirst: layout.firsts[mi],
+                            moduleCount: module.lessons.count, isTopModule: mi == layout.last, state: state, vine: layout.vine)
+        let label = "\(lesson.title). \(lesson.subtitle). \(stateLabel(state))"
+        let priority = Double(layout.total - spot.index)
+        return VineLessonRow(spot: spot, rowHeight: rowHeight, showsPerch: perchID == lesson.id,
+                             perchSpace: perchSpace) { tap(lesson, state) }
+            .id(lesson.id)
+            .accessibilityLabel(label)
+            .accessibilityIdentifier("lesson-\(lesson.id)")
+            .accessibilitySortPriority(priority)
+    }
+
+    @ViewBuilder private var notice: some View {
+        if let lockedNotice {
+            Label(lockedNotice, systemImage: "lock.fill")
+                .font(.calloutRounded.weight(.semibold))
+                .foregroundStyle(.white)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .background(Capsule().fill(Palette.ink.opacity(0.9)))
+                .padding(.bottom, 16)
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+        }
+    }
+
+    private func appeared(_ proxy: ScrollViewProxy) {
+        let next = store.nextLesson?.id
+        if perchID == nil { perchID = next }
+        if perchID != next {
+            // Back from a lesson: Ara hops up to the new leaf.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                withMotion(Motion.bouncy) { perchID = store.nextLesson?.id }
+            }
+        }
+        guard scrolledTo != next else { return }
+        scrolledTo = next
+        if let next {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                withMotion(Motion.slow) { proxy.scrollTo(next, anchor: .center) }
+            }
+        }
+    }
+
+    private func nextChanged(_ id: String?, _ proxy: ScrollViewProxy) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            withMotion(Motion.bouncy) { perchID = id }
+        }
+        guard let id, id != scrolledTo else { return }
+        scrolledTo = id
+        withMotion(Motion.slow) { proxy.scrollTo(id, anchor: .center) }
     }
 
     private func tap(_ lesson: Lesson, _ state: LessonState) {
@@ -116,20 +161,6 @@ struct LearnView: View {
             Haptics.tap()
             navigator.previewLesson = lesson
         }
-    }
-
-    /// Where each module's first lesson is in the whole course.
-    private func moduleFirstIndices(_ modules: [CourseModule]) -> [Int] {
-        var out: [Int] = [], k = 0
-        for m in modules { out.append(k); k += m.lessons.count }
-        return out
-    }
-
-    private func courseIndex(of id: String, _ modules: [CourseModule], _ firsts: [Int]) -> Int? {
-        for (mi, m) in modules.enumerated() {
-            if let i = m.lessons.firstIndex(where: { $0.id == id }) { return firsts[mi] + i }
-        }
-        return nil
     }
 }
 
