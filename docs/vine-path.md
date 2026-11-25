@@ -119,6 +119,13 @@ stub was about 20 points off (measured on the VineTop block, narrower than its p
 the picture's own corners); the jug and pomegranates moved right, clear of the climbing vine
 (the bread is gone, there was no room).
 
+After 0.4.1 (owner): Ara blended into the light paper (the pale beak), so Ara on the vine is
+its own picture, `VinePerchAra` (make_brand.py `perch_parrot`), with a thin deep-plum outline
+in light mode (none in dark); Ara is bigger, 84 points (72 where there is no room). The join
+to the Tamada vine is now hidden: no stub under the beam and no turns round its left end; the
+climb goes up behind the beam and ends in the middle of it (`VineClimb` draws only below the
+beam).
+
 ## How to build it
 1. **Pictures first:** draw the vine, leaf, grape bunch, bud, trellis bar and Ara perching
    in `tools/brand/make_brand.py` (all artwork comes from there), light and dark; show the

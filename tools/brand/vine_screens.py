@@ -410,14 +410,15 @@ def supra_table(cx, top, c, theme):
 def canopy(y, c, ripe=True):
     """The full vine overhead: a pergola beam hidden in leaves of every shade and shape,
     ripe bunches (and one still green) hanging under it, tendrils and a growing tip."""
-    # The old vine winds round the beam all along it: the turns behind the beam first, then the
-    # beam, then the turns in front. At the left it drops down as a short woody stub, which is
-    # where the young shoot climbing from the lessons joins it (VinePath.swift: VineRibbon.climb).
+    # The old vine winds round the beam along most of it: the turns behind the beam first, then
+    # the beam, then the turns in front. The young shoot climbing from the lessons
+    # (VinePath.swift: VineLayout.climb) goes up behind the beam at its left end, x about 16,
+    # so the join is hidden behind the wood (owner, KART #15): no turns there, and no stub.
     # Until the course is done the old vine is still green and so are its grapes (owner,
     # KART #15); done, it is brown wood with ripe bunches (VineTopRipe).
     wood, deep = (c["bark"], c["bark_deep"]) if ripe else (c["shoot"], c["shoot_deep"])
     back_turns = front_turns = ""
-    x0, step = 14, 26
+    x0, step = 44, 26
     xx = x0
     while xx < W + 20:
         back_turns += (f'<path d="M{xx:.1f},{y - 2:.1f} Q{xx + step * 0.5:.1f},{y + BAR_H / 2:.1f} {xx + step * 0.1:.1f},{y + BAR_H + 3:.1f}" '
@@ -427,11 +428,7 @@ def canopy(y, c, ripe=True):
                         f'<path d="M{xx + step * 0.1:.1f},{y + BAR_H + 3:.1f} Q{xx + step * 0.75:.1f},{y + BAR_H / 2:.1f} {xx + step:.1f},{y - 2:.1f}" '
                         f'stroke="{wood}" stroke-width="5" fill="none" stroke-linecap="round"/>')
         xx += step
-    stub = (f'<path d="M{x0 + 2.6:.1f},{y + BAR_H + 3:.1f} C{x0 + 4:.1f},{y + 30:.1f} {x0 + 7:.1f},{y + 40:.1f} 20,{y + 50:.1f}" '
-            f'stroke="{deep}" stroke-width="8" fill="none" stroke-linecap="round"/>'
-            f'<path d="M{x0 + 2.6:.1f},{y + BAR_H + 3:.1f} C{x0 + 4:.1f},{y + 30:.1f} {x0 + 7:.1f},{y + 40:.1f} 20,{y + 50:.1f}" '
-            f'stroke="{wood}" stroke-width="6" fill="none" stroke-linecap="round"/>')
-    out = back_turns + vine.trellis_svg(-12, W + 12, y, c, BAR_H) + stub + front_turns
+    out = back_turns + vine.trellis_svg(-12, W + 12, y, c, BAR_H) + front_turns
     back = [(-8, -4), (26, -18), (60, 2), (96, -14), (132, 4), (168, -16), (206, 0), (242, -16), (280, 4),
             (316, -12), (352, 2), (390, -14)]
     for i, (x, dy) in enumerate(back):

@@ -24,6 +24,7 @@ outlines, so no font is needed to show it. docs/brand.md explains how to use it 
 import io
 import json
 import os
+import re
 import shutil
 import sys
 
@@ -336,6 +337,47 @@ def vine_assets():
             "images": images, "info": {"author": "xcode", "version": 1},
             "properties": {"preserves-vector-representation": True, "template-rendering-intent": "original"},
         }, indent=2) + "\n")
+    # Ara on the vine: outlined on light paper; in dark mode Ara already stands out.
+    folder = os.path.join(group, "VinePerchAra.imageset")
+    os.makedirs(folder, exist_ok=True)
+    images = []
+    for theme in ("light", "dark"):
+        svg, Wp, Hp = perch_parrot(outline=theme == "light")
+        fn = f"vinePerchAra{'-dark' if theme == 'dark' else ''}.pdf"
+        cairosvg.svg2pdf(bytestring=svg.encode(), write_to=os.path.join(folder, fn))
+        entry = {"filename": fn, "idiom": "universal"}
+        if theme == "dark":
+            entry = {"appearances": [{"appearance": "luminosity", "value": "dark"}], **entry}
+        images.append(entry)
+    write(os.path.join(folder, "Contents.json"), json.dumps({
+        "images": images, "info": {"author": "xcode", "version": 1},
+        "properties": {"preserves-vector-representation": True, "template-rendering-intent": "original"},
+    }, indent=2) + "\n")
+    W, H, _, _, R = mascot_canvas()
+    pad = PERCH_PAD * R
+    print(f"VinePerchAra: aspect {Wp / Hp:.3f}, feet at ({(0.464 * W + pad) / Wp:.3f}, {(0.690 * H + pad) / Hp:.3f}) "
+          f"(VinePath.swift: Perch)")
+
+
+def perch_parrot(outline):
+    """Ara for the vine (VinePerchView), on the mascot canvas with room for an outline. On the
+    light paper the pale beak melted into the background (owner, KART #15), so the light
+    version has a thin deep-plum outline: a fattened copy of Ara's shape drawn behind it.
+    Returns the SVG and where the feet are (as fractions of the canvas)."""
+    W, H, cx, cy, R = mascot_canvas()
+    pad = PERCH_PAD * R
+    art = ara.mascot_svg(cx + pad, cy + pad, R, "hello")
+    under = ""
+    if outline:
+        shape = re.sub(r'fill="[^"]*"', f'fill="{ara.INK}"', art)
+        under = (f'<g stroke="{ara.INK}" stroke-width="{PERCH_LINE * R:.2f}" stroke-linejoin="round" '
+                 f'stroke-opacity="0.9" fill-opacity="0.9">{shape}</g>')
+    Wp, Hp = W + 2 * pad, H + 2 * pad
+    return doc(round(Wp), round(Hp), under + art), Wp, Hp
+
+
+# The outline: 0.11 R wide (half of it outside Ara), about 1 point at the vine's size.
+PERCH_PAD, PERCH_LINE = 0.08, 0.11
 
 
 def paint_pictures():

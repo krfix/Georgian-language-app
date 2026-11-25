@@ -305,15 +305,18 @@ struct VineLayout {
         let feet: CGPoint
         let from: CGPoint
         let facing: CGFloat
-        /// Ara's picture: 0.686 as wide as it is tall, feet at (0.464, 0.690) of it
-        /// (make_brand.py's mascot canvas).
-        static let height: CGFloat = 64
-        static let aspect: CGFloat = 0.686
-        static let feetAt = CGPoint(x: 0.464, y: 0.690)
+        /// How tall Ara is drawn: 84 points, or 72 where there is no room (owner, KART #15:
+        /// bigger than the first 64).
+        var height: CGFloat = Self.sizes[0]
+        static let sizes: [CGFloat] = [84, 72]
+        /// Ara's picture (VinePerchAra, make_brand.py's perch_parrot: the mascot canvas with
+        /// room for the outline): 0.694 as wide as it is tall, feet at (0.465, 0.685) of it.
+        static let aspect: CGFloat = 0.694
+        static let feetAt = CGPoint(x: 0.465, y: 0.685)
         var frame: CGRect {
-            let w = Self.height * Self.aspect
+            let w = height * Self.aspect
             let fx = facing > 0 ? Self.feetAt.x : 1 - Self.feetAt.x
-            return CGRect(x: feet.x - fx * w, y: feet.y - Self.feetAt.y * Self.height, width: w, height: Self.height)
+            return CGRect(x: feet.x - fx * w, y: feet.y - Self.feetAt.y * height, width: w, height: height)
         }
     }
 
@@ -392,14 +395,17 @@ struct VineLayout {
         spots.append(CGPoint(x: c.x - 8, y: c.y + 26))
         // Below it, where its green bunch hangs (the bunch then takes the other side).
         if let g = gaps.first(where: { $0.stop.index == stops[ci].index }) { spots.append(g.at) }
-        for spot in spots {
-            for side: CGFloat in [-1, 1] {
-                for reach: CGFloat in [36, 46, 56] {
-                    let feet = CGPoint(x: spot.x + side * reach, y: spot.y + 6)
-                    let p = Perch(feet: feet, from: spot, facing: -side)
-                    let f = p.frame
-                    guard f.minX >= 4, f.maxX <= width - 4 else { continue }
-                    if !obstacles.contains(where: { $0.intersects(f.insetBy(dx: 4, dy: 6)) }) { return p }
+        for height in Perch.sizes {
+            let k = height / 64
+            for spot in spots {
+                for side: CGFloat in [-1, 1] {
+                    for reach: CGFloat in [36 * k, 46 * k, 56 * k] {
+                        let feet = CGPoint(x: spot.x + side * reach, y: spot.y + 6)
+                        let p = Perch(feet: feet, from: spot, facing: -side, height: height)
+                        let f = p.frame
+                        guard f.minX >= 4, f.maxX <= width - 4 else { continue }
+                        if !obstacles.contains(where: { $0.intersects(f.insetBy(dx: 4 * k, dy: 6 * k)) }) { return p }
+                    }
                 }
             }
         }
@@ -407,25 +413,26 @@ struct VineLayout {
     }
 
     /// The climb: a young shoot (until the course is done) from the last lesson, in front of
-    /// the table, past the jug, up to the stub of the old vine wound round the beam, where it
-    /// takes on the old vine's colour and width to meet it. Positions are in the picture's own
-    /// units (402 by 340), scaled to its frame, so it fits every screen width.
+    /// the table, up the left past the jug and on behind the beam, where it meets the old vine
+    /// out of sight (owner, KART #15: no visible join). Positions are in the picture's own
+    /// units (402 by 340), scaled to its frame, so it fits every screen width; the beam is
+    /// 60 to 76 down (vine_screens.py: canopy).
     static func climb(from last: CGPoint, to art: CGRect, u: Double, finished: Bool) -> [VinePoint] {
         let s = art.width / 402
         func at(_ x: CGFloat, _ y: CGFloat) -> CGPoint { CGPoint(x: art.minX + x * s, y: art.minY + y * s) }
         let p1 = CGPoint(x: (last.x + at(80, 0).x) / 2 + 20, y: min(last.y - 96, art.maxY + 40))
-        let p2 = at(88, 336), p3 = at(70, 270), p4 = at(46, 205), p5 = at(26, 150), p6 = at(20, 110)
-        // The old vine is green until the course is done, brown wood after.
-        let old: Double = finished ? 1 : 0.02
+        let p2 = at(88, 336), p3 = at(70, 270), p4 = at(46, 205), p5 = at(26, 150), p6 = at(18, 104)
+        let end = at(16, 68)
         return [
             VinePoint(x: p1.x, y: p1.y, u: u + 0.5, isNode: true),
             VinePoint(x: p2.x, y: p2.y, u: u + 1.1, isNode: true),
             VinePoint(x: p3.x, y: p3.y, u: u + 1.6, isNode: true),
             VinePoint(x: p4.x, y: p4.y, u: u + 2.1, isNode: true),
-            VinePoint(x: p5.x, y: p5.y, u: u + 2.5, isNode: true, wood: finished ? 0.6 : 0.02, width: 5 * s),
-            // The old vine's stub in the picture: 6 units wide.
-            VinePoint(x: p6.x, y: p6.y, u: u + 2.8, wood: old, width: 6 * s),
-            VinePoint(x: p6.x - 1 * s, y: p6.y - 30 * s, u: u + 3, wood: old, width: 6 * s),
+            VinePoint(x: p5.x, y: p5.y, u: u + 2.5, isNode: true, width: 6 * s),
+            VinePoint(x: p6.x, y: p6.y, u: u + 2.8, width: 6 * s),
+            // Ends in the middle of the beam, out of sight behind the wood (6 units wide, the
+            // beam 14).
+            VinePoint(x: end.x, y: end.y, u: u + 3, width: 6 * s),
         ]
     }
 }
@@ -450,7 +457,7 @@ struct VineRibbon: View {
             VineStem.draw(&ctx, points: layout.points, band: -400...(size.height + 400), state: vine, ink: ink)
             if let p = layout.perch {
                 // Ara's twig: from the stem out under its feet, and a little beyond.
-                let tip = CGPoint(x: p.feet.x - p.facing * 14, y: p.feet.y + 1)
+                let tip = CGPoint(x: p.feet.x - p.facing * 14 * p.height / 64, y: p.feet.y + 1)
                 VineGrowth.stalk(&ctx, from: p.from, to: tip, wood: min(1, vine.wood(Double(vine.next ?? 0)) + 0.3), ink: ink,
                                  bend: 0.12 * -p.facing, width: 4.5)
             }
@@ -475,7 +482,10 @@ struct VineClimb: View {
         Canvas { ctx, size in
             guard let top = layout.top, !layout.climb.isEmpty else { return }
             let bottom = min(top.maxY + 150, (layout.lastStone?.y ?? .greatestFiniteMagnitude) - 46)
-            ctx.clip(to: Path(CGRect(x: 0, y: top.minY, width: size.width, height: max(0, bottom - top.minY))))
+            // Drawn over the picture only below the beam (76 of its 340 units down): above that
+            // the vine runs behind the wood.
+            let beam = top.minY + 77 * top.width / 402
+            ctx.clip(to: Path(CGRect(x: 0, y: beam, width: size.width, height: max(0, bottom - beam))))
             let grow = VineGrower(vine: vine, ink: ink, width: size.width, obstacles: layout.obstacles)
             grow.climb(&ctx, layout.climb, bunches: false)
             VineStem.draw(&ctx, points: layout.points, band: top.minY...bottom, state: vine, ink: ink)
@@ -493,7 +503,10 @@ struct VinePerchView: View {
     var body: some View {
         if let perch {
             let f = perch.frame
-            ParrotView(height: VineLayout.Perch.height, mood: .hello, bobbing: false)
+            // Ara outlined for the light paper (make_brand.py: perch_parrot).
+            Image("VinePerchAra")
+                .resizable()
+                .scaledToFit()
                 .scaleEffect(x: perch.facing > 0 ? 1 : -1, y: 1)
                 .frame(width: f.width, height: f.height)
                 .position(x: f.midX, y: f.midY)
@@ -669,8 +682,8 @@ struct VineTop: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40)
                 .padding(.bottom, 8)
-            // The grown vine over the table, the goal; the climbing shoot joins it at the beam
-            // (VineRibbon.climb uses the picture's proportions, 402 by 340).
+            // The grown vine over the table, the goal; the climbing shoot goes up behind its
+            // beam (VineLayout.climb uses the picture's proportions, 402 by 340).
             Image(finished ? "VineTopRipe" : "VineTop")
                 .resizable()
                 .aspectRatio(402.0 / 340.0, contentMode: .fit)
