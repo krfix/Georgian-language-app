@@ -182,8 +182,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   0.2.1 (build #30): More words, every word on screen in Words; 0.3.0 (KART #6): the Words
   tab, Home's new order, stage names instead of levels, tappable notes, smoother Learn and
   Words. See DEVELOPMENT_LOG.md and TODO.md.
-- KART #14: App Store preparation (`docs/app-store.md`), version 0.4.0, never released on its
-  own (no TestFlight build yet; owner: wait).
+- KART #14: App Store preparation (`docs/app-store.md`), version 0.4.0: TestFlight build #54,
+  never released on GitHub on its own (0.4.1 carries it).
 - KART #15: the Learn path as a grapevine, released as **0.4.1** (owner): the KART #8 path
   (stones, icons, titles, swing) reversed to grow from the bottom up, the ribbon replaced by a
   vine (`Features/Learn/VinePath.swift`: stem drawn live, brown below the next lesson, green
