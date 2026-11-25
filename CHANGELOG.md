@@ -3,6 +3,20 @@
 What changed in each version, newest first. Versions are 0.x.y (owner, KART #14: the first App
 Store version too); the version in App Store Connect must match the one here.
 
+## [0.4.1] - 2026-11-25
+
+Learn grows like a Georgian grapevine.
+
+- The lesson path now grows from the bottom up: the first lessons at the bottom, the supra
+  table at the top, and Learn opens on the lesson you're on
+- A grapevine runs from stone to stone instead of the ribbon: old brown wood below your
+  lesson, a young green shoot above it. Lessons done hang purple grapes, your current lesson
+  green ones, and the lessons ahead have leaves and curling tendrils
+- Ara sits on the vine beside the lesson you're on
+- At the top, a supra table under a vine: it stays green until you finish the whole course,
+  then the grapes ripen
+- The path no longer jumps about when it opens
+
 ## [0.4.0] - 2026-11-24
 
 Ready for the App Store: free, with no ads, no account and no tracking.

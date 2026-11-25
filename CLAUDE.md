@@ -70,7 +70,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   Polish table. Live at https://aralearn.github.io/app (the
   website repo's `/app`, KART #9; the site's home has a "Try Ara in your browser" button);
   republish only on the owner's say-so, privacy page first.
-- App Store (KART #14): free, no in-app purchases or ads; repo stays private. Listing texts
+- App Store (KART #14): free, no in-app purchases or ads; the repo is public since KART #15
+  (owner; no licence file yet, so all rights reserved). Listing texts
   and Apple's forms in `docs/app-store.md`; keep it true to the app.
 
 ## Workflow
@@ -95,7 +96,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   off-screen, off-centre, overlapping; normal and larger text), all here on Linux;
   on GitHub `web.yml` (Linux, by hand; `-f publish=true` puts it live, needs `WEBSITE_TOKEN`;
   `-f quick=true` skips its screen walk-through, ~1–2 min instead of ~10: use it after `screens.mjs` ran here).
-- Mac minutes cost money (private repo, shared with the Logbook app). Build when the owner asks, or when the
+- Mac minutes are free now the repo is public (KART #15); still let several changes ride on one
+  run. `-f qa=true -f vine=true -f uitests=false`: only the Learn path's pictures (vine-<size>-<look>-<where>.png,
+  small/middle/large iPhone, the finished vine, large text; ~25 min). Build when the owner asks, or when the
   owner's brief asks for build-and-inspect cycles (as in KART #1). Let several changes ride on
   one run; cancel a run whose code is already out of date.
 - Rhythm (owner, KART #6): on a branch, quick IPA builds only (no `qa`); the owner tests on
@@ -119,9 +122,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   `option-<n>`, `tile-<n>`, `match-ka-<id>`/`match-other-<id>`, `lesson-check`,
   `lesson-continue`, `complete-continue`, `onboarding-next`, …
 - Launch arguments (`App/LaunchOptions.swift`): `-uiTesting` (store in memory), `-resetData`,
-  `-seedDemo`, `-screen <home|learn|alphabet|lesson|complete|words|word|review|progress|profile|onboarding|
+  `-seedDemo`, `-seedAll` (every lesson done), `-screen <home|learn|alphabet|lesson|complete|words|word|review|progress|profile|onboarding|
   phrasebook|category|emergency|saved|dialogue|practice|phrase|show|search>` with `-item <id>` or
-  `-query <text>` for the phrasebook screens.
+  `-query <text>` for the phrasebook screens; `-screen learn -item <lesson id|top|bottom>` scrolls the path.
 - Installed with Feather, or TestFlight; always the same identifier, `com.aralearn.ge` (until
   KART #7 it was `com.krfix.georgian`, which the iPhone treats as a different app).
 
@@ -179,16 +182,20 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   0.2.1 (build #30): More words, every word on screen in Words; 0.3.0 (KART #6): the Words
   tab, Home's new order, stage names instead of levels, tappable notes, smoother Learn and
   Words. See DEVELOPMENT_LOG.md and TODO.md.
-- KART #14 (merged to `main` with [skip ci], so nothing was built): App Store preparation, version 0.4.0, App Store Connect mostly filled in
-  (`docs/app-store.md`); no TestFlight build yet (owner: wait). Watch out: 0.4.0 has its
-  CHANGELOG section but no GitHub Release, so the next push to `main` that changes code builds and
-  publishes 0.4.0 with whatever is in it. Before merging other work, ask the owner (release 0.4.0
-  first, or move that work to 0.5.0 with its own section). Next: the grapevine Learn path
-  (`docs/vine-path.md`, for 0.4.1); KART #15 drew its pictures (`make_brand.py --vine` →
-  `brand/vine/`), app code not started.
+- KART #14: App Store preparation (`docs/app-store.md`), version 0.4.0, never released on its
+  own (no TestFlight build yet; owner: wait).
+- KART #15: the Learn path as a grapevine, released as **0.4.1** (owner): the KART #8 path
+  (stones, icons, titles, swing) reversed to grow from the bottom up, the ribbon replaced by a
+  vine (`Features/Learn/VinePath.swift`: stem drawn live, brown below the next lesson, green
+  above; purple bunches for lessons done, green for the current one, leaves and tendrils
+  ahead, kept clear of titles, stones and the screen's edges); Ara perched by the lesson up
+  next; the supra table at the top (`VineTop`, green until the course is done, then
+  `VineTopRipe`). Parts from `make_brand.py --vine` (`brand/vine/`, `Assets.xcassets/Vine`);
+  the whole story in `docs/vine-path.md`. App Store Connect's version must become 0.4.1. Not
+  yet: the web app's Learn (step 3), the App Store screenshots `09-lessons`/`07-lessons`.
 
 ## Repos and branches
-- `krfix/Georgian-language-app` (private again, KART #7; never commit keys or personal
+- `krfix/Georgian-language-app` (public since KART #15; never commit keys or personal
   details, secrets live in GitHub's Actions secrets): this app; `main` is what's tested and accepted.
 - `aralearn/aralearn.github.io` (public, KART #7): the website, https://aralearn.github.io:
   home, `/privacy`, `/support` in English and the same under `/pl/` in Polish (KART #13), plain
