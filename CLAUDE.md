@@ -62,7 +62,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 - Developer mode (KART #8): Profile › Developer, one switch (`devMode`) that shows two tools:
   Open all lessons (`devUnlockAllLessons`) and Quick pass (`devQuickPass`: a Pass button in
   lessons, tap = right answer, hold = finish the lesson). Only in the Feather IPA (`DEV_TOOLS`)
-  and Simulator runs (`DEBUG`); TestFlight and the App Store never show it (KART #14).
+  and Simulator runs (`DEBUG`); TestFlight and the App Store never show it (KART #14), except a
+  TestFlight build run with `-f devtools=true` (testers only; never submit that one for review).
 - Test data is always invented (Ana, the demo learner, `LearningStore.seedDemo`).
 - Web app (KART #8–#9, `web/README.md`): the whole app for any browser, in `web/`, plain
   HTML/CSS/JS reading the iPhone app's content and audio (never copied by hand), drawn like
