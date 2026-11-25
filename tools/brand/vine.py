@@ -303,9 +303,21 @@ def stalk_svg(x0, y0, x1, y1, c, m=0.0, bend=0.3, w=2.6):
 # ---------------------------------------------------------------------------------------
 # Grape bunches: green when just finished, blushing, then ripe purple
 
+def bunch_top(cx, cy, size, tilt=0.0):
+    """Where a bunch's stalk ends: a point hidden behind its top grapes, turned with the
+    bunch. The bunch has no stem of its own; the stalk from the vine runs to here and the
+    grapes cover its end, so it meets the bunch however it is turned (owner, KART #15)."""
+    t = math.radians(tilt)
+    return cx + size * BUNCH_TOP * math.sin(t), cy - size * BUNCH_TOP * math.cos(t)
+
+
+BUNCH_TOP = 0.26   # of the bunch's size above its centre: between the first and second row
+
+
 def bunch_svg(cx, cy, size, c, uid="g", ripe="purple", seed=3, tilt=0.0):
     """A bunch about `size` points tall centred on (cx, cy): a cone of grapes with a shoulder
-    (a small side wing), each grape a little different. ripe: green, blush or purple."""
+    (a small side wing), each grape a little different. ripe: green, blush or purple. No stem:
+    draw its stalk first, to bunch_top()."""
     rnd = random.Random(seed)
     s = size
     r = s * 0.13
@@ -328,9 +340,6 @@ def bunch_svg(cx, cy, size, c, uid="g", ripe="purple", seed=3, tilt=0.0):
                             ("blush", (c["green_light"], c["blush"], c["purple_deep"]))):
         out += (f'<defs><radialGradient id="{uid}{name}" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="{l}"/>'
                 f'<stop offset="0.55" stop-color="{m}"/><stop offset="1" stop-color="{d}"/></radialGradient></defs>')
-    top = cy - s * 0.5
-    out += (f'<path d="M{_f(cx, cy - s * 0.32)} Q{_f(cx + s * 0.04, top + s * 0.04)} {_f(cx - s * 0.02, top - s * 0.04)}" '
-            f'stroke="{mix(c["shoot_deep"], c["cane"], 0.6)}" stroke-width="{s * 0.05:.2f}" fill="none" stroke-linecap="round"/>')
     for (x, y, k) in sorted(grapes, key=lambda q: q[1]):
         x, y = x * math.cos(t) - y * math.sin(t), x * math.sin(t) + y * math.cos(t)
         gx, gy, gr = cx + x * s, cy + y * s, r * k

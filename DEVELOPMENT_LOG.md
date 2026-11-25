@@ -29,7 +29,8 @@ leaves, a stem width jump (uneven curve points made the curve overshoot), the st
 After 0.4.1 (build #68, released): owner asked for Ara outlined on light paper, a bigger Ara
 and the Tamada join hidden behind the beam. Done: `VinePerchAra` (outlined in light, 84 points,
 72 where there is no room); no stub or left-end turns on the beam; the climb ends behind it.
-Vine QA run on three iPhones, then a Feather build.
+Vine QA run on three iPhones, then a Feather build (#70). Then: bunches lose their own stem;
+the vine's stalk runs to a point hidden behind the top grapes (owner: turned bunches missed it).
 
 ## KART #14 · 24/11/26 · Public, free release (branch `claude/festive-turing-v18y0y`)
 

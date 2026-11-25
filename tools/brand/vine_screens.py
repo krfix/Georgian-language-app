@@ -260,9 +260,11 @@ def vine_scene(rows, sy, vn, c, top_cut=None, above=()):
                 growths += vine.stalk_svg(x - 2, y, x - 18, y - 10, c, m, bend=0.25, w=2)
                 growths += vine.leaf_svg(x - 24, y - 4, 20 + (k % 3) * 3, c, "young", rot=50, uid=f"y{k}", sh=vine.leaf_shape(seed))
             else:
-                growths += vine.stalk_svg(x + 2, y, ix - 2, iy - 32, c, m, bend=-0.25, w=3)
+                bt = 4 if k % 2 else -4
+                end = vine.bunch_top(ix, iy + 4, 62, bt) if state == "done" else (ix - 2, iy - 32)
+                growths += vine.stalk_svg(x + 2, y, *end, c, m, bend=-0.25, w=3)
                 if state == "done":
-                    over += vine.bunch_svg(ix, iy + 4, 62, c, uid=f"g{k}", ripe=r[5], seed=seed, tilt=4 if k % 2 else -4)
+                    over += vine.bunch_svg(ix, iy + 4, 62, c, uid=f"g{k}", ripe=r[5], seed=seed, tilt=bt)
                 else:
                     over += vine.leaf_svg(ix, iy + 2, 66 if state == "next" else 56, c, state, rot=6 if k % 2 else -6, uid=f"l{k}")
                 if state == "next":
@@ -438,9 +440,9 @@ def canopy(y, c, ripe=True):
         out += vine.tendril_svg(x + 10, y + 18, 34, 70 + (i % 3) * 20, c, seed=200 + i, fork=i % 2 == 0)
     for i, (x, colour) in enumerate(((46, "purple"), (132, "purple"), (222, "blush"), (300, "purple"), (374, "green"))):
         colour = colour if ripe else "green"
-        out += vine.stalk_svg(x - 4, y + 10, x, y + 36, c, 0.6, bend=0.2, w=2.6)
-        out += vine.bunch_svg(x, y + 62 + (i % 2) * 12, 52 + (i % 3) * 4, c, uid=f"cg{i}", ripe=colour, seed=300 + i,
-                              tilt=(i % 3 - 1) * 6)
+        by, bs, bt = y + 62 + (i % 2) * 12, 52 + (i % 3) * 4, (i % 3 - 1) * 6
+        out += vine.stalk_svg(x - 4, y + 10, *vine.bunch_top(x, by, bs, bt), c, 0.6, bend=0.2, w=2.6)
+        out += vine.bunch_svg(x, by, bs, c, uid=f"cg{i}", ripe=colour, seed=300 + i, tilt=bt)
     front = back[1::2]
     for i, (x, dy) in enumerate(front):
         out += vine.leaf_svg(x + 16, y + dy + 22, 40 + (i % 2) * 8, c, "deco", rot=(i % 2) * 34 - 17, uid=f"cf{i}",

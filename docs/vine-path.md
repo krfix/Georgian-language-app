@@ -124,7 +124,9 @@ its own picture, `VinePerchAra` (make_brand.py `perch_parrot`), with a thin deep
 in light mode (none in dark); Ara is bigger, 84 points (72 where there is no room). The join
 to the Tamada vine is now hidden: no stub under the beam and no turns round its left end; the
 climb goes up behind the beam and ends in the middle of it (`VineClimb` draws only below the
-beam).
+beam). Grape bunches have no stem of their own any more: a turned bunch's stem missed the
+vine's stalk (owner), so the stalk runs to a point hidden behind the top grapes, turned with the
+bunch (`vine.py: bunch_top`, `VineGrower.bunch`).
 
 ## How to build it
 1. **Pictures first:** draw the vine, leaf, grape bunch, bud, trellis bar and Ara perching

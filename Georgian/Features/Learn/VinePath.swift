@@ -598,7 +598,15 @@ struct VineGrower {
         }()
         let sz = size * k
         let c = CGPoint(x: g.x + s * (30 + sz * 0.14), y: g.y + 8)
-        VineGrowth.stalk(&ctx, from: g, to: CGPoint(x: c.x, y: c.y - sz * 0.35), wood: m, ink: ink, bend: s * -0.25, width: 2.6)
+        // The bunch has no stem of its own (owner, KART #15): the stalk runs to a point hidden
+        // behind its top grapes, turned with the bunch, so the two always meet. In the picture
+        // (90 points) the bunch is 62 tall, centred 2 below the middle; the point is 0.26 of
+        // the bunch above its centre (vine.py: bunch_top).
+        let b = sz * 62 / 90
+        let rise = b * 0.26 - sz * 2 / 90
+        let turn = tilt * .pi / 180
+        let end = CGPoint(x: c.x + rise * CGFloat(sin(turn)), y: c.y - rise * CGFloat(cos(turn)))
+        VineGrowth.stalk(&ctx, from: g, to: end, wood: m, ink: ink, bend: s * -0.25, width: 2.6)
         var flip = ctx
         if s < 0 {
             flip.translateBy(x: c.x, y: 0); flip.scaleBy(x: -1, y: 1); flip.translateBy(x: -c.x, y: 0)
