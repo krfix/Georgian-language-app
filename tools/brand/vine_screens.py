@@ -406,14 +406,33 @@ def supra_table(cx, top, c, theme):
 def canopy(y, c):
     """The full vine overhead: a pergola beam hidden in leaves of every shade and shape,
     ripe bunches (and one still green) hanging under it, tendrils and a growing tip."""
-    out = vine.trellis_svg(-12, W + 12, y, c, BAR_H)
+    # The old vine winds round the beam all along it: the turns behind the beam first, then the
+    # beam, then the turns in front. At the left it drops down as a short woody stub, which is
+    # where the young shoot climbing from the lessons joins it (VinePath.swift: VineRibbon.climb).
+    wood, deep = c["bark"], c["bark_deep"]
+    back_turns = front_turns = ""
+    x0, step = 14, 26
+    xx = x0
+    while xx < W + 20:
+        back_turns += (f'<path d="M{xx:.1f},{y - 2:.1f} Q{xx + step * 0.5:.1f},{y + BAR_H / 2:.1f} {xx + step * 0.1:.1f},{y + BAR_H + 3:.1f}" '
+                       f'stroke="{deep}" stroke-width="5" fill="none" stroke-linecap="round"/>')
+        front_turns += (f'<path d="M{xx + step * 0.1:.1f},{y + BAR_H + 3:.1f} Q{xx + step * 0.75:.1f},{y + BAR_H / 2:.1f} {xx + step:.1f},{y - 2:.1f}" '
+                        f'stroke="{deep}" stroke-width="7" fill="none" stroke-linecap="round"/>'
+                        f'<path d="M{xx + step * 0.1:.1f},{y + BAR_H + 3:.1f} Q{xx + step * 0.75:.1f},{y + BAR_H / 2:.1f} {xx + step:.1f},{y - 2:.1f}" '
+                        f'stroke="{wood}" stroke-width="5" fill="none" stroke-linecap="round"/>')
+        xx += step
+    stub = (f'<path d="M{x0 + 2.6:.1f},{y + BAR_H + 3:.1f} C{x0 + 4:.1f},{y + 30:.1f} {x0 + 7:.1f},{y + 40:.1f} 20,{y + 50:.1f}" '
+            f'stroke="{deep}" stroke-width="8" fill="none" stroke-linecap="round"/>'
+            f'<path d="M{x0 + 2.6:.1f},{y + BAR_H + 3:.1f} C{x0 + 4:.1f},{y + 30:.1f} {x0 + 7:.1f},{y + 40:.1f} 20,{y + 50:.1f}" '
+            f'stroke="{wood}" stroke-width="6" fill="none" stroke-linecap="round"/>')
+    out = back_turns + vine.trellis_svg(-12, W + 12, y, c, BAR_H) + stub + front_turns
     back = [(-8, -4), (26, -18), (60, 2), (96, -14), (132, 4), (168, -16), (206, 0), (242, -16), (280, 4),
             (316, -12), (352, 2), (390, -14)]
     for i, (x, dy) in enumerate(back):
         out += vine.leaf_svg(x, y + dy - 6, 50 + (i % 3) * 6, c, "deco", rot=(i % 5 - 2) * 18, uid=f"cb{i}",
                              sh=vine.leaf_shape(100 + i), colour=c["deco"][i % 4])
     for i, x in enumerate((20, 96, 186, 262, 336)):
-        out += vine.tendril_svg(x + 10, y + 18, 34, 70 + (i % 3) * 20, c, seed=200 + i, spring=i % 2 == 0)
+        out += vine.tendril_svg(x + 10, y + 18, 34, 70 + (i % 3) * 20, c, seed=200 + i, fork=i % 2 == 0)
     for i, (x, ripe) in enumerate(((46, "purple"), (132, "purple"), (222, "blush"), (300, "purple"), (374, "green"))):
         out += vine.stalk_svg(x - 4, y + 10, x, y + 36, c, 0.6, bend=0.2, w=2.6)
         out += vine.bunch_svg(x, y + 62 + (i % 2) * 12, 52 + (i % 3) * 4, c, uid=f"cg{i}", ripe=ripe, seed=300 + i,
@@ -577,15 +596,18 @@ def app_assets():
         for i in range(3):
             add(f"VineBunch{ripe.title()}{i + 1}",
                 lambda c, th, ripe=ripe, i=i: _canvas(90, 90, vine.bunch_svg(45, 47, 62, c, uid="b", ripe=ripe, seed=21 + i * 7)))
-    for i in range(6):
+    # Ten leaves, each its own shape and shade (some cut deep, some round, some lopsided).
+    for i in range(10):
         add(f"VineLeaf{i + 1}", lambda c, th, i=i: _canvas(60, 60, vine.leaf_svg(
-            30, 30, 44, c, "deco", uid="d", sh=vine.leaf_shape(40 + i), colour=c["deco"][i % 4])))
+            30, 30, 44, c, "deco", uid="d", sh=vine.leaf_shape_wide(40 + i * 3),
+            colour=vine.mix(c["deco"][i % 4], c["green"] if i % 3 == 0 else c["deco_deep"], (i % 5) * 0.08))))
     for i in range(3):
         add(f"VineLeafYoung{i + 1}", lambda c, th, i=i: _canvas(40, 40, vine.leaf_svg(
             20, 20, 28, c, "young", uid="y", sh=vine.leaf_shape(60 + i))))
-    for i in range(4):
+    # Six tendrils: forked ones and single ones, each bending and curling its own way.
+    for i in range(6):
         add(f"VineTendril{i + 1}", lambda c, th, i=i: _canvas(80, 80, vine.tendril_svg(
-            8, 40, 56, 0, c, seed=70 + i, spring=(i == 3), w=2.2)))
+            8, 40, 56 if i < 3 else 48, 0, c, seed=70 + i * 5, w=2.2, fork=i % 2 == 0)))
 
     def top(c, th):
         body = (f'<g transform="translate(0,-116)">{canopy(176, c)}{supra_table(W / 2, 352, c, th)}'

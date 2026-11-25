@@ -88,11 +88,25 @@ struct LearnView: View {
             }
         }
         .accessibilityElement(children: .contain)
+        // The vine's layers reach out to the screen's edges (past the path's 20-point margins),
+        // so leaves near the edge are never cut off by the drawing's own edge.
         .backgroundPreferenceValue(StoneCentres.self) { anchors in
             GeometryReader { geo in
-                VineRibbon(stops: vineStops(anchors, in: geo), top: topFrame(anchors, in: geo), vine: vineState)
+                VineRibbon(layout: vineLayout(anchors, in: geo), vine: vineState)
             }
+            .padding(.horizontal, -20)
         }
+        .overlayPreferenceValue(StoneCentres.self) { anchors in
+            GeometryReader { geo in
+                VineClimb(layout: vineLayout(anchors, in: geo), vine: vineState)
+            }
+            .padding(.horizontal, -20)
+            .allowsHitTesting(false)
+        }
+    }
+
+    private func vineLayout(_ anchors: [String: Anchor<CGPoint>], in geo: GeometryProxy) -> VineLayout {
+        VineLayout(stops: vineStops(anchors, in: geo), top: topFrame(anchors, in: geo))
     }
 
     /// Every stone in course order (bottom to top on screen), where it sits, its place in the

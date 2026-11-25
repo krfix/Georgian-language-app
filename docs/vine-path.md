@@ -103,6 +103,16 @@ young green shoot with green leaves, tendrils and unripe bunches (`VineRibbon.cl
 left past the table into the pergola's beam; the picture is at full strength and its words
 are above it.
 
+Build #59, owner: much better; the Tamada vine should pass in front of the table and join
+the beam, with a vine wound round the beam; nothing cut at the screen's edges; more variety.
+Done: the old vine in `VineTop` winds round the whole beam (turns behind and in front of it)
+and drops to a woody stub at the left; `VineClimb` draws the climb again over the picture
+(in front of the table and jug), turning woody to meet the stub (`VinePoint.wood/width`
+overrides). The vine's layers reach the screen's edges (they were cut at the path's 20-point
+margins) and `VineGrower` keeps every leaf and tendril inside them (other side, or smaller).
+Ten leaf shapes (`leaf_shape_wide`), six tendrils (forked and single); each gap picks its
+own number of leaves, sizes, angles, sides and tendrils from a repeatable random number.
+
 ## How to build it
 1. **Pictures first:** draw the vine, leaf, grape bunch, bud, trellis bar and Ara perching
    in `tools/brand/make_brand.py` (all artwork comes from there), light and dark; show the

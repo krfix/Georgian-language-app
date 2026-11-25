@@ -203,6 +203,13 @@ def node_svg(x, y, w, ang, c, m):
 # ---------------------------------------------------------------------------------------
 # Leaves: five lobes, a notch at the stalk, a toothed edge, each a little different
 
+def leaf_shape_wide(seed):
+    """A leaf shape from a wider range: some deeply cut, some nearly round, some lopsided."""
+    r = random.Random(seed)
+    return dict(lobe=r.uniform(0.7, 1.45), sinus=r.uniform(0.3, 2.6), teeth=r.choice((18, 20, 22, 24, 26, 30)),
+                tooth=r.uniform(0.03, 0.08), asym=r.uniform(-0.16, 0.16), stretch=r.uniform(0.85, 1.15))
+
+
 def leaf_shape(seed):
     r = random.Random(seed)
     return dict(lobe=r.uniform(0.8, 1.25), sinus=r.uniform(0.6, 1.6), teeth=r.choice((20, 22, 24, 26)),
@@ -371,9 +378,10 @@ def _poly(pts, col, w):
             f'stroke-linecap="round" stroke-linejoin="round"/>')
 
 
-def tendril_svg(x, y, size, ang, c, seed=5, colour=None, w=1.9, spring=False):
+def tendril_svg(x, y, size, ang, c, seed=5, colour=None, w=1.9, spring=False, fork=True):
     """A forked tendril from (x, y) heading at ang degrees: a gently bending arm that splits in
-    two, each fork ending in a curl; with spring=True the long fork is coiled like a spring."""
+    two, each fork ending in a curl; with spring=True the long fork is coiled like a spring;
+    with fork=False a single arm ending in one curl."""
     rnd = random.Random(seed)
     col = colour or c["shoot"]
     a = math.radians(ang)
@@ -385,7 +393,8 @@ def tendril_svg(x, y, size, ang, c, seed=5, colour=None, w=1.9, spring=False):
     out = f'<path d="M{_f(x, y)} Q{_f(mx, my)} {_f(fx, fy)}" stroke="{col}" stroke-width="{w}" fill="none" stroke-linecap="round"/>'
     # The upper fork curls up and the lower one down: away from each other, never into one
     # another (where they met they blended into a knot).
-    for k, (da, frac, side) in enumerate(((-26, 1.0, -1), (34, 0.65, 1))):
+    forks = ((-26, 1.0, -1), (34, 0.65, 1)) if fork else ((rnd.uniform(-15, 15), 1.3, -1 if rnd.random() < 0.5 else 1),)
+    for k, (da, frac, side) in enumerate(forks):
         aa = ang + da + rnd.uniform(-10, 10)
         ra = math.radians(aa)
         ln = size * 0.3 * frac
