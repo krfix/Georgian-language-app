@@ -364,18 +364,26 @@ def learn_screen(theme, upto=("vocabulary", 3)):
 def supra_table(cx, top, c, theme):
     """A long supra table with a white cloth, a clay jug, pomegranates, bread and khachapuri, and a
     place for Ara; `top` is the table top's y."""
-    cloth = "#FFFDF8" if theme == "light" else "#EDE3D6"
-    shade = "#E9DFD2" if theme == "light" else "#BFB2A4"
+    # A warm linen cloth with a woven red border and a crisp edge, so the table stands out
+    # from the paper background in light mode too (owner, KART #15).
+    cloth = "#F6E6CF" if theme == "light" else "#E9DCCB"
+    shade = "#E3CCAC" if theme == "light" else "#BFAE98"
+    edge = "#B98E5E" if theme == "light" else "#8E7356"
     x0, x1 = cx - 165, cx + 165
-    out = ""
+    out = f'<ellipse cx="{cx}" cy="{top + 96}" rx="176" ry="9" fill="#000000" opacity="{0.13 if theme == "light" else 0.3}"/>'
     for lx in (x0 + 30, x1 - 30):                                       # legs
         out += f'<rect x="{lx - 5}" y="{top + 30}" width="10" height="64" rx="4" fill="{c["wood_deep"]}"/>'
-    # The cloth: the top, then the drop with a scalloped hem.
-    hem = "".join(f" Q{x0 + 22 * i + 11:.1f},{top + 66:.1f} {x0 + 22 * (i + 1):.1f},{top + 58:.1f}" for i in range(15))
-    out += f'<path d="M{x0},{top} L{x1},{top} L{x1},{top + 58} L{x0},{top + 58} Z" fill="{cloth}"/>'
-    out += f'<path d="M{x0},{top + 58}{hem} L{x1},{top + 52} L{x0},{top + 52} Z" fill="{cloth}"/>'
+    # The cloth: the top, then the drop with a scalloped hem, outlined.
+    shape = f"M{x0},{top} L{x1},{top} L{x1},{top + 58}" + "".join(
+        f" Q{x1 - 22 * i - 11:.1f},{top + 66:.1f} {x1 - 22 * (i + 1):.1f},{top + 58:.1f}" for i in range(15)) + " Z"
+    out += f'<path d="{shape}" fill="{cloth}" stroke="{edge}" stroke-width="1.6" stroke-linejoin="round"/>'
     out += f'<rect x="{x0}" y="{top}" width="{x1 - x0}" height="10" fill="{shade}"/>'
-    out += f'<rect x="{x0}" y="{top + 20}" width="{x1 - x0}" height="3" fill="#E23B4E" opacity="0.55"/>'
+    # The woven border: a red band with small cream diamonds, and a thin line above it.
+    out += f'<rect x="{x0}" y="{top + 18}" width="{x1 - x0}" height="2" fill="#A9213A" opacity="0.8"/>'
+    out += f'<rect x="{x0}" y="{top + 38}" width="{x1 - x0}" height="12" fill="#B4313F"/>'
+    for i in range(int((x1 - x0) / 14)):
+        dx = x0 + 7 + i * 14
+        out += f'<path d="M{dx},{top + 40} L{dx + 4},{top + 44} L{dx},{top + 48} L{dx - 4},{top + 44} Z" fill="{cloth}"/>'
     # On the table (their bottoms sit on `top`).
     # A clay jug.
     jx = x0 + 100        # (moved right of where the climbing vine passes, KART #15)

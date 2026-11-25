@@ -40,6 +40,11 @@ on:
         required: false
         type: boolean
         default: true
+      vine:
+        description: With qa, only the Learn path's pictures on a small, a middle and a large iPhone (quick)
+        required: false
+        type: boolean
+        default: false
       testflight:
         description: Sign the app and upload it to TestFlight (App Store Connect) instead of the unsigned IPA
         required: false
@@ -393,6 +398,7 @@ jobs:
           { grep -E "warning: .*Georgian/" build.log || true; } | sort -u | head -15 | while IFS= read -r l; do echo "::warning::$l"; done
 
       - name: Take the pictures
+        if: ${{ !inputs.vine }}
         run: |
           app=build/Build/Products/Debug-iphonesimulator/Georgian.app
           # macOS has no `timeout`: perl's alarm stops a command that hangs.
@@ -492,6 +498,58 @@ jobs:
             done
           done
           xcrun simctl ui "$UDID" appearance light
+          echo "::notice title=Screenshots::$(ls shots | wc -l | tr -d ' ') pictures"
+
+      # The Learn path (the grapevine, KART #15) on three screen widths, light and dark, at its
+      # bottom, a module's start, the lesson up next and the top; the finished vine; and the
+      # largest text sizes. vine-<size>-<look>-<where>.png.
+      - name: Take the vine pictures
+        if: inputs.vine
+        run: |
+          app=build/Build/Products/Debug-iphonesimulator/Georgian.app
+          limit() { secs=$1; shift; perl -e 'alarm shift; exec @ARGV' "$secs" "$@"; }
+          find_udid() {
+            for name in "$@"; do
+              u=$(xcrun simctl list devices available | grep -E "^ +$name \(" | head -1 | sed -E 's/.*\(([0-9A-F-]{36})\).*/\1/')
+              if [ -n "$u" ]; then echo "$u $name"; return; fi
+            done
+          }
+          small=$(find_udid "iPhone SE (3rd generation)" "iPhone 16e" "iPhone 13 mini" "iPhone 17")
+          large=$(find_udid "iPhone 17 Pro Max" "iPhone 16 Pro Max" "iPhone 16 Plus" "iPhone Air")
+          mkdir -p shots
+          set +e
+          shoot() {  # udid size
+            udid=$1; size=$2
+            xcrun simctl boot "$udid" 2>/dev/null
+            limit 300 xcrun simctl bootstatus "$udid" -b > /dev/null
+            limit 120 xcrun simctl install "$udid" "$app"
+            xcrun simctl status_bar "$udid" override --time "9:41" --batteryState charged --batteryLevel 100
+            for look in light dark; do
+              xcrun simctl ui "$udid" appearance $look
+              for spot in next top bottom v1 g1 finished; do
+                limit 30 xcrun simctl terminate "$udid" com.aralearn.ge 2>/dev/null
+                if [ $spot = next ]; then extra=""; elif [ $spot = finished ]; then extra="-seedAll -item top"; else extra="-item $spot"; fi
+                limit 60 xcrun simctl launch "$udid" com.aralearn.ge -uiTesting -seedDemo -screen learn $extra > /dev/null
+                sleep 7
+                limit 60 xcrun simctl io "$udid" screenshot "shots/vine-$size-$look-$spot.png" > /dev/null 2>&1
+              done
+            done
+            xcrun simctl ui "$udid" appearance light
+          }
+          shoot "$UDID" middle
+          for content in extra-extra-extra-large accessibility-large; do
+            xcrun simctl ui "$UDID" content_size $content
+            for spot in next v1; do
+              limit 30 xcrun simctl terminate "$UDID" com.aralearn.ge 2>/dev/null
+              if [ $spot = next ]; then extra=""; else extra="-item $spot"; fi
+              limit 60 xcrun simctl launch "$UDID" com.aralearn.ge -uiTesting -seedDemo -screen learn $extra > /dev/null
+              sleep 7
+              limit 60 xcrun simctl io "$UDID" screenshot "shots/vine-bigtext-$content-$spot.png" > /dev/null 2>&1
+            done
+          done
+          xcrun simctl ui "$UDID" content_size large
+          if [ -n "$small" ]; then echo "::notice title=Small iPhone::${small#* }"; shoot "${small%% *}" small; fi
+          if [ -n "$large" ]; then echo "::notice title=Large iPhone::${large#* }"; shoot "${large%% *}" large; fi
           echo "::notice title=Screenshots::$(ls shots | wc -l | tr -d ' ') pictures"
 
       - name: UI tests

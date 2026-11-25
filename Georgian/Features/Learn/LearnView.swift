@@ -25,6 +25,16 @@ struct LearnView: View {
                 // when it changes (a lesson finished), not every time the tab shows: scrolling
                 // on return made the big "Learn" title jump (KART #6).
                 .onAppear {
+                    // The screenshot run can ask for a place on the path: a lesson, the top or the
+                    // bottom (`-screen learn -item <where>`).
+                    if scrolledTo == nil, LaunchOptions.current.screen == "learn", let item = LaunchOptions.current.item {
+                        scrolledTo = store.nextLesson?.id
+                        let target = item == "top" ? "vine-top" : (item == "bottom" ? "module-alphabet" : item)
+                        let anchor: UnitPoint = item == "top" ? .top : (item == "bottom" ? .bottom : .center)
+                        proxy.scrollTo(target, anchor: anchor)
+                        DispatchQueue.main.async { proxy.scrollTo(target, anchor: anchor) }
+                        return
+                    }
                     guard scrolledTo != store.nextLesson?.id else { return }
                     let first = scrolledTo == nil
                     scrolledTo = store.nextLesson?.id
@@ -71,6 +81,7 @@ struct LearnView: View {
         VStack(spacing: 26) {
             VineTop(finished: store.nextLesson == nil)
                 .padding(.horizontal, -20)
+                .id("vine-top")
             ForEach(Array(store.curriculum.modules.enumerated().reversed()), id: \.element.id) { mi, module in
                 ModuleSection(module: module, showAlphabet: $showAlphabet) { lesson, state in
                     if state == .locked {
@@ -96,7 +107,12 @@ struct LearnView: View {
         }
         .overlayPreferenceValue(StoneCentres.self) { anchors in
             GeometryReader { geo in
-                VineClimb(layout: vineLayout(anchors, in: geo), vine: vineState)
+                let layout = vineLayout(anchors, in: geo)
+                ZStack(alignment: .topLeading) {
+                    VineClimb(layout: layout, vine: vineState)
+                    // Ara, perched beside the lesson up next.
+                    VinePerchView(perch: layout.perch)
+                }
             }
             .padding(.horizontal, -20)
             .allowsHitTesting(false)
@@ -104,7 +120,14 @@ struct LearnView: View {
     }
 
     private func vineLayout(_ anchors: [String: Anchor<CGPoint>], in geo: GeometryProxy) -> VineLayout {
-        VineLayout(stops: vineStops(anchors, in: geo), top: topFrame(anchors, in: geo), finished: store.nextLesson == nil)
+        var texts: [CGRect] = []
+        for lesson in store.curriculum.lessons {
+            guard let a = anchors["ta-\(lesson.id)"], let b = anchors["tb-\(lesson.id)"] else { continue }
+            let p = geo[a], q = geo[b]
+            texts.append(CGRect(x: p.x, y: p.y, width: q.x - p.x, height: q.y - p.y))
+        }
+        return VineLayout(stops: vineStops(anchors, in: geo), top: topFrame(anchors, in: geo), finished: store.nextLesson == nil,
+                          texts: texts, width: geo.size.width)
     }
 
     /// Every stone in course order (bottom to top on screen), where it sits, its place in the
@@ -166,6 +189,7 @@ private struct ModuleSection: View {
             // Room under the first lesson for its grapes, above the card.
             Color.clear.frame(height: 76)
             card(color: color, done: done)
+                .id("module-\(module.id)")
         }
         .accessibilityElement(children: .contain)
     }
@@ -233,6 +257,9 @@ private struct ModuleSection: View {
                                 .lineLimit(1)
                         }
                         .frame(width: 150, alignment: .leading)
+                        // Its box, so the vine's leaves keep clear of the words.
+                        .transformAnchorPreference(key: StoneCentres.self, value: .topLeading) { $0["ta-\(lesson.id)"] = $1 }
+                        .transformAnchorPreference(key: StoneCentres.self, value: .bottomTrailing) { $0["tb-\(lesson.id)"] = $1 }
                     }
                     .offset(x: swing(i))
                 }

@@ -85,6 +85,7 @@ final class AppModel {
             self.container = container
             let store = LearningStore(curriculum: curriculum, context: container.mainContext)
             if options.seedDemo && store.lessonRecords.isEmpty { store.seedDemo() }
+            if options.seedAll { store.completeAllLessons() }
             let audio = AudioService()
             audio.slow = store.profile.slowAudio
             Haptics.enabled = store.profile.hapticsOn

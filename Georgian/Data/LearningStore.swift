@@ -446,6 +446,16 @@ final class LearningStore {
         }
         save()
     }
+
+    /// Every lesson done, for the screenshots of the finished vine (`-seedAll`).
+    func completeAllLessons() {
+        let n = now()
+        for id in lessonIDs where !completedLessons.contains(id) {
+            context.insert(LessonRecord(lessonID: id, completedAt: n.addingTimeInterval(-3_600), accuracy: 0.9, xp: 20, perfect: false))
+        }
+        try? context.save()
+        reload()
+    }
 }
 
 // MARK: The phrasebook
