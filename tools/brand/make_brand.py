@@ -15,6 +15,8 @@ Writes
                   (alone: python3 tools/brand/make_brand.py --web);
 - brand/vine/     with --vine only: the grapevine Learn path's parts and still mock-ups of
                   the screen, and the parts the app uses (Assets.xcassets/Vine) (tools/brand/vine.py, vine_screens.py; docs/vine-path.md).
+                  With --paint: the painted (watercolour) vine in brand/paint/
+                  (tools/brand/watercolour.py; needs Node with Playwright's Chromium).
                   Also needs brotli (pip install brotli) to read the Nunito Bold font.
 The wordmark is Nunito Black (SIL Open Font License, tools/brand/fonts/OFL-Nunito.txt), turned into
 outlines, so no font is needed to show it. docs/brand.md explains how to use it all.
@@ -334,7 +336,23 @@ def vine_assets():
         }, indent=2) + "\n")
 
 
+def paint_pictures():
+    """The painted (watercolour) vine, KART #15 round 3: the repeating strip (old cane and
+    green shoot), the lesson parts and a still mock-up of Learn, in brand/paint/."""
+    import watercolour
+    folder = os.path.join(BRAND, "paint")
+    os.makedirs(folder, exist_ok=True)
+    ims = watercolour.paint_all(scale=3)
+    for name, im in ims.items():
+        im.save(os.path.join(folder, f"vine-{name}.png"))
+    watercolour.learn_mock(ims, scale=3).convert("RGB").save(os.path.join(folder, "vine-learn-mock.jpg"), quality=88)
+
+
 def main():
+    if "--paint" in sys.argv:
+        paint_pictures()
+        print("painted vine in brand/paint/")
+        return
     if "--vine" in sys.argv:
         vine_pictures()
         vine_assets()

@@ -68,6 +68,19 @@ scrolls to the next lesson; Ara hops to the new leaf a moment after the path sho
 course order (sort priority). Grapes ripen by recency for now (just done green, then
 blushing, then purple). Not yet: the web app, UI tests and screenshots for the new path.
 
+## Round 3: painted (KART #15)
+Owner tried build #56: the path jumped up and down by itself (the scroll view started at
+the bottom with `defaultScrollAnchor(.bottom)` while the lazy rows above were still being
+measured, and fought the scroll to the next lesson), and the vector look felt "too gamey".
+Owner's reference: a watercolour vine. Asked whether a long raster that loops could be
+generated: `tools/brand/watercolour.py` paints in code (wobbly edges, mottled washes,
+pigment pooling at the edges, glazes multiplied over each other, rendered by Playwright's
+Chromium) a strip `TILE_H` = 8 lessons tall that repeats seamlessly (the overflow is faded
+into its top), in two versions with the same shape: old twisted cane and green shoot, for
+the app to fade between at the next lesson. Parts painted the same way: bunches (green,
+blushing, ripe), the leaf up next, a bud; Ara painted with the same filter in the mock-up.
+`make_brand.py --paint` → `brand/paint/` (`vine-learn-mock.jpg`). Waiting for the owner.
+
 ## How to build it
 1. **Pictures first:** draw the vine, leaf, grape bunch, bud, trellis bar and Ara perching
    in `tools/brand/make_brand.py` (all artwork comes from there), light and dark; show the
