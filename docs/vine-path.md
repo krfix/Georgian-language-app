@@ -113,6 +113,12 @@ margins) and `VineGrower` keeps every leaf and tendril inside them (other side, 
 Ten leaf shapes (`leaf_shape_wide`), six tendrils (forked and single); each gap picks its
 own number of leaves, sizes, angles, sides and tendrils from a repeatable random number.
 
+Build #61, owner: "well done". Then: the Tamada vine green with green grapes until the
+course is done (`VineTop`; done: `VineTopRipe`, brown wood and ripe grapes); the join to the
+stub was about 20 points off (measured on the VineTop block, narrower than its picture: now
+the picture's own corners); the jug and pomegranates moved right, clear of the climbing vine
+(the bread is gone, there was no room).
+
 ## How to build it
 1. **Pictures first:** draw the vine, leaf, grape bunch, bud, trellis bar and Ara perching
    in `tools/brand/make_brand.py` (all artwork comes from there), light and dark; show the

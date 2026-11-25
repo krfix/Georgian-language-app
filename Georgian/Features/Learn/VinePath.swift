@@ -300,7 +300,7 @@ struct VineLayout {
     var climb: [VinePoint] = []
     var top: CGRect?
 
-    init(stops: [VineStop], top: CGRect?) {
+    init(stops: [VineStop], top: CGRect?, finished: Bool) {
         self.top = top
         guard let first = stops.first else { return }
         points.append(VinePoint(x: first.point.x, y: first.point.y + 220, u: -1))
@@ -325,7 +325,7 @@ struct VineLayout {
             points.append(VinePoint(x: s.point.x, y: s.point.y, u: Double(s.index)))
         }
         if let top, let last = stops.last {
-            climb = Self.climb(from: last.point, to: top, u: Double(last.index))
+            climb = Self.climb(from: last.point, to: top, u: Double(last.index), finished: finished)
             points += climb
         }
     }
@@ -333,22 +333,23 @@ struct VineLayout {
     /// The climb: a young shoot (until the course is done) from the last lesson, in front of
     /// the table, past the jug, up to the stub of the old vine wound round the beam, where it
     /// turns woody to meet it. Positions are in the picture's own units (402 by 340), scaled.
-    static func climb(from last: CGPoint, to top: CGRect, u: Double) -> [VinePoint] {
-        // VineTop: the words, then the picture, then 70 points of room below it.
-        let s = top.width / 402
-        let artBottom = top.maxY - 70, artTop = artBottom - 340 * s
-        func at(_ x: CGFloat, _ y: CGFloat) -> CGPoint { CGPoint(x: top.minX + x * s, y: artTop + y * s) }
+    static func climb(from last: CGPoint, to art: CGRect, u: Double, finished: Bool) -> [VinePoint] {
+        // `art` is the supra picture's frame; it is drawn in units of 402 by 340.
+        let s = art.width / 402
+        func at(_ x: CGFloat, _ y: CGFloat) -> CGPoint { CGPoint(x: art.minX + x * s, y: art.minY + y * s) }
         let p1 = CGPoint(x: (last.x + at(80, 0).x) / 2 + 20, y: last.y - 96)
         let p2 = at(88, 336), p3 = at(70, 270), p4 = at(46, 205), p5 = at(26, 150), p6 = at(20, 110)
+        // The old vine is green until the course is done, brown wood after.
+        let old: Double = finished ? 1 : 0.02
         return [
             VinePoint(x: p1.x, y: p1.y, u: u + 0.5, isNode: true),
             VinePoint(x: p2.x, y: p2.y, u: u + 1.1, isNode: true),
             VinePoint(x: p3.x, y: p3.y, u: u + 1.6, isNode: true),
             VinePoint(x: p4.x, y: p4.y, u: u + 2.1, isNode: true),
-            VinePoint(x: p5.x, y: p5.y, u: u + 2.5, isNode: true, wood: 0.55, width: 5 * s),
-            // The old vine's stub in the picture: woody, 6 units wide.
-            VinePoint(x: p6.x, y: p6.y, u: u + 2.8, wood: 1, width: 6 * s),
-            VinePoint(x: p6.x - 1 * s, y: p6.y - 30 * s, u: u + 3, wood: 1, width: 6 * s),
+            VinePoint(x: p5.x, y: p5.y, u: u + 2.5, isNode: true, wood: finished ? 0.6 : 0.02, width: 5 * s),
+            // The old vine's stub in the picture: 6 units wide.
+            VinePoint(x: p6.x, y: p6.y, u: u + 2.8, wood: old, width: 6 * s),
+            VinePoint(x: p6.x - 1 * s, y: p6.y - 30 * s, u: u + 3, wood: old, width: 6 * s),
         ]
     }
 }
@@ -391,10 +392,11 @@ struct VineClimb: View {
         let vine = self.vine
         Canvas { ctx, size in
             guard let top = layout.top, !layout.climb.isEmpty else { return }
-            ctx.clip(to: Path(CGRect(x: 0, y: top.minY, width: size.width, height: top.height)))
+            // Over the picture, and below it as far as the climb's first leaves and bunches.
+            ctx.clip(to: Path(CGRect(x: 0, y: top.minY, width: size.width, height: top.height + 150)))
             let grow = VineGrower(vine: vine, ink: ink, width: size.width)
             grow.climb(&ctx, layout.climb, bunches: false)
-            VineStem.draw(&ctx, points: layout.points, band: top.minY...top.maxY, state: vine, ink: ink)
+            VineStem.draw(&ctx, points: layout.points, band: top.minY...(top.maxY + 150), state: vine, ink: ink)
             grow.climb(&ctx, layout.climb, bunches: true)
         }
         .allowsHitTesting(false)
@@ -536,10 +538,14 @@ struct VineTop: View {
                 .padding(.bottom, 8)
             // The grown vine over the table, the goal; the climbing shoot joins it at the beam
             // (VineRibbon.climb uses the picture's proportions, 402 by 340).
-            Image("VineTop")
+            Image(finished ? "VineTopRipe" : "VineTop")
                 .resizable()
                 .aspectRatio(402.0 / 340.0, contentMode: .fit)
                 .accessibilityHidden(true)
+                // The picture's own corners, for where the climbing vine meets its old vine
+                // (measured on the picture itself: the block around it is narrower).
+                .transformAnchorPreference(key: StoneCentres.self, value: .topLeading) { $0["vine-top-a"] = $1 }
+                .transformAnchorPreference(key: StoneCentres.self, value: .bottomTrailing) { $0["vine-top-b"] = $1 }
         }
         .padding(.top, 8)
         .padding(.bottom, 70)

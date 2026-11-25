@@ -71,8 +71,6 @@ struct LearnView: View {
         VStack(spacing: 26) {
             VineTop(finished: store.nextLesson == nil)
                 .padding(.horizontal, -20)
-                .transformAnchorPreference(key: StoneCentres.self, value: .topLeading) { $0["vine-top-a"] = $1 }
-                .transformAnchorPreference(key: StoneCentres.self, value: .bottomTrailing) { $0["vine-top-b"] = $1 }
             ForEach(Array(store.curriculum.modules.enumerated().reversed()), id: \.element.id) { mi, module in
                 ModuleSection(module: module, showAlphabet: $showAlphabet) { lesson, state in
                     if state == .locked {
@@ -106,7 +104,7 @@ struct LearnView: View {
     }
 
     private func vineLayout(_ anchors: [String: Anchor<CGPoint>], in geo: GeometryProxy) -> VineLayout {
-        VineLayout(stops: vineStops(anchors, in: geo), top: topFrame(anchors, in: geo))
+        VineLayout(stops: vineStops(anchors, in: geo), top: topFrame(anchors, in: geo), finished: store.nextLesson == nil)
     }
 
     /// Every stone in course order (bottom to top on screen), where it sits, its place in the
@@ -146,7 +144,7 @@ struct LearnView: View {
 }
 
 /// Where each lesson's stone sits, for the ribbon.
-private struct StoneCentres: PreferenceKey {
+struct StoneCentres: PreferenceKey {
     static var defaultValue: [String: Anchor<CGPoint>] = [:]
     static func reduce(value: inout [String: Anchor<CGPoint>], nextValue: () -> [String: Anchor<CGPoint>]) {
         value.merge(nextValue()) { $1 }

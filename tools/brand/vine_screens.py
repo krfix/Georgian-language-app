@@ -378,16 +378,12 @@ def supra_table(cx, top, c, theme):
     out += f'<rect x="{x0}" y="{top + 20}" width="{x1 - x0}" height="3" fill="#E23B4E" opacity="0.55"/>'
     # On the table (their bottoms sit on `top`).
     # A clay jug.
-    jx = x0 + 42
+    jx = x0 + 100        # (moved right of where the climbing vine passes, KART #15)
     out += (f'<path d="M{jx - 16},{top} C{jx - 26},{top - 22} {jx - 16},{top - 40} {jx - 7},{top - 44} L{jx - 7},{top - 56} '
             f'L{jx + 7},{top - 56} L{jx + 7},{top - 44} C{jx + 16},{top - 40} {jx + 26},{top - 22} {jx + 16},{top} Z" fill="#B9653A"/>'
             f'<path d="M{jx + 9},{top - 48} C{jx + 26},{top - 50} {jx + 28},{top - 28} {jx + 17},{top - 22}" stroke="#B9653A" stroke-width="4" fill="none"/>'
             f'<rect x="{jx - 10}" y="{top - 60}" width="20" height="6" rx="3" fill="#9C4E2A"/>'
             f'<path d="M{jx - 14},{top - 24} Q{jx},{top - 18} {jx + 14},{top - 24}" stroke="#E8A270" stroke-width="2.2" fill="none"/>')
-    # Shoti bread: a long canoe.
-    bx = x0 + 157
-    out += (f'<path d="M{bx - 32},{top - 2} Q{bx},{top - 26} {bx + 32},{top - 2} Q{bx},{top + 4} {bx - 32},{top - 2} Z" fill="#D9A45B"/>'
-            f'<path d="M{bx - 20},{top - 9} Q{bx},{top - 20} {bx + 20},{top - 9}" stroke="#F2CB8A" stroke-width="2.5" fill="none" stroke-linecap="round"/>')
     # Khachapuri on a plate: a boat of bread, cheese and a yolk.
     kx = cx + 61
     out += f'<ellipse cx="{kx}" cy="{top - 2}" rx="38" ry="6" fill="{shade}"/>'
@@ -395,7 +391,7 @@ def supra_table(cx, top, c, theme):
             f'<ellipse cx="{kx}" cy="{top - 14}" rx="20" ry="7" fill="#FFE08A"/>'
             f'<circle cx="{kx}" cy="{top - 15}" r="5.5" fill="#F5A623"/>')
     # Two pomegranates.
-    for px, r in ((x0 + 86, 11), (x0 + 106, 9)):
+    for px, r in ((x0 + 148, 11), (x0 + 166, 9)):
         out += (f'<circle cx="{px}" cy="{top - r}" r="{r}" fill="#E23B4E"/>'
                 f'<path d="M{px - 3},{top - 2 * r} L{px},{top - 2 * r - 4} L{px + 3},{top - 2 * r}" fill="#A9213A"/>'
                 f'<circle cx="{px - r * 0.35}" cy="{top - r * 1.35}" r="{r * 0.25}" fill="#FFFFFF" opacity="0.5"/>')
@@ -403,13 +399,15 @@ def supra_table(cx, top, c, theme):
 
 
 
-def canopy(y, c):
+def canopy(y, c, ripe=True):
     """The full vine overhead: a pergola beam hidden in leaves of every shade and shape,
     ripe bunches (and one still green) hanging under it, tendrils and a growing tip."""
     # The old vine winds round the beam all along it: the turns behind the beam first, then the
     # beam, then the turns in front. At the left it drops down as a short woody stub, which is
     # where the young shoot climbing from the lessons joins it (VinePath.swift: VineRibbon.climb).
-    wood, deep = c["bark"], c["bark_deep"]
+    # Until the course is done the old vine is still green and so are its grapes (owner,
+    # KART #15); done, it is brown wood with ripe bunches (VineTopRipe).
+    wood, deep = (c["bark"], c["bark_deep"]) if ripe else (c["shoot"], c["shoot_deep"])
     back_turns = front_turns = ""
     x0, step = 14, 26
     xx = x0
@@ -433,9 +431,10 @@ def canopy(y, c):
                              sh=vine.leaf_shape(100 + i), colour=c["deco"][i % 4])
     for i, x in enumerate((20, 96, 186, 262, 336)):
         out += vine.tendril_svg(x + 10, y + 18, 34, 70 + (i % 3) * 20, c, seed=200 + i, fork=i % 2 == 0)
-    for i, (x, ripe) in enumerate(((46, "purple"), (132, "purple"), (222, "blush"), (300, "purple"), (374, "green"))):
+    for i, (x, colour) in enumerate(((46, "purple"), (132, "purple"), (222, "blush"), (300, "purple"), (374, "green"))):
+        colour = colour if ripe else "green"
         out += vine.stalk_svg(x - 4, y + 10, x, y + 36, c, 0.6, bend=0.2, w=2.6)
-        out += vine.bunch_svg(x, y + 62 + (i % 2) * 12, 52 + (i % 3) * 4, c, uid=f"cg{i}", ripe=ripe, seed=300 + i,
+        out += vine.bunch_svg(x, y + 62 + (i % 2) * 12, 52 + (i % 3) * 4, c, uid=f"cg{i}", ripe=colour, seed=300 + i,
                               tilt=(i % 3 - 1) * 6)
     front = back[1::2]
     for i, (x, dy) in enumerate(front):
@@ -609,9 +608,10 @@ def app_assets():
         add(f"VineTendril{i + 1}", lambda c, th, i=i: _canvas(80, 80, vine.tendril_svg(
             8, 40, 56 if i < 3 else 48, 0, c, seed=70 + i * 5, w=2.2, fork=i % 2 == 0)))
 
-    def top(c, th):
-        body = (f'<g transform="translate(0,-116)">{canopy(176, c)}{supra_table(W / 2, 352, c, th)}'
+    def top(c, th, ripe=False):
+        body = (f'<g transform="translate(0,-116)">{canopy(176, c, ripe)}{supra_table(W / 2, 352, c, th)}'
                 f'{ara.mascot_svg(W / 2 + 132, 352 - 3.05 * 15, 15, "cheer")}</g>')
         return _canvas(W, 340, body)
     add("VineTop", top)
+    add("VineTopRipe", lambda c, th: top(c, th, ripe=True))
     return out
