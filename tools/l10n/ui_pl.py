@@ -113,6 +113,8 @@ PL = {
     "Synthetic voice": "Głos syntetyczny",
     "Native recording": "Nagranie native speakera",
     "Finish the lessons before \"{0}\" to open it.": "Ukończ lekcje przed „{0}”, żeby ją otworzyć.",
+    "Every lesson done: the table is yours.": "Wszystkie lekcje za tobą: stół jest twój.",
+    "At the top of the vine: a seat at the supra table.": "Na szczycie winorośli czeka miejsce przy stole supry.",
     "Learn": "Nauka",
     "Words": "Słowa",
     "Progress": "Postępy",

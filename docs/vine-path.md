@@ -55,6 +55,19 @@ Choices made in drawing: the module colour stays on the card, not the grapes; ti
 the stem sways gently instead of the stones swinging. The tab bar in the mock-ups is
 simplified (no icons). "Every lesson done: the table is yours." is placeholder text.
 
+## In the app (KART #15, first test build)
+`Features/Learn/VinePath.swift` draws the stem live (the same rules as vine.py: width and
+woodiness from the lesson's place and the next lesson) and places the pictures from
+`Assets.xcassets/Vine` (made by `make_brand.py --vine`, light and dark). LearnView is a lazy
+list from the top down: the supra table (`VineTop`), then each module from the last to the
+first, its lessons from the last to the first, then its trellis bar and card
+(`VineModuleBase`). Every row draws its own slice of the stem from the module's list of
+points (`VineMetrics.points`), so the stem runs on unbroken. It opens at the bottom and
+scrolls to the next lesson; Ara hops to the new leaf a moment after the path shows again
+(`matchedGeometryEffect`). Rows grow with larger text; VoiceOver reads the lessons in
+course order (sort priority). Grapes ripen by recency for now (just done green, then
+blushing, then purple). Not yet: the web app, UI tests and screenshots for the new path.
+
 ## How to build it
 1. **Pictures first:** draw the vine, leaf, grape bunch, bud, trellis bar and Ara perching
    in `tools/brand/make_brand.py` (all artwork comes from there), light and dark; show the

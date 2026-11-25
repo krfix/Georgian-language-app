@@ -1,8 +1,10 @@
 import SwiftUI
 
-/// The learning path: five modules, each a winding trail of lesson stones, joined by one ribbon
-/// that flows from stone to stone and under the module cards, like the wave on the App Store
-/// pictures (KART #8).
+/// The learning path as a grapevine (KART #15, docs/vine-path.md): it grows from the bottom
+/// up, the first module at the bottom. Lessons done are grape bunches (green when just done,
+/// ripening to purple), the lesson up next a fresh leaf with Ara perched beside it, locked
+/// ones buds; each module's card hangs from a trellis bar, and the supra table waits at the
+/// top. The vine itself is drawn in VinePath.swift.
 struct LearnView: View {
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
@@ -10,46 +12,77 @@ struct LearnView: View {
     @State private var lockedNotice: String?
     /// The lesson the path last scrolled to, so coming back to it doesn't scroll again.
     @State private var scrolledTo: String?
+    /// The lesson Ara sits beside. It follows the next lesson with a hop, a moment after the
+    /// path shows again.
+    @State private var perchID: String?
+    @Namespace private var perchSpace
+    /// Rows grow with larger text.
+    @ScaledMetric(relativeTo: .headline) private var rowHeight: CGFloat = 92
 
     var body: some View {
+        let modules = store.curriculum.modules
+        let states = store.lessonStates
+        let firsts = moduleFirstIndices(modules)
+        let total = modules.reduce(0) { $0 + $1.lessons.count }
+        let next = store.nextLesson
+        let nextIndex = next.flatMap { lesson in courseIndex(of: lesson.id, modules, firsts) }
+        let vine = VineState(next: nextIndex.map(Double.init), lessonCount: Double(total))
+        let last = modules.count - 1
         NavigationStack {
             ScrollViewReader { proxy in
                 ScrollView {
-                    VStack(spacing: 26) {
-                        ForEach(store.curriculum.modules) { module in
-                            ModuleSection(module: module, showAlphabet: $showAlphabet) { lesson, state in
-                                if state == .locked {
-                                    Haptics.error()
-                                    withMotion { lockedNotice = tr("Finish the lessons before \"{0}\" to open it.", lesson.title) }
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.4) { withMotion { lockedNotice = nil } }
-                                } else {
-                                    Haptics.tap()
-                                    navigator.previewLesson = lesson
-                                }
+                    LazyVStack(spacing: 0) {
+                        if let top = modules.last {
+                            VineTop(lastModuleFirst: firsts[last], lastModuleCount: top.lessons.count, rowHeight: rowHeight,
+                                    vine: vine, finished: next == nil)
+                                .accessibilitySortPriority(0)
+                        }
+                        ForEach(Array(modules.enumerated().reversed()), id: \.element.id) { mi, module in
+                            ForEach(Array(module.lessons.enumerated().reversed()), id: \.element.id) { i, lesson in
+                                let state = states[lesson.id] ?? .locked
+                                let spot = VineSpot(lesson: lesson, index: firsts[mi] + i, indexInModule: i, moduleFirst: firsts[mi],
+                                                    moduleCount: module.lessons.count, isTopModule: mi == last, state: state, vine: vine)
+                                VineLessonRow(spot: spot, rowHeight: rowHeight, showsPerch: perchID == lesson.id,
+                                              perchSpace: perchSpace) { tap(lesson, state) }
+                                    .id(lesson.id)
+                                    .accessibilityLabel("\(lesson.title). \(lesson.subtitle). \(stateLabel(state))")
+                                    .accessibilityIdentifier("lesson-\(lesson.id)")
+                                    .accessibilitySortPriority(Double(total - spot.index))
                             }
+                            VineModuleBase(firstIndex: firsts[mi], count: module.lessons.count, isTopModule: mi == last,
+                                           rowHeight: rowHeight, vine: vine) {
+                                ModuleCard(module: module, showAlphabet: $showAlphabet)
+                            }
+                            .accessibilitySortPriority(Double(total - firsts[mi]) + 0.5)
                         }
                     }
-                    .backgroundPreferenceValue(StoneCentres.self) { anchors in
-                        GeometryReader { geo in
-                            LessonRibbon(stops: ribbonStops(anchors, in: geo))
-                        }
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 12)
+                    .accessibilityElement(children: .contain)
+                    .padding(.bottom, 12)
                 }
+                .defaultScrollAnchor(.bottom)
                 // Bring the next lesson into view the first time the path opens, and again
                 // when it changes (a lesson finished), not every time the tab shows: scrolling
                 // on return made the big "Learn" title jump (KART #6).
                 .onAppear {
-                    guard scrolledTo != store.nextLesson?.id else { return }
-                    scrolledTo = store.nextLesson?.id
-                    if let next = store.nextLesson {
+                    if perchID == nil { perchID = next?.id }
+                    if perchID != next?.id {
+                        // Back from a lesson: Ara hops up to the new leaf.
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                            withMotion(Motion.bouncy) { perchID = store.nextLesson?.id }
+                        }
+                    }
+                    guard scrolledTo != next?.id else { return }
+                    scrolledTo = next?.id
+                    if let next {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             withMotion(Motion.slow) { proxy.scrollTo(next.id, anchor: .center) }
                         }
                     }
                 }
                 .onChange(of: store.nextLesson?.id) { _, id in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                        withMotion(Motion.bouncy) { perchID = id }
+                    }
                     guard let id, id != scrolledTo else { return }
                     scrolledTo = id
                     withMotion(Motion.slow) { proxy.scrollTo(id, anchor: .center) }
@@ -57,6 +90,7 @@ struct LearnView: View {
             }
             .background(AmbientBackground(tint: .saperavi))
             .navigationTitle(tr("Learn"))
+            .navigationBarTitleDisplayMode(.inline)
             .overlay(alignment: .bottom) {
                 if let lockedNotice {
                     Label(lockedNotice, systemImage: "lock.fill")
@@ -73,153 +107,79 @@ struct LearnView: View {
         }
     }
 
-    /// Every stone in course order, where it sits, its module's colour and whether the way to
-    /// it is open (done or up next), as the old dotted trail lit it.
-    private func ribbonStops(_ anchors: [String: Anchor<CGPoint>], in geo: GeometryProxy) -> [LessonRibbon.Stop] {
-        let states = store.lessonStates
-        return store.curriculum.modules.flatMap { module in
-            module.lessons.compactMap { lesson -> LessonRibbon.Stop? in
-                guard let anchor = anchors[lesson.id] else { return nil }
-                let state = states[lesson.id] ?? .locked
-                return LessonRibbon.Stop(point: geo[anchor], color: BrandColor(named: module.color),
-                                         lit: state == .completed || state == .current)
-            }
+    private func tap(_ lesson: Lesson, _ state: LessonState) {
+        if state == .locked {
+            Haptics.error()
+            withMotion { lockedNotice = tr("Finish the lessons before \"{0}\" to open it.", lesson.title) }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.4) { withMotion { lockedNotice = nil } }
+        } else {
+            Haptics.tap()
+            navigator.previewLesson = lesson
         }
     }
-}
 
-/// Where each lesson's stone sits, for the ribbon.
-private struct StoneCentres: PreferenceKey {
-    static var defaultValue: [String: Anchor<CGPoint>] = [:]
-    static func reduce(value: inout [String: Anchor<CGPoint>], nextValue: () -> [String: Anchor<CGPoint>]) {
-        value.merge(nextValue()) { $1 }
-    }
-}
-
-/// The ribbon: a soft wide band through the stones' centres and a thin line weaving across
-/// it, in the module's colour up to the next lesson and faint after. Each piece bows out to
-/// one side, the next to the other, so the whole path meanders like a wave; the stones and
-/// cards sit on top of it.
-struct LessonRibbon: View {
-    struct Stop {
-        let point: CGPoint
-        let color: BrandColor
-        let lit: Bool
+    /// Where each module's first lesson is in the whole course.
+    private func moduleFirstIndices(_ modules: [CourseModule]) -> [Int] {
+        var out: [Int] = [], k = 0
+        for m in modules { out.append(k); k += m.lessons.count }
+        return out
     }
 
-    let stops: [Stop]
-
-    var body: some View {
-        Canvas { ctx, _ in
-            guard stops.count > 1 else { return }
-            for i in 1..<stops.count {
-                let a = stops[i - 1].point, b = stops[i].point
-                let bow: CGFloat = i % 2 == 1 ? 34 : -34
-                let stop = stops[i]
-                let band: Color = stop.lit ? stop.color.color.opacity(0.2) : Palette.line.opacity(0.7)
-                let line: Color = stop.lit ? stop.color.color.opacity(0.65) : Palette.line
-                ctx.stroke(piece(from: a, to: b, bow: bow), with: .color(band), style: StrokeStyle(lineWidth: 40, lineCap: .round))
-                ctx.stroke(piece(from: a, to: b, bow: -bow * 1.6), with: .color(line), style: StrokeStyle(lineWidth: 2.5, lineCap: .round))
-            }
+    private func courseIndex(of id: String, _ modules: [CourseModule], _ firsts: [Int]) -> Int? {
+        for (mi, m) in modules.enumerated() {
+            if let i = m.lessons.firstIndex(where: { $0.id == id }) { return firsts[mi] + i }
         }
-        .allowsHitTesting(false)
-        .accessibilityHidden(true)
-    }
-
-    /// From one stone to the next, bowing sideways by `bow` points halfway down.
-    private func piece(from a: CGPoint, to b: CGPoint, bow: CGFloat) -> Path {
-        let midY = (a.y + b.y) / 2
-        var path = Path()
-        path.move(to: a)
-        path.addCurve(to: b, control1: CGPoint(x: a.x + bow, y: midY), control2: CGPoint(x: b.x + bow, y: midY))
-        return path
+        return nil
     }
 }
 
-private struct ModuleSection: View {
+/// A module's card, in its colour: title, what it covers, progress, and for the alphabet the
+/// chart of all 33 letters.
+private struct ModuleCard: View {
     let module: CourseModule
     @Binding var showAlphabet: Bool
-    let onTap: (Lesson, LessonState) -> Void
     @Environment(LearningStore.self) private var store
 
     var body: some View {
         let color = BrandColor(named: module.color)
         let done = store.completedCount(in: module)
-        let states = store.lessonStates
-        VStack(spacing: 18) {
-            VStack(alignment: .leading, spacing: 10) {
-                HStack(alignment: .top) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(module.title).font(.titleBold).foregroundStyle(color.onColor)
-                        Text(module.subtitle).font(.calloutRounded.weight(.semibold)).foregroundStyle(color.onColor.opacity(0.85))
-                    }
-                    Spacer()
-                    Image(systemName: module.symbol)
-                        .font(.system(size: 30, weight: .bold))
-                        .foregroundStyle(color.onColor.opacity(0.9))
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(module.title).font(.titleBold).foregroundStyle(color.onColor)
+                    Text(module.subtitle).font(.calloutRounded.weight(.semibold)).foregroundStyle(color.onColor.opacity(0.85))
                 }
-                Text(module.intro)
-                    .font(.calloutRounded)
+                Spacer()
+                Image(systemName: module.symbol)
+                    .font(.system(size: 30, weight: .bold))
                     .foregroundStyle(color.onColor.opacity(0.9))
-                    .fixedSize(horizontal: false, vertical: true)
-                HStack(spacing: 10) {
-                    ProgressBar(progress: Double(done) / Double(max(1, module.lessons.count)), color: color.onColor.opacity(0.9), height: 10)
-                    Text("\(done)/\(module.lessons.count)").font(.captionBold).foregroundStyle(color.onColor)
-                }
-                if module.id == "alphabet" {
-                    Button {
-                        Haptics.tap()
-                        showAlphabet = true
-                    } label: {
-                        Label(tr("All 33 letters"), systemImage: "square.grid.3x3.fill")
-                            .font(.calloutRounded.weight(.bold))
-                            .foregroundStyle(color.color)
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 8)
-                            .background(Capsule().fill(.white))
-                    }
-                    .buttonStyle(.pressable)
-                    .accessibilityIdentifier("alphabet-chart")
-                }
             }
-            .gradientCard(color)
-            .accessibilityElement(children: .contain)
-
-            // The trail: stones swing left and right.
-            VStack(spacing: 0) {
-                ForEach(Array(module.lessons.enumerated()), id: \.element.id) { i, lesson in
-                    let state = states[lesson.id] ?? .locked
-                    if i > 0 { Color.clear.frame(height: 34) }   // room for the ribbon between stones
-                    Button { onTap(lesson, state) } label: {
-                        HStack(spacing: 14) {
-                            PathNode(lesson: lesson, state: state, color: color, size: 72)
-                                .anchorPreference(key: StoneCentres.self, value: .center) { [lesson.id: $0] }
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(lesson.title)
-                                    .font(.headlineRounded)
-                                    .foregroundStyle(state == .locked ? Palette.inkFaint : Palette.ink)
-                                Text(lesson.subtitle)
-                                    .font(.caption)
-                                    .foregroundStyle(Palette.inkSoft)
-                                    .lineLimit(1)
-                            }
-                            .frame(width: 150, alignment: .leading)
-                        }
-                        .offset(x: swing(i))
-                    }
-                    .buttonStyle(.pressable)
-                    .id(lesson.id)
-                    .accessibilityLabel("\(lesson.title). \(lesson.subtitle). \(stateLabel(state))")
-                    .accessibilityIdentifier("lesson-\(lesson.id)")
-                }
+            Text(module.intro)
+                .font(.calloutRounded)
+                .foregroundStyle(color.onColor.opacity(0.9))
+                .fixedSize(horizontal: false, vertical: true)
+            HStack(spacing: 10) {
+                ProgressBar(progress: Double(done) / Double(max(1, module.lessons.count)), color: color.onColor.opacity(0.9), height: 10)
+                Text("\(done)/\(module.lessons.count)").font(.captionBold).foregroundStyle(color.onColor)
             }
-            .frame(maxWidth: .infinity)
+            if module.id == "alphabet" {
+                Button {
+                    Haptics.tap()
+                    showAlphabet = true
+                } label: {
+                    Label(tr("All 33 letters"), systemImage: "square.grid.3x3.fill")
+                        .font(.calloutRounded.weight(.bold))
+                        .foregroundStyle(color.color)
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(Capsule().fill(.white))
+                }
+                .buttonStyle(.pressable)
+                .accessibilityIdentifier("alphabet-chart")
+            }
         }
-    }
-
-    private func swing(_ i: Int) -> CGFloat {
-        let pattern: [CGFloat] = [0, 40, 60, 40, 0, -40, -60, -40]
-        return pattern[i % pattern.count]
+        .gradientCard(color)
+        .accessibilityElement(children: .contain)
     }
 }
 

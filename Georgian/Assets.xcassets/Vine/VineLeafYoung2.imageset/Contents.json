@@ -1,0 +1,26 @@
+{
+  "images": [
+    {
+      "filename": "vineLeafYoung2.pdf",
+      "idiom": "universal"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "vineLeafYoung2-dark.pdf",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true,
+    "template-rendering-intent": "original"
+  }
+}

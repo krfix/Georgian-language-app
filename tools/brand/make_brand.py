@@ -14,7 +14,7 @@ Writes
 - web/icons/      the web app's home-screen and browser-tab icons and three mascot poses
                   (alone: python3 tools/brand/make_brand.py --web);
 - brand/vine/     with --vine only: the grapevine Learn path's parts and still mock-ups of
-                  the screen (tools/brand/vine.py, vine_screens.py; docs/vine-path.md).
+                  the screen, and the parts the app uses (Assets.xcassets/Vine) (tools/brand/vine.py, vine_screens.py; docs/vine-path.md).
                   Also needs brotli (pip install brotli) to read the Nunito Bold font.
 The wordmark is Nunito Black (SIL Open Font License, tools/brand/fonts/OFL-Nunito.txt), turned into
 outlines, so no font is needed to show it. docs/brand.md explains how to use it all.
@@ -308,9 +308,36 @@ def vine_pictures():
         png(svg, int(w * (3 if "learn" in name or "top" in name else 2))).convert("RGB").save(os.path.join(folder, f"{name}.png"))
 
 
+def vine_assets():
+    """The vine's parts for the app (Assets.xcassets/Vine): vector PDFs, each with a dark
+    version the iPhone picks in dark mode."""
+    import vine_screens
+    group = os.path.join(ASSETS, "Vine")
+    os.makedirs(group, exist_ok=True)
+    write(os.path.join(group, "Contents.json"), json.dumps({"info": {"author": "xcode", "version": 1}}, indent=2) + "\n")
+    for name, svgs in vine_screens.app_assets().items():
+        folder = os.path.join(group, f"{name}.imageset")
+        os.makedirs(folder, exist_ok=True)
+        for f in os.listdir(folder):
+            os.remove(os.path.join(folder, f))
+        images = []
+        for theme, svg in svgs.items():
+            fn = f"{name[0].lower() + name[1:]}{'-dark' if theme == 'dark' else ''}.pdf"
+            cairosvg.svg2pdf(bytestring=svg.encode(), write_to=os.path.join(folder, fn))
+            entry = {"filename": fn, "idiom": "universal"}
+            if theme == "dark":
+                entry = {"appearances": [{"appearance": "luminosity", "value": "dark"}], **entry}
+            images.append(entry)
+        write(os.path.join(folder, "Contents.json"), json.dumps({
+            "images": images, "info": {"author": "xcode", "version": 1},
+            "properties": {"preserves-vector-representation": True, "template-rendering-intent": "original"},
+        }, indent=2) + "\n")
+
+
 def main():
     if "--vine" in sys.argv:
         vine_pictures()
+        vine_assets()
         print("grapevine pictures in brand/vine/")
         return
     if "--web" in sys.argv:

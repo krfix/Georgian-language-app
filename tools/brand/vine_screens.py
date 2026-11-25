@@ -554,3 +554,46 @@ def all_mockups():
         out[f"vine-top-{th}"] = top_screen(th)
     out["vine-hop"] = hop_strip("light")
     return out
+
+
+# ---------------------------------------------------------------------------------------
+# The app's pictures (KART #15): each part of the vine on its own canvas, light and dark.
+# The app draws the stem itself and places these on it (Features/Learn/VinePath.swift), so
+# each canvas size and where the part sits on it must match the numbers there.
+
+def _canvas(w, h, body):
+    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}">{body}</svg>\n'
+
+
+def app_assets():
+    """{asset name: {theme: svg}}. Leaves hang down from the top centre of their canvas;
+    tendrils start at (8, 40) heading right; the perch's stem end is at (88, 80)."""
+    out = {}
+
+    def add(name, make):
+        out[name] = {th: make(vine.VINE_COLOURS[th], th) for th in ("light", "dark")}
+
+    add("VineLeafNext", lambda c, th: _canvas(100, 100, vine.leaf_svg(50, 50, 66, c, "next", uid="n")))
+    add("VineLeafOpen", lambda c, th: _canvas(80, 80, vine.leaf_svg(40, 40, 56, c, "open", uid="o")))
+    add("VineBud", lambda c, th: _canvas(30, 30, vine.bud_svg(15, 15, 20, c)))
+    for ripe in ("green", "blush", "purple"):
+        for i in range(3):
+            add(f"VineBunch{ripe.title()}{i + 1}",
+                lambda c, th, ripe=ripe, i=i: _canvas(90, 90, vine.bunch_svg(45, 47, 62, c, uid="b", ripe=ripe, seed=21 + i * 7)))
+    for i in range(6):
+        add(f"VineLeaf{i + 1}", lambda c, th, i=i: _canvas(60, 60, vine.leaf_svg(
+            30, 30, 44, c, "deco", uid="d", sh=vine.leaf_shape(40 + i), colour=c["deco"][i % 4])))
+    for i in range(3):
+        add(f"VineLeafYoung{i + 1}", lambda c, th, i=i: _canvas(40, 40, vine.leaf_svg(
+            20, 20, 28, c, "young", uid="y", sh=vine.leaf_shape(60 + i))))
+    for i in range(4):
+        add(f"VineTendril{i + 1}", lambda c, th, i=i: _canvas(80, 80, vine.tendril_svg(
+            8, 40, 56, 0, c, seed=70 + i, spring=(i == 3), w=2.2)))
+    add("VinePerch", lambda c, th: _canvas(90, 110, vine.perch_svg(88, 80, c, R=14, reach=54, m=0.22)))
+
+    def top(c, th):
+        body = (f'<g transform="translate(0,-116)">{canopy(176, c)}{supra_table(W / 2, 352, c, th)}'
+                f'{ara.mascot_svg(W / 2 + 132, 352 - 3.05 * 15, 15, "cheer")}</g>')
+        return _canvas(W, 340, body)
+    add("VineTop", top)
+    return out
