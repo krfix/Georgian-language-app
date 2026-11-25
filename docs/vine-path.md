@@ -95,6 +95,14 @@ centres, bowing between them like the ribbon, woody below the next lesson and gr
 in the gap below each stone a bunch (purple done, green up next) with a leaf opposite, or
 leaves and tendrils ahead. A plain VStack again (no lazy rows, so nothing to jump).
 
+Build #58, owner: "not bad". Fixed: leaves hung off their stalks (turned about their
+centre, the wrong way round): `VineGrowth.leaf` now turns the blade away from the stem and
+places the leaf so its notch sits on the stalk's end; tendril forks curl away from each
+other (they curled into a knot); no coiled-spring tendril. The climb to the supra table is a
+young green shoot with green leaves, tendrils and unripe bunches (`VineRibbon.climb`), up the
+left past the table into the pergola's beam; the picture is at full strength and its words
+are above it.
+
 ## How to build it
 1. **Pictures first:** draw the vine, leaf, grape bunch, bud, trellis bar and Ara perching
    in `tools/brand/make_brand.py` (all artwork comes from there), light and dark; show the

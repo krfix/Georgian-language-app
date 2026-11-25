@@ -227,6 +227,24 @@ enum VineGrowth {
         c.draw(Image(name), in: CGRect(x: -size / 2, y: -size / 2, width: size, height: size))
     }
 
+    /// A leaf on its stalk: the stalk runs from the stem at `from` out to `side` (+1 right, -1
+    /// left), and the leaf hangs from the stalk's end, its blade turned away from the stem by
+    /// `angle` degrees. The leaf is placed so that its notch (where a grape leaf's stalk joins
+    /// it) sits exactly on the stalk's end, however far it is turned.
+    static func leaf(_ ctx: inout GraphicsContext, _ name: String, from: CGPoint, side: CGFloat, reach: CGFloat, size: CGFloat,
+                     angle: Double, wood m: Double, ink: VineInk) {
+        let end = CGPoint(x: from.x + side * reach, y: from.y - reach * 0.25)
+        stalk(&ctx, from: from, to: end, wood: m, ink: ink, bend: side * 0.3, width: 2.2)
+        // In the pictures the leaf (44 points across on a 60-point canvas, or 28 on 40 for a
+        // young one) has its notch 0.155 of the leaf's width above the canvas centre.
+        let leafWidth = size * (name.hasPrefix("VineLeafYoung") ? 28.0 / 40 : 44.0 / 60)
+        let r = leafWidth * 0.155
+        let theta = -Double(side) * angle
+        let t = theta * .pi / 180
+        let centre = CGPoint(x: end.x - r * CGFloat(sin(t)), y: end.y + r * CGFloat(cos(t)))
+        picture(&ctx, name, at: centre, size: size, degrees: theta)
+    }
+
     /// A tendril (canvas 80, starting at (8, 40) heading right, 56 long) from `at`, `length`
     /// long, heading at `degrees`.
     static func tendril(_ ctx: inout GraphicsContext, _ index: Int, at: CGPoint, length: CGFloat, degrees: Double) {
@@ -287,18 +305,18 @@ struct VineRibbon: View {
                     }
                 }
             }
+            var climb: [VinePoint] = []
             if let top, let last = stops.last {
-                let u = Double(last.index)
-                // Up the left edge, past the words and the table, into the leaves overhead.
-                points.append(VinePoint(x: top.minX + top.width * 0.08, y: top.maxY - 10, u: u + 0.8, isNode: true))
-                points.append(VinePoint(x: top.minX + top.width * 0.06, y: top.maxY - 150, u: u + 1.6))
-                points.append(VinePoint(x: top.minX + top.width * 0.075, y: top.minY + top.width * 0.2, u: u + 2.4))
+                climb = Self.climb(from: last.point, to: top, u: Double(last.index))
+                points += climb
             }
             // Leaves and tendrils go under the stem, so it covers where they join; the bunches
             // hang over it.
             for g in gaps { growth(&ctx, g.stop, at: g.at, side: g.side, width: size.width, ink: ink, bunches: false) }
+            climbGrowth(&ctx, climb, ink: ink, bunches: false)
             VineStem.draw(&ctx, points: points, band: -400...(size.height + 400), state: self.vine, ink: ink)
             for g in gaps { growth(&ctx, g.stop, at: g.at, side: g.side, width: size.width, ink: ink, bunches: true) }
+            climbGrowth(&ctx, climb, ink: ink, bunches: true)
         }
         .allowsHitTesting(false)
         .accessibilityHidden(true)
@@ -328,29 +346,59 @@ struct VineRibbon: View {
         }
         // A leaf on the side away from the bunch (or the outer side, ahead).
         let leafSide = fruit ? -side : side
-        let young = vine.next.map { Double(k) > $0 + 1.5 } ?? false
-        let leaf = CGPoint(x: g.x + leafSide * (fruit ? 30 : 38), y: g.y + 4)
-        VineGrowth.stalk(&ctx, from: g, to: CGPoint(x: leaf.x - leafSide * 4, y: leaf.y - 14), wood: m * 0.6, ink: ink,
-                         bend: leafSide * 0.3, width: 2.2)
-        if young {
-            VineGrowth.picture(&ctx, "VineLeafYoung\(k % 3 + 1)", at: leaf, size: CGFloat(30 + (k % 3) * 5) * 40 / 28,
-                               degrees: Double(leafSide) * Double(30 + (k % 3) * 12))
-        } else {
-            VineGrowth.picture(&ctx, "VineLeaf\(k % 6 + 1)", at: leaf, size: CGFloat(fruit ? 34 : 40 + (k % 3) * 4) * 60 / 44,
-                               degrees: Double(leafSide) * Double(30 + (k % 3) * 12))
-        }
-        // Ahead: tendrils curling out the other way, and a second, smaller leaf now and then.
+        let young = vine.next.map { Double(k) > $0 + 3.5 } ?? false
+        VineGrowth.leaf(&ctx, young ? "VineLeafYoung\(k % 3 + 1)" : "VineLeaf\(k % 6 + 1)", from: g, side: leafSide,
+                        reach: fruit ? 16 : 20, size: CGFloat(fruit ? 46 : 54 + (k % 3) * 5) * (young ? 0.8 : 1),
+                        angle: Double(35 + (k % 3) * 12), wood: m * 0.6, ink: ink)
+        // Ahead: a tendril curling out the other way, and now and then a second, smaller leaf.
         if !fruit {
-            VineGrowth.tendril(&ctx, k % 4 + 1, at: CGPoint(x: g.x - leafSide * 2, y: g.y - 2), length: CGFloat(46 + (k % 3) * 8),
-                               degrees: leafSide > 0 ? Double(160 + (k % 3) * 20) : Double(-20 + (k % 3) * 20))
+            VineGrowth.tendril(&ctx, k % 3 + 1, at: CGPoint(x: g.x - leafSide * 2, y: g.y - 2), length: CGFloat(46 + (k % 3) * 8),
+                               degrees: leafSide > 0 ? Double(165 + (k % 3) * 15) : Double(-15 - (k % 3) * 15))
             if k % 2 == 0 {
-                let small = CGPoint(x: g.x - leafSide * 26, y: g.y + 20)
-                VineGrowth.picture(&ctx, young ? "VineLeafYoung\((k + 1) % 3 + 1)" : "VineLeaf\((k + 3) % 6 + 1)", at: small,
-                                   size: 34, degrees: Double(-leafSide) * 40)
+                VineGrowth.leaf(&ctx, "VineLeaf\((k + 3) % 6 + 1)", from: CGPoint(x: g.x, y: g.y + 4), side: -leafSide, reach: 10,
+                                size: 36, angle: 55, wood: m * 0.6, ink: ink)
             }
         } else if k % 3 == 0 {
-            VineGrowth.tendril(&ctx, (k % 3) + 1, at: CGPoint(x: g.x, y: g.y + 2), length: 40,
-                               degrees: side > 0 ? 200 : -20)
+            VineGrowth.tendril(&ctx, k % 3 + 1, at: CGPoint(x: g.x, y: g.y + 2), length: 40, degrees: side > 0 ? 195 : -15)
+        }
+    }
+
+    /// The climb from the last lesson up to the supra table: still a young green shoot (until
+    /// the course is done), full of green leaves, tendrils and a few unripe bunches, joining
+    /// the big vine of the pergola at its beam.
+    static func climb(from last: CGPoint, to top: CGRect, u: Double) -> [VinePoint] {
+        // VineTop: the words, then the picture (402 by 340), then 70 points of room below it.
+        let w = top.width, artBottom = top.maxY - 70, artTop = artBottom - w * 340 / 402
+        let beam = artTop + w * 340 / 402 * 0.2
+        return [
+            VinePoint(x: (last.x + w * 0.1) / 2 + 24, y: last.y - 96, u: u + 0.5, isNode: true),
+            VinePoint(x: w * 0.12, y: artBottom - 26, u: u + 1.2, isNode: true),
+            VinePoint(x: w * 0.05, y: artBottom - (artBottom - beam) * 0.45, u: u + 1.9, isNode: true),
+            VinePoint(x: w * 0.045, y: beam + 26, u: u + 2.5, isNode: true),
+            VinePoint(x: w * 0.09, y: beam + 4, u: u + 2.8),
+            VinePoint(x: w * 0.3, y: beam + 2, u: u + 3.2),
+        ].map { var p = $0; p.x += top.minX; return p }
+    }
+
+    /// What grows on the climb: at each of its nodes a leaf or two, a tendril, and on two of
+    /// them a bunch, green until the course is done.
+    private func climbGrowth(_ ctx: inout GraphicsContext, _ points: [VinePoint], ink: VineInk, bunches: Bool) {
+        for (i, p) in points.prefix(4).enumerated() {
+            let g = CGPoint(x: p.x, y: p.y)
+            let m = vine.wood(p.u)
+            if bunches {
+                guard i == 0 || i == 1 else { continue }
+                let c = CGPoint(x: g.x + 38, y: g.y + 10)
+                VineGrowth.stalk(&ctx, from: g, to: CGPoint(x: c.x, y: c.y - 28), wood: m, ink: ink, bend: -0.25, width: 2.6)
+                VineGrowth.picture(&ctx, "VineBunch\(vine.next == nil ? "Purple" : "Green")\(i + 2)", at: c, size: 72)
+                continue
+            }
+            VineGrowth.leaf(&ctx, "VineLeaf\(i % 6 + 1)", from: g, side: i < 3 ? -1 : 1, reach: 18, size: CGFloat(52 + i * 4),
+                            angle: 40, wood: m * 0.6, ink: ink)
+            VineGrowth.leaf(&ctx, "VineLeaf\((i + 3) % 6 + 1)", from: CGPoint(x: g.x, y: g.y - 10), side: 1, reach: 12,
+                            size: 40, angle: 70, wood: m * 0.6, ink: ink)
+            VineGrowth.tendril(&ctx, i % 3 + 1, at: CGPoint(x: g.x, y: g.y - 4), length: 48,
+                               degrees: i % 2 == 0 ? -35 : -150)
         }
     }
 }
@@ -362,21 +410,24 @@ struct VineTop: View {
 
     var body: some View {
         VStack(spacing: 6) {
-            Image("VineTop")
-                .resizable()
-                .scaledToFit()
-                .opacity(finished ? 1 : 0.55)
-                .accessibilityHidden(true)
             Text(tr("Tamada"))
                 .font(.titleBold)
-                .foregroundStyle(finished ? Palette.ink : Palette.inkFaint)
+                .foregroundStyle(finished ? Palette.ink : Palette.inkSoft)
             Text(finished ? tr("Every lesson done: the table is yours.") : tr("At the top of the vine: a seat at the supra table."))
                 .font(.calloutRounded)
                 .foregroundStyle(Palette.inkSoft)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40)
+                .padding(.bottom, 8)
+            // The grown vine over the table, the goal; the climbing shoot joins it at the beam
+            // (VineRibbon.climb uses the picture's proportions, 402 by 340).
+            Image("VineTop")
+                .resizable()
+                .aspectRatio(402.0 / 340.0, contentMode: .fit)
+                .accessibilityHidden(true)
         }
-        .padding(.bottom, 10)
+        .padding(.top, 8)
+        .padding(.bottom, 70)
         .accessibilityElement(children: .combine)
     }
 }

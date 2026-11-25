@@ -383,7 +383,9 @@ def tendril_svg(x, y, size, ang, c, seed=5, colour=None, w=1.9, spring=False):
     nx, ny = math.cos(a + math.pi / 2), math.sin(a + math.pi / 2)
     mx, my = x + math.cos(a) * L * 0.5 + nx * bend * L * 0.4, y + math.sin(a) * L * 0.5 + ny * bend * L * 0.4
     out = f'<path d="M{_f(x, y)} Q{_f(mx, my)} {_f(fx, fy)}" stroke="{col}" stroke-width="{w}" fill="none" stroke-linecap="round"/>'
-    for k, (da, frac, side) in enumerate(((-26, 1.0, 1), (34, 0.65, -1))):
+    # The upper fork curls up and the lower one down: away from each other, never into one
+    # another (where they met they blended into a knot).
+    for k, (da, frac, side) in enumerate(((-26, 1.0, -1), (34, 0.65, 1))):
         aa = ang + da + rnd.uniform(-10, 10)
         ra = math.radians(aa)
         ln = size * 0.3 * frac
@@ -401,7 +403,7 @@ def tendril_svg(x, y, size, ang, c, seed=5, colour=None, w=1.9, spring=False):
                 pts.append((px, py))
             out += _poly(pts, col, w * 0.72)
         else:
-            sd = side if rnd.random() < 0.75 else -side
+            sd = side
             out += _poly(_curl(ex, ey, aa, size * rnd.uniform(0.14, 0.2) * frac, rnd.uniform(1.4, 2.4), sd), col, w * 0.72)
     return out
 
