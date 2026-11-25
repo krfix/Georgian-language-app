@@ -387,12 +387,14 @@ struct VineLayout {
         if ci + 1 < stops.count, let g = gaps.first(where: { $0.stop.index == stops[ci + 1].index }), !stops[ci + 1].firstInModule {
             spots.append(g.at)
         }
-        if let g = gaps.first(where: { $0.stop.index == stops[ci].index }) { spots.append(g.at) }
+        // Beside the stone itself, on its free side (the title is on its right).
         let c = stops[ci].point
-        spots.append(CGPoint(x: c.x, y: c.y - 58))
+        spots.append(CGPoint(x: c.x - 8, y: c.y + 26))
+        // Below it, where its green bunch hangs (the bunch then takes the other side).
+        if let g = gaps.first(where: { $0.stop.index == stops[ci].index }) { spots.append(g.at) }
         for spot in spots {
             for side: CGFloat in [-1, 1] {
-                for reach: CGFloat in [36, 46, 28] {
+                for reach: CGFloat in [36, 46, 56] {
                     let feet = CGPoint(x: spot.x + side * reach, y: spot.y + 6)
                     let p = Perch(feet: feet, from: spot, facing: -side)
                     let f = p.frame
@@ -567,7 +569,20 @@ struct VineGrower {
                 if free(r) { choice = (s, k); break search }
             }
         }
-        let (s, k) = choice ?? (side, 0.72)
+        // Nowhere free: the smallest size, on the side that covers least.
+        let (s, k) = choice ?? {
+            func overlap(_ s: CGFloat) -> CGFloat {
+                let c = CGPoint(x: g.x + s * (30 + size * 0.1), y: g.y + 8)
+                let r = CGRect(x: c.x - size * 0.22, y: c.y - size * 0.2, width: size * 0.44, height: size * 0.48)
+                var area: CGFloat = 0
+                for o in obstacles {
+                    let i = o.intersection(r)
+                    if !i.isNull { area += i.width * i.height }
+                }
+                return area
+            }
+            return (overlap(side) <= overlap(-side) ? side : -side, 0.72)
+        }()
         let sz = size * k
         let c = CGPoint(x: g.x + s * (30 + sz * 0.14), y: g.y + 8)
         VineGrowth.stalk(&ctx, from: g, to: CGPoint(x: c.x, y: c.y - sz * 0.35), wood: m, ink: ink, bend: s * -0.25, width: 2.6)
