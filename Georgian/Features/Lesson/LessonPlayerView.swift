@@ -27,6 +27,7 @@ struct LessonPlayerView: View {
         }
         .onDisappear { audio.stop() }
         .environment(\.lessonTint, tint)
+        .saveProblemAlert()
     }
 
     private var tint: BrandColor {

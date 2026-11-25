@@ -3,6 +3,37 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #16 · 26/11/26 · Critical code review; ids and saved data (branch `claude/exciting-newton-v79mv9`)
+
+Owner asked for a strict review of the whole app (no changes), then steps 1 and 2 of its fix
+plan. Review, in short: works for one person; no secrets in any of the 150 commits; top risks
+were the Georgian not checked by a native speaker, ids made from the spelling (a correction
+would silently drop learners' progress), schema versions pointing at the live models (the next
+model change could stop the app opening), and every save ignoring errors. The rest is in
+TODO.md. Owner: friends and family use it now; free and open to volunteers' corrections; no App
+Store date; wants iCloud sync (TODO.md); asked for help with the Azure terms and the name check.
+
+Step 1, ids: `tools/curriculum/ids.json` registers every released id (226 words, 302 phrases,
+528 more words, 59 lessons) with its Georgian. `build_curriculum.py` reuses those ids, adds new
+ones, and stops when a released id would vanish, saying how to keep it (new spelling next to the
+old id) or retire it. Checked: the first run reproduced every id already in the app (JSON
+unchanged; no id lost in any release, 0.2.0 to 0.4.1); a test correction (ეს რა ღირს? →
+ეს რამდენი ღირს?) kept pb-es-ra-ghirs; a removed phrase stopped the build until retired; a
+second run changes nothing.
+
+Step 2, saved data: `Models.swift` now keeps a frozen copy of the models in each schema version
+(V1, V2) and the app uses V2's through typealiases, with the recipe for V3 at the top.
+`Data/ProgressStore.swift` opens the store (plan, then SwiftData's own inference), deletes it
+for `-resetData`, and keeps an unopenable one aside in "Progress kept aside/<time>/" instead of
+deleting. The startup problem screen says what happened, keeps Try again, adds "Start with
+fresh progress" (keeps the old aside) and the contact address with the details. Saves report
+failures: logged, and an alert once ("Your progress couldn't be saved", on the root and the
+lesson player) until a save works again. New `tools/StoreTests`: the models as v1 and v2
+shipped (frozen copies) write a store as those apps did; the current code must open it through
+the plan with every kind of progress intact, take new progress, reopen, and keep it aside.
+The Mac runs it with the logic tests, plus a check that the course JSON and ids.json are built
+and committed. Polish for the new texts. Nothing compiled here (Linux): the Mac run decides.
+
 ## KART #15 · 25/11/26 · Grapevine pictures (branch `claude/focused-edison-ci3czr`)
 
 Step 1 of docs/vine-path.md: the pictures, no app code. New `tools/brand/vine.py` (the parts as

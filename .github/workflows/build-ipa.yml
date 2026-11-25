@@ -127,6 +127,21 @@ jobs:
           # Failures first: annotations are cut off after a few kB.
           { grep FAIL results.log || true; tail -1 results.log; } > summary.log
           if [ $status -eq 0 ]; then report notice "Tests" summary.log; else report error "Tests" summary.log; fi
+          # Saved-data upgrade: progress written by every shipped version opens in this one.
+          if tools/StoreTests/run.sh > store.log 2>&1; then
+            grep -E "passed" store.log > store-summary.log || true; report notice "Saved-data upgrade" store-summary.log
+          else
+            { grep -E "FAIL|error" store.log || tail -20 store.log; } | sort -u | head -40 > store-errors.log
+            report error "Saved-data upgrade" store-errors.log; status=1
+          fi
+          # The course files and ids.json match the content (nothing left unbuilt or uncommitted).
+          if ! python3 tools/curriculum/build_curriculum.py > content.log 2>&1 \
+              || [ -n "$(git status --porcelain -- Georgian/Resources/Curriculum tools/curriculum/ids.json)" ]; then
+            { grep ERROR content.log || true; git status --porcelain -- Georgian/Resources/Curriculum tools/curriculum/ids.json; } \
+              | head -30 > content-errors.log
+            echo "Run python3 tools/curriculum/build_curriculum.py and commit what it writes." >> content-errors.log
+            report error "Content" content-errors.log; status=1
+          fi
           exit $status
 
       - name: Install XcodeGen
@@ -273,6 +288,21 @@ jobs:
           ./app-tests "$PWD" > results.log 2>&1 || status=$?
           { grep FAIL results.log || true; tail -1 results.log; } > summary.log
           if [ $status -eq 0 ]; then report notice "Tests" summary.log; else report error "Tests" summary.log; fi
+          # Saved-data upgrade: progress written by every shipped version opens in this one.
+          if tools/StoreTests/run.sh > store.log 2>&1; then
+            grep -E "passed" store.log > store-summary.log || true; report notice "Saved-data upgrade" store-summary.log
+          else
+            { grep -E "FAIL|error" store.log || tail -20 store.log; } | sort -u | head -40 > store-errors.log
+            report error "Saved-data upgrade" store-errors.log; status=1
+          fi
+          # The course files and ids.json match the content (nothing left unbuilt or uncommitted).
+          if ! python3 tools/curriculum/build_curriculum.py > content.log 2>&1 \
+              || [ -n "$(git status --porcelain -- Georgian/Resources/Curriculum tools/curriculum/ids.json)" ]; then
+            { grep ERROR content.log || true; git status --porcelain -- Georgian/Resources/Curriculum tools/curriculum/ids.json; } \
+              | head -30 > content-errors.log
+            echo "Run python3 tools/curriculum/build_curriculum.py and commit what it writes." >> content-errors.log
+            report error "Content" content-errors.log; status=1
+          fi
           exit $status
 
       - name: Generate Xcode project
@@ -374,6 +404,21 @@ jobs:
           # Failures first: annotations are cut off after a few kB.
           { grep FAIL results.log || true; tail -1 results.log; } > summary.log
           if [ $status -eq 0 ]; then report notice "Tests" summary.log; else report error "Tests" summary.log; fi
+          # Saved-data upgrade: progress written by every shipped version opens in this one.
+          if tools/StoreTests/run.sh > store.log 2>&1; then
+            grep -E "passed" store.log > store-summary.log || true; report notice "Saved-data upgrade" store-summary.log
+          else
+            { grep -E "FAIL|error" store.log || tail -20 store.log; } | sort -u | head -40 > store-errors.log
+            report error "Saved-data upgrade" store-errors.log; status=1
+          fi
+          # The course files and ids.json match the content (nothing left unbuilt or uncommitted).
+          if ! python3 tools/curriculum/build_curriculum.py > content.log 2>&1 \
+              || [ -n "$(git status --porcelain -- Georgian/Resources/Curriculum tools/curriculum/ids.json)" ]; then
+            { grep ERROR content.log || true; git status --porcelain -- Georgian/Resources/Curriculum tools/curriculum/ids.json; } \
+              | head -30 > content-errors.log
+            echo "Run python3 tools/curriculum/build_curriculum.py and commit what it writes." >> content-errors.log
+            report error "Content" content-errors.log; status=1
+          fi
           exit $status
 
       - name: Pick the iPhone

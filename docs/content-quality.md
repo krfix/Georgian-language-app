@@ -11,7 +11,7 @@ and stops on any mechanical mistake.
   phrasebook, for 112).
 - Latin spelling is generated from the Georgian (national system, 2002), never typed, so it
   always matches. The sound guide ("gah-mahr-joh-bah") is generated the same way.
-- No phrase twice; unique ids; every phrase in a real situation and subcategory; every
+- No phrase twice; ids stable across versions (below); every phrase in a real situation and subcategory; every
   subcategory has phrases; every situation at least five.
 - Every phrase has search keywords; register is only "polite" or "informal".
 - Links to course words and grammar lessons point at things that exist.
@@ -41,6 +41,21 @@ and stops on any mechanical mistake.
    both voices, Eka and Giorgi (labelled "Synthetic voice" in the app). Listen to a few new ones.
 10. **Every word on screen is in Words:** the build lists words outside the lessons as More
    words and stops if one has no explanation (`build_curriculum.py --more` lists them).
+
+## Ids: correcting or removing without losing anyone's progress (tools/curriculum/ids.json)
+Learners' progress (lessons done, review schedules, saved phrases and lists) is saved by id.
+`ids.json` records every id ever released with the Georgian it belongs to; the build reuses it,
+adds new items to it (commit it with the content), and stops if a released id would vanish.
+- **Spelling corrected** (a word or phrase): the build stops and names the old id and the new
+  text. Write the new Georgian next to the old id in `ids.json`; build again. The id, and so
+  everyone's progress, stays with the corrected phrase. Change the key in `content_pl.py` and
+  the glossary too, as for any new text.
+- **Removed for good:** add the id to `"retired"` in `ids.json` with a short note. It is never
+  given to anything else.
+- **Lessons** keep their hand-written ids; a released lesson id can't disappear either.
+- "More words" (`x-…`) may come and go with the sentences they're from; their ids stay
+  registered, so a word that comes back gets its old id.
+- Never edit an id itself. The Mac build checks that ids.json and the JSON are up to date.
 
 ## Polish (content_pl.py)
 - Every course and phrasebook text has a Polish version; the build stops otherwise.

@@ -46,6 +46,11 @@ final class LearningStore {
     /// Phrasebook phrases the learner saved, marked or opened, by phrase id.
     private(set) var phraseRecords: [String: PhraseRecord] = [:]
 
+    /// Writing progress failed (the iPhone out of space…): the screens tell the learner once,
+    /// until a save works again. What wasn't written stays in memory and goes with the next save.
+    var showSaveProblem = false
+    @ObservationIgnored private var saveFailing = false
+
     /// Whether this build has the developer tools at all (KART #14). Only the Feather IPA
     /// (built with DEV_TOOLS) and Simulator runs (DEBUG) have them; TestFlight and the App Store
     /// don't, so there the section is hidden and switches saved by an older build do nothing.
@@ -77,16 +82,21 @@ final class LearningStore {
     init(curriculum: Curriculum, context: ModelContext) {
         self.curriculum = curriculum
         self.context = context
-        let existing = (try? context.fetch(FetchDescriptor<LearnerProfile>()))?.first
+        let existing: LearnerProfile?
+        do {
+            existing = try context.fetch(FetchDescriptor<LearnerProfile>()).first
+        } catch {
+            ProgressStore.log.error("Reading the profile failed: \(String(describing: error), privacy: .public)")
+            existing = nil
+        }
         if let existing {
             profile = existing
         } else {
             let p = LearnerProfile()
             context.insert(p)
-            try? context.save()
             profile = p
         }
-        reload()
+        save()
     }
 
     // MARK: Reading
@@ -312,16 +322,14 @@ final class LearningStore {
         let xpBefore = d.xp
         d.xp += xp
         update(d)
-        try? context.save()
-        reload()
+        save()
         var challengeNow = false
         let today = self.today
         if let d = days[today], !d.challengeDone, challengeValue >= dailyChallenge.target {
             d.challengeDone = true
             d.xp += XPRules.challengeBonus
             challengeNow = true
-            try? context.save()
-            reload()
+            save()
         }
         let after = snapshot
         let unlocked = Achievement.newlyUnlocked(before: before, after: after, alreadyRecorded: Set(achievementDates.keys))
@@ -338,13 +346,17 @@ final class LearningStore {
 
     /// Deletes all progress and starts again from the welcome screen.
     func resetAll() {
-        try? context.delete(model: LessonRecord.self)
-        try? context.delete(model: MasteryRecord.self)
-        try? context.delete(model: AnswerRecord.self)
-        try? context.delete(model: DayRecord.self)
-        try? context.delete(model: AchievementRecord.self)
-        try? context.delete(model: ReviewSessionRecord.self)
-        try? context.delete(model: PhraseRecord.self)
+        do {
+            try context.delete(model: LessonRecord.self)
+            try context.delete(model: MasteryRecord.self)
+            try context.delete(model: AnswerRecord.self)
+            try context.delete(model: DayRecord.self)
+            try context.delete(model: AchievementRecord.self)
+            try context.delete(model: ReviewSessionRecord.self)
+            try context.delete(model: PhraseRecord.self)
+        } catch {
+            ProgressStore.log.error("Deleting progress failed: \(String(describing: error), privacy: .public)")
+        }
         let fresh = LearnerProfile()
         context.delete(profile)
         context.insert(fresh)
@@ -352,8 +364,18 @@ final class LearningStore {
         save()
     }
 
+    /// Writes what changed, then reads everything back. A failure is logged and shown once.
     private func save() {
-        try? context.save()
+        do {
+            try context.save()
+            saveFailing = false
+        } catch {
+            ProgressStore.log.error("Saving progress failed: \(String(describing: error), privacy: .public)")
+            if !saveFailing {
+                saveFailing = true
+                showSaveProblem = true
+            }
+        }
         reload()
     }
 
@@ -439,8 +461,7 @@ final class LearningStore {
             context.insert(m)
         }
         for i in 0..<4 { context.insert(ReviewSessionRecord(date: n.addingTimeInterval(-Double(i) * 86_400), items: 10, correct: 8, xp: 13)) }
-        try? context.save()
-        reload()
+        save()
         for a in Achievement.all where a.isUnlocked(snapshot) {
             context.insert(AchievementRecord(achievementID: a.id, unlockedAt: n.addingTimeInterval(-86_400)))
         }
@@ -453,8 +474,7 @@ final class LearningStore {
         for id in lessonIDs where !completedLessons.contains(id) {
             context.insert(LessonRecord(lessonID: id, completedAt: n.addingTimeInterval(-3_600), accuracy: 0.9, xp: 20, perfect: false))
         }
-        try? context.save()
-        reload()
+        save()
     }
 }
 

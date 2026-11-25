@@ -61,6 +61,72 @@ def slug(ka):
     return s
 
 
+# ---- The ID register (ids.json): learners' progress is saved by id, so an id, once released,
+# stays with its word, phrase or lesson for good, whatever later happens to the spelling.
+# A new item gets an id made from its Latin spelling, added to the register by this build
+# (commit ids.json with the content). Correcting a spelling: write the new Georgian next to
+# the old id in ids.json, and the learners' progress follows. An item removed for good: add
+# its id to "retired" with a short note (it is never given to anything else). See
+# docs/content-quality.md.
+IDS_FILE = os.path.join(HERE, "ids.json")
+ID_SECTIONS = ("words", "phrases", "more")
+if os.path.exists(IDS_FILE):
+    with open(IDS_FILE, encoding="utf-8") as f_:
+        REGISTER = json.load(f_)
+else:
+    REGISTER = {}
+REGISTER.setdefault("lessons", [])
+for s_ in ID_SECTIONS:
+    REGISTER.setdefault(s_, {})
+REGISTER.setdefault("retired", {})
+REGISTER_BEFORE = json.dumps(REGISTER, sort_keys=True, ensure_ascii=False)
+taken_ids = set(REGISTER["lessons"])
+id_by_ka = {}
+for s_ in ID_SECTIONS:
+    id_by_ka[s_] = {}
+    for i_, ka_ in REGISTER[s_].items():
+        if i_ in taken_ids:
+            errors.append(f"ids.json: id {i_} listed twice")
+        taken_ids.add(i_)
+        if ka_ in id_by_ka[s_]:
+            errors.append(f"ids.json: {ka_!r} has two ids in {s_}: {id_by_ka[s_][ka_]} and {i_}")
+        id_by_ka[s_][ka_] = i_
+taken_ids |= set(REGISTER["retired"])
+new_ids = {s_: [] for s_ in ID_SECTIONS}
+
+
+def stable_id(section, prefix, ka):
+    """The id of `ka` in `section`: the registered one, else a new one made from its spelling."""
+    if ka in id_by_ka[section]:
+        wid = id_by_ka[section][ka]
+        if wid in REGISTER["retired"]:
+            fail(f"ids.json: {ka!r} is back, but its id {wid} is retired: take {wid} out of \"retired\"")
+        return wid
+    base_id = prefix + slug(ka)
+    wid, n = base_id, 2
+    while wid in taken_ids:
+        wid = f"{base_id}-{n}"
+        n += 1
+    taken_ids.add(wid)
+    id_by_ka[section][ka] = wid
+    REGISTER[section][wid] = ka
+    new_ids[section].append(wid)
+    return wid
+
+
+def check_ids(section, present, what):
+    """Registered ids missing from this build (words, phrases, lessons): an error. A "more" word
+    may disappear with the sentence it came from; its id stays registered for when it's back."""
+    gone = [i for i in REGISTER[section] if i not in present and i not in REGISTER["retired"]]
+    for i in gone:
+        old = f" ({REGISTER[section][i]})" if section in ID_SECTIONS else ""
+        fail(f"ids.json: {what} {i}{old} is no longer in the content, so learners would lose its progress. "
+             f"Spelling corrected? Write the new Georgian next to {i} in tools/curriculum/ids.json. "
+             f"Removed for good? Add {i} to \"retired\" there, with a short note.")
+    if gone and section in ID_SECTIONS and new_ids[section]:
+        fail(f"ids.json: new in this build (a corrected spelling?): " + ", ".join(f"{REGISTER[section][i]}" for i in new_ids[section][:10]))
+
+
 # ---- Letters
 if len(C.LETTERS) != 33:
     fail(f"letters: {len(C.LETTERS)}, want 33")
@@ -92,12 +158,9 @@ def add_word(entry, category, situation=None):
     where = f"word {ka}"
     check_georgian(ka, where)
     check_georgian(ex_ka, where + " example")
-    prefix = "p" if situation else "w"
-    wid = f"{prefix}-{slug(ka)}"
-    if any(w["id"] == wid for w in words):
-        fail(f"{where}: id {wid} used twice")
     if ka in by_ka:
         fail(f"{where}: defined twice")
+    wid = stable_id("words", "p-" if situation else "w-", ka)
     if not en or en != en.strip():
         fail(f"{where}: English missing or with spaces around")
     w = {"id": wid, "ka": ka, "lat": latin(ka), "en": en, "alt": alt, "category": category,
@@ -353,9 +416,9 @@ for cid, entries in PB.PHRASES.items():
         unknown = set(e) - {"ka", "en", "sub", "kw", "reg", "lit", "note", "var", "rep"}
         if unknown:
             fail(f"{where}: unknown fields {unknown}")
-        pid = "pb-" + slug(ka)
-        if any(p["id"] == pid for p in pb_phrases):
-            fail(f"{where}: id {pid} used twice")
+        pid = stable_id("phrases", "pb-", ka)
+        if not pid.startswith("pb-"):
+            fail(f"{where}: phrase id {pid} must start with pb- (the app tells phrases by it)")
         p = {"id": pid, "ka": ka, "lat": latin(ka), "sound": sound(ka), "en": en, "category": cid,
              "sub": e["sub"], "keywords": [k.lower() for k in e["kw"]], "urgent": cid == "emergency"}
         for key in ("reg", "lit", "note"):
@@ -862,15 +925,9 @@ if len(more_unexplained) > 20:
 MORE_CATEGORY = {"id": "more", "title": "More words", "symbol": "text.book.closed.fill", "color": "blacksea"}
 MORE_CATEGORY_PL = {**MORE_CATEGORY, "title": "Więcej słów"}
 more_words, more_words_pl = [], []
-used_ids = {w["id"] for w in words}
 for ka in sorted(more_by_ka, key=latin):
     e = more_by_ka[ka]
-    wid = "x-" + slug(ka)
-    n = 2
-    while wid in used_ids:
-        wid = f"x-{slug(ka)}-{n}"
-        n += 1
-    used_ids.add(wid)
+    wid = stable_id("more", "x-", ka)
     if e["seen"]:
         # The shortest real sentence: more than the word itself, if there is one.
         ex_ka, ex_en, ex_pl = min(e["seen"], key=lambda s_: (len(tokens(s_[0])) < 2, len(s_[0]), s_[0]))
@@ -880,6 +937,20 @@ for ka in sorted(more_by_ka, key=latin):
     base_ = {"id": wid, "ka": ka, "lat": latin(ka), "alt": [], "category": "more"}
     more_words.append({**base_, "en": e["en"], "example": {"ka": ex_ka, "lat": latin(ex_ka), "en": ex_en}})
     more_words_pl.append({**base_, "en": e["pl"], "example": {"ka": ex_ka, "lat": latin(ex_ka), "en": ex_pl}})
+
+# Every released id still there (or retired on purpose); lessons registered in course order.
+check_ids("words", {w["id"] for w in words}, "word")
+check_ids("phrases", {p["id"] for p in pb_phrases}, "phrase")
+lesson_ids = [L["id"] for m in modules for L in m["lessons"]]
+check_ids("lessons", set(lesson_ids), "lesson")
+for lid in lesson_ids:
+    if lid in REGISTER["retired"]:
+        fail(f"lesson {lid}: its id is retired in ids.json; give the lesson a new id")
+    elif lid not in REGISTER["lessons"]:
+        if lid in taken_ids:
+            fail(f"lesson {lid}: id already used by a word or phrase")
+        REGISTER["lessons"].append(lid)
+        taken_ids.add(lid)
 
 if DUMP:
     import pprint
@@ -923,6 +994,22 @@ write("course-pl.json", {"id": "georgian-a0", "version": VERSION, "title": "Gruz
 write("phrasebook-pl.json", {"version": VERSION, "checkedBy": PB.PHRASEBOOK_STATUS,
                             "categories": pl_pb[0], "phrases": pl_pb[1], "dialogues": pl_pb[2],
                             "synonyms": pl_pb[3], "suggestions": pl_pb[4]})
+if json.dumps(REGISTER, sort_keys=True, ensure_ascii=False) != REGISTER_BEFORE:
+    with open(IDS_FILE, "w", encoding="utf-8") as f_:
+        f_.write("{\n")
+        f_.write(' "about": ' + json.dumps(
+            "Learners' progress is saved by these ids. Never change an id; to correct a spelling, change the Georgian "
+            "next to its id. An item removed for good is added to retired, with a note. Written by build_curriculum.py.",
+            ensure_ascii=False) + ",\n")
+        f_.write(' "lessons": ' + json.dumps(REGISTER["lessons"], ensure_ascii=False) + ",\n")
+        for s_ in ID_SECTIONS + ("retired",):
+            items = sorted(REGISTER[s_].items())
+            body = ",\n".join(f"  {json.dumps(k, ensure_ascii=False)}: {json.dumps(v, ensure_ascii=False)}" for k, v in items)
+            end = "\n" if s_ == "retired" else ",\n"
+            f_.write(f' "{s_}": {{' + (f"\n{body}\n " if items else "") + "}" + end)
+        f_.write("}\n")
+    added = sum(len(v) for v in new_ids.values())
+    print(f"OK: ids.json updated ({added} new ids): commit it with the content")
 lesson_count = sum(len(m["lessons"]) for m in modules)
 print(f"OK: {len(letters)} letters, {len(words)} words and phrases, {len(modules)} modules, {lesson_count} lessons")
 print(f"OK: phrasebook with {len(pb_cats)} categories, {len(pb_phrases)} phrases, {len(pb_dialogues)} dialogues")

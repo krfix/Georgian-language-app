@@ -54,6 +54,15 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       for com.aralearn.ge and make the container on developer.apple.com. Testable only via
       TestFlight (Feather drops iCloud). Privacy page sentence first. Web: a "Move my
       progress" code later.
+- [ ] From the code review (KART #16), still open, roughly in order: don't submit TestFlight
+      build #74 for review (it has Developer); give the sound back after playing (music stops
+      and doesn't resume: `AudioService.play` never deactivates the session or mixes); the
+      reminder skips days already studied, no badge request, switch follows the real
+      permission; typing: "almost" shouldn't accept a different real word ("night" for
+      "right") as correct; declare Polish to iOS (App Store languages); public release IPAs
+      without DEV_TOOLS; workflow: per-job permissions, actions pinned, XcodeGen version
+      fixed; `Font.georgian` (unused, doesn't scale) removed; midnight and time-zone travel
+      for the streak; web: don't silently reset unreadable saved data.
 - [ ] Web app, what the iPhone has and the web doesn't yet: reminders
       (a web page can't remind reliably on iPhone), the phrasebook's conversation practice in
       the lesson player (the web has its own Practise screen for them).

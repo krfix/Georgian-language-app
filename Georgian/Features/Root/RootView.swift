@@ -162,7 +162,27 @@ struct RootView: View {
         }
         .environment(navigator)
         .motion(Motion.gentle, value: store.profile.onboardingDone)
+        .saveProblemAlert()
     }
+}
+
+/// Tells the learner once when their progress couldn't be written (LearningStore.save).
+/// On the root and on the lesson player, since a lesson covers the whole screen.
+struct SaveProblemAlert: ViewModifier {
+    @Environment(LearningStore.self) private var store
+
+    func body(content: Content) -> some View {
+        @Bindable var store = store
+        content.alert(tr("Your progress couldn't be saved"), isPresented: $store.showSaveProblem) {
+            Button(tr("OK"), role: .cancel) {}
+        } message: {
+            Text(tr("Your iPhone may be out of space. Ara keeps what you've just done and tries again with your next step; free some space before closing the app."))
+        }
+    }
+}
+
+extension View {
+    func saveProblemAlert() -> some View { modifier(SaveProblemAlert()) }
 }
 
 struct MainTabView: View {

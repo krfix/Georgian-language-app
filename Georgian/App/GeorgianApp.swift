@@ -17,8 +17,8 @@ struct GeorgianApp: App {
                         .environment(audio)
                         .environment(app)
                         .modelContainer(app.container!)
-                case .failed(let message):
-                    StartupProblemView(message: message) { app.start() }
+                case .failed(let problem):
+                    StartupProblemView(problem: problem, retry: { app.start() }, startFresh: { app.startFresh() })
                 case .loading:
                     Palette.background.ignoresSafeArea()
                 }
@@ -36,7 +36,7 @@ final class AppModel {
     enum State {
         case loading
         case ready(LearningStore, AudioService)
-        case failed(String)
+        case failed(StartupProblem)
     }
 
     private(set) var state: State = .loading
@@ -58,30 +58,17 @@ final class AppModel {
         let options = LaunchOptions.current
         AppLanguage.use(AppLanguage.stored, save: false)
         language = AppLanguage.current
+        let curriculum: Curriculum
         do {
-            let curriculum = try Curriculum.load(language: language)
-            let schema = Schema(versionedSchema: GeorgianSchemaV2.self)
-            let config: ModelConfiguration
-            if options.inMemory {
-                config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
-            } else {
-                let url = URL.applicationSupportDirectory.appending(path: "Georgian.store")
-                if options.resetData {
-                    for suffix in ["", "-shm", "-wal"] {
-                        try? FileManager.default.removeItem(at: URL(fileURLWithPath: url.path + suffix))
-                    }
-                }
-                try? FileManager.default.createDirectory(at: URL.applicationSupportDirectory, withIntermediateDirectories: true)
-                config = ModelConfiguration(schema: schema, url: url)
-            }
-            let container: ModelContainer
-            do {
-                container = try ModelContainer(for: schema, migrationPlan: GeorgianMigrationPlan.self, configurations: config)
-            } catch {
-                // If the planned step fails, let SwiftData infer it (adding a model is a
-                // lightweight change it can work out by itself) rather than refuse to open.
-                container = try ModelContainer(for: schema, configurations: config)
-            }
+            curriculum = try Curriculum.load(language: language)
+        } catch {
+            state = .failed(StartupProblem(kind: .course, detail: String(describing: error)))
+            return
+        }
+        do {
+            let url: URL? = options.inMemory ? nil : ProgressStore.defaultURL
+            if let url, options.resetData { ProgressStore.delete(at: url) }
+            let container = try ProgressStore.open(at: url).container
             self.container = container
             let store = LearningStore(curriculum: curriculum, context: container.mainContext)
             if options.seedDemo && store.lessonRecords.isEmpty { store.seedDemo() }
@@ -91,8 +78,21 @@ final class AppModel {
             Haptics.enabled = store.profile.hapticsOn
             state = .ready(store, audio)
         } catch {
-            state = .failed(error.localizedDescription)
+            state = .failed(StartupProblem(kind: .progress, detail: String(describing: error)))
         }
+    }
+
+    /// The saved progress can't be opened: keep it aside (never deleted) and start afresh.
+    func startFresh() {
+        guard case .failed(let problem) = state, problem.kind == .progress else { return }
+        do {
+            try ProgressStore.setAside(ProgressStore.defaultURL)
+        } catch {
+            state = .failed(StartupProblem(kind: .progress, detail: String(describing: error)))
+            return
+        }
+        state = .loading
+        start()
     }
 
     /// Switches the app to another language: its own words, the course and the phrasebook.
@@ -119,26 +119,64 @@ final class AppModel {
     }
 }
 
-/// Shown only if the course or the saved progress can't be opened.
+/// Why the app couldn't start.
+struct StartupProblem {
+    enum Kind { case course, progress }
+    let kind: Kind
+    /// The technical message, shown small (useful when the learner writes to us).
+    let detail: String
+}
+
+/// Shown only if the course or the saved progress can't be opened. For progress there's a
+/// way out that loses nothing: the old file is kept aside, and the app starts afresh.
 struct StartupProblemView: View {
-    let message: String
+    let problem: StartupProblem
     let retry: () -> Void
+    let startFresh: () -> Void
+    @State private var confirmFresh = false
 
     var body: some View {
-        VStack(spacing: 20) {
-            ParrotView(height: 120, mood: .think, bobbing: false)
-            Text(tr("Something went wrong opening the app"))
-                .font(.title2Bold)
-                .multilineTextAlignment(.center)
-            Text(message)
-                .font(.calloutRounded)
-                .foregroundStyle(Palette.inkSoft)
-                .multilineTextAlignment(.center)
-            Button(tr("Try again"), action: retry)
-                .buttonStyle(ChunkyButtonStyle())
+        ScrollView {
+            VStack(spacing: 20) {
+                ParrotView(height: 120, mood: .think, bobbing: false)
+                Text(problem.kind == .progress ? tr("Ara couldn't open your saved progress") : tr("Ara couldn't load its lessons"))
+                    .font(.title2Bold)
+                    .multilineTextAlignment(.center)
+                Text(problem.kind == .progress
+                     ? tr("Nothing has been deleted. Try again first. If it keeps happening, you can start with fresh progress: your old progress stays kept aside on this iPhone, so a later update can bring it back.")
+                     : tr("Try again. If it keeps happening, please reinstall Ara from the App Store or TestFlight."))
+                    .font(.calloutRounded)
+                    .foregroundStyle(Palette.inkSoft)
+                    .multilineTextAlignment(.center)
+                Button(tr("Try again"), action: retry)
+                    .buttonStyle(ChunkyButtonStyle())
+                if problem.kind == .progress {
+                    Button(tr("Start with fresh progress")) { confirmFresh = true }
+                        .font(.headlineRounded)
+                        .foregroundStyle(Palette.pomegranate)
+                        .padding(.top, 4)
+                }
+                Text(tr("Please tell us at {0}, with the details below.", "ara.learn.app@gmail.com"))
+                    .font(.calloutRounded)
+                    .foregroundStyle(Palette.inkSoft)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 8)
+                Text(problem.detail)
+                    .font(.caption.monospaced())
+                    .foregroundStyle(Palette.inkSoft)
+                    .multilineTextAlignment(.leading)
+                    .textSelection(.enabled)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(32)
         }
-        .padding(32)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Palette.background.ignoresSafeArea())
+        .confirmationDialog(tr("Start with fresh progress?"), isPresented: $confirmFresh, titleVisibility: .visible) {
+            Button(tr("Start fresh, keep the old progress aside"), role: .destructive, action: startFresh)
+            Button(tr("Cancel"), role: .cancel) {}
+        } message: {
+            Text(tr("Your current progress is moved aside on this iPhone, not deleted."))
+        }
     }
 }

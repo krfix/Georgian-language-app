@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #15 (25/11/26). The words come from the first request. Rename with `set_session_title`
+KART #16 (26/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
@@ -39,7 +39,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 - Georgian text must be right: every word and sentence goes into
   `tools/curriculum/content_*.py` and through `build_curriculum.py`, which checks it. Latin
   spelling is generated (national system, 2002: k' p' t' q' ts' ch' for the tight sounds).
-  Follow `docs/content-quality.md`. Never claim a native speaker's check that hasn't
+  Follow `docs/content-quality.md`. Ids are fixed once released (`tools/curriculum/ids.json`,
+  KART #16): a corrected spelling keeps its id, so progress survives. Never claim a native speaker's check that hasn't
   happened (`PHRASEBOOK_STATUS` in content_phrasebook.py; the app shows it).
   On screen and on the website say "with the help of AI", never Claude by name (owner, KART #7).
 - Audio: never fabricate, always label. The owner chose Azure's **Eka** voice (KART #1);
@@ -115,6 +116,12 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 - Nothing compiles here: cloud sessions are Linux, with no Swift (installing one was refused).
   Review carefully, then let the Mac run compile and test.
 - `python3 tools/curriculum/build_curriculum.py` runs here and checks the whole course.
+- Saved data (KART #16): each schema version in `Data/Models.swift` keeps its own frozen copy
+  of the models; never edit a shipped one. To change what is saved, follow the steps at the top
+  of Models.swift (new version, migration stage, an old store in `tools/StoreTests`). The Mac
+  runs `tools/StoreTests/run.sh` with the logic tests: stores written as v1 and v2 (0.2.0–0.4.1)
+  must open with all progress. Saves report failures (`LearningStore.save`, an alert); a store
+  that can't open is kept aside, never deleted (`ProgressStore`).
 - Logic tests: `tools/Tests/main.swift` (plain `check(label, got, want)`), compiled with every
   file in `Georgian/Curriculum` and `Georgian/Engine`, which therefore must not use SwiftUI,
   UIKit or SwiftData. Run in both jobs.
@@ -140,7 +147,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | Phrasebook types, lookups, phrases as review words, dialogue practice, search (tested) | `Curriculum/PhrasebookModels.swift`, `Phrasebook.swift`, `PhraseSearch.swift` |
 | Exercises: kinds and shapes, building them from lessons, checking answers, the session | `Engine/Exercise.swift`, `ExerciseBuilder.swift`, `AnswerEvaluator.swift`, `LessonSession.swift` |
 | Spaced repetition (SM-2), XP, streaks, levels, achievements, challenge, path states | `Engine/SpacedRepetition.swift`, `Engine/Gamification.swift` |
-| Saved data (SwiftData, CloudKit-ready) and everything worked out from it | `Data/Models.swift`, `Data/LearningStore.swift` |
+| Saved data (SwiftData, CloudKit-ready; frozen schema versions), opening it, and everything worked out from it | `Data/Models.swift`, `Data/ProgressStore.swift`, `Data/LearningStore.swift`; upgrade tests `tools/StoreTests/` |
 | Audio (bundled clips in two voices via `audio.json` / `audio-giorgi.json`, or the iPhone's Georgian voice), the voice picker, reminders | `Audio/`, `DesignSystem/Components/VoicePicker.swift`; clips made by `tools/audio/make_audio.py` |
 | Brand: symbol, app icons, logos, mascot poses (vector masters in `brand/`, assets in the catalog) | `tools/brand/ara.py` (geometry), `make_brand.py`; `docs/brand.md` |
 | Design system: colours (light and dark), type, motion, haptics, components | `DesignSystem/` (Borjgali emblem, ChunkyButton, cards, rings, confetti, FlowLayout, SpeakerButton) |
