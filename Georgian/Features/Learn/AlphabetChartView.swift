@@ -36,6 +36,10 @@ struct AlphabetGrid: View {
     @State private var open: LetterInfo?
     /// The letter under the finger, drawn a little smaller while pressed.
     @State private var pressing: String?
+    /// The letter the finger just landed on, before it counts as a press (a scroll cancels it).
+    @State private var landing: String?
+    /// The letter that already got its light tap in this press.
+    @State private var buzzed: String?
 
     private let columns = [GridItem(.adaptive(minimum: 72), spacing: 10)]
 
@@ -60,16 +64,33 @@ struct AlphabetGrid: View {
                         .scaleEffect(pressing == l.char ? 0.92 : 1)
                         .motion(Motion.spring, value: pressing == l.char)
                         .contentShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-                        // A light tap the moment the finger lands; a firmer one when the hold
-                        // opens the card. A short tap plays the letter.
-                        .onTapGesture { audio.play(l.char) }
-                        .onLongPressGesture(minimumDuration: 0.35) {
+                        // A light tap once the finger has rested a moment (a scroll moves on
+                        // before it, so it stays quiet); a firmer one when the hold opens the
+                        // card. A short tap plays the letter.
+                        .onTapGesture {
+                            if buzzed != l.char { Haptics.tap() }
+                            audio.play(l.char)
+                        }
+                        .onLongPressGesture(minimumDuration: 0.28, maximumDistance: 8) {
                             Haptics.press()
+                            landing = nil
                             pressing = nil
                             open = l
                         } onPressingChanged: { down in
-                            if down { Haptics.tap() }
-                            pressing = down ? l.char : (pressing == l.char ? nil : pressing)
+                            let c = l.char
+                            if down {
+                                landing = c
+                                buzzed = nil
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    guard landing == c else { return }
+                                    pressing = c
+                                    buzzed = c
+                                    Haptics.tap()
+                                }
+                            } else if landing == c || pressing == c {
+                                landing = nil
+                                pressing = nil
+                            }
                         }
                         .accessibilityElement(children: .ignore)
                         .accessibilityLabel("\(l.name), \(l.latin), \(store.status(of: l.itemID).title)")

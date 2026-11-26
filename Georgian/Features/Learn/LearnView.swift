@@ -8,6 +8,17 @@ import SwiftUI
 struct LearnView: View {
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
+    /// ა drawn once as a square image for the shortcut, the letter lifted to sit in the middle
+    /// (it has no tall parts, so text centring leaves it low).
+    @MainActor private static let letterIcon: UIImage = {
+        let r = ImageRenderer(content:
+            Text("ა")
+                .font(.system(size: 26, weight: .bold))
+                .offset(y: -2.5)
+                .frame(width: 28, height: 28))
+        r.scale = 3
+        return (r.uiImage ?? UIImage()).withRenderingMode(.alwaysTemplate)
+    }()
     @State private var showAlphabet = LaunchOptions.current.screen == "alphabet"
     @State private var lockedNotice: String?
     /// The lesson the path last scrolled to, so coming back to it doesn't scroll again.
@@ -66,14 +77,11 @@ struct LearnView: View {
                         Haptics.tap()
                         showAlphabet = true
                     } label: {
-                        // A bare label: iOS 26 draws its round glass button around it. The
-                        // letter has no tall parts, so it's lifted a little to sit in the middle.
-                        Text("ა")
-                            .font(.system(size: 21, weight: .bold))
+                        // An image, not text: iOS 26 draws a round glass button around an
+                        // icon (text gets a pill). Tinted in Ara's red.
+                        Image(uiImage: Self.letterIcon)
+                            .renderingMode(.template)
                             .foregroundStyle(Palette.pomegranate)
-                            .offset(y: -2)
-                            .frame(width: 32, height: 32)
-                            .contentShape(Circle())
                     }
                     .accessibilityLabel(tr("All 33 letters"))
                     .accessibilityIdentifier("alphabet-shortcut")
