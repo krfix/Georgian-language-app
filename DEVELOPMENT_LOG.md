@@ -3,6 +3,15 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #19 · 26/11/26 · Feedback: cut grapes (branch `claude/elegant-fermat-k08vbc`)
+
+TestFlight feedback (owner, 0.4.1 build #74, iPhone 13): the grape bunches near the left edge
+were cut off by the screen; the stem's colour gradient praised. Cause: where neither side of a
+node had room (the screen's edge on one side, a stone or title on the other), the bunch went
+on the side covering the fewest titles and stones, and the screen's edge didn't count. Now
+grapes past the edge count four times over, and the chosen bunch slides in towards the stem
+so it never passes the edge (`VineGrower.bunch`). Not compiled here.
+
 ## KART #18 · 26/11/26 · Alphabet, native voice changed (branch `claude/modest-clarke-r4ynu5`)
 
 A native speaker's recording of the 33 letters, whose speaker doesn't want to be

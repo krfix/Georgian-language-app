@@ -582,7 +582,8 @@ struct VineGrower {
                 if free(r) { choice = (s, k); break search }
             }
         }
-        // Nowhere free: the smallest size, on the side that covers least.
+        // Nowhere free: the smallest size, on the side that covers least. Grapes past the
+        // screen's edge count four times over (owner, KART #19: a bunch cut off at the left).
         let (s, k) = choice ?? {
             func overlap(_ s: CGFloat) -> CGFloat {
                 let c = CGPoint(x: g.x + s * (30 + size * 0.1), y: g.y + 8)
@@ -592,12 +593,17 @@ struct VineGrower {
                     let i = o.intersection(r)
                     if !i.isNull { area += i.width * i.height }
                 }
-                return area
+                let off = max(0, margin - r.minX) + max(0, r.maxX - (width - margin))
+                return area + off * r.height * 4
             }
             return (overlap(side) <= overlap(-side) ? side : -side, 0.72)
         }()
         let sz = size * k
-        let c = CGPoint(x: g.x + s * (30 + sz * 0.14), y: g.y + 8)
+        var c = CGPoint(x: g.x + s * (30 + sz * 0.14), y: g.y + 8)
+        // Never past the screen's edges: the bunch slides in towards the stem (the stalk
+        // follows it), even if that means hanging over the stem.
+        let half = sz * 0.3
+        c.x = min(max(c.x, margin + half), width - margin - half)
         // The bunch has no stem of its own (owner, KART #15): the stalk runs to a point hidden
         // behind its top grapes, turned with the bunch, so the two always meet. In the picture
         // (90 points) the bunch is 62 tall, centred 2 below the middle; the point is 0.26 of
