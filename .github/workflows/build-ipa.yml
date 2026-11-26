@@ -51,10 +51,10 @@ on:
         type: boolean
         default: false
       devtools:
-        description: With testflight, keep Profile › Developer in the build (testers only; never for App Store review)
+        description: With testflight, keep Profile › Developer in the build (on until the final release, owner KART #20; set false for the build sent to App Store review)
         required: false
         type: boolean
-        default: false
+        default: true
 
 permissions:
   contents: write
