@@ -21,6 +21,9 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       as in docs/native-recordings.md; `tools/audio/add_native.py` puts them in.
       KART #18: done in Luka's voice (a native recording changed into it, labelled "Native
       recording, voice changed").
+- [ ] 0.4.3's CHANGELOG notes must include KART #18's automatic playback ("Georgian plays by
+      itself on cards, exercises and answers you pick; Profile › Audio to turn it off"): it
+      shipped to TestFlight as 0.4.2 (build #85), after v0.4.2's release notes (owner).
 - [ ] A female voice again (KART #18: Eka off, only Luka). ElevenLabs' Nina is the account's
       female Georgian voice (her voice-changed letters had noise at the end); a full set costs
       ~19,500 credits, so next month's allowance or a bigger plan.
