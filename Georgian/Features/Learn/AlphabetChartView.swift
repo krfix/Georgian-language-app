@@ -61,7 +61,7 @@ struct AlphabetChartView: View {
         case .learned: Palette.success
         case .learning: Palette.gold
         case .difficult: Palette.error
-        case .new: Palette.line
+        case .new, .seen: Palette.line
         }
         return VStack(spacing: 2) {
             Text(l.char).font(.system(size: 34, weight: .semibold)).foregroundStyle(Palette.ink)
@@ -74,9 +74,9 @@ struct AlphabetChartView: View {
 
     private var legend: some View {
         HStack(spacing: 14) {
-            legendItem(tr("New"), Palette.line)
-            legendItem(tr("Learning"), Palette.gold)
-            legendItem(tr("Learned"), Palette.success)
+            legendItem(tr("Not yet"), Palette.line)
+            legendItem(tr("Practising"), Palette.gold)
+            legendItem(tr("Known"), Palette.success)
             legendItem(tr("Difficult"), Palette.error)
         }
         .font(.caption)

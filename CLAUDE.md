@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #18 (26/11/26). The words come from the first request. Rename with `set_session_title`
+KART #20 (26/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
@@ -178,6 +178,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   (`AudioService.autoPlay`, UserDefaults, on by default; web Settings, `autoPlay`).
 - Review: every letter and word has a `MasteryRecord`; right answers space it out (1, 3, 8…
   days), a miss brings it back in 10 minutes. Same-day repeats don't push it further.
+  Words (KART #20): seen (in a finished lesson, `Lesson.seen` from the build) → practising →
+  known (4 right in a row, `Engine/WordProgress.swift`); a lesson offers due words as a warm-up.
 - Path: lessons open in order (`CourseProgress`); "I know a few letters" opens the alphabet,
   "I can read" starts at Module 2.
 - Tabs (KART #6): Home · Learn · Phrasebook · Words · Review. Words is the word list with

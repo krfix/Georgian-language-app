@@ -124,6 +124,14 @@ struct Exercise: Identifiable, Hashable {
     func retry() -> Exercise {
         Exercise(id: id + "+", kind: kind, instruction: instruction, itemID: itemID, content: content)
     }
+
+    /// The same exercise under another id (a review exercise used as a lesson's warm-up).
+    func renamed(_ newID: String) -> Exercise {
+        Exercise(id: newID, kind: kind, instruction: instruction, itemID: itemID, content: content)
+    }
+
+    /// Part of the warm-up before a lesson (KART #20): its answers count as review.
+    var isWarmUp: Bool { id.hasPrefix("warmup.") }
 }
 
 /// What the learner gave.

@@ -38,7 +38,13 @@ struct LessonPlayerView: View {
     }
 
     @ViewBuilder private func content(_ model: LessonPlayerModel) -> some View {
-        if case .finished(let reward) = model.phase {
+        if case .warmUpOffer(let count) = model.phase {
+            WarmUpOfferView(count: count, almostKnown: model.warmUpAlmostKnown, tint: tint,
+                            start: { withMotion { model.startWarmUp() } },
+                            skip: { withMotion { model.skipWarmUp() } },
+                            close: { dismiss() })
+                .transition(.opacity)
+        } else if case .finished(let reward) = model.phase {
             LessonCompleteView(reward: reward, title: model.title, isReview: model.isReview, isDialogue: model.isDialogue) { dismiss() }
                 .transition(.opacity.combined(with: .scale(scale: 0.95)))
         } else {
@@ -247,5 +253,62 @@ struct FeedbackPanel: View {
         case .almost: return tr("Almost!")
         case .wrong: return tr("Not quite")
         }
+    }
+}
+
+/// Before a lesson, when words are due (KART #20): a short warm-up with them first, or
+/// straight to the lesson. Profile › Learning chooses ask, always or never.
+private struct WarmUpOfferView: View {
+    let count: Int
+    let almostKnown: Int
+    let tint: BrandColor
+    let start: () -> Void
+    let skip: () -> Void
+    let close: () -> Void
+
+    var body: some View {
+        VStack(spacing: 18) {
+            HStack {
+                CircleIconButton(symbol: "xmark", label: tr("Close"), action: close)
+                    .accessibilityIdentifier("lesson-close")
+                Spacer()
+            }
+            Spacer(minLength: 0)
+            ParrotView(height: 150, mood: .hello)
+                .accessibilityHidden(true)
+            Text(tr("Warm up first?"))
+                .font(.display)
+                .foregroundStyle(Palette.ink)
+                .multilineTextAlignment(.center)
+            Text(plural(count, "word from earlier lessons is ready to come back. About a minute.",
+                        "words from earlier lessons are ready to come back. About a minute.",
+                        pl: ("słowo z wcześniejszych lekcji czeka na powtórkę. Około minuty.",
+                             "słowa z wcześniejszych lekcji czekają na powtórkę. Około minuty.",
+                             "słów z wcześniejszych lekcji czeka na powtórkę. Około minuty.")))
+                .font(.bodyRounded)
+                .foregroundStyle(Palette.inkSoft)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+            if almostKnown > 0 {
+                Pill(text: plural(almostKnown, "could become known", "could become known",
+                                  pl: ("może stać się znane", "mogą stać się znane", "może stać się znanych")),
+                     color: Palette.success, symbol: "checkmark")
+            }
+            Spacer(minLength: 0)
+            VStack(spacing: 12) {
+                Button(tr("Warm up, then the lesson"), action: { Haptics.tap(); start() })
+                    .buttonStyle(ChunkyButtonStyle(color: tint))
+                    .accessibilityIdentifier("warmup-start")
+                Button(tr("Skip, start the lesson"), action: { Haptics.tap(); skip() })
+                    .buttonStyle(SoftButtonStyle())
+                    .accessibilityIdentifier("warmup-skip")
+                Text(tr("You can change this in Profile › Learning."))
+                    .font(.caption)
+                    .foregroundStyle(Palette.inkSoft)
+                    .multilineTextAlignment(.center)
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 12)
     }
 }

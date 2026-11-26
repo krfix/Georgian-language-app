@@ -922,8 +922,8 @@ for tok in more_unexplained[:20]:
 if len(more_unexplained) > 20:
     fail(f"more words: … and {len(more_unexplained) - 20} more (run with --more to list them)")
 
-MORE_CATEGORY = {"id": "more", "title": "More words", "symbol": "text.book.closed.fill", "color": "blacksea"}
-MORE_CATEGORY_PL = {**MORE_CATEGORY, "title": "Więcej słów"}
+MORE_CATEGORY = {"id": "more", "title": "Other words", "symbol": "text.book.closed.fill", "color": "blacksea"}
+MORE_CATEGORY_PL = {**MORE_CATEGORY, "title": "Inne słowa"}
 more_words, more_words_pl = [], []
 for ka in sorted(more_by_ka, key=latin):
     e = more_by_ka[ka]
@@ -937,6 +937,66 @@ for ka in sorted(more_by_ka, key=latin):
     base_ = {"id": wid, "ka": ka, "lat": latin(ka), "alt": [], "category": "more"}
     more_words.append({**base_, "en": e["en"], "example": {"ka": ex_ka, "lat": latin(ex_ka), "en": ex_en}})
     more_words_pl.append({**base_, "en": e["pl"], "example": {"ka": ex_ka, "lat": latin(ex_ka), "en": ex_pl}})
+
+# ---- Words seen in each lesson (KART #20): every word a lesson puts on screen (its own words,
+# their examples, letters' example words, words to read, tables, exercises, conversation),
+# as word ids in order of appearance. The app counts them as "seen" once the lesson is done.
+id_by_ka = {w["ka"].strip("?.!"): w["id"] for w in words}
+id_by_ka_more = {w["ka"]: w["id"] for w in more_words}
+letter_word = {l["char"]: l["word"] for l in letters}
+
+
+def lesson_ka_texts(L):
+    out = []
+    for c in L.get("letters") or []:
+        out.append(letter_word[c])
+    for wid in L.get("words") or []:
+        w = words_by_id.get(wid)
+        if w:
+            out += [w["ka"], w["example"]["ka"]]
+    if not is_english(L["subtitle"]):
+        out.append(L["subtitle"])
+    out += [g["ka"] for g in L.get("read", [])]
+    for n in L.get("notes", []):
+        out += [row["ka"] for row in n["table"]]
+    for e in L.get("exercises", []):
+        opts = e.get("options") or []
+        right = [opts[e["answer"]]] if isinstance(e.get("answer"), int) and e["answer"] < len(opts) else []
+        out += [o for o in right + (e.get("tiles") or []) if not is_english(o) and "___" not in o]
+        if e.get("sentence") and right:
+            out.append(e["sentence"].replace("___", right[0]))
+    if L.get("dialogue"):
+        out += [line["ka"] for line in L["dialogue"]["lines"]]
+    return out
+
+
+def lesson_seen(L):
+    seen = list(L.get("words") or [])
+    for ka in lesson_ka_texts(L):
+        found = id_by_ka.get(ka.strip("?.!"))
+        if found:
+            seen.append(found)
+            continue
+        for tok in tokens(ka):
+            if re.search(r"[0-9/_]", tok) or len(tok) < 2:
+                continue
+            r = explain(tok)
+            if not r:
+                continue
+            base = r[0]
+            if base[-1] not in VOWELS and base + "ი" in dictionary:
+                base = base + "ი"
+            wid = id_by_ka.get(base) or id_by_ka_more.get(base)
+            if wid:
+                seen.append(wid)
+    return list(dict.fromkeys(seen))
+
+
+words_by_id = {w["id"]: w for w in words}
+for m, mp in zip(modules, pl_modules):
+    for L, Lp in zip(m["lessons"], mp["lessons"]):
+        L["seen"] = Lp["seen"] = lesson_seen(L)
+all_seen = {i for m in modules for L in m["lessons"] for i in L["seen"]}
 
 # Every released id still there (or retired on purpose); lessons registered in course order.
 check_ids("words", {w["id"] for w in words}, "word")
@@ -1016,3 +1076,4 @@ print(f"OK: phrasebook with {len(pb_cats)} categories, {len(pb_phrases)} phrases
 print("OK: Polish for all of it")
 print(f"OK: {len(glossary_en)} tappable words explained")
 print(f"OK: {len(more_words)} more words in the Words tab (seen in the app, outside the lessons)")
+print(f"OK: {len(all_seen)} of {len(words) + len(more_words)} words seen somewhere in the lessons")

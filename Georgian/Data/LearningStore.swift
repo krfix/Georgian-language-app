@@ -16,14 +16,32 @@ struct LessonReward: Equatable {
     var newLevel: Int?
     /// Words (and phrases) the learner knows now: shown instead of XP (KART #4).
     var wordsKnown: Int = 0
+    /// The words this lesson showed for the first time (KART #20).
+    var newWords: [Word] = []
+    /// The warm-up before the lesson: how many items came back, and those known now.
+    var warmUpCount = 0
+    var warmUpKnown: [StudyItem] = []
 }
 
-/// How well a letter or word is known, for badges in the vocabulary.
+/// How far along a letter or word is, for badges in the vocabulary (KART #20): not seen yet,
+/// seen (in a finished lesson), practising (in review; difficult when missed again and
+/// again), known.
 enum ItemStatus: String {
-    case new = "New", learning = "Learning", learned = "Learned", difficult = "Difficult"
+    case new, seen, learning, learned, difficult
 
     /// The status in the learner's language.
-    var title: String { tr(rawValue) }
+    var title: String {
+        switch self {
+        case .new: return tr("Not seen yet")
+        case .seen: return tr("Seen")
+        case .learning: return tr("Practising")
+        case .learned: return tr("Known")
+        case .difficult: return tr("Difficult")
+        }
+    }
+
+    /// Practising, including the difficult ones.
+    var isPractising: Bool { self == .learning || self == .difficult }
 }
 
 /// The app's saved progress and everything worked out from it. Views read from here and
@@ -45,6 +63,10 @@ final class LearningStore {
     private(set) var answerTotals = (all: 0, correct: 0)
     /// Phrasebook phrases the learner saved, marked or opened, by phrase id.
     private(set) var phraseRecords: [String: PhraseRecord] = [:]
+    /// Words shown in the finished lessons, with the first such lesson (KART #20).
+    private(set) var seenWords: [String: String] = [:]
+    /// Every word the course shows, with the first lesson that shows it.
+    let firstLesson: [String: String]
 
     /// Writing progress failed (the iPhone out of space…): the screens tell the learner once,
     /// until a save works again. What wasn't written stays in memory and goes with the next save.
@@ -82,6 +104,7 @@ final class LearningStore {
     init(curriculum: Curriculum, context: ModelContext) {
         self.curriculum = curriculum
         self.context = context
+        firstLesson = WordProgress.firstLesson(lessons: curriculum.lessons)
         let existing: LearnerProfile?
         do {
             existing = try context.fetch(FetchDescriptor<LearnerProfile>()).first
@@ -119,6 +142,7 @@ final class LearningStore {
         answerTotals = (all, right)
         let p = (try? context.fetch(FetchDescriptor<PhraseRecord>())) ?? []
         phraseRecords = Dictionary(p.map { ($0.phraseID, $0) }, uniquingKeysWith: { a, b in a.saved || !b.saved ? a : b })
+        seenWords = WordProgress.seen(lessons: curriculum.lessons, completed: completedLessons)
     }
 
     var today: String { DayKey.of(now()) }
@@ -171,12 +195,30 @@ final class LearningStore {
         return s
     }
 
+    /// Every word met so far: seen in a finished lesson or practised.
+    var seenOrPractised: Set<String> { Set(seenWords.keys).union(mastery.keys) }
+
+    /// The Words tab's numbers, over every word in it (the course's and the others).
+    var wordCounts: (seen: Int, practising: Int, known: Int, all: Int) {
+        let all = curriculum.words + curriculum.moreWords
+        var c = (seen: 0, practising: 0, known: 0, all: all.count)
+        for w in all {
+            switch status(of: w.id) {
+            case .new: break
+            case .seen: c.seen += 1
+            case .learning, .difficult: c.practising += 1
+            case .learned: c.known += 1
+            }
+        }
+        return c
+    }
+
     var accuracy: Double {
         answerTotals.all == 0 ? 0 : Double(answerTotals.correct) / Double(answerTotals.all)
     }
 
     func status(of itemID: String) -> ItemStatus {
-        guard let m = mastery[itemID] else { return .new }
+        guard let m = mastery[itemID] else { return seenWords[itemID] != nil ? .seen : .new }
         if m.state.isDifficult { return .difficult }
         return m.state.isLearned ? .learned : .learning
     }
@@ -421,8 +463,8 @@ final class LearningStore {
         }
         for (i, l) in curriculum.letters.enumerated() {
             let m = MasteryRecord(itemID: l.itemID)
-            m.repetitions = i % 7 == 0 ? 1 : 3
-            m.interval = m.repetitions == 1 ? 1 : 8
+            m.repetitions = i % 7 == 0 ? 1 : i % 3 == 0 ? 3 : 4
+            m.interval = m.repetitions == 1 ? 1 : m.repetitions == 3 ? 8 : 20
             m.due = n.addingTimeInterval(i % 9 == 0 ? -3_600 : Double(m.interval) * 86_400)
             m.lapses = ["ღ", "ყ", "წ"].contains(l.char) ? 2 : 0
             m.ease = m.lapses > 0 ? 1.9 : 2.5
@@ -434,8 +476,8 @@ final class LearningStore {
         let words = ["v1", "v2", "v3"].compactMap(curriculum.lesson).flatMap { curriculum.words(in: $0) }
         for (i, w) in words.enumerated() {
             let m = MasteryRecord(itemID: w.id)
-            m.repetitions = i % 3 == 0 ? 1 : 2
-            m.interval = m.repetitions == 1 ? 1 : 3
+            m.repetitions = i % 3 == 0 ? 1 : i % 3 == 1 ? 2 : 4
+            m.interval = m.repetitions == 1 ? 1 : m.repetitions == 2 ? 3 : 20
             m.due = n.addingTimeInterval(i % 3 == 0 ? -7_200 : 2 * 86_400)
             m.lapses = i % 5 == 1 ? 2 : 0
             m.ease = m.lapses > 0 ? 1.8 : 2.5

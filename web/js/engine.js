@@ -623,7 +623,8 @@ export function schedule(s, grade, now) {
   return n;
 }
 export const gradeOf = (verdict) => (verdict === "correct" ? "good" : verdict === "almost" ? "hard" : "again");
-export const isLearnedState = (m) => m.repetitions >= 2;
+/** Known: right 4 times in a row on different days (KART #20; it was 2), as on the iPhone. */
+export const isLearnedState = (m) => m.repetitions >= 4;
 export const isDifficultState = (m) => (m.lapses || 0) >= 2 || m.ease < 2.0;
 
 // ---------------------------------------------------------------------------------------

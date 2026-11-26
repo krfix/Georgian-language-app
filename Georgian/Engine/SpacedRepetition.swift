@@ -20,8 +20,9 @@ struct ReviewState: Equatable {
         self.lapses = lapses
     }
 
-    /// Learned: answered right on two different occasions in a row.
-    var isLearned: Bool { repetitions >= 2 }
+    /// Known: answered right 4 times in a row, each on a different day (a same-day repeat
+    /// doesn't count), so the last one came after more than a week away (KART #20; it was 2).
+    var isLearned: Bool { repetitions >= 4 }
     /// Difficult: missed again and again.
     var isDifficult: Bool { lapses >= 2 || ease < 2.0 }
 }

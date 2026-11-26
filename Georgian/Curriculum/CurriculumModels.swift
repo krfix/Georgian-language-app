@@ -106,6 +106,9 @@ struct Lesson: Codable, Hashable, Identifiable {
     let dialogue: Dialogue?
     /// A short "why" card shown before the exercises (KART #4).
     var intro: GrammarNote? = nil
+    /// Every word the lesson shows, as word ids in order (KART #20, made by the content build):
+    /// "seen" once the lesson is done.
+    var seen: [String]? = nil
 }
 
 struct CourseModule: Codable, Hashable, Identifiable {

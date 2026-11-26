@@ -4,6 +4,8 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(LearningStore.self) private var store
     @Environment(AudioService.self) private var audio
+    /// A few due words before each lesson: ask, always or never (KART #20).
+    @State private var warmUp = WarmUpMode.current
     @Environment(AppModel.self) private var app
     @Environment(\.dismiss) private var dismiss
     @State private var name = ""
@@ -44,6 +46,10 @@ struct ProfileView: View {
                     Picker(tr("Starting point"), selection: levelBinding) {
                         ForEach(StartingLevel.allCases) { l in Text(l.title).tag(l.rawValue) }
                     }
+                    Picker(tr("Warm-up before a lesson"), selection: $warmUp) {
+                        ForEach(WarmUpMode.allCases) { m in Text(m.title).tag(m) }
+                    }
+                    .onChange(of: warmUp) { _, m in WarmUpMode.current = m }
                     NavigationLink {
                         ScrollView { AchievementsGrid().padding(20) }
                             .background(Palette.background.ignoresSafeArea())
@@ -52,7 +58,7 @@ struct ProfileView: View {
                         LabeledContent(tr("Milestones"), value: tr("{0} of {1}", store.unlockedAchievementCount, Achievement.all.count))
                     }
                     LabeledContent(tr("Lessons finished"), value: tr("{0} of {1}", store.completedLessons.count, store.curriculum.lessons.count))
-                    LabeledContent(tr("Words learned"), value: "\(store.snapshot.wordsLearned)")
+                    LabeledContent(tr("Words known"), value: "\(store.wordCounts.known)")
                 }
 
                 Section {

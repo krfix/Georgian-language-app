@@ -1,30 +1,73 @@
 import SwiftUI
 
-/// The Words tab's list, when nothing is typed in its search: every word and phrase in the
-/// course, then every other word the app shows (letters' example words, examples,
-/// conversations, phrases: "More words"), by theme. Sits inside the tab's lazy stack, so only
-/// the rows on screen are built.
+/// The Words tab's list, when nothing is typed in its search (KART #20): every word in one
+/// list, course words and the others alike. On top, how many the learner has seen, practises
+/// and knows; filters by step; ordered by the lesson that shows it, by theme, or A–Z. Sits
+/// inside the tab's lazy stack, so only the rows on screen are built.
 struct WordBrowser: View {
     @Binding var open: Word?
     @Environment(LearningStore.self) private var store
-    @State private var category: String?
+    /// nil: "All seen", or "Not seen yet" for someone who hasn't seen a word.
+    @State private var filter: Filter?
+    @State private var order: Order = .lesson
+
+    enum Filter: String, CaseIterable {
+        case all, known, practising, seen, notSeen
+    }
+
+    enum Order: String, CaseIterable {
+        case lesson, theme, az
+        var title: String {
+            switch self {
+            case .lesson: return tr("By lesson")
+            case .theme: return tr("By theme")
+            case .az: return tr("A–Z")
+            }
+        }
+    }
+
+    private struct WordSection: Identifiable {
+        let id: String
+        let title: String?
+        let caption: String?
+        let words: [Word]
+    }
 
     var body: some View {
-        let pool = category == "more" ? store.curriculum.moreWords
-            : category == nil ? store.curriculum.words + store.curriculum.moreWords
-            : store.curriculum.words.filter { $0.category == category }
-        let groups = Dictionary(grouping: pool, by: \.category)
-        let sections = store.curriculum.categories.filter { groups[$0.id] != nil }
-        summary
-        categoryChips
-            .padding(.top, 6)
-        ForEach(sections) { cat in
-            Label(cat.title, systemImage: cat.symbol)
-                .font(.headlineRounded)
-                .foregroundStyle(BrandColor(named: cat.color).color)
+        let counts = store.wordCounts
+        let met = counts.seen + counts.practising + counts.known
+        let current = filter ?? (met > 0 ? .all : .notSeen)
+        let pool = (store.curriculum.words + store.curriculum.moreWords).filter { matches(store.status(of: $0.id), current) }
+        summary(counts, met: met)
+        filterChips(current, counts: counts, met: met)
+            .padding(.top, 4)
+        Picker(tr("Order"), selection: $order) {
+            ForEach(Order.allCases, id: \.self) { Text($0.title).tag($0) }
+        }
+        .pickerStyle(.segmented)
+        .padding(.vertical, 4)
+        if pool.isEmpty {
+            Text(current == .all ? tr("Finish a lesson and its words appear here.") : tr("No words here yet."))
+                .font(.calloutRounded)
+                .foregroundStyle(Palette.inkSoft)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 24)
+        }
+        ForEach(sections(pool)) { sec in
+            if let title = sec.title {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                        .font(.headlineRounded)
+                        .foregroundStyle(Palette.saperavi)
+                    if let caption = sec.caption {
+                        Text(caption).font(.caption).foregroundStyle(Palette.inkSoft)
+                    }
+                }
                 .padding(.top, 12)
+                .accessibilityElement(children: .combine)
                 .accessibilityAddTraits(.isHeader)
-            ForEach(groups[cat.id] ?? []) { w in
+            }
+            ForEach(sec.words) { w in
                 Button {
                     Haptics.tap()
                     open = w
@@ -33,60 +76,94 @@ struct WordBrowser: View {
                 .accessibilityIdentifier("word-\(w.id)")
             }
         }
-    }
-
-    /// Two numbers that answer "how much is there?": the course's words (and how many of
-    /// them the learner knows), and the other words the app shows, one tap away.
-    private var summary: some View {
-        let words = store.curriculum.words
-        let more = store.curriculum.moreWords.count
-        let learned = words.filter { store.status(of: $0.id) == .learned }.count
-        let learning = words.filter { [.learning, .difficult].contains(store.status(of: $0.id)) }.count
-        let moreOn = category == "more"
-        return HStack(alignment: .top, spacing: 12) {
-            VStack(alignment: .leading, spacing: 6) {
-                HStack(alignment: .firstTextBaseline, spacing: 6) {
-                    Text("\(words.count)").font(.title2Bold).foregroundStyle(Palette.ink)
-                    Text(countLabel(words.count, "word in the course", "words in the course",
-                                    pl: ("słowo w kursie", "słowa w kursie", "słów w kursie")))
-                        .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
-                        .lineLimit(1).minimumScaleFactor(0.7)
-                }
-                ProgressBar(progress: Double(learned) / Double(max(1, words.count)), color: Palette.success, height: 8)
-                Text(tr("{0} learned · {1} learning", learned, learning))
-                    .font(.caption).foregroundStyle(Palette.inkSoft)
-                    .contentTransition(.numericText())
-            }
-            .frame(maxHeight: .infinity, alignment: .top)
-            .card(padding: 14, cornerRadius: 20)
-            .layoutPriority(1)
-            .accessibilityElement(children: .combine)
-
+        if current == .all, counts.all - met > 0 {
             Button {
                 Haptics.select()
-                withMotion { category = moreOn ? nil : "more" }
+                withMotion { filter = .notSeen }
             } label: {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("+\(more)").font(.title2Bold).foregroundStyle(Palette.saperavi)
-                    Text(countLabel(more, "more from examples and phrases", "more from examples and phrases",
-                                    pl: ("słowo z przykładów i zwrotów", "słowa z przykładów i zwrotów", "słów z przykładów i zwrotów")))
-                        .font(.caption).foregroundStyle(Palette.inkSoft)
-                        .lineLimit(3)
-                        .fixedSize(horizontal: false, vertical: true)
+                HStack {
+                    Text(plural(counts.all - met, "word not seen yet", "words not seen yet",
+                                pl: ("słowo jeszcze nienapotkane", "słowa jeszcze nienapotkane", "słów jeszcze nienapotkanych")))
+                    Spacer()
+                    Image(systemName: "chevron.down")
                 }
-                .frame(maxHeight: .infinity, alignment: .top)
-                .card(padding: 14, cornerRadius: 20)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        .strokeBorder(Palette.saperavi, lineWidth: moreOn ? 2 : 0)
-                )
+                .font(.calloutRounded.weight(.semibold))
+                .foregroundStyle(Palette.inkSoft)
+                .padding(16)
+                .frame(minHeight: 50)
+                .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .strokeBorder(Palette.line, style: StrokeStyle(lineWidth: 1.5, dash: [5, 4])))
             }
             .buttonStyle(.pressable)
-            .frame(width: 128)
-            .accessibilityAddTraits(moreOn ? .isSelected : [])
-            .accessibilityIdentifier("words-more")
+            .padding(.top, 10)
+            .accessibilityIdentifier("words-not-seen")
         }
-        .fixedSize(horizontal: false, vertical: true)
+    }
+
+    private func matches(_ s: ItemStatus, _ f: Filter) -> Bool {
+        switch f {
+        case .all: return s != .new
+        case .known: return s == .learned
+        case .practising: return s.isPractising
+        case .seen: return s == .seen
+        case .notSeen: return s == .new
+        }
+    }
+
+    private func sections(_ pool: [Word]) -> [WordSection] {
+        let c = store.curriculum
+        switch order {
+        case .az:
+            return [WordSection(id: "az", title: nil, caption: nil, words: pool.sorted { $0.ka < $1.ka })]
+        case .theme:
+            let groups = Dictionary(grouping: pool, by: \.category)
+            return c.categories.compactMap { cat in
+                groups[cat.id].map { WordSection(id: cat.id, title: cat.title, caption: nil, words: $0) }
+            }
+        case .lesson:
+            // The lesson where the learner saw it, else the first lesson that will show it.
+            let index = Dictionary(c.lessons.enumerated().map { ($1.id, $0) }, uniquingKeysWith: { a, _ in a })
+            let groups = Dictionary(grouping: pool) { w in store.seenWords[w.id] ?? store.firstLesson[w.id] ?? "" }
+            let ids = groups.keys.sorted { (index[$0] ?? .max) < (index[$1] ?? .max) }
+            return ids.map { id in
+                guard let l = c.lesson(id) else {
+                    return WordSection(id: "outside", title: tr("In phrases and examples"),
+                                   caption: tr("Not in a lesson yet"), words: groups[id] ?? [])
+                }
+                return WordSection(id: id, title: l.title, caption: c.module(of: id)?.title, words: groups[id] ?? [])
+            }
+        }
+    }
+
+    /// How many words the learner has seen, and how far along they are, in one bar.
+    private func summary(_ c: (seen: Int, practising: Int, known: Int, all: Int), met: Int) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                Text("\(met)").font(.title2Bold).foregroundStyle(Palette.ink).contentTransition(.numericText())
+                Text(countLabel(met, "word you've seen", "words you've seen",
+                                pl: ("napotkane słowo", "napotkane słowa", "napotkanych słów")))
+                    .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
+                    .lineLimit(1).minimumScaleFactor(0.7)
+            }
+            WordStepsBar(counts: c, height: 12)
+            FlowLayout(spacing: 14, rowSpacing: 6, alignment: .leading) {
+                legend(Palette.success, plural(c.known, "known", "known", pl: ("znane", "znane", "znanych")))
+                legend(Palette.gold, plural(c.practising, "practising", "practising", pl: ("ćwiczone", "ćwiczone", "ćwiczonych")))
+                legend(Palette.blacksea, plural(c.seen, "seen", "seen", pl: ("napotkane", "napotkane", "napotkanych")))
+                legend(Palette.line, plural(c.all - met, "not seen yet", "not seen yet",
+                                            pl: ("jeszcze nienapotkane", "jeszcze nienapotkane", "jeszcze nienapotkanych")))
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .card(padding: 16, cornerRadius: 20)
+        .accessibilityElement(children: .combine)
+    }
+
+    private func legend(_ color: Color, _ text: String) -> some View {
+        HStack(spacing: 5) {
+            Circle().fill(color).frame(width: 9, height: 9)
+            Text(text).font(.caption.weight(.semibold)).foregroundStyle(Palette.inkSoft)
+        }
     }
 
     /// A count's label without the number (the number is drawn bigger beside it), in the
@@ -98,33 +175,58 @@ struct WordBrowser: View {
         }
     }
 
-    private var categoryChips: some View {
+    private func filterChips(_ current: Filter, counts: (seen: Int, practising: Int, known: Int, all: Int), met: Int) -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                chip(title: tr("All"), symbol: "square.grid.2x2.fill", id: nil, color: Palette.ink)
-                ForEach(store.curriculum.categories) { c in
-                    chip(title: c.title, symbol: c.symbol, id: c.id, color: BrandColor(named: c.color).color)
-                }
+                chip(tr("All seen"), .all, current, color: Palette.saperavi)
+                chip(tr("Known"), .known, current, color: Palette.success)
+                chip(tr("Practising"), .practising, current, color: Palette.gold)
+                chip(tr("Seen"), .seen, current, color: Palette.blacksea)
+                chip(tr("Not seen yet"), .notSeen, current, color: Palette.inkSoft)
             }
             .padding(.vertical, 4)
         }
     }
 
-    private func chip(title: String, symbol: String, id: String?, color: Color) -> some View {
-        let selected = category == id
+    private func chip(_ title: String, _ f: Filter, _ current: Filter, color: Color) -> some View {
+        let selected = current == f
         return Button {
             Haptics.select()
-            withMotion { category = id }
+            withMotion { filter = f }
         } label: {
-            Label(title, systemImage: symbol)
+            Text(title)
                 .font(.calloutRounded.weight(.semibold))
-                .foregroundStyle(selected ? (id == nil ? Palette.background : .white) : color)
+                .foregroundStyle(selected ? .white : color)
                 .padding(.horizontal, 14)
                 .padding(.vertical, 9)
                 .background(Capsule().fill(selected ? AnyShapeStyle(color) : AnyShapeStyle(color.opacity(0.12))))
         }
         .buttonStyle(.pressable)
         .accessibilityAddTraits(selected ? .isSelected : [])
+        .accessibilityIdentifier("words-filter-\(f.rawValue)")
+    }
+}
+
+/// Known, practising, seen and not seen yet, as one bar (Words tab, lesson completion).
+struct WordStepsBar: View {
+    let counts: (seen: Int, practising: Int, known: Int, all: Int)
+    var height: CGFloat = 10
+
+    var body: some View {
+        GeometryReader { geo in
+            let total = CGFloat(max(1, counts.all))
+            HStack(spacing: 0) {
+                Rectangle().fill(Palette.success).frame(width: geo.size.width * CGFloat(counts.known) / total)
+                Rectangle().fill(Palette.gold).frame(width: geo.size.width * CGFloat(counts.practising) / total)
+                Rectangle().fill(Palette.blacksea).frame(width: geo.size.width * CGFloat(counts.seen) / total)
+                Spacer(minLength: 0)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Palette.line)
+            .clipShape(Capsule())
+        }
+        .frame(height: height)
+        .accessibilityHidden(true)
     }
 }
 
@@ -157,10 +259,11 @@ struct StatusBadge: View {
 
     var body: some View {
         switch status {
-        case .new: Pill(text: tr("New"), color: Palette.inkFaint)
-        case .learning: Pill(text: tr("Learning"), color: Palette.gold, symbol: "circle.lefthalf.filled")
-        case .learned: Pill(text: tr("Learned"), color: Palette.success, symbol: "checkmark")
-        case .difficult: Pill(text: tr("Difficult"), color: Palette.error, symbol: "exclamationmark.triangle.fill")
+        case .new: Pill(text: status.title, color: Palette.inkSoft)
+        case .seen: Pill(text: status.title, color: Palette.blacksea, symbol: "eye.fill")
+        case .learning: Pill(text: status.title, color: Palette.gold, symbol: "circle.lefthalf.filled")
+        case .learned: Pill(text: status.title, color: Palette.success, symbol: "checkmark")
+        case .difficult: Pill(text: status.title, color: Palette.error, symbol: "exclamationmark.triangle.fill")
         }
     }
 }
@@ -213,6 +316,12 @@ struct WordDetailView: View {
                     navigator.review([.word(word)], title: word.ka)
                 } label: { Label(tr("Practise this word"), systemImage: "play.fill") }
                 .buttonStyle(ChunkyButtonStyle(color: .tkemali))
+                if store.mastery[word.id] == nil {
+                    Text(tr("It joins your reviews."))
+                        .font(.caption)
+                        .foregroundStyle(Palette.inkSoft)
+                        .frame(maxWidth: .infinity)
+                }
                 ReportMistakeButton {
                     ReportSubject(title: tr("the word {0}", word.ka),
                                   lines: [word.ka, word.lat, word.en, "\(word.example.ka) — \(word.example.en)"], id: word.id)
@@ -230,14 +339,27 @@ struct WordDetailView: View {
 
     private var progressCard: some View {
         let m = store.mastery[word.id]
+        let c = store.curriculum
+        let seenIn = store.seenWords[word.id].flatMap(c.lesson)
+        let comesIn = store.firstLesson[word.id].flatMap(c.lesson)
         return HStack {
             VStack(alignment: .leading, spacing: 4) {
                 Text(tr("Your progress")).font(.headlineRounded).foregroundStyle(Palette.ink)
                 if let m {
-                    Text(tr("Right {0} times, missed {1}. Next review {2}.", m.correctCount, m.wrongCount, m.due.relativeInAppLanguage))
+                    Text(m.state.isLearned
+                         ? tr("Right {0} times, missed {1}. Next review {2}.", m.correctCount, m.wrongCount, m.due.relativeInAppLanguage)
+                         : tr("Right {0} times, missed {1}. Next review {2}. Known after 4 right in a row, on different days.",
+                              m.correctCount, m.wrongCount, m.due.relativeInAppLanguage))
                         .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
                 } else {
                     Text(tr("Not practised yet.")).font(.calloutRounded).foregroundStyle(Palette.inkSoft)
+                }
+                if let l = seenIn {
+                    Text(tr("You saw it in: {0} ({1})", l.title, c.module(of: l.id)?.title ?? ""))
+                        .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
+                } else if let l = comesIn, m == nil {
+                    Text(tr("It comes in: {0} ({1})", l.title, c.module(of: l.id)?.title ?? ""))
+                        .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
                 }
             }
             Spacer()

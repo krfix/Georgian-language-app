@@ -190,9 +190,14 @@ s = SpacedRepetition.schedule(s, .good, now: now, calendar: utc)
 check("first right answer: back tomorrow", s.interval, 1)
 s = SpacedRepetition.schedule(s, .good, now: now, calendar: utc)
 check("second: in 3 days", s.interval, 3)
-check("learned after two", s.isLearned, true)
+check("not known after two", s.isLearned, false)
 s = SpacedRepetition.schedule(s, .good, now: now, calendar: utc)
 check("third: further out", s.interval, 8)
+check("not known after three", s.isLearned, false)
+let fourth = SpacedRepetition.schedule(s, .good, now: now, calendar: utc)
+check("known after four in a row", fourth.isLearned, true)
+check("fourth: about three weeks", fourth.interval, 20)
+check("a miss: not known any more", SpacedRepetition.schedule(fourth, .again, now: now, calendar: utc).isLearned, false)
 let afterMiss = SpacedRepetition.schedule(s, .again, now: now, calendar: utc)
 check("a miss starts over", afterMiss.repetitions, 0)
 check("a miss comes back in minutes", afterMiss.due.timeIntervalSince(now), 600)
@@ -204,6 +209,32 @@ for _ in 0..<2 { hard = SpacedRepetition.schedule(hard, .again, now: now, calend
 check("two misses: difficult", hard.isDifficult, true)
 check("ease never below 1.3", (0..<20).reduce(ReviewState(due: now)) { st, _ in SpacedRepetition.schedule(st, .again, now: now, calendar: utc) }.ease, 1.3)
 check("grade from verdict", ReviewGrade(.almost), .hard)
+
+// MARK: Words seen, new and known (KART #20)
+
+let firstLessons = Array(course.lessons.prefix(3))
+check("every lesson lists the words it shows", course.lessons.allSatisfy { !($0.seen ?? []).isEmpty }, true)
+check("seen ids are words", course.lessons.flatMap { $0.seen ?? [] }.allSatisfy { course.word($0) != nil }, true)
+check("a lesson's own words are seen in it", course.lessons.allSatisfy { l in (l.words ?? []).allSatisfy { (l.seen ?? []).contains($0) } }, true)
+check("nothing seen before a lesson is done", WordProgress.seen(lessons: course.lessons, completed: []).isEmpty, true)
+let seenA1 = WordProgress.seen(lessons: course.lessons, completed: [firstLessons[0].id])
+check("a finished lesson's words are seen", Set(seenA1.keys), Set(firstLessons[0].seen ?? []))
+check("seen in that lesson", seenA1.values.allSatisfy { $0 == firstLessons[0].id }, true)
+let firstOf = WordProgress.firstLesson(lessons: course.lessons)
+check("first lesson of a word in two lessons is the earlier",
+      course.lessons.allSatisfy { l in (l.seen ?? []).allSatisfy { id in
+          let i = course.lessons.firstIndex { $0.id == firstOf[id] } ?? .max
+          return i <= course.lessons.firstIndex(of: l)! } }, true)
+let a2 = firstLessons[1]
+let newInA2 = WordProgress.newWords(in: a2, before: Set(seenA1.keys))
+check("new words: none already met", newInA2.allSatisfy { seenA1[$0] == nil }, true)
+check("new words: all the rest", newInA2.count, (a2.seen ?? []).filter { seenA1[$0] == nil }.count)
+check("doing a lesson again: nothing new", WordProgress.newWords(in: a2, before: Set(a2.seen ?? [])), [])
+var three = ReviewState(due: now)
+for _ in 0..<3 { three = SpacedRepetition.schedule(three, .good, now: now, calendar: utc) }
+let four = SpacedRepetition.schedule(three, .good, now: now, calendar: utc)
+check("newly known after a warm-up", WordProgress.newlyKnown(["a", "b"], before: ["a": three, "b": four], after: ["a": four, "b": four]), ["a"])
+check("warm-up items not known stay out", WordProgress.newlyKnown(["a"], before: ["a": three], after: ["a": three]), [])
 
 // MARK: Days, streaks, levels
 

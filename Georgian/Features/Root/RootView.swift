@@ -243,7 +243,7 @@ struct MainTabView: View {
         case "progress": navigator.homePath.append(HomeRoute.progress)
         case "review": navigator.tab = .review
         case "profile": navigator.showProfile = true
-        case "lesson", "complete":
+        case "lesson", "complete", "warmup":
             if let l = store.curriculum.lesson("v4") { navigator.session = SessionRequest(mode: .lesson(l)) }
         case "exercise":
             if let l = store.curriculum.lesson(options.lessonID ?? "v4") { navigator.session = SessionRequest(mode: .lesson(l)) }

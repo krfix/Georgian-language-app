@@ -6,6 +6,8 @@ import Observation
 @MainActor @Observable
 final class LessonPlayerModel {
     enum Phase: Equatable {
+        /// Before a lesson, when words are due: warm up with them first? (KART #20)
+        case warmUpOffer(Int)
         case answering
         case feedback(Evaluation)
         case finished(LessonReward)
@@ -23,6 +25,17 @@ final class LessonPlayerModel {
     private var lastGiven: String?
     private let store: LearningStore
     private let audio: AudioService
+    /// What the learner had met when the lesson started: the words new to them are the rest.
+    private let metBefore: Set<String>
+    /// The warm-up, ready in case it's wanted: due items and their exercises.
+    private var warmUpItems: [StudyItem] = []
+    private var warmUpExercises: [Exercise] = []
+    private var lessonExercises: [Exercise] = []
+    /// The warm-up items' schedules before it, to tell which became known.
+    private var warmUpBefore: [String: ReviewState] = [:]
+    private(set) var warmedUp = false
+    /// Warm-up items one more right answer away from known.
+    var warmUpAlmostKnown: Int { warmUpItems.filter { (store.mastery[$0.id]?.repetitions ?? 0) == 3 }.count }
 
     init(request: SessionRequest, store: LearningStore, audio: AudioService, seed: UInt64 = UInt64.random(in: 0...UInt64.max)) {
         self.request = request
@@ -32,10 +45,24 @@ final class LessonPlayerModel {
             MainActor.assumeIsolated { audio.canPlay(text) }
         })
         var rng = SeededGenerator(seed: seed)
+        metBefore = store.seenOrPractised
         switch request.mode {
         case .lesson(let lesson):
             title = lesson.title
-            session = LessonSession(exercises: builder.exercises(for: lesson, using: &rng))
+            lessonExercises = builder.exercises(for: lesson, using: &rng)
+            session = LessonSession(exercises: lessonExercises)
+            warmUpItems = Array(store.dueItems.prefix(WordProgress.warmUpSize))
+            if !warmUpItems.isEmpty {
+                warmUpExercises = builder.review(warmUpItems, using: &rng).map { $0.renamed("warmup.\($0.id)") }
+                // The screenshot run shows the offer only on its own screen ("warmup").
+                let screen = LaunchOptions.current.screen
+                let mode: WarmUpMode = screen == "warmup" ? .ask : screen != nil ? .never : WarmUpMode.current
+                switch mode {
+                case .ask: phase = .warmUpOffer(warmUpItems.count)
+                case .always: beginWarmUp()
+                case .never: break
+                }
+            }
         case .review(let items, let t):
             title = t
             session = LessonSession(exercises: builder.review(Array(items.prefix(15)), using: &rng))
@@ -46,6 +73,27 @@ final class LessonPlayerModel {
     }
 
     var current: Exercise? { session.current }
+
+    /// Starts with the warm-up, then the lesson.
+    func startWarmUp() {
+        beginWarmUp()
+        showed()
+    }
+
+    private func beginWarmUp() {
+        warmUpBefore = Dictionary(warmUpItems.compactMap { i in store.mastery[i.id].map { (i.id, $0.state) } },
+                                  uniquingKeysWith: { a, _ in a })
+        warmedUp = true
+        session = LessonSession(exercises: warmUpExercises + lessonExercises)
+        phase = .answering
+    }
+
+    /// Skips the warm-up: straight to the lesson.
+    func skipWarmUp() {
+        phase = .answering
+        showed()
+    }
+
     var isReview: Bool { if case .review = request.mode { return true } else { return false } }
     var isDialogue: Bool { if case .dialogue = request.mode { return true } else { return false } }
 
@@ -62,7 +110,7 @@ final class LessonPlayerModel {
         let evaluation = AnswerEvaluator.evaluate(ex, given)
         lastGiven = describe(given, in: ex)
         session.record(evaluation, given: describe(given, in: ex))
-        store.record(ex, evaluation, given: describe(given, in: ex), inReview: isReview || isDialogue)
+        store.record(ex, evaluation, given: describe(given, in: ex), inReview: isReview || isDialogue || ex.isWarmUp)
         if evaluation.verdict.countsAsCorrect {
             combo += 1
             Haptics.success()
@@ -101,7 +149,17 @@ final class LessonPlayerModel {
     private func finish() {
         let reward: LessonReward
         switch request.mode {
-        case .lesson(let lesson): reward = store.finishLesson(lesson, summary: session.summary)
+        case .lesson(let lesson):
+            var r = store.finishLesson(lesson, summary: session.summary)
+            r.newWords = WordProgress.newWords(in: lesson, before: metBefore).compactMap(store.curriculum.word)
+            if warmedUp {
+                r.warmUpCount = warmUpItems.count
+                let after = Dictionary(warmUpItems.compactMap { i in store.mastery[i.id].map { (i.id, $0.state) } },
+                                       uniquingKeysWith: { a, _ in a })
+                let known = Set(WordProgress.newlyKnown(warmUpItems.map(\.id), before: warmUpBefore, after: after))
+                r.warmUpKnown = warmUpItems.filter { known.contains($0.id) }
+            }
+            reward = r
         case .review(let items, _): reward = store.finishReview(summary: session.summary, items: min(items.count, 15))
         case .dialogue: reward = store.finishReview(summary: session.summary, items: session.gradedTotal)
         }
@@ -139,7 +197,7 @@ final class LessonPlayerModel {
         if ex.isGraded {
             let right = Evaluation(verdict: .correct, correctAnswer: "", explanation: nil)
             session.record(right, given: "")
-            store.record(ex, right, given: tr("quick pass"), inReview: isReview || isDialogue)
+            store.record(ex, right, given: tr("quick pass"), inReview: isReview || isDialogue || ex.isWarmUp)
             combo += 1
         }
         next()
@@ -147,6 +205,7 @@ final class LessonPlayerModel {
 
     /// Developer quick pass, held: every exercise left counts as right, and the lesson ends.
     func passAll() {
+        if case .warmUpOffer = phase { skipWarmUp() }
         var guardCount = 0
         while current != nil, guardCount < 500 {
             if case .finished = phase { break }
@@ -163,10 +222,16 @@ final class LessonPlayerModel {
 
     /// A reward to show straight away (the screenshot of the completion screen).
     func showSampleReward() {
-        phase = .finished(LessonReward(xp: 27, accuracy: 0.92, isPerfect: false, streak: store.streak, xpToday: store.xpToday,
-                                       dailyGoal: store.profile.dailyGoal, goalReachedNow: true, challengeCompletedNow: false,
-                                       achievements: Array(Achievement.all.prefix(1)), newLevel: nil,
-                                       wordsKnown: store.snapshot.wordsLearned))
+        var r = LessonReward(xp: 27, accuracy: 0.92, isPerfect: false, streak: store.streak, xpToday: store.xpToday,
+                             dailyGoal: store.profile.dailyGoal, goalReachedNow: true, challengeCompletedNow: false,
+                             achievements: Array(Achievement.all.prefix(1)), newLevel: nil,
+                             wordsKnown: store.snapshot.wordsLearned)
+        if case .lesson(let lesson) = request.mode {
+            r.newWords = (lesson.seen ?? []).compactMap(store.curriculum.word)
+            r.warmUpCount = 4
+            r.warmUpKnown = Array(store.dueItems.prefix(1))
+        }
+        phase = .finished(r)
     }
 
     private func describe(_ a: Answer, in ex: Exercise) -> String {

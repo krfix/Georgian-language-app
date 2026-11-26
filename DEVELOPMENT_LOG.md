@@ -3,6 +3,23 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #20 · 26/11/26 · Words progress, summary
+- Owner: words were counted only from vocabulary lessons; the Words tab split "course" and
+  "more" words. Mockups first (a Design canvas), then built.
+- Every word now has three steps: **Seen** (Napotkane: shown in a finished lesson), **Practising**
+  (Ćwiczone: has a review schedule), **Known** (Znane: right 4 times in a row on different days;
+  it was 2; owner agreed it was too easy). "Seen" saves nothing new: the content build lists the
+  words each lesson shows (`Lesson.seen`, 410 of 754 words appear in lessons) and the app works
+  it out from the finished lessons (`Engine/WordProgress.swift`), so earlier lessons count too.
+- Lesson complete: "N new words" as chips (tap to hear), the warm-up line, "All your words:
+  seen · known" with one bar; accuracy and streak stay.
+- Warm-up (owner's idea to ask first): when words are due, a lesson offers up to 4 of them
+  first; Profile › Learning › Warm-up before a lesson: Ask (default), Always, Never. Without it,
+  someone doing only lessons would never see a word become known (most words are in one lesson).
+- Words tab: one list, filters All seen · Known · Practising · Seen · Not seen yet, ordered by
+  lesson, theme or A–Z; the "more" theme is now "Other words". Word card: where you saw it.
+- Not yet: the same screens in the web app (only its known rule changed).
+
 ## KART #19 · 26/11/26 · Feedback: cut grapes (branch `claude/elegant-fermat-k08vbc`)
 
 TestFlight feedback (owner, 0.4.1 build #74, iPhone 13): the grape bunches near the left edge

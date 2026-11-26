@@ -78,7 +78,7 @@ final class GeorgianUITests: XCTestCase {
         XCTAssertTrue(app.navigationBars["Progress"].waitForExistence(timeout: 5), "Progress screen")
         // Words: the list, and its search finds a word.
         app.tabBars.buttons["Words"].tap()
-        XCTAssertTrue(app.buttons["words-more"].waitForExistence(timeout: 5), "Words list")
+        XCTAssertTrue(app.buttons["words-filter-all"].waitForExistence(timeout: 5), "Words list")
         let search = app.textFields["search-field"]
         XCTAssertTrue(search.waitForExistence(timeout: 5))
         search.tap()
@@ -155,6 +155,7 @@ final class GeorgianUITests: XCTestCase {
     private func finishLesson(_ app: XCUIApplication) {
         for _ in 0..<120 {
             if app.buttons["complete-continue"].exists { return }
+            if app.buttons["warmup-skip"].exists { app.buttons["warmup-skip"].tap(); continue }
             if app.buttons["lesson-continue"].exists && app.buttons["lesson-continue"].isHittable {
                 app.buttons["lesson-continue"].tap()
                 continue

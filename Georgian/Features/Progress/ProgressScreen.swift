@@ -127,7 +127,7 @@ struct ProgressScreen: View {
             StatTile(symbol: "flame.fill", value: "\(s.streak)", label: tr("day streak · best {0}", s.longestStreak), color: Palette.flame)
             StatTile(symbol: "star.fill", value: "\(store.savedPhrases.count)", label: tr("phrases saved"), color: Palette.gold)
             StatTile(symbol: "flag.checkered", value: "\(s.lessonsCompleted.count)", label: tr("lessons of {0}", store.curriculum.lessons.count), color: Palette.pomegranate)
-            StatTile(symbol: "character.book.closed.fill", value: "\(s.wordsLearned)", label: tr("words learned"), color: Palette.tkemali)
+            StatTile(symbol: "character.book.closed.fill", value: "\(s.wordsLearned)", label: tr("words known"), color: Palette.tkemali)
             StatTile(symbol: "textformat", value: "\(s.lettersLearned)/33", label: tr("letters learned"), color: Palette.blacksea)
             StatTile(symbol: "target", value: store.answerTotals.all == 0 ? "–" : "\(Int((store.accuracy * 100).rounded()))%", label: tr("accuracy"), color: Palette.saperavi)
         }

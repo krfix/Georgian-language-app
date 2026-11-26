@@ -39,6 +39,13 @@
        "lat": "daba",
        "en": "miasteczko"
       }
+     ],
+     "seen": [
+      "w-bavshvi",
+      "x-guli",
+      "w-deda",
+      "x-bade",
+      "x-daba"
      ]
     },
     {
@@ -78,6 +85,16 @@
        "lat": "datvi",
        "en": "niedźwiedź"
       }
+     ],
+     "seen": [
+      "w-vashli",
+      "x-zghva",
+      "x-tbilisi",
+      "x-vazi",
+      "x-gza",
+      "x-didi",
+      "x-tevzi",
+      "x-datvi"
      ]
     },
     {
@@ -123,6 +140,16 @@
        "lat": "k'alami",
        "en": "długopis"
       }
+     ],
+     "seen": [
+      "x-kata",
+      "x-lomi",
+      "w-mama",
+      "x-navi",
+      "w-otakhi",
+      "x-mze",
+      "x-mta",
+      "w-kalami"
      ]
     },
     {
@@ -168,6 +195,17 @@
        "lat": "p'omidori",
        "en": "pomidor"
       }
+     ],
+     "seen": [
+      "w-puri",
+      "w-rdze",
+      "w-sakhli",
+      "x-kata",
+      "x-tba",
+      "w-skami",
+      "x-mtvare",
+      "w-rva",
+      "x-pomidori"
      ]
     },
     {
@@ -207,6 +245,13 @@
        "lat": "ghame",
        "en": "noc"
       }
+     ],
+     "seen": [
+      "w-puli",
+      "x-kalaki",
+      "w-ghvino",
+      "x-kudi",
+      "x-ghame"
      ]
     },
     {
@@ -251,6 +296,15 @@
        "lat": "tsisart'q'ela",
        "en": "tęcza"
       }
+     ],
+     "seen": [
+      "w-qveli",
+      "w-shakari",
+      "w-chai",
+      "x-tsa",
+      "w-shvili",
+      "w-qava",
+      "x-tsisartqela"
      ]
     },
     {
@@ -295,6 +349,14 @@
        "lat": "khach'ap'uri",
        "en": "chaczapuri"
       }
+     ],
+     "seen": [
+      "x-dzaghli",
+      "w-tsqali",
+      "w-chika",
+      "x-khe",
+      "w-dzma",
+      "w-khachapuri"
      ]
     },
     {
@@ -327,6 +389,12 @@
        "lat": "panjara",
        "en": "okno"
       }
+     ],
+     "seen": [
+      "x-jibe",
+      "x-haeri",
+      "w-ojakhi",
+      "w-panjara"
      ]
     },
     {
@@ -402,6 +470,16 @@
        "lat": "chai",
        "en": "herbata"
       }
+     ],
+     "seen": [
+      "w-kari",
+      "x-kari",
+      "w-puri",
+      "x-puri",
+      "w-tseli",
+      "x-tseli",
+      "w-chika",
+      "w-chai"
      ]
     },
     {
@@ -441,6 +519,14 @@
        "lat": "kartuli",
        "en": "gruziński"
       }
+     ],
+     "seen": [
+      "x-tbilisi",
+      "x-sakartvelo",
+      "w-gamarjoba",
+      "w-madloba",
+      "w-khachapuri",
+      "w-kartuli"
      ]
     }
    ]
@@ -473,7 +559,29 @@
       "title": "„Cześć” znaczy „zwycięstwo”",
       "text": "გამარჯობა pochodzi od გამარჯვება, zwycięstwo: życzysz komuś zwycięstwa. Odpowiedź, გაგიმარჯოს, życzy go z powrotem. Powitania na rano, wieczór i noc kończą się na მშვიდობისა, „pokoju” w sensie spokoju, jak staropolskie „pokój z tobą”: დილა მშვიდობისა to dosłownie „poranek pokoju”.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-gamarjoba",
+      "w-gagimarjos",
+      "w-dila-mshvidobisa",
+      "w-saghamo-mshvidobisa",
+      "w-ghame-mshvidobisa",
+      "w-nakhvamdis",
+      "w-rogor-khar",
+      "w-kargad",
+      "x-nino",
+      "x-rogori",
+      "w-khar",
+      "w-dila",
+      "x-mshvidobisa",
+      "w-deda",
+      "w-saghamo",
+      "x-batono",
+      "x-giorgi",
+      "x-ghame",
+      "w-khval",
+      "w-madloba"
+     ]
     },
     {
      "id": "v2",
@@ -494,7 +602,23 @@
       "title": "Dwa rodzaje „dziękuję”",
       "text": "მადლობა to zwykłe „dzięki”. გმადლობთ jest grzeczne: გ- to „ci/panu”, a -თ dodaje grzeczności, jak nasze „dziękuję panu”. To -თ spotkasz wszędzie.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-madloba",
+      "w-gmadlobt",
+      "w-arapris",
+      "w-bodishi",
+      "w-ki",
+      "w-diakh",
+      "w-ara",
+      "x-didi",
+      "x-dzalian",
+      "x-kargi",
+      "w-ver",
+      "x-gavige",
+      "w-minda",
+      "x-batono"
+     ]
     },
     {
      "id": "v3",
@@ -515,7 +639,26 @@
       "title": "„Nazywa mi się”",
       "text": "Gruzin mówi „nazywa mi się”: მე ნინო მქვია. მ- w środku czasownika to nasze „mi”. Pytanie: რა გქვია?, z გ- jako „ci”: „jak ci na imię?”, prawie jak po polsku!",
       "table": []
-     }
+     },
+     "seen": [
+      "w-me",
+      "w-shen",
+      "w-sakheli",
+      "w-mkvia",
+      "w-ra-gkvia",
+      "w-sasiamovnoa",
+      "w-var",
+      "x-nino",
+      "x-sheni",
+      "w-vin",
+      "w-khar",
+      "x-chemi",
+      "w-gamarjoba",
+      "w-ra",
+      "x-gkvia",
+      "p-dzalian-sasiamovnoa",
+      "x-studenti"
+     ]
     },
     {
      "id": "v4",
@@ -535,7 +678,23 @@
       "title": "Skąd",
       "text": "საიდან to „skąd”: სად (gdzie) + -იდან (z, od). -იდან zastępuje końcowe -ი albo -ა: თბილისიდან, z Tbilisi. Słowa na -ო dostają samo -დან: კინოდან, z kina. Gdzie my mamy przyimek z przodu, Gruzin dokleja końcówkę.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-saidan-khar",
+      "w-kartveli",
+      "w-kartuli",
+      "w-ena",
+      "w-vstsavlob",
+      "w-tsota",
+      "x-nino",
+      "x-saidan",
+      "w-khar",
+      "x-lamazi",
+      "x-es",
+      "w-ra",
+      "w-me",
+      "w-vitsi"
+     ]
     },
     {
      "id": "v5",
@@ -560,7 +719,35 @@
       "title": "Liczymy do dziesięciu",
       "text": "Gruzińskie liczebniki są krótkie i regularne. Po liczebniku rzeczownik zostaje w liczbie pojedynczej: ორი ჩაი, „dwie herbata”. Żadnych polskich „dwie herbaty, pięć herbat”.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-nuli",
+      "w-erti",
+      "w-ori",
+      "w-sami",
+      "w-otkhi",
+      "w-khuti",
+      "w-ekvsi",
+      "w-shvidi",
+      "w-rva",
+      "w-tskhra",
+      "w-ati",
+      "w-qava",
+      "x-tu",
+      "w-sheidzleba",
+      "w-chai",
+      "w-shvili",
+      "w-mqavs",
+      "w-bileti",
+      "w-minda",
+      "x-tsuti",
+      "w-saati",
+      "w-kvira",
+      "w-dghe",
+      "w-lari",
+      "x-ghirs",
+      "x-gnakhav"
+     ]
     },
     {
      "id": "v6",
@@ -583,7 +770,36 @@
       "title": "Dziesięć i więcej",
       "text": "„Nastki” buduje się z dziesięciu i liczby: თ (od ათი, dziesięć) + ოთხ (cztery) + მეტი (więcej) daje თოთხმეტი, czternaście. Jak nasze „cztery-naście”, tylko w odwrotnej kolejności.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-tertmeti",
+      "w-tormeti",
+      "w-tsameti",
+      "w-totkhmeti",
+      "w-tkhutmeti",
+      "w-tekvsmeti",
+      "w-chvidmeti",
+      "w-tvrameti",
+      "w-tskhrameti",
+      "w-saati",
+      "x-tselitsadi",
+      "w-tve",
+      "x-chemi",
+      "w-shvili",
+      "w-tseli",
+      "w-avtobusi",
+      "x-tsuti",
+      "x-mova",
+      "w-lari",
+      "x-ghirs",
+      "w-sakhli",
+      "x-sartuli",
+      "x-akvs",
+      "w-otakhi",
+      "w-skami",
+      "w-var",
+      "w-bileti"
+     ]
     },
     {
      "id": "v6b",
@@ -603,7 +819,24 @@
       "title": "Liczenie dwudziestkami",
       "text": "Powyżej dwudziestu Gruzini liczą dwudziestkami: ორმოცი to „dwie dwudziestki”. Następna lekcja pokazuje, jak z tego zbudować każdą liczbę.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-otsi",
+      "w-otsdaerti",
+      "w-otsdaati",
+      "w-ormotsi",
+      "w-ormotsdaati",
+      "w-asi",
+      "w-lari",
+      "x-ghirs",
+      "w-tseli",
+      "w-var",
+      "x-tsuti",
+      "w-mchirdeba",
+      "w-dzviri",
+      "x-dzalian",
+      "x-es"
+     ]
     },
     {
      "id": "v6c",
@@ -875,7 +1108,43 @@
        ]
       }
      ],
-     "subtitle": "Od 11 do 19: dziesięć i więcej"
+     "subtitle": "Od 11 do 19: dziesięć i więcej",
+     "seen": [
+      "w-tertmeti",
+      "w-tormeti",
+      "w-tsameti",
+      "w-totkhmeti",
+      "w-tkhutmeti",
+      "w-tekvsmeti",
+      "w-chvidmeti",
+      "w-tvrameti",
+      "w-tskhrameti",
+      "w-otsi",
+      "w-ormotsi",
+      "x-samotsi",
+      "x-otkhmotsi",
+      "w-asi",
+      "w-otsdaerti",
+      "x-otsdaori",
+      "x-otsdakhuti",
+      "w-otsdaati",
+      "x-otsdatertmeti",
+      "x-otsdatskhrameti",
+      "x-ormotsdaori",
+      "w-ormotsdaati",
+      "x-otkhmotsdatskhrameti",
+      "w-ori",
+      "w-qava",
+      "w-sami",
+      "w-bileti",
+      "w-lari",
+      "w-shvidi",
+      "w-saati",
+      "x-tsuti",
+      "x-tu",
+      "w-sheidzleba",
+      "w-ati"
+     ]
     },
     {
      "id": "v7",
@@ -897,7 +1166,30 @@
       "title": "Słowa o jedzeniu",
       "text": "Większość rzeczowników kończy się w mianowniku na -ი: პური, ყველი. Gdy słowo pełni inną rolę w zdaniu, -ი ustępuje innej końcówce, jak u nas „ser → jem ser”: ყველს ვჭამ.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-puri",
+      "w-qveli",
+      "w-tsqali",
+      "w-ghvino",
+      "w-chai",
+      "w-qava",
+      "w-rdze",
+      "w-ludi",
+      "x-dzalian",
+      "x-gemrieli",
+      "w-da",
+      "w-minda",
+      "w-erti",
+      "w-chika",
+      "x-tu",
+      "w-sheidzleba",
+      "w-kartuli",
+      "x-kargi",
+      "w-shakari",
+      "w-miqvars",
+      "x-matsivari"
+     ]
     },
     {
      "id": "v8",
@@ -919,7 +1211,29 @@
       "title": "Kuchnia gruzińska",
       "text": "ხაჭაპური i ხინკალი zobaczysz w każdym menu. Jedzenie często występuje w liczbie pojedynczej: ხილი to owoce, ბოსტნეული warzywa, jak nasze „owoc, warzywo” w zbiorczym znaczeniu.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-khortsi",
+      "w-khachapuri",
+      "w-khinkali",
+      "w-vashli",
+      "w-shakari",
+      "w-marili",
+      "w-khili",
+      "w-bostneuli",
+      "w-ar",
+      "w-vcham",
+      "x-tskheli",
+      "w-miqvars",
+      "x-es",
+      "x-tsiteli",
+      "w-minda",
+      "w-sad",
+      "w-aris",
+      "w-bazari",
+      "w-iapi",
+      "x-jansaghi"
+     ]
     },
     {
      "id": "v9",
@@ -939,7 +1253,24 @@
       "title": "Poruszanie się po mieście",
       "text": "Większość słów o transporcie jest międzynarodowa: ავტობუსი, მეტრო, ტაქსი. Końcówka -ით to nasz narzędnik: მანქანით, samochodem. Słowa na -ო dostają -თი: მეტროთი, metrem.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-mankana",
+      "w-avtobusi",
+      "w-metro",
+      "w-taksi",
+      "w-velosipedi",
+      "w-gachereba",
+      "x-chemi",
+      "x-tetri",
+      "x-male",
+      "x-mova",
+      "x-mivdivar",
+      "x-gamovidzakhe",
+      "x-davdivar",
+      "w-ak",
+      "w-aris"
+     ]
     },
     {
      "id": "v10",
@@ -958,7 +1289,23 @@
       "title": "Dalekie podróże",
       "text": "Długie słowa składa się z części: თვითმფრინავი to „sam-latający”, zupełnie jak polski samolot. აეროპორტი i სადგური dostają -ში dla „do”: აეროპორტში, na lotnisko.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-matarebeli",
+      "w-tvitmprinavi",
+      "w-aeroporti",
+      "w-sadguri",
+      "w-bileti",
+      "x-batumi",
+      "x-midis",
+      "x-tsa",
+      "w-shors",
+      "w-aris",
+      "w-akhlos",
+      "w-erti",
+      "x-tu",
+      "w-sheidzleba"
+     ]
     },
     {
      "id": "v11",
@@ -978,7 +1325,22 @@
       "title": "Kierunki",
       "text": "მარჯვნივ (w prawo) i მარცხნივ (w lewo) różnią się środkiem: -ჯვ- to prawo, -ცხ- to lewo. Grzeczny rozkaz to მოუხვიეთ, „proszę skręcić”: powiesz go w każdej taksówce.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-marjvniv",
+      "w-martskhniv",
+      "w-pirdapir",
+      "w-ak",
+      "w-ik",
+      "w-sad",
+      "p-marjvniv-moukhviet",
+      "p-martskhniv-moukhviet",
+      "p-pirdapir-tsadit",
+      "x-modi",
+      "w-metro",
+      "w-aris",
+      "x-banki"
+     ]
     },
     {
      "id": "v12",
@@ -998,7 +1360,26 @@
       "title": "Blisko i daleko",
       "text": "ახლოს i შორს mówi się z არის, „jest”: ახლოს არის, jest blisko. Miejsce stoi na początku: ბაზარი ახლოს არის?, „targ blisko jest?”.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-akhlos",
+      "w-shors",
+      "w-kucha",
+      "w-ruka",
+      "w-ukan",
+      "w-gverdit",
+      "w-bazari",
+      "w-aris",
+      "x-dzalian",
+      "x-es",
+      "w-ra",
+      "x-gakvs",
+      "w-mankana",
+      "w-sakhli",
+      "x-dgas",
+      "x-aptiaki",
+      "x-banki"
+     ]
     },
     {
      "id": "v13",
@@ -1018,7 +1399,22 @@
       "title": "Sklepy i ceny",
       "text": "რა ღირს? to dosłownie „ile to warte?”, codzienne „ile kosztuje?”. ღია i დაკეტილი, otwarte i zamknięte, są na drzwiach każdego sklepu.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-maghazia",
+      "w-bazari",
+      "w-ghia",
+      "w-daketili",
+      "w-chanta",
+      "w-ra-ghirs",
+      "x-mivdivar",
+      "x-banki",
+      "w-mchirdeba",
+      "x-es",
+      "w-qveli",
+      "w-ra",
+      "x-ghirs"
+     ]
     },
     {
      "id": "v14",
@@ -1039,7 +1435,27 @@
       "title": "Płacenie",
       "text": "ლარი to waluta, a თეთრი to drobne, jak nasze grosze: 100 tetri w jednym lari. თეთრი znaczy też „biały”. Kartą to ბარათით: ბარათი + -ით, nasz narzędnik.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-puli",
+      "w-pasi",
+      "w-dzviri",
+      "w-iapi",
+      "w-lari",
+      "w-barati",
+      "w-naghdi-puli",
+      "w-ar",
+      "w-makvs",
+      "w-ra",
+      "p-es-dzalian-dzviria",
+      "x-es",
+      "w-chanta",
+      "w-khuti",
+      "x-ghirs",
+      "x-gadavikhdi",
+      "x-naghdi",
+      "x-gakvt"
+     ]
     },
     {
      "id": "v15",
@@ -1059,7 +1475,23 @@
       "title": "Matka i ojciec",
       "text": "Uwaga: დედა to matka, a მამა to ojciec, odwrotnie niż podpowiada polskie ucho! შვილი to czyjeś dziecko (syn, córka), ბავშვი to dziecko w ogóle.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-ojakhi",
+      "w-deda",
+      "w-mama",
+      "w-shvili",
+      "w-bavshvi",
+      "w-megobari",
+      "x-chemi",
+      "x-didi",
+      "w-sakhli",
+      "x-ekimi",
+      "w-ori",
+      "w-mqavs",
+      "x-skola",
+      "w-is"
+     ]
     },
     {
      "id": "v16",
@@ -1079,7 +1511,23 @@
       "title": "Cała rodzina",
       "text": "და to i „siostra”, i „i”: zdanie wyjaśnia, o co chodzi. ჩემი (mój) nie zmienia się dla rodzaju: ჩემი ძმა, mój brat; ჩემი და, moja siostra.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-dzma",
+      "w-da",
+      "w-bebia",
+      "w-babua",
+      "w-tsoli",
+      "w-kmari",
+      "x-chemi",
+      "x-tbilisi",
+      "x-tskhovrobs",
+      "x-studenti",
+      "w-khachapuri",
+      "x-atskhobs",
+      "x-baghi",
+      "x-es"
+     ]
     },
     {
      "id": "v17",
@@ -1099,7 +1547,27 @@
       "title": "W domu",
       "text": "Miejsca dostają -ში dla „w”: სახლში, w domu; ოთახში, w pokoju. Na wierzchu: -ზე, მაგიდაზე, na stole. Przyimek, tylko na końcu.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-sakhli",
+      "w-otakhi",
+      "w-kari",
+      "w-panjara",
+      "w-magida",
+      "w-skami",
+      "x-chemi",
+      "w-ak",
+      "w-aris",
+      "x-didi",
+      "w-da",
+      "x-nateli",
+      "x-dakhuret",
+      "x-tu",
+      "w-sheidzleba",
+      "x-gaaghe",
+      "w-tsigni",
+      "x-dajeki"
+     ]
     },
     {
      "id": "v18",
@@ -1119,7 +1587,24 @@
       "title": "Rzeczy wokół ciebie",
       "text": "Żeby powiedzieć, że coś gdzieś jest, dodaj -ა (skrót od არის, „jest”) do miejsca: წიგნი მაგიდაზეა, książka jest na stole.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-tsigni",
+      "w-teleponi",
+      "w-gasaghebi",
+      "w-satsoli",
+      "w-chika",
+      "w-kalami",
+      "x-es",
+      "x-saintereso",
+      "x-chemi",
+      "w-sad",
+      "w-aris",
+      "x-davkarge",
+      "x-didi",
+      "w-magida",
+      "x-gakvs"
+     ]
     },
     {
      "id": "v19",
@@ -1140,7 +1625,26 @@
       "title": "Dziś i jutro",
       "text": "Słowa o czasie nie potrzebują przyimków: დღეს, dziś; ხვალ, jutro. დილით i საღამოს to „rano” i „wieczorem”: końcówki robią z nich „kiedy?”, jak nasze „wieczor-em”.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-dghes",
+      "w-khval",
+      "w-gushin",
+      "w-akhla",
+      "w-dila",
+      "w-saghamo",
+      "w-saati",
+      "w-orshabati",
+      "x-gnakhav",
+      "w-bazari",
+      "w-viqavi",
+      "x-dakavebuli",
+      "w-var",
+      "w-qava",
+      "w-vsvam",
+      "w-sakhli",
+      "x-romeli"
+     ]
     },
     {
      "id": "v20",
@@ -1161,7 +1665,28 @@
       "title": "Dni tygodnia",
       "text": "Od poniedziałku do czwartku dni liczy się od soboty: ორშაბათი to „dwa po sobocie”. Podobnie nasze „wtorek, czwartek, piątek” to „drugi, czwarty, piąty”. კვირა to i niedziela, i tydzień.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-dghe",
+      "w-kvira",
+      "w-tve",
+      "w-tseli",
+      "w-orshabati",
+      "w-paraskevi",
+      "w-shabati",
+      "x-kargi",
+      "w-erti",
+      "x-davbrundebi",
+      "x-tbilisi",
+      "x-viknebi",
+      "x-akhali",
+      "x-modis",
+      "x-vmushaob",
+      "x-kino",
+      "x-mivdivart",
+      "w-bazari",
+      "x-mivdivar"
+     ]
     }
    ]
   },
@@ -1191,7 +1716,34 @@
       "title": "Grzeczne prośby",
       "text": "W kawiarni Gruzini dodają თუ შეიძლება, „jeśli można”, po tym, o co proszą: მენიუ, თუ შეიძლება. To codzienne „poproszę”.",
       "table": []
-     }
+     },
+     "seen": [
+      "p-meniu-tu-sheidzleba",
+      "p-ras-mirchevt",
+      "p-tsqali-minda",
+      "p-dzalian-gemrielia",
+      "p-angarishi-tu-sheidzleba",
+      "p-gaumarjos",
+      "x-meniu",
+      "x-tu",
+      "w-sheidzleba",
+      "x-ai",
+      "x-inebet",
+      "w-ra",
+      "x-mirchevt",
+      "w-khinkali",
+      "x-gnebavt",
+      "w-tsqali",
+      "w-minda",
+      "w-khachapuri",
+      "x-dzalian",
+      "x-gemrieli",
+      "x-angarishi",
+      "w-erti",
+      "x-tsuti",
+      "x-chvens",
+      "x-megobroba"
+     ]
     },
     {
      "id": "e2",
@@ -1211,7 +1763,44 @@
       "title": "W sklepie",
       "text": "Kupując, podaj ilość i rzecz: ერთი კილო ვაშლი, „kilo jabłko”, bez dopełniacza. Cena: რა ღირს ეს? Na bazarze targowanie się jest normalne.",
       "table": []
-     }
+     },
+     "seen": [
+      "p-ra-ghirs-es",
+      "p-erti-kilo-vashli-tu-sheidzleba",
+      "p-es-dzalian-dzviria",
+      "p-baratit-sheidzleba",
+      "p-parki-mchirdeba",
+      "p-sul-es-aris",
+      "w-ra",
+      "x-ghirs",
+      "x-es",
+      "w-sami",
+      "w-lari",
+      "w-erti",
+      "x-kilo",
+      "w-vashli",
+      "x-tu",
+      "w-sheidzleba",
+      "x-ai",
+      "x-inebet",
+      "x-dzalian",
+      "w-dzviri",
+      "x-upro",
+      "w-iapi",
+      "x-gakvt",
+      "w-barati",
+      "w-ki",
+      "x-tkma",
+      "x-unda",
+      "w-bodishi",
+      "x-parki",
+      "w-mchirdeba",
+      "x-kidev",
+      "x-rame",
+      "w-ara",
+      "x-sul",
+      "w-aris"
+     ]
     },
     {
      "id": "e3",
@@ -1231,7 +1820,39 @@
       "title": "W taksówce",
       "text": "Kierowcy mówią do ciebie თქვენ, grzecznie, z -თ na czasowniku: სად მიდიხართ?, „dokąd pan jedzie?”. Odpowiadasz miejscem z -ში: აეროპორტში, na lotnisko.",
       "table": []
-     }
+     },
+     "seen": [
+      "p-aeroportshi-tu-sheidzleba",
+      "p-tsentramde-ra-ghirs",
+      "p-ak-gamicheret",
+      "p-nela-tu-sheidzleba",
+      "p-shors-aris",
+      "p-ramdeni-khani",
+      "w-sad",
+      "x-midikhart",
+      "w-aeroporti",
+      "x-tu",
+      "w-sheidzleba",
+      "x-tsentri",
+      "w-ra",
+      "x-ghirs",
+      "w-ati",
+      "w-lari",
+      "w-ak",
+      "x-gamicheret",
+      "w-madloba",
+      "x-nela",
+      "w-bavshvi",
+      "w-mqavs",
+      "w-shors",
+      "w-aris",
+      "w-ara",
+      "w-akhlos",
+      "w-ramdeni",
+      "x-khani",
+      "w-otsi",
+      "x-tsuti"
+     ]
     },
     {
      "id": "e4",
@@ -1251,7 +1872,34 @@
       "title": "Pytanie o drogę",
       "text": "Polecenia do obcych kończą się na -თ: წადით, proszę iść; მოუხვიეთ, proszę skręcić. Jeśli nie nadążasz: ვერ გავიგე, „nie dałem rady zrozumieć”.",
       "table": []
-     }
+     },
+     "seen": [
+      "p-sad-aris-metro",
+      "p-pirdapir-tsadit",
+      "p-marjvniv-moukhviet",
+      "p-martskhniv-moukhviet",
+      "p-ver-gavige",
+      "p-gaimeoret-tu-sheidzleba",
+      "w-bodishi",
+      "w-sad",
+      "w-aris",
+      "w-metro",
+      "w-pirdapir",
+      "x-tsadit",
+      "x-mere",
+      "w-marjvniv",
+      "x-banki",
+      "x-moukhviet",
+      "w-kucha",
+      "x-bolo",
+      "w-martskhniv",
+      "w-ver",
+      "x-gavige",
+      "x-nela",
+      "x-gaimeoret",
+      "x-tu",
+      "w-sheidzleba"
+     ]
     },
     {
      "id": "e5",
@@ -1271,7 +1919,34 @@
       "title": "Poznajemy sąsiadów",
       "text": "Z sąsiadami, których jeszcze nie znasz, mów grzecznie: როგორ ხართ?, „jak się pan ma?”. Ze znajomymi: როგორ ხარ?",
       "table": []
-     }
+     },
+     "seen": [
+      "p-rogor-khart",
+      "p-kargad-tkven",
+      "p-akhali-mezobeli-var",
+      "p-shemodit",
+      "p-karg-dghes-gisurvebt",
+      "p-dzalian-sasiamovnoa",
+      "w-gamarjoba",
+      "x-kalbatono",
+      "x-nana",
+      "x-rogori",
+      "x-khart",
+      "w-kargad",
+      "x-tkveni",
+      "x-akhali",
+      "x-mezobeli",
+      "w-var",
+      "w-chai",
+      "x-daliet",
+      "w-nakhvamdis",
+      "x-kargi",
+      "w-dghes",
+      "x-gisurvebt",
+      "w-me",
+      "x-dzalian",
+      "w-sasiamovnoa"
+     ]
     },
     {
      "id": "e6",
@@ -1291,7 +1966,33 @@
       "title": "Co boli",
       "text": "Gruzin mówi dokładnie jak Polak: თავი მტკივა, „boli mnie głowa”. Część ciała jest podmiotem, a მ- to „mnie”.",
       "table": []
-     }
+     },
+     "seen": [
+      "p-tsudad-var",
+      "p-tavi-mtkiva",
+      "p-mutseli-mtkiva",
+      "p-sitskhe-makvs",
+      "p-ekimi-mchirdeba",
+      "p-aptiaki-sad-aris",
+      "x-ekimi",
+      "x-tsudad",
+      "w-var",
+      "w-dila",
+      "x-tavi",
+      "x-mtkiva",
+      "w-bavshvi",
+      "x-mutseli",
+      "x-stkiva",
+      "w-gushin",
+      "x-sitskhe",
+      "w-makvs",
+      "x-sastsrapod",
+      "w-mchirdeba",
+      "w-bodishi",
+      "x-aptiaki",
+      "w-sad",
+      "w-aris"
+     ]
     },
     {
      "id": "e7",
@@ -1311,7 +2012,37 @@
       "title": "W pracy",
       "text": "ვმუშაობ to „pracuję”: ვ- oznacza „ja”. Miejsce pracy dostaje -ში: ოფისში ვმუშაობ, pracuję w biurze.",
       "table": []
-     }
+     },
+     "seen": [
+      "p-sad-mushaob",
+      "p-opisshi-vmushaob",
+      "p-shekhvedra-makvs",
+      "p-dakavebuli-var",
+      "p-erti-tsutit",
+      "p-kargi-ideaa",
+      "w-sad",
+      "x-mushaob",
+      "x-banki",
+      "w-me",
+      "x-opisi",
+      "x-vmushaob",
+      "x-tsentri",
+      "w-ati",
+      "w-saati",
+      "x-shekhvedra",
+      "w-makvs",
+      "w-bodishi",
+      "w-akhla",
+      "x-dakavebuli",
+      "w-var",
+      "w-erti",
+      "x-tsuti",
+      "x-akhlave",
+      "x-moval",
+      "w-khval",
+      "x-kargi",
+      "x-idea"
+     ]
     },
     {
      "id": "e8",
@@ -1331,7 +2062,37 @@
       "title": "Pogawędka",
       "text": "Pogodę mówi się jednym słowem: ცხელა, gorąco; ცივა, zimno, jak nasze „zimno!”. რა + krótkie -ა („jest”) to wykrzyknik: რა ამინდია! Co za pogoda!",
       "table": []
-     }
+     },
+     "seen": [
+      "p-ra-amindia",
+      "p-dghes-tskhela",
+      "p-dghes-tsiva",
+      "p-sakartvelo-dzalian-momtsons",
+      "p-tbilisi-lamazi-kalakia",
+      "p-ra-kargia",
+      "w-dghes",
+      "w-ra",
+      "x-amindi",
+      "x-tskhela",
+      "x-zghva",
+      "x-tsavidet",
+      "x-tsiva",
+      "x-kudi",
+      "x-daikhure",
+      "x-sakartvelo",
+      "x-dzalian",
+      "w-momtsons",
+      "x-khalkhi",
+      "x-tbili",
+      "x-tbilisi",
+      "x-lamazi",
+      "x-kalaki",
+      "x-gansakutrebit",
+      "w-saghamo",
+      "w-khval",
+      "x-modikhar",
+      "x-kargi"
+     ]
     }
    ]
   },
@@ -1457,7 +2218,29 @@
        "explanation": "Końcówka -ენ oznacza „oni”."
       }
      ],
-     "subtitle": "Zaimki osobowe"
+     "subtitle": "Zaimki osobowe",
+     "seen": [
+      "w-me",
+      "w-shen",
+      "w-is",
+      "w-chven",
+      "w-tkven",
+      "w-isini",
+      "x-nino",
+      "w-var",
+      "x-sheni",
+      "w-vin",
+      "w-khar",
+      "x-chemi",
+      "w-megobari",
+      "x-studenti",
+      "x-vart",
+      "x-tkveni",
+      "x-saidan",
+      "x-khart",
+      "x-tbilisi",
+      "x-tskhovroben"
+     ]
     },
     {
      "id": "g2",
@@ -1611,7 +2394,29 @@
        ]
       }
      ],
-     "subtitle": "Jestem, jesteś"
+     "subtitle": "Jestem, jesteś",
+     "seen": [
+      "w-var",
+      "w-khar",
+      "w-aris",
+      "w-me",
+      "x-studenti",
+      "x-sheni",
+      "x-dzalian",
+      "x-kargi",
+      "x-nino",
+      "w-sakhli",
+      "w-is",
+      "w-chven",
+      "x-vart",
+      "x-tkveni",
+      "x-khart",
+      "w-isini",
+      "x-arian",
+      "x-ekimi",
+      "x-saidan",
+      "w-kartveli"
+     ]
     },
     {
      "id": "g3",
@@ -1736,7 +2541,22 @@
        ]
       }
      ],
-     "subtitle": "Czas teraźniejszy"
+     "subtitle": "Czas teraźniejszy",
+     "seen": [
+      "w-vtser",
+      "w-vstsavlob",
+      "w-vtskhovrob",
+      "x-tserili",
+      "w-me",
+      "w-kartuli",
+      "x-tbilisi",
+      "x-sheni",
+      "w-is",
+      "w-chven",
+      "x-tkveni",
+      "w-isini",
+      "x-tskhovroben"
+     ]
     },
     {
      "id": "g4",
@@ -1898,7 +2718,28 @@
        ]
       }
      ],
-     "subtitle": "Czasowniki „na odwrót”"
+     "subtitle": "Czasowniki „na odwrót”",
+     "seen": [
+      "w-minda",
+      "w-miqvars",
+      "w-makvs",
+      "w-vitsi",
+      "w-vlaparakob",
+      "w-vcham",
+      "w-vsvam",
+      "w-qava",
+      "x-sakartvelo",
+      "w-erti",
+      "x-kitkhva",
+      "x-es",
+      "w-ar",
+      "w-tsota",
+      "w-kartuli",
+      "w-khinkali",
+      "w-chai",
+      "x-gakvs",
+      "w-puli"
+     ]
     },
     {
      "id": "g5",
@@ -2053,7 +2894,28 @@
        ]
       }
      ],
-     "subtitle": "Słowa pytające"
+     "subtitle": "Słowa pytające",
+     "seen": [
+      "w-ra",
+      "w-vin",
+      "w-sad",
+      "w-rodis",
+      "w-ratom",
+      "w-rogor",
+      "w-ramdeni",
+      "x-es",
+      "w-aris",
+      "w-is",
+      "x-banki",
+      "x-modikhar",
+      "w-ar",
+      "w-rogor-khar",
+      "w-shvili",
+      "w-gqavs",
+      "w-qava",
+      "w-minda",
+      "p-sad-aris-metro"
+     ]
     },
     {
      "id": "g6",
@@ -2163,7 +3025,21 @@
        ]
       }
      ],
-     "subtitle": "Nie, nie mogę, nie rób"
+     "subtitle": "Nie, nie mogę, nie rób",
+     "seen": [
+      "w-ar",
+      "w-ver",
+      "w-ara",
+      "w-vitsi",
+      "p-ver-gavige",
+      "w-madloba",
+      "x-nu",
+      "x-ghelav",
+      "w-bodishi",
+      "x-gavige",
+      "w-khortsi",
+      "w-vcham"
+     ]
     },
     {
      "id": "g7",
@@ -2268,7 +3144,20 @@
        "explanation": "-ით: narzędnik, „z cukrem”. შაქარი gubi drugie ა: შაქრით, jak nasze „cukier → cukrem”."
       }
      ],
-     "subtitle": "Przypadki"
+     "subtitle": "Przypadki",
+     "seen": [
+      "w-sakhli",
+      "w-mankana",
+      "w-kartuli",
+      "w-me",
+      "w-vstsavlob",
+      "w-tsota",
+      "w-vlaparakob",
+      "w-shakari",
+      "w-chai",
+      "x-tu",
+      "w-sheidzleba"
+     ]
     },
     {
      "id": "g8",
@@ -2394,7 +3283,21 @@
        ]
       }
      ],
-     "subtitle": "Końcówki miejsca"
+     "subtitle": "Końcówki miejsca",
+     "seen": [
+      "w-sakhli",
+      "w-magida",
+      "w-megobari",
+      "x-tbilisi",
+      "x-tsentri",
+      "x-sheni",
+      "w-deda",
+      "w-aris",
+      "w-tsigni",
+      "w-me",
+      "w-var",
+      "w-vtskhovrob"
+     ]
     },
     {
      "id": "g9",
@@ -2502,7 +3405,24 @@
        ]
       }
      ],
-     "subtitle": "Trzy schematy na co dzień"
+     "subtitle": "Trzy schematy na co dzień",
+     "seen": [
+      "w-sheidzleba",
+      "w-mchirdeba",
+      "w-momtsons",
+      "w-ak",
+      "x-dajdoma",
+      "x-dakhmareba",
+      "x-es",
+      "x-pilmi",
+      "x-tu",
+      "w-erti",
+      "w-qava",
+      "p-ekimi-mchirdeba",
+      "x-kalaki",
+      "x-dzalian",
+      "w-chanta"
+     ]
     },
     {
      "id": "g10",
@@ -2619,7 +3539,20 @@
        ]
       }
      ],
-     "subtitle": "Dwa rodzaje „mieć”"
+     "subtitle": "Dwa rodzaje „mieć”",
+     "seen": [
+      "w-mqavs",
+      "w-gqavs",
+      "w-ori",
+      "w-shvili",
+      "w-dzma",
+      "w-puli",
+      "w-makvs",
+      "w-mankana",
+      "x-dzaghli",
+      "x-gakvs",
+      "w-teleponi"
+     ]
     },
     {
      "id": "g11",
@@ -2763,7 +3696,20 @@
        ]
       }
      ],
-     "subtitle": "Liczba mnoga z -ები"
+     "subtitle": "Liczba mnoga z -ები",
+     "seen": [
+      "w-sakhli",
+      "w-tsigni",
+      "w-megobari",
+      "w-deda",
+      "w-sami",
+      "x-chemi",
+      "x-tbilisi",
+      "x-tskhovroben",
+      "w-bileti",
+      "w-minda",
+      "x-didi"
+     ]
     },
     {
      "id": "g12",
@@ -2904,7 +3850,26 @@
        ]
       }
      ],
-     "subtitle": "Grzecznościowe -თ"
+     "subtitle": "Grzecznościowe -თ",
+     "seen": [
+      "w-tkven",
+      "x-tkveni",
+      "x-saidan",
+      "x-khart",
+      "x-gakvs",
+      "x-gakvt",
+      "x-itsi",
+      "x-itsit",
+      "w-rogor-khar",
+      "p-rogor-khart",
+      "x-moitsade",
+      "x-moitsadet",
+      "x-dajeki",
+      "x-dajekit",
+      "x-inglisuri",
+      "p-ak-gamicheret",
+      "x-khurda"
+     ]
     },
     {
      "id": "g13",
@@ -3051,7 +4016,24 @@
        ]
       }
      ],
-     "subtitle": "Co zrobiłeś"
+     "subtitle": "Co zrobiłeś",
+     "seen": [
+      "w-viqavi",
+      "w-tsavedi",
+      "w-vnakhe",
+      "w-vchame",
+      "w-davlie",
+      "w-viqide",
+      "w-gushin",
+      "w-bazari",
+      "x-kino",
+      "x-nino",
+      "w-khinkali",
+      "w-qava",
+      "w-puri",
+      "w-vcham",
+      "w-vsvam"
+     ]
     }
    ]
   },
@@ -3189,7 +4171,28 @@
       "title": "Twoja pierwsza rozmowa",
       "text": "Wybierz, co byś powiedział. Kelner mówi grzecznie (რა გნებავთ?, czego pan sobie życzy?), ty odpowiadasz z თუ შეიძლება. Stuknij dowolne słowo, żeby zobaczyć, dlaczego tak wygląda.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-erti",
+      "w-qava",
+      "x-tu",
+      "w-sheidzleba",
+      "w-gamarjoba",
+      "w-ra",
+      "x-gnebavt",
+      "w-rdze",
+      "x-urdzod",
+      "x-kidev",
+      "x-rame",
+      "w-khachapuri",
+      "w-minda",
+      "x-kargi",
+      "x-akhlave",
+      "p-angarishi-tu-sheidzleba",
+      "w-tormeti",
+      "w-lari",
+      "p-baratit-sheidzleba"
+     ]
     },
     {
      "id": "c2",
@@ -3284,7 +4287,30 @@
       "title": "Przedstawiamy się",
       "text": "Giorgi jest w twoim wieku, więc mówicie sobie na ty (შენ): რა გქვია?, a nie grzeczne რა გქვიათ?",
       "table": []
-     }
+     },
+     "seen": [
+      "x-inglisi",
+      "w-var",
+      "w-gamarjoba",
+      "w-me",
+      "x-giorgi",
+      "w-ra",
+      "x-gkvia",
+      "w-gagimarjos",
+      "x-lena",
+      "w-mkvia",
+      "w-sasiamovnoa",
+      "x-saidan",
+      "w-khar",
+      "x-sheni",
+      "x-tbiliseli",
+      "w-kartuli",
+      "x-itsi",
+      "w-tsota",
+      "w-vitsi",
+      "w-vstsavlob",
+      "x-qochagh"
+     ]
     },
     {
      "id": "c3",
@@ -3385,7 +4411,33 @@
       "title": "Na targu",
       "text": "Ceny to liczba + ლარი, zawsze w liczbie pojedynczej: თხუთმეტი ლარი, „piętnaście lari”. Targowanie się należy do zabawy: ეს ძალიან ძვირია.",
       "table": []
-     }
+     },
+     "seen": [
+      "x-es",
+      "x-dzalian",
+      "w-dzviri",
+      "w-gamarjoba",
+      "w-ra",
+      "x-ghirs",
+      "w-qveli",
+      "w-erti",
+      "x-kilo",
+      "w-tkhutmeti",
+      "w-lari",
+      "p-es-dzalian-dzviria",
+      "x-kargi",
+      "w-totkhmeti",
+      "x-iqos",
+      "x-nakhevari",
+      "x-tu",
+      "w-sheidzleba",
+      "x-kidev",
+      "x-rame",
+      "w-ara",
+      "x-sul",
+      "w-aris",
+      "w-madloba"
+     ]
     },
     {
      "id": "c4",
@@ -3493,7 +4545,25 @@
       "title": "Jazda taksówką",
       "text": "Na lotnisko to აეროპორტში: -ში znaczy i „w”, i „do”. Gruziński nie odróżnia „gdzie?” od „dokąd?”. Cenę ustal przed odjazdem.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-aeroporti",
+      "x-tu",
+      "w-sheidzleba",
+      "w-gamarjoba",
+      "w-sad",
+      "x-midikhart",
+      "p-aeroportshi-tu-sheidzleba",
+      "x-kargi",
+      "p-ramdeni-khani",
+      "x-daakhloebit",
+      "w-otsdaati",
+      "x-tsuti",
+      "w-ra-ghirs",
+      "w-ormotsi",
+      "w-lari",
+      "x-nela"
+     ]
     },
     {
      "id": "c5",
@@ -3583,7 +4653,28 @@
       "title": "Pytanie o drogę",
       "text": "Nasłuchuj მარჯვნივ, მარცხნივ, პირდაპირ (w prawo, w lewo, prosto). Za szybko? გაიმეორეთ, თუ შეიძლება, „proszę powtórzyć”.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-sad",
+      "w-aris",
+      "w-metro",
+      "w-bodishi",
+      "w-pirdapir",
+      "x-tsadit",
+      "x-mere",
+      "w-martskhniv",
+      "x-moukhviet",
+      "w-ver",
+      "x-gavige",
+      "x-gaimeoret",
+      "x-tu",
+      "w-sheidzleba",
+      "w-shors",
+      "w-ar",
+      "x-didi",
+      "w-madloba",
+      "w-arapris"
+     ]
     },
     {
      "id": "c6",
@@ -3678,7 +4769,24 @@
       "title": "Planujemy",
       "text": "Znajomi mówią sobie na ty. ვჭამოთ to „zjedzmy”: -თ oznacza tu „my”, jak nasze „-my” w „zjedzmy”.",
       "table": []
-     }
+     },
+     "seen": [
+      "w-khval",
+      "x-gnakhav",
+      "w-ra",
+      "x-aketeb",
+      "w-dila",
+      "x-vmushaob",
+      "w-saghamo",
+      "w-khinkali",
+      "x-vchamot",
+      "x-kargi",
+      "x-idea",
+      "x-romeli",
+      "w-saati",
+      "w-shvidi",
+      "w-nakhvamdis"
+     ]
     }
    ]
   }
