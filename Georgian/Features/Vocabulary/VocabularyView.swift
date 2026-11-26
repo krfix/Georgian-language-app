@@ -7,7 +7,7 @@ import SwiftUI
 struct WordBrowser: View {
     @Binding var open: Word?
     @Environment(LearningStore.self) private var store
-    /// nil: "All seen", or "Not seen yet" for someone who hasn't seen a word.
+    /// nil: "All" (every word seen so far), or "Ahead" for someone who hasn't seen a word.
     @State private var filter: Filter?
     @State private var order: Order = .lesson
 
@@ -82,8 +82,7 @@ struct WordBrowser: View {
                 withMotion { filter = .notSeen }
             } label: {
                 HStack {
-                    Text(plural(counts.all - met, "word not seen yet", "words not seen yet",
-                                pl: ("słowo jeszcze nienapotkane", "słowa jeszcze nienapotkane", "słów jeszcze nienapotkanych")))
+                    Text(plural(counts.all - met, "word ahead", "words ahead", pl: ("słowo przed tobą", "słowa przed tobą", "słów przed tobą")))
                     Spacer()
                     Image(systemName: "chevron.down")
                 }
@@ -140,8 +139,8 @@ struct WordBrowser: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline, spacing: 8) {
                 Text("\(met)").font(.title2Bold).foregroundStyle(Palette.ink).contentTransition(.numericText())
-                Text(countLabel(met, "word you've seen", "words you've seen",
-                                pl: ("napotkane słowo", "napotkane słowa", "napotkanych słów")))
+                Text(countLabel(met, "word so far", "words so far",
+                                pl: ("słowo do tej pory", "słowa do tej pory", "słów do tej pory")))
                     .font(.calloutRounded).foregroundStyle(Palette.inkSoft)
                     .lineLimit(1).minimumScaleFactor(0.7)
             }
@@ -150,8 +149,7 @@ struct WordBrowser: View {
                 legend(Palette.success, plural(c.known, "known", "known", pl: ("znane", "znane", "znanych")))
                 legend(Palette.gold, plural(c.practising, "practising", "practising", pl: ("ćwiczone", "ćwiczone", "ćwiczonych")))
                 legend(Palette.blacksea, plural(c.seen, "seen", "seen", pl: ("napotkane", "napotkane", "napotkanych")))
-                legend(Palette.line, plural(c.all - met, "not seen yet", "not seen yet",
-                                            pl: ("jeszcze nienapotkane", "jeszcze nienapotkane", "jeszcze nienapotkanych")))
+                legend(Palette.line, plural(c.all - met, "ahead", "ahead", pl: ("przed tobą", "przed tobą", "przed tobą")))
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -178,11 +176,11 @@ struct WordBrowser: View {
     private func filterChips(_ current: Filter, counts: (seen: Int, practising: Int, known: Int, all: Int), met: Int) -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                chip(tr("All seen"), .all, current, color: Palette.saperavi)
+                chip(tr("All"), .all, current, color: Palette.saperavi)
                 chip(tr("Known"), .known, current, color: Palette.success)
                 chip(tr("Practising"), .practising, current, color: Palette.gold)
                 chip(tr("Seen"), .seen, current, color: Palette.blacksea)
-                chip(tr("Not seen yet"), .notSeen, current, color: Palette.inkSoft)
+                chip(tr("Ahead"), .notSeen, current, color: Palette.inkSoft)
             }
             .padding(.vertical, 4)
         }

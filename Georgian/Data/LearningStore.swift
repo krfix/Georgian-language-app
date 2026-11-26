@@ -32,7 +32,7 @@ enum ItemStatus: String {
     /// The status in the learner's language.
     var title: String {
         switch self {
-        case .new: return tr("Not seen yet")
+        case .new: return tr("Ahead")
         case .seen: return tr("Seen")
         case .learning: return tr("Practising")
         case .learned: return tr("Known")

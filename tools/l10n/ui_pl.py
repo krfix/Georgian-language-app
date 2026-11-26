@@ -7,7 +7,7 @@ import os
 
 PL = {
     # KART #20: seen, practising, known; the warm-up
-    "Not seen yet": "Jeszcze nienapotkane",
+    "Ahead": "Przed tobą",
     "Seen": "Napotkane",
     "Practising": "Ćwiczone",
     "Known": "Znane",
@@ -23,7 +23,6 @@ PL = {
     "No words here yet.": "Na razie nie ma tu słów.",
     "In phrases and examples": "W zwrotach i przykładach",
     "Not in a lesson yet": "Jeszcze nie w żadnej lekcji",
-    "All seen": "Wszystkie napotkane",
     "It joins your reviews.": "Trafi do twoich powtórek.",
     "Right {0} times, missed {1}. Next review {2}. Known after 4 right in a row, on different days.": "Dobrze {0} razy, źle {1}. Następna powtórka {2}. Znane po 4 dobrych odpowiedziach z rzędu, w różne dni.",
     "You saw it in: {0} ({1})": "Napotkane w lekcji: {0} ({1})",
