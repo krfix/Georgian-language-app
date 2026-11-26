@@ -3,6 +3,21 @@
 What changed in each version, newest first. Versions are 0.x.y (owner, KART #14: the first App
 Store version too); the version in App Store Connect must match the one here.
 
+## [0.4.2] - 2026-11-26
+
+One voice, Luka, and the alphabet from a native speaker.
+
+- Every Georgian word and phrase is now spoken by Luka, a new, more natural male voice
+- The 33 letters are a native speaker's recording, changed into Luka's voice, and labelled
+  "Native recording, voice changed"; the letter card now shows who says the letter
+- Eka, the female voice, is off for now, which makes the app less than half the size;
+  if you had chosen Eka or Giorgi, you now hear Luka
+- Report a mistake from a phrase, a word or a lesson (the flag at the top): it opens your
+  own email app with what you were looking at; the app sends nothing
+- The daily reminder now comes only on days you haven't practised yet
+- Your progress is kept safer: if it ever can't be opened, it's set aside instead of lost,
+  and a save that fails tells you so
+
 ## [0.4.1] - 2026-11-25
 
 Learn grows like a Georgian grapevine.

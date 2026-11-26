@@ -207,6 +207,10 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   `VineTopRipe`). Parts from `make_brand.py --vine` (`brand/vine/`, `Assets.xcassets/Vine`);
   the whole story in `docs/vine-path.md`. App Store Connect's version must become 0.4.1. Not
   yet: the web app's Learn (step 3), the App Store screenshots `09-lessons`/`07-lessons`.
+- KART #18: **0.4.2**: Luka (ElevenLabs) the only voice, Eka off; the letters a native
+  recording changed into Luka's voice; with KART #16's report a mistake, reminders and safer
+  saved data. Merged without the qa run (owner); TestFlight. The website's home and support
+  pages still say "Eka or Giorgi": update them when 0.4.2 reaches the App Store.
 
 ## Repos and branches
 - `krfix/Georgian-language-app` (public since KART #15; never commit keys or personal
