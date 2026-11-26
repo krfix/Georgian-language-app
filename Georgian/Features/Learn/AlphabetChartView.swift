@@ -71,7 +71,7 @@ struct AlphabetGrid: View {
                             if buzzed != l.char { Haptics.tap() }
                             audio.play(l.char)
                         }
-                        .onLongPressGesture(minimumDuration: 0.28, maximumDistance: 8) {
+                        .onLongPressGesture(minimumDuration: 0.1, maximumDistance: 8) {
                             Haptics.press()
                             landing = nil
                             pressing = nil
@@ -81,7 +81,7 @@ struct AlphabetGrid: View {
                             if down {
                                 landing = c
                                 buzzed = nil
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.033) {
                                     guard landing == c else { return }
                                     pressing = c
                                     buzzed = c
