@@ -43,17 +43,20 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   KART #16): a corrected spelling keeps its id, so progress survives. Never claim a native speaker's check that hasn't
   happened (`PHRASEBOOK_STATUS` in content_phrasebook.py; the app shows it).
   On screen and on the website say "with the help of AI", never Claude by name (owner, KART #7).
-- Audio: never fabricate, always label. The owner chose Azure's **Eka** voice (KART #1);
-  learners can pick **Giorgi** (male) instead (KART #5: welcome steps, Profile › Voice;
-  `AudioService.Voice`). Every Georgian text with a speaker button has a clip in each
-  voice, made once by `tools/audio/make_audio.py` (key saved in the environment for
-  northeurope.tts.speech.microsoft.com, added by the proxy; never in code or chat), indexed
-  in `Resources/Audio/audio.json` (Eka) and `audio-giorgi.json`, labelled "Synthetic voice". A native recording can
-  replace a clip (same file, `"source": "native"`); one changed into a voice with ElevenLabs
-  (connected; speaker not to be recognised, never named) is `"converted"`, labelled "Native
-  recording, voice changed", only in that voice (KART #18: Giorgi's letters). New or changed Georgian text → run the
-  script again (it only makes missing clips). No clip and no iPhone voice → no speaker
-  button and no listening exercise for that text.
+- Audio: never fabricate, always label. One voice since KART #18 (owner): **Luka**, a male
+  ElevenLabs voice (model eleven_v4; key added by the proxy for api.elevenlabs.io, never in code
+  or chat), id `giorgi` in the code (`AudioService.Voice`, `audio-giorgi.json`, "kam-" files;
+  Azure's Giorgi until KART #18). Eka (Azure, KART #1–#17) is off for now: clips kept in the repo,
+  not bundled (`Voice.available`, `excludes` in project.yml, `VOICES` in web/js/audio.js; turn
+  her back on in all three). Every Georgian text with a speaker button has a clip, made once by
+  `tools/audio/make_audio.py` (it remakes a clip made by another voice, never a person's),
+  labelled "Synthetic voice". A native recording can replace a clip (same file,
+  `"source": "native"`); one changed into a voice with ElevenLabs' Voice Changer (speaker not
+  to be recognised, never named) is `"converted"`, labelled "Native recording, voice changed",
+  only in that voice (KART #18: the 33 letters, `tools/audio/add_native.py --voice giorgi
+  --converted`). New or changed Georgian text → run the script again (only missing clips; it
+  costs ElevenLabs credits, ~1 per character). No clip and no iPhone voice → no speaker button
+  and no listening exercise for that text.
 - "What do you think?" means give an opinion and options. Don't build until asked.
 - Name: **Ara** (owner, KART #1): a macaw, and არა, "no" in Georgian. On the home screen
   "Ara"; in the App Store "Ara: Learn Georgian" (check the name and trademark first).

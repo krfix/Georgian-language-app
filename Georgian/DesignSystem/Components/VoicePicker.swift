@@ -1,14 +1,15 @@
 import SwiftUI
 
-/// Eka or Giorgi: two cards, each with a button to hear the voice say a short greeting.
-/// Used on the welcome steps and in Profile › Voice. Choosing saves at once (AudioService).
+/// A card per voice in the app (`Voice.available`; only Luka since KART #18), each with a
+/// button to hear it say a short greeting. Used on the welcome steps and in Profile › Voice.
+/// Choosing saves at once (AudioService).
 struct VoicePicker: View {
     var color: BrandColor = .blacksea
     @Environment(AudioService.self) private var audio
 
     var body: some View {
         VStack(spacing: 12) {
-            ForEach(AudioService.Voice.allCases) { v in
+            ForEach(AudioService.Voice.available) { v in
                 if audio.hasClips(v) { card(v) }
             }
             VStack(spacing: 2) {

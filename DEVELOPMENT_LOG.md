@@ -20,6 +20,20 @@ recording, voice changed" (Polish too), played only in its own voice; Profile co
 native recordings and its note says so. Web: the same label. `add_native.py` gained `--voice`
 and `--converted`; docs/native-recordings.md has the steps. Not compiled here (no Swift on
 Linux); `check_strings.py` passes.
+Feather build #79 (Giorgi's letters) compiled and passed the logic tests.
+
+Then the owner compared the account's four Georgian voices (ElevenLabs v4 text to speech) on
+five phrases against Azure's Eka and Giorgi, and chose **Luka** for everything, and Eka off for
+now. Luka's voice-changed letters had a ფ like a k and a ჰ of noise (heard by the owner,
+confirmed: ჰ peaked near full scale); six re-conversions each, the owner chose ფ 1 and ჰ 6.
+`make_audio.py` gained an ElevenLabs engine (eleven_v4, 3 at a time, re-encoded to the clips'
+24 kHz mono MP3) and a "by" per clip, so changing a voice remakes its clips and a stopped run
+resumes; all 1,427 male-voice texts were made again in Luka (~19,500 characters). The male
+voice is shown as "Luka" (id still `giorgi`); `Voice.available` = [giorgi] on the iPhone,
+`VOICES` on the web; Eka's clips are left out of the app (`excludes` in project.yml) and the web
+build, ~21 MB less; a saved Eka choice becomes Luka. The welcome voice step reads "Your
+Georgian voice" with one card when there is one voice. `add_native.py` now defaults to Luka's
+index.
 
 ## KART #16 · 26/11/26 · Critical code review; ids and saved data (branch `claude/exciting-newton-v79mv9`)
 

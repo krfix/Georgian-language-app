@@ -55,18 +55,23 @@ final class AudioService: NSObject {
         }
     }
 
-    /// The two synthetic voices the learner can choose between.
+    /// The synthetic voices. `giorgi` is the male voice's id (saved choices, "kam-" files,
+    /// audio-giorgi.json); since KART #18 it is ElevenLabs' Luka, shown as "Luka".
     enum Voice: String, CaseIterable, Identifiable {
         case eka, giorgi
         var id: String { rawValue }
-        var name: String { self == .eka ? "Eka" : "Giorgi" }
+        var name: String { self == .eka ? "Eka" : "Luka" }
         var indexFile: String { self == .eka ? "audio" : "audio-giorgi" }
         /// What the voice says when the learner listens to a sample.
         static let sample = "გამარჯობა, როგორ ხარ?"
+        /// The voices in the app. Eka is off for now (owner, KART #18): her clips stay in the
+        /// repo but aren't bundled (project.yml); add her back here and there together.
+        static let available: [Voice] = [.giorgi]
 
         static let storageKey = "audioVoice"
         static var stored: Voice {
-            Voice(rawValue: UserDefaults.standard.string(forKey: storageKey) ?? "") ?? .eka
+            let saved = Voice(rawValue: UserDefaults.standard.string(forKey: storageKey) ?? "")
+            return saved.flatMap { available.contains($0) ? $0 : nil } ?? available[0]
         }
     }
 
@@ -105,7 +110,7 @@ final class AudioService: NSObject {
     init(bundle: Bundle = .main) {
         self.bundle = bundle
         var all: [Voice: [String: AudioIndex.Clip]] = [:]
-        for v in Voice.allCases {
+        for v in Voice.available {
             if let index = AudioIndex.load(from: bundle, name: v.indexFile) { all[v] = index.clips }
         }
         clipsByVoice = all

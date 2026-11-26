@@ -1,6 +1,6 @@
 # Native recordings
 
-Every Georgian text in Ara has a synthetic clip (Azure's Eka and Giorgi, labelled "Synthetic
+Every Georgian text in Ara has a synthetic clip (ElevenLabs' Luka since KART #18; Azure's Eka is off for now; labelled "Synthetic
 voice"). A native speaker's recording can replace any of them, one at a time: the app and the
 web then label it "Native recording" and play it whichever voice the learner chose. Start
 with the 33 letters (owner, KART #16): few, short, and the first sounds every learner hears.
@@ -56,8 +56,8 @@ the phrasebook's most used phrases (docs/content-quality.md lists what to check 
 ## Putting them in (Claude)
 1. Put the files in one folder, each named after the exact text (for letters, the letter).
 2. `python3 tools/audio/add_native.py <folder>`: trims silence, evens out the loudness,
-   converts to the clips' MP3 format, replaces Eka's clip for that text and marks it
-   `"source": "native"` in `Resources/Audio/audio.json`. Names it doesn't know are listed.
+   converts to the clips' MP3 format, replaces Luka's clip for that text and marks it
+   `"source": "native"` in `Resources/Audio/audio-giorgi.json`. Names it doesn't know are listed.
 3. Listen to a few, build (`python3 web/build.py` for the web too), and update the wording
    that says the voices are synthetic where it's no longer true for everything.
 
@@ -74,8 +74,12 @@ which allows published use):
    `eleven_multilingual_sts_v2`. The timing doesn't change, so the letters were cut at the
    pauses found in the original (ffmpeg `silencedetect`, −40 dB, 0.12 s).
 2. Voices compared by ear (the account's Georgian voices: Nina, female; Giorgi, Georgie and
-   Luka, male). The owner chose **Giorgi** (`Nv45676mL9ReG4hX7uGA`). Its წ came out with
-   a far too loud hiss; ც to ჭ were converted again on their own, with
-   `remove_background_noise=true`, and that წ replaced it.
+   Luka, male). First Giorgi (`Nv45676mL9ReG4hX7uGA`; its წ had a far too loud hiss, fixed
+   by converting ც to ჭ again with `remove_background_noise=true`). Then the owner chose
+   **Luka** (`NkleFxaKTmzKRWhuoRqb`) for everything, letters included. His ფ sounded like a k
+   and his ჰ was a blast of noise: უ to ქ and ხ to the end were converted again six ways
+   (seeds 1–6, 4–6 with noise removal); the owner chose ფ 1 and ჰ 6.
 3. `python3 tools/audio/add_native.py --voice giorgi --converted <folder>` put them in
-   `audio-giorgi.json`; Eka's letters stay synthetic.
+   `audio-giorgi.json`.
+Breathy sounds (ჰ, ფ, the tight sounds' bursts) are where voice changing goes wrong: listen to
+those first.

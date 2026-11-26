@@ -1,16 +1,17 @@
-// The Georgian clips: one per text in each voice (Eka, female; Giorgi, male), made once by
+// The Georgian clips: one per text in each voice in the app (VOICES: only Luka, male, since
+// KART #18, id "giorgi"; Eka is off for now, as on the iPhone), made once by
 // tools/audio/make_audio.py and labelled "Synthetic voice" (or "Native recording" when a
 // native speaker's clip replaces one, "Native recording, voice changed" when it was changed
 // into this voice). No clip → no speaker button. Nothing is generated here.
 
 const indexes = { eka: null, giorgi: null };
-let voice = "eka";
+let voice = "giorgi";
 let player = null;
 let element = null;
 let playing = null; // the text playing now
 const listeners = new Set();
 
-export const VOICES = ["eka", "giorgi"];
+export const VOICES = ["giorgi"];
 export const SAMPLE = "გამარჯობა, როგორ ხარ?";
 
 async function loadIndex(v) {
@@ -19,14 +20,14 @@ async function loadIndex(v) {
 
 /** Choose the voice; the other voice's index loads quietly for the samples in Settings. */
 export async function loadVoice(v) {
-  const want = VOICES.includes(v) ? v : "eka";
+  const want = VOICES.includes(v) ? v : VOICES[0];
   await loadIndex(want);
   voice = want;
   VOICES.filter((x) => x !== want).forEach((x) => loadIndex(x).catch(() => {}));
 }
 
 export function currentVoice() { return voice; }
-export function voiceName(v = voice) { return v === "giorgi" ? "Giorgi" : "Eka"; }
+export function voiceName(v = voice) { return v === "giorgi" ? "Luka" : "Eka"; }
 export function index(v = voice) { return indexes[v] || {}; }
 
 export function canPlay(text) { return !!(text && index()[text]); }

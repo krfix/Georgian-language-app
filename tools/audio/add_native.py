@@ -7,9 +7,10 @@ Each recording is named after the exact Georgian text it says, as in audio.json:
 letter, the letter itself (კ.m4a, even though it's said as კა), for a word or phrase the
 whole text (გამარჯობა.m4a, ეს რა ღირს?.m4a). Any format ffmpeg reads (m4a from the iPhone's
 Voice Memos, wav, mp3). Each is cleaned up (silence trimmed at both ends, loudness evened
-out, mono MP3 like the other clips), takes the place of Eka's synthetic clip for that text,
-and is marked "native" in audio.json: the app and the web then label it "Native recording"
-and play it whichever voice the learner chose. Giorgi's synthetic clip stays as a spare.
+out, mono MP3 like the other clips), takes the place of the app's voice's synthetic clip for
+that text (Luka's, audio-giorgi.json, since KART #18; --voice eka for Eka's index), and is
+marked "native": the app and the web then label it "Native recording" and play it whichever
+voice the learner chose.
 Recordings whose name isn't a text in the app are listed and left out.
 Options: --audio <dir> works on another copy of Resources/Audio (for trying it out).
   --voice giorgi --converted: a native recording changed into another voice (ElevenLabs'
@@ -30,7 +31,7 @@ AUDIO = os.path.join(HERE, "..", "..", "Georgian", "Resources", "Audio")
 def main():
     args = sys.argv[1:]
     audio_dir = AUDIO
-    index_name, source = "audio.json", "native"
+    index_name, source = "audio-giorgi.json", "native"
     if "--voice" in args:
         i = args.index("--voice")
         index_name = {"eka": "audio.json", "giorgi": "audio-giorgi.json"}[args[i + 1]]

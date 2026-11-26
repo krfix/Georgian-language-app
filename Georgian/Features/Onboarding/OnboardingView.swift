@@ -117,9 +117,15 @@ struct OnboardingView: View {
 
     private var voicePage: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text(tr("Choose a voice")).font(.titleBold).foregroundStyle(Palette.ink)
-            Text(tr("Every Georgian word and sentence in the app is spoken in this voice. Tap Listen to hear each one. You can change it later in Profile."))
-                .font(.bodyRounded).foregroundStyle(Palette.inkSoft)
+            if AudioService.Voice.available.count > 1 {
+                Text(tr("Choose a voice")).font(.titleBold).foregroundStyle(Palette.ink)
+                Text(tr("Every Georgian word and sentence in the app is spoken in this voice. Tap Listen to hear each one. You can change it later in Profile."))
+                    .font(.bodyRounded).foregroundStyle(Palette.inkSoft)
+            } else {
+                Text(tr("Your Georgian voice")).font(.titleBold).foregroundStyle(Palette.ink)
+                Text(tr("Every Georgian word and sentence in the app is spoken in this voice. Tap Listen to hear it."))
+                    .font(.bodyRounded).foregroundStyle(Palette.inkSoft)
+            }
             VoicePicker(color: .saperavi)
         }
     }

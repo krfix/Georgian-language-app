@@ -69,7 +69,8 @@ def main():
     os.makedirs(os.path.join(DIST, "audio"))
     copied = set()
     sizes = {}
-    for voice, index in (("eka", "audio.json"), ("giorgi", "audio-giorgi.json")):
+    # Only the voices in the app (Eka is off for now, KART #18: web/js/audio.js VOICES).
+    for voice, index in (("giorgi", "audio-giorgi.json"),):
         clips = load("Audio", index)["clips"]
         out = {}
         total = 0

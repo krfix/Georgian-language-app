@@ -11,7 +11,7 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       write on aralearn/aralearn.github.io only; `web.yml` publishes by itself. It expires after a
       year at most: renew it there and replace the secret.
 - [ ] Test the app on the iPhone (Feather install) and say what to change.
-- [ ] Native audio: every Georgian text has synthetic clips in Eka's and Giorgi's voices
+- [ ] Native audio: every Georgian text has synthetic clips (Luka since KART #18; Eka kept, off)
       (1,460 each, KART #1, #2, #5). A native speaker's recordings can replace them one by
       one: same file name in `Georgian/Resources/Audio`, `"source": "native"` in audio.json
       (a native clip plays whichever voice is chosen); the app labels them "Native recording".
@@ -19,9 +19,11 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       Words › More words (გული, heart). The UI tests for these haven't run (no qa run yet).
 - [ ] Native recordings of the 33 letters (KART #16, idea from Kargi): a speaker records them
       as in docs/native-recordings.md; `tools/audio/add_native.py` puts them in.
-      KART #18: done for Giorgi's voice (a native recording changed into ElevenLabs' male
-      "Giorgi" voice, labelled "Native recording, voice changed"). Still to decide: Eka's
-      letters (the same recording changed into ElevenLabs' "Nina", or a new speaker).
+      KART #18: done in Luka's voice (a native recording changed into it, labelled "Native
+      recording, voice changed").
+- [ ] A female voice again (KART #18: Eka off, only Luka). ElevenLabs' Nina is the account's
+      female Georgian voice (her voice-changed letters had noise at the end); a full set costs
+      ~19,500 credits, so next month's allowance or a bigger plan.
 - [ ] App Store screenshots and the website's phone screens still show "Ana" on Home; the demo
       learner is Lena since KART #16. Remake them at the next screenshot run.
 - [ ] A native speaker's check of the course and the phrasebook (`tools/curriculum/content_*.py`).

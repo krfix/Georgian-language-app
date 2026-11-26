@@ -77,13 +77,16 @@ glossary and the More words list (see CLAUDE.md).
 
 ## Audio
 
-Every Georgian text with a speaker button has a clip in two synthetic voices from Microsoft
-Azure, **Eka** (female) and **Giorgi** (male): 1,460 texts each, about 45 MB, made once by
-`tools/audio/make_audio.py` and labelled "Synthetic voice". The learner picks the voice on
-the welcome steps or in Profile. A native recording can replace any clip without code changes
-and is labelled "Native recording" (docs/native-recordings.md). In Giorgi's voice the 33
-letters are a native speaker's recording changed into a male voice with ElevenLabs' Voice
-Changer (the speaker asked not to be recognisable), labelled "Native recording, voice changed". Without a
+Every Georgian text with a speaker button has a clip in **Luka**'s voice, a synthetic male
+voice from ElevenLabs (model eleven_v4, KART #18): 1,460 texts, made once by
+`tools/audio/make_audio.py` and labelled "Synthetic voice". The 33 letters are a native
+speaker's recording changed into Luka's voice with ElevenLabs' Voice Changer (the speaker
+asked not to be recognisable), labelled "Native recording, voice changed". A native recording
+can replace any clip without code changes and is labelled "Native recording"
+(docs/native-recordings.md). Inside the code the male voice keeps its old id, `giorgi`
+(`audio-giorgi.json`, "kam-" files). Eka, Azure's female voice, is off for now: her clips stay
+in the repo (`audio.json`, "ka-" files) but aren't in the app or the web app
+(`AudioService.Voice.available`, `excludes` in project.yml, `VOICES` in web/js/audio.js). Without a
 clip, the iPhone's own Georgian voice is used if it has one; otherwise there's no speaker
 button.
 

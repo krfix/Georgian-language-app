@@ -673,7 +673,7 @@ function settingsScreen() {
     </section>
     <section class="card">
       <h3 class="card-title c-pomegranate">${icon("speaker", { size: 18 })}${esc(tr("Voice"))}</h3>
-      <div class="voices">${["eka", "giorgi"].map((x) => `<div class="voice${x === v ? " on" : ""}">
+      <div class="voices">${audio.VOICES.map((x) => `<div class="voice${x === v ? " on" : ""}">
         <button class="voice-pick" data-set="voice" data-value="${x}"><strong>${audio.voiceName(x)}</strong><small>${esc(x === "eka" ? tr("Female voice") : tr("Male voice"))}</small></button>
         <button class="listen" data-sample="${x}" aria-label="${esc(tr("Listen to {0}", audio.voiceName(x)))}">${icon("speaker", { size: 16 })}${esc(tr("Listen"))}</button>
       </div>`).join("")}</div>
@@ -1168,7 +1168,7 @@ async function start() {
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyAppearance);
   const code = store.setting("language") || preferredLanguage();
   try {
-    await Promise.all([loadContent(code), audio.loadVoice(store.setting("voice") || "eka")]);
+    await Promise.all([loadContent(code), audio.loadVoice(store.setting("voice") || audio.VOICES[0])]);
   } catch (err) {
     view().innerHTML = `<div class="empty"><img src="icons/mascot-think.svg" alt="" class="mascot"><h3>Ara couldn't load</h3><p class="soft">Check the connection and open the page again.</p></div>`;
     throw err;

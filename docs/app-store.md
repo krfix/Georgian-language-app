@@ -54,9 +54,9 @@ changes (iCloud sync, for example), change the answers here and on the website f
 > • Nothing to unlock: every phrase works from the first minute
 >
 > HEAR IT
-> • Every Georgian word and phrase has audio, normal and slow, in a female (Eka) or male
->   (Giorgi) voice. These are synthetic voices, and the app says so. With Giorgi, the alphabet
->   is a native speaker's recording, changed into his voice.
+> • Every Georgian word and phrase has audio, normal and slow, in Luka's voice. It is a
+>   synthetic voice, and the app says so. The alphabet is a native speaker's recording,
+>   changed into his voice.
 >
 > PRIVATE AND OFFLINE
 > • No account, no ads, no tracking. Everything stays on your iPhone and works without internet.
@@ -185,7 +185,7 @@ left out in Pricing and Availability instead (it needs a Chinese licence).
 - Notes:
   > Ara works fully offline with no account. To try it: pick English, step through the short
   > welcome, then do the first lesson or open the Phrasebook tab (everything there is unlocked).
-  > Audio is bundled synthetic speech (Azure Neural voices), labelled "Synthetic voice" in the
-  > app; in the male voice, the 33 letters are a native speaker's recording changed into that
-  > voice, labelled "Native recording, voice changed". Reminders are optional local notifications.
+  > Audio is bundled synthetic speech (an ElevenLabs voice), labelled "Synthetic voice" in the
+  > app; the 33 letters are a native speaker's recording changed into that voice, labelled
+  > "Native recording, voice changed". Reminders are optional local notifications.
 - Contact: the owner's name, ara.learn.app@gmail.com, and a phone number (Apple only).

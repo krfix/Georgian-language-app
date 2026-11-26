@@ -71,7 +71,9 @@ struct ProfileView: View {
                         NavigationLink {
                             ScrollView {
                                 VStack(alignment: .leading, spacing: 16) {
-                                    Text(tr("Every Georgian word and sentence in the app is spoken in this voice. Tap Listen to hear each one."))
+                                    Text(AudioService.Voice.available.count > 1
+                                         ? tr("Every Georgian word and sentence in the app is spoken in this voice. Tap Listen to hear each one.")
+                                         : tr("Every Georgian word and sentence in the app is spoken in this voice. Tap Listen to hear it."))
                                         .font(.bodyRounded)
                                         .foregroundStyle(Palette.inkSoft)
                                     VoicePicker()
@@ -93,7 +95,7 @@ struct ProfileView: View {
                 } header: {
                     Text(tr("Audio"))
                 } footer: {
-                    Text(tr("Georgian is spoken by Eka or Giorgi, computer voices from Microsoft Azure, and labelled \"Synthetic voice\". With Giorgi, the alphabet is a native speaker's recording changed into a man's voice, labelled \"Native recording, voice changed\". More native recordings will replace clips one by one and are labelled \"Native recording\"."))
+                    Text(tr("Georgian is spoken by Luka, a computer voice from ElevenLabs, labelled \"Synthetic voice\". The alphabet is a native speaker's recording changed into Luka's voice, labelled \"Native recording, voice changed\". More native recordings will replace clips one by one and are labelled \"Native recording\"."))
                 }
 
                 Section {
