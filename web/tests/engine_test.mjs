@@ -3,7 +3,7 @@
 // Run after building: node web/tests/engine_test.mjs
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { Course, Builder, Session, evaluate, autoSpeech, typed, acceptedEnglish, schedule, lessonStates, rng, isGraded, currentStage } from "../js/engine.js";
+import { Course, Builder, Session, evaluate, autoSpeech, typed, acceptedEnglish, schedule, lessonStates, rng, isGraded, currentStage, isLearnedState, wordProgress } from "../js/engine.js";
 
 const dist = fileURLToPath(new URL("../dist/", import.meta.url));
 const read = (f) => JSON.parse(readFileSync(dist + f, "utf8"));
@@ -68,6 +68,22 @@ st = schedule(st, "good", now); check("first right: 1 day", st.interval, 1);
 st = schedule(st, "good", now); check("second right: 3 days", st.interval, 3);
 st = schedule(st, "good", now); check("third right: 8 days", st.interval, 8);
 st = schedule(st, "again", now); check("a miss: 10 minutes", st.due - now, 600000);
+
+st = { ease: 2.5, interval: 0, repetitions: 0, lapses: 0, due: now };
+for (let i = 0; i < 3; i++) st = schedule(st, "good", now);
+check("not known after three", isLearnedState(st), false);
+const four = schedule(st, "good", now);
+check("known after four in a row", isLearnedState(four), true);
+
+// Words seen, new and known (KART #20), as in tools/Tests/main.swift.
+{
+  const ls = [{ id: "a", seen: ["x", "y"] }, { id: "b", seen: ["y", "z"] }];
+  check("nothing seen before a lesson is done", wordProgress.seen(ls, new Set()), {});
+  check("seen in the first finished lesson", wordProgress.seen(ls, new Set(["a", "b"])), { x: "a", y: "a", z: "b" });
+  check("first lesson of each word", wordProgress.firstLesson(ls), { x: "a", y: "a", z: "b" });
+  check("new words: the rest", wordProgress.newWords(ls[1], new Set(["x", "y"])), ["z"]);
+  check("newly known after a warm-up", wordProgress.newlyKnown(["p", "q"], { p: st, q: four }, { p: four, q: four }), ["p"]);
+}
 
 // The path.
 const ids = ["l1", "l2", "l3", "l4"];

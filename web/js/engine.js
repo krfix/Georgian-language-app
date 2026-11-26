@@ -628,6 +628,25 @@ export const isLearnedState = (m) => m.repetitions >= 4;
 export const isDifficultState = (m) => (m.lapses || 0) >= 2 || m.ease < 2.0;
 
 // ---------------------------------------------------------------------------------------
+// Words: seen → practising → known (Engine/WordProgress.swift, KART #20). "Seen" is worked
+// out from the finished lessons and the words each shows (lesson.seen, from the build).
+export const WARM_UP_SIZE = 4;
+export const wordProgress = {
+  /** Every word in the finished lessons, with the first of those lessons in course order. */
+  seen(lessons, completed) {
+    const out = {};
+    for (const l of lessons) if (completed.has(l.id)) for (const id of l.seen || []) if (!(id in out)) out[id] = l.id;
+    return out;
+  },
+  /** Every word the course shows, with the first lesson that shows it. */
+  firstLesson(lessons) { return this.seen(lessons, new Set(lessons.map((l) => l.id))); },
+  /** The words a lesson shows that weren't seen or practised before it. */
+  newWords(lesson, before) { return (lesson.seen || []).filter((id) => !before.has(id)); },
+  /** The warm-up items known now and not before it. */
+  newlyKnown(ids, before, after) { return ids.filter((id) => after[id] && isLearnedState(after[id]) && !(before[id] && isLearnedState(before[id]))); },
+};
+
+// ---------------------------------------------------------------------------------------
 // The path and the stages.
 
 export function lessonStates(ids, completed, startIndex = 0, openBefore = 0) {

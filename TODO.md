@@ -3,9 +3,10 @@
 Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_LOG.md.
 
 ## Needs the owner
-- [ ] KART #20 (words: seen → practising → known, new words after a lesson, the warm-up):
-      try it on the iPhone. The web app has only the stricter "known" rule so far: its lesson
-      summary, Words tab (one list, filters) and the warm-up still need the same change.
+- [ ] KART #20 (words: seen → practising → known, new words after a lesson, the warm-up,
+      Words | Letters, ა in Learn): on TestFlight as 0.4.2 (102) and on the web. Merged without
+      the qa run (owner); run `-f qa=true` on main to see the UI tests and screenshots. 0.4.3's
+      CHANGELOG notes must include it.
 - [ ] Web app (KART #9): live at https://aralearn.github.io/app. Try it on the iPhone (Safari ›
       Share › Add to Home Screen; audio; offline after "Keep all audio") and on the PC. The website's
       home page links to it (KART #9). Republish after content changes (web.yml publish, or

@@ -18,7 +18,17 @@ fixed. Newest first.
   someone doing only lessons would never see a word become known (most words are in one lesson).
 - Words tab: one list, filters All seen · Known · Practising · Seen · Not seen yet, ordered by
   lesson, theme or A–Z; the "more" theme is now "Other words". Word card: where you saw it.
-- Not yet: the same screens in the web app (only its known rule changed).
+- Letters (owner): Words | Letters at the top of the Words tab (remembered), a round glass ა at
+  the top of Learn (an image, so iOS 26 draws a circle, not a pill). In the grid a tap plays the
+  letter, a hold opens its card: the press shows after 0.033 s (a scroll moves on first, so it
+  stays quiet), the card after 0.1 s (owner's timings), a light then a firmer haptic.
+- Builds #93 (compile error: a property read before the player was set up) → #94, #96, #98–#101
+  (#100: no Mac free for 15 min). Developer tools now in TestFlight builds by default until the
+  final release (owner). Merged to main and sent to TestFlight as 0.4.2 (102), without the qa run.
+- Web (same session): the known rule, seen/new words, the warm-up offer (Settings: Ask, Always,
+  Never), lesson complete with new words, Words | Letters with filters and orders, the word
+  card's progress, ა in Learn, hold a letter for its card. engine_test 51/51, search 37/37,
+  screens.mjs all fine; audit.mjs now checks the warm-up offer.
 
 ## KART #19 · 26/11/26 · Feedback: cut grapes (branch `claude/elegant-fermat-k08vbc`)
 

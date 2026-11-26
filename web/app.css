@@ -888,3 +888,44 @@ body:has(.player) #view, body:has(.welcome) #view { padding-bottom: 0; }
 .goal-card .pc-row { justify-content: space-between; }
 .goal-card .bar { flex: none; }
 .milestone-new .badge-core { background: linear-gradient(135deg, var(--fill), var(--partner)); color: #fff; }
+
+/* Words: seen → practising → known (KART #20) */
+.c-ink, .b-ink { --c: var(--ink-soft); --fill: var(--ink-soft); --on: var(--bg); color: var(--ink-soft); }
+.st-seen { background: var(--blacksea); }
+.steps-bar { display: flex; height: 8px; border-radius: 99px; overflow: hidden; background: var(--line); }
+.steps-bar.thick { height: 12px; }
+.steps-bar span { display: block; height: 100%; }
+.st-pill { align-self: flex-start; margin-top: 4px; font-size: 0.72rem; font-weight: 800; padding: 3px 9px; border-radius: 99px; color: var(--pc); background: color-mix(in srgb, var(--pc) 14%, transparent); }
+.st-pill.st-new { --pc: var(--ink-soft); } .st-pill.st-seen { --pc: var(--blacksea); } .st-pill.st-learning { --pc: var(--gold); }
+.st-pill.st-learned { --pc: var(--tkemali); } .st-pill.st-difficult { --pc: var(--error); }
+.card-title .st-pill { margin: 0 0 0 auto; }
+.words-summary { display: flex; flex-direction: column; gap: 10px; }
+.ws-head { display: flex; align-items: baseline; gap: 8px; }
+.ws-head b { font-size: 1.6rem; font-weight: 900; }
+.sub-title small { font-size: 0.8rem; font-weight: 600; margin-left: 4px; }
+.soft-button.dashed { background: transparent; box-shadow: none; border: 1.5px dashed var(--line); color: var(--ink-soft); }
+.letters-head { display: flex; flex-direction: column; gap: 4px; }
+.letters-head strong { font-size: 1.1rem; }
+.letters-head p { margin: 0; display: flex; gap: 6px; align-items: center; }
+.letter-cell { transition: transform 0.15s cubic-bezier(.2,.9,.3,1.2); -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation; }
+.letter-cell.pressing { transform: scale(0.92); }
+/* Learn's ა shortcut: a round glass button. */
+.page-head.with-action { flex-direction: row; align-items: center; justify-content: space-between; }
+.glass-letter { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; color: var(--pomegranate);
+  background: color-mix(in srgb, var(--surface) 55%, transparent); border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(1.6); backdrop-filter: blur(14px) saturate(1.6); box-shadow: var(--shadow-small); }
+.glass-letter .ka { font-size: 1.5rem; font-weight: 800; line-height: 1; transform: translateY(-2px); }
+/* Lesson complete: new words, the warm-up, all your words */
+.new-words h3 { margin: 0 0 10px; }
+.new-words p { margin: 10px 0 0; }
+.word-chip { display: flex; flex-direction: column; align-items: flex-start; min-height: 44px; padding: 6px 12px; border-radius: 14px;
+  background: color-mix(in srgb, var(--saperavi) 7%, transparent); border: 1.5px solid color-mix(in srgb, var(--saperavi) 30%, transparent); }
+.word-chip .ka { font-weight: 800; font-size: 1.05rem; } .word-chip small { color: var(--ink-soft); font-size: 0.75rem; }
+.warmup-done { display: flex; gap: 12px; align-items: center; } .warmup-done > div { display: flex; flex-direction: column; gap: 2px; }
+.check-dot { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; flex: none; color: var(--tkemali); background: color-mix(in srgb, var(--tkemali) 14%, transparent); }
+.all-words { display: flex; flex-direction: column; gap: 8px; }
+.stat-tiles.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* The warm-up offer */
+.warmup-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; padding: 0 var(--gutter); }
+.warmup-parrot { width: 140px; height: auto; }
+.warmup-body p { margin: 0; max-width: 22rem; }

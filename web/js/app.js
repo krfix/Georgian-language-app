@@ -8,7 +8,7 @@
 //   #/d/<id>      a conversation     #/d/<id>/as/<0|1>  playing one side of it
 //   #/search      search             #/saved      my phrasebook     #/settings   settings
 
-import { tr, plural, setLanguage, preferredLanguage, lang } from "./i18n.js";
+import { tr, plural, polishForm, setLanguage, preferredLanguage, lang } from "./i18n.js";
 import { PhraseSearch } from "./search.js";
 import * as audio from "./audio.js";
 import * as store from "./store.js";
@@ -212,28 +212,57 @@ function homeScreen() {
 }
 
 
-// Words: every word, with search over everything (words, phrases, situations, conversations).
+// Words (WordsView.swift, KART #20): Words | Letters. Words: search over everything, and with
+// nothing typed one list of every word: how many you've seen, filters by step, ordered by
+// the lesson that shows it, by theme or A–Z. Letters: the 33 letters.
 let wordsQuery = "";
-let wordsMore = false;
+let wordsFilter = null;   // null: "all" (every word so far), or "notSeen" before any
+let wordsOrder = "lesson";
 
 function wordsTab() {
-  const cats = C.wordCats.filter((c) => c.id !== "more");
-  const more = C.words.filter((w) => w.category === "more");
+  const shelf = store.setting("wordsShelf") === "letters" ? "letters" : "words";
+  const seg = (v, t) => `<button class="seg${v === shelf ? " on" : ""}" data-shelf="${v}">${esc(t)}</button>`;
   return `<div class="screen" data-screen="words">
     <header class="page-head compact"><h1 class="display">${esc(tr("Words"))}</h1></header>
+    <div class="segmented" data-id="words-shelf">${seg("words", tr("Words"))}${seg("letters", tr("Letters"))}</div>
+    ${shelf === "letters" ? course.letterGrid() : `
     <div class="search-field">${icon("search", { size: 20 })}
       <input id="wq" type="search" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false"
         placeholder="${esc(tr("Search words and phrases"))}" value="${esc(wordsQuery)}" aria-label="${esc(tr("Search words and phrases"))}">
     </div>
-    <div id="wresults">${wordsQuery.trim() ? resultsFor(wordsQuery) : `
-      ${cats.map((c) => {
-        const list = C.words.filter((w) => w.category === c.id);
-        return list.length ? `<h2 class="sub-title c-saperavi">${esc(c.title)} <small class="count">${list.length}</small></h2><div class="rows">${list.map(wordRow).join("")}</div>` : "";
-      }).join("")}
-      <h2 class="sub-title c-tkemali">${esc(tr("More words"))} <small class="count">${more.length}</small></h2>
-      ${wordsMore ? `<div class="rows">${more.map(wordRow).join("")}</div>` : `<button class="soft-button" data-act="more-words">${esc(tr("Show all {0}", more.length))}</button>`}`}
-    </div>
+    <div id="wresults">${wordsQuery.trim() ? resultsFor(wordsQuery) : wordList()}</div>`}
   </div>`;
+}
+
+function wordList() {
+  const c = course.wordCounts();
+  const met = c.seen + c.practising + c.known;
+  const current = wordsFilter || (met > 0 ? "all" : "notSeen");
+  const match = { all: (st) => st !== "new", known: (st) => st === "learned", practising: (st) => st === "learning" || st === "difficult", seen: (st) => st === "seen", notSeen: (st) => st === "new" }[current];
+  const pool = [...C.course.words, ...C.course.moreWords].filter((w) => match(course.wordStatus(w.id)));
+  const chip = (f, t, color) => `<button class="chip c-${color} b-${color}${f === current ? " on" : ""}" data-wfilter="${f}" data-id="words-filter-${f}">${esc(t)}</button>`;
+  const ord = (v, t) => `<button class="seg${v === wordsOrder ? " on" : ""}" data-worder="${v}">${esc(t)}</button>`;
+  const count = (n, one, other, pl) => plural(n, one, other, pl);
+  let sections;
+  if (wordsOrder === "az") sections = [[null, null, [...pool].sort((a, b) => (a.ka < b.ka ? -1 : a.ka > b.ka ? 1 : 0))]];
+  else if (wordsOrder === "theme") sections = C.course.categories.map((cat) => [cat.title, null, pool.filter((w) => w.category === cat.id)]).filter(([, , l]) => l.length);
+  else {
+    const index = new Map(C.course.lessons.map((l, i) => [l.id, i]));
+    const groups = new Map();
+    for (const w of pool) { const k = course.seenWords()[w.id] || course.firstLessonOf(w.id) || ""; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(w); }
+    sections = [...groups.keys()].sort((a, b) => (index.get(a) ?? 1e9) - (index.get(b) ?? 1e9)).map((k) => {
+      const l = C.course.lesson(k);
+      return l ? [l.title, (C.course.module(l.id) || {}).title, groups.get(k)] : [tr("In phrases and examples"), tr("Not in a lesson yet"), groups.get(k)];
+    });
+  }
+  return `<section class="card words-summary"><div class="ws-head"><b>${met}</b><span class="soft">${esc(lang === "pl" ? polishForm(met, "słowo do tej pory", "słowa do tej pory", "słów do tej pory") : met === 1 ? "word so far" : "words so far")}</span></div>
+      ${course.stepsBar(c, "thick")}
+      <div class="legend"><span><i class="st-learned"></i>${esc(count(c.known, "known", "known", ["znane", "znane", "znanych"]))}</span><span><i class="st-learning"></i>${esc(count(c.practising, "practising", "practising", ["ćwiczone", "ćwiczone", "ćwiczonych"]))}</span><span><i class="st-seen"></i>${esc(count(c.seen, "seen", "seen", ["napotkane", "napotkane", "napotkanych"]))}</span><span><i class="st-new"></i>${esc(count(c.all - met, "ahead", "ahead", ["przed tobą", "przed tobą", "przed tobą"]))}</span></div></section>
+    <div class="chips">${chip("all", tr("All"), "saperavi")}${chip("known", tr("Known"), "tkemali")}${chip("practising", tr("Practising"), "gold")}${chip("seen", tr("Seen"), "blacksea")}${chip("notSeen", tr("Ahead"), "ink")}</div>
+    <div class="segmented">${ord("lesson", tr("By lesson"))}${ord("theme", tr("By theme"))}${ord("az", tr("A–Z"))}</div>
+    ${pool.length ? "" : `<p class="soft center">${esc(current === "all" ? tr("Finish a lesson and its words appear here.") : tr("No words here yet."))}</p>`}
+    ${sections.map(([title, caption, list]) => `${title ? `<h2 class="sub-title c-saperavi">${esc(title)}${caption ? `<small class="soft">${esc(caption)}</small>` : ""}</h2>` : ""}<div class="rows">${list.map(wordRow).join("")}</div>`).join("")}
+    ${current === "all" && c.all - met > 0 ? `<button class="soft-button dashed" data-wfilter="notSeen" data-id="words-not-seen">${esc(count(c.all - met, "word ahead", "words ahead", ["słowo przed tobą", "słowa przed tobą", "słów przed tobą"]))}</button>` : ""}`;
 }
 
 function installHint() {
@@ -618,7 +647,8 @@ function resultsFor(q) {
 }
 
 function wordRow(w) {
-  return `<div class="word-row"><a class="word-main" href="#/w/${esc(w.id)}"><span class="ka row-ka">${esc(w.ka)}</span><span class="lat">${esc(w.lat)}</span><span class="row-en">${esc(w.en)}</span></a>${speaker(w.ka, { size: 36 })}</div>`;
+  const st = course.wordStatus(w.id);
+  return `<div class="word-row"><a class="word-main" href="#/w/${esc(w.id)}"><span class="ka row-ka">${esc(w.ka)}</span><span class="lat">${esc(w.lat)}</span><span class="row-en">${esc(w.en)}</span><span class="st-pill st-${st}">${esc(course.statusTitle(st))}</span></a>${speaker(w.ka, { size: 36 })}</div>`;
 }
 
 // My phrasebook: what the learner saved, by situation, filtered by their lists.
@@ -984,6 +1014,33 @@ document.addEventListener("pointerdown", (e) => {
   if (b) audio.prepare([b.dataset.say]);
 }, { passive: true });
 
+// Letters (KART #20): a press shows after a moment (a scroll moves on before it, so it stays
+// quiet); a hold opens the letter's card; a short tap plays it (the click handler below).
+let letterHeld = false;
+{
+  let timers = [], start = null, cell = null;
+  const clear = () => { timers.forEach(clearTimeout); timers = []; if (cell) cell.classList.remove("pressing"); cell = null; };
+  document.addEventListener("pointerdown", (e) => {
+    const el = e.target.closest("[data-letter]");
+    clear();
+    letterHeld = false;
+    if (!el) return;
+    cell = el; start = [e.clientX, e.clientY];
+    timers.push(setTimeout(() => { if (cell === el) { el.classList.add("pressing"); if (navigator.vibrate) navigator.vibrate(8); } }, 33));
+    timers.push(setTimeout(() => {
+      if (cell !== el) return;
+      letterHeld = true;
+      if (navigator.vibrate) navigator.vibrate(18);
+      clear();
+      const html = course.letterSheet(el.dataset.letter);
+      if (html) openSheet(`${html}<button class="soft-button" data-act="close-sheet">${esc(tr("Done"))}</button>`);
+    }, 100));
+  }, { passive: true });
+  document.addEventListener("pointermove", (e) => { if (cell && start && Math.hypot(e.clientX - start[0], e.clientY - start[1]) > 8) clear(); }, { passive: true });
+  for (const t of ["pointerup", "pointercancel", "scroll"]) document.addEventListener(t, () => { if (cell) clear(); }, { passive: true, capture: true });
+  document.addEventListener("contextmenu", (e) => { if (e.target.closest("[data-letter]")) e.preventDefault(); });
+}
+
 document.addEventListener("click", async (e) => {
   // Tappable words come first: a word inside a playable bubble explains, it doesn't play.
   const word = e.target.closest(".tw");
@@ -1010,6 +1067,7 @@ document.addEventListener("click", async (e) => {
     return;
   }
   if ("back" in ds) { goBack(); return; }
+  if (ds.letter !== undefined && letterHeld) { letterHeld = false; return; }
   if (ds.say !== undefined) { audio.toggle(ds.say); return; }
   if (ds.saySlow !== undefined) { audio.play(ds.saySlow, { slow: true }); return; }
   if (ds.sample) { audio.play(audio.SAMPLE, { v: ds.sample }); return; }
@@ -1028,6 +1086,9 @@ document.addEventListener("click", async (e) => {
     return;
   }
   if (ds.set) { await applySetting(ds.set, ds.value); return; }
+  if (ds.shelf) { store.setSetting("wordsShelf", ds.shelf); render({ keepScroll: true }); return; }
+  if (ds.wfilter) { wordsFilter = ds.wfilter; render({ keepScroll: true }); return; }
+  if (ds.worder) { wordsOrder = ds.worder; render({ keepScroll: true }); return; }
 
   const pid = ds.pid;
   switch (ds.act) {
@@ -1070,7 +1131,6 @@ document.addEventListener("click", async (e) => {
     case "clear-search": searchQuery = ""; render(); break;
     case "hide-install": store.setSetting("hideInstall", true); render({ keepScroll: true }); break;
     case "offline": keepAudioOffline(); break;
-    case "more-words": wordsMore = true; render({ keepScroll: true }); break;
     default: break;
   }
 });

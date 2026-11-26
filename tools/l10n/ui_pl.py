@@ -12,6 +12,7 @@ PL = {
     "Plays the letter": "Odtwarza literę",
     "Open its card": "Otwórz kartę",
     "Letters": "Litery",
+    "You can change this in Settings.": "Możesz to zmienić w Ustawieniach.",
     "Ahead": "Przed tobą",
     "Seen": "Napotkane",
     "Practising": "Ćwiczone",

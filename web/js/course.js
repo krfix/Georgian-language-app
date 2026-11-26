@@ -7,7 +7,7 @@ import { tr, plural, lang } from "./i18n.js";
 import * as audio from "./audio.js";
 import * as store from "./store.js";
 import { icon } from "./icons.js";
-import { Builder, Session, evaluate, autoSpeech, isGraded, lessonStates, currentStage, stages, streak, dayKey, isLearnedState, isDifficultState, rng } from "./engine.js";
+import { Builder, Session, evaluate, autoSpeech, isGraded, lessonStates, currentStage, stages, streak, dayKey, isLearnedState, isDifficultState, rng, wordProgress, WARM_UP_SIZE } from "./engine.js";
 import { C, esc, $, speaker, autoSay, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack, reportHref, reportLink } from "./app.js";
 
 // ---------------------------------------------------------------------------------------
@@ -45,6 +45,41 @@ export function dueItems() {
 }
 const learnedCount = (letters) => Object.entries(store.mastery()).filter(([id, m]) => id.startsWith("letter-") === letters && !id.startsWith("pb-") && isLearnedState(m)).length;
 const pct = () => Math.round((store.completed().size / C.course.lessons.length) * 100);
+
+// Words: seen → practising → known (KART #20, LearningStore.status on the iPhone).
+let seenCache = { key: null, map: {} };
+/** Words shown in the finished lessons, with the first such lesson. */
+export function seenWords() {
+  const done = store.completed();
+  const key = [...done].sort().join(",");
+  if (seenCache.key !== key) seenCache = { key, map: wordProgress.seen(C.course.lessons, done) };
+  return seenCache.map;
+}
+let firstCache = null;
+export function firstLessonOf(id) { if (!firstCache) firstCache = wordProgress.firstLesson(C.course.lessons); return firstCache[id]; }
+/** "new" (ahead), "seen", "learning" (practising), "learned" (known) or "difficult". */
+export function wordStatus(id) {
+  const m = store.mastery()[id];
+  if (!m) return seenWords()[id] ? "seen" : "new";
+  return isDifficultState(m) ? "difficult" : isLearnedState(m) ? "learned" : "learning";
+}
+export const statusTitle = (st) => ({ new: tr("Ahead"), seen: tr("Seen"), learning: tr("Practising"), learned: tr("Known"), difficult: tr("Difficult") })[st];
+/** The Words tab's numbers, over every word in it. */
+export function wordCounts() {
+  const all = [...C.course.words, ...C.course.moreWords];
+  const c = { seen: 0, practising: 0, known: 0, all: all.length };
+  for (const w of all) {
+    const st = wordStatus(w.id);
+    if (st === "seen") c.seen++; else if (st === "learned") c.known++; else if (st !== "new") c.practising++;
+  }
+  return c;
+}
+/** Known, practising, seen and ahead in one bar. */
+export function stepsBar(c, cls = "") {
+  const w = (n) => `${((n / Math.max(1, c.all)) * 100).toFixed(1)}%`;
+  return `<div class="steps-bar ${cls}" aria-hidden="true"><span class="st-learned" style="width:${w(c.known)}"></span><span class="st-learning" style="width:${w(c.practising)}"></span><span class="st-seen" style="width:${w(c.seen)}"></span></div>`;
+}
+const metNow = () => new Set([...Object.keys(seenWords()), ...Object.keys(store.mastery())]);
 
 const MODULE_ICON = { "character.book.closed.fill": "book", "text.book.closed.fill": "book", "cup.and.saucer.fill": "cup", "puzzlepiece.fill": "puzzle", "bubble.left.and.bubble.right.fill": "bubbles" };
 const KIND_ICON = { vocabulary: "book", phrases: "bubble", grammar: "puzzle", conversation: "bubbles", contrast: "wave", letters: "book" };
@@ -322,7 +357,8 @@ export function learnScreen() {
   const s = states();
   const swing = [0, 40, 60, 40, 0, -40, -60, -40];
   return `<div class="screen" data-screen="learn">
-    <header class="page-head compact"><h1 class="display">${esc(tr("Learn"))}</h1></header>
+    <header class="page-head compact with-action"><h1 class="display">${esc(tr("Learn"))}</h1>
+      <a class="glass-letter" href="#/alphabet" aria-label="${esc(tr("All 33 letters"))}" data-id="alphabet-shortcut"><span class="ka">ა</span></a></header>
     ${C.course.modules.map((m) => {
       const done = doneIn(m);
       return `<section class="module">
@@ -399,16 +435,36 @@ export function lessonSheet(id, openSheet) {
     <a class="chunky b-${m.color === "gold" ? "pomegranate" : m.color}" href="#/lesson/${l.id}" data-id="preview-start">${icon("play", { size: 18 })}${esc(st === "completed" ? tr("Practise again") : tr("Start"))}</a>`);
 }
 
-// The alphabet chart (AlphabetChartView.swift): every letter, coloured by how well it's known.
+// The 33 letters (AlphabetGrid in AlphabetChartView.swift): a tap plays a letter, a hold opens
+// its card (app.js). In the alphabet screen and in Words › Letters.
+const letterStatus = (c) => { const m = store.mastery()[`letter-${c}`]; return !m ? "new" : isDifficultState(m) ? "difficult" : isLearnedState(m) ? "learned" : "learning"; };
+export function letterGrid() {
+  const letters = C.course.letters;
+  const known = letters.filter((l) => letterStatus(l.char) === "learned").length;
+  return `<div class="letters-head"><strong>${esc(tr("{0} of {1} letters known", known, letters.length))}</strong>
+      <p class="soft">${esc(tr("Mkhedruli: 33 letters, no capitals, one sound each."))}</p>
+      <p class="soft small">${icon("hand", { size: 14 })}${esc(tr("Tap a letter to hear it, hold it for its card."))}</p></div>
+    <div class="letter-grid">${letters.map((l) => `<button class="letter-cell st-${letterStatus(l.char)}" data-say="${esc(l.char)}" data-letter="${esc(l.char)}" aria-label="${esc(`${l.name}, ${l.latin}, ${statusTitle(letterStatus(l.char))}`)}"><span class="ka">${esc(l.char)}</span><small>${esc(l.latin)}</small></button>`).join("")}</div>
+    <div class="legend">${[["new", tr("Not yet")], ["learning", tr("Practising")], ["learned", tr("Known")], ["difficult", tr("Difficult")]].map(([k, t]) => `<span><i class="st-${k}"></i>${esc(t)}</span>`).join("")}</div>
+    <a class="chunky b-pomegranate" href="#/session/letters" data-id="letter-practice">${icon("shuffle", { size: 18 })}${esc(tr("Practise 12 letters"))}</a>`;
+}
+
+/** A letter's card (TeachLetterView): in a lesson, and in the sheet a hold opens. */
+export function teachLetterHTML(l) {
+  return `<div class="teach-letter">
+        <div class="letter-tile" role="img" aria-label="${esc(tr("The letter {0}, written {1}", l.name, l.latin))}">${sun("letter-sun")}<span class="ka">${esc(l.char)}</span></div>
+        <div class="pill-row"><span class="pill c-saperavi">${esc(tr("Name: {0}", l.name))}</span><span class="pill c-blacksea">${esc(tr("Written {0}", l.latin))}</span>${speaker(l.char, { size: 36, slow: true })}</div>
+        ${sourceLabel(l.char) ? `<p class="soft small center letter-source">${esc(sourceLabel(l.char))}</p>` : ""}
+        <div class="card sound-card"><h3>${icon("lips", { size: 26 })}<span>${esc(tr("Sounds like {0}", l.sound))}</span></h3>${l.tip ? `<p>${tapProse(l.tip)}</p>` : ""}</div>
+        <div class="card example-row"><span class="ka">${esc(l.word)}</span><div><strong>${esc(l.wordLatin)}</strong><span class="soft">${esc(l.meaning)}</span></div>${speaker(l.word, { size: 36, slow: true })}</div>
+      </div>`;
+}
+export function letterSheet(char) { const l = C.course.letter(char); return l ? teachLetterHTML(l) : ""; }
+
 export function alphabetScreen() {
-  const ms = store.mastery();
-  const status = (c) => { const m = ms[`letter-${c}`]; return !m ? "new" : isDifficultState(m) ? "difficult" : isLearnedState(m) ? "learned" : "learning"; };
   return `<div class="screen tint-pomegranate">
     ${topBar(tr("ანბანი · Alphabet"))}
-    <p class="soft">${esc(tr("Mkhedruli: 33 letters, no capitals, one sound each."))}</p>
-    <div class="legend">${[["new", tr("New")], ["learning", tr("Learning")], ["learned", tr("Learned")], ["difficult", tr("Difficult")]].map(([k, t]) => `<span><i class="st-${k}"></i>${esc(t)}</span>`).join("")}</div>
-    <div class="letter-grid">${C.course.letters.map((l) => `<button class="letter-cell st-${status(l.char)}" data-say="${esc(l.char)}"><span class="ka">${esc(l.char)}</span><small>${esc(l.latin)}</small></button>`).join("")}</div>
-    <a class="chunky b-pomegranate" href="#/session/letters" data-id="letter-practice">${icon("shuffle", { size: 18 })}${esc(tr("Practise 12 letters"))}</a>
+    ${letterGrid()}
   </div>`;
 }
 
@@ -428,7 +484,11 @@ export function startSession(kind, id) {
   if (kind === "lesson") {
     const l = C.course.lesson(id);
     if (!l) return false;
-    P = { mode: "lesson", lesson: l, title: l.title, tint: brandOfLesson(l), session: new Session(b.exercises(l, r)) };
+    // Words due: offer a warm-up with up to 4 of them first (KART #20, Settings: ask, always, never).
+    const lessonEx = b.exercises(l, r);
+    const warmItems = dueItems().slice(0, WARM_UP_SIZE);
+    const warm = warmItems.length ? b.review(warmItems, r).map((ex) => ({ ...ex, id: `warmup.${ex.id}` })) : [];
+    P = { mode: "lesson", lesson: l, title: l.title, tint: brandOfLesson(l), session: new Session(lessonEx), lessonEx, warm, warmItems, metBefore: metNow() };
   } else {
     let items = [], title = tr("Daily review");
     if (id === "review") { items = dueItems(); if (!items.length) { items = weakest(); title = tr("Practice"); } }
@@ -441,7 +501,41 @@ export function startSession(kind, id) {
     P = { mode: "review", title, tint: "blacksea", session: new Session(b.review(items, r)), items: items.length };
   }
   Object.assign(P, { phase: "answering", pending: null, ev: null, combo: 0, match: null, flipped: false });
+  if (P.mode === "lesson" && P.warm.length) {
+    const mode = store.setting("warmUp") || "ask";
+    if (mode === "ask") P.phase = "warmup"; else if (mode === "always") beginWarmUp();
+  }
   return true;
+}
+
+function beginWarmUp() {
+  const ms = store.mastery();
+  P.warmBefore = Object.fromEntries(P.warmItems.filter((i) => ms[i.id]).map((i) => [i.id, { ...ms[i.id] }]));
+  P.warmedUp = true;
+  P.session = new Session([...P.warm, ...P.lessonEx]);
+  P.phase = "answering";
+}
+const isWarmUp = (ex) => ex.id.startsWith("warmup.");
+
+/** Before a lesson, when words are due: warm up first, or straight to the lesson. */
+function warmUpScreen() {
+  const n = P.warmItems.length;
+  const almost = P.warmItems.filter((i) => (store.mastery()[i.id] || {}).repetitions === 3).length;
+  return `<div class="player tint-${P.tint}" data-screen="warmup">
+    <div class="player-top"><button class="back" data-act="done" aria-label="${esc(tr("Close"))}">${icon("close", { size: 20 })}</button></div>
+    <div class="warmup-body">
+      <img src="icons/mascot-hello.svg" alt="" class="warmup-parrot">
+      <h1 class="display">${esc(tr("Warm up first?"))}</h1>
+      <p class="soft">${esc(plural(n, "word from earlier lessons is ready to come back. About a minute.", "words from earlier lessons are ready to come back. About a minute.",
+        ["słowo z wcześniejszych lekcji czeka na powtórkę. Około minuty.", "słowa z wcześniejszych lekcji czekają na powtórkę. Około minuty.", "słów z wcześniejszych lekcji czeka na powtórkę. Około minuty."]))}</p>
+      ${almost ? `<span class="pill c-tkemali">${icon("check", { size: 14 })}${esc(plural(almost, "could become known", "could become known", ["może stać się znane", "mogą stać się znane", "może stać się znanych"]))}</span>` : ""}
+    </div>
+    <div class="player-bottom">
+      <button class="chunky b-${P.tint}" data-act="warmup-start" data-id="warmup-start">${esc(tr("Warm up, then the lesson"))}</button>
+      <button class="soft-button" data-act="warmup-skip" data-id="warmup-skip">${esc(tr("Skip, start the lesson"))}</button>
+      <p class="soft small center">${esc(tr("You can change this in Settings."))}</p>
+    </div>
+  </div>`;
 }
 const shuffle = (a) => { const o = [...a]; for (let i = o.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [o[i], o[j]] = [o[j], o[i]]; } return o; };
 function weakest() {
@@ -463,6 +557,7 @@ const chars = (s) => [...s].length;
 export function playerScreen() {
   if (!P) return "";
   if (P.phase === "finished") return completeScreen();
+  if (P.phase === "warmup") return warmUpScreen();
   const ex = P.session.current;
   const tint = P.tint;
   return `<div class="player tint-${tint} b-${tint}" data-screen="lesson">
@@ -560,16 +655,7 @@ function optionTile(text, detail, i, { georgian, large, chosen, answer }) {
 function exerciseView(ex) {
   const fb = P.phase === "feedback";
   switch (ex.shape) {
-    case "teachLetter": {
-      const l = ex.letter;
-      return `<div class="teach-letter">
-        <div class="letter-tile" role="img" aria-label="${esc(tr("The letter {0}, written {1}", l.name, l.latin))}">${sun("letter-sun")}<span class="ka">${esc(l.char)}</span></div>
-        <div class="pill-row"><span class="pill c-saperavi">${esc(tr("Name: {0}", l.name))}</span><span class="pill c-blacksea">${esc(tr("Written {0}", l.latin))}</span>${speaker(l.char, { size: 36, slow: true })}</div>
-        ${sourceLabel(l.char) ? `<p class="soft small center letter-source">${esc(sourceLabel(l.char))}</p>` : ""}
-        <div class="card sound-card"><h3>${icon("lips", { size: 26 })}<span>${esc(tr("Sounds like {0}", l.sound))}</span></h3>${l.tip ? `<p>${tapProse(l.tip)}</p>` : ""}</div>
-        <div class="card example-row"><span class="ka">${esc(l.word)}</span><div><strong>${esc(l.wordLatin)}</strong><span class="soft">${esc(l.meaning)}</span></div>${speaker(l.word, { size: 36, slow: true })}</div>
-      </div>`;
-    }
+    case "teachLetter": return teachLetterHTML(ex.letter);
     case "teachWord": {
       const w = ex.word;
       const color = ((C.course.categories || []).find((c) => c.id === w.category) || {}).color || "saperavi";
@@ -690,7 +776,7 @@ function check(answer) {
   const given = a.choice != null ? (ex.options[a.choice] || {}).text || ex.options[a.choice] : a.text ?? (a.tiles ? a.tiles.join(ex.joiner) : "");
   P.session.record(ev, given);
   P.given = given;
-  store.record(ex, ev, { itemIDs: itemIDsFor(ex, ev), inReview: P.mode !== "lesson" });
+  store.record(ex, ev, { itemIDs: itemIDsFor(ex, ev), inReview: P.mode !== "lesson" || isWarmUp(ex) });
   P.ev = ev;
   P.phase = "feedback";
   autoSay(autoSpeech.onCheck(ex, a, ev.verdict !== "wrong"));
@@ -708,7 +794,14 @@ function next() {
     const xpBefore = (store.days()[dayKey()] || {}).xp || 0;
     P.goalReachedNow = false;
     P.newMilestones = [];
-    if (P.mode === "lesson") store.finishLesson(P.lesson.id, summary); else store.finishReview(summary);
+    if (P.mode === "lesson") {
+      store.finishLesson(P.lesson.id, summary);
+      P.newWords = wordProgress.newWords(P.lesson, P.metBefore).map((id) => C.course.word(id)).filter(Boolean);
+      if (P.warmedUp) {
+        const known = new Set(wordProgress.newlyKnown(P.warmItems.map((i) => i.id), P.warmBefore, store.mastery()));
+        P.warmKnown = P.warmItems.filter((i) => known.has(i.id));
+      }
+    } else store.finishReview(summary);
     P.summary = summary;
     P.newMilestones = milestones().filter((m) => m[4] >= 1 && !before.has(m[0]));
     P.goalReachedNow = xpBefore < goal() && ((store.days()[dayKey()] || {}).xp || 0) >= goal();
@@ -740,11 +833,19 @@ function completeScreen() {
       <div class="confetti">${Array.from({ length: 18 }, (_, i) => `<i style="--i:${i}"></i>`).join("")}</div>
       <div class="reward-hero" aria-hidden="true">${sun("reward-sun", ["#F5A623", "#E23B4E", "#7A3BC2", "#F5A623"])}<img src="icons/mascot-cheer.svg" alt="" class="reward-parrot">${s.perfect ? `<span class="crown">${icon("crown", { size: 40 })}</span>` : ""}</div>
       <div class="reward-title" data-id="lesson-complete"><h1 class="display">${esc(title)}</h1><p class="soft strong">${esc(lesson ? lesson.title : P.title)}</p><p class="faint">${esc(tr("ყოჩაღ! (well done!)"))}</p></div>
-      <div class="stat-tiles">
+      ${lesson && P.newWords.length ? `<section class="card new-words" data-id="complete-new-words">
+        <h3>${esc(plural(P.newWords.length, "new word", "new words", ["nowe słowo", "nowe słowa", "nowych słów"]))}</h3>
+        <div class="chip-flow">${P.newWords.map((w) => `<button class="word-chip" data-say="${esc(w.ka)}"><span class="ka">${esc(w.ka)}</span><small>${esc(w.en)}</small></button>`).join("")}</div>
+        <p class="soft small">${esc(tr("They're in your Words list now. Tap one to hear it."))}</p></section>` : ""}
+      ${P.warmedUp ? `<div class="card warmup-done"><span class="check-dot">${icon("check", { size: 18 })}</span><div>
+        <strong>${esc(tr("Warm-up: {0}", plural(P.warmItems.length, "word came back", "words came back", ["słowo wróciło", "słowa wróciły", "słów wróciło"])))}</strong>
+        ${(P.warmKnown || []).length ? `<span class="soft">${esc(tr("Known now: {0}", P.warmKnown.map((i) => i.ka).join(", ")))}</span>` : ""}</div></div>` : ""}
+      <div class="stat-tiles${lesson ? " two" : ""}">
         ${tile("target", `${Math.round(s.accuracy * 100)}%`, tr("Accuracy"), "tkemali")}
-        ${tile("book", learnedCount(false), tr("Words you know"), "saperavi")}
+        ${lesson ? "" : tile("book", learnedCount(false), tr("Words you know"), "saperavi")}
         ${tile("flame", streak(activeDays()), tr("Day streak"), "flame")}
       </div>
+      ${lesson ? (() => { const c = wordCounts(); return `<div class="card all-words"><strong>${esc(tr("All your words: {0} seen · {1} known", c.seen + c.practising + c.known, c.known))}</strong>${stepsBar(c)}</div>`; })() : ""}
       ${goalCard()}
       ${P.newMilestones.map(([t, d, ic, color]) => `<div class="card milestone-new"><span class="badge-core grad b-${color}">${icon(ic, { size: 22 })}</span><div><small class="upper c-tkemali">${esc(tr("Milestone reached"))}</small><strong>${esc(tr(t))}</strong><small class="soft">${esc(tr(d))}</small></div></div>`).join("")}
       ${next && lesson ? `<div class="card next-up"><small class="soft">${esc(tr("Next:"))}</small><strong>${esc(next.title)}</strong></div>` : ""}
@@ -802,7 +903,7 @@ export function playerTap(el) {
     case "recall": check({ recalled: ds.value === "1" }); render({ keepScroll: true }); return true;
     case "pass": {
       if (P.phase === "feedback") { next(); render(); return true; }
-      if (isGraded(ex)) { const right = { verdict: "correct", correct: "", explanation: null }; P.session.record(right, ""); store.record(ex, right, { itemIDs: itemIDsFor(ex, right), inReview: P.mode !== "lesson" }); }
+      if (isGraded(ex)) { const right = { verdict: "correct", correct: "", explanation: null }; P.session.record(right, ""); store.record(ex, right, { itemIDs: itemIDsFor(ex, right), inReview: P.mode !== "lesson" || isWarmUp(ex) }); }
       next(); render();
       return true;
     }
@@ -810,6 +911,8 @@ export function playerTap(el) {
       if (P.phase === "finished" || confirm(`${tr("Leave this lesson?")}\n${tr("Your answers so far are saved, but the lesson won't count as finished.")}`)) { P = null; audio.stop(); goBack(); }
       return true;
     case "done": P = null; goBack(); return true;
+    case "warmup-start": beginWarmUp(); render(); autoplay(); return true;
+    case "warmup-skip": P.phase = "answering"; render(); autoplay(); return true;
     case "replace": P = null; return false;
     default: return false;
   }
@@ -890,9 +993,12 @@ export function wordScreen(id) {
     ${w.example ? `<section class="card"><h3 class="card-title c-saperavi">${icon("bubble", { size: 18 })}${esc(tr("Example"))}</h3>
       <div class="form-row"><div><div class="ka form-ka">${tapGeorgian(w.example.ka)}</div><div class="lat">${esc(w.example.lat)}</div><div>${esc(w.example.en)}</div></div>${speaker(w.example.ka, { size: 36 })}</div></section>` : ""}
     ${w.note ? `<section class="card"><h3 class="card-title c-gold">${icon("bulb", { size: 18 })}${esc(tr("When to use it"))}</h3><p>${tapProse(w.note)}</p></section>` : ""}
-    <section class="card"><h3 class="card-title c-blacksea">${icon("review", { size: 18 })}${esc(tr("Review"))}</h3>
-      <p class="soft">${esc(m ? tr("Right {0} times, missed {1}. Next review {2}.", m.right, m.wrong, rel(m.due)) : tr("Not practised yet."))}</p>
-      <a class="chunky b-blacksea" href="#/session/word:${esc(id)}">${icon("play", { size: 18 })}${esc(tr("Practise this word"))}</a></section>
+    <section class="card"><h3 class="card-title c-blacksea">${icon("review", { size: 18 })}${esc(tr("Your progress"))}<span class="st-pill st-${wordStatus(id)}">${esc(statusTitle(wordStatus(id)))}</span></h3>
+      <p class="soft">${esc(m ? (isLearnedState(m) ? tr("Right {0} times, missed {1}. Next review {2}.", m.right, m.wrong, rel(m.due)) : tr("Right {0} times, missed {1}. Next review {2}. Known after 4 right in a row, on different days.", m.right, m.wrong, rel(m.due))) : tr("Not practised yet."))}</p>
+      ${(() => { const sl = C.course.lesson(seenWords()[id] || ""), fl = !m && !sl ? C.course.lesson(firstLessonOf(id) || "") : null; const l = sl || fl;
+        return l ? `<p class="soft">${esc(tr(sl ? "You saw it in: {0} ({1})" : "It comes in: {0} ({1})", l.title, (C.course.module(l.id) || {}).title || ""))}</p>` : ""; })()}
+      <a class="chunky b-blacksea" href="#/session/word:${esc(id)}">${icon("play", { size: 18 })}${esc(tr("Practise this word"))}</a>
+      ${m ? "" : `<p class="soft small center">${esc(tr("It joins your reviews."))}</p>`}</section>
     ${reportLink({ title: tr("the word {0}", w.ka), lines: [w.ka, w.lat, w.en, w.example ? `${w.example.ka} — ${w.example.en}` : ""].filter(Boolean), id })}
   </div>`;
 }
@@ -994,6 +1100,7 @@ export function profileCards() {
       <label class="field"><span>${esc(tr("Starting point"))}</span><select id="profile-level" class="text-input">${LEVELS().map(([v, t]) => `<option value="${v}"${v === level() ? " selected" : ""}>${esc(t)}</option>`).join("")}</select></label>
       <label class="field"><span>${esc(tr("Daily goal"))}</span><select id="profile-goal" class="text-input">${GOALS().map(([v, t]) => `<option value="${v}"${v === goal() ? " selected" : ""}>${esc(t)}</option>`).join("")}</select>
         <small class="field-note">${esc((GOALS().find(([v]) => v === goal()) || [])[2] || "")}</small></label>
+      <label class="field"><span>${esc(tr("Warm-up before a lesson"))}</span><select id="profile-warmup" class="text-input">${[["ask", tr("Ask")], ["always", tr("Always")], ["never", tr("Never")]].map(([v, t]) => `<option value="${v}"${v === (store.setting("warmUp") || "ask") ? " selected" : ""}>${esc(t)}</option>`).join("")}</select></label>
     </section>`;
 }
 
@@ -1037,6 +1144,7 @@ export function courseChange(e) {
   const t = e.target;
   if (t.id === "profile-name") { store.setProfile({ name: t.value.trim() }); return true; }
   if (t.id === "profile-level") { store.setProfile({ level: t.value }); toast(tr("Saved")); return true; }
+  if (t.id === "profile-warmup") { store.setSetting("warmUp", t.value); toast(tr("Saved")); return true; }
   if (t.id === "profile-goal") { store.setProfile({ goal: +t.value }); const n = t.parentElement.querySelector(".field-note"); if (n) n.textContent = (GOALS().find(([v]) => v === +t.value) || [])[2] || ""; toast(tr("Saved")); return true; }
   if (t.dataset && t.dataset.dev) { store.setSetting(t.dataset.dev, t.checked); render({ keepScroll: true }); return true; }
   if (t.id === "ob-name") { draft.name = t.value; const b = $('[data-id="onboarding-next"]'); if (b) b.textContent = t.value.trim() ? tr("Continue") : tr("Skip"); return true; }

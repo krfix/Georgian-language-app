@@ -195,6 +195,11 @@ async function run({ language, text, width, scheme, shots }) {
   // Lessons: every exercise kind once, a wrong answer's feedback, a right one's, and the end.
   for (const id of lessons) {
     await go(`/lesson/${id}`);
+    // Words are due for this learner: the lesson first offers a warm-up (KART #20).
+    if (await page.waitForSelector('[data-screen="warmup"]', { timeout: 1500 }).catch(() => null)) {
+      await check(`warmup-${id}`);
+      await page.click('[data-id="warmup-skip"]');
+    }
     await page.waitForSelector('[data-screen="lesson"]');
     const seen = new Set();
     for (let n = 0; n < 80 && !(await page.$('[data-screen="complete"]')); n++) {
