@@ -35,6 +35,14 @@ build, ~21 MB less; a saved Eka choice becomes Luka. The welcome voice step read
 Georgian voice" with one card when there is one voice. `add_native.py` now defaults to Luka's
 index.
 
+Released as 0.4.2 (owner: merged without the qa run; TestFlight with Developer mode kept).
+The published web app still played the old Giorgi on the owner's phone: the offline worker
+keeps clips by file name, and Luka's clips had Giorgi's names. Fixed at the root: web/build.py
+publishes each clip as `<name>-<sha1 of the sound, 8>.mp3`, and the worker removes kept clips
+no index names any more when a new version starts (tested in Chromium: an old kept clip is
+removed and the sample loads under its new name). The website's home and support pages now say
+Luka (English and Polish).
+
 ## KART #16 · 26/11/26 · Critical code review; ids and saved data (branch `claude/exciting-newton-v79mv9`)
 
 Owner asked for a strict review of the whole app (no changes), then steps 1 and 2 of its fix

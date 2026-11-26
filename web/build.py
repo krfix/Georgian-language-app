@@ -75,12 +75,18 @@ def main():
         out = {}
         total = 0
         for t, c in sorted(clips.items()):
-            out[t] = [c["file"], c.get("source", "synthetic")]
             src = os.path.join(RES, "Audio", c["file"])
+            # The published name carries a fingerprint of the sound: a clip whose sound changes
+            # (a new voice, a native recording) gets a new name, so a browser never plays a
+            # copy it kept of the old one (KART #18: Luka replaced Giorgi under the same names).
+            with open(src, "rb") as f:
+                tag = hashlib.sha1(f.read()).hexdigest()[:8]
+            name = c["file"][:-4] + "-" + tag + ".mp3"
+            out[t] = [name, c.get("source", "synthetic")]
             total += os.path.getsize(src)
-            if c["file"] not in copied:
-                shutil.copy2(src, os.path.join(DIST, "audio", c["file"]))
-                copied.add(c["file"])
+            if name not in copied:
+                shutil.copy2(src, os.path.join(DIST, "audio", name))
+                copied.add(name)
         dump(out, "audio", f"{voice}.json")
         sizes[voice] = total
     dump(sizes, "audio", "sizes.json")
@@ -100,7 +106,8 @@ def main():
     version = digest.hexdigest()[:10]
     shell = ["./"] + [r for r in shell if r != "index.html"]
     with open(os.path.join(WEB, "sw.js"), encoding="utf-8") as f:
-        sw = f.read().replace("__VERSION__", version).replace("__SHELL__", json.dumps(shell))
+        sw = (f.read().replace("__VERSION__", version).replace("__SHELL__", json.dumps(shell))
+              .replace("__AUDIO_INDEXES__", json.dumps([f"audio/{v}.json" for v in sizes])))
     with open(os.path.join(DIST, "sw.js"), "w", encoding="utf-8") as f:
         f.write(sw)
     with open(os.path.join(DIST, "version.json"), "w") as f:

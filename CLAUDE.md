@@ -210,7 +210,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 - KART #18: **0.4.2**: Luka (ElevenLabs) the only voice, Eka off; the letters a native
   recording changed into Luka's voice; with KART #16's report a mistake, reminders and safer
   saved data. Merged without the qa run (owner); TestFlight. The website's home and support
-  pages still say "Eka or Giorgi": update them when 0.4.2 reaches the App Store.
+  pages say Luka (owner). Web clips are published under a name with a fingerprint of the
+  sound (`web/build.py`), so a browser never replays a kept copy of an old voice.
 
 ## Repos and branches
 - `krfix/Georgian-language-app` (public since KART #15; never commit keys or personal

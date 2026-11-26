@@ -1,7 +1,8 @@
 // Keeps Ara working offline. web/build.py fills in the version and the list of files.
 // - The app and its content are kept when a version installs, and served from this device.
 // - Audio clips are kept the first time they play (or all at once from Settings), in their own
-//   store that survives new versions (a clip's file name changes when its sound does).
+//   store that survives new versions (a clip's published name carries a fingerprint of its
+//   sound, web/build.py); clips no version uses any more are removed when a new one arrives.
 // - A new version replaces the old one as soon as it has installed; its files come from the
 //   network, never from the browser's own short-term copies (which could be the old ones).
 
@@ -9,6 +10,7 @@ const VERSION = "__VERSION__";
 const SHELL = __SHELL__;
 const SHELL_CACHE = `ara-shell-${VERSION}`;
 const AUDIO_CACHE = "ara-audio";
+const AUDIO_INDEXES = __AUDIO_INDEXES__;
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(SHELL_CACHE).then((c) => c.addAll(SHELL.map((u) => new Request(u, { cache: "reload" })))).then(() => self.skipWaiting()));
@@ -20,6 +22,7 @@ self.addEventListener("activate", (event) => {
       if (key.startsWith("ara-shell-") && key !== SHELL_CACHE) await caches.delete(key);
     }
     await self.clients.claim();
+    await pruneAudio();
   })());
 });
 
@@ -34,6 +37,20 @@ self.addEventListener("fetch", (event) => {
   }
   event.respondWith(caches.match(req, { ignoreSearch: true }).then((r) => r || fetch(req)));
 });
+
+// Kept clips this version's indexes don't name (an old voice, an old sound): removed.
+async function pruneAudio() {
+  try {
+    const keep = new Set();
+    for (const idx of AUDIO_INDEXES) {
+      const clips = await (await caches.match(idx, { cacheName: SHELL_CACHE }) || await fetch(idx)).json();
+      for (const c of Object.values(clips)) keep.add(new URL(`audio/${c[0]}`, self.registration.scope).href);
+    }
+    if (!keep.size) return;
+    const cache = await caches.open(AUDIO_CACHE);
+    for (const req of await cache.keys()) if (!keep.has(req.url)) await cache.delete(req);
+  } catch (e) { /* offline or no index: try again with the next version */ }
+}
 
 // Audio: from this device if kept, otherwise fetched whole and kept. Safari asks for audio in
 // byte ranges, so a range is cut from the whole file.
