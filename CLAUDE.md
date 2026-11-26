@@ -10,7 +10,7 @@ Name the chat before answering: `KART #<n> · dd/mm/yy · <2–3 words>`, e.g.
 `KART #2 · 17/11/26 · Words, audio`. KART is short for Kartuli, Georgian's name for itself.
 The date is the owner's day (Asia/Tbilisi). <n> is one more than the highest "KART #" among the
 owner's chats (`list_sessions`); if that can't be read, one more than the last number here:
-KART #16 (26/11/26). The words come from the first request. Rename with `set_session_title`
+KART #18 (26/11/26). The words come from the first request. Rename with `set_session_title`
 (load both tools with ToolSearch if needed); at the end, rename again if the work went
 elsewhere. Without those tools, suggest the name instead. The owner's other app, Logbook, uses
 "HOVR #<n>": don't count those.
@@ -49,7 +49,9 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   voice, made once by `tools/audio/make_audio.py` (key saved in the environment for
   northeurope.tts.speech.microsoft.com, added by the proxy; never in code or chat), indexed
   in `Resources/Audio/audio.json` (Eka) and `audio-giorgi.json`, labelled "Synthetic voice". A native recording can
-  replace a clip (same file, `"source": "native"`). New or changed Georgian text → run the
+  replace a clip (same file, `"source": "native"`); one changed into a voice with ElevenLabs
+  (connected; speaker not to be recognised, never named) is `"converted"`, labelled "Native
+  recording, voice changed", only in that voice (KART #18: Giorgi's letters). New or changed Georgian text → run the
   script again (it only makes missing clips). No clip and no iPhone voice → no speaker
   button and no listening exercise for that text.
 - "What do you think?" means give an opinion and options. Don't build until asked.

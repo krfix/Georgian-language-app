@@ -3,6 +3,24 @@
 Concise record of each work session: what was built, how it was tested, what was found and
 fixed. Newest first.
 
+## KART #18 · 26/11/26 · Alphabet, native voice changed (branch `claude/modest-clarke-r4ynu5`)
+
+A native speaker's recording of the 33 letters, whose speaker doesn't want to be
+recognised, changed into another voice with ElevenLabs' Voice Changer (owner upgraded the
+connected account to Starter, which allows published use). The 31 s recording has the letters
+in order with clear pauses, said as ა, ბა, გა… like the app (checked: every consonant ends in
+the same "a" as ა, no letter names). Converted whole into the account's four Georgian voices;
+Nina and Luka came out clean, Giorgi louder with sound in the pauses, Georgie noisy from შ on.
+A private comparison page let the owner listen; the owner chose Giorgi. Its წ had a hiss
+nearly as loud as the vowel (−8 dB against −14 dB in the original); six re-conversions of
+ც to ჭ were tried, the owner chose the one with background noise removed.
+
+In the app: a third kind of clip, "converted" (`AudioService.ClipKind`), labelled "Native
+recording, voice changed" (Polish too), played only in its own voice; Profile counts it among
+native recordings and its note says so. Web: the same label. `add_native.py` gained `--voice`
+and `--converted`; docs/native-recordings.md has the steps. Not compiled here (no Swift on
+Linux); `check_strings.py` passes.
+
 ## KART #16 · 26/11/26 · Critical code review; ids and saved data (branch `claude/exciting-newton-v79mv9`)
 
 Owner asked for a strict review of the whole app (no changes), then steps 1 and 2 of its fix

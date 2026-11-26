@@ -93,7 +93,7 @@ struct ProfileView: View {
                 } header: {
                     Text(tr("Audio"))
                 } footer: {
-                    Text(tr("Georgian is spoken by Eka or Giorgi, computer voices from Microsoft Azure, and labelled \"Synthetic voice\". A native speaker's recordings will replace their clips one by one and are labelled \"Native recording\"."))
+                    Text(tr("Georgian is spoken by Eka or Giorgi, computer voices from Microsoft Azure, and labelled \"Synthetic voice\". With Giorgi, the alphabet is a native speaker's recording changed into a man's voice, labelled \"Native recording, voice changed\". More native recordings will replace clips one by one and are labelled \"Native recording\"."))
                 }
 
                 Section {

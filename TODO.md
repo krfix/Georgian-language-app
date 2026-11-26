@@ -19,6 +19,9 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       Words › More words (გული, heart). The UI tests for these haven't run (no qa run yet).
 - [ ] Native recordings of the 33 letters (KART #16, idea from Kargi): a speaker records them
       as in docs/native-recordings.md; `tools/audio/add_native.py` puts them in.
+      KART #18: done for Giorgi's voice (a native recording changed into ElevenLabs' male
+      "Giorgi" voice, labelled "Native recording, voice changed"). Still to decide: Eka's
+      letters (the same recording changed into ElevenLabs' "Nina", or a new speaker).
 - [ ] App Store screenshots and the website's phone screens still show "Ana" on Home; the demo
       learner is Lena since KART #16. Remake them at the next screenshot run.
 - [ ] A native speaker's check of the course and the phrasebook (`tools/curriculum/content_*.py`).

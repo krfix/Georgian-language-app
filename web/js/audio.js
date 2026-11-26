@@ -1,6 +1,7 @@
 // The Georgian clips: one per text in each voice (Eka, female; Giorgi, male), made once by
 // tools/audio/make_audio.py and labelled "Synthetic voice" (or "Native recording" when a
-// native speaker's clip replaces one). No clip → no speaker button. Nothing is generated here.
+// native speaker's clip replaces one, "Native recording, voice changed" when it was changed
+// into this voice). No clip → no speaker button. Nothing is generated here.
 
 const indexes = { eka: null, giorgi: null };
 let voice = "eka";
@@ -30,7 +31,7 @@ export function index(v = voice) { return indexes[v] || {}; }
 
 export function canPlay(text) { return !!(text && index()[text]); }
 
-/** "synthetic" or "native", or null without a clip. */
+/** "synthetic", "native" or "converted", or null without a clip. */
 export function source(text) { const c = index()[text]; return c ? c[1] : null; }
 
 export function isPlaying(text) { return playing === text; }

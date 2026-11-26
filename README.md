@@ -80,8 +80,10 @@ glossary and the More words list (see CLAUDE.md).
 Every Georgian text with a speaker button has a clip in two synthetic voices from Microsoft
 Azure, **Eka** (female) and **Giorgi** (male): 1,460 texts each, about 45 MB, made once by
 `tools/audio/make_audio.py` and labelled "Synthetic voice". The learner picks the voice on
-the welcome steps or in Profile. No native recordings are included yet; they can replace any
-clip later without code changes and are labelled "Native recording" (TODO.md). Without a
+the welcome steps or in Profile. A native recording can replace any clip without code changes
+and is labelled "Native recording" (docs/native-recordings.md). In Giorgi's voice the 33
+letters are a native speaker's recording changed into a male voice with ElevenLabs' Voice
+Changer (the speaker asked not to be recognisable), labelled "Native recording, voice changed". Without a
 clip, the iPhone's own Georgian voice is used if it has one; otherwise there's no speaker
 button.
 

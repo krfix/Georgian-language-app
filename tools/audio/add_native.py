@@ -12,6 +12,10 @@ and is marked "native" in audio.json: the app and the web then label it "Native 
 and play it whichever voice the learner chose. Giorgi's synthetic clip stays as a spare.
 Recordings whose name isn't a text in the app are listed and left out.
 Options: --audio <dir> works on another copy of Resources/Audio (for trying it out).
+  --voice giorgi --converted: a native recording changed into another voice (ElevenLabs'
+  Voice Changer, for a speaker who doesn't want to be recognised). It replaces only that
+  voice's clip, is marked "converted" and labelled "Native recording, voice changed"; the
+  other voice keeps its own clip.
 """
 import json
 import os
@@ -26,6 +30,14 @@ AUDIO = os.path.join(HERE, "..", "..", "Georgian", "Resources", "Audio")
 def main():
     args = sys.argv[1:]
     audio_dir = AUDIO
+    index_name, source = "audio.json", "native"
+    if "--voice" in args:
+        i = args.index("--voice")
+        index_name = {"eka": "audio.json", "giorgi": "audio-giorgi.json"}[args[i + 1]]
+        del args[i:i + 2]
+    if "--converted" in args:
+        args.remove("--converted")
+        source = "converted"
     if "--audio" in args:
         i = args.index("--audio")
         audio_dir = args[i + 1]
@@ -33,7 +45,7 @@ def main():
     if len(args) != 1:
         sys.exit(__doc__)
     folder = args[0]
-    index_path = os.path.join(audio_dir, "audio.json")
+    index_path = os.path.join(audio_dir, index_name)
     with open(index_path, encoding="utf-8") as f:
         index = json.load(f)
     clips = index["clips"]
@@ -53,16 +65,18 @@ def main():
                     "loudnorm=I=-18:TP=-2:LRA=7",
              "-ac", "1", "-ar", "24000", "-b:a", "48k", out],
             check=True)
-        clips[text]["source"] = "native"
+        clips[text]["source"] = source
         done.append(text)
     with open(index_path, "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, indent=1)
         f.write("\n")
-    print(f"native recordings in place: {len(done)}" + (f" ({', '.join(done)})" if len(done) <= 40 else ""))
+    print(f"{source} recordings in place: {len(done)}" + (f" ({', '.join(done)})" if len(done) <= 40 else ""))
     if unknown:
         print(f"not a text in the app, left out: {', '.join(unknown)}")
-    native = sum(1 for c in clips.values() if c.get("source") == "native")
-    print(f"audio.json: {native} native, {len(clips) - native} synthetic")
+    counts = {}
+    for c in clips.values():
+        counts[c.get("source", "synthetic")] = counts.get(c.get("source", "synthetic"), 0) + 1
+    print(f"{index_name}: " + ", ".join(f"{n} {k}" for k, n in sorted(counts.items())))
 
 
 if __name__ == "__main__":

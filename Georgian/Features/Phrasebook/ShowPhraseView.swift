@@ -121,7 +121,7 @@ struct ShowPhraseView: View {
                     .buttonStyle(.pressable)
                     .accessibilityLabel(tr("Play slowly"))
                 }
-                Text(audio.source(for: phrase.ka)?.isSynthetic == false ? tr("Native recording") : tr("Synthetic voice"))
+                Text(audio.source(for: phrase.ka)?.label ?? tr("Synthetic voice"))
                     .font(.caption2)
                     .foregroundStyle(.white.opacity(0.4))
             }

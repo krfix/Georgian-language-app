@@ -84,6 +84,7 @@ struct ExerciseView: View {
 struct TeachLetterView: View {
     let letter: LetterInfo
     @State private var appeared = false
+    @Environment(AudioService.self) private var audio
 
     var body: some View {
         VStack(spacing: 20) {
@@ -107,6 +108,14 @@ struct TeachLetterView: View {
                 SpeakerButton(text: letter.char, size: 36)
             }
             .frame(maxWidth: .infinity)
+            if let source = audio.source(for: letter.char) {
+                // Who says the letter: always labelled (CLAUDE.md, audio).
+                Label(source.label, systemImage: source.isSynthetic ? "waveform" : "person.wave.2.fill")
+                    .font(.caption)
+                    .foregroundStyle(Palette.inkSoft)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, -12)
+            }
 
             VStack(alignment: .leading, spacing: 10) {
                 Label(tr("Sounds like {0}", letter.sound), systemImage: "mouth.fill")

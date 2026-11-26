@@ -563,6 +563,7 @@ function exerciseView(ex) {
       return `<div class="teach-letter">
         <div class="letter-tile" role="img" aria-label="${esc(tr("The letter {0}, written {1}", l.name, l.latin))}">${sun("letter-sun")}<span class="ka">${esc(l.char)}</span></div>
         <div class="pill-row"><span class="pill c-saperavi">${esc(tr("Name: {0}", l.name))}</span><span class="pill c-blacksea">${esc(tr("Written {0}", l.latin))}</span>${speaker(l.char, { size: 36, slow: true })}</div>
+        ${sourceLabel(l.char) ? `<p class="soft small center letter-source">${esc(sourceLabel(l.char))}</p>` : ""}
         <div class="card sound-card"><h3>${icon("lips", { size: 26 })}<span>${esc(tr("Sounds like {0}", l.sound))}</span></h3>${l.tip ? `<p>${tapProse(l.tip)}</p>` : ""}</div>
         <div class="card example-row"><span class="ka">${esc(l.word)}</span><div><strong>${esc(l.wordLatin)}</strong><span class="soft">${esc(l.meaning)}</span></div>${speaker(l.word, { size: 36, slow: true })}</div>
       </div>`;

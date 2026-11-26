@@ -82,7 +82,9 @@ function speaker(text, { size = 40, cls = "", slow = false } = {}) {
 function sourceLabel(text) {
   const s = audio.source(text);
   if (!s) return "";
-  return s === "native" ? tr("Native recording") : tr("Synthetic voice");
+  if (s === "native") return tr("Native recording");
+  if (s === "converted") return tr("Native recording, voice changed");
+  return tr("Synthetic voice");
 }
 
 let toastTimer = null;

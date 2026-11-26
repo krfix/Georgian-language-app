@@ -7,22 +7,51 @@ import Observation
 ///   `audio-giorgi.json` for Giorgi: text → file): Azure's voices, made once by
 ///   tools/audio/make_audio.py and marked "synthetic". The learner picks the voice
 ///   (`Voice`, onboarding and Profile). A native speaker's recording can replace any clip
-///   and is marked "native"; a native recording plays whichever voice is chosen.
+///   and is marked "native"; a native recording plays whichever voice is chosen. A native
+///   recording changed into one voice (for a speaker who doesn't want to be recognised) is
+///   marked "converted" and plays only in that voice.
 /// - **The iPhone's own Georgian voice**, only if this iPhone really has one, for any text
 ///   without a clip.
 /// When neither exists for a text, nothing pretends to speak: no speaker button, and no
 /// listening exercise for it.
 @MainActor @Observable
 final class AudioService: NSObject {
+    /// Who speaks in a clip, as `source` in the audio index says.
+    enum ClipKind: Equatable {
+        /// An Azure voice ("synthetic").
+        case synthetic
+        /// A person's recording ("native").
+        case native
+        /// A person's recording changed into the chosen voice ("converted").
+        case converted
+
+        init(_ source: String) {
+            switch source {
+            case "native": self = .native
+            case "converted": self = .converted
+            default: self = .synthetic
+            }
+        }
+    }
+
     enum Source: Equatable {
-        /// A clip in the app; `native` when a person recorded it.
-        case clip(URL, native: Bool)
+        /// A clip in the app.
+        case clip(URL, kind: ClipKind)
         /// The iPhone's own Georgian voice.
         case systemVoice
 
         var isSynthetic: Bool {
-            if case .clip(_, let native) = self { return !native }
+            if case .clip(_, let kind) = self { return kind == .synthetic }
             return true
+        }
+
+        /// The tag shown next to the speaker.
+        var label: String {
+            switch self {
+            case .clip(_, .native): return tr("Native recording")
+            case .clip(_, .converted): return tr("Native recording, voice changed")
+            default: return tr("Synthetic voice")
+            }
         }
     }
 
@@ -107,10 +136,10 @@ final class AudioService: NSObject {
         let chosen = voice ?? self.voice
         let order = [chosen] + Voice.allCases.filter { $0 != chosen }
         for v in order {
-            if let clip = clipsByVoice[v]?[text], clip.source == "native", let url = clipURL(clip) { return .clip(url, native: true) }
+            if let clip = clipsByVoice[v]?[text], clip.source == "native", let url = clipURL(clip) { return .clip(url, kind: .native) }
         }
         for v in order {
-            if let clip = clipsByVoice[v]?[text], let url = clipURL(clip) { return .clip(url, native: clip.source == "native") }
+            if let clip = clipsByVoice[v]?[text], let url = clipURL(clip) { return .clip(url, kind: ClipKind(clip.source)) }
         }
         return georgianVoice == nil ? nil : .systemVoice
     }
@@ -120,8 +149,9 @@ final class AudioService: NSObject {
 
     func canPlay(_ text: String) -> Bool { source(for: text) != nil }
 
-    var syntheticClipCount: Int { clips.values.filter { $0.source != "native" }.count }
-    var nativeClipCount: Int { clips.values.filter { $0.source == "native" }.count }
+    var syntheticClipCount: Int { clips.values.filter { ClipKind($0.source) == .synthetic }.count }
+    /// A person's recordings in the chosen voice: native, or changed into this voice.
+    var nativeClipCount: Int { clips.values.filter { ClipKind($0.source) != .synthetic }.count }
     var hasAnyAudio: Bool { georgianVoice != nil || !clips.isEmpty }
 
     func isPlaying(_ text: String) -> Bool {
@@ -201,7 +231,7 @@ extension AudioService: AVSpeechSynthesizerDelegate, AVAudioPlayerDelegate {
 struct AudioIndex: Decodable {
     struct Clip: Decodable {
         let file: String
-        /// "synthetic" or "native".
+        /// "synthetic", "native" or "converted".
         let source: String
     }
 

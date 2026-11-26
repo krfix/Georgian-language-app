@@ -60,3 +60,22 @@ the phrasebook's most used phrases (docs/content-quality.md lists what to check 
    `"source": "native"` in `Resources/Audio/audio.json`. Names it doesn't know are listed.
 3. Listen to a few, build (`python3 web/build.py` for the web too), and update the wording
    that says the voices are synthetic where it's no longer true for everything.
+
+## A speaker who doesn't want to be recognised (KART #18)
+A recording can be changed into another voice with ElevenLabs' Voice Changer (speech to
+speech: the speaker's timing and pronunciation, another voice's sound). It is labelled "Native
+recording, voice changed" ("source": "converted") and plays only in the voice it was put
+into. Don't name the speaker or where the recording came from anywhere in this public repo.
+
+What was done for the letters, with the account connected to the cloud session (Starter plan,
+which allows published use):
+1. The speaker's one recording of the 33 letters (said as ა, ბა, გა…) was converted whole, so all
+   letters sound alike: `POST /v1/speech-to-speech/<voice id>`, `model_id`
+   `eleven_multilingual_sts_v2`. The timing doesn't change, so the letters were cut at the
+   pauses found in the original (ffmpeg `silencedetect`, −40 dB, 0.12 s).
+2. Voices compared by ear (the account's Georgian voices: Nina, female; Giorgi, Georgie and
+   Luka, male). The owner chose **Giorgi** (`Nv45676mL9ReG4hX7uGA`). Its წ came out with
+   a far too loud hiss; ც to ჭ were converted again on their own, with
+   `remove_background_noise=true`, and that წ replaced it.
+3. `python3 tools/audio/add_native.py --voice giorgi --converted <folder>` put them in
+   `audio-giorgi.json`; Eka's letters stay synthetic.
