@@ -62,6 +62,14 @@ a change in value); after Check only a wrong answer plays, with the right Georgi
 to read, or the listening clip again). Checked in Chromium: a right letter answer plays nothing
 after Check, a wrong one plays the letter.
 
+Web "Check for updates" (owner, after GitHub served the old version for some minutes): in
+Settings beside the version, it fetches version.json past the offline copy (the worker passes
+`cache: "no-store"` requests to the network), and if it's newer runs the worker update and
+reloads on takeover; otherwise says it's the newest, that the new version is still on its way
+(after 15 s), or that there's no connection. The worker is registered with
+`updateViaCache: "none"`; the version line fills in once known. Tested in Chromium with a
+version swapped on the server: same, newer (reloaded to it), offline.
+
 ## KART #16 · 26/11/26 · Critical code review; ids and saved data (branch `claude/exciting-newton-v79mv9`)
 
 Owner asked for a strict review of the whole app (no changes), then steps 1 and 2 of its fix

@@ -706,7 +706,7 @@ function settingsScreen() {
       ${checkNote()}
       <p class="soft small">${esc(tr("Nothing you do here leaves this device: no account, no tracking. Saved phrases and settings stay in this browser."))}</p>
       <p class="links"><a href="${PRIVACY_URL}" target="_blank" rel="noopener">${esc(tr("Privacy"))}</a> · <a href="${HOME_URL}" target="_blank" rel="noopener">aralearn.github.io</a></p>
-      <p class="faint small" id="version"></p>
+      <div class="version-row"><p class="faint small" id="version"></p><button class="soft-button small-button" data-update-check data-id="check-updates">${esc(tr("Check for updates"))}</button></div>
     </section>
     ${course.dangerCards()}
   </div>`;
@@ -1013,6 +1013,7 @@ document.addEventListener("click", async (e) => {
   if (ds.say !== undefined) { audio.toggle(ds.say); return; }
   if (ds.saySlow !== undefined) { audio.play(ds.saySlow, { slow: true }); return; }
   if (ds.sample) { audio.play(audio.SAMPLE, { v: ds.sample }); return; }
+  if ("updateCheck" in ds) { checkForUpdate(el); return; }
   if (ds.pick !== undefined) { pick(ds.pick); return; }
   if (ds.sub !== undefined) { categorySub[ds.cat] = ds.sub || null; render({ keepScroll: true }); return; }
   if (ds.dtoggle) { dialogueState[ds.dtoggle] = !dialogueState[ds.dtoggle]; render({ keepScroll: true }); return; }
@@ -1195,11 +1196,43 @@ async function start() {
     throw err;
   }
   fetch("audio/sizes.json").then((r) => r.json()).then((s) => { audioSizes = s; }).catch(() => {});
-  fetch("version.json").then((r) => r.json()).then((v) => { window.ARA_VERSION = v.version; }).catch(() => {});
+  fetch("version.json").then((r) => r.json()).then((v) => {
+    window.ARA_VERSION = v.version;
+    const el = $("#version");
+    if (el) el.textContent = tr("Version {0}", v.version);
+  }).catch(() => {});
   labelTabs();
   render();
   document.body.classList.add("ready");
   watchForUpdates();
+}
+
+// "Check for updates" (Settings, owner KART #18): asks the server itself which version is
+// newest (past this device's offline copy), and if it's newer, installs it and reloads.
+let updatingNow = false;
+async function checkForUpdate(button) {
+  if (button) button.disabled = true;
+  try {
+    const latest = (await (await fetch("version.json", { cache: "no-store" })).json()).version;
+    if (latest === window.ARA_VERSION) { toast(tr("You have the newest version.")); if (button) button.disabled = false; return; }
+    toast(tr("Updating…"));
+    updatingNow = true;
+    const reg = "serviceWorker" in navigator ? await navigator.serviceWorker.getRegistration() : null;
+    if (!reg) { location.reload(); return; }
+    await reg.update();
+    // The new version takes over (controllerchange reloads); if the server still hands out the
+    // old one (GitHub keeps copies for up to ten minutes), say so.
+    setTimeout(() => {
+      if (!updatingNow) return;
+      updatingNow = false;
+      toast(tr("The new version is still on its way. Try again in a few minutes."));
+      if (button) button.disabled = false;
+    }, 15000);
+    return;
+  } catch {
+    toast(tr("No connection. Try again when you're online."));
+  }
+  if (button) button.disabled = false;
 }
 
 // New versions: looked for at start, whenever Ara comes back to the screen (a Home Screen app
@@ -1209,13 +1242,14 @@ function watchForUpdates() {
   if (!("serviceWorker" in navigator) || location.protocol === "file:") return;
   const hadOne = !!navigator.serviceWorker.controller;
   const opened = Date.now();
-  navigator.serviceWorker.register("sw.js").then((reg) => {
+  navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).then((reg) => {
     const check = () => reg.update().catch(() => {});
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") check(); });
     setInterval(check, 30 * 60e3);
   }).catch(() => {});
   navigator.serviceWorker.addEventListener("controllerchange", () => {
     if (!hadOne) return; // the very first install: this page is already the newest
+    if (updatingNow) { updatingNow = false; location.reload(); return; }
     if (Date.now() - opened < 5000 && !course.hasSession()) { location.reload(); return; }
     if ($("#update-bar")) return;
     const bar = document.createElement("div");

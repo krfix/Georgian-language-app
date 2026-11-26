@@ -258,6 +258,9 @@ a:active, button:active:not(:disabled) { transform: scale(0.96); }
   background: var(--surface); border: 2px solid var(--line); box-shadow: 0 4px 0 var(--line); font-weight: 800; margin-bottom: 4px;
 }
 .soft-button:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--line); }
+.version-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.version-row p { margin: 0; }
+.soft-button.small-button { width: auto; min-height: 40px; padding: 6px 14px; font-size: 0.85rem; margin-bottom: 0; }
 
 /* Chips */
 .chips, .suggestions { display: flex; gap: 8px; overflow-x: auto; padding: 4px var(--gutter); margin: 0 calc(-1 * var(--gutter)); scrollbar-width: none; }

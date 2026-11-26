@@ -589,6 +589,11 @@ PL = {
     "Show all {0}": "Pokaż wszystkie ({0})",
     "A new version of Ara is ready": "Nowa wersja Ary jest gotowa",
     "Update": "Odśwież",
+    "Check for updates": "Sprawdź aktualizacje",
+    "You have the newest version.": "Masz najnowszą wersję.",
+    "Updating…": "Aktualizuję…",
+    "The new version is still on its way. Try again in a few minutes.": "Nowa wersja jest jeszcze w drodze. Spróbuj ponownie za kilka minut.",
+    "No connection. Try again when you're online.": "Brak połączenia. Spróbuj ponownie, gdy będziesz online.",
 }
 
 if __name__ == "__main__":

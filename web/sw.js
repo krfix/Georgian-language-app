@@ -30,6 +30,8 @@ self.addEventListener("fetch", (event) => {
   const req = event.request;
   const url = new URL(req.url);
   if (req.method !== "GET" || url.origin !== location.origin) return;
+  // "Check for updates" asks the server itself, never this device's copy.
+  if (req.cache === "no-store") { event.respondWith(fetch(req)); return; }
   if (url.pathname.endsWith(".mp3")) { event.respondWith(clip(req)); return; }
   if (req.mode === "navigate") {
     event.respondWith(caches.match("./", { cacheName: SHELL_CACHE }).then((r) => r || fetch(req)));
