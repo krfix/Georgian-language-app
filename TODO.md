@@ -17,10 +17,6 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
       (a native clip plays whichever voice is chosen); the app labels them "Native recording".
 - [ ] Try 0.2.1 on the iPhone: the voice step on a fresh start, Profile › Voice, and Learn ›
       Words › More words (გული, heart). The UI tests for these haven't run (no qa run yet).
-- [ ] Privacy page (website repo, EN and PL), before a build with "Report a mistake" goes beyond
-      friends (KART #16): one sentence under "What the app does not do": "Report a mistake opens
-      your own email app with a message about that phrase or exercise; nothing is sent unless you
-      send it, and we see only what you send." Then republish (owner's say-so).
 - [ ] Native recordings of the 33 letters (KART #16, idea from Kargi): a speaker records them
       as in docs/native-recordings.md; `tools/audio/add_native.py` puts them in.
 - [ ] App Store screenshots and the website's phone screens still show "Ana" on Home; the demo

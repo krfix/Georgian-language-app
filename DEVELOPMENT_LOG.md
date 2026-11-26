@@ -53,7 +53,10 @@ environment's allowed hosts. Owner chose to take three of its good ideas and ren
   მქვია", Polish "Miło mi, Leno!"); glossary, new clips in both voices (old ones deleted),
   x-lena registered. Screenshots still showing Ana: TODO.md.
 Checked here: content build, Polish table, web build, engine and search tests, the web phrase
-card and lesson top bar at iPhone size, the mailto text. The iPhone part waits for the Mac.
+card and lesson top bar at iPhone size, the mailto text. Build #77 compiled and passed the tests.
+Privacy page (website, EN and PL, 26/11/26): "Report a mistake" opens the learner's own email
+app, nothing sent unless they send it; and the welcome screen's optional name (the page had said
+the app doesn't ask for a name). Merged to main on the owner's word, without a qa run.
 
 ## KART #15 · 25/11/26 · Grapevine pictures (branch `claude/focused-edison-ci3czr`)
 
