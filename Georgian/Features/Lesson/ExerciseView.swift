@@ -57,7 +57,12 @@ struct ExerciseView: View {
         Binding(get: {
             if case .choice(let i) = model.pending { return i }
             return nil
-        }, set: { model.pending = $0.map(Answer.choice) })
+        }, set: { new in
+            // Called on every tap, the same answer again included: each one is heard.
+            let old = model.pending
+            model.pending = new.map(Answer.choice)
+            model.picked(from: old, to: model.pending)
+        })
     }
 
     private var textBinding: Binding<String> {
@@ -71,7 +76,9 @@ struct ExerciseView: View {
         Binding(get: { tileIndices }, set: { indices in
             tileIndices = indices
             if case .tiles(let t) = exercise.content {
+                let old = model.pending
                 model.pending = indices.isEmpty ? nil : .tiles(indices.map { t.bank[$0] })
+                model.picked(from: old, to: model.pending)
             }
         })
     }

@@ -26,7 +26,6 @@ struct LessonPlayerView: View {
                 m.showed()
             }
         }
-        .onChange(of: model?.pending) { old, new in model?.picked(from: old, to: new) }
         .onDisappear { audio.stop() }
         .environment(\.lessonTint, tint)
         .saveProblemAlert()

@@ -55,6 +55,13 @@ Logic tests (Swift and web, 26 and 21 checks); in Chromium the letter card playe
 the letter question stayed silent until Check, a phrase card played, and nothing with the
 switch off. Reverses KART #9's "no sound without a tap" on the web.
 
+Owner, after build #85: every tapped answer should speak, each time, and a right answer
+shouldn't play again after Check. Now every Georgian answer tapped speaks (the same one again,
+letters, matching letters and spelling tiles included; the hook is the answer's setter, not
+a change in value); after Check only a wrong answer plays, with the right Georgian (or the word
+to read, or the listening clip again). Checked in Chromium: a right letter answer plays nothing
+after Check, a wrong one plays the letter.
+
 ## KART #16 · 26/11/26 · Critical code review; ids and saved data (branch `claude/exciting-newton-v79mv9`)
 
 Owner asked for a strict review of the whole app (no changes), then steps 1 and 2 of its fix

@@ -1,9 +1,9 @@
 import Foundation
 
-/// What a lesson says aloud by itself (owner, KART #18: "play by itself when I open a card
-/// and when I select an answer"), when "Play Georgian automatically" is on. One rule
-/// throughout: never before the answer if hearing it would give the answer away (reading a
-/// word, recognising a letter by its sound, matching letters); those are heard after Check.
+/// What a lesson says aloud by itself (owner, KART #18), when "Play Georgian automatically"
+/// is on: the Georgian on screen as an exercise appears, unless hearing it first would give
+/// the answer away (a word to read, a letter to recognise, a gap); every Georgian answer the
+/// learner taps, each time; and after Check, only a wrong answer, with the right Georgian.
 /// Listening exercises play their sound themselves, whatever the setting. The web app has
 /// the same rules (web/js/engine.js `autoSpeech`): change both together.
 enum AutoSpeech {
@@ -25,17 +25,17 @@ enum AutoSpeech {
         }
     }
 
-    /// The learner picks an answer (before Check): the Georgian they picked.
+    /// The learner taps an answer (before Check), every time, even the same one again: the
+    /// Georgian they tapped (owner, KART #18). English or Latin answers have none.
     static func onPick(_ ex: Exercise, from old: Answer?, to new: Answer?) -> String? {
         switch (ex.content, new) {
         case (.choice(let c), .choice(let i)?):
-            guard c.optionsAreGeorgian, !givesAway(ex.kind), c.options.indices.contains(i) else { return nil }
+            guard c.optionsAreGeorgian, c.options.indices.contains(i) else { return nil }
             return c.options[i].text
         case (.dialogue(let d), .choice(let i)?):
             return d.options.indices.contains(i) ? d.options[i] : nil
-        case (.tiles(let t), .tiles(let now)?):
-            // A word tile just added to a sentence (letters alone would spell the answer out).
-            guard !t.isSpelling else { return nil }
+        case (.tiles, .tiles(let now)?):
+            // The tile just added (a word, or a letter when spelling).
             var before: [String] = []
             if case .tiles(let b)? = old { before = b }
             guard now.count > before.count else { return nil }
@@ -44,38 +44,35 @@ enum AutoSpeech {
         }
     }
 
-    /// A tile tapped in a matching exercise: a Georgian word, never a single letter (its
-    /// sound would show which Latin letter it goes with).
-    static func onMatchTap(_ georgian: String) -> String? {
-        georgian.count > 1 ? georgian : nil
-    }
+    /// A Georgian tile tapped in a matching exercise.
+    static func onMatchTap(_ georgian: String) -> String? { georgian }
 
-    /// The answer has been checked: the whole Georgian, once it can't give anything away.
+    /// The answer has been checked. Right: nothing more (it was heard when tapped). Wrong: the
+    /// right Georgian once (the gap filled, the sentence built, the right option or reply, or
+    /// the word or letter that was to be read or heard).
     static func onCheck(_ ex: Exercise, given: Answer, correct: Bool) -> String? {
+        guard !correct else { return nil }
         switch ex.content {
         case .choice(let c):
             guard c.options.indices.contains(c.answer) else { return nil }
             let right = c.options[c.answer].text
-            if ex.kind == .listening { return nil }  // already heard
             if c.promptIsGeorgian && c.prompt.contains("_") {
-                // The word or sentence with its gap filled.
                 let gap = c.prompt.contains("___") ? "___" : "_"
                 return c.prompt.replacingOccurrences(of: gap, with: right)
             }
-            if givesAway(ex.kind) { return c.promptIsGeorgian ? c.prompt : (c.optionsAreGeorgian ? right : nil) }
-            // Georgian options: the right one, if a wrong one was picked (that one was heard).
-            if c.optionsAreGeorgian && !correct { return right }
-            return nil
+            if c.optionsAreGeorgian { return right }
+            if let audio = c.audioText { return audio }
+            return c.promptIsGeorgian ? c.prompt : nil
         case .tiles(let t):
             return t.answer.joined(separator: t.joiner)
         case .dialogue(let d):
-            return correct ? nil : d.line.ka
+            return d.line.ka
         default:
             return nil
         }
     }
 
-    /// Exercises where hearing the Georgian before answering tells you the answer.
+    /// Exercises where hearing the Georgian as they appear tells you the answer.
     static func givesAway(_ kind: ExerciseKind) -> Bool {
         [.letterRecognition, .reading, .listening].contains(kind)
     }

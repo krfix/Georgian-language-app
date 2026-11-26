@@ -76,7 +76,7 @@ struct MatchingExerciseView: View {
 
     private func tap(_ id: String, side: Side) {
         Haptics.select()
-        if side == .georgian, pickedLeft != id, let pair = pairs.first(where: { $0.id == id }) {
+        if side == .georgian, let pair = pairs.first(where: { $0.id == id }) {
             audio.autoSay(AutoSpeech.onMatchTap(pair.georgian))
         }
         withMotion(Motion.spring) {

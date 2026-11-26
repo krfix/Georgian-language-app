@@ -456,9 +456,9 @@ export class Builder {
 
 // ---------------------------------------------------------------------------------------
 // Automatic playback (Engine/AutoSpeech.swift, KART #18): what a lesson says by itself when
-// "Play Georgian automatically" is on. Never before the answer if hearing it would give the
-// answer away (reading, letter recognition, letters in matching): those are heard after
-// Check. Listening exercises play themselves whatever the setting. Change both together.
+// "Play Georgian automatically" is on: the Georgian on screen as an exercise appears (not
+// where that gives the answer away), every Georgian answer tapped, and after Check only a
+// wrong answer, with the right Georgian. Listening plays itself whatever the setting.
 
 const GIVES_AWAY = new Set(["letterRecognition", "reading", "listening"]);
 
@@ -475,34 +475,33 @@ export const autoSpeech = {
       default: return null;
     }
   },
-  /** The learner picks an answer (before Check): the Georgian they picked. */
+  /** The learner taps an answer (before Check), every time: the Georgian they tapped. */
   onPick(ex, before, now) {
     if (!now) return null;
-    if (ex.shape === "choice" && now.choice !== undefined) {
-      return ex.optionsAreGeorgian && !GIVES_AWAY.has(ex.kind) && ex.options[now.choice] ? ex.options[now.choice].text : null;
-    }
+    if (ex.shape === "choice" && now.choice !== undefined) return ex.optionsAreGeorgian && ex.options[now.choice] ? ex.options[now.choice].text : null;
     if (ex.shape === "dialogue" && now.choice !== undefined) return ex.options[now.choice] || null;
     if (ex.shape === "tiles" && now.tiles) {
-      if (ex.isSpelling) return null;
       const had = (before && before.tiles) || [];
       return now.tiles.length > had.length ? now.tiles[now.tiles.length - 1] : null;
     }
     return null;
   },
-  /** A tile tapped in matching: a Georgian word, never a single letter. */
-  onMatchTap(georgian) { return [...georgian].length > 1 ? georgian : null; },
-  /** The answer has been checked: the whole Georgian, once it can't give anything away. */
+  /** A Georgian tile tapped in matching. */
+  onMatchTap(georgian) { return georgian; },
+  /** After Check: right, nothing more; wrong, the right Georgian once. */
   onCheck(ex, given, correct) {
+    if (correct) return null;
     if (ex.shape === "choice") {
       const opt = ex.options[ex.answer];
-      if (!opt || ex.kind === "listening") return null;
+      if (!opt) return null;
       const right = opt.text;
       if (ex.promptIsGeorgian && ex.prompt.includes("_")) return ex.prompt.split(ex.prompt.includes("___") ? "___" : "_").join(right);
-      if (GIVES_AWAY.has(ex.kind)) return ex.promptIsGeorgian ? ex.prompt : ex.optionsAreGeorgian ? right : null;
-      return ex.optionsAreGeorgian && !correct ? right : null;
+      if (ex.optionsAreGeorgian) return right;
+      if (ex.audioText) return ex.audioText;
+      return ex.promptIsGeorgian ? ex.prompt : null;
     }
     if (ex.shape === "tiles") return ex.answer.join(ex.joiner);
-    if (ex.shape === "dialogue") return correct ? null : ex.line.ka;
+    if (ex.shape === "dialogue") return ex.line.ka;
     return null;
   },
 };

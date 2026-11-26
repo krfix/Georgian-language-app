@@ -817,7 +817,7 @@ export function playerTap(el) {
 
 function matchTap(side, id) {
   const m = P.match;
-  if (side === "ka" && m.sel !== id) {
+  if (side === "ka") {
     const pair = P.session.current.pairs.find((p) => p.id === id);
     if (pair) autoSay(autoSpeech.onMatchTap(pair.georgian));
   }
