@@ -7,6 +7,11 @@ import os
 
 PL = {
     # KART #20: seen, practising, known; the warm-up
+    "{0} of {1} letters known": "Znane litery: {0} z {1}",
+    "Tap a letter to hear it, hold it for its card.": "Dotknij litery, żeby ją usłyszeć; przytrzymaj, żeby otworzyć jej kartę.",
+    "Plays the letter": "Odtwarza literę",
+    "Open its card": "Otwórz kartę",
+    "Letters": "Litery",
     "Ahead": "Przed tobą",
     "Seen": "Napotkane",
     "Practising": "Ćwiczone",

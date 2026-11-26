@@ -59,6 +59,23 @@ struct LearnView: View {
             }
             .background(AmbientBackground(tint: .saperavi))
             .navigationTitle(tr("Learn"))
+            .toolbar {
+                // The 33 letters, one tap from anywhere on the path (KART #20).
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        Haptics.tap()
+                        showAlphabet = true
+                    } label: {
+                        Text("ა")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundStyle(.white)
+                            .frame(width: 36, height: 36)
+                            .background(Circle().fill(Palette.pomegranate))
+                    }
+                    .accessibilityLabel(tr("All 33 letters"))
+                    .accessibilityIdentifier("alphabet-shortcut")
+                }
+            }
             .overlay(alignment: .bottom) {
                 if let lockedNotice {
                     Label(lockedNotice, systemImage: "lock.fill")

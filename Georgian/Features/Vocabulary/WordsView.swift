@@ -10,6 +10,8 @@ struct WordsView: View {
     @State private var query = ""
     @State private var openWord: Word?
     @State private var allWords = false
+    /// Words or the 33 letters (KART #20); the tab remembers the last one.
+    @AppStorage("wordsShelf") private var shelf = "words"
     @FocusState private var focused: Bool
 
     var body: some View {
@@ -17,11 +19,23 @@ struct WordsView: View {
             ScrollView {
                 // Lazy: only the rows on screen are built (750 words).
                 LazyVStack(alignment: .leading, spacing: 10) {
-                    field
-                    if query.trimmingCharacters(in: .whitespaces).isEmpty {
-                        WordBrowser(open: $openWord)
+                    Picker(tr("Show"), selection: $shelf) {
+                        Text(tr("Words")).tag("words")
+                        Text(tr("Letters")).tag("letters")
+                    }
+                    .pickerStyle(.segmented)
+                    .padding(.top, 4)
+                    .accessibilityIdentifier("words-shelf")
+                    if shelf == "letters" {
+                        AlphabetGrid { letters in navigator.review(letters, title: tr("Letter practice")) }
+                            .padding(.top, 6)
                     } else {
-                        results(store.phrasebook.search.search(query))
+                        field
+                        if query.trimmingCharacters(in: .whitespaces).isEmpty {
+                            WordBrowser(open: $openWord)
+                        } else {
+                            results(store.phrasebook.search.search(query))
+                        }
                     }
                 }
                 .padding(.horizontal, 20)
@@ -50,6 +64,7 @@ struct WordsView: View {
         .onChange(of: query) { _, _ in allWords = false }
         .onAppear {
             apply(navigator.searchRequest)
+            if LaunchOptions.current.screen != nil { shelf = "words" }
             if LaunchOptions.current.screen == "word", openWord == nil { openWord = store.curriculum.word("w-khachapuri") }
         }
     }
@@ -57,6 +72,7 @@ struct WordsView: View {
     private func apply(_ request: Navigator.SearchRequest?) {
         guard let request else { return }
         navigator.searchRequest = nil
+        shelf = "words"
         query = request.query
         // The screenshot run doesn't open the keyboard (its first-use tip would cover the screen).
         guard LaunchOptions.current.screen != "search" else { return }
