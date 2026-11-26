@@ -451,5 +451,52 @@ do {
     check("reminder: none when no days", ReminderPlan.dates(hour: 9, minute: 0, practisedToday: false, days: 0, now: morning, calendar: cal), [])
 }
 
+// Automatic playback (KART #18): what a lesson says by itself, never giving an answer away.
+do {
+    func choice(_ kind: ExerciseKind, prompt: String, ka: Bool, options: [String], kaOptions: Bool, answer: Int = 0, audio: String? = nil) -> Exercise {
+        Exercise(id: "t", kind: kind, instruction: "", itemID: nil, content: .choice(Choice(
+            prompt: prompt, promptIsGeorgian: ka, promptDetail: nil,
+            options: options.enumerated().map { ChoiceOption(id: $0.offset, text: $0.element, detail: nil) },
+            optionsAreGeorgian: kaOptions, answer: answer, explanation: nil, audioText: audio)))
+    }
+    let meaning = choice(.multipleChoice, prompt: "წყალი", ka: true, options: ["water", "bread"], kaOptions: false)
+    check("auto: a Georgian word to translate is said", AutoSpeech.onShow(meaning), "წყალი")
+    let read = choice(.reading, prompt: "წყალი", ka: true, options: ["ts'qali", "puri"], kaOptions: false)
+    check("auto: a word to read isn't said first", AutoSpeech.onShow(read), nil)
+    check("auto: ...but after Check", AutoSpeech.onCheck(read, given: .choice(1), correct: false), "წყალი")
+    let letter = choice(.letterRecognition, prompt: "b", ka: false, options: ["ბ", "პ"], kaOptions: true)
+    check("auto: letters to tell apart aren't said on picking", AutoSpeech.onPick(letter, from: nil, to: .choice(1)), nil)
+    check("auto: the right letter after Check", AutoSpeech.onCheck(letter, given: .choice(1), correct: false), "ბ")
+    let say = choice(.multipleChoice, prompt: "water", ka: false, options: ["წყალი", "პური"], kaOptions: true)
+    check("auto: the Georgian picked is said", AutoSpeech.onPick(say, from: nil, to: .choice(1)), "პური")
+    check("auto: wrong pick, the right one after Check", AutoSpeech.onCheck(say, given: .choice(1), correct: false), "წყალი")
+    check("auto: right pick, nothing more", AutoSpeech.onCheck(say, given: .choice(0), correct: true), nil)
+    let gap = choice(.fillBlank, prompt: "მე ___ მინდა.", ka: true, options: ["წყალი", "პური"], kaOptions: true)
+    check("auto: a sentence with a gap isn't said first", AutoSpeech.onShow(gap), nil)
+    check("auto: the whole sentence after Check", AutoSpeech.onCheck(gap, given: .choice(0), correct: true), "მე წყალი მინდა.")
+    let missing = choice(.missingLetter, prompt: "წ_ალი", ka: true, options: ["ყ", "ქ"], kaOptions: true)
+    check("auto: the word with its missing letter after Check", AutoSpeech.onCheck(missing, given: .choice(0), correct: true), "წყალი")
+    let listen = choice(.listening, prompt: "წყალი", ka: true, options: ["water", "bread"], kaOptions: false, audio: "წყალი")
+    check("auto: listening plays itself, not twice", AutoSpeech.onShow(listen), nil)
+    check("auto: listening, nothing after Check", AutoSpeech.onCheck(listen, given: .choice(0), correct: true), nil)
+    let sentence = Exercise(id: "s", kind: .sentenceBuilder, instruction: "", itemID: nil, content: .tiles(Tiles(
+        prompt: "I want water", promptDetail: nil, answer: ["წყალი", "მინდა"], bank: ["მინდა", "წყალი", "პური"], joiner: " ", isSpelling: false)))
+    check("auto: a word tile added is said", AutoSpeech.onPick(sentence, from: .tiles(["წყალი"]), to: .tiles(["წყალი", "მინდა"])), "მინდა")
+    check("auto: a tile taken away isn't", AutoSpeech.onPick(sentence, from: .tiles(["წყალი", "მინდა"]), to: .tiles(["წყალი"])), nil)
+    check("auto: the sentence after Check", AutoSpeech.onCheck(sentence, given: .tiles(["წყალი", "მინდა"]), correct: true), "წყალი მინდა")
+    let spell = Exercise(id: "p", kind: .spelling, instruction: "", itemID: nil, content: .tiles(Tiles(
+        prompt: "water", promptDetail: nil, answer: ["წ", "ყ", "ა", "ლ", "ი"], bank: ["ა", "ი", "ლ", "წ", "ყ"], joiner: "", isSpelling: true)))
+    check("auto: letters for spelling aren't said", AutoSpeech.onPick(spell, from: nil, to: .tiles(["წ"])), nil)
+    let partner = DialogueLine(speaker: "Nana", ka: "როგორ ხარ?", lat: "rogor khar?", en: "How are you?", isLearner: false, wrong: nil)
+    let mine = DialogueLine(speaker: "me", ka: "კარგად.", lat: "k'argad.", en: "Fine.", isLearner: true, wrong: ["ცუდად."])
+    let turn = Exercise(id: "d", kind: .dialogue, instruction: "", itemID: nil, content: .dialogue(DialogueTurn(
+        partner: "Nana", history: [partner], line: mine, options: ["ცუდად.", "კარგად."], answer: 1)))
+    check("auto: what the partner just said", AutoSpeech.onShow(turn), "როგორ ხარ?")
+    check("auto: the reply picked", AutoSpeech.onPick(turn, from: nil, to: .choice(0)), "ცუდად.")
+    check("auto: the right reply after a wrong one", AutoSpeech.onCheck(turn, given: .choice(0), correct: false), "კარგად.")
+    check("auto: a matching letter isn't said", AutoSpeech.onMatchTap("ბ"), nil)
+    check("auto: a matching word is", AutoSpeech.onMatchTap("წყალი"), "წყალი")
+}
+
 print("\(checks - failures)/\(checks) checks passed")
 exit(failures == 0 ? 0 : 1)

@@ -14,6 +14,7 @@ struct MatchingExerciseView: View {
     @State private var matched: Set<String> = []
     @State private var wrongFlash: Set<String> = []
     @State private var mistakes = 0
+    @Environment(AudioService.self) private var audio
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
@@ -75,6 +76,9 @@ struct MatchingExerciseView: View {
 
     private func tap(_ id: String, side: Side) {
         Haptics.select()
+        if side == .georgian, pickedLeft != id, let pair = pairs.first(where: { $0.id == id }) {
+            audio.autoSay(AutoSpeech.onMatchTap(pair.georgian))
+        }
         withMotion(Motion.spring) {
             if side == .georgian { pickedLeft = pickedLeft == id ? nil : id } else { pickedRight = pickedRight == id ? nil : id }
         }

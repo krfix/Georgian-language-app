@@ -22,10 +22,12 @@ final class LessonPlayerModel {
     /// The answer just checked, for a mistake report made while its feedback shows.
     private var lastGiven: String?
     private let store: LearningStore
+    private let audio: AudioService
 
     init(request: SessionRequest, store: LearningStore, audio: AudioService, seed: UInt64 = UInt64.random(in: 0...UInt64.max)) {
         self.request = request
         self.store = store
+        self.audio = audio
         let builder = ExerciseBuilder(curriculum: store.curriculum, hasAudio: { [audio] text in
             MainActor.assumeIsolated { audio.canPlay(text) }
         })
@@ -69,6 +71,19 @@ final class LessonPlayerModel {
             Haptics.error()
         }
         phase = .feedback(evaluation)
+        audio.autoSay(AutoSpeech.onCheck(ex, given: given, correct: evaluation.verdict.countsAsCorrect))
+    }
+
+    /// The exercise on screen has just appeared: say its Georgian if that's allowed.
+    func showed() {
+        guard case .answering = phase, let ex = current else { return }
+        audio.autoSay(AutoSpeech.onShow(ex))
+    }
+
+    /// The learner changed their answer: say the Georgian they picked.
+    func picked(from old: Answer?, to new: Answer?) {
+        guard case .answering = phase, let ex = current else { return }
+        audio.autoSay(AutoSpeech.onPick(ex, from: old, to: new))
     }
 
     /// Moves on: past a teaching card, or past the feedback.
@@ -79,6 +94,7 @@ final class LessonPlayerModel {
             finish()
         } else {
             phase = .answering
+            showed()
         }
     }
 

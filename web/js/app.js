@@ -79,6 +79,12 @@ function speaker(text, { size = 40, cls = "", slow = false } = {}) {
   return `<span class="say-pair">${play}<button class="speaker turtle ${cls}" style="--s:${s}px" data-say-slow="${esc(text)}" aria-label="${esc(tr("Play slowly"))}">${icon("slow", { size: Math.round(size * 0.44) })}</button></span>`;
 }
 
+/** Says Georgian by itself when "Play Georgian automatically" is on (the default; KART #18). */
+function autoSay(text) {
+  if (store.setting("autoPlay") === false || !text || !audio.canPlay(text)) return;
+  audio.play(text);
+}
+
 function sourceLabel(text) {
   const s = audio.source(text);
   if (!s) return "";
@@ -678,6 +684,9 @@ function settingsScreen() {
         <button class="listen" data-sample="${x}" aria-label="${esc(tr("Listen to {0}", audio.voiceName(x)))}">${icon("speaker", { size: 16 })}${esc(tr("Listen"))}</button>
       </div>`).join("")}</div>
       <p class="soft small">${esc(tr("“Hello, how are you?”"))} · ${esc(tr("Synthetic voice"))}</p>
+      <h4 class="setting-label">${esc(tr("Play Georgian automatically"))}</h4>
+      <div class="segmented">${seg("autoPlay", "on", store.setting("autoPlay") === false ? "off" : "on", esc(tr("On")))}${seg("autoPlay", "off", store.setting("autoPlay") === false ? "off" : "on", esc(tr("Off")))}</div>
+      <p class="soft small">${esc(tr("Cards, lessons and the answers you pick are spoken as they appear."))}</p>
     </section>
     <section class="card">
       <h3 class="card-title c-saperavi">${icon("moon", { size: 18 })}${esc(tr("Appearance"))}</h3>
@@ -827,6 +836,15 @@ function tabFor(parts) {
   return { learn: "learn", words: "words", review: "review" }[parts[0]] || "phrasebook";
 }
 
+// A phrase or word card says its Georgian once when it opens, not again on coming back to it
+// (as on the iPhone). Waits for the screen to be drawn.
+let lastCardSaid = null;
+function sayCardOnce(key, ka) {
+  if (lastCardSaid === key) return;
+  lastCardSaid = key;
+  setTimeout(() => autoSay(ka()), 0);
+}
+
 function render({ keepScroll = false } = {}) {
   const { parts } = route();
   const [a, b, , d] = parts;
@@ -849,10 +867,10 @@ function render({ keepScroll = false } = {}) {
   else if (a === "alphabet") html = course.alphabetScreen();
   else if (a === "review") html = course.reviewScreen();
   else if (a === "progress") html = course.progressScreen();
-  else if (a === "w") html = course.wordScreen(b) || notFound();
+  else if (a === "w") { html = course.wordScreen(b) || notFound(); sayCardOnce(`w/${b}`, () => course.wordKa(b)); }
   else if (a === "words") html = wordsTab();
   else if (a === "c") html = categoryScreen(b);
-  else if (a === "p") html = phraseScreen(b);
+  else if (a === "p") { html = phraseScreen(b); sayCardOnce(`p/${b}`, () => (C.pb.phrases.find((x) => x.id === b) || {}).ka); }
   else if (a === "show") html = showScreen(b);
   else if (a === "d" && parts[2] === "as") html = practiceScreen(b, d === "1" ? 1 : 0);
   else if (a === "d") html = dialogueScreen(b);
@@ -1140,6 +1158,9 @@ async function applySetting(name, value) {
     store.setSetting("appearance", value);
     applyAppearance();
     render({ keepScroll: true });
+  } else if (name === "autoPlay") {
+    store.setSetting("autoPlay", value === "on");
+    render({ keepScroll: true });
   } else if (name === "textSize") {
     store.setSetting("textSize", value);
     applyTextSize();
@@ -1218,6 +1239,6 @@ function reportLink(subject) {
   return `<a class="report-link" href="${esc(reportHref(subject))}" data-id="report-mistake">${icon("flag", { size: 17 })}${esc(tr("Report a mistake"))}</a>`;
 }
 
-export { C, esc, $, speaker, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack, reportHref, reportLink };
+export { C, esc, $, speaker, autoSay, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack, reportHref, reportLink };
 
 start();

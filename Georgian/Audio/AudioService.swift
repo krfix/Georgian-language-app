@@ -104,6 +104,24 @@ final class AudioService: NSObject {
         }
     }
     private var chosenVoice: Voice = Voice.stored
+
+    /// "Play Georgian automatically" (Profile › Audio; owner, KART #18): lessons and cards
+    /// speak by themselves (`AutoSpeech`, `autoSay`). On unless turned off; saved on this iPhone.
+    var autoPlay: Bool {
+        get { autoPlayOn }
+        set {
+            autoPlayOn = newValue
+            UserDefaults.standard.set(newValue, forKey: Self.autoPlayKey)
+        }
+    }
+    private var autoPlayOn: Bool = UserDefaults.standard.object(forKey: AudioService.autoPlayKey) as? Bool ?? true
+    static let autoPlayKey = "audioAutoPlay"
+
+    /// Says `text` by itself, if automatic playback is on and there is something to play it with.
+    func autoSay(_ text: String?) {
+        guard autoPlay, let text, !text.isEmpty, canPlay(text) else { return }
+        play(text)
+    }
     /// The chosen voice's clips.
     private var clips: [String: AudioIndex.Clip] { clipsByVoice[voice] ?? [:] }
 

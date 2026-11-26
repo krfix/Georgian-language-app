@@ -23,8 +23,10 @@ struct LessonPlayerView: View {
                 if LaunchOptions.current.screen == "complete" { m.showSampleReward() }
                 if LaunchOptions.current.screen == "exercise", let kind = LaunchOptions.current.kind { m.skip(toKind: kind) }
                 model = m
+                m.showed()
             }
         }
+        .onChange(of: model?.pending) { old, new in model?.picked(from: old, to: new) }
         .onDisappear { audio.stop() }
         .environment(\.lessonTint, tint)
         .saveProblemAlert()

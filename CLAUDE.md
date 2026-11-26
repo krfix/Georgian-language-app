@@ -171,6 +171,11 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   drawn by one reusable view; `LessonPlayerModel` checks, records and moves on for all of them.
   A wrong answer comes back once at the end. New kinds: add a shape or reuse one, never a
   separate screen.
+- Sound by itself (owner, KART #18): cards, lessons and picked answers speak as they appear
+  (`Engine/AutoSpeech.swift`, web `autoSpeech` in engine.js; tested in both), never before
+  the answer where hearing it gives the answer away (reading, letter recognition, letters in
+  matching): those speak after Check. Switch: Profile › Audio "Play Georgian automatically"
+  (`AudioService.autoPlay`, UserDefaults, on by default; web Settings, `autoPlay`).
 - Review: every letter and word has a `MasteryRecord`; right answers space it out (1, 3, 8…
   days), a miss brings it back in 10 minutes. Same-day repeats don't push it further.
 - Path: lessons open in order (`CourseProgress`); "I know a few letters" opens the alphabet,

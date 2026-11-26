@@ -43,6 +43,18 @@ no index names any more when a new version starts (tested in Chromium: an old ke
 removed and the sample loads under its new name). The website's home and support pages now say
 Luka (English and Polish).
 
+Then (owner): sound plays by itself when a card, lesson exercise, phrase or word opens and
+when an answer is picked. `Engine/AutoSpeech.swift` decides what (and the web's `autoSpeech`,
+the same rules): on show, the Georgian prompt, the teaching letter or word, the flashcard, the
+partner's line; on pick, the Georgian option, reply or word tile; after Check, the whole answer
+(the gap filled, the sentence built, the right option after a wrong one). Never first where
+hearing gives the answer away (reading, letter recognition, listening, single letters in
+matching, spelling tiles). Phrase and word cards speak once on opening. Switch "Play Georgian
+automatically" (on by default): iPhone UserDefaults (no saved-data change), web settings.
+Logic tests (Swift and web, 26 and 21 checks); in Chromium the letter card played on opening,
+the letter question stayed silent until Check, a phrase card played, and nothing with the
+switch off. Reverses KART #9's "no sound without a tap" on the web.
+
 ## KART #16 · 26/11/26 · Critical code review; ids and saved data (branch `claude/exciting-newton-v79mv9`)
 
 Owner asked for a strict review of the whole app (no changes), then steps 1 and 2 of its fix

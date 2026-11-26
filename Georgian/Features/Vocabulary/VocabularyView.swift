@@ -172,6 +172,8 @@ struct WordDetailView: View {
     @Environment(Navigator.self) private var navigator
     @Environment(AudioService.self) private var audio
     @Environment(\.dismiss) private var dismiss
+    /// Said once when the card opens (automatic playback), not again on coming back to it.
+    @State private var spoke = false
 
     var body: some View {
         ScrollView {
@@ -219,6 +221,11 @@ struct WordDetailView: View {
             .padding(20)
         }
         .background(Palette.background.ignoresSafeArea())
+        .onAppear {
+            guard !spoke else { return }
+            spoke = true
+            audio.autoSay(word.ka)
+        }
     }
 
     private var progressCard: some View {

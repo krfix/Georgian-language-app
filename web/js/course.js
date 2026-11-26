@@ -7,8 +7,8 @@ import { tr, plural, lang } from "./i18n.js";
 import * as audio from "./audio.js";
 import * as store from "./store.js";
 import { icon } from "./icons.js";
-import { Builder, Session, evaluate, isGraded, lessonStates, currentStage, stages, streak, dayKey, isLearnedState, isDifficultState, rng } from "./engine.js";
-import { C, esc, $, speaker, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack, reportHref, reportLink } from "./app.js";
+import { Builder, Session, evaluate, autoSpeech, isGraded, lessonStates, currentStage, stages, streak, dayKey, isLearnedState, isDifficultState, rng } from "./engine.js";
+import { C, esc, $, speaker, autoSay, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack, reportHref, reportLink } from "./app.js";
 
 // ---------------------------------------------------------------------------------------
 // Progress, worked out from what's kept (LearningStore.swift)
@@ -693,6 +693,7 @@ function check(answer) {
   store.record(ex, ev, { itemIDs: itemIDsFor(ex, ev), inReview: P.mode !== "lesson" });
   P.ev = ev;
   P.phase = "feedback";
+  autoSay(autoSpeech.onCheck(ex, a, ev.verdict !== "wrong"));
   P.combo = ev.verdict === "wrong" ? 0 : P.combo + 1;
   P.praise = PRAISE()[Math.floor(Math.random() * 6)];
   if (navigator.vibrate) navigator.vibrate(ev.verdict === "wrong" ? [20, 40, 20] : 15);
@@ -722,9 +723,10 @@ export function autoplay() {
   if (!P || P.phase !== "answering") return;
   const ex = P.session.current;
   if (!ex) return;
-  const t = ex.audioText || (ex.shape === "teachLetter" ? ex.letter.char : ex.shape === "teachWord" ? ex.word.ka : null);
-  // Sound plays only when the learner taps a speaker (owner, KART #9).
-  void t;
+  // Listening plays its sound itself, as on the iPhone; everything else only with
+  // "Play Georgian automatically" on (owner, KART #18; until then only on a tap, KART #9).
+  if (ex.kind === "listening" && ex.audioText) { audio.play(ex.audioText); return; }
+  autoSay(autoSpeech.onShow(ex));
 }
 
 function completeScreen() {
@@ -770,11 +772,19 @@ export function playerTap(el) {
   if (!P) return false;
   const ds = el.dataset;
   const ex = P.session.current;
-  if (ds.opt !== undefined && P.phase === "answering") { P.pending = { choice: +ds.opt }; render({ keepScroll: true }); return true; }
+  if (ds.opt !== undefined && P.phase === "answering") {
+    const before = P.pending;
+    P.pending = { choice: +ds.opt };
+    autoSay(autoSpeech.onPick(ex, before, P.pending));
+    render({ keepScroll: true });
+    return true;
+  }
   if (ds.tile !== undefined && P.phase === "answering") {
+    const before = P.pending;
     const tiles = P.pending ? [...P.pending.tiles] : [];
     tiles.push(ex.bank[+ds.tile]);
     P.pending = { tiles };
+    autoSay(autoSpeech.onPick(ex, before, P.pending));
     render({ keepScroll: true });
     return true;
   }
@@ -807,6 +817,10 @@ export function playerTap(el) {
 
 function matchTap(side, id) {
   const m = P.match;
+  if (side === "ka" && m.sel !== id) {
+    const pair = P.session.current.pairs.find((p) => p.id === id);
+    if (pair) autoSay(autoSpeech.onMatchTap(pair.georgian));
+  }
   if (side === "ka") m.sel = m.sel === id ? null : id; else m.selOther = m.selOther === id ? null : id;
   if (m.sel && m.selOther) {
     if (m.sel === m.selOther) { m.done.push(m.sel); m.flash = null; }
@@ -858,6 +872,9 @@ export function reviewScreen() {
 
 // ---------------------------------------------------------------------------------------
 // A word's card (WordsView.swift / VocabularyView.swift)
+
+/** The Georgian of a word card (said when it opens). */
+export function wordKa(id) { const w = C.course.word(id); return w ? w.ka : null; }
 
 export function wordScreen(id) {
   const w = C.course.word(id);

@@ -455,6 +455,59 @@ export class Builder {
 }
 
 // ---------------------------------------------------------------------------------------
+// Automatic playback (Engine/AutoSpeech.swift, KART #18): what a lesson says by itself when
+// "Play Georgian automatically" is on. Never before the answer if hearing it would give the
+// answer away (reading, letter recognition, letters in matching): those are heard after
+// Check. Listening exercises play themselves whatever the setting. Change both together.
+
+const GIVES_AWAY = new Set(["letterRecognition", "reading", "listening"]);
+
+export const autoSpeech = {
+  /** The exercise appears. */
+  onShow(ex) {
+    switch (ex.shape) {
+      case "teachLetter": return ex.letter.char;
+      case "teachWord": return ex.word.ka;
+      case "choice": return ex.promptIsGeorgian && !ex.prompt.includes("_") && !GIVES_AWAY.has(ex.kind) ? ex.prompt : null;
+      case "typing": return ex.prompt;
+      case "flashcard": return ex.front;
+      case "dialogue": { const last = ex.history[ex.history.length - 1]; return last && !last.isLearner ? last.ka : null; }
+      default: return null;
+    }
+  },
+  /** The learner picks an answer (before Check): the Georgian they picked. */
+  onPick(ex, before, now) {
+    if (!now) return null;
+    if (ex.shape === "choice" && now.choice !== undefined) {
+      return ex.optionsAreGeorgian && !GIVES_AWAY.has(ex.kind) && ex.options[now.choice] ? ex.options[now.choice].text : null;
+    }
+    if (ex.shape === "dialogue" && now.choice !== undefined) return ex.options[now.choice] || null;
+    if (ex.shape === "tiles" && now.tiles) {
+      if (ex.isSpelling) return null;
+      const had = (before && before.tiles) || [];
+      return now.tiles.length > had.length ? now.tiles[now.tiles.length - 1] : null;
+    }
+    return null;
+  },
+  /** A tile tapped in matching: a Georgian word, never a single letter. */
+  onMatchTap(georgian) { return [...georgian].length > 1 ? georgian : null; },
+  /** The answer has been checked: the whole Georgian, once it can't give anything away. */
+  onCheck(ex, given, correct) {
+    if (ex.shape === "choice") {
+      const opt = ex.options[ex.answer];
+      if (!opt || ex.kind === "listening") return null;
+      const right = opt.text;
+      if (ex.promptIsGeorgian && ex.prompt.includes("_")) return ex.prompt.split(ex.prompt.includes("___") ? "___" : "_").join(right);
+      if (GIVES_AWAY.has(ex.kind)) return ex.promptIsGeorgian ? ex.prompt : ex.optionsAreGeorgian ? right : null;
+      return ex.optionsAreGeorgian && !correct ? right : null;
+    }
+    if (ex.shape === "tiles") return ex.answer.join(ex.joiner);
+    if (ex.shape === "dialogue") return correct ? null : ex.line.ka;
+    return null;
+  },
+};
+
+// ---------------------------------------------------------------------------------------
 // Checking answers. Answers: {choice: i} | {text: s} | {tiles: [..]} | {mistakes: n} | {recalled: bool}
 
 export function evaluate(ex, a) {

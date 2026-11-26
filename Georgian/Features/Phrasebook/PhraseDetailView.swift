@@ -9,7 +9,10 @@ struct PhraseDetailView: View {
     @Environment(LearningStore.self) private var store
     @Environment(Navigator.self) private var navigator
     @Environment(\.dismiss) private var dismiss
+    @Environment(AudioService.self) private var audio
     @State private var showing = false
+    /// Said once when the card opens (automatic playback), not again on coming back to it.
+    @State private var spoke = false
     @State private var toast: String?
     @State private var newListName = ""
     @State private var askListName = false
@@ -35,6 +38,11 @@ struct PhraseDetailView: View {
                 .padding(20)
             }
             .background(AmbientBackground(tint: brand).ignoresSafeArea())
+            .onAppear {
+                guard !spoke else { return }
+                spoke = true
+                audio.autoSay(phrase.ka)
+            }
             .navigationTitle(store.phrasebook.category(phrase.category)?.title ?? tr("Phrase"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

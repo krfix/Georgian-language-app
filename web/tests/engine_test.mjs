@@ -3,7 +3,7 @@
 // Run after building: node web/tests/engine_test.mjs
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { Course, Builder, Session, evaluate, typed, acceptedEnglish, schedule, lessonStates, rng, isGraded, currentStage } from "../js/engine.js";
+import { Course, Builder, Session, evaluate, autoSpeech, typed, acceptedEnglish, schedule, lessonStates, rng, isGraded, currentStage } from "../js/engine.js";
 
 const dist = fileURLToPath(new URL("../dist/", import.meta.url));
 const read = (f) => JSON.parse(readFileSync(dist + f, "utf8"));
@@ -74,6 +74,41 @@ const ids = ["l1", "l2", "l3", "l4"];
 check("path from zero", lessonStates(ids, new Set()), { l1: "current", l2: "locked", l3: "locked", l4: "locked" });
 check("I can read: starts later, the start stays open", lessonStates(ids, new Set(), 2, 2), { l1: "available", l2: "available", l3: "current", l4: "locked" });
 check("stage after the alphabet", currentStage(new Set(["alphabet"])).id, 1);
+
+// Automatic playback: the same rules as Engine/AutoSpeech.swift (tools/Tests/main.swift).
+{
+  const ch = (kind, prompt, ka, options, kaOpts, answer = 0, audioText = null) =>
+    ({ shape: "choice", kind, prompt, promptIsGeorgian: ka, options: options.map((text) => ({ text })), optionsAreGeorgian: kaOpts, answer, audioText });
+  const A = autoSpeech;
+  check("auto: a word to translate is said", A.onShow(ch("multipleChoice", "წყალი", true, ["water", "bread"], false)), "წყალი");
+  const read = ch("reading", "წყალი", true, ["ts'qali", "puri"], false);
+  check("auto: a word to read isn't said first", A.onShow(read), null);
+  check("auto: ...but after Check", A.onCheck(read, { choice: 1 }, false), "წყალი");
+  const letter = ch("letterRecognition", "b", false, ["ბ", "პ"], true);
+  check("auto: letters aren't said on picking", A.onPick(letter, null, { choice: 1 }), null);
+  check("auto: the right letter after Check", A.onCheck(letter, { choice: 1 }, false), "ბ");
+  const say = ch("multipleChoice", "water", false, ["წყალი", "პური"], true);
+  check("auto: the Georgian picked is said", A.onPick(say, null, { choice: 1 }), "პური");
+  check("auto: wrong pick, the right one after Check", A.onCheck(say, { choice: 1 }, false), "წყალი");
+  check("auto: right pick, nothing more", A.onCheck(say, { choice: 0 }, true), null);
+  const gap = ch("fillBlank", "მე ___ მინდა.", true, ["წყალი", "პური"], true);
+  check("auto: a gap isn't said first", A.onShow(gap), null);
+  check("auto: the whole sentence after Check", A.onCheck(gap, { choice: 0 }, true), "მე წყალი მინდა.");
+  check("auto: missing letter filled after Check", A.onCheck(ch("missingLetter", "წ_ალი", true, ["ყ", "ქ"], true), { choice: 0 }, true), "წყალი");
+  const listen = ch("listening", "წყალი", true, ["water", "bread"], false, 0, "წყალი");
+  check("auto: listening isn't said twice", A.onShow(listen), null);
+  const tiles = { shape: "tiles", kind: "sentenceBuilder", answer: ["წყალი", "მინდა"], joiner: " ", isSpelling: false };
+  check("auto: a word tile added is said", A.onPick(tiles, { tiles: ["წყალი"] }, { tiles: ["წყალი", "მინდა"] }), "მინდა");
+  check("auto: a tile taken away isn't", A.onPick(tiles, { tiles: ["წყალი", "მინდა"] }, { tiles: ["წყალი"] }), null);
+  check("auto: the sentence after Check", A.onCheck(tiles, { tiles: [] }, true), "წყალი მინდა");
+  check("auto: spelling letters aren't said", A.onPick({ shape: "tiles", isSpelling: true }, null, { tiles: ["წ"] }), null);
+  const turn = { shape: "dialogue", history: [{ ka: "როგორ ხარ?", isLearner: false }], line: { ka: "კარგად." }, options: ["ცუდად.", "კარგად."], answer: 1 };
+  check("auto: what the partner just said", A.onShow(turn), "როგორ ხარ?");
+  check("auto: the reply picked", A.onPick(turn, null, { choice: 0 }), "ცუდად.");
+  check("auto: the right reply after a wrong one", A.onCheck(turn, { choice: 0 }, false), "კარგად.");
+  check("auto: a matching letter isn't said", A.onMatchTap("ბ"), null);
+  check("auto: a matching word is", A.onMatchTap("წყალი"), "წყალი");
+}
 
 console.log(`${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);

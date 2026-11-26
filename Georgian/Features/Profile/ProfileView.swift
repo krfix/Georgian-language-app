@@ -67,6 +67,8 @@ struct ProfileView: View {
 
                 Section {
                     Toggle(tr("Slower Georgian audio"), isOn: binding(\.slowAudio) { audio.slow = $0 })
+                    Toggle(tr("Play Georgian automatically"), isOn: Binding(get: { audio.autoPlay }, set: { audio.autoPlay = $0 }))
+                        .accessibilityIdentifier("profile-autoplay")
                     if audio.syntheticClipCount > 0 {
                         NavigationLink {
                             ScrollView {
