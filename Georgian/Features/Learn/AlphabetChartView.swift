@@ -34,6 +34,8 @@ struct AlphabetGrid: View {
     @Environment(LearningStore.self) private var store
     @Environment(AudioService.self) private var audio
     @State private var open: LetterInfo?
+    /// The letter under the finger, drawn a little smaller while pressed.
+    @State private var pressing: String?
 
     private let columns = [GridItem(.adaptive(minimum: 72), spacing: 10)]
 
@@ -55,14 +57,19 @@ struct AlphabetGrid: View {
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(letters) { l in
                     tile(l)
+                        .scaleEffect(pressing == l.char ? 0.92 : 1)
+                        .motion(Motion.spring, value: pressing == l.char)
                         .contentShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-                        .onTapGesture {
-                            Haptics.tap()
-                            audio.play(l.char)
-                        }
+                        // A light tap the moment the finger lands; a firmer one when the hold
+                        // opens the card. A short tap plays the letter.
+                        .onTapGesture { audio.play(l.char) }
                         .onLongPressGesture(minimumDuration: 0.35) {
-                            Haptics.select()
+                            Haptics.press()
+                            pressing = nil
                             open = l
+                        } onPressingChanged: { down in
+                            if down { Haptics.tap() }
+                            pressing = down ? l.char : (pressing == l.char ? nil : pressing)
                         }
                         .accessibilityElement(children: .ignore)
                         .accessibilityLabel("\(l.name), \(l.latin), \(store.status(of: l.itemID).title)")

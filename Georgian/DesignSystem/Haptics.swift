@@ -10,6 +10,12 @@ enum Haptics {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 
+    /// A firmer knock: a hold that worked (a letter's card opening).
+    static func press() {
+        guard enabled else { return }
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+    }
+
     static func select() {
         guard enabled else { return }
         UISelectionFeedbackGenerator().selectionChanged()
