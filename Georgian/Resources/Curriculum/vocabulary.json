@@ -3729,19 +3729,6 @@
    }
   },
   {
-   "id": "x-ana",
-   "ka": "ანა",
-   "lat": "ana",
-   "alt": [],
-   "category": "more",
-   "en": "Ana (a name)",
-   "example": {
-    "ka": "გაგიმარჯოს! მე ანა მქვია.",
-    "lat": "gagimarjos! me ana mkvia.",
-    "en": "Hello! My name is Ana."
-   }
-  },
-  {
    "id": "x-anbani",
    "ka": "ანბანი",
    "lat": "anbani",
@@ -6885,6 +6872,19 @@
     "ka": "ქართული ლამაზი ენაა.",
     "lat": "kartuli lamazi enaa.",
     "en": "Georgian is a beautiful language."
+   }
+  },
+  {
+   "id": "x-lena",
+   "ka": "ლენა",
+   "lat": "lena",
+   "alt": [],
+   "category": "more",
+   "en": "Lena (a name)",
+   "example": {
+    "ka": "გაგიმარჯოს! მე ლენა მქვია.",
+    "lat": "gagimarjos! me lena mkvia.",
+    "en": "Hello! My name is Lena."
    }
   },
   {

@@ -128,7 +128,7 @@ function seed(language, text) {
   for (let i = 0; i < 4; i++) days[key(now - i * dayMs)] = { xp: 30, answers: 12, correct: 10, lessons: 1, reviewed: 4 };
   return { saved: { "pb-gamarjoba": { list: "Taxi" }, "pb-ak-gamicheret-tu-sheidzleba": { list: "" } }, learned: { "pb-gamarjoba": now },
     recent: ["pb-gamarjoba"], settings: { language, textSize: text, appearance: "system" },
-    profile: { onboarded: true, name: "Ana", goal: 20, level: "beginner" }, completed, mastery, days };
+    profile: { onboarded: true, name: "Lena", goal: 20, level: "beginner" }, completed, mastery, days };
 }
 
 const screens = [
@@ -161,7 +161,7 @@ async function run({ language, text, width, scheme, shots }) {
   await page.waitForSelector('[data-screen="welcome"]');
   for (let i = 0; i < 7; i++) {
     await check(`welcome-${i}`);
-    if (i === 6) await page.fill("#ob-name", "Ana");
+    if (i === 6) await page.fill("#ob-name", "Lena");
     await page.click('[data-id="onboarding-next"]');
   }
   await check("welcome-ready");

@@ -180,7 +180,7 @@ async function courseFlow(scheme, language) {
   await page.waitForSelector('[data-screen="welcome"]');
   for (let i = 0; i < 7; i++) {
     await shot(`0${i}-welcome`);
-    if (i === 6) await page.fill("#ob-name", "Ana");
+    if (i === 6) await page.fill("#ob-name", "Lena");
     await page.click('[data-id="onboarding-next"]');
   }
   await shot("07-ready");
@@ -213,7 +213,7 @@ async function courseFlow(scheme, language) {
   if (!(await page.evaluate(() => document.querySelector(".screen")))) fail(`${language}: leaving the lesson left the app`);
   await go("/");
   await page.waitForSelector('[data-screen="home"]');
-  if (!(await page.textContent(".home-head")).includes("Ana")) fail("the name isn't on Home");
+  if (!(await page.textContent(".home-head")).includes("Lena")) fail("the name isn't on Home");
   await shot("20-home");
   await go("/learn");
   const done = await page.$$eval(".stone.completed", (e) => e.length);

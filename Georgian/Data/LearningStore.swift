@@ -303,16 +303,42 @@ final class LearningStore {
     func finishLesson(_ lesson: Lesson, summary: SessionSummary) -> LessonReward {
         let xp = XPRules.lesson(summary)
         context.insert(LessonRecord(lessonID: lesson.id, completedAt: now(), accuracy: summary.accuracy, xp: xp, perfect: summary.isPerfect))
-        return award(xp: xp, summary: summary) { d in
+        let reward = award(xp: xp, summary: summary) { d in
             d.lessons += 1
             if summary.isPerfect { d.perfectLessons += 1 }
         }
+        refreshReminders()
+        return reward
     }
 
     func finishReview(summary: SessionSummary, items: Int) -> LessonReward {
         let xp = XPRules.review(summary)
         context.insert(ReviewSessionRecord(date: now(), items: items, correct: summary.correctFirstTry, xp: xp))
-        return award(xp: xp, summary: summary) { _ in }
+        let reward = award(xp: xp, summary: summary) { _ in }
+        refreshReminders()
+        return reward
+    }
+
+    /// Plans the daily reminder again: the next two weeks, without today once the learner
+    /// has practised (a lesson or review finished today, as the streak counts it). If
+    /// notifications were switched off in the iPhone's Settings, the switch in Profile goes
+    /// off too, so it never says "on" when nothing will come.
+    func refreshReminders() {
+        guard profile.remindersOn else { return }
+        let (hour, minute, name, practised) = (profile.reminderHour, profile.reminderMinute, profile.name, xpToday > 0)
+        Task {
+            let allowed = await ReminderScheduler.refresh(hour: hour, minute: minute, name: name, practisedToday: practised)
+            if !allowed { updateProfile { $0.remindersOn = false } }
+        }
+    }
+
+    /// Turns the reminder on from Profile (asks for permission the first time).
+    /// Returns false when notifications aren't allowed.
+    func enableReminders() async -> Bool {
+        let ok = await ReminderScheduler.enable(hour: profile.reminderHour, minute: profile.reminderMinute,
+                                                name: profile.name, practisedToday: xpToday > 0)
+        updateProfile { $0.remindersOn = ok }
+        return ok
     }
 
     private func award(xp: Int, summary: SessionSummary, update: (DayRecord) -> Void) -> LessonReward {
@@ -381,11 +407,11 @@ final class LearningStore {
 
     // MARK: Invented progress for screenshots and UI tests
 
-    /// Fills the store with a made-up learner (Ana, two weeks in). Only used with the
+    /// Fills the store with a made-up learner (Lena, two weeks in). Only used with the
     /// `-seedDemo` launch argument.
     func seedDemo() {
         let n = now()
-        profile.name = "Ana"
+        profile.name = "Lena"
         profile.onboardingDone = true
         profile.dailyGoal = 20
         let done = ["a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10", "v1", "v2", "v3"]

@@ -430,5 +430,26 @@ check("all done: tamada", CourseStage.current(modulesCompleted: Set(course.modul
 check("after the last, nothing", CourseStage.all[5].next, nil)
 check("next after the start", CourseStage.all[0].next?.id, 1)
 
+// MARK: Daily reminder: only on days not practised yet (KART #16)
+
+do {
+    var cal = Calendar(identifier: .gregorian)
+    cal.timeZone = TimeZone(identifier: "Asia/Tbilisi")!
+    let morning = cal.date(from: DateComponents(year: 2026, month: 11, day: 26, hour: 9))!
+    let evening = cal.date(from: DateComponents(year: 2026, month: 11, day: 26, hour: 21))!
+    let day = { (d: Date) in cal.component(.day, from: d) }
+    let notYet = ReminderPlan.dates(hour: 19, minute: 30, practisedToday: false, days: 14, now: morning, calendar: cal)
+    check("reminder: 14 days, from today", notYet.map(day).prefix(2), [26, 27])
+    check("reminder: 14 of them", notYet.count, 14)
+    check("reminder: at the chosen time", notYet.first.map { "\(cal.component(.hour, from: $0)):\(cal.component(.minute, from: $0))" },
+          "19:30")
+    let practised = ReminderPlan.dates(hour: 19, minute: 30, practisedToday: true, days: 14, now: morning, calendar: cal)
+    check("reminder: practised today, so not today", practised.map(day).first, 27)
+    check("reminder: then 13 days", practised.count, 13)
+    let late = ReminderPlan.dates(hour: 19, minute: 30, practisedToday: false, days: 14, now: evening, calendar: cal)
+    check("reminder: time passed today, so not today", late.map(day).first, 27)
+    check("reminder: none when no days", ReminderPlan.dates(hour: 9, minute: 0, practisedToday: false, days: 0, now: morning, calendar: cal), [])
+}
+
 print("\(checks - failures)/\(checks) checks passed")
 exit(failures == 0 ? 0 : 1)

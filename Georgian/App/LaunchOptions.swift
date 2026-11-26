@@ -3,7 +3,7 @@ import Foundation
 /// Launch arguments used by the UI tests and the screenshot run (never by a learner):
 /// - `-uiTesting`: a fresh store in memory, so nothing touches real progress;
 /// - `-resetData`: delete the saved store before opening it (UI tests that check restarts);
-/// - `-seedDemo`: fill the store with an invented learner (Ana, two weeks in);
+/// - `-seedDemo`: fill the store with an invented learner (Lena, two weeks in);
 /// - `-seedAll`: with `-seedDemo`, every lesson done (the finished vine, KART #15);
 /// - `-screen <name>`: open on one screen: home, learn, words, review, progress, profile,
 ///   lesson, complete, onboarding, word, alphabet, exercise; and the phrasebook's phrasebook,

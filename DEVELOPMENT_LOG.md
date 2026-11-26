@@ -34,6 +34,27 @@ the plan with every kind of progress intact, take new progress, reopen, and keep
 The Mac runs it with the logic tests, plus a check that the course JSON and ids.json are built
 and committed. Polish for the new texts. Nothing compiled here (Linux): the Mac run decides.
 
+Later in KART #16: owner asked whether Ara is like Kargi (kargi.app, by Max Greenall, Tbilisi,
+launched October 2026): very much so (same audience, alphabet first, short lessons, mistakes back,
+show-a-phrase, café dialogue, even "Ana"), read from its site with kargi.app added to the
+environment's allowed hosts. Owner chose to take three of its good ideas and rename Ana:
+- **Report a mistake**: phrase card, word card and a flag in the lesson's top bar (web the
+  same). Opens the learner's email app to ara.learn.app@gmail.com with the Georgian, Latin,
+  meaning, id, app version and, in a lesson, the exercise, the options, the answer given and
+  the right one; nothing is sent by the app. No mail app: an alert with "Copy the details".
+- **Reminders only on days not practised**: the next 14 days scheduled one by one
+  (`Engine/ReminderPlan.swift`, 7 new logic checks), refreshed at start, when Ara comes to the
+  front, after a lesson or review, a time or language change; no badge request; the switch
+  goes off when notifications were turned off in Settings.
+- **Native letter recordings, prepared**: `docs/native-recordings.md` (what the speaker says,
+  file names) and `tools/audio/add_native.py` (trim, even loudness, MP3, replaces Eka's clip,
+  marks it native), tried on a test tone in a copy.
+- **Ana → Lena**: the demo learner, the web tests, and the course conversation c2 ("მე ლენა
+  მქვია", Polish "Miło mi, Leno!"); glossary, new clips in both voices (old ones deleted),
+  x-lena registered. Screenshots still showing Ana: TODO.md.
+Checked here: content build, Polish table, web build, engine and search tests, the web phrase
+card and lesson top bar at iPhone size, the mailto text. The iPhone part waits for the Mac.
+
 ## KART #15 · 25/11/26 · Grapevine pictures (branch `claude/focused-edison-ci3czr`)
 
 Step 1 of docs/vine-path.md: the pictures, no app code. New `tools/brand/vine.py` (the parts as

@@ -87,6 +87,7 @@ struct LessonPlayerView: View {
                 .transition(.scale.combined(with: .opacity))
                 .accessibilityLabel(tr("{0} right in a row", model.combo))
             }
+            ReportMistakeButton(style: .icon) { model.reportSubject }
             if store.quickPass {
                 QuickPassButton(tint: tint) {
                     withMotion { model.passCorrect() }

@@ -115,7 +115,7 @@ BASES = {
     "ქუდი": ("hat, cap", "czapka"),
     "თბილისი": ("Tbilisi", "Tbilisi"),
     "ქალაქი": ("city, town", "miasto"),
-    "ანა": ("Ana (a name)", "Ana (imię)"),
+    "ლენა": ("Lena (a name)", "Lena (imię)"),
     "ნინო": ("Nino (a name)", "Nino (imię)"),
     "გიორგი": ("Giorgi (a name)", "Giorgi (imię)"),
     "ნანა": ("Nana (a name)", "Nana (imię)"),

@@ -9,7 +9,7 @@ the set reads as one strip when swiped. Needs Node with Playwright (cloud sessio
 
 Writes brand/app-store/en/<n>-<name>.png and brand/app-store/pl/… at 1320 × 2868 (iPhone
 6.9-inch, the size App Store Connect asks for; it scales them for smaller iPhones), and a
-contact sheet for each. The screens come from the QA run (`-seedDemo`: Ana, the invented
+contact sheet for each. The screens come from the QA run (`-seedDemo`: Lena (Ana before KART #16), the invented
 demo learner). Every number is checked against the content when the script runs (phrases,
 situations, conversations, lessons, letters). Artwork: brand/svg (tools/brand/make_brand.py).
 """

@@ -28,6 +28,9 @@ struct PhraseDetailView: View {
                     if !linkedWords.isEmpty { wordsCard }
                     if !grammar.isEmpty { grammarCard }
                     if store.isPractising(phrase.id) { reviewCard }
+                    ReportMistakeButton {
+                        ReportSubject(title: tr("the phrase {0}", phrase.ka), lines: [phrase.ka, phrase.lat, phrase.en], id: phrase.id)
+                    }
                 }
                 .padding(20)
             }

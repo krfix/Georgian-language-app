@@ -283,6 +283,7 @@ a:active, button:active:not(:disabled) { transform: scale(0.96); }
 .action.on .action-icon { background: var(--c); color: #fff; }
 .c-gold.action.on .action-icon { color: #2A1A06; }
 .action-title { font-size: min(0.78rem, 3vw); letter-spacing: -0.01em; font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.report-link { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; margin-top: 4px; color: var(--ink-soft); font-size: 0.95rem; text-decoration: none; }
 .list-button { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px; border-radius: 999px; color: var(--saperavi); background: color-mix(in srgb, var(--saperavi) 10%, transparent); font-weight: 700; font-size: 0.92rem; }
 .sound { font-size: 1.3rem; font-weight: 800; }
 .wbw { display: flex; flex-direction: column; gap: 2px; padding: 4px 0; }

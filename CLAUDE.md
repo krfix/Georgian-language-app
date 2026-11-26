@@ -65,7 +65,7 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
   lessons, tap = right answer, hold = finish the lesson). Only in the Feather IPA (`DEV_TOOLS`)
   and Simulator runs (`DEBUG`); TestFlight and the App Store never show it (KART #14), except a
   TestFlight build run with `-f devtools=true` (testers only; never submit that one for review).
-- Test data is always invented (Ana, the demo learner, `LearningStore.seedDemo`).
+- Test data is always invented (Lena, the demo learner, Ana until KART #16, `LearningStore.seedDemo`).
 - Web app (KART #8–#9, `web/README.md`): the whole app for any browser, in `web/`, plain
   HTML/CSS/JS reading the iPhone app's content and audio (never copied by hand), drawn like
   the iPhone screens; `engine.js` ports `Engine/` (change both together); tr() keys share the
@@ -148,7 +148,8 @@ elsewhere. Without those tools, suggest the name instead. The owner's other app,
 | Exercises: kinds and shapes, building them from lessons, checking answers, the session | `Engine/Exercise.swift`, `ExerciseBuilder.swift`, `AnswerEvaluator.swift`, `LessonSession.swift` |
 | Spaced repetition (SM-2), XP, streaks, levels, achievements, challenge, path states | `Engine/SpacedRepetition.swift`, `Engine/Gamification.swift` |
 | Saved data (SwiftData, CloudKit-ready; frozen schema versions), opening it, and everything worked out from it | `Data/Models.swift`, `Data/ProgressStore.swift`, `Data/LearningStore.swift`; upgrade tests `tools/StoreTests/` |
-| Audio (bundled clips in two voices via `audio.json` / `audio-giorgi.json`, or the iPhone's Georgian voice), the voice picker, reminders | `Audio/`, `DesignSystem/Components/VoicePicker.swift`; clips made by `tools/audio/make_audio.py` |
+| Audio (bundled clips in two voices via `audio.json` / `audio-giorgi.json`, or the iPhone's Georgian voice), the voice picker, reminders (only on days not practised: `Engine/ReminderPlan.swift`, tested) | `Audio/`, `DesignSystem/Components/VoicePicker.swift`; clips made by `tools/audio/make_audio.py`; native ones put in by `tools/audio/add_native.py` (`docs/native-recordings.md`) |
+| "Report a mistake" (phrase card, word card, the flag in lessons; web too): the learner's own email app, nothing sent by the app | `DesignSystem/Components/ReportMistake.swift`, `LessonPlayerModel.reportSubject`; web `reportLink` in `app.js` |
 | Brand: symbol, app icons, logos, mascot poses (vector masters in `brand/`, assets in the catalog) | `tools/brand/ara.py` (geometry), `make_brand.py`; `docs/brand.md` |
 | Design system: colours (light and dark), type, motion, haptics, components | `DesignSystem/` (Borjgali emblem, ChunkyButton, cards, rings, confetti, FlowLayout, SpeakerButton) |
 | App start, launch options | `App/GeorgianApp.swift` (`AppModel`), `App/LaunchOptions.swift` |

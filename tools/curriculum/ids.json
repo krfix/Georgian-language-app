@@ -1,5 +1,5 @@
 {
- "about": "Learners' progress is saved by these ids. Never change an id; to correct a spelling, change the Georgian next to its id. An item removed for good moves to retired. Written by build_curriculum.py.",
+ "about": "Learners' progress is saved by these ids. Never change an id; to correct a spelling, change the Georgian next to its id. An item removed for good is added to retired, with a note. Written by build_curriculum.py.",
  "lessons": ["a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10", "v1", "v2", "v3", "v4", "v5", "v6", "v6b", "v6c", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14", "v15", "v16", "v17", "v18", "v19", "v20", "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g10", "g11", "g12", "g13", "c1", "c2", "c3", "c4", "c5", "c6"],
  "words": {
   "p-aeroportshi-tu-sheidzleba": "აეროპორტში, თუ შეიძლება.",
@@ -794,6 +794,7 @@
   "x-kvabi": "ქვაბი",
   "x-kvitari": "ქვითარი",
   "x-lamazi": "ლამაზი",
+  "x-lena": "ლენა",
   "x-lipti": "ლიფტი",
   "x-lobio": "ლობიო",
   "x-lomi": "ლომი",

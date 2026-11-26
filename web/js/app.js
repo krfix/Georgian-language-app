@@ -364,6 +364,7 @@ function phraseScreen(id) {
       <h3 class="card-title c-saperavi">${icon("puzzle", { size: 18 })}${esc(tr("The grammar behind it"))}</h3>
       ${grammar.map((g) => `<div class="grammar-row"><span class="grammar-icon">${icon("puzzle", { size: 18 })}</span><div><strong>${esc(tr("Lesson: {0}", C.lessons[g.lesson]))}</strong><small>${esc(g.why)}</small></div></div>`).join("")}
     </section>` : ""}
+    ${reportLink({ title: tr("the phrase {0}", p.ka), lines: [p.ka, p.lat, p.en], id: p.id })}
   </div>`;
 }
 
@@ -1203,6 +1204,18 @@ function watchForUpdates() {
   });
 }
 
-export { C, esc, $, speaker, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack };
+// "Report a mistake" (KART #16, as on the iPhone): a mailto link with what the learner was
+// looking at, so nothing is sent unless they send it from their own email app.
+const REPORT_TO = "ara.learn.app@gmail.com";
+function reportHref({ title, lines, id }) {
+  const facts = [...lines, tr("Id: {0}", id), `Ara web ${window.ARA_VERSION || "dev"} · ${lang}`];
+  const body = `${tr("What's wrong? Write it here, in any language:")}\n\n\n———\n${facts.join("\n")}`;
+  return `mailto:${REPORT_TO}?subject=${encodeURIComponent(tr("Ara: a mistake in {0}", title))}&body=${encodeURIComponent(body)}`;
+}
+function reportLink(subject) {
+  return `<a class="report-link" href="${esc(reportHref(subject))}" data-id="report-mistake">${icon("flag", { size: 17 })}${esc(tr("Report a mistake"))}</a>`;
+}
+
+export { C, esc, $, speaker, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack, reportHref, reportLink };
 
 start();

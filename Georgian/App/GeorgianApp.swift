@@ -4,6 +4,7 @@ import SwiftUI
 @main
 struct GeorgianApp: App {
     @State private var app = AppModel()
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some Scene {
         WindowGroup {
@@ -26,6 +27,10 @@ struct GeorgianApp: App {
             .preferredColorScheme(app.colorScheme)
             .tint(Palette.pomegranate)
             .onAppear { app.start() }
+            .onChange(of: scenePhase) { _, phase in
+                // Each time Ara comes to the front: the reminder's next two weeks.
+                if phase == .active, case .ready(let store, _) = app.state { store.refreshReminders() }
+            }
         }
     }
 }
@@ -77,6 +82,7 @@ final class AppModel {
             audio.slow = store.profile.slowAudio
             Haptics.enabled = store.profile.hapticsOn
             state = .ready(store, audio)
+            store.refreshReminders()
         } catch {
             state = .failed(StartupProblem(kind: .progress, detail: String(describing: error)))
         }
@@ -109,10 +115,7 @@ final class AppModel {
             store.devQuickPass = old.devQuickPass
             language = new
             state = .ready(store, audio)
-            let p = store.profile
-            if p.remindersOn {
-                Task { _ = await ReminderScheduler.enable(hour: p.reminderHour, minute: p.reminderMinute, name: p.name) }
-            }
+            store.refreshReminders()   // the reminder's text in the new language
         } catch {
             // The other language's files are missing: stay in this one.
         }

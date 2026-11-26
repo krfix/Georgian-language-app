@@ -95,6 +95,31 @@ struct Exercise: Identifiable, Hashable {
 
     var isGraded: Bool { kind.isGraded }
 
+    /// What the exercise shows, in a line, for a mistake report.
+    var promptText: String {
+        switch content {
+        case .choice(let c): return c.audioText.map { "\($0) (\(tr("listening")))" } ?? c.prompt
+        case .typing(let t): return t.prompt
+        case .tiles(let t): return t.prompt
+        case .flashcard(let f): return f.front
+        case .dialogue(let d): return d.history.last?.ka ?? d.partner
+        case .teachLetter(let l): return "\(l.char) \(l.latin) · \(l.word) \(l.wordLatin), \(l.meaning)"
+        case .teachWord(let w): return "\(w.ka) \(w.lat), \(w.en)"
+        case .note(let n): return n.title
+        case .matching(let pairs): return pairs.map { "\($0.georgian) = \($0.other)" }.joined(separator: "; ")
+        }
+    }
+
+    /// Everything a mistake report needs to find this exercise again (KART #16).
+    func reportLines(lessonTitle: String, given: String?, shownAnswer: String?) -> [String] {
+        var out = [tr("Lesson: {0}", lessonTitle), tr("Exercise: {0} ({1})", instruction, kind.rawValue), promptText]
+        if case .choice(let c) = content { out.append(tr("Options: {0}", c.options.map(\.text).joined(separator: " / "))) }
+        if case .dialogue(let d) = content { out.append(tr("Options: {0}", d.options.joined(separator: " / "))) }
+        if let given, !given.isEmpty { out.append(tr("My answer: {0}", given)) }
+        if let shownAnswer, !shownAnswer.isEmpty { out.append(tr("Answer shown: {0}", shownAnswer)) }
+        return out
+    }
+
     /// The same exercise again, as a retry at the end of the lesson.
     func retry() -> Exercise {
         Exercise(id: id + "+", kind: kind, instruction: instruction, itemID: itemID, content: content)

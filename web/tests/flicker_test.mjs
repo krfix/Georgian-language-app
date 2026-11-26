@@ -16,7 +16,7 @@ const browser = await chromium.launch();
 const page = await (await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true })).newPage();
 await page.goto(`http://localhost:${server.address().port}/`);
 await page.waitForSelector('[data-screen="welcome"]');
-for (let i = 0; i < 7; i++) { if (i === 6) await page.fill("#ob-name", "Ana"); await page.click('[data-id="onboarding-next"]'); }
+for (let i = 0; i < 7; i++) { if (i === 6) await page.fill("#ob-name", "Lena"); await page.click('[data-id="onboarding-next"]'); }
 await page.click('[data-id="onboarding-start-lesson"]');
 await page.waitForSelector('[data-screen="lesson"]');
 for (let n = 0; n < 60 && !(await page.$(".options")); n++) await page.click('[data-act="next"]');

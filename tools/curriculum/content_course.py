@@ -407,8 +407,8 @@ MODULE_5 = {
         {"id": "c2", "kind": "conversation", "title": "Meeting someone new", "partner": "Giorgi",
          "lines": [
              ("Giorgi", "გამარჯობა! მე გიორგი ვარ. რა გქვია?", "Hi! I'm Giorgi. What's your name?", None),
-             ("You", "გაგიმარჯოს! მე ანა მქვია.", "Hello! My name is Ana.", ["ანგარიში, თუ შეიძლება.", "ხორცს არ ვჭამ."]),
-             ("Giorgi", "სასიამოვნოა, ანა! საიდან ხარ?", "Nice to meet you, Ana! Where are you from?", None),
+             ("You", "გაგიმარჯოს! მე ლენა მქვია.", "Hello! My name is Lena.", ["ანგარიში, თუ შეიძლება.", "ხორცს არ ვჭამ."]),
+             ("Giorgi", "სასიამოვნოა, ლენა! საიდან ხარ?", "Nice to meet you, Lena! Where are you from?", None),
              ("You", "ინგლისიდან ვარ. შენ?", "I'm from England. And you?", ["ათ საათზე.", "პირდაპირ წადით."]),
              ("Giorgi", "მე თბილისელი ვარ. ქართული იცი?", "I'm from Tbilisi. Do you know Georgian?", None),
              ("You", "ცოტა ვიცი. ვსწავლობ.", "I know a little. I'm learning.", ["რა ღირს ეს?", "აქ გამიჩერეთ."]),

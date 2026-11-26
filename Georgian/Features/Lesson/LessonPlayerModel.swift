@@ -19,6 +19,8 @@ final class LessonPlayerModel {
     var pending: Answer?
     /// Right answers in a row, for the little flame over the progress bar.
     private(set) var combo = 0
+    /// The answer just checked, for a mistake report made while its feedback shows.
+    private var lastGiven: String?
     private let store: LearningStore
 
     init(request: SessionRequest, store: LearningStore, audio: AudioService, seed: UInt64 = UInt64.random(in: 0...UInt64.max)) {
@@ -56,6 +58,7 @@ final class LessonPlayerModel {
     func check(_ answer: Answer? = nil) {
         guard case .answering = phase, let ex = current, let given = answer ?? pending else { return }
         let evaluation = AnswerEvaluator.evaluate(ex, given)
+        lastGiven = describe(given, in: ex)
         session.record(evaluation, given: describe(given, in: ex))
         store.record(ex, evaluation, given: describe(given, in: ex), inReview: isReview || isDialogue)
         if evaluation.verdict.countsAsCorrect {
@@ -88,6 +91,28 @@ final class LessonPlayerModel {
         }
         Haptics.celebrate()
         phase = .finished(reward)
+    }
+
+    /// What "Report a mistake" sends: the exercise on screen, and the answer and the right
+    /// one while the feedback shows.
+    var reportSubject: ReportSubject {
+        let ref: String
+        switch request.mode {
+        case .lesson(let l): ref = l.id
+        case .dialogue(let l, _): ref = l.id
+        case .review: ref = "review"
+        }
+        guard let ex = current else {
+            return ReportSubject(title: tr("the lesson {0}", title), lines: [tr("Lesson: {0}", title)], id: ref)
+        }
+        var given: String?
+        var shown: String?
+        if case .feedback(let e) = phase {
+            given = lastGiven
+            shown = e.correctAnswer
+        }
+        return ReportSubject(title: tr("the lesson {0}", title),
+                             lines: ex.reportLines(lessonTitle: title, given: given, shownAnswer: shown), id: "\(ref)/\(ex.id)")
     }
 
     /// Developer quick pass (Profile › Developer): the exercise on screen counts as answered

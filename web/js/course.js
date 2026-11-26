@@ -8,7 +8,7 @@ import * as audio from "./audio.js";
 import * as store from "./store.js";
 import { icon } from "./icons.js";
 import { Builder, Session, evaluate, isGraded, lessonStates, currentStage, stages, streak, dayKey, isLearnedState, isDifficultState, rng } from "./engine.js";
-import { C, esc, $, speaker, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack } from "./app.js";
+import { C, esc, $, speaker, sourceLabel, pronunciationHints, sectionTitle, topBar, toast, render, navigate, checkNote, miniCard, applySetting, goBack, reportHref, reportLink } from "./app.js";
 
 // ---------------------------------------------------------------------------------------
 // Progress, worked out from what's kept (LearningStore.swift)
@@ -468,6 +468,7 @@ export function playerScreen() {
       <button class="back" data-act="quit" aria-label="${esc(tr("Close"))}">${icon("close", { size: 20 })}</button>
       <div class="bar thick"><span style="width:${Math.round(P.session.progress * 100)}%"></span></div>
       ${P.combo >= 3 ? `<span class="combo" aria-label="${esc(tr("{0} right in a row", P.combo))}">${icon("flame", { size: 16 })}${P.combo}</span>` : ""}
+      <a class="back" href="${esc(reportHref(reportSubject(ex)))}" aria-label="${esc(tr("Report a mistake"))}" data-id="report-mistake">${icon("flag", { size: 19 })}</a>
       ${store.setting("devMode") && store.setting("devQuickPass") ? `<button class="pass" data-act="pass">${icon("play", { size: 12 })}${esc(tr("Pass"))}</button>` : ""}
     </div>
     <div class="player-body" data-shape="${ex.shape}" data-kind="${ex.kind}">
@@ -476,6 +477,21 @@ export function playerScreen() {
     </div>
     <div class="player-bottom${P.phase === "feedback" ? ` fb fb-${P.ev.verdict}` : ""}">${bottomBar(ex)}</div>
   </div>`;
+}
+
+// What "Report a mistake" sends from a lesson: the exercise on screen, and the answer and
+// the right one while the feedback shows (LessonPlayerModel.reportSubject on the iPhone).
+function reportSubject(ex) {
+  const ref = P.mode === "lesson" ? P.lesson.id : "review";
+  const shown = ex.prompt || ex.front || (ex.word && `${ex.word.ka} ${ex.word.lat}, ${ex.word.en}`) || (ex.letter && `${ex.letter.char} ${ex.letter.latin}`)
+    || (ex.note && ex.note.title) || (ex.pairs && ex.pairs.map((p) => `${p.georgian} = ${p.other}`).join("; ")) || "";
+  const lines = [tr("Lesson: {0}", P.title), tr("Exercise: {0} ({1})", ex.instruction, ex.kind), shown];
+  if (ex.options && ex.options.length) lines.push(tr("Options: {0}", ex.options.map((o) => (typeof o === "string" ? o : o.text)).join(" / ")));
+  if (P.phase === "feedback") {
+    if (P.given) lines.push(tr("My answer: {0}", P.given));
+    if (P.ev && P.ev.correct) lines.push(tr("Answer shown: {0}", P.ev.correct));
+  }
+  return { title: tr("the lesson {0}", P.title), lines: lines.filter(Boolean), id: `${ref}/${ex.id}` };
 }
 
 function bottomBar(ex) {
@@ -670,6 +686,7 @@ function check(answer) {
   const ev = evaluate(ex, a);
   const given = a.choice != null ? (ex.options[a.choice] || {}).text || ex.options[a.choice] : a.text ?? (a.tiles ? a.tiles.join(ex.joiner) : "");
   P.session.record(ev, given);
+  P.given = given;
   store.record(ex, ev, { itemIDs: itemIDsFor(ex, ev), inReview: P.mode !== "lesson" });
   P.ev = ev;
   P.phase = "feedback";
@@ -856,6 +873,7 @@ export function wordScreen(id) {
     <section class="card"><h3 class="card-title c-blacksea">${icon("review", { size: 18 })}${esc(tr("Review"))}</h3>
       <p class="soft">${esc(m ? tr("Right {0} times, missed {1}. Next review {2}.", m.right, m.wrong, rel(m.due)) : tr("Not practised yet."))}</p>
       <a class="chunky b-blacksea" href="#/session/word:${esc(id)}">${icon("play", { size: 18 })}${esc(tr("Practise this word"))}</a></section>
+    ${reportLink({ title: tr("the word {0}", w.ka), lines: [w.ka, w.lat, w.en, w.example ? `${w.example.ka} — ${w.example.en}` : ""].filter(Boolean), id })}
   </div>`;
 }
 

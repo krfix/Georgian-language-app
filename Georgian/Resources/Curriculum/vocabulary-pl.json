@@ -3747,19 +3747,6 @@
    }
   },
   {
-   "id": "x-ana",
-   "ka": "ანა",
-   "lat": "ana",
-   "alt": [],
-   "category": "more",
-   "en": "Ana (imię)",
-   "example": {
-    "ka": "გაგიმარჯოს! მე ანა მქვია.",
-    "lat": "gagimarjos! me ana mkvia.",
-    "en": "Cześć! Mam na imię Ana."
-   }
-  },
-  {
    "id": "x-anbani",
    "ka": "ანბანი",
    "lat": "anbani",
@@ -6903,6 +6890,19 @@
     "ka": "ქართული ლამაზი ენაა.",
     "lat": "kartuli lamazi enaa.",
     "en": "Gruziński to piękny język."
+   }
+  },
+  {
+   "id": "x-lena",
+   "ka": "ლენა",
+   "lat": "lena",
+   "alt": [],
+   "category": "more",
+   "en": "Lena (imię)",
+   "example": {
+    "ka": "გაგიმარჯოს! მე ლენა მქვია.",
+    "lat": "gagimarjos! me lena mkvia.",
+    "en": "Cześć! Mam na imię Lena."
    }
   },
   {

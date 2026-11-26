@@ -260,9 +260,8 @@ struct ProfileView: View {
         Binding(get: { store.profile.remindersOn }, set: { on in
             if on {
                 Task {
-                    let ok = await ReminderScheduler.enable(hour: store.profile.reminderHour, minute: store.profile.reminderMinute, name: store.profile.name)
+                    let ok = await store.enableReminders()
                     reminderDenied = !ok
-                    store.updateProfile { $0.remindersOn = ok }
                 }
             } else {
                 ReminderScheduler.disable()
@@ -280,7 +279,7 @@ struct ProfileView: View {
                 $0.reminderHour = c.hour ?? 19
                 $0.reminderMinute = c.minute ?? 0
             }
-            Task { _ = await ReminderScheduler.enable(hour: c.hour ?? 19, minute: c.minute ?? 0, name: store.profile.name) }
+            store.refreshReminders()
         })
     }
 }

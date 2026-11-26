@@ -3207,9 +3207,9 @@
        },
        {
         "speaker": "You",
-        "ka": "გაგიმარჯოს! მე ანა მქვია.",
-        "lat": "gagimarjos! me ana mkvia.",
-        "en": "Cześć! Mam na imię Ana.",
+        "ka": "გაგიმარჯოს! მე ლენა მქვია.",
+        "lat": "gagimarjos! me lena mkvia.",
+        "en": "Cześć! Mam na imię Lena.",
         "isLearner": true,
         "wrong": [
          "ანგარიში, თუ შეიძლება.",
@@ -3218,9 +3218,9 @@
        },
        {
         "speaker": "Giorgi",
-        "ka": "სასიამოვნოა, ანა! საიდან ხარ?",
-        "lat": "sasiamovnoa, ana! saidan khar?",
-        "en": "Miło mi, Ano! Skąd jesteś?",
+        "ka": "სასიამოვნოა, ლენა! საიდან ხარ?",
+        "lat": "sasiamovnoa, lena! saidan khar?",
+        "en": "Miło mi, Leno! Skąd jesteś?",
         "isLearner": false
        },
        {

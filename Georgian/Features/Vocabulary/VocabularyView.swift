@@ -211,6 +211,10 @@ struct WordDetailView: View {
                     navigator.review([.word(word)], title: word.ka)
                 } label: { Label(tr("Practise this word"), systemImage: "play.fill") }
                 .buttonStyle(ChunkyButtonStyle(color: .tkemali))
+                ReportMistakeButton {
+                    ReportSubject(title: tr("the word {0}", word.ka),
+                                  lines: [word.ka, word.lat, word.en, "\(word.example.ka) — \(word.example.en)"], id: word.id)
+                }
             }
             .padding(20)
         }

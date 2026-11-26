@@ -198,10 +198,6 @@
    "file": "ka-56558ddc1b9b.mp3",
    "source": "synthetic"
   },
-  "ანა": {
-   "file": "ka-a267fcf63354.mp3",
-   "source": "synthetic"
-  },
   "ანბანი": {
    "file": "ka-359d20558875.mp3",
    "source": "synthetic"
@@ -738,8 +734,8 @@
    "file": "ka-14c505066923.mp3",
    "source": "synthetic"
   },
-  "გაგიმარჯოს! მე ანა მქვია.": {
-   "file": "ka-16616af3b3bb.mp3",
+  "გაგიმარჯოს! მე ლენა მქვია.": {
+   "file": "ka-184110dc4662.mp3",
    "source": "synthetic"
   },
   "გაგიმარჯოს, როგორ ხარ?": {
@@ -2782,6 +2778,10 @@
    "file": "ka-25a89e392210.mp3",
    "source": "synthetic"
   },
+  "ლენა": {
+   "file": "ka-944a97d72099.mp3",
+   "source": "synthetic"
+  },
   "ლიფტი": {
    "file": "ka-70cf86fd6ac1.mp3",
    "source": "synthetic"
@@ -4218,8 +4218,8 @@
    "file": "ka-7d51cf60697d.mp3",
    "source": "synthetic"
   },
-  "სასიამოვნოა, ანა! საიდან ხარ?": {
-   "file": "ka-229d4b6b9c43.mp3",
+  "სასიამოვნოა, ლენა! საიდან ხარ?": {
+   "file": "ka-a1e357a575cb.mp3",
    "source": "synthetic"
   },
   "სასიამოვნოა.": {

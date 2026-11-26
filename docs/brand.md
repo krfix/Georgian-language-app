@@ -124,7 +124,7 @@ quick, encouraging; a local friend, not a cheerleader.
 ## App Store screenshots (brand/app-store)
 
 Redesigned in KART #6. Made by `tools/appstore/make_screens.py` from the QA run's Simulator
-screenshots (Ana, the invented demo learner), at 1320 × 2868 (the 6.9-inch iPhone size App
+screenshots (Ana, the invented demo learner; Lena from KART #16, so new screenshots show Lena), at 1320 × 2868 (the 6.9-inch iPhone size App
 Store Connect asks for; it scales them for smaller iPhones): ten in English
 (`brand/app-store/en`), seven in Polish (`brand/app-store/pl`, for the Polish listing; the
 screens whose app text is English only are left out). The order tells the story; the first
