@@ -49,26 +49,30 @@ final class LessonPlayerModel {
         switch request.mode {
         case .lesson(let lesson):
             title = lesson.title
-            lessonExercises = builder.exercises(for: lesson, using: &rng)
-            session = LessonSession(exercises: lessonExercises)
-            warmUpItems = Array(store.dueItems.prefix(WordProgress.warmUpSize))
-            if !warmUpItems.isEmpty {
-                warmUpExercises = builder.review(warmUpItems, using: &rng).map { $0.renamed("warmup.\($0.id)") }
-                // The screenshot run shows the offer only on its own screen ("warmup").
-                let screen = LaunchOptions.current.screen
-                let mode: WarmUpMode = screen == "warmup" ? .ask : screen != nil ? .never : WarmUpMode.current
-                switch mode {
-                case .ask: phase = .warmUpOffer(warmUpItems.count)
-                case .always: beginWarmUp()
-                case .never: break
-                }
-            }
+            let exercises = builder.exercises(for: lesson, using: &rng)
+            let due = Array(store.dueItems.prefix(WordProgress.warmUpSize))
+            let warm = due.isEmpty ? [] : builder.review(due, using: &rng).map { $0.renamed("warmup.\($0.id)") }
+            lessonExercises = exercises
+            warmUpItems = due
+            warmUpExercises = warm
+            session = LessonSession(exercises: exercises)
         case .review(let items, let t):
             title = t
             session = LessonSession(exercises: builder.review(Array(items.prefix(15)), using: &rng))
         case .dialogue(let lesson, _):
             title = lesson.title
             session = LessonSession(exercises: builder.exercises(for: lesson, using: &rng))
+        }
+        // Words due: offer a warm-up first, or start with it (Profile › Learning). The
+        // screenshot run shows the offer only on its own screen ("warmup").
+        if !warmUpItems.isEmpty {
+            let screen = LaunchOptions.current.screen
+            let mode: WarmUpMode = screen == "warmup" ? .ask : screen != nil ? .never : WarmUpMode.current
+            switch mode {
+            case .ask: phase = .warmUpOffer(warmUpItems.count)
+            case .always: beginWarmUp()
+            case .never: break
+            }
         }
     }
 
