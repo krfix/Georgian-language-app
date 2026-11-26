@@ -66,11 +66,14 @@ struct LearnView: View {
                         Haptics.tap()
                         showAlphabet = true
                     } label: {
+                        // A bare label: iOS 26 draws its round glass button around it. The
+                        // letter has no tall parts, so it's lifted a little to sit in the middle.
                         Text("ა")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundStyle(.white)
-                            .frame(width: 36, height: 36)
-                            .background(Circle().fill(Palette.pomegranate))
+                            .font(.system(size: 21, weight: .bold))
+                            .foregroundStyle(Palette.pomegranate)
+                            .offset(y: -2)
+                            .frame(width: 32, height: 32)
+                            .contentShape(Circle())
                     }
                     .accessibilityLabel(tr("All 33 letters"))
                     .accessibilityIdentifier("alphabet-shortcut")
