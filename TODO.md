@@ -4,7 +4,7 @@ Genuinely unfinished work, most important first. Done items move to DEVELOPMENT_
 
 ## Needs the owner
 - [ ] KART #20 (words: seen → practising → known, new words after a lesson, the warm-up,
-      Words | Letters, ა in Learn): on TestFlight as 0.4.2 (102) and on the web. Merged without
+      Words | Letters, ა in Learn): on TestFlight as 0.4.2 (105; #102 was built from the old main by mistake) and on the web. Merged without
       the qa run (owner); run `-f qa=true` on main to see the UI tests and screenshots. 0.4.3's
       CHANGELOG notes must include it.
 - [ ] Web app (KART #9): live at https://aralearn.github.io/app. Try it on the iPhone (Safari ›

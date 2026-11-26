@@ -24,7 +24,7 @@ fixed. Newest first.
   stays quiet), the card after 0.1 s (owner's timings), a light then a firmer haptic.
 - Builds #93 (compile error: a property read before the player was set up) → #94, #96, #98–#101
   (#100: no Mac free for 15 min). Developer tools now in TestFlight builds by default until the
-  final release (owner). Merged to main and sent to TestFlight as 0.4.2 (102), without the qa run.
+  final release (owner). Merged to main and sent to TestFlight as 0.4.2 (105), without the qa run. #102 went out first but GitHub built it from main before the merge arrived (223 checks, not 239): check a run's commit right after starting it.
 - Web (same session): the known rule, seen/new words, the warm-up offer (Settings: Ask, Always,
   Never), lesson complete with new words, Words | Letters with filters and orders, the word
   card's progress, ა in Learn, hold a letter for its card. engine_test 51/51, search 37/37,
