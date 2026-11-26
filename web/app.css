@@ -353,6 +353,7 @@ a:active, button:active:not(:disabled) { transform: scale(0.96); }
 .aa { font-weight: 900; font-size: 0.95rem; }
 .aa.big { font-size: 1.2rem; }
 .voices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.voices:has(> .voice:only-child) { grid-template-columns: minmax(0, 260px); justify-content: center; }
 .voice { border: 2px solid var(--line); border-radius: 18px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
 .voice.on { border-color: var(--pomegranate); background: color-mix(in srgb, var(--pomegranate) 7%, transparent); }
 .voice-pick { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }

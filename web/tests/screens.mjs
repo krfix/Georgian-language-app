@@ -145,7 +145,7 @@ async function session(scheme, language) {
   await page.click('[data-id="profile-button"]');
   await page.waitForSelector('[data-screen="settings"]');
   if (!(await page.$('[data-sample]'))) fail("no voice samples");
-  const sample = await page.evaluate(async () => (await (await fetch("audio/eka.json")).json())["გამარჯობა, როგორ ხარ?"]);
+  const sample = await page.evaluate(async () => (await (await fetch("audio/giorgi.json")).json())["გამარჯობა, როგორ ხარ?"]);
   if (!sample) fail("the voice sample has no clip");
   await shot("19-settings");
   await page.reload();

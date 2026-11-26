@@ -60,8 +60,8 @@ check("Polish search: rachunek", plTop("rachunek").includes("pb-angarishi-tu-she
 check("Polish search: Georgian still works", plTop("გამარჯობა")[0], "pb-gamarjoba");
 check("Polish: same phrases", ppb.phrases.map((x) => x.id), pb.phrases.map((x) => x.id));
 
-// Every phrase and conversation line has a clip in both voices.
-for (const v of ["eka", "giorgi"]) {
+// Every phrase and conversation line has a clip in each voice in the app (only Luka since KART #18).
+for (const v of ["giorgi"]) {
   const idx = JSON.parse(readFileSync(fileURLToPath(new URL(`../dist/audio/${v}.json`, import.meta.url)), "utf8"));
   const missing = [...pb.phrases.map((x) => x.ka), ...pb.dialogues.flatMap((d) => d.lines.map((l) => l.ka))].filter((t) => !idx[t]);
   check(`every phrase and line has a ${v} clip`, missing, []);

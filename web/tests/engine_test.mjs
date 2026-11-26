@@ -16,7 +16,7 @@ const check = (label, got, want) => {
 for (const sfx of ["", "-pl"]) {
   const course = new Course({ course: read(`data/course${sfx}.json`), letters: read(`data/letters${sfx}.json`),
     vocabulary: read(`data/vocabulary${sfx}.json`), phrasebook: read(`data/phrasebook${sfx}.json`) });
-  const clips = read("audio/eka.json");
+  const clips = read("audio/giorgi.json"); // the voice in the app (Luka; Eka is off)
   const b = new Builder(course, (t) => !!clips[t]);
   let bad = [];
   for (const lesson of course.lessons) {
